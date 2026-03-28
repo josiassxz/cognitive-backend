@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: projeto-ingles-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: projeto_ingles
+      POSTGRES_USER: projeto_ingles
+      POSTGRES_PASSWORD: projeto_ingles
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U projeto_ingles -d projeto_ingles"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_data:

@@ -13,10 +13,7 @@
     "typecheck": "tsc --noEmit",
     "prisma:generate": "prisma generate",
     "prisma:push": "prisma db push",
-    "seed:content": "tsx ../web/scripts/seed.ts",
-    "seed:users-badges": "tsx ../web/scripts/seed-users-badges.ts",
-    "seed": "npm run seed:content && npm run seed:users-badges",
-    "db:setup": "npm run prisma:push && npm run prisma:generate && npm run seed"
+    "db:setup": "npm run prisma:push"
   },
   "dependencies": {
     "@prisma/client": "^6.7.0",
