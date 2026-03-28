@@ -1,0 +1,271 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String              @id @default(cuid())
+  name              String?
+  email             String              @unique
+  passwordHash      String
+  role              String              @default("user")
+  currentMonth      Int                 @default(1)
+  level             String              @default("iniciante")
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  xpLog             XpLog[]
+  badges            UserBadge[]
+  streak            UserStreak?
+  checklist         UserChecklist[]
+  timerSessions     UserTimerSession[]
+  monthProgress     UserMonthProgress[]
+  quizAttempts      QuizAttempt[]
+  flashcardProgress FlashcardProgress[]
+  refreshTokens     RefreshToken[]
+}
+
+model RefreshToken {
+  id          String    @id @default(cuid())
+  userId      String
+  tokenHash   String    @unique
+  expiresAt   DateTime
+  revokedAt   DateTime?
+  replacedBy  String?
+  createdAt   DateTime  @default(now())
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model XpLog {
+  id        Int      @id @default(autoincrement())
+  userId    String
+  amount    Int
+  source    String
+  detail    String   @default("")
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model Badge {
+  id          Int         @id @default(autoincrement())
+  slug        String      @unique
+  name        String
+  description String
+  icon        String
+  color       String      @default("#a078c0")
+  xpReward    Int         @default(0)
+  condition   String
+  users       UserBadge[]
+}
+
+model UserBadge {
+  id       Int      @id @default(autoincrement())
+  userId   String
+  badgeId  Int
+  earnedAt DateTime @default(now())
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  badge    Badge    @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, badgeId])
+  @@index([userId])
+}
+
+model UserStreak {
+  id           Int      @id @default(autoincrement())
+  userId       String   @unique
+  current      Int      @default(0)
+  longest      Int      @default(0)
+  lastActiveAt DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model UserChecklist {
+  id     Int    @id @default(autoincrement())
+  userId String
+  date   String
+  tasks  String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+  @@index([userId])
+}
+
+model UserTimerSession {
+  id          Int      @id @default(autoincrement())
+  userId      String
+  duration    Int
+  completedAt DateTime @default(now())
+  xpEarned    Int      @default(0)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([completedAt])
+}
+
+model UserMonthProgress {
+  id       Int  @id @default(autoincrement())
+  userId   String
+  month    Int
+  progress Int  @default(0)
+  user     User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, month])
+  @@index([userId])
+}
+
+model QuizAttempt {
+  id          Int      @id @default(autoincrement())
+  userId      String
+  quizType    String
+  totalQ      Int
+  correct     Int
+  xpEarned    Int      @default(0)
+  month       Int
+  completedAt DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([completedAt])
+}
+
+model FlashcardProgress {
+  id             Int      @id @default(autoincrement())
+  userId         String
+  vocabularyId   Int
+  ease           Float    @default(2.5)
+  interval       Int      @default(1)
+  repetitions    Int      @default(0)
+  nextReviewAt   DateTime @default(now())
+  lastReviewedAt DateTime @default(now())
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, vocabularyId])
+  @@index([userId, nextReviewAt])
+}
+
+model Vocabulary {
+  id         Int    @id @default(autoincrement())
+  word       String
+  type       String
+  definition String
+  example    String @default("")
+  month      Int
+  level      String @default("basico")
+  category   String @default("geral")
+
+  @@unique([word, month])
+  @@index([month])
+  @@index([level])
+  @@index([category])
+}
+
+model PhrasalVerb {
+  id      Int    @id @default(autoincrement())
+  phrasal String
+  meaning String
+  example String
+  month   Int
+
+  @@unique([phrasal, month])
+  @@index([month])
+}
+
+model Song {
+  id              Int         @id @default(autoincrement())
+  slug            String      @unique
+  title           String
+  artist          String
+  youtubeId       String
+  level           String
+  themes          String[]
+  learningNotes   String      @default("")
+  month           Int         @default(1)
+  keyPhrases      KeyPhrase[]
+  vocabHighlights SongVocab[]
+
+  @@index([month])
+  @@index([level])
+}
+
+model KeyPhrase {
+  id     Int    @id @default(autoincrement())
+  en     String
+  pt     String
+  songId Int
+  song   Song   @relation(fields: [songId], references: [id], onDelete: Cascade)
+
+  @@index([songId])
+}
+
+model SongVocab {
+  id      Int    @id @default(autoincrement())
+  word    String
+  meaning String
+  songId  Int
+  song    Song   @relation(fields: [songId], references: [id], onDelete: Cascade)
+
+  @@index([songId])
+}
+
+model Video {
+  id          Int    @id @default(autoincrement())
+  title       String
+  youtubeId   String @unique
+  channel     String
+  duration    String @default("")
+  description String @default("")
+  month       Int
+  category    String
+  level       String
+
+  @@index([month])
+  @@index([category])
+  @@index([level])
+}
+
+model GrammarTip {
+  id          Int      @id @default(autoincrement())
+  title       String
+  explanation String
+  examples    String[]
+  month       Int
+  category    String   @default("geral")
+
+  @@unique([title, month])
+  @@index([month])
+}
+
+model Podcast {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  url         String
+  level       String
+  month       Int
+  category    String @default("geral")
+
+  @@unique([name, month])
+  @@index([month])
+}
+
+model Expression {
+  id         Int    @id @default(autoincrement())
+  expression String
+  meaning    String
+  example    String
+  month      Int
+  category   String @default("idiom")
+
+  @@unique([expression, month])
+  @@index([month])
+  @@index([category])
+}
