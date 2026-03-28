@@ -22,6 +22,20 @@ async function awardBadgeIfEligible(userId: string, slug: string): Promise<void>
 
 export const flashcardsRouter = Router();
 
+async function ensureSubmissionNotProcessed(userId: string, source: string, submissionId: string) {
+  const existing = await prisma.xpLog.findFirst({
+    where: {
+      userId,
+      source,
+      detail: { startsWith: `submission:${submissionId}|` },
+    },
+  });
+
+  if (existing) {
+    throw new HttpError(409, 'Atividade ja finalizada para esta sessao');
+  }
+}
+
 flashcardsRouter.get(
   '/',
   asyncHandler(async (req, res) => {
@@ -96,8 +110,11 @@ flashcardsRouter.post(
       .object({
         vocabularyId: z.number().int().positive(),
         quality: z.number().int().min(0).max(3),
+        reviewId: z.string().min(8).max(120),
       })
       .parse(req.body);
+
+    await ensureSubmissionNotProcessed(userId, 'flashcard', input.reviewId);
 
     const now = new Date();
     const current = await prisma.flashcardProgress.findUnique({
@@ -143,7 +160,7 @@ flashcardsRouter.post(
         userId,
         amount: review.xpEarned,
         source: 'flashcard',
-        detail: `Flashcard review q=${input.quality}`,
+        detail: `submission:${input.reviewId}|Flashcard review q=${input.quality}`,
       },
     });
 

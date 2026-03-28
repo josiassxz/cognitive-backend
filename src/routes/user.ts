@@ -32,6 +32,20 @@ async function awardBadgeIfEligible(userId: string, slug: string): Promise<boole
 
 export const userRouter = Router();
 
+async function ensureSubmissionNotProcessed(userId: string, source: string, submissionId: string) {
+  const existing = await prisma.xpLog.findFirst({
+    where: {
+      userId,
+      source,
+      detail: { startsWith: `submission:${submissionId}|` },
+    },
+  });
+
+  if (existing) {
+    throw new HttpError(409, 'Atividade ja finalizada para esta sessao');
+  }
+}
+
 userRouter.get(
   '/profile',
   asyncHandler(async (req, res) => {
@@ -154,12 +168,15 @@ userRouter.post(
       where: { userId_date: { userId, date: today } },
     });
     const tasks: Record<string, boolean> = record ? JSON.parse(record.tasks) : {};
-    tasks[taskId] = !tasks[taskId];
+    const alreadyCompleted = !!tasks[taskId];
+    if (!alreadyCompleted) {
+      tasks[taskId] = true;
+    }
     const tasksJson = JSON.stringify(tasks);
 
-    if (record) {
+    if (record && !alreadyCompleted) {
       await prisma.userChecklist.update({ where: { id: record.id }, data: { tasks: tasksJson } });
-    } else {
+    } else if (!record) {
       await prisma.userChecklist.create({ data: { userId, date: today, tasks: tasksJson } });
     }
 
@@ -192,7 +209,7 @@ userRouter.post(
       }
     }
 
-    res.json({ date: today, tasks });
+    res.json({ date: today, tasks, alreadyCompleted });
   }),
 );
 
@@ -216,8 +233,15 @@ userRouter.post(
   asyncHandler(async (req, res) => {
     const userId = req.userId;
     if (!userId) throw new HttpError(401, 'Nao autorizado');
-    const { duration } = z.object({ duration: z.number().int().positive() }).parse(req.body);
+    const { duration, sessionId } = z
+      .object({
+        duration: z.number().int().positive(),
+        sessionId: z.string().min(8).max(120),
+      })
+      .parse(req.body);
     const xpEarned = XP_CONFIG.timer_session;
+
+    await ensureSubmissionNotProcessed(userId, 'timer', sessionId);
 
     await prisma.userTimerSession.create({
       data: { userId, duration, xpEarned },
@@ -227,7 +251,7 @@ userRouter.post(
         userId,
         amount: xpEarned,
         source: 'timer',
-        detail: `Sessao de ${Math.round(duration / 60)} min`,
+        detail: `submission:${sessionId}|Sessao de ${Math.round(duration / 60)} min`,
       },
     });
 

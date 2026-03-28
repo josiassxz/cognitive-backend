@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { randomUUID } from 'crypto';
 import { z } from 'zod';
 import { prisma } from '../lib/prisma';
 import { asyncHandler } from '../utils/async-handler';
@@ -21,6 +22,20 @@ async function awardBadgeIfEligible(userId: string, slug: string): Promise<void>
 }
 
 export const quizRouter = Router();
+
+async function ensureSubmissionNotProcessed(userId: string, source: string, submissionId: string) {
+  const existing = await prisma.xpLog.findFirst({
+    where: {
+      userId,
+      source,
+      detail: { startsWith: `submission:${submissionId}|` },
+    },
+  });
+
+  if (existing) {
+    throw new HttpError(409, 'Atividade ja finalizada para esta sessao');
+  }
+}
 
 quizRouter.get(
   '/generate',
@@ -55,7 +70,7 @@ quizRouter.get(
       expressions,
     });
 
-    res.json({ questions, type, month });
+    res.json({ questions, type, month, sessionId: randomUUID() });
   }),
 );
 
@@ -69,6 +84,7 @@ quizRouter.post(
       .object({
         type: z.enum(['vocabulary', 'phrasal-verbs', 'expressions']),
         month: z.number().int().min(1).max(6).optional(),
+        sessionId: z.string().min(8).max(120),
         answers: z.array(
           z.object({
             questionId: z.number().int(),
@@ -79,6 +95,8 @@ quizRouter.post(
         ),
       })
       .parse(req.body);
+
+    await ensureSubmissionNotProcessed(userId, 'quiz', input.sessionId);
 
     const result = calculateQuizResult(input.answers);
     await prisma.quizAttempt.create({
@@ -96,7 +114,7 @@ quizRouter.post(
         userId,
         amount: result.xpEarned,
         source: 'quiz',
-        detail: `${input.type}: ${result.correct}/${result.totalQ}`,
+        detail: `submission:${input.sessionId}|${input.type}: ${result.correct}/${result.totalQ}`,
       },
     });
 

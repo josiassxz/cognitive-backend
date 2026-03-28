@@ -182,7 +182,7 @@ describe('protected api routes', () => {
     const postResponse = await request(app)
       .post('/api/user/timer')
       .set('Authorization', `Bearer ${token}`)
-      .send({ duration: 1200 });
+      .send({ duration: 1200, sessionId: 'timer-session-1' });
     expect(getResponse.status).toBe(200);
     expect(getResponse.body.sessions).toHaveLength(1);
     expect(postResponse.status).toBe(200);
@@ -227,6 +227,7 @@ describe('protected api routes', () => {
       .send({
         type: 'vocabulary',
         month: 1,
+        sessionId: 'quiz-session-1',
         answers: [
           { questionId: 1, selectedAnswer: 'ola', correctAnswer: 'ola', isCorrect: true },
           { questionId: 2, selectedAnswer: 'casa', correctAnswer: 'casa', isCorrect: true },
@@ -263,7 +264,7 @@ describe('protected api routes', () => {
     const response = await request(app)
       .post('/api/flashcards/review')
       .set('Authorization', `Bearer ${token}`)
-      .send({ vocabularyId: 1, quality: 3 });
+      .send({ vocabularyId: 1, quality: 3, reviewId: 'flashcard-review-1' });
     expect(response.status).toBe(200);
     expect(typeof response.body.xpEarned).toBe('number');
     expect(mockPrisma.flashcardProgress.create).toHaveBeenCalledTimes(1);
