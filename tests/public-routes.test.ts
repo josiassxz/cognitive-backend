@@ -2,6 +2,8 @@ import request from 'supertest';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createApp } from '../src/app';
 
+const mockTranslateWithContext = vi.hoisted(() => vi.fn());
+
 const mockPrisma = vi.hoisted(() => ({
   vocabulary: {
     findMany: vi.fn(),
@@ -15,6 +17,16 @@ const mockPrisma = vi.hoisted(() => ({
     findMany: vi.fn(),
     findUnique: vi.fn(),
     count: vi.fn(),
+  },
+  songLyricLine: {
+    count: vi.fn(),
+    groupBy: vi.fn(),
+    findMany: vi.fn(),
+  },
+  translationCache: {
+    findUnique: vi.fn(),
+    update: vi.fn(),
+    create: vi.fn(),
   },
   video: {
     findMany: vi.fn(),
@@ -32,10 +44,26 @@ const mockPrisma = vi.hoisted(() => ({
     findMany: vi.fn(),
     count: vi.fn(),
   },
+  oxfordWord: {
+    count: vi.fn(),
+  },
+  collocation: {
+    count: vi.fn(),
+  },
+  collocationExercise: {
+    count: vi.fn(),
+  },
+  sentenceExercise: {
+    count: vi.fn(),
+  },
 }));
 
 vi.mock('../src/lib/prisma', () => ({
   prisma: mockPrisma,
+}));
+
+vi.mock('../src/lib/gemini', () => ({
+  translateWithContext: mockTranslateWithContext,
 }));
 
 describe('public api routes', () => {
@@ -45,10 +73,25 @@ describe('public api routes', () => {
     mockPrisma.phrasalVerb.findMany.mockResolvedValue([]);
     mockPrisma.song.findMany.mockResolvedValue([]);
     mockPrisma.song.findUnique.mockResolvedValue(null);
+    mockPrisma.songLyricLine.count.mockResolvedValue(0);
+    mockPrisma.songLyricLine.groupBy.mockResolvedValue([]);
+    mockPrisma.songLyricLine.findMany.mockResolvedValue([]);
+    mockPrisma.translationCache.findUnique.mockResolvedValue(null);
+    mockPrisma.translationCache.update.mockResolvedValue(undefined);
+    mockPrisma.translationCache.create.mockResolvedValue(undefined);
     mockPrisma.video.findMany.mockResolvedValue([]);
     mockPrisma.grammarTip.findMany.mockResolvedValue([]);
     mockPrisma.podcast.findMany.mockResolvedValue([]);
     mockPrisma.expression.findMany.mockResolvedValue([]);
+    mockPrisma.oxfordWord.count.mockResolvedValue(1);
+    mockPrisma.collocation.count.mockResolvedValue(1);
+    mockPrisma.collocationExercise.count.mockResolvedValue(1);
+    mockPrisma.sentenceExercise.count.mockResolvedValue(1);
+    mockTranslateWithContext.mockResolvedValue({
+      translation: 'teste',
+      explanation: 'explicacao',
+      partOfSpeech: 'noun',
+    });
     mockPrisma.vocabulary.count.mockResolvedValue(1);
     mockPrisma.phrasalVerb.count.mockResolvedValue(2);
     mockPrisma.song.count.mockResolvedValue(3);
@@ -69,7 +112,7 @@ describe('public api routes', () => {
     const app = createApp();
     const response = await request(app).get('/api/contracts');
     expect(response.status).toBe(200);
-    expect(response.body.version).toBe('1.0.0');
+    expect(response.body.version).toBe('2.0.0');
     expect(response.body.auth.login.path).toBe('/api/auth/login');
   });
 
@@ -104,12 +147,38 @@ describe('public api routes', () => {
   it('lista songs e busca por slug', async () => {
     mockPrisma.song.findMany.mockResolvedValue([{ id: 1, title: 'Song A' }]);
     mockPrisma.song.findUnique.mockResolvedValue({ id: 2, slug: 'song-b' });
+    mockPrisma.songLyricLine.groupBy.mockResolvedValue([{ songId: 1, _count: { songId: 3 } }]);
+    mockPrisma.songLyricLine.count.mockResolvedValue(3);
     const app = createApp();
     const listResponse = await request(app).get('/api/songs?month=1');
     const slugResponse = await request(app).get('/api/songs?slug=song-b');
     expect(listResponse.status).toBe(200);
     expect(slugResponse.status).toBe(200);
     expect(slugResponse.body.slug).toBe('song-b');
+    expect(listResponse.body[0].hasLyrics).toBe(true);
+  });
+
+  it('retorna lyrics por musica', async () => {
+    mockPrisma.song.findUnique.mockResolvedValue({ id: 1, title: 'Song A', artist: 'Artist A', youtubeId: 'abc123xyz00' });
+    mockPrisma.songLyricLine.findMany.mockResolvedValue([
+      { id: 1, lineIndex: 0, startMs: 0, endMs: 1500, text: 'Hello', translation: '' },
+    ]);
+    const app = createApp();
+    const response = await request(app).get('/api/songs/1/lyrics');
+    expect(response.status).toBe(200);
+    expect(response.body.song.id).toBe(1);
+    expect(response.body.total).toBe(1);
+  });
+
+  it('traduz frase com cache miss', async () => {
+    const app = createApp();
+    const response = await request(app).post('/api/translate').send({
+      phrase: 'love',
+      context: 'I love you',
+    });
+    expect(response.status).toBe(200);
+    expect(response.body.fromCache).toBe(false);
+    expect(mockTranslateWithContext).toHaveBeenCalledTimes(1);
   });
 
   it('lista videos, grammar, podcasts e expressions', async () => {
@@ -142,7 +211,11 @@ describe('public api routes', () => {
       grammarTips: 5,
       podcasts: 6,
       expressions: 7,
-      total: 28,
+      oxfordWords: 1,
+      collocations: 1,
+      collocationExercises: 1,
+      sentenceExercises: 1,
+      total: 32,
     });
   });
 

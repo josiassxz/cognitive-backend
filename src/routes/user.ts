@@ -306,3 +306,208 @@ userRouter.get(
     res.json({ totalXp, level, recent });
   }),
 );
+
+userRouter.get(
+  '/saved-phrases',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Nao autorizado');
+
+    const status = typeof req.query.status === 'string' ? req.query.status : undefined;
+    const songId = req.query.songId ? z.coerce.number().int().positive().parse(req.query.songId) : undefined;
+    const limit = z.coerce.number().int().min(1).max(200).default(50).parse(req.query.limit ?? 50);
+    const offset = z.coerce.number().int().min(0).default(0).parse(req.query.offset ?? 0);
+    const where: { userId: string; status?: string; songId?: number } = { userId };
+    if (status) where.status = status;
+    if (songId) where.songId = songId;
+
+    const [items, total] = await Promise.all([
+      prisma.userSavedPhrase.findMany({
+        where,
+        orderBy: { createdAt: 'desc' },
+        skip: offset,
+        take: limit,
+      }),
+      prisma.userSavedPhrase.count({ where }),
+    ]);
+
+    res.json({ items, total, limit, offset });
+  }),
+);
+
+userRouter.post(
+  '/saved-phrases',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Nao autorizado');
+
+    const input = z
+      .object({
+        phrase: z.string().min(1),
+        translation: z.string().min(1),
+        context: z.string().default(''),
+        songId: z.number().int().positive().optional(),
+      })
+      .parse(req.body);
+
+    const normalizedPhrase = input.phrase.toLowerCase().trim();
+    const normalizedContext = input.context.trim();
+    const existing = await prisma.userSavedPhrase.findFirst({
+      where: {
+        userId,
+        phrase: normalizedPhrase,
+        context: normalizedContext,
+      },
+    });
+    if (existing) {
+      res.json({ success: true, id: existing.id, message: 'Frase ja salva' });
+      return;
+    }
+
+    const saved = await prisma.userSavedPhrase.create({
+      data: {
+        userId,
+        phrase: normalizedPhrase,
+        translation: input.translation.trim(),
+        context: normalizedContext,
+        songId: input.songId ?? null,
+        sourceType: 'lyric_click',
+      },
+    });
+
+    await prisma.xpLog.create({
+      data: {
+        userId,
+        amount: XP_CONFIG.lyric_phrase_saved,
+        source: 'lyrics',
+        detail: `saved_phrase:${saved.id}|${saved.phrase}`,
+      },
+    });
+
+    res.json({ success: true, id: saved.id });
+  }),
+);
+
+userRouter.delete(
+  '/saved-phrases',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Nao autorizado');
+    const { id } = z.object({ id: z.number().int().positive() }).parse(req.body);
+    await prisma.userSavedPhrase.deleteMany({ where: { id, userId } });
+    res.json({ success: true });
+  }),
+);
+
+userRouter.post(
+  '/saved-phrases/to-flashcards',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Nao autorizado');
+
+    const input = z
+      .object({
+        phraseIds: z.union([z.literal('all'), z.array(z.number().int().positive())]).optional(),
+      })
+      .parse(req.body ?? {});
+
+    const where: { userId: string; status: string; id?: { in: number[] } } = { userId, status: 'saved' };
+    if (Array.isArray(input.phraseIds) && input.phraseIds.length > 0) {
+      where.id = { in: input.phraseIds };
+    }
+
+    const phrases = await prisma.userSavedPhrase.findMany({ where });
+    if (phrases.length === 0) throw new HttpError(400, 'Nenhuma frase para converter');
+
+    for (const phrase of phrases) {
+      const vocab = await prisma.vocabulary.upsert({
+        where: {
+          word_month: {
+            word: phrase.phrase,
+            month: 1,
+          },
+        },
+        update: {},
+        create: {
+          word: phrase.phrase,
+          type: 'frase',
+          definition: phrase.translation,
+          example: phrase.context,
+          month: 1,
+          level: 'personalizado',
+          category: 'musica',
+        },
+      });
+
+      await prisma.flashcardProgress.upsert({
+        where: {
+          userId_vocabularyId: {
+            userId,
+            vocabularyId: vocab.id,
+          },
+        },
+        update: {},
+        create: {
+          userId,
+          vocabularyId: vocab.id,
+          ease: 2.5,
+          interval: 1,
+          repetitions: 0,
+          nextReviewAt: new Date(),
+        },
+      });
+    }
+
+    await prisma.userSavedPhrase.updateMany({
+      where: {
+        userId,
+        id: { in: phrases.map((item: { id: number }) => item.id) },
+      },
+      data: { status: 'learning' },
+    });
+
+    await prisma.xpLog.create({
+      data: {
+        userId,
+        amount: XP_CONFIG.lyric_phrases_to_flashcard,
+        source: 'lyrics',
+        detail: `saved_phrase_to_flashcards:${phrases.length}`,
+      },
+    });
+
+    res.json({
+      success: true,
+      converted: phrases.length,
+      message: `${phrases.length} frase(s) adicionada(s) aos flashcards`,
+    });
+  }),
+);
+
+userRouter.patch(
+  '/saved-phrases/:id',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Nao autorizado');
+
+    const id = z.coerce.number().int().positive().parse(req.params.id);
+    const input = z.object({ status: z.enum(['saved', 'learning', 'mastered']) }).parse(req.body);
+
+    const found = await prisma.userSavedPhrase.findFirst({ where: { id, userId } });
+    if (!found) throw new HttpError(404, 'Frase nao encontrada');
+
+    await prisma.userSavedPhrase.update({ where: { id }, data: { status: input.status } });
+    res.json({ success: true });
+  }),
+);
+
+userRouter.delete(
+  '/saved-phrases/:id',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Nao autorizado');
+
+    const id = z.coerce.number().int().positive().parse(req.params.id);
+    await prisma.userSavedPhrase.deleteMany({ where: { id, userId } });
+    res.json({ success: true });
+  }),
+);

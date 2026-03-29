@@ -29,6 +29,9 @@ const mockPrisma = vi.hoisted(() => ({
   song: {
     upsert: vi.fn(),
   },
+  songLyricLine: {
+    upsert: vi.fn(),
+  },
 }));
 
 vi.mock('../src/lib/prisma', () => ({
@@ -129,5 +132,32 @@ describe('admin routes', () => {
 
     expect(response.status).toBe(400);
     expect(response.body).toEqual({ error: 'Planilha vazia', code: 'HTTP_400' });
+  });
+
+  it('processa upload de song-lyrics', async () => {
+    mockPrisma.songLyricLine.upsert.mockResolvedValue({ id: 1 });
+    const app = buildApp();
+    const token = makeToken();
+    const fileBuffer = makeWorkbookBuffer([
+      {
+        songId: 1,
+        lineIndex: 0,
+        startMs: 0,
+        endMs: 1500,
+        text: 'hello world',
+        translation: 'ola mundo',
+      },
+    ]);
+
+    const response = await request(app)
+      .post('/api/admin/upload')
+      .set('Authorization', `Bearer ${token}`)
+      .field('type', 'song-lyrics')
+      .attach('file', fileBuffer, 'song-lyrics.xlsx');
+
+    expect(response.status).toBe(200);
+    expect(response.body.success).toBe(true);
+    expect(response.body.created).toBe(1);
+    expect(mockPrisma.songLyricLine.upsert).toHaveBeenCalledTimes(1);
   });
 });

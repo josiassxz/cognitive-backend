@@ -11,6 +11,7 @@ export const contentTypeSchema = z.enum([
   'podcasts',
   'expressions',
   'songs',
+  'song-lyrics',
 ]);
 
 export type ContentType = z.infer<typeof contentTypeSchema>;
@@ -50,6 +51,8 @@ export function getTypeOrderBy(type: ContentType): Record<string, 'asc'>[] {
       return [{ month: 'asc' }, { expression: 'asc' }];
     case 'songs':
       return [{ month: 'asc' }, { title: 'asc' }];
+    case 'song-lyrics':
+      return [{ songId: 'asc' }, { lineIndex: 'asc' }];
   }
 }
 

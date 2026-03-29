@@ -23,6 +23,8 @@ import { vocabularyRouter } from './routes/vocabulary';
 import { oxfordWordsRouter } from './routes/oxford-words';
 import { collocationsRouter } from './routes/collocations';
 import { sentenceExercisesRouter } from './routes/sentence-exercises';
+import { translateRouter } from './routes/translate';
+import { mobileRouter } from './routes/mobile';
 
 export function createApp() {
   const app = express();
@@ -83,6 +85,8 @@ export function createApp() {
   app.use('/api/oxford-words', oxfordWordsRouter);
   app.use('/api/collocations', collocationsRouter);
   app.use('/api/sentence-exercises', sentenceExercisesRouter);
+  app.use('/api/translate', translateRouter);
+  app.use('/api/mobile', mobileRouter);
   app.use('/api/user', authMiddleware, userRouter);
   app.use('/api/quiz', authMiddleware, quizRouter);
   app.use('/api/flashcards', authMiddleware, flashcardsRouter);

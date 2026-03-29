@@ -191,6 +191,68 @@ contractsRouter.get('/', (_req, res) => {
         },
       },
     },
+    lyricsInterativo: {
+      translate: {
+        method: 'POST',
+        path: '/api/translate',
+        auth: false,
+        body: {
+          phrase: 'string',
+          context: 'string',
+        },
+        response: {
+          phrase: 'string',
+          translation: 'string',
+          explanation: 'string',
+          partOfSpeech: 'string',
+          fromCache: 'boolean',
+        },
+      },
+      songLyrics: {
+        method: 'GET',
+        path: '/api/songs/:songId/lyrics',
+        auth: false,
+        response: {
+          lines: '[{ id, songId, lineIndex, startMs, endMs, text, translation }]',
+          total: 'number',
+        },
+      },
+      importSong: {
+        method: 'POST',
+        path: '/api/songs/import',
+        auth: true,
+        body: {
+          youtubeUrl: 'string',
+          title: 'string?',
+          artist: 'string?',
+        },
+      },
+      importSongMobile: {
+        method: 'POST',
+        path: '/api/mobile/import-song',
+        auth: true,
+        body: {
+          youtubeUrl: 'string',
+          title: 'string?',
+          artist: 'string?',
+        },
+      },
+      uploadSrt: {
+        method: 'POST',
+        path: '/api/songs/:songId/upload-srt',
+        auth: true,
+        body: {
+          file: 'multipart/form-data (.srt/.vtt)',
+        },
+      },
+      savedPhrases: {
+        list: { method: 'GET', path: '/api/user/saved-phrases', auth: true },
+        save: { method: 'POST', path: '/api/user/saved-phrases', auth: true },
+        update: { method: 'PATCH', path: '/api/user/saved-phrases/:id', auth: true },
+        remove: { method: 'DELETE', path: '/api/user/saved-phrases/:id', auth: true },
+        toFlashcards: { method: 'POST', path: '/api/user/saved-phrases/to-flashcards', auth: true },
+      },
+    },
     errorShape: {
       error: 'string',
       code: 'string',

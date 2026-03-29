@@ -47,6 +47,10 @@ describe('content-service', () => {
       grammarTip: { count: async () => 6 },
       podcast: { count: async () => 7 },
       expression: { count: async () => 9 },
+      oxfordWord: { count: async () => 3 },
+      collocation: { count: async () => 11 },
+      collocationExercise: { count: async () => 12 },
+      sentenceExercise: { count: async () => 13 },
     };
 
     const stats = await getStats(prisma as any);
@@ -59,7 +63,11 @@ describe('content-service', () => {
       grammarTips: 6,
       podcasts: 7,
       expressions: 9,
-      total: 49,
+      oxfordWords: 3,
+      collocations: 11,
+      collocationExercises: 12,
+      sentenceExercises: 13,
+      total: 88,
     });
   });
 });

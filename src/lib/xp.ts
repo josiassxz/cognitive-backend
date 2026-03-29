@@ -17,6 +17,9 @@ export const XP_CONFIG = {
   sentence_correct: 8,
   sentence_complete: 5,
   sentence_perfect_bonus: 20,
+  lyric_phrase_saved: 3,
+  lyric_phrases_to_flashcard: 5,
+  song_imported: 10,
 };
 
 export const LEVELS = [

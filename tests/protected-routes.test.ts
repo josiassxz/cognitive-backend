@@ -33,6 +33,7 @@ const mockPrisma = vi.hoisted(() => ({
     findUnique: vi.fn(),
     create: vi.fn(),
     update: vi.fn(),
+    upsert: vi.fn(),
   },
   userTimerSession: {
     count: vi.fn(),
@@ -48,14 +49,38 @@ const mockPrisma = vi.hoisted(() => ({
   badge: {
     findUnique: vi.fn(),
   },
+  userCollocationProgress: {
+    count: vi.fn(),
+  },
+  userSentenceProgress: {
+    count: vi.fn(),
+  },
+  userSavedPhrase: {
+    findMany: vi.fn(),
+    count: vi.fn(),
+    findFirst: vi.fn(),
+    create: vi.fn(),
+    deleteMany: vi.fn(),
+    update: vi.fn(),
+    updateMany: vi.fn(),
+  },
   vocabulary: {
     findMany: vi.fn(),
+    upsert: vi.fn(),
   },
   phrasalVerb: {
     findMany: vi.fn(),
   },
   expression: {
     findMany: vi.fn(),
+  },
+  song: {
+    findFirst: vi.fn(),
+    create: vi.fn(),
+  },
+  songLyricLine: {
+    findMany: vi.fn(),
+    createMany: vi.fn(),
   },
 }));
 
@@ -117,9 +142,33 @@ describe('protected api routes', () => {
     mockPrisma.userChecklist.update.mockResolvedValue(undefined);
     mockPrisma.userChecklist.count.mockResolvedValue(0);
     mockPrisma.badge.findUnique.mockResolvedValue(null);
+    mockPrisma.userCollocationProgress.count.mockResolvedValue(0);
+    mockPrisma.userSentenceProgress.count.mockResolvedValue(0);
+    mockPrisma.userSavedPhrase.findMany.mockResolvedValue([]);
+    mockPrisma.userSavedPhrase.count.mockResolvedValue(0);
+    mockPrisma.userSavedPhrase.findFirst.mockResolvedValue(null);
+    mockPrisma.userSavedPhrase.create.mockResolvedValue({ id: 1, phrase: 'hello' });
+    mockPrisma.userSavedPhrase.deleteMany.mockResolvedValue(undefined);
+    mockPrisma.userSavedPhrase.update.mockResolvedValue(undefined);
+    mockPrisma.userSavedPhrase.updateMany.mockResolvedValue(undefined);
     mockPrisma.vocabulary.findMany.mockResolvedValue([]);
+    mockPrisma.vocabulary.upsert.mockResolvedValue({ id: 1 });
     mockPrisma.phrasalVerb.findMany.mockResolvedValue([]);
     mockPrisma.expression.findMany.mockResolvedValue([]);
+    mockPrisma.flashcardProgress.upsert.mockResolvedValue(undefined);
+    mockPrisma.song.findFirst.mockResolvedValue(null);
+    mockPrisma.song.create.mockResolvedValue({
+      id: 11,
+      slug: 'song-importada-xyz',
+      title: 'Song Importada',
+      artist: 'Canal',
+      youtubeId: 'dQw4w9WgXcQ',
+      level: 'Intermediario',
+      themes: ['imported'],
+      month: 1,
+    });
+    mockPrisma.songLyricLine.findMany.mockResolvedValue([]);
+    mockPrisma.songLyricLine.createMany.mockResolvedValue(undefined);
   });
 
   it('bloqueia rota protegida sem bearer token', async () => {
@@ -135,7 +184,13 @@ describe('protected api routes', () => {
     const response = await request(app).get('/api/user/profile').set('Authorization', `Bearer ${token}`);
     expect(response.status).toBe(200);
     expect(response.body.user.email).toBe('john@doe.com');
-    expect(response.body.stats).toEqual({ quizzes: 2, flashcards: 3, timerSessions: 2 });
+    expect(response.body.stats).toEqual({
+      quizzes: 2,
+      flashcards: 3,
+      timerSessions: 2,
+      collocations: { mastered: 0, attempted: 0 },
+      sentences: { mastered: 0, attempted: 0 },
+    });
   });
 
   it('atualiza streak', async () => {
@@ -268,5 +323,83 @@ describe('protected api routes', () => {
     expect(response.status).toBe(200);
     expect(typeof response.body.xpEarned).toBe('number');
     expect(mockPrisma.flashcardProgress.create).toHaveBeenCalledTimes(1);
+  });
+
+  it('salva e lista frases do usuario', async () => {
+    mockPrisma.userSavedPhrase.findMany.mockResolvedValue([{ id: 1, phrase: 'love' }]);
+    mockPrisma.userSavedPhrase.count.mockResolvedValue(1);
+    const app = createApp();
+    const token = makeToken();
+    const postResponse = await request(app)
+      .post('/api/user/saved-phrases')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ phrase: 'love', translation: 'amor', context: 'I love music' });
+    const getResponse = await request(app).get('/api/user/saved-phrases').set('Authorization', `Bearer ${token}`);
+    expect(postResponse.status).toBe(200);
+    expect(postResponse.body.success).toBe(true);
+    expect(getResponse.status).toBe(200);
+    expect(getResponse.body.total).toBe(1);
+  });
+
+  it('converte frases salvas em flashcards', async () => {
+    mockPrisma.userSavedPhrase.findMany.mockResolvedValue([
+      { id: 10, phrase: 'piece of cake', translation: 'moleza', context: 'This is a piece of cake' },
+    ]);
+    const app = createApp();
+    const token = makeToken();
+    const response = await request(app)
+      .post('/api/user/saved-phrases/to-flashcards')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ phraseIds: [10] });
+    expect(response.status).toBe(200);
+    expect(response.body.converted).toBe(1);
+    expect(mockPrisma.vocabulary.upsert).toHaveBeenCalledTimes(1);
+    expect(mockPrisma.flashcardProgress.upsert).toHaveBeenCalledTimes(1);
+  });
+
+  it('atualiza status e remove frase salva', async () => {
+    mockPrisma.userSavedPhrase.findFirst.mockResolvedValue({ id: 1, userId: 'user-1', status: 'saved' });
+    const app = createApp();
+    const token = makeToken();
+
+    const patchResponse = await request(app)
+      .patch('/api/user/saved-phrases/1')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ status: 'learning' });
+
+    const deleteResponse = await request(app).delete('/api/user/saved-phrases/1').set('Authorization', `Bearer ${token}`);
+
+    expect(patchResponse.status).toBe(200);
+    expect(patchResponse.body.success).toBe(true);
+    expect(deleteResponse.status).toBe(200);
+    expect(deleteResponse.body.success).toBe(true);
+  });
+
+  it('importa musica via rota mobile unificada', async () => {
+    mockPrisma.song.findFirst.mockResolvedValue({
+      id: 20,
+      slug: 'song-a',
+      title: 'Song A',
+      artist: 'Artist A',
+      youtubeId: 'dQw4w9WgXcQ',
+      level: 'Intermediario',
+      themes: ['imported'],
+      month: 1,
+    });
+    mockPrisma.songLyricLine.findMany.mockResolvedValue([
+      { id: 1, lineIndex: 0, startMs: 0, endMs: 900, text: 'Hello', translation: '' },
+    ]);
+
+    const app = createApp();
+    const token = makeToken();
+    const response = await request(app)
+      .post('/api/mobile/import-song')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' });
+
+    expect(response.status).toBe(200);
+    expect(response.body.success).toBe(true);
+    expect(response.body.song.hasLyrics).toBe(true);
+    expect(response.body.song.linesCount).toBe(1);
   });
 });

@@ -79,6 +79,15 @@ const songCreateSchema = z.object({
   vocabHighlights: z.array(z.object({ word: z.string().min(1), meaning: z.string().min(1) })).default([]),
 });
 
+const songLyricLineCreateSchema = z.object({
+  songId: z.number().int().positive(),
+  lineIndex: z.number().int().min(0),
+  startMs: z.number().int().min(0),
+  endMs: z.number().int().positive(),
+  text: z.string().min(1),
+  translation: z.string().default(''),
+});
+
 const TEMPLATES: Record<ContentType, { headers: string[]; sampleRow: Record<string, unknown> }> = {
   vocabulary: {
     headers: ['word', 'type', 'definition', 'example', 'month', 'level', 'category'],
@@ -156,6 +165,17 @@ const TEMPLATES: Record<ContentType, { headers: string[]; sampleRow: Record<stri
       learningNotes: 'Vocabulario sobre paz e utopia.',
       month: 1,
       slug: 'imagine-john-lennon',
+    },
+  },
+  'song-lyrics': {
+    headers: ['songId', 'lineIndex', 'startMs', 'endMs', 'text', 'translation'],
+    sampleRow: {
+      songId: 1,
+      lineIndex: 0,
+      startMs: 0,
+      endMs: 1800,
+      text: 'Imagine all the people',
+      translation: 'Imagine todas as pessoas',
     },
   },
 };
@@ -319,6 +339,33 @@ async function processUploadRows(contentType: ContentType, rows: Record<string, 
         continue;
       }
 
+      if (contentType === 'song-lyrics') {
+        const data = {
+          songId: Number.parseInt(String(row.songId ?? ''), 10),
+          lineIndex: Number.parseInt(String(row.lineIndex ?? '0'), 10),
+          startMs: Number.parseInt(String(row.startMs ?? '0'), 10),
+          endMs: Number.parseInt(String(row.endMs ?? '0'), 10),
+          text: sanitizeText(row.text),
+          translation: sanitizeText(row.translation),
+        };
+        if (!data.songId || data.endMs <= data.startMs || !data.text) {
+          errors.push(`Linha de legenda invalida: ${JSON.stringify(row)}`);
+          continue;
+        }
+        await prisma.songLyricLine.upsert({
+          where: {
+            songId_lineIndex: {
+              songId: data.songId,
+              lineIndex: data.lineIndex,
+            },
+          },
+          update: data,
+          create: data,
+        });
+        processed += 1;
+        continue;
+      }
+
       const title = sanitizeText(row.title);
       const slug = sanitizeText(row.slug) || title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       const data = {
@@ -411,6 +458,16 @@ adminRouter.get(
           prisma.song.count(),
         ]);
         break;
+      case 'song-lyrics':
+        [items, total] = await Promise.all([
+          prisma.songLyricLine.findMany({
+            skip,
+            take: limit,
+            orderBy: getTypeOrderBy(type),
+          }),
+          prisma.songLyricLine.count(),
+        ]);
+        break;
     }
 
     res.json({
@@ -486,6 +543,15 @@ adminRouter.post(
         res.status(201).json({ success: true, item: created });
         return;
       }
+      case 'song-lyrics': {
+        const data = songLyricLineCreateSchema.parse(payload);
+        if (data.endMs <= data.startMs) {
+          throw new HttpError(400, 'endMs deve ser maior que startMs');
+        }
+        const created = await prisma.songLyricLine.create({ data });
+        res.status(201).json({ success: true, item: created });
+        return;
+      }
     }
   }),
 );
@@ -517,6 +583,9 @@ adminRouter.delete(
         break;
       case 'songs':
         await prisma.song.delete({ where: { id } });
+        break;
+      case 'song-lyrics':
+        await prisma.songLyricLine.delete({ where: { id } });
         break;
       default:
         throw new HttpError(400, 'Tipo invalido');

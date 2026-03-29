@@ -28,6 +28,7 @@ model User {
   collocationProgress   UserCollocationProgress[]
   sentenceProgress      UserSentenceProgress[]
   refreshTokens         RefreshToken[]
+  savedPhrases          UserSavedPhrase[]
 }
 
 model RefreshToken {
@@ -193,9 +194,61 @@ model Song {
   month           Int         @default(1)
   keyPhrases      KeyPhrase[]
   vocabHighlights SongVocab[]
+  lyricLines      SongLyricLine[]
+  savedPhrases    UserSavedPhrase[]
 
   @@index([month])
   @@index([level])
+}
+
+model SongLyricLine {
+  id          Int    @id @default(autoincrement())
+  songId      Int
+  lineIndex   Int
+  startMs     Int
+  endMs       Int
+  text        String
+  translation String @default("")
+  song        Song   @relation(fields: [songId], references: [id], onDelete: Cascade)
+
+  @@unique([songId, lineIndex])
+  @@index([songId])
+  @@index([songId, startMs])
+}
+
+model TranslationCache {
+  id           Int      @id @default(autoincrement())
+  phrase       String
+  contextHash  String
+  context      String
+  translation  String
+  explanation  String   @default("")
+  partOfSpeech String   @default("")
+  createdAt    DateTime @default(now())
+  hitCount     Int      @default(1)
+
+  @@unique([phrase, contextHash])
+  @@index([phrase])
+  @@index([contextHash])
+  @@index([hitCount(sort: Desc)])
+}
+
+model UserSavedPhrase {
+  id          Int      @id @default(autoincrement())
+  userId      String
+  songId      Int?
+  phrase      String
+  translation String
+  context     String
+  sourceType  String   @default("lyric_click")
+  status      String   @default("saved")
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  song        Song?    @relation(fields: [songId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([userId, status])
+  @@index([userId, songId])
 }
 
 model KeyPhrase {
