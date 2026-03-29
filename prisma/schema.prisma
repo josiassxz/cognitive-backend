@@ -24,8 +24,10 @@ model User {
   timerSessions     UserTimerSession[]
   monthProgress     UserMonthProgress[]
   quizAttempts      QuizAttempt[]
-  flashcardProgress FlashcardProgress[]
-  refreshTokens     RefreshToken[]
+  flashcardProgress     FlashcardProgress[]
+  collocationProgress   UserCollocationProgress[]
+  sentenceProgress      UserSentenceProgress[]
+  refreshTokens         RefreshToken[]
 }
 
 model RefreshToken {
@@ -268,4 +270,111 @@ model Expression {
   @@unique([expression, month])
   @@index([month])
   @@index([category])
+}
+
+// ==================== OXFORD 3000/5000 REFERENCE ====================
+model OxfordWord {
+  id              Int       @id @default(autoincrement())
+  word            String
+  pos             String
+  cefrLevel       String
+  isOxford3000    Boolean   @default(false)
+  frequencyRank   Int?
+  definitionUrl   String    @default("")
+  audioUrl        String    @default("")
+  exampleSentence String    @default("")
+  month           Int
+
+  @@unique([word, pos])
+  @@index([cefrLevel])
+  @@index([month])
+  @@index([frequencyRank])
+  @@index([pos])
+}
+
+// ==================== COLLOCATIONS & PHRASES ====================
+model Collocation {
+  id              Int       @id @default(autoincrement())
+  phrase          String
+  baseWord        String
+  collocate       String
+  type            String
+  meaning         String    @default("")
+  example         String    @default("")
+  cefrLevel       String
+  month           Int
+  audioUrl        String    @default("")
+
+  exercises       CollocationExercise[]
+
+  @@unique([phrase, type])
+  @@index([cefrLevel])
+  @@index([month])
+  @@index([baseWord])
+  @@index([type])
+}
+
+model CollocationExercise {
+  id              Int       @id @default(autoincrement())
+  collocationId   Int
+  promptType      String
+  prompt          String
+  correctAnswer   String
+  distractors     String[]
+  cefrLevel       String
+  month           Int
+
+  collocation     Collocation @relation(fields: [collocationId], references: [id], onDelete: Cascade)
+
+  @@index([collocationId])
+  @@index([cefrLevel])
+  @@index([month])
+  @@index([promptType])
+}
+
+// ==================== SENTENCE COMPLETION ====================
+model SentenceExercise {
+  id              Int       @id @default(autoincrement())
+  sentence        String
+  correctAnswer   String
+  distractors     String[]
+  grammarFocus    String    @default("geral")
+  cefrLevel       String
+  month           Int
+  explanation     String    @default("")
+
+  @@index([cefrLevel])
+  @@index([month])
+  @@index([grammarFocus])
+}
+
+// ==================== USER PROGRESS (NEW EXERCISES) ====================
+model UserCollocationProgress {
+  id              Int       @id @default(autoincrement())
+  userId          String
+  collocationId   Int
+  correct         Int       @default(0)
+  attempts        Int       @default(0)
+  mastered        Boolean   @default(false)
+  lastAttemptAt   DateTime  @default(now())
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, collocationId])
+  @@index([userId])
+  @@index([userId, mastered])
+}
+
+model UserSentenceProgress {
+  id              Int       @id @default(autoincrement())
+  userId          String
+  exerciseId      Int
+  correct         Int       @default(0)
+  attempts        Int       @default(0)
+  mastered        Boolean   @default(false)
+  lastAttemptAt   DateTime  @default(now())
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, exerciseId])
+  @@index([userId])
+  @@index([userId, mastered])
 }

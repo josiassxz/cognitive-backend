@@ -9,6 +9,14 @@ export const XP_CONFIG = {
   checklist_complete: 20,
   streak_bonus_multiplier: 2,
   daily_login: 5,
+  // Collocation exercises
+  collocation_correct: 8,
+  collocation_complete: 5,
+  collocation_perfect_bonus: 20,
+  // Sentence completion exercises
+  sentence_correct: 8,
+  sentence_complete: 5,
+  sentence_perfect_bonus: 20,
 };
 
 export const LEVELS = [

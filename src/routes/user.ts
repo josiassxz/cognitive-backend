@@ -52,7 +52,19 @@ userRouter.get(
     const userId = req.userId;
     if (!userId) throw new HttpError(401, 'Nao autorizado');
 
-    const [user, xpAgg, streak, badges, quizCount, flashcardCount, timerCount] = await Promise.all([
+    const [
+      user,
+      xpAgg,
+      streak,
+      badges,
+      quizCount,
+      flashcardCount,
+      timerCount,
+      collocationMastered,
+      collocationAttempted,
+      sentenceMastered,
+      sentenceAttempted,
+    ] = await Promise.all([
       prisma.user.findUnique({
         where: { id: userId },
         select: { id: true, name: true, email: true, currentMonth: true, createdAt: true },
@@ -67,6 +79,10 @@ userRouter.get(
       prisma.quizAttempt.count({ where: { userId } }),
       prisma.flashcardProgress.count({ where: { userId } }),
       prisma.userTimerSession.count({ where: { userId } }),
+      prisma.userCollocationProgress.count({ where: { userId, mastered: true } }),
+      prisma.userCollocationProgress.count({ where: { userId } }),
+      prisma.userSentenceProgress.count({ where: { userId, mastered: true } }),
+      prisma.userSentenceProgress.count({ where: { userId } }),
     ]);
 
     if (!user) throw new HttpError(404, 'Usuario nao encontrado');
@@ -83,7 +99,13 @@ userRouter.get(
         ...item.badge,
         earnedAt: item.earnedAt,
       })),
-      stats: { quizzes: quizCount, flashcards: flashcardCount, timerSessions: timerCount },
+      stats: {
+        quizzes: quizCount,
+        flashcards: flashcardCount,
+        timerSessions: timerCount,
+        collocations: { mastered: collocationMastered, attempted: collocationAttempted },
+        sentences: { mastered: sentenceMastered, attempted: sentenceAttempted },
+      },
     });
   }),
 );

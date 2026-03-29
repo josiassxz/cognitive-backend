@@ -20,21 +20,28 @@ import { statsRouter } from './routes/stats';
 import { userRouter } from './routes/user';
 import { videosRouter } from './routes/videos';
 import { vocabularyRouter } from './routes/vocabulary';
+import { oxfordWordsRouter } from './routes/oxford-words';
+import { collocationsRouter } from './routes/collocations';
+import { sentenceExercisesRouter } from './routes/sentence-exercises';
 
 export function createApp() {
   const app = express();
+  app.set('trust proxy', env.NODE_ENV === 'production' ? 1 : false);
+  const isDevelopment = env.NODE_ENV === 'development';
+  const defaultLimitMax = isDevelopment ? Math.max(env.RATE_LIMIT_MAX, 1000) : env.RATE_LIMIT_MAX;
+  const authLimitMax = isDevelopment ? Math.max(env.AUTH_RATE_LIMIT_MAX, 120) : env.AUTH_RATE_LIMIT_MAX;
   const allowedOrigins = env.CORS_ORIGINS.split(',')
     .map((origin) => origin.trim())
     .filter(Boolean);
   const defaultLimiter = rateLimit({
     windowMs: env.RATE_LIMIT_WINDOW_MS,
-    max: env.RATE_LIMIT_MAX,
+    max: defaultLimitMax,
     standardHeaders: true,
     legacyHeaders: false,
   });
   const authLimiter = rateLimit({
     windowMs: env.RATE_LIMIT_WINDOW_MS,
-    max: env.AUTH_RATE_LIMIT_MAX,
+    max: authLimitMax,
     standardHeaders: true,
     legacyHeaders: false,
   });
@@ -73,6 +80,9 @@ export function createApp() {
   app.use('/api/songs', songsRouter);
   app.use('/api/grammar', grammarRouter);
   app.use('/api/stats', statsRouter);
+  app.use('/api/oxford-words', oxfordWordsRouter);
+  app.use('/api/collocations', collocationsRouter);
+  app.use('/api/sentence-exercises', sentenceExercisesRouter);
   app.use('/api/user', authMiddleware, userRouter);
   app.use('/api/quiz', authMiddleware, quizRouter);
   app.use('/api/flashcards', authMiddleware, flashcardsRouter);

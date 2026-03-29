@@ -62,7 +62,19 @@ export function assertContentType(value: unknown): ContentType {
 }
 
 export async function getStats(prisma: PrismaClient) {
-  const [vocabulary, phrasalVerbs, songs, videos, grammarTips, podcasts, expressions] = await Promise.all([
+  const [
+    vocabulary,
+    phrasalVerbs,
+    songs,
+    videos,
+    grammarTips,
+    podcasts,
+    expressions,
+    oxfordWords,
+    collocations,
+    collocationExercises,
+    sentenceExercises,
+  ] = await Promise.all([
     prisma.vocabulary.count(),
     prisma.phrasalVerb.count(),
     prisma.song.count(),
@@ -70,6 +82,10 @@ export async function getStats(prisma: PrismaClient) {
     prisma.grammarTip.count(),
     prisma.podcast.count(),
     prisma.expression.count(),
+    prisma.oxfordWord.count(),
+    prisma.collocation.count(),
+    prisma.collocationExercise.count(),
+    prisma.sentenceExercise.count(),
   ]);
 
   return {
@@ -80,6 +96,21 @@ export async function getStats(prisma: PrismaClient) {
     grammarTips,
     podcasts,
     expressions,
-    total: vocabulary + phrasalVerbs + songs + videos + grammarTips + podcasts + expressions,
+    oxfordWords,
+    collocations,
+    collocationExercises,
+    sentenceExercises,
+    total:
+      vocabulary +
+      phrasalVerbs +
+      songs +
+      videos +
+      grammarTips +
+      podcasts +
+      expressions +
+      oxfordWords +
+      collocations +
+      collocationExercises +
+      sentenceExercises,
   };
 }
