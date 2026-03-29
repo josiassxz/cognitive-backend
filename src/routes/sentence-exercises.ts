@@ -48,6 +48,7 @@ sentenceExercisesRouter.get(
     const exercises = shuffled.map((ex) => ({
       id: ex.id,
       sentence: ex.sentence,
+      correctAnswer: ex.correctAnswer,
       options: [...ex.distractors, ex.correctAnswer].sort(() => Math.random() - 0.5),
       grammarFocus: ex.grammarFocus,
       cefrLevel: ex.cefrLevel,

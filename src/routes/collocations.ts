@@ -91,6 +91,7 @@ collocationsRouter.get(
       collocationId: ex.collocationId,
       promptType: ex.promptType,
       prompt: ex.prompt,
+      correctAnswer: ex.correctAnswer,
       options: [...ex.distractors, ex.correctAnswer].sort(() => Math.random() - 0.5),
       cefrLevel: ex.cefrLevel,
       month: ex.month,
