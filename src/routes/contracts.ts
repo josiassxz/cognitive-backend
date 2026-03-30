@@ -233,8 +233,6 @@ contractsRouter.get('/', (_req, res) => {
         auth: true,
         body: {
           youtubeUrl: 'string',
-          title: 'string?',
-          artist: 'string?',
         },
       },
       uploadSrt: {

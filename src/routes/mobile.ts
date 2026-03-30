@@ -124,8 +124,6 @@ mobileRouter.post(
     const input = z
       .object({
         youtubeUrl: z.string().min(1),
-        title: z.string().optional(),
-        artist: z.string().optional(),
       })
       .parse(req.body);
 
@@ -137,16 +135,20 @@ mobileRouter.post(
     let justCreated = false;
     if (!song) {
       const metadata = await fetchVideoMetadata(youtubeId);
-      const title = (input.title ?? metadata.title).trim() || 'Musica importada';
-      const artist = (input.artist ?? metadata.artist).trim() || 'Desconhecido';
-      const slugBase = title
+      const title = metadata.title.trim() || 'Musica importada';
+      const artist = metadata.artist.trim() || 'Desconhecido';
+      const slug = title
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
-        .replace(/(^-|-$)/g, '');
+        .replace(/(^-|-$)/g, '') || 'musica-importada';
+      const existingSlug = await prisma.song.findFirst({ where: { slug } });
+      if (existingSlug) {
+        throw new HttpError(409, 'Ja existe musica com este titulo');
+      }
 
       song = await prisma.song.create({
         data: {
-          slug: `${slugBase || youtubeId}-${Date.now().toString(36)}`,
+          slug,
           title,
           artist,
           youtubeId,

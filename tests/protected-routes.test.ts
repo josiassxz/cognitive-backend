@@ -420,4 +420,41 @@ describe('protected api routes', () => {
     expect(response.body.song.hasLyrics).toBe(true);
     expect(response.body.song.linesCount).toBe(1);
   });
+
+  it('usa metadata do video para definir title, artist e slug ao criar musica via rota mobile', async () => {
+    mockPrisma.song.findFirst.mockResolvedValueOnce(null).mockResolvedValueOnce(null);
+    mockPrisma.song.create.mockResolvedValue({
+      id: 21,
+      slug: 'my-song-from-youtube',
+      title: 'My Song From Youtube',
+      artist: 'Canal Oficial',
+      youtubeId: 'dQw4w9WgXcQ',
+      level: 'Intermediario',
+      themes: ['imported'],
+      month: 1,
+    });
+    mockPrisma.songLyricLine.findMany.mockResolvedValue([{ id: 1, lineIndex: 0, startMs: 0, endMs: 1000, text: 'Hello', translation: '' }]);
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: true,
+      json: async () => ({ title: 'Canal Oficial - My Song From Youtube', author_name: 'Canal Oficial' }),
+    } as Response);
+    const app = createApp();
+    const token = makeToken();
+    const response = await request(app)
+      .post('/api/mobile/import-song')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' });
+
+    expect(response.status).toBe(200);
+    expect(mockPrisma.song.create).toHaveBeenCalledWith(
+      expect.objectContaining({
+        data: expect.objectContaining({
+          slug: 'my-song-from-youtube',
+          title: 'My Song From Youtube',
+          artist: 'Canal Oficial',
+        }),
+      }),
+    );
+    fetchSpy.mockRestore();
+  });
 });
