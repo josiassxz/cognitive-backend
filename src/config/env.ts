@@ -12,6 +12,7 @@ const schema = z.object({
   ACCESS_TOKEN_TTL: z.string().default('15m'),
   REFRESH_TOKEN_TTL: z.string().default('30d'),
   GEMINI_API_KEY: z.string().default(''),
+  GROQ_MODEL: z.string().default('allam-2-7b'),
   CORS_ORIGINS: z.string().default('http://localhost:3000,http://localhost:8081,http://localhost:19006'),
   ADMIN_EMAILS: z.string().default(''),
   RATE_LIMIT_WINDOW_MS: z.coerce.number().default(60000),

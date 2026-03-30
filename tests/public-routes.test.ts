@@ -181,6 +181,34 @@ describe('public api routes', () => {
     expect(mockTranslateWithContext).toHaveBeenCalledTimes(1);
   });
 
+  it('retorna erro claro quando provedor de traducao rejeita credenciais', async () => {
+    mockTranslateWithContext.mockRejectedValueOnce(new Error('Groq API error (403): forbidden'));
+    const app = createApp();
+    const response = await request(app).post('/api/translate').send({
+      phrase: 'love',
+      context: 'I love you',
+    });
+    expect(response.status).toBe(502);
+    expect(response.body).toMatchObject({
+      error: 'Falha de autenticacao no servico de traducao',
+      code: 'HTTP_502',
+    });
+  });
+
+  it('retorna erro de autenticacao quando provedor responde 400 por chave invalida', async () => {
+    mockTranslateWithContext.mockRejectedValueOnce(new Error('Groq API error (400): API key not valid'));
+    const app = createApp();
+    const response = await request(app).post('/api/translate').send({
+      phrase: 'love',
+      context: 'I love you',
+    });
+    expect(response.status).toBe(502);
+    expect(response.body).toMatchObject({
+      error: 'Falha de autenticacao no servico de traducao',
+      code: 'HTTP_502',
+    });
+  });
+
   it('lista videos, grammar, podcasts e expressions', async () => {
     mockPrisma.video.findMany.mockResolvedValue([{ id: 1, title: 'Video' }]);
     mockPrisma.grammarTip.findMany.mockResolvedValue([{ id: 1, title: 'Tip' }]);
