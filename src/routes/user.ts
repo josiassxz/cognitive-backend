@@ -190,20 +190,27 @@ userRouter.post(
       where: { userId_date: { userId, date: today } },
     });
     const tasks: Record<string, boolean> = record ? JSON.parse(record.tasks) : {};
-    const alreadyCompleted = !!tasks[taskId];
-    if (!alreadyCompleted) {
+    const toggledTo = !tasks[taskId];
+    if (toggledTo) {
       tasks[taskId] = true;
+    } else {
+      delete tasks[taskId];
     }
-    const tasksJson = JSON.stringify(tasks);
-
-    if (record && !alreadyCompleted) {
-      await prisma.userChecklist.update({ where: { id: record.id }, data: { tasks: tasksJson } });
-    } else if (!record) {
-      await prisma.userChecklist.create({ data: { userId, date: today, tasks: tasksJson } });
+    const hasAnyTaskChecked = Object.values(tasks).some(Boolean);
+    if (!hasAnyTaskChecked) {
+      if (record) {
+        await prisma.userChecklist.delete({ where: { id: record.id } });
+      }
+    } else {
+      await prisma.userChecklist.upsert({
+        where: { userId_date: { userId, date: today } },
+        update: { tasks: JSON.stringify(tasks) },
+        create: { userId, date: today, tasks: JSON.stringify(tasks) },
+      });
     }
 
     const completedCount = CHECKLIST_TASKS.filter((key) => tasks[key]).length;
-    if (completedCount >= CHECKLIST_TASKS.length) {
+    if (toggledTo && completedCount >= CHECKLIST_TASKS.length) {
       const todayStart = new Date(today);
       const todayEnd = new Date(todayStart.getTime() + 86400000);
       const alreadyAwarded = await prisma.xpLog.findFirst({
@@ -220,18 +227,21 @@ userRouter.post(
             userId,
             amount: XP_CONFIG.checklist_complete,
             source: 'checklist',
-            detail: 'Checklist completo',
+            detail: `Checklist completo ${today}`,
           },
         });
 
         const completedDays = await prisma.userChecklist.count({
-          where: { userId, tasks: { contains: '"pronunciation":true' } },
+          where: {
+            userId,
+            AND: CHECKLIST_TASKS.map((task) => ({ tasks: { contains: `"${task}":true` } })),
+          },
         });
         if (completedDays >= 7) await awardBadgeIfEligible(userId, 'checklist-7');
       }
     }
 
-    res.json({ date: today, tasks, alreadyCompleted });
+    res.json({ date: today, tasks, toggledTo, alreadyCompleted: !toggledTo });
   }),
 );
 

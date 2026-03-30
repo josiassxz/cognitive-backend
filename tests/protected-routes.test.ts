@@ -44,6 +44,8 @@ const mockPrisma = vi.hoisted(() => ({
     findUnique: vi.fn(),
     create: vi.fn(),
     update: vi.fn(),
+    upsert: vi.fn(),
+    delete: vi.fn(),
     count: vi.fn(),
   },
   badge: {
@@ -140,6 +142,8 @@ describe('protected api routes', () => {
     mockPrisma.userChecklist.findUnique.mockResolvedValue(null);
     mockPrisma.userChecklist.create.mockResolvedValue(undefined);
     mockPrisma.userChecklist.update.mockResolvedValue(undefined);
+    mockPrisma.userChecklist.upsert.mockResolvedValue(undefined);
+    mockPrisma.userChecklist.delete.mockResolvedValue(undefined);
     mockPrisma.userChecklist.count.mockResolvedValue(0);
     mockPrisma.badge.findUnique.mockResolvedValue(null);
     mockPrisma.userCollocationProgress.count.mockResolvedValue(0);
@@ -203,18 +207,32 @@ describe('protected api routes', () => {
     expect(response.body.streak.current).toBe(1);
   });
 
-  it('retorna checklist vazio e alterna task valida', async () => {
+  it('retorna checklist vazio e alterna task valida para marcar e desmarcar', async () => {
+    mockPrisma.userChecklist.findUnique
+      .mockResolvedValueOnce(null)
+      .mockResolvedValueOnce(null)
+      .mockResolvedValueOnce({ id: 1, tasks: '{"focused-study":true}' });
     const app = createApp();
     const token = makeToken();
     const getResponse = await request(app).get('/api/user/checklist').set('Authorization', `Bearer ${token}`);
-    const postResponse = await request(app)
+    const markResponse = await request(app)
+      .post('/api/user/checklist')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ taskId: 'focused-study' });
+    const unmarkResponse = await request(app)
       .post('/api/user/checklist')
       .set('Authorization', `Bearer ${token}`)
       .send({ taskId: 'focused-study' });
     expect(getResponse.status).toBe(200);
     expect(getResponse.body.tasks).toEqual({});
-    expect(postResponse.status).toBe(200);
-    expect(postResponse.body.tasks['focused-study']).toBe(true);
+    expect(markResponse.status).toBe(200);
+    expect(markResponse.body.tasks['focused-study']).toBe(true);
+    expect(markResponse.body.toggledTo).toBe(true);
+    expect(unmarkResponse.status).toBe(200);
+    expect(unmarkResponse.body.tasks['focused-study']).toBeUndefined();
+    expect(unmarkResponse.body.toggledTo).toBe(false);
+    expect(mockPrisma.userChecklist.upsert).toHaveBeenCalledTimes(1);
+    expect(mockPrisma.userChecklist.delete).toHaveBeenCalledTimes(1);
   });
 
   it('retorna erro para taskId invalido', async () => {
