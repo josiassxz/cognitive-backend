@@ -161,13 +161,13 @@ songsRouter.get(
     const lyricCounts = await prisma.songLyricLine.groupBy({
       by: ['songId'],
       _count: { songId: true },
-      where: { songId: { in: items.map((song) => song.id) } },
+      where: { songId: { in: items.map((song: { id: number }) => song.id) } },
     });
     const countBySongId = new Map<number, number>(
       lyricCounts.map((item: { songId: number; _count: { songId: number } }) => [item.songId, item._count.songId]),
     );
     res.json(
-      items.map((song) => {
+      items.map((song: { id: number }) => {
         const linesCount = countBySongId.get(song.id) ?? 0;
         return { ...song, hasLyrics: linesCount > 0, linesCount };
       }),

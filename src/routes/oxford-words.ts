@@ -48,7 +48,7 @@ oxfordWordsRouter.get(
       orderBy: { cefrLevel: 'asc' },
     });
 
-    const levels = counts.map((c) => ({
+    const levels = counts.map((c: { cefrLevel: string; _count: { id: number } }) => ({
       cefrLevel: c.cefrLevel,
       count: c._count.id,
     }));

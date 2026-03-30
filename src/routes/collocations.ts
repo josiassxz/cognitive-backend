@@ -86,7 +86,17 @@ collocationsRouter.get(
     // Shuffle and pick
     const shuffled = allExercises.sort(() => Math.random() - 0.5).slice(0, count);
 
-    const exercises = shuffled.map((ex) => ({
+    const exercises = shuffled.map((ex: {
+      id: number;
+      collocationId: number;
+      promptType: string;
+      prompt: string;
+      correctAnswer: string;
+      distractors: string[];
+      cefrLevel: string;
+      month: number;
+      collocation: { phrase: string; meaning: string; example: string };
+    }) => ({
       id: ex.id,
       collocationId: ex.collocationId,
       promptType: ex.promptType,
