@@ -192,6 +192,18 @@ songsRouter.get(
   }),
 );
 
+songsRouter.get(
+  '/:songId/word-timestamps',
+  asyncHandler(async (req, res) => {
+    const songId = z.coerce.number().int().positive().parse(req.params.songId);
+    const words = await prisma.songWordTimestamp.findMany({
+      where: { songId },
+      orderBy: [{ lineIndex: 'asc' }, { wordIndex: 'asc' }],
+    });
+    res.json({ songId, words, total: words.length });
+  }),
+);
+
 songsRouter.post(
   '/import',
   authMiddleware,

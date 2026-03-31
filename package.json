@@ -16,6 +16,9 @@
     "db:setup": "npm run prisma:push"
   },
   "dependencies": {
+    "@aws-sdk/client-polly": "^3.910.0",
+    "@aws-sdk/client-s3": "^3.910.0",
+    "@aws-sdk/s3-request-presigner": "^3.910.0",
     "@prisma/client": "^6.7.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
@@ -24,8 +27,10 @@
     "express-rate-limit": "^8.3.1",
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
+    "microsoft-cognitiveservices-speech-sdk": "^1.44.0",
     "morgan": "^1.10.0",
     "multer": "^2.1.1",
+    "openai": "^6.7.0",
     "xlsx": "^0.18.5",
     "zod": "^3.23.8"
   },

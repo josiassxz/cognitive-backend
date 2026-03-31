@@ -29,6 +29,8 @@ model User {
   sentenceProgress      UserSentenceProgress[]
   refreshTokens         RefreshToken[]
   savedPhrases          UserSavedPhrase[]
+  readingContents       ReadingContent[]
+  readingProgress       UserReadingProgress[]
 }
 
 model RefreshToken {
@@ -188,6 +190,9 @@ model Song {
   title           String
   artist          String
   youtubeId       String
+  audioUrl        String      @default("")
+  audioDurationMs Int         @default(0)
+  lyricsOffsetMs  Int         @default(0)
   level           String
   themes          String[]
   learningNotes   String      @default("")
@@ -195,6 +200,7 @@ model Song {
   keyPhrases      KeyPhrase[]
   vocabHighlights SongVocab[]
   lyricLines      SongLyricLine[]
+  wordTimestamps  SongWordTimestamp[]
   savedPhrases    UserSavedPhrase[]
 
   @@index([month])
@@ -214,6 +220,21 @@ model SongLyricLine {
   @@unique([songId, lineIndex])
   @@index([songId])
   @@index([songId, startMs])
+}
+
+model SongWordTimestamp {
+  id        Int    @id @default(autoincrement())
+  songId    Int
+  lineIndex Int
+  wordIndex Int
+  word      String
+  startMs   Int
+  endMs     Int
+  song      Song   @relation(fields: [songId], references: [id], onDelete: Cascade)
+
+  @@index([songId])
+  @@index([songId, lineIndex])
+  @@unique([songId, lineIndex, wordIndex])
 }
 
 model TranslationCache {
@@ -269,6 +290,79 @@ model SongVocab {
   song    Song   @relation(fields: [songId], references: [id], onDelete: Cascade)
 
   @@index([songId])
+}
+
+model ReadingContent {
+  id              Int               @id @default(autoincrement())
+  title           String
+  slug            String            @unique
+  textHash        String            @unique
+  fullText        String
+  cefrLevel       String
+  wordCount       Int               @default(0)
+  estimatedTimeMs Int               @default(0)
+  audioUrl        String            @default("")
+  audioDurationMs Int               @default(0)
+  ttsProvider     String            @default("azure")
+  ttsVoice        String            @default("en-US-JennyNeural")
+  sourceType      String            @default("curated")
+  userId          String?
+  month           Int               @default(1)
+  category        String            @default("general")
+  isPublic        Boolean           @default(true)
+  createdAt       DateTime          @default(now())
+  sentences       ReadingSentence[]
+  user            User?             @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([cefrLevel])
+  @@index([month])
+  @@index([userId])
+  @@index([sourceType])
+  @@index([category])
+}
+
+model ReadingSentence {
+  id             Int                    @id @default(autoincrement())
+  contentId      Int
+  sentenceIndex  Int
+  text           String
+  translation    String                 @default("")
+  startMs        Int
+  endMs          Int
+  content        ReadingContent         @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  wordTimestamps ReadingWordTimestamp[]
+
+  @@unique([contentId, sentenceIndex])
+  @@index([contentId])
+}
+
+model ReadingWordTimestamp {
+  id         Int             @id @default(autoincrement())
+  sentenceId Int
+  wordIndex  Int
+  word       String
+  startMs    Int
+  endMs      Int
+  sentence   ReadingSentence @relation(fields: [sentenceId], references: [id], onDelete: Cascade)
+
+  @@index([sentenceId])
+  @@unique([sentenceId, wordIndex])
+}
+
+model UserReadingProgress {
+  id           Int       @id @default(autoincrement())
+  userId       String
+  contentId    Int
+  lastSentence Int       @default(0)
+  completed    Boolean   @default(false)
+  completedAt  DateTime?
+  timeSpentMs  Int       @default(0)
+  createdAt    DateTime  @default(now())
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, contentId])
+  @@index([userId])
+  @@index([userId, completed])
 }
 
 model Video {

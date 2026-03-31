@@ -1,5 +1,8 @@
 import { Router } from 'express';
 import { z } from 'zod';
+import { cleanupTempFile, extractYoutubeAudio } from '../lib/youtube-audio';
+import { uploadToStorage } from '../lib/storage';
+import { transcribeWithWhisper } from '../lib/whisper';
 import { XP_CONFIG } from '../lib/xp';
 import { authMiddleware } from '../middleware/auth';
 import { prisma } from '../lib/prisma';
@@ -8,6 +11,7 @@ import { HttpError } from '../utils/http-error';
 
 type TranscriptLine = { startMs: number; endMs: number; text: string };
 type PersistedLyricLine = { id: number; lineIndex: number; startMs: number; endMs: number; text: string; translation: string };
+type PersistedWordTimestamp = { id: number; lineIndex: number; wordIndex: number; word: string; startMs: number; endMs: number };
 
 export const mobileRouter = Router();
 
@@ -114,6 +118,14 @@ async function listLyrics(songId: number): Promise<PersistedLyricLine[]> {
   })) as Promise<PersistedLyricLine[]>;
 }
 
+async function listWordTimestamps(songId: number): Promise<PersistedWordTimestamp[]> {
+  return prisma.songWordTimestamp.findMany({
+    where: { songId },
+    orderBy: [{ lineIndex: 'asc' }, { wordIndex: 'asc' }],
+    select: { id: true, lineIndex: true, wordIndex: true, word: true, startMs: true, endMs: true },
+  });
+}
+
 mobileRouter.post(
   '/import-song',
   authMiddleware,
@@ -160,7 +172,9 @@ mobileRouter.post(
       justCreated = true;
     }
     if (!song) throw new HttpError(404, 'Musica nao encontrada');
-    let songLyrics = await listLyrics(song.id);
+    const songId = song.id;
+    let songLyrics = await listLyrics(songId);
+    let wordTimestamps = await listWordTimestamps(songId);
 
     let lyricsImported = false;
     let importError: string | null = null;
@@ -175,7 +189,7 @@ mobileRouter.post(
             }
           ).songLyricLine.createMany({
             data: transcript.map((line, index) => ({
-              songId: song.id,
+              songId,
               lineIndex: index,
               startMs: line.startMs,
               endMs: line.endMs,
@@ -183,12 +197,53 @@ mobileRouter.post(
             })),
           });
           lyricsImported = true;
-          songLyrics = await listLyrics(song.id);
+          songLyrics = await listLyrics(songId);
         } else {
           importError = 'Nenhuma legenda encontrada neste video';
         }
       } catch (error) {
         importError = error instanceof Error ? error.message : 'Erro ao extrair legendas';
+      }
+    }
+
+    let audioImportError: string | null = null;
+    if (!song.audioUrl) {
+      try {
+        const { localPath, durationMs } = await extractYoutubeAudio(youtubeId);
+        const audioUrl = await uploadToStorage(localPath, `songs/${youtubeId}.mp3`);
+        const whisperResult = await transcribeWithWhisper(localPath);
+        await prisma.song.update({
+          where: { id: songId },
+          data: { audioUrl, audioDurationMs: durationMs },
+        });
+        song = { ...song, audioUrl, audioDurationMs: durationMs };
+        if (whisperResult.segments.length > 0 && wordTimestamps.length === 0) {
+          const data: Array<{ songId: number; lineIndex: number; wordIndex: number; word: string; startMs: number; endMs: number }> = [];
+          for (const segment of whisperResult.segments) {
+            for (const [wordIndex, word] of (segment.words ?? []).entries()) {
+              const trimmed = word.word.trim();
+              if (!trimmed) continue;
+              data.push({
+                songId,
+                lineIndex: segment.id,
+                wordIndex,
+                word: trimmed,
+                startMs: Math.round(word.start * 1000),
+                endMs: Math.round(word.end * 1000),
+              });
+            }
+          }
+          if (data.length > 0) {
+            await prisma.songWordTimestamp.createMany({
+              data,
+              skipDuplicates: true,
+            });
+          }
+          wordTimestamps = await listWordTimestamps(songId);
+        }
+        await cleanupTempFile(localPath);
+      } catch (error) {
+        audioImportError = error instanceof Error ? error.message : 'Erro ao processar audio';
       }
     }
 
@@ -215,10 +270,14 @@ mobileRouter.post(
         artist: song.artist,
         youtubeId: song.youtubeId,
         level: song.level,
+        audioUrl: song.audioUrl || null,
+        audioDurationMs: song.audioDurationMs || 0,
         hasLyrics: songLyrics.length > 0,
         linesCount: songLyrics.length,
         lines: songLyrics,
+        wordTimestamps,
       },
+      audioImportError,
     });
   }),
 );

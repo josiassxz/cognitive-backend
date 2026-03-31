@@ -79,8 +79,13 @@ const mockPrisma = vi.hoisted(() => ({
   song: {
     findFirst: vi.fn(),
     create: vi.fn(),
+    update: vi.fn(),
   },
   songLyricLine: {
+    findMany: vi.fn(),
+    createMany: vi.fn(),
+  },
+  songWordTimestamp: {
     findMany: vi.fn(),
     createMany: vi.fn(),
   },
@@ -167,12 +172,17 @@ describe('protected api routes', () => {
       title: 'Song Importada',
       artist: 'Canal',
       youtubeId: 'dQw4w9WgXcQ',
+      audioUrl: 'https://bucket/songs/dQw4w9WgXcQ.mp3',
+      audioDurationMs: 180000,
       level: 'Intermediario',
       themes: ['imported'],
       month: 1,
     });
+    mockPrisma.song.update.mockResolvedValue(undefined);
     mockPrisma.songLyricLine.findMany.mockResolvedValue([]);
     mockPrisma.songLyricLine.createMany.mockResolvedValue(undefined);
+    mockPrisma.songWordTimestamp.findMany.mockResolvedValue([]);
+    mockPrisma.songWordTimestamp.createMany.mockResolvedValue(undefined);
   });
 
   it('bloqueia rota protegida sem bearer token', async () => {
@@ -400,6 +410,8 @@ describe('protected api routes', () => {
       title: 'Song A',
       artist: 'Artist A',
       youtubeId: 'dQw4w9WgXcQ',
+      audioUrl: 'https://bucket/songs/dQw4w9WgXcQ.mp3',
+      audioDurationMs: 210000,
       level: 'Intermediario',
       themes: ['imported'],
       month: 1,
@@ -429,6 +441,8 @@ describe('protected api routes', () => {
       title: 'My Song From Youtube',
       artist: 'Canal Oficial',
       youtubeId: 'dQw4w9WgXcQ',
+      audioUrl: 'https://bucket/songs/dQw4w9WgXcQ.mp3',
+      audioDurationMs: 200000,
       level: 'Intermediario',
       themes: ['imported'],
       month: 1,

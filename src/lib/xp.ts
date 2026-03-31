@@ -20,6 +20,9 @@ export const XP_CONFIG = {
   lyric_phrase_saved: 3,
   lyric_phrases_to_flashcard: 5,
   song_imported: 10,
+  reading_complete: 15,
+  reading_phrase_saved: 3,
+  reading_text_imported: 5,
 };
 
 export const LEVELS = [
