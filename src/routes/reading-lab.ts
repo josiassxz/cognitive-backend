@@ -5,7 +5,7 @@ import { z } from 'zod';
 import { synthesizeWithAzure } from '../lib/azure-tts';
 import { synthesizeWithPolly } from '../lib/polly-tts';
 import { prisma } from '../lib/prisma';
-import { uploadToStorage } from '../lib/storage';
+import { getPlayableStorageUrl, uploadToStorage } from '../lib/storage';
 import { XP_CONFIG } from '../lib/xp';
 import { authMiddleware } from '../middleware/auth';
 import { asyncHandler } from '../utils/async-handler';
@@ -98,7 +98,13 @@ readingLabRouter.get(
       }),
       prisma.readingContent.count({ where }),
     ]);
-    res.json({ items, total, limit, offset });
+    const itemsWithPlayableUrl = await Promise.all(
+      items.map(async (item) => ({
+        ...item,
+        audioUrl: await getPlayableStorageUrl(item.audioUrl),
+      })),
+    );
+    res.json({ items: itemsWithPlayableUrl, total, limit, offset });
   }),
 );
 
@@ -116,7 +122,10 @@ readingLabRouter.get(
       },
     });
     if (!content) throw new HttpError(404, 'Conteúdo não encontrado');
-    res.json(content);
+    res.json({
+      ...content,
+      audioUrl: await getPlayableStorageUrl(content.audioUrl),
+    });
   }),
 );
 
@@ -147,7 +156,11 @@ readingLabRouter.post(
       },
     });
     if (cached) {
-      res.json({ ...cached, fromCache: true });
+      res.json({
+        ...cached,
+        audioUrl: await getPlayableStorageUrl(cached.audioUrl),
+        fromCache: true,
+      });
       return;
     }
     const cefrLevel = input.cefrLevel ?? (await detectCefrLevel(normalizedText));
@@ -233,7 +246,14 @@ readingLabRouter.post(
           },
         },
       });
-      res.json({ ...result, fromCache: false });
+      if (!result) {
+        throw new HttpError(500, 'Falha ao buscar conteudo processado');
+      }
+      res.json({
+        ...result,
+        audioUrl: await getPlayableStorageUrl(result.audioUrl),
+        fromCache: false,
+      });
     } catch (error) {
       throw mapReadingLabProcessError(error);
     } finally {
