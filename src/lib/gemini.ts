@@ -6,6 +6,9 @@ type TranslationResult = {
   translation: string;
   explanation: string;
   partOfSpeech: string;
+  baseForm: string;
+  contextTranslation: string;
+  isInformal: boolean;
 };
 
 function asNonEmptyString(value: unknown): string {
@@ -24,10 +27,24 @@ function asNonEmptyString(value: unknown): string {
 
 function normalizeResult(data: unknown): TranslationResult {
   if (typeof data === 'string') {
-    return { translation: data.trim(), explanation: '', partOfSpeech: '' };
+    return {
+      translation: data.trim(),
+      explanation: '',
+      partOfSpeech: '',
+      baseForm: '',
+      contextTranslation: '',
+      isInformal: false,
+    };
   }
   if (!data || typeof data !== 'object') {
-    return { translation: '', explanation: '', partOfSpeech: '' };
+    return {
+      translation: '',
+      explanation: '',
+      partOfSpeech: '',
+      baseForm: '',
+      contextTranslation: '',
+      isInformal: false,
+    };
   }
 
   const result = data as Record<string, unknown>;
@@ -48,12 +65,47 @@ function normalizeResult(data: unknown): TranslationResult {
     asNonEmptyString(result.pos) ||
     asNonEmptyString(result.classeGramatical) ||
     '';
+  const baseForm =
+    asNonEmptyString(result.baseForm) ||
+    asNonEmptyString(result.fullForm) ||
+    asNonEmptyString(result.expandedForm) ||
+    asNonEmptyString(result.canonicalForm) ||
+    '';
+  const contextTranslation =
+    asNonEmptyString(result.contextTranslation) ||
+    asNonEmptyString(result.exampleTranslation) ||
+    asNonEmptyString(result.translationOfContext) ||
+    '';
+  const isInformal = (() => {
+    if (typeof result.isInformal === 'boolean') return result.isInformal;
+    if (typeof result.informal === 'boolean') return result.informal;
+    const hint = `${asNonEmptyString(result.register)} ${asNonEmptyString(result.style)} ${asNonEmptyString(result.explanation)}`.toLowerCase();
+    return hint.includes('informal') || hint.includes('slang') || hint.includes('gíria') || hint.includes('giria');
+  })();
 
   return {
     translation,
     explanation,
     partOfSpeech,
+    baseForm,
+    contextTranslation,
+    isInformal,
   };
+}
+
+function buildDidacticExplanation(
+  phrase: string,
+  context: string,
+  data: { translation: string; baseForm: string; contextTranslation: string; isInformal: boolean; partOfSpeech: string },
+): string {
+  const base = data.baseForm || phrase;
+  const contextPt = data.contextTranslation || data.translation;
+  const firstLine = data.isInformal
+    ? `A palavra “${phrase}” em inglês é uma forma informal (gíria) de:`
+    : data.partOfSpeech
+      ? `A palavra “${phrase}” em inglês é ${data.partOfSpeech} e significa:`
+      : `A palavra “${phrase}” em inglês significa:`;
+  return `${firstLine}\n\n“${base}” → significa “${data.translation}”\n\nExemplo:\n\n${context} → ${contextPt}`;
 }
 
 export async function translateWithContext(phrase: string, context: string): Promise<TranslationResult> {
@@ -69,11 +121,23 @@ export async function translateWithContext(phrase: string, context: string): Pro
 Palavra/expressão: "${phrase}"
 Contexto (frase completa): "${context}"
 
-Responda APENAS em JSON válido, sem markdown e de forma curta/sucinta para aluno:
+Regras:
+- Responda APENAS em JSON válido, sem markdown.
+- Use poucas palavras e linguagem simples.
+- "translation" deve ser curta em PT-BR.
+- "baseForm" deve conter a forma completa/base (ex.: cuz -> because).
+- "contextTranslation" deve traduzir a frase completa do contexto para PT-BR.
+- "isInformal" deve ser true para gíria/abreviação informal.
+- "partOfSpeech" com noun/verb/adj/adv/phrase/idiom quando aplicável.
+
+Formato obrigatório:
 {
   "translation": "tradução em PT-BR considerando o contexto",
-  "explanation": "explicação curta para aluno (máximo 12 palavras)",
-  "partOfSpeech": "classe gramatical (noun/verb/adj/adv/phrase/idiom)"
+  "baseForm": "forma completa/base em inglês",
+  "contextTranslation": "tradução da frase completa do contexto para PT-BR",
+  "isInformal": true,
+  "partOfSpeech": "classe gramatical (noun/verb/adj/adv/phrase/idiom)",
+  "explanation": "opcional"
 }`;
 
   const response = await fetch(GROQ_API_URL, {
@@ -86,7 +150,7 @@ Responda APENAS em JSON válido, sem markdown e de forma curta/sucinta para alun
       model: env.GROQ_MODEL,
       messages: [{ role: 'user', content: prompt }],
       temperature: 0.1,
-      max_tokens: 180,
+      max_tokens: 260,
       response_format: { type: 'json_object' },
     }),
   });
@@ -114,5 +178,12 @@ Responda APENAS em JSON válido, sem markdown e de forma curta/sucinta para alun
     throw new Error('Groq response error: traducao vazia');
   }
 
-  return normalized;
+  return {
+    translation: normalized.translation,
+    explanation: buildDidacticExplanation(phrase, context, normalized),
+    partOfSpeech: normalized.partOfSpeech,
+    baseForm: normalized.baseForm,
+    contextTranslation: normalized.contextTranslation,
+    isInformal: normalized.isInformal,
+  };
 }

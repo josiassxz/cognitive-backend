@@ -13,6 +13,17 @@ const translateBodySchema = z.object({
 
 export const translateRouter = Router();
 
+function shouldReuseCachedExplanation(explanation: string): boolean {
+  const clean = explanation.trim();
+  if (clean.length < 40) return false;
+  const wordCount = clean.split(/\s+/).filter(Boolean).length;
+  if (wordCount < 8) return false;
+  if (!clean.startsWith('A palavra “')) return false;
+  if (!clean.includes('Exemplo:')) return false;
+  if (!clean.includes('→')) return false;
+  return true;
+}
+
 function mapTranslateErrorToHttp(error: unknown): HttpError {
   const message = error instanceof Error ? error.message : '';
   const lowerMessage = message.toLowerCase();
@@ -69,7 +80,7 @@ translateRouter.post(
       },
     });
 
-    if (cached && cached.translation.trim().length > 0) {
+    if (cached && cached.translation.trim().length > 0 && shouldReuseCachedExplanation(cached.explanation)) {
       prisma.translationCache
         .update({
           where: { id: cached.id },
@@ -100,18 +111,33 @@ translateRouter.post(
       throw mapTranslateErrorToHttp(error);
     }
 
-    prisma.translationCache
-      .create({
-        data: {
-          phrase: normalizedPhrase,
-          contextHash,
-          context: normalizedContext,
-          translation: result.translation,
-          explanation: result.explanation,
-          partOfSpeech: result.partOfSpeech,
-        },
-      })
-      .catch(() => undefined);
+    if (cached) {
+      prisma.translationCache
+        .update({
+          where: { id: cached.id },
+          data: {
+            context: normalizedContext,
+            translation: result.translation,
+            explanation: result.explanation,
+            partOfSpeech: result.partOfSpeech,
+            hitCount: { increment: 1 },
+          },
+        })
+        .catch(() => undefined);
+    } else {
+      prisma.translationCache
+        .create({
+          data: {
+            phrase: normalizedPhrase,
+            contextHash,
+            context: normalizedContext,
+            translation: result.translation,
+            explanation: result.explanation,
+            partOfSpeech: result.partOfSpeech,
+          },
+        })
+        .catch(() => undefined);
+    }
 
     res.json({
       phrase: normalizedPhrase,
