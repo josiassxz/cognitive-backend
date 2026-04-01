@@ -21,6 +21,24 @@ const cefrMap: Record<string, number> = {
   c1: 5,
 };
 
+function mapReadingLabProcessError(error: unknown): HttpError {
+  const message = error instanceof Error ? error.message : String(error);
+  const lower = message.toLowerCase();
+  if (lower.includes('azure speech credentials')) {
+    return new HttpError(503, 'Azure TTS nao configurado');
+  }
+  if (lower.includes('could not load credentials') || lower.includes('credential') || lower.includes('security token')) {
+    return new HttpError(503, 'AWS nao configurado para fallback TTS ou upload');
+  }
+  if (lower.includes('s3') || lower.includes('putobject') || lower.includes('nosuchbucket') || lower.includes('accessdenied')) {
+    return new HttpError(503, 'Falha ao enviar audio para storage');
+  }
+  if (lower.includes('azure tts falhou') || lower.includes('azure tts error')) {
+    return new HttpError(503, 'Falha no provedor de TTS');
+  }
+  return new HttpError(500, 'Falha ao processar texto para TTS');
+}
+
 function segmentIntoSentences(text: string) {
   return text
     .replace(/\r/g, ' ')
@@ -147,75 +165,80 @@ readingLabRouter.post(
     const slug = `${slugBase || 'reading'}-${Date.now().toString(36)}`;
     const tmpAudioPath = `/tmp/reading-${slug}.mp3`;
     const selectedVoice = input.voice ?? 'en-US-JennyNeural';
-    let ttsProvider: 'azure' | 'polly' = 'azure';
-    let ttsResult;
     try {
-      ttsResult = await synthesizeWithAzure(sentences, tmpAudioPath, selectedVoice);
-    } catch {
-      ttsResult = await synthesizeWithPolly(sentences, tmpAudioPath);
-      ttsProvider = 'polly';
-    }
-    const audioUrl = await uploadToStorage(tmpAudioPath, `reading/${slug}.mp3`);
-    const content = await prisma.readingContent.create({
-      data: {
-        title: input.title,
-        slug,
-        textHash,
-        fullText: normalizedText,
-        cefrLevel,
-        wordCount: normalizedText.split(/\s+/).filter(Boolean).length,
-        estimatedTimeMs: ttsResult.durationMs,
-        audioUrl,
-        audioDurationMs: ttsResult.durationMs,
-        ttsProvider,
-        ttsVoice: selectedVoice,
-        sourceType: 'user_import',
-        userId,
-        month,
-        category: input.category ?? 'general',
-      },
-    });
-    for (const sentence of ttsResult.sentences) {
-      const savedSentence = await prisma.readingSentence.create({
+      let ttsProvider: 'azure' | 'polly' = 'azure';
+      let ttsResult;
+      try {
+        ttsResult = await synthesizeWithAzure(sentences, tmpAudioPath, selectedVoice);
+      } catch {
+        ttsResult = await synthesizeWithPolly(sentences, tmpAudioPath);
+        ttsProvider = 'polly';
+      }
+      const audioUrl = await uploadToStorage(tmpAudioPath, `reading/${slug}.mp3`);
+      const content = await prisma.readingContent.create({
         data: {
-          contentId: content.id,
-          sentenceIndex: sentence.sentenceIndex,
-          text: sentence.text,
-          startMs: sentence.startMs,
-          endMs: sentence.endMs,
+          title: input.title,
+          slug,
+          textHash,
+          fullText: normalizedText,
+          cefrLevel,
+          wordCount: normalizedText.split(/\s+/).filter(Boolean).length,
+          estimatedTimeMs: ttsResult.durationMs,
+          audioUrl,
+          audioDurationMs: ttsResult.durationMs,
+          ttsProvider,
+          ttsVoice: selectedVoice,
+          sourceType: 'user_import',
+          userId,
+          month,
+          category: input.category ?? 'general',
         },
       });
-      if (sentence.words.length > 0) {
-        await prisma.readingWordTimestamp.createMany({
-          data: sentence.words.map((word, wordIndex) => ({
-            sentenceId: savedSentence.id,
-            wordIndex,
-            word: word.word,
-            startMs: word.startMs,
-            endMs: word.endMs,
-          })),
+      for (const sentence of ttsResult.sentences) {
+        const savedSentence = await prisma.readingSentence.create({
+          data: {
+            contentId: content.id,
+            sentenceIndex: sentence.sentenceIndex,
+            text: sentence.text,
+            startMs: sentence.startMs,
+            endMs: sentence.endMs,
+          },
         });
+        if (sentence.words.length > 0) {
+          await prisma.readingWordTimestamp.createMany({
+            data: sentence.words.map((word, wordIndex) => ({
+              sentenceId: savedSentence.id,
+              wordIndex,
+              word: word.word,
+              startMs: word.startMs,
+              endMs: word.endMs,
+            })),
+          });
+        }
       }
-    }
-    await prisma.xpLog.create({
-      data: {
-        userId,
-        amount: XP_CONFIG.reading_text_imported,
-        source: 'reading',
-        detail: `reading_imported:${content.id}`,
-      },
-    });
-    await unlink(tmpAudioPath).catch(() => undefined);
-    const result = await prisma.readingContent.findUnique({
-      where: { id: content.id },
-      include: {
-        sentences: {
-          orderBy: { sentenceIndex: 'asc' },
-          include: { wordTimestamps: { orderBy: { wordIndex: 'asc' } } },
+      await prisma.xpLog.create({
+        data: {
+          userId,
+          amount: XP_CONFIG.reading_text_imported,
+          source: 'reading',
+          detail: `reading_imported:${content.id}`,
         },
-      },
-    });
-    res.json({ ...result, fromCache: false });
+      });
+      const result = await prisma.readingContent.findUnique({
+        where: { id: content.id },
+        include: {
+          sentences: {
+            orderBy: { sentenceIndex: 'asc' },
+            include: { wordTimestamps: { orderBy: { wordIndex: 'asc' } } },
+          },
+        },
+      });
+      res.json({ ...result, fromCache: false });
+    } catch (error) {
+      throw mapReadingLabProcessError(error);
+    } finally {
+      await unlink(tmpAudioPath).catch(() => undefined);
+    }
   }),
 );
 
