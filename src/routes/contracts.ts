@@ -235,12 +235,12 @@ contractsRouter.get('/', (_req, res) => {
           youtubeUrl: 'string',
         },
       },
-      uploadSrt: {
-        method: 'POST',
-        path: '/api/songs/:songId/upload-srt',
+      saveWordTimestampsJson: {
+        method: 'PATCH',
+        path: '/api/songs/:songId/word-timestamps-json',
         auth: true,
         body: {
-          file: 'multipart/form-data (.srt/.vtt)',
+          words: '[{ word: string, start: number, end: number }]',
         },
       },
       savedPhrases: {

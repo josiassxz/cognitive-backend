@@ -1,4 +1,3 @@
-import multer from 'multer';
 import { Router } from 'express';
 import { z } from 'zod';
 import { XP_CONFIG } from '../lib/xp';
@@ -9,7 +8,8 @@ import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
 
 export const songsRouter = Router();
-const upload = multer({ storage: multer.memoryStorage() });
+type SongWordItem = { id: number; songId: number; lineIndex: number; wordIndex: number; word: string; startMs: number; endMs: number };
+type SongLyricItem = { id: number; songId: number; lineIndex: number; startMs: number; endMs: number; text: string; translation: string };
 
 function extractYoutubeId(input: string): string | null {
   const patterns = [
@@ -28,106 +28,89 @@ function extractYoutubeId(input: string): string | null {
   return null;
 }
 
-function decodeXmlEntities(input: string): string {
-  return input
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&#39;/g, "'")
-    .replace(/&quot;/g, '"')
-    .replace(/&#(\d+);/g, (_, code: string) => String.fromCharCode(Number.parseInt(code, 10)));
-}
+function parseWordTimestampsJson(rawJson: unknown, songId: number): SongWordItem[] {
+  if (!Array.isArray(rawJson)) return [];
+  const normalized = rawJson
+    .map((item, index) => {
+      if (!item || typeof item !== 'object') return null;
+      const record = item as Record<string, unknown>;
+      const word = typeof record.word === 'string' ? record.word.trim() : '';
+      const start = typeof record.start === 'number' ? record.start : Number.NaN;
+      const end = typeof record.end === 'number' ? record.end : Number.NaN;
+      if (!word || !Number.isFinite(start) || !Number.isFinite(end)) return null;
+      return { word, startMs: Math.max(0, Math.round(start * 1000)), endMs: Math.max(0, Math.round(end * 1000)), idx: index };
+    })
+    .filter((item): item is { word: string; startMs: number; endMs: number; idx: number } => item !== null)
+    .sort((a, b) => a.startMs - b.startMs || a.idx - b.idx);
 
-async function fetchYoutubeTranscript(videoId: string): Promise<Array<{ startMs: number; endMs: number; text: string }>> {
-  const pageResponse = await fetch(`https://www.youtube.com/watch?v=${videoId}`, {
-    headers: { 'Accept-Language': 'en-US,en;q=0.9' },
-  });
-  const html = await pageResponse.text();
-  const tracksMatch = html.match(/"captionTracks":(\[[^\]]+\])/);
-  if (!tracksMatch) {
-    throw new HttpError(422, 'Nenhuma legenda encontrada para este video');
-  }
-
-  const tracks = JSON.parse(tracksMatch[1]) as Array<{ languageCode?: string; kind?: string; baseUrl?: string }>;
-  const selectedTrack =
-    tracks.find((track) => track.languageCode === 'en' && !track.kind) ??
-    tracks.find((track) => track.languageCode === 'en') ??
-    tracks[0];
-
-  if (!selectedTrack?.baseUrl) {
-    throw new HttpError(422, 'Caption track nao encontrado');
-  }
-
-  const captionResponse = await fetch(selectedTrack.baseUrl);
-  const xml = await captionResponse.text();
-  const lines: Array<{ startMs: number; endMs: number; text: string }> = [];
-  const regex = /<text start="([\d.]+)" dur="([\d.]+)"[^>]*>([\s\S]*?)<\/text>/g;
-  let match: RegExpExecArray | null = regex.exec(xml);
-
-  while (match) {
-    const startSec = Number.parseFloat(match[1]);
-    const durationSec = Number.parseFloat(match[2]);
-    const text = decodeXmlEntities(match[3]).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-
-    if (text) {
-      lines.push({
-        startMs: Math.round(startSec * 1000),
-        endMs: Math.round((startSec + durationSec) * 1000),
-        text,
-      });
+  const words: SongWordItem[] = [];
+  let lineIndex = 0;
+  let wordIndex = 0;
+  let lastEndMs = -1;
+  for (const item of normalized) {
+    const shouldBreakLine = words.length > 0 && (wordIndex >= 8 || item.startMs - lastEndMs > 1200);
+    if (shouldBreakLine) {
+      lineIndex += 1;
+      wordIndex = 0;
     }
-    match = regex.exec(xml);
+    words.push({
+      id: -(item.idx + 1),
+      songId,
+      lineIndex,
+      wordIndex,
+      word: item.word,
+      startMs: item.startMs,
+      endMs: item.endMs >= item.startMs ? item.endMs : item.startMs,
+    });
+    wordIndex += 1;
+    lastEndMs = item.endMs;
   }
-
-  return lines;
+  return words;
 }
 
-function srtTimeToMs(input: string): number {
-  const match = input.trim().match(/(\d{1,2}):(\d{2}):(\d{2})[,.](\d{1,3})/);
-  if (!match) return -1;
-  const [, hours, minutes, seconds, milliseconds] = match;
-  const paddedMs = milliseconds.padEnd(3, '0');
-  return (
-    (Number.parseInt(hours, 10) * 3600 + Number.parseInt(minutes, 10) * 60 + Number.parseInt(seconds, 10)) * 1000 +
-    Number.parseInt(paddedMs, 10)
-  );
+function buildLyricLinesFromWords(words: SongWordItem[]): SongLyricItem[] {
+  if (words.length === 0) return [];
+  const byLine = new Map<number, SongWordItem[]>();
+  for (const word of words) {
+    const current = byLine.get(word.lineIndex);
+    if (current) current.push(word);
+    else byLine.set(word.lineIndex, [word]);
+  }
+  const entries = [...byLine.entries()].sort((a, b) => a[0] - b[0]);
+  return entries.map(([lineIndex, lineWords]) => {
+    const ordered = [...lineWords].sort((a, b) => a.wordIndex - b.wordIndex);
+    return {
+      id: -(lineIndex + 1),
+      songId: ordered[0].songId,
+      lineIndex,
+      startMs: ordered[0].startMs,
+      endMs: ordered[ordered.length - 1].endMs,
+      text: ordered.map((item) => item.word).join(' '),
+      translation: '',
+    };
+  });
 }
 
-function parseSubtitleContent(content: string): Array<{ startMs: number; endMs: number; text: string }> {
-  const normalized = content.replace(/\r/g, '').trim();
-  if (!normalized) return [];
-  const blocks = normalized.split(/\n\n+/);
-  const lines: Array<{ startMs: number; endMs: number; text: string }> = [];
-
-  for (const block of blocks) {
-    const parts = block
-      .split('\n')
-      .map((line) => line.trim())
-      .filter(Boolean);
-
-    if (parts.length < 2) continue;
-    const timestampLine = parts.find((line) => line.includes('-->'));
-    if (!timestampLine) continue;
-
-    const [startRaw, endRaw] = timestampLine.split('-->');
-    if (!startRaw || !endRaw) continue;
-    const startMs = srtTimeToMs(startRaw);
-    const endMs = srtTimeToMs(endRaw);
-    if (startMs < 0 || endMs <= startMs) continue;
-
-    const timestampIndex = parts.indexOf(timestampLine);
-    const text = parts
-      .slice(timestampIndex + 1)
-      .join(' ')
-      .replace(/<[^>]+>/g, '')
-      .replace(/\s+/g, ' ')
-      .trim();
-
-    if (!text) continue;
-    lines.push({ startMs, endMs, text });
+async function fetchVideoMetadata(videoId: string): Promise<{ title: string; artist: string }> {
+  try {
+    const res = await fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`);
+    if (!res.ok) {
+      return { title: 'Musica importada', artist: 'Desconhecido' };
+    }
+    const data = (await res.json()) as { title?: string; author_name?: string };
+    const fullTitle = (data.title ?? '').trim();
+    const authorName = (data.author_name ?? '').trim();
+    const dashSplit = fullTitle.split(/\s*[-–—]\s*/);
+    if (dashSplit.length >= 2) {
+      return { artist: dashSplit[0].trim(), title: dashSplit.slice(1).join(' - ').trim() };
+    }
+    if (fullTitle) {
+      return { title: fullTitle, artist: authorName || 'Desconhecido' };
+    }
+    return { title: 'Musica importada', artist: authorName || 'Desconhecido' };
+  } catch {
+    return { title: 'Musica importada', artist: 'Desconhecido' };
   }
-
-  return lines;
 }
 
 songsRouter.get(
@@ -135,6 +118,7 @@ songsRouter.get(
   asyncHandler(async (req, res) => {
     const month = parseMonth(req.query.month);
     const slug = typeof req.query.slug === 'string' ? req.query.slug : undefined;
+    const search = typeof req.query.search === 'string' ? req.query.search.trim() : '';
 
     if (slug) {
       const item = await prisma.song.findUnique({
@@ -152,6 +136,13 @@ songsRouter.get(
 
     const where: Record<string, unknown> = {};
     if (month) where.month = month;
+    if (search) {
+      where.OR = [
+        { title: { contains: search, mode: 'insensitive' } },
+        { artist: { contains: search, mode: 'insensitive' } },
+        { youtubeId: { contains: search, mode: 'insensitive' } },
+      ];
+    }
 
     const items = await prisma.song.findMany({
       where,
@@ -181,14 +172,23 @@ songsRouter.get(
     const songId = z.coerce.number().int().positive().parse(req.params.songId);
     const song = await prisma.song.findUnique({
       where: { id: songId },
-      select: { id: true, title: true, artist: true, youtubeId: true },
     });
     if (!song) throw new HttpError(404, 'Musica nao encontrada');
-    const lines = await prisma.songLyricLine.findMany({
+    const songWordsJson = (song as unknown as { wordTimestampsJson?: unknown }).wordTimestampsJson ?? null;
+    let lines = await prisma.songLyricLine.findMany({
       where: { songId },
       orderBy: { lineIndex: 'asc' },
     });
-    res.json({ song, lines, total: lines.length });
+    if (lines.length === 0) {
+      const fallbackWords = parseWordTimestampsJson(songWordsJson, songId);
+      lines = buildLyricLinesFromWords(fallbackWords);
+    }
+    console.log(`[songs.lyrics] songId=${songId} lines=${lines.length}`);
+    res.json({
+      song: { id: song.id, title: song.title, artist: song.artist, youtubeId: song.youtubeId },
+      lines,
+      total: lines.length,
+    });
   }),
 );
 
@@ -196,10 +196,17 @@ songsRouter.get(
   '/:songId/word-timestamps',
   asyncHandler(async (req, res) => {
     const songId = z.coerce.number().int().positive().parse(req.params.songId);
-    const words = await prisma.songWordTimestamp.findMany({
+    const song = await prisma.song.findUnique({ where: { id: songId } });
+    if (!song) throw new HttpError(404, 'Musica nao encontrada');
+    const songWordsJson = (song as unknown as { wordTimestampsJson?: unknown }).wordTimestampsJson ?? null;
+    let words = await prisma.songWordTimestamp.findMany({
       where: { songId },
       orderBy: [{ lineIndex: 'asc' }, { wordIndex: 'asc' }],
     });
+    if (words.length === 0) {
+      words = parseWordTimestampsJson(songWordsJson, songId);
+    }
+    console.log(`[songs.wordTimestamps] songId=${songId} words=${words.length}`);
     res.json({ songId, words, total: words.length });
   }),
 );
@@ -219,19 +226,23 @@ songsRouter.post(
 
     const youtubeId = extractYoutubeId(input.youtubeUrl);
     if (!youtubeId) throw new HttpError(400, 'URL do YouTube invalida');
+    console.log(`[songs.import] start userId=${req.userId} youtubeId=${youtubeId}`);
 
     let song = await prisma.song.findFirst({ where: { youtubeId } });
     let justCreated = false;
     if (!song) {
-      const slugBase = (input.title || youtubeId)
+      const metadata = await fetchVideoMetadata(youtubeId);
+      const resolvedTitle = (input.title || metadata.title || youtubeId).trim();
+      const resolvedArtist = (input.artist || metadata.artist || 'Desconhecido').trim();
+      const slugBase = resolvedTitle
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/(^-|-$)/g, '');
       song = await prisma.song.create({
         data: {
           slug: `${slugBase}-${Date.now().toString(36)}`,
-          title: input.title || 'Musica importada',
-          artist: input.artist || 'Desconhecido',
+          title: resolvedTitle || 'Musica importada',
+          artist: resolvedArtist || 'Desconhecido',
           youtubeId,
           level: 'Intermediario',
           themes: ['imported'],
@@ -239,86 +250,94 @@ songsRouter.post(
         },
       });
       justCreated = true;
+      console.log(`[songs.import] created songId=${song.id} youtubeId=${youtubeId}`);
+    } else {
+      console.log(`[songs.import] found songId=${song.id} youtubeId=${youtubeId}`);
     }
+    if (!song) throw new HttpError(404, 'Musica nao encontrada');
+    const songData = song;
+    const songId = songData.id;
     if (justCreated) {
       await prisma.xpLog.create({
         data: {
           userId: req.userId,
           amount: XP_CONFIG.song_imported,
           source: 'lyrics',
-          detail: `song_imported:${song.id}|${song.youtubeId}`,
+          detail: `song_imported:${songData.id}|${songData.youtubeId}`,
         },
       });
     }
 
-    const existingLines = await prisma.songLyricLine.count({ where: { songId: song.id } });
-    if (existingLines > 0) {
-      res.json({
-        success: true,
-        message: 'Musica ja possui legendas',
-        songId: song.id,
-        linesCount: existingLines,
-      });
-      return;
-    }
+    const lyricsImported = false;
+    const importError = null;
+    const audioImportError = null;
 
-    const transcript = await fetchYoutubeTranscript(youtubeId);
-    if (transcript.length === 0) {
-      throw new HttpError(422, 'Nao foi possivel extrair legendas deste video');
-    }
-
-    await prisma.songLyricLine.createMany({
-      data: transcript.map((line, index) => ({
-        songId: song.id,
-        lineIndex: index,
-        startMs: line.startMs,
-        endMs: line.endMs,
-        text: line.text,
-      })),
-    });
+    const linesCount = await prisma.songLyricLine.count({ where: { songId } });
+    const wordCount = await prisma.songWordTimestamp.count({ where: { songId } });
+    console.log(
+      `[songs.import] done songId=${songId} justCreated=${justCreated} lines=${linesCount} words=${wordCount} lyricsImported=${lyricsImported} importError=${importError ?? 'none'} audioImportError=${audioImportError ?? 'none'}`,
+    );
 
     res.json({
       success: true,
-      songId: song.id,
-      linesCount: transcript.length,
-      message: `${transcript.length} linhas de legenda importadas com sucesso`,
+      justCreated,
+      songId,
+      linesCount,
+      wordTimestampsCount: wordCount,
+      message: 'Musica importada com sucesso',
+      lyricsImported,
+      importError,
+      audioImportError,
+      song: {
+        id: songData.id,
+        slug: songData.slug,
+        title: songData.title,
+        artist: songData.artist,
+        youtubeId: songData.youtubeId,
+        level: songData.level,
+        audioUrl: songData.audioUrl || null,
+        audioDurationMs: songData.audioDurationMs || 0,
+      },
     });
   }),
 );
 
-songsRouter.post(
-  '/:songId/upload-srt',
+songsRouter.patch(
+  '/:songId/word-timestamps-json',
   authMiddleware,
-  upload.single('file'),
   asyncHandler(async (req, res) => {
     if (!req.userId) throw new HttpError(401, 'Nao autorizado');
     const songId = z.coerce.number().int().positive().parse(req.params.songId);
-    const file = req.file;
-    if (!file) throw new HttpError(400, 'Arquivo obrigatorio');
+    const payload = z
+      .object({
+        words: z.array(
+          z.object({
+            word: z.string().min(1),
+            start: z.number(),
+            end: z.number(),
+          }),
+        ),
+      })
+      .parse(req.body);
 
-    const song = await prisma.song.findUnique({ where: { id: songId } });
-    if (!song) throw new HttpError(404, 'Musica nao encontrada');
+    const existing = await prisma.song.findUnique({ where: { id: songId }, select: { id: true } });
+    if (!existing) throw new HttpError(404, 'Musica nao encontrada');
 
-    const lines = parseSubtitleContent(file.buffer.toString('utf8'));
-    if (lines.length === 0) {
-      throw new HttpError(422, 'Nenhuma legenda valida encontrada no arquivo');
-    }
-
-    await prisma.songLyricLine.deleteMany({ where: { songId } });
-    await prisma.songLyricLine.createMany({
-      data: lines.map((line, index) => ({
-        songId,
-        lineIndex: index,
-        startMs: line.startMs,
-        endMs: line.endMs,
-        text: line.text,
-      })),
+    await prisma.$transaction([prisma.songLyricLine.deleteMany({ where: { songId } }), prisma.songWordTimestamp.deleteMany({ where: { songId } })]);
+    await (prisma as unknown as { song: { update: (args: unknown) => Promise<unknown> } }).song.update({
+      where: { id: songId },
+      data: { wordTimestampsJson: payload.words },
     });
+
+    const parsedWords = parseWordTimestampsJson(payload.words, songId);
+    const parsedLines = buildLyricLinesFromWords(parsedWords);
 
     res.json({
       success: true,
-      linesCount: lines.length,
-      message: `${lines.length} linhas importadas com sucesso`,
+      songId,
+      wordsCount: parsedWords.length,
+      linesCount: parsedLines.length,
+      message: 'Timestamps JSON salvos com sucesso',
     });
   }),
 );

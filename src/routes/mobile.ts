@@ -1,15 +1,11 @@
 import { Router } from 'express';
 import { z } from 'zod';
-import { cleanupTempFile, extractYoutubeAudio } from '../lib/youtube-audio';
-import { uploadToStorage } from '../lib/storage';
-import { transcribeWithWhisper } from '../lib/whisper';
 import { XP_CONFIG } from '../lib/xp';
 import { authMiddleware } from '../middleware/auth';
 import { prisma } from '../lib/prisma';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
 
-type TranscriptLine = { startMs: number; endMs: number; text: string };
 type PersistedLyricLine = { id: number; lineIndex: number; startMs: number; endMs: number; text: string; translation: string };
 type PersistedWordTimestamp = { id: number; lineIndex: number; wordIndex: number; word: string; startMs: number; endMs: number };
 
@@ -30,62 +26,6 @@ function extractYoutubeId(input: string): string | null {
   }
 
   return null;
-}
-
-function decodeXmlEntities(input: string): string {
-  return input
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&#39;/g, "'")
-    .replace(/&quot;/g, '"')
-    .replace(/&#(\d+);/g, (_, code: string) => String.fromCharCode(Number.parseInt(code, 10)));
-}
-
-async function fetchYoutubeTranscript(videoId: string): Promise<TranscriptLine[]> {
-  const pageRes = await fetch(`https://www.youtube.com/watch?v=${videoId}`, {
-    headers: {
-      'User-Agent': 'Mozilla/5.0',
-      'Accept-Language': 'en-US,en;q=0.9',
-    },
-  });
-  const html = await pageRes.text();
-  const tracksMatch = html.match(/"captionTracks":(\[[^\]]+\])/);
-  if (!tracksMatch) {
-    throw new HttpError(422, 'Este video nao possui legendas disponiveis');
-  }
-
-  const tracks = JSON.parse(tracksMatch[1]) as Array<{ languageCode?: string; kind?: string; baseUrl?: string }>;
-  const selectedTrack =
-    tracks.find((track) => track.languageCode === 'en' && !track.kind) ??
-    tracks.find((track) => track.languageCode === 'en') ??
-    tracks[0];
-
-  if (!selectedTrack?.baseUrl) {
-    throw new HttpError(422, 'Nao foi possivel acessar as legendas do video');
-  }
-
-  const captionRes = await fetch(selectedTrack.baseUrl);
-  const xml = await captionRes.text();
-  const lines: TranscriptLine[] = [];
-  const regex = /<text start="([\d.]+)" dur="([\d.]+)"[^>]*>([\s\S]*?)<\/text>/g;
-  let match: RegExpExecArray | null = regex.exec(xml);
-
-  while (match) {
-    const startSec = Number.parseFloat(match[1]);
-    const durSec = Number.parseFloat(match[2]);
-    const text = decodeXmlEntities(match[3]).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-    if (text) {
-      lines.push({
-        startMs: Math.round(startSec * 1000),
-        endMs: Math.round((startSec + durSec) * 1000),
-        text,
-      });
-    }
-    match = regex.exec(xml);
-  }
-
-  return lines;
 }
 
 async function fetchVideoMetadata(videoId: string): Promise<{ title: string; artist: string }> {
@@ -110,20 +50,86 @@ async function fetchVideoMetadata(videoId: string): Promise<{ title: string; art
   }
 }
 
-async function listLyrics(songId: number): Promise<PersistedLyricLine[]> {
-  return ((prisma as unknown as { songLyricLine: { findMany: (args: unknown) => Promise<PersistedLyricLine[]> } }).songLyricLine.findMany({
-    where: { songId },
-    orderBy: { lineIndex: 'asc' },
-    select: { id: true, lineIndex: true, startMs: true, endMs: true, text: true, translation: true },
-  })) as Promise<PersistedLyricLine[]>;
+function parseWordTimestampsJson(rawJson: unknown): PersistedWordTimestamp[] {
+  if (!Array.isArray(rawJson)) return [];
+  const normalized = rawJson
+    .map((item, index) => {
+      if (!item || typeof item !== 'object') return null;
+      const record = item as Record<string, unknown>;
+      const word = typeof record.word === 'string' ? record.word.trim() : '';
+      const start = typeof record.start === 'number' ? record.start : Number.NaN;
+      const end = typeof record.end === 'number' ? record.end : Number.NaN;
+      if (!word || !Number.isFinite(start) || !Number.isFinite(end)) return null;
+      return { word, startMs: Math.max(0, Math.round(start * 1000)), endMs: Math.max(0, Math.round(end * 1000)), idx: index };
+    })
+    .filter((item): item is { word: string; startMs: number; endMs: number; idx: number } => item !== null)
+    .sort((a, b) => a.startMs - b.startMs || a.idx - b.idx);
+
+  const words: PersistedWordTimestamp[] = [];
+  let lineIndex = 0;
+  let wordIndex = 0;
+  let lastEndMs = -1;
+  for (const item of normalized) {
+    const shouldBreakLine = words.length > 0 && (wordIndex >= 8 || item.startMs - lastEndMs > 1200);
+    if (shouldBreakLine) {
+      lineIndex += 1;
+      wordIndex = 0;
+    }
+    words.push({
+      id: -(item.idx + 1),
+      lineIndex,
+      wordIndex,
+      word: item.word,
+      startMs: item.startMs,
+      endMs: item.endMs >= item.startMs ? item.endMs : item.startMs,
+    });
+    wordIndex += 1;
+    lastEndMs = item.endMs;
+  }
+  return words;
 }
 
-async function listWordTimestamps(songId: number): Promise<PersistedWordTimestamp[]> {
-  return prisma.songWordTimestamp.findMany({
+function buildLyricLinesFromWords(words: PersistedWordTimestamp[]): PersistedLyricLine[] {
+  if (words.length === 0) return [];
+  const byLine = new Map<number, PersistedWordTimestamp[]>();
+  for (const word of words) {
+    const current = byLine.get(word.lineIndex);
+    if (current) current.push(word);
+    else byLine.set(word.lineIndex, [word]);
+  }
+  const entries = [...byLine.entries()].sort((a, b) => a[0] - b[0]);
+  return entries.map(([lineIndex, lineWords]) => {
+    const ordered = [...lineWords].sort((a, b) => a.wordIndex - b.wordIndex);
+    return {
+      id: -(lineIndex + 1),
+      lineIndex,
+      startMs: ordered[0].startMs,
+      endMs: ordered[ordered.length - 1].endMs,
+      text: ordered.map((item) => item.word).join(' '),
+      translation: '',
+    } satisfies PersistedLyricLine;
+  });
+}
+
+async function listWordTimestamps(songId: number, rawJson: unknown): Promise<PersistedWordTimestamp[]> {
+  const persisted = await prisma.songWordTimestamp.findMany({
     where: { songId },
     orderBy: [{ lineIndex: 'asc' }, { wordIndex: 'asc' }],
     select: { id: true, lineIndex: true, wordIndex: true, word: true, startMs: true, endMs: true },
   });
+  if (persisted.length > 0) return persisted;
+  return parseWordTimestampsJson(rawJson);
+}
+
+async function listLyrics(songId: number, rawJson: unknown): Promise<PersistedLyricLine[]> {
+  const persisted = await ((prisma as unknown as { songLyricLine: { findMany: (args: unknown) => Promise<PersistedLyricLine[]> } }).songLyricLine.findMany({
+    where: { songId },
+    orderBy: { lineIndex: 'asc' },
+    select: { id: true, lineIndex: true, startMs: true, endMs: true, text: true, translation: true },
+  })) as PersistedLyricLine[];
+  if (persisted.length > 0) return persisted;
+  const words = parseWordTimestampsJson(rawJson);
+  return buildLyricLinesFromWords(words);
 }
 
 mobileRouter.post(
@@ -141,6 +147,7 @@ mobileRouter.post(
 
     const youtubeId = extractYoutubeId(input.youtubeUrl);
     if (!youtubeId) throw new HttpError(400, 'URL do YouTube invalida');
+    console.log(`[mobile.importSong] start userId=${userId} youtubeId=${youtubeId}`);
 
     let song = await prisma.song.findFirst({ where: { youtubeId } });
 
@@ -149,14 +156,11 @@ mobileRouter.post(
       const metadata = await fetchVideoMetadata(youtubeId);
       const title = metadata.title.trim() || 'Musica importada';
       const artist = metadata.artist.trim() || 'Desconhecido';
-      const slug = title
+      const slugBase = title
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/(^-|-$)/g, '') || 'musica-importada';
-      const existingSlug = await prisma.song.findFirst({ where: { slug } });
-      if (existingSlug) {
-        throw new HttpError(409, 'Ja existe musica com este titulo');
-      }
+      const slug = `${slugBase}-${Date.now().toString(36)}`;
 
       song = await prisma.song.create({
         data: {
@@ -170,82 +174,22 @@ mobileRouter.post(
         },
       });
       justCreated = true;
+      console.log(`[mobile.importSong] created songId=${song.id} youtubeId=${youtubeId} slug=${song.slug}`);
+    } else {
+      console.log(`[mobile.importSong] found songId=${song.id} youtubeId=${youtubeId}`);
     }
     if (!song) throw new HttpError(404, 'Musica nao encontrada');
     const songId = song.id;
-    let songLyrics = await listLyrics(songId);
-    let wordTimestamps = await listWordTimestamps(songId);
+    const songWordsJson = (song as unknown as { wordTimestampsJson?: unknown }).wordTimestampsJson ?? null;
+    let songLyrics = await listLyrics(songId, songWordsJson);
+    let wordTimestamps = await listWordTimestamps(songId, songWordsJson);
+    console.log(
+      `[mobile.importSong] existing data songId=${songId} lyrics=${songLyrics.length} words=${wordTimestamps.length} jsonWords=${songWordsJson ? 'yes' : 'no'}`,
+    );
 
-    let lyricsImported = false;
-    let importError: string | null = null;
-
-    if (songLyrics.length === 0) {
-      try {
-        const transcript = await fetchYoutubeTranscript(youtubeId);
-        if (transcript.length > 0) {
-          await (
-            prisma as unknown as {
-              songLyricLine: { createMany: (args: unknown) => Promise<unknown> };
-            }
-          ).songLyricLine.createMany({
-            data: transcript.map((line, index) => ({
-              songId,
-              lineIndex: index,
-              startMs: line.startMs,
-              endMs: line.endMs,
-              text: line.text,
-            })),
-          });
-          lyricsImported = true;
-          songLyrics = await listLyrics(songId);
-        } else {
-          importError = 'Nenhuma legenda encontrada neste video';
-        }
-      } catch (error) {
-        importError = error instanceof Error ? error.message : 'Erro ao extrair legendas';
-      }
-    }
-
-    let audioImportError: string | null = null;
-    if (!song.audioUrl) {
-      try {
-        const { localPath, durationMs } = await extractYoutubeAudio(youtubeId);
-        const audioUrl = await uploadToStorage(localPath, `songs/${youtubeId}.mp3`);
-        const whisperResult = await transcribeWithWhisper(localPath);
-        await prisma.song.update({
-          where: { id: songId },
-          data: { audioUrl, audioDurationMs: durationMs },
-        });
-        song = { ...song, audioUrl, audioDurationMs: durationMs };
-        if (whisperResult.segments.length > 0 && wordTimestamps.length === 0) {
-          const data: Array<{ songId: number; lineIndex: number; wordIndex: number; word: string; startMs: number; endMs: number }> = [];
-          for (const segment of whisperResult.segments) {
-            for (const [wordIndex, word] of (segment.words ?? []).entries()) {
-              const trimmed = word.word.trim();
-              if (!trimmed) continue;
-              data.push({
-                songId,
-                lineIndex: segment.id,
-                wordIndex,
-                word: trimmed,
-                startMs: Math.round(word.start * 1000),
-                endMs: Math.round(word.end * 1000),
-              });
-            }
-          }
-          if (data.length > 0) {
-            await prisma.songWordTimestamp.createMany({
-              data,
-              skipDuplicates: true,
-            });
-          }
-          wordTimestamps = await listWordTimestamps(songId);
-        }
-        await cleanupTempFile(localPath);
-      } catch (error) {
-        audioImportError = error instanceof Error ? error.message : 'Erro ao processar audio';
-      }
-    }
+    const lyricsImported = false;
+    const importError = null;
+    const audioImportError = null;
 
     if (justCreated) {
       await prisma.xpLog.create({
@@ -256,7 +200,11 @@ mobileRouter.post(
           detail: `song_imported:${song.id}|${song.youtubeId}`,
         },
       });
+      console.log(`[mobile.importSong] xp granted userId=${userId} songId=${songId}`);
     }
+    console.log(
+      `[mobile.importSong] done songId=${songId} justCreated=${justCreated} lyrics=${songLyrics.length} words=${wordTimestamps.length} lyricsImported=${lyricsImported} importError=${importError ?? 'none'} audioImportError=${audioImportError ?? 'none'}`,
+    );
 
     res.json({
       success: true,

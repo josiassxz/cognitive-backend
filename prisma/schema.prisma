@@ -190,6 +190,7 @@ model Song {
   title           String
   artist          String
   youtubeId       String
+  wordTimestampsJson Json?
   audioUrl        String      @default("")
   audioDurationMs Int         @default(0)
   lyricsOffsetMs  Int         @default(0)
