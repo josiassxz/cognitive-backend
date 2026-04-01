@@ -1,4 +1,4 @@
-import { GetObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { GetObjectCommand, HeadObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { readFile } from 'node:fs/promises';
 import { env } from '../config/env';
@@ -26,6 +26,16 @@ export async function uploadToStorage(localPath: string, cloudKey: string, conte
           ContentLength: fileBuffer.length,
         }),
       );
+      const probe = await s3.send(
+        new HeadObjectCommand({
+          Bucket: env.AWS_S3_BUCKET,
+          Key: cloudKey,
+        }),
+      );
+      const uploadedSize = probe.ContentLength ?? 0;
+      if (uploadedSize <= 0) {
+        throw new Error(`UploadedObjectEmpty:${cloudKey}`);
+      }
       return `https://${env.AWS_S3_BUCKET}.s3.${env.AWS_REGION}.amazonaws.com/${cloudKey}`;
     } catch (error) {
       lastError = error;
@@ -33,7 +43,12 @@ export async function uploadToStorage(localPath: string, cloudKey: string, conte
       const status = err.$metadata?.httpStatusCode ?? 0;
       const code = (err.Code ?? err.name ?? '').toLowerCase();
       const retryable =
-        status === 500 || status === 503 || code.includes('internalerror') || code.includes('slowdown') || code.includes('requesttimeout');
+        status === 500 ||
+        status === 503 ||
+        code.includes('internalerror') ||
+        code.includes('slowdown') ||
+        code.includes('requesttimeout') ||
+        code.includes('serviceunavailable');
       if (!retryable || attempt === maxAttempts) {
         break;
       }
