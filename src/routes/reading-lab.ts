@@ -19,6 +19,7 @@ const cefrMap: Record<string, number> = {
   b1: 3,
   b2: 4,
   c1: 5,
+  c2: 6,
 };
 
 function mapReadingLabProcessError(error: unknown): HttpError {
@@ -50,7 +51,7 @@ function segmentIntoSentences(text: string) {
     .filter(Boolean);
 }
 
-async function detectCefrLevel(text: string): Promise<'a1' | 'a2' | 'b1' | 'b2' | 'c1'> {
+async function detectCefrLevel(text: string): Promise<'a1' | 'a2' | 'b1' | 'b2' | 'c1' | 'c2'> {
   const words = text.split(/\s+/).filter(Boolean);
   const wordCount = words.length || 1;
   const avgWordLength = words.reduce((sum, word) => sum + word.length, 0) / wordCount;
@@ -60,7 +61,8 @@ async function detectCefrLevel(text: string): Promise<'a1' | 'a2' | 'b1' | 'b2' 
   if (avgWordLength < 5.0 && avgSentenceLength < 14) return 'a2';
   if (avgWordLength < 5.5 && avgSentenceLength < 18) return 'b1';
   if (avgWordLength < 6.0 && avgSentenceLength < 22) return 'b2';
-  return 'c1';
+  if (avgWordLength < 6.8 && avgSentenceLength < 28) return 'c1';
+  return 'c2';
 }
 
 readingLabRouter.get(
@@ -139,7 +141,7 @@ readingLabRouter.post(
       .object({
         text: z.string().min(10).max(50000),
         title: z.string().min(1).max(200),
-        cefrLevel: z.enum(['a1', 'a2', 'b1', 'b2', 'c1']).optional(),
+        cefrLevel: z.enum(['a1', 'a2', 'b1', 'b2', 'c1', 'c2']).optional(),
         category: z.string().min(1).max(50).optional(),
         voice: z.string().min(1).max(120).optional(),
       })
