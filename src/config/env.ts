@@ -11,6 +11,7 @@ const schema = z.object({
   DATABASE_URL: z.string().min(1, 'DATABASE_URL obrigatorio'),
   ACCESS_TOKEN_TTL: z.string().default('15m'),
   REFRESH_TOKEN_TTL: z.string().default('30d'),
+  DEEPL_API_KEY: z.string().default(''),
   GEMINI_API_KEY: z.string().default(''),
   GROQ_MODEL: z.string().default('allam-2-7b'),
   AWS_ACCESS_KEY_ID: z.string().default(''),
