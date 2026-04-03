@@ -21,6 +21,7 @@ const schema = z.object({
   OPENAI_API_KEY: z.string().default(''),
   AZURE_SPEECH_KEY: z.string().default(''),
   AZURE_SPEECH_REGION: z.string().default('eastus'),
+  READING_TTS_POLLY_FALLBACK_ENABLED: z.coerce.boolean().default(false),
   CORS_ORIGINS: z.string().default('http://localhost:3000,http://localhost:8081,http://localhost:19006'),
   ADMIN_EMAILS: z.string().default(''),
   RATE_LIMIT_WINDOW_MS: z.coerce.number().default(60000),

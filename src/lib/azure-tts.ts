@@ -1,4 +1,5 @@
 import * as sdk from 'microsoft-cognitiveservices-speech-sdk';
+import { readFile, unlink, writeFile } from 'node:fs/promises';
 import { env } from '../config/env';
 
 export interface TtsWordTimestamp {
@@ -21,7 +22,7 @@ export interface TtsResult {
   sentences: TtsSentenceResult[];
 }
 
-export async function synthesizeWithAzure(sentences: string[], outputPath: string, voice = 'en-US-JennyNeural'): Promise<TtsResult> {
+async function synthesizeWithAzureSingle(sentences: string[], outputPath: string, voice = 'en-US-JennyNeural'): Promise<TtsResult> {
   if (!env.AZURE_SPEECH_KEY || !env.AZURE_SPEECH_REGION) {
     throw new Error('Azure Speech credentials não configuradas');
   }
@@ -68,6 +69,58 @@ export async function synthesizeWithAzure(sentences: string[], outputPath: strin
       },
     );
   });
+}
+
+function isAzureDurationLimitError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error);
+  const lower = message.toLowerCase();
+  return lower.includes('maximum media duration') || lower.includes('websocket error code: 1007');
+}
+
+function buildTempChunkPath(outputPath: string, suffix: string): string {
+  const normalized = outputPath.toLowerCase().endsWith('.mp3') ? outputPath.slice(0, -4) : outputPath;
+  return `${normalized}-${suffix}.mp3`;
+}
+
+export async function synthesizeWithAzure(sentences: string[], outputPath: string, voice = 'en-US-JennyNeural'): Promise<TtsResult> {
+  try {
+    return await synthesizeWithAzureSingle(sentences, outputPath, voice);
+  } catch (error) {
+    if (!isAzureDurationLimitError(error) || sentences.length < 2) {
+      throw error;
+    }
+    const middleIndex = Math.floor(sentences.length / 2);
+    const leftPath = buildTempChunkPath(outputPath, `left-${Date.now().toString(36)}`);
+    const rightPath = buildTempChunkPath(outputPath, `right-${Date.now().toString(36)}`);
+    try {
+      const left = await synthesizeWithAzure(sentences.slice(0, middleIndex), leftPath, voice);
+      const right = await synthesizeWithAzure(sentences.slice(middleIndex), rightPath, voice);
+      const [leftAudio, rightAudio] = await Promise.all([readFile(left.audioPath), readFile(right.audioPath)]);
+      await writeFile(outputPath, Buffer.concat([leftAudio, rightAudio]));
+      const sentenceOffset = left.sentences.length;
+      const timeOffset = left.durationMs;
+      return {
+        audioPath: outputPath,
+        durationMs: left.durationMs + right.durationMs,
+        sentences: [
+          ...left.sentences,
+          ...right.sentences.map((sentence) => ({
+            sentenceIndex: sentence.sentenceIndex + sentenceOffset,
+            text: sentence.text,
+            startMs: sentence.startMs + timeOffset,
+            endMs: sentence.endMs + timeOffset,
+            words: sentence.words.map((word) => ({
+              word: word.word,
+              startMs: word.startMs + timeOffset,
+              endMs: word.endMs + timeOffset,
+            })),
+          })),
+        ],
+      };
+    } finally {
+      await Promise.all([unlink(leftPath).catch(() => undefined), unlink(rightPath).catch(() => undefined)]);
+    }
+  }
 }
 
 function buildSsml(sentences: string[], voice: string): string {

@@ -296,6 +296,10 @@ model SongVocab {
 model ReadingContent {
   id              Int               @id @default(autoincrement())
   title           String
+  author          String            @default("")
+  description     String            @default("")
+  coverUrl        String            @default("")
+  tags            String[]          @default([])
   slug            String            @unique
   textHash        String            @unique
   fullText        String
@@ -307,6 +311,8 @@ model ReadingContent {
   ttsProvider     String            @default("azure")
   ttsVoice        String            @default("en-US-JennyNeural")
   sourceType      String            @default("curated")
+  sourceFileType  String            @default("")
+  sourceFileName  String            @default("")
   userId          String?
   month           Int               @default(1)
   category        String            @default("general")

@@ -15,6 +15,7 @@ export async function uploadToStorage(localPath: string, cloudKey: string, conte
   const fileBuffer = await readFile(localPath);
   const maxAttempts = 3;
   let lastError: unknown = undefined;
+  const publicUrl = `https://${env.AWS_S3_BUCKET}.s3.${env.AWS_REGION}.amazonaws.com/${cloudKey}`;
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     try {
       await s3.send(
@@ -26,17 +27,25 @@ export async function uploadToStorage(localPath: string, cloudKey: string, conte
           ContentLength: fileBuffer.length,
         }),
       );
-      const probe = await s3.send(
-        new HeadObjectCommand({
-          Bucket: env.AWS_S3_BUCKET,
-          Key: cloudKey,
-        }),
-      );
-      const uploadedSize = probe.ContentLength ?? 0;
-      if (uploadedSize <= 0) {
-        throw new Error(`UploadedObjectEmpty:${cloudKey}`);
+      try {
+        const probe = await s3.send(
+          new HeadObjectCommand({
+            Bucket: env.AWS_S3_BUCKET,
+            Key: cloudKey,
+          }),
+        );
+        const uploadedSize = probe.ContentLength ?? 0;
+        if (uploadedSize <= 0) {
+          throw new Error(`UploadedObjectEmpty:${cloudKey}`);
+        }
+      } catch (error) {
+        const err = error as { name?: string; Code?: string };
+        const code = (err.Code ?? err.name ?? '').toLowerCase();
+        if (!code.includes('accessdenied') && !code.includes('forbidden')) {
+          throw error;
+        }
       }
-      return `https://${env.AWS_S3_BUCKET}.s3.${env.AWS_REGION}.amazonaws.com/${cloudKey}`;
+      return publicUrl;
     } catch (error) {
       lastError = error;
       const err = error as { name?: string; Code?: string; $metadata?: { httpStatusCode?: number } };
