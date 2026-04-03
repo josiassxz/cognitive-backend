@@ -2,14 +2,15 @@ import { Router } from 'express';
 import { z } from 'zod';
 import { prisma } from '../lib/prisma';
 import { asyncHandler } from '../utils/async-handler';
+import { mapCefrToMonth, parseCefrLevel } from '../services/content-service';
 
 export const oxfordWordsRouter = Router();
 
 oxfordWordsRouter.get(
   '/',
   asyncHandler(async (req, res) => {
-    const month = req.query.month ? z.coerce.number().int().min(1).max(6).parse(req.query.month) : undefined;
-    const cefrLevel = typeof req.query.cefrLevel === 'string' ? req.query.cefrLevel.toLowerCase() : undefined;
+    const cefrLevel = parseCefrLevel(req.query.cefrLevel);
+    const month = cefrLevel ? mapCefrToMonth(cefrLevel) : (req.query.month ? z.coerce.number().int().min(1).max(6).parse(req.query.month) : undefined);
     const pos = typeof req.query.pos === 'string' ? req.query.pos.toLowerCase() : undefined;
     const search = typeof req.query.search === 'string' ? req.query.search : undefined;
     const oxford3000Only = req.query.oxford3000 === 'true';
@@ -60,11 +61,13 @@ oxfordWordsRouter.get(
 oxfordWordsRouter.get(
   '/random',
   asyncHandler(async (req, res) => {
-    const month = req.query.month ? z.coerce.number().int().min(1).max(6).parse(req.query.month) : undefined;
+    const cefrLevel = parseCefrLevel(req.query.cefrLevel);
+    const month = cefrLevel ? mapCefrToMonth(cefrLevel) : (req.query.month ? z.coerce.number().int().min(1).max(6).parse(req.query.month) : undefined);
     const count = z.coerce.number().int().min(1).max(10).default(1).parse(req.query.count ?? 1);
 
     const where: Record<string, unknown> = {};
     if (month) where.month = month;
+    if (cefrLevel) where.cefrLevel = cefrLevel;
 
     const total = await prisma.oxfordWord.count({ where });
     if (total === 0) {

@@ -5,6 +5,7 @@ import { prisma } from '../lib/prisma';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
 import { buildQuiz, calculateQuizResult, QuizType } from '../services/quiz-service';
+import { mapCefrToMonth, parseCefrLevel } from '../services/content-service';
 
 async function awardBadgeIfEligible(userId: string, slug: string): Promise<void> {
   const badge = await prisma.badge.findUnique({ where: { slug } });
@@ -43,7 +44,8 @@ quizRouter.get(
     const userId = req.userId;
     if (!userId) throw new HttpError(401, 'Nao autorizado');
 
-    const month = z.coerce.number().int().min(1).max(6).default(1).parse(req.query.month ?? 1);
+    const cefrLevel = parseCefrLevel(req.query.cefrLevel ?? 'a1') ?? 'a1';
+    const month = mapCefrToMonth(cefrLevel);
     const type = z
       .enum(['vocabulary', 'phrasal-verbs', 'expressions'])
       .default('vocabulary')
@@ -70,7 +72,7 @@ quizRouter.get(
       expressions,
     });
 
-    res.json({ questions, type, month, sessionId: randomUUID() });
+    res.json({ questions, type, cefrLevel, sessionId: randomUUID() });
   }),
 );
 
@@ -83,6 +85,7 @@ quizRouter.post(
     const input = z
       .object({
         type: z.enum(['vocabulary', 'phrasal-verbs', 'expressions']),
+        cefrLevel: z.enum(['a1', 'a2', 'b1', 'b2', 'c1', 'c2']).optional(),
         month: z.number().int().min(1).max(6).optional(),
         sessionId: z.string().min(8).max(120),
         answers: z.array(
@@ -106,7 +109,7 @@ quizRouter.post(
         totalQ: result.totalQ,
         correct: result.correct,
         xpEarned: result.xpEarned,
-        month: input.month ?? 1,
+        month: input.cefrLevel ? mapCefrToMonth(input.cefrLevel) : (input.month ?? 1),
       },
     });
     await prisma.xpLog.create({

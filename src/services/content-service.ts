@@ -16,6 +16,9 @@ export const contentTypeSchema = z.enum([
 
 export type ContentType = z.infer<typeof contentTypeSchema>;
 
+export const CEFR_LEVELS = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'] as const;
+export type CefrLevel = (typeof CEFR_LEVELS)[number];
+
 export function normalizePage(input: unknown): number {
   return toInt(input, 1, { min: 1, max: 999999 });
 }
@@ -33,6 +36,34 @@ export function parseMonth(input: unknown): number | undefined {
     throw new HttpError(400, 'month deve estar entre 1 e 6');
   }
   return month;
+}
+
+export function parseCefrLevel(input: unknown): CefrLevel | undefined {
+  if (input === undefined || input === null || input === '') {
+    return undefined;
+  }
+  const value = String(input).trim().toLowerCase();
+  if (CEFR_LEVELS.includes(value as CefrLevel)) {
+    return value as CefrLevel;
+  }
+  throw new HttpError(400, 'cefrLevel deve ser um destes valores: a1, a2, b1, b2, c1, c2');
+}
+
+export function mapCefrToMonth(cefrLevel: CefrLevel): number {
+  switch (cefrLevel) {
+    case 'a1':
+      return 1;
+    case 'a2':
+      return 2;
+    case 'b1':
+      return 3;
+    case 'b2':
+      return 4;
+    case 'c1':
+      return 5;
+    case 'c2':
+      return 6;
+  }
 }
 
 export function getTypeOrderBy(type: ContentType): Record<string, 'asc'>[] {

@@ -168,7 +168,7 @@ mobileRouter.post(
           title,
           artist,
           youtubeId,
-          level: 'Intermediario',
+          level: 'A1',
           themes: ['imported'],
           month: 1,
         },

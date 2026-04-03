@@ -5,6 +5,15 @@ import { XP_CONFIG, getLevelForXp } from '../lib/xp';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
 
+function mapMonthToCefr(month: number): 'a1' | 'a2' | 'b1' | 'b2' | 'c1' | 'c2' {
+  if (month <= 1) return 'a1';
+  if (month === 2) return 'a2';
+  if (month === 3) return 'b1';
+  if (month === 4) return 'b2';
+  if (month === 5) return 'c1';
+  return 'c2';
+}
+
 const CHECKLIST_TASKS = [
   'focused-study',
   'passive-immersion',
@@ -91,7 +100,10 @@ userRouter.get(
     const level = getLevelForXp(totalXp);
 
     res.json({
-      user,
+      user: {
+        ...user,
+        currentCefrLevel: mapMonthToCefr(user.currentMonth),
+      },
       totalXp,
       level,
       streak: streak ?? { current: 0, longest: 0 },

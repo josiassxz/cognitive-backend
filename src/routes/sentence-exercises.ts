@@ -6,6 +6,7 @@ import { authMiddleware } from '../middleware/auth';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
 import { XP_CONFIG } from '../lib/xp';
+import { mapCefrToMonth, parseCefrLevel } from '../services/content-service';
 
 async function awardBadgeIfEligible(userId: string, slug: string): Promise<void> {
   const badge = await prisma.badge.findUnique({ where: { slug } });
@@ -28,8 +29,8 @@ export const sentenceExercisesRouter = Router();
 sentenceExercisesRouter.get(
   '/',
   asyncHandler(async (req, res) => {
-    const month = req.query.month ? z.coerce.number().int().min(1).max(6).parse(req.query.month) : undefined;
-    const cefrLevel = typeof req.query.cefrLevel === 'string' ? req.query.cefrLevel.toLowerCase() : undefined;
+    const cefrLevel = parseCefrLevel(req.query.cefrLevel);
+    const month = cefrLevel ? mapCefrToMonth(cefrLevel) : (req.query.month ? z.coerce.number().int().min(1).max(6).parse(req.query.month) : undefined);
     const grammarFocus = typeof req.query.grammarFocus === 'string' ? req.query.grammarFocus : undefined;
     const count = z.coerce.number().int().min(1).max(20).default(10).parse(req.query.count ?? 10);
 

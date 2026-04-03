@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { XP_CONFIG } from '../lib/xp';
 import { authMiddleware } from '../middleware/auth';
 import { prisma } from '../lib/prisma';
-import { parseMonth } from '../services/content-service';
+import { parseCefrLevel, parseMonth, mapCefrToMonth } from '../services/content-service';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
 
@@ -116,6 +116,7 @@ async function fetchVideoMetadata(videoId: string): Promise<{ title: string; art
 songsRouter.get(
   '/',
   asyncHandler(async (req, res) => {
+    const cefrLevel = parseCefrLevel(req.query.cefrLevel);
     const month = parseMonth(req.query.month);
     const slug = typeof req.query.slug === 'string' ? req.query.slug : undefined;
     const search = typeof req.query.search === 'string' ? req.query.search.trim() : '';
@@ -135,13 +136,28 @@ songsRouter.get(
     }
 
     const where: Record<string, unknown> = {};
-    if (month) where.month = month;
-    if (search) {
+    if (cefrLevel) {
+      const legacyMonth = mapCefrToMonth(cefrLevel);
       where.OR = [
+        { level: { equals: cefrLevel.toUpperCase(), mode: 'insensitive' } },
+        { level: { contains: cefrLevel, mode: 'insensitive' } },
+        { month: legacyMonth },
+      ];
+    } else if (month) {
+      where.month = month;
+    }
+    if (search) {
+      const searchFilters = [
         { title: { contains: search, mode: 'insensitive' } },
         { artist: { contains: search, mode: 'insensitive' } },
         { youtubeId: { contains: search, mode: 'insensitive' } },
       ];
+      if (where.OR && Array.isArray(where.OR)) {
+        where.AND = [{ OR: where.OR }, { OR: searchFilters }];
+        delete where.OR;
+      } else {
+        where.OR = searchFilters;
+      }
     }
 
     const items = await prisma.song.findMany({
@@ -244,7 +260,7 @@ songsRouter.post(
           title: resolvedTitle || 'Musica importada',
           artist: resolvedArtist || 'Desconhecido',
           youtubeId,
-          level: 'Intermediario',
+          level: 'A1',
           themes: ['imported'],
           month: 1,
         },

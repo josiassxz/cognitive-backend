@@ -4,6 +4,7 @@ import { prisma } from '../lib/prisma';
 import { calculateFlashcardReview } from '../services/flashcard-service';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
+import { mapCefrToMonth, parseCefrLevel } from '../services/content-service';
 
 async function awardBadgeIfEligible(userId: string, slug: string): Promise<void> {
   const badge = await prisma.badge.findUnique({ where: { slug } });
@@ -42,7 +43,9 @@ flashcardsRouter.get(
     const userId = req.userId;
     if (!userId) throw new HttpError(401, 'Nao autorizado');
 
+    const cefrLevel = parseCefrLevel(req.query.cefrLevel);
     const month = z.coerce.number().int().min(0).max(6).default(0).parse(req.query.month ?? 0);
+    const effectiveMonth = cefrLevel ? mapCefrToMonth(cefrLevel) : month;
     const limit = z.coerce.number().int().min(1).max(50).default(20).parse(req.query.limit ?? 20);
     const now = new Date();
 
@@ -61,7 +64,7 @@ flashcardsRouter.get(
     ).map((card: { vocabularyId: number }) => card.vocabularyId);
 
     const whereNew: Record<string, unknown> = { id: { notIn: existingIds } };
-    if (month > 0) whereNew.month = month;
+    if (effectiveMonth > 0) whereNew.month = effectiveMonth;
 
     const newCards = await prisma.vocabulary.findMany({
       where: whereNew,
