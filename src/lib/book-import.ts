@@ -11,6 +11,7 @@ export type ExtractedBookContent = {
   text: string;
   title: string;
   author: string;
+  chapters: string[];
 };
 
 const xmlParser = new XMLParser({
@@ -29,6 +30,80 @@ function normalizeText(text: string): string {
     .replace(/[ \t]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
+}
+
+function normalizeInlineText(text: string): string {
+  return text
+    .replace(/[ \t]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function looksLikeHeading(line: string): boolean {
+  const normalized = normalizeInlineText(line);
+  if (!normalized || normalized.length > 100) return false;
+  if (/^(chapter|cap[ií]tulo)\s+([a-z0-9ivxlcdm-]+)$/i.test(normalized)) return true;
+  if (/^-+\s*the end\s*-+$/i.test(normalized)) return true;
+  if (/[.!?]$/.test(normalized)) return false;
+  const letters = normalized.match(/[A-Za-z]/g) ?? [];
+  const upperLetters = normalized.match(/[A-Z]/g) ?? [];
+  const upperRatio = letters.length > 0 ? upperLetters.length / letters.length : 0;
+  if (letters.length >= 4 && upperRatio >= 0.72) return true;
+  const words = normalized.split(/\s+/);
+  if (words.length > 8) return false;
+  const titleCaseWords = words.filter((word) => /^[A-Z][a-zA-Z'’\-]*$/.test(word)).length;
+  return titleCaseWords >= Math.max(1, words.length - 1);
+}
+
+function normalizeParagraphBlock(block: string): string {
+  const lines = block
+    .split('\n')
+    .map((line) => normalizeInlineText(line))
+    .filter(Boolean);
+  if (lines.length === 0) return '';
+  if (lines.length === 1) return lines[0];
+  return normalizeInlineText(lines.join(' '));
+}
+
+function splitAndFormatBookText(rawText: string): { text: string; chapters: string[] } {
+  const baseText = normalizeText(rawText);
+  if (!baseText) return { text: '', chapters: [] };
+  const rawBlocks = baseText
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter(Boolean);
+  const blocks = rawBlocks
+    .map((block) => {
+      const normalizedParagraph = normalizeParagraphBlock(block);
+      if (!normalizedParagraph) {
+        return null;
+      }
+      const lines = block
+        .split('\n')
+        .map((line) => normalizeInlineText(line))
+        .filter(Boolean);
+      const heading = lines.length === 1 && looksLikeHeading(lines[0]);
+      if (heading) {
+        return { kind: 'heading' as const, text: lines[0] };
+      }
+      return { kind: 'paragraph' as const, text: normalizedParagraph };
+    })
+    .filter((block): block is { kind: 'heading' | 'paragraph'; text: string } => Boolean(block));
+  const chapterTitles: string[] = [];
+  for (const block of blocks) {
+    if (block.kind === 'heading' && /^(chapter|cap[ií]tulo)\s+([a-z0-9ivxlcdm-]+)$/i.test(block.text)) {
+      chapterTitles.push(block.text);
+    }
+  }
+  const formattedText = blocks
+    .map((block) => block.text)
+    .join('\n\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  return {
+    text: formattedText,
+    chapters: chapterTitles,
+  };
 }
 
 function htmlToText(rawHtml: string): string {
@@ -69,11 +144,13 @@ async function extractFromPdf(buffer: Buffer): Promise<ExtractedBookContent> {
     const [textResult, infoResult] = await Promise.all([parser.getText(), parser.getInfo()]);
     const titleFromInfo = typeof infoResult.info?.Title === 'string' ? infoResult.info.Title.trim() : '';
     const authorFromInfo = typeof infoResult.info?.Author === 'string' ? infoResult.info.Author.trim() : '';
+    const formatted = splitAndFormatBookText(textResult.text ?? '');
     return {
       type: 'pdf',
-      text: normalizeText(textResult.text ?? ''),
+      text: formatted.text,
       title: titleFromInfo,
       author: authorFromInfo,
+      chapters: formatted.chapters,
     };
   } finally {
     await parser.destroy();
@@ -146,11 +223,13 @@ async function extractFromEpub(buffer: Buffer): Promise<ExtractedBookContent> {
   const authorNode = metadata ? metadata['dc:creator'] ?? metadata.creator : '';
   const title = getNodeText(asArray(titleNode)[0]);
   const author = getNodeText(asArray(authorNode)[0]);
+  const formatted = splitAndFormatBookText(chapters.join('\n\n'));
   return {
     type: 'epub',
-    text: normalizeText(chapters.join('\n\n')),
+    text: formatted.text,
     title,
     author,
+    chapters: formatted.chapters,
   };
 }
 
