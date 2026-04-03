@@ -12,6 +12,8 @@ const translateBodySchema = z.object({
 });
 
 export const translateRouter = Router();
+const WORD_ONLY_CONTEXT_HASH = '__word_only__';
+const WORD_ONLY_CONTEXT = '__word_only__';
 
 function shouldReuseCachedExplanation(explanation: string): boolean {
   const clean = explanation.trim();
@@ -62,6 +64,14 @@ function mapTranslateErrorToHttp(error: unknown): HttpError {
   return new HttpError(502, 'Falha ao traduzir no servico externo');
 }
 
+function buildWordOnlyExplanation(phrase: string, translation: string, partOfSpeech: string): string {
+  const pos = partOfSpeech.trim();
+  if (pos) {
+    return `Tradução comum de “${phrase}”: ${translation} (${pos}).`;
+  }
+  return `Tradução comum de “${phrase}”: ${translation}.`;
+}
+
 translateRouter.post(
   '/',
   asyncHandler(async (req, res) => {
@@ -105,6 +115,33 @@ translateRouter.post(
         .catch(() => undefined);
     }
 
+    const wordOnlyCached = await prisma.translationCache.findUnique({
+      where: {
+        phrase_contextHash: {
+          phrase: normalizedPhrase,
+          contextHash: WORD_ONLY_CONTEXT_HASH,
+        },
+      },
+    });
+    if (wordOnlyCached && wordOnlyCached.translation.trim().length > 0) {
+      console.info(`[translate-route] word cache hit | phrase="${normalizedPhrase}"`);
+      prisma.translationCache
+        .update({
+          where: { id: wordOnlyCached.id },
+          data: { hitCount: { increment: 1 } },
+        })
+        .catch(() => undefined);
+
+      res.json({
+        phrase: wordOnlyCached.phrase,
+        translation: wordOnlyCached.translation,
+        explanation: wordOnlyCached.explanation,
+        partOfSpeech: wordOnlyCached.partOfSpeech,
+        fromCache: true,
+      });
+      return;
+    }
+
     console.info(`[translate-route] cache miss | phrase="${normalizedPhrase}"`);
     let result: { translation: string; explanation: string; partOfSpeech: string };
     try {
@@ -135,6 +172,35 @@ translateRouter.post(
             context: normalizedContext,
             translation: result.translation,
             explanation: result.explanation,
+            partOfSpeech: result.partOfSpeech,
+          },
+        })
+        .catch(() => undefined);
+    }
+
+    const wordOnlyExplanation = buildWordOnlyExplanation(normalizedPhrase, result.translation, result.partOfSpeech);
+    if (wordOnlyCached) {
+      prisma.translationCache
+        .update({
+          where: { id: wordOnlyCached.id },
+          data: {
+            context: WORD_ONLY_CONTEXT,
+            translation: result.translation,
+            explanation: wordOnlyExplanation,
+            partOfSpeech: result.partOfSpeech,
+            hitCount: { increment: 1 },
+          },
+        })
+        .catch(() => undefined);
+    } else {
+      prisma.translationCache
+        .create({
+          data: {
+            phrase: normalizedPhrase,
+            contextHash: WORD_ONLY_CONTEXT_HASH,
+            context: WORD_ONLY_CONTEXT,
+            translation: result.translation,
+            explanation: wordOnlyExplanation,
             partOfSpeech: result.partOfSpeech,
           },
         })
