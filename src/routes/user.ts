@@ -335,13 +335,15 @@ userRouter.get(
     const userId = req.userId;
     if (!userId) throw new HttpError(401, 'Nao autorizado');
 
-    const status = typeof req.query.status === 'string' ? req.query.status : undefined;
+    const status = typeof req.query.status === 'string' && req.query.status !== 'all' ? req.query.status : undefined;
+    const sourceType = typeof req.query.sourceType === 'string' ? req.query.sourceType : undefined;
     const songId = req.query.songId ? z.coerce.number().int().positive().parse(req.query.songId) : undefined;
     const limit = z.coerce.number().int().min(1).max(200).default(50).parse(req.query.limit ?? 50);
     const offset = z.coerce.number().int().min(0).default(0).parse(req.query.offset ?? 0);
-    const where: { userId: string; status?: string; songId?: number } = { userId };
+    const where: { userId: string; status?: string; songId?: number; sourceType?: string } = { userId };
     if (status) where.status = status;
     if (songId) where.songId = songId;
+    if (sourceType) where.sourceType = sourceType;
 
     const [items, total] = await Promise.all([
       prisma.userSavedPhrase.findMany({
@@ -369,6 +371,7 @@ userRouter.post(
         translation: z.string().min(1),
         context: z.string().default(''),
         songId: z.number().int().positive().optional(),
+        sourceType: z.enum(['lyric_click', 'reading_click']).optional(),
       })
       .parse(req.body);
 
@@ -393,7 +396,7 @@ userRouter.post(
         translation: input.translation.trim(),
         context: normalizedContext,
         songId: input.songId ?? null,
-        sourceType: 'lyric_click',
+        sourceType: input.sourceType ?? (input.songId ? 'lyric_click' : 'reading_click'),
       },
     });
 
@@ -457,7 +460,7 @@ userRouter.post(
           example: phrase.context,
           month: 1,
           level: 'personalizado',
-          category: 'musica',
+          category: phrase.sourceType === 'reading_click' ? 'leitura' : 'musica',
         },
       });
 
