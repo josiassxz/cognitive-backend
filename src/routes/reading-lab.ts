@@ -5,7 +5,7 @@ import multer from 'multer';
 import { z } from 'zod';
 import { env } from '../config/env';
 import { synthesizeWithAzure } from '../lib/azure-tts';
-import { extractBookContentFromUpload } from '../lib/book-import';
+import { extractBookContentFromUpload, type ExtractedEpubReaderPayload } from '../lib/book-import';
 import { synthesizeWithPolly } from '../lib/polly-tts';
 import { prisma } from '../lib/prisma';
 import { getPlayableStorageUrl, uploadToStorage } from '../lib/storage';
@@ -30,6 +30,102 @@ const cefrMap: Record<string, number> = {
   c1: 5,
   c2: 6,
 };
+
+type StoredReaderPayload = {
+  kind: 'epub_reader_payload';
+  version: 1;
+  payload: ExtractedEpubReaderPayload;
+};
+
+function serializeReaderPayload(payload: ExtractedEpubReaderPayload): string {
+  const wrapper: StoredReaderPayload = {
+    kind: 'epub_reader_payload',
+    version: 1,
+    payload,
+  };
+  return JSON.stringify(wrapper);
+}
+
+function parseReaderPayload(rawValue: string): ExtractedEpubReaderPayload | null {
+  if (!rawValue) return null;
+  try {
+    const parsed = JSON.parse(rawValue) as {
+      kind?: unknown;
+      version?: unknown;
+      payload?: {
+        format?: unknown;
+        version?: unknown;
+        documents?: unknown;
+      };
+    };
+    if (parsed.kind !== 'epub_reader_payload' || parsed.version !== 1) return null;
+    const payload = parsed.payload;
+    if (!payload || payload.format !== 'epub' || payload.version !== 1 || !Array.isArray(payload.documents)) {
+      return null;
+    }
+    const documents = payload.documents
+      .map((document) => {
+        if (!document || typeof document !== 'object') return null;
+        const candidate = document as Record<string, unknown>;
+        const id = typeof candidate.id === 'string' ? candidate.id.trim() : '';
+        const href = typeof candidate.href === 'string' ? candidate.href.trim() : '';
+        const title = typeof candidate.title === 'string' ? candidate.title.trim() : '';
+        const html = typeof candidate.html === 'string' ? candidate.html : '';
+        const text = typeof candidate.text === 'string' ? candidate.text : '';
+        const chapterIndex =
+          typeof candidate.chapterIndex === 'number' && Number.isFinite(candidate.chapterIndex)
+            ? Math.max(0, Math.round(candidate.chapterIndex))
+            : undefined;
+        const sentenceStartIndex =
+          typeof candidate.sentenceStartIndex === 'number' && Number.isFinite(candidate.sentenceStartIndex)
+            ? Math.max(0, Math.round(candidate.sentenceStartIndex))
+            : undefined;
+        const sentenceEndIndex =
+          typeof candidate.sentenceEndIndex === 'number' && Number.isFinite(candidate.sentenceEndIndex)
+            ? Math.max(0, Math.round(candidate.sentenceEndIndex))
+            : undefined;
+        const audioStartMs =
+          typeof candidate.audioStartMs === 'number' && Number.isFinite(candidate.audioStartMs)
+            ? Math.max(0, Math.round(candidate.audioStartMs))
+            : undefined;
+        const audioEndMs =
+          typeof candidate.audioEndMs === 'number' && Number.isFinite(candidate.audioEndMs)
+            ? Math.max(0, Math.round(candidate.audioEndMs))
+            : undefined;
+        if (!id || !href || !html) return null;
+        return {
+          id,
+          href,
+          title: title || 'Chapter',
+          html,
+          text,
+          ...(chapterIndex !== undefined ? { chapterIndex } : {}),
+          ...(sentenceStartIndex !== undefined ? { sentenceStartIndex } : {}),
+          ...(sentenceEndIndex !== undefined ? { sentenceEndIndex } : {}),
+          ...(audioStartMs !== undefined ? { audioStartMs } : {}),
+          ...(audioEndMs !== undefined ? { audioEndMs } : {}),
+        };
+      })
+      .filter((document): document is ExtractedEpubReaderPayload['documents'][number] => Boolean(document));
+    if (documents.length === 0) return null;
+    return {
+      format: 'epub',
+      version: 1,
+      documents,
+    };
+  } catch {
+    return null;
+  }
+}
+
+function withReaderPayload<T extends { fullText: string }>(
+  content: T,
+): T & { reader: ExtractedEpubReaderPayload | null } {
+  return {
+    ...content,
+    reader: parseReaderPayload(content.fullText),
+  };
+}
 
 function mapReadingLabProcessError(error: unknown): HttpError {
   const message = error instanceof Error ? error.message : String(error);
@@ -207,6 +303,7 @@ async function createReadingContentFromText(params: {
   if (cached) {
     return {
       ...cached,
+      reader: null,
       coverUrl: await getPlayableStorageUrl(cached.coverUrl),
       audioUrl: await getPlayableStorageUrl(cached.audioUrl),
       fromCache: true,
@@ -304,6 +401,185 @@ async function createReadingContentFromText(params: {
     }
     return {
       ...result,
+      reader: null,
+      coverUrl: await getPlayableStorageUrl(result.coverUrl),
+      audioUrl: await getPlayableStorageUrl(result.audioUrl),
+      fromCache: false,
+    };
+  } catch (error) {
+    throw mapReadingLabProcessError(error);
+  } finally {
+    await unlink(tmpAudioPath).catch(() => undefined);
+  }
+}
+
+async function createReadingContentFromEpubReader(params: {
+  userId: string;
+  text: string;
+  title: string;
+  cefrLevel?: CefrLevel;
+  category?: string;
+  voice?: string;
+  sourceType: string;
+  author?: string;
+  description?: string;
+  coverUrl?: string;
+  tags?: string[];
+  sourceFileType?: string;
+  sourceFileName?: string;
+  readerPayload: ExtractedEpubReaderPayload;
+}) {
+  const normalizedText = params.text.trim();
+  const selectedVoice = params.voice?.trim() || 'en-US-AvaMultilingualNeural';
+  const textHash = createHash('sha256')
+    .update(`${normalizedText}\n${JSON.stringify(params.readerPayload)}\n${selectedVoice}`)
+    .digest('hex');
+  const cached = await prisma.readingContent.findUnique({
+    where: { textHash },
+    include: {
+      sentences: {
+        orderBy: { sentenceIndex: 'asc' },
+        include: { wordTimestamps: { orderBy: { wordIndex: 'asc' } } },
+      },
+    },
+  });
+  if (cached) {
+    return {
+      ...withReaderPayload(cached),
+      coverUrl: await getPlayableStorageUrl(cached.coverUrl),
+      audioUrl: await getPlayableStorageUrl(cached.audioUrl),
+      fromCache: true,
+    };
+  }
+  const documents = params.readerPayload.documents;
+  if (documents.length === 0) {
+    throw new HttpError(400, 'EPUB sem capítulos válidos para leitura');
+  }
+  const chapterPlans = documents.map((document, chapterIndex) => {
+    const sourceText = document.text.trim();
+    const chapterSentences = segmentIntoSentences(sourceText);
+    const sentences = chapterSentences.length > 0 ? chapterSentences : [document.title || `Chapter ${chapterIndex + 1}`];
+    return {
+      chapterIndex,
+      document,
+      sentences,
+    };
+  });
+  const ttsInputSentences = chapterPlans.flatMap((item) => item.sentences);
+  if (ttsInputSentences.length === 0) {
+    throw new HttpError(400, 'EPUB sem sentenças válidas para síntese');
+  }
+  const cefrLevel = params.cefrLevel ?? (await detectCefrLevel(normalizedText));
+  const month = cefrMap[cefrLevel] ?? 3;
+  const slugBase = slugify(params.title);
+  const slug = `${slugBase || 'reading'}-${Date.now().toString(36)}`;
+  const tmpAudioPath = `/tmp/reading-epub-${slug}.mp3`;
+  try {
+    let ttsProvider: 'azure' | 'polly' = 'azure';
+    let ttsResult;
+    try {
+      ttsResult = await synthesizeWithAzure(ttsInputSentences, tmpAudioPath, selectedVoice);
+    } catch (azureError) {
+      if (!shouldFallbackToPolly(azureError)) {
+        throw azureError;
+      }
+      ttsResult = await synthesizeWithPolly(ttsInputSentences, tmpAudioPath);
+      ttsProvider = 'polly';
+    }
+    const chapterTimedDocuments: ExtractedEpubReaderPayload['documents'] = [];
+    let runningSentenceIndex = 0;
+    for (const plan of chapterPlans) {
+      const sentenceStartIndex = runningSentenceIndex;
+      const sentenceEndIndex = runningSentenceIndex + plan.sentences.length - 1;
+      const firstSentence = ttsResult.sentences[sentenceStartIndex];
+      const lastSentence = ttsResult.sentences[sentenceEndIndex];
+      chapterTimedDocuments.push({
+        ...plan.document,
+        chapterIndex: plan.chapterIndex,
+        sentenceStartIndex,
+        sentenceEndIndex,
+        audioStartMs: firstSentence?.startMs ?? 0,
+        audioEndMs: lastSentence?.endMs ?? (firstSentence?.endMs ?? 0),
+      });
+      runningSentenceIndex = sentenceEndIndex + 1;
+    }
+    const readerPayloadWithTiming: ExtractedEpubReaderPayload = {
+      format: 'epub',
+      version: 1,
+      documents: chapterTimedDocuments,
+    };
+    const serializedReader = serializeReaderPayload(readerPayloadWithTiming);
+    const audioUrl = await uploadToStorage(tmpAudioPath, `reading/${slug}.mp3`);
+    const wordCount = normalizedText.split(/\s+/).filter(Boolean).length;
+    const content = await prisma.readingContent.create({
+      data: {
+        title: params.title,
+        author: params.author ?? '',
+        description: params.description ?? '',
+        coverUrl: params.coverUrl ?? '',
+        tags: params.tags ?? [],
+        slug,
+        textHash,
+        fullText: serializedReader,
+        cefrLevel,
+        wordCount,
+        estimatedTimeMs: ttsResult.durationMs,
+        audioUrl,
+        audioDurationMs: ttsResult.durationMs,
+        ttsProvider,
+        ttsVoice: selectedVoice,
+        sourceType: params.sourceType,
+        sourceFileType: params.sourceFileType ?? '',
+        sourceFileName: params.sourceFileName ?? '',
+        userId: params.userId,
+        month,
+        category: params.category ?? 'general',
+      },
+    });
+    for (const sentence of ttsResult.sentences) {
+      const savedSentence = await prisma.readingSentence.create({
+        data: {
+          contentId: content.id,
+          sentenceIndex: sentence.sentenceIndex,
+          text: sentence.text,
+          startMs: sentence.startMs,
+          endMs: sentence.endMs,
+        },
+      });
+      if (sentence.words.length > 0) {
+        await prisma.readingWordTimestamp.createMany({
+          data: sentence.words.map((word, wordIndex) => ({
+            sentenceId: savedSentence.id,
+            wordIndex,
+            word: word.word,
+            startMs: word.startMs,
+            endMs: word.endMs,
+          })),
+        });
+      }
+    }
+    await prisma.xpLog.create({
+      data: {
+        userId: params.userId,
+        amount: XP_CONFIG.reading_text_imported,
+        source: 'reading',
+        detail: `reading_imported:${content.id}`,
+      },
+    });
+    const result = await prisma.readingContent.findUnique({
+      where: { id: content.id },
+      include: {
+        sentences: {
+          orderBy: { sentenceIndex: 'asc' },
+          include: { wordTimestamps: { orderBy: { wordIndex: 'asc' } } },
+        },
+      },
+    });
+    if (!result) {
+      throw new HttpError(500, 'Falha ao buscar livro importado');
+    }
+    return {
+      ...withReaderPayload(result),
       coverUrl: await getPlayableStorageUrl(result.coverUrl),
       audioUrl: await getPlayableStorageUrl(result.audioUrl),
       fromCache: false,
@@ -428,7 +704,7 @@ readingLabRouter.get(
     });
     if (!content) throw new HttpError(404, 'Conteúdo não encontrado');
     res.json({
-      ...content,
+      ...withReaderPayload(content),
       coverUrl: await getPlayableStorageUrl(content.coverUrl),
       audioUrl: await getPlayableStorageUrl(content.audioUrl),
     });
@@ -511,6 +787,56 @@ readingLabRouter.post(
 );
 
 readingLabRouter.post(
+  '/selection-tts',
+  authMiddleware,
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Não autorizado');
+    const input = z
+      .object({
+        text: z.string().min(2).max(20000),
+        voice: z.string().min(1).max(120).optional(),
+      })
+      .parse(req.body);
+    const normalizedText = input.text.replace(/\s+/g, ' ').trim();
+    if (!normalizedText) {
+      throw new HttpError(400, 'Texto inválido para síntese');
+    }
+    const selectedVoice = input.voice?.trim() || 'en-US-AvaMultilingualNeural';
+    const snippetHash = createHash('sha256').update(`${normalizedText}\n${selectedVoice}`).digest('hex').slice(0, 24);
+    const tempSuffix = `${snippetHash}-${Date.now().toString(36)}`;
+    const tempAudioPath = `/tmp/reading-selection-${tempSuffix}.mp3`;
+    const snippetSentences = segmentIntoSentences(normalizedText);
+    const synthesisInput = snippetSentences.length > 0 ? snippetSentences : [normalizedText];
+    try {
+      let ttsProvider: 'azure' | 'polly' = 'azure';
+      let ttsResult;
+      try {
+        ttsResult = await synthesizeWithAzure(synthesisInput, tempAudioPath, selectedVoice);
+      } catch (azureError) {
+        if (!shouldFallbackToPolly(azureError)) {
+          throw azureError;
+        }
+        ttsResult = await synthesizeWithPolly(synthesisInput, tempAudioPath);
+        ttsProvider = 'polly';
+      }
+      const storagePath = `reading/snippets/${snippetHash}.mp3`;
+      const storedAudioPath = await uploadToStorage(tempAudioPath, storagePath);
+      res.json({
+        audioUrl: await getPlayableStorageUrl(storedAudioPath),
+        durationMs: ttsResult.durationMs,
+        ttsProvider,
+        voice: selectedVoice,
+      });
+    } catch (error) {
+      throw mapReadingLabProcessError(error);
+    } finally {
+      await unlink(tempAudioPath).catch(() => undefined);
+    }
+  }),
+);
+
+readingLabRouter.post(
   '/import-book',
   authMiddleware,
   readingBookUpload.single('file'),
@@ -539,7 +865,8 @@ readingLabRouter.post(
       mimeType: file.mimetype,
     });
     const extractedText = typeof extracted.text === 'string' ? extracted.text : String(extracted.text ?? '');
-    const sanitized = sanitizeImportedBookText(extractedText);
+    const shouldUseEpubReader = extracted.type === 'epub' && Boolean(extracted.readerPayload?.documents?.length);
+    const sanitized = shouldUseEpubReader ? { text: extractedText.trim(), truncated: false } : sanitizeImportedBookText(extractedText);
     const cleanedText = sanitized.text;
     if (cleanedText.length < 10) {
       throw new HttpError(400, 'Não foi possível extrair texto suficiente do arquivo');
@@ -547,10 +874,10 @@ readingLabRouter.post(
     if (!hasReadableBookContent(cleanedText)) {
       throw new HttpError(400, 'O arquivo não contém texto legível suficiente para importação');
     }
-    if (sanitized.truncated && cleanedText.length < 100) {
+    if (!shouldUseEpubReader && sanitized.truncated && cleanedText.length < 100) {
       throw new HttpError(400, 'Texto removido por marcador de finalização deixou conteúdo insuficiente para processar');
     }
-    if (cleanedText.length > 120000) {
+    if (!shouldUseEpubReader && cleanedText.length > 120000) {
       throw new HttpError(400, 'Livro muito grande para importação direta. Limite de 120000 caracteres');
     }
     const fallbackTitle = file.originalname.replace(/\.[^/.]+$/, '');
@@ -558,21 +885,43 @@ readingLabRouter.post(
     if (!title) {
       throw new HttpError(400, 'Título é obrigatório');
     }
-    const result = await createReadingContentFromText({
-      userId,
-      text: cleanedText,
-      title,
-      cefrLevel: rawInput.cefrLevel,
-      category: rawInput.category,
-      voice: rawInput.voice,
-      sourceType: 'ebook_upload',
-      author: (rawInput.author ?? extracted.author ?? '').trim(),
-      description: (rawInput.description ?? '').trim(),
-      coverUrl: (rawInput.coverUrl ?? '').trim(),
-      tags: normalizeTags(rawInput.tags),
-      sourceFileType: extracted.type,
-      sourceFileName: file.originalname,
-    });
+    const normalizedAuthor = (rawInput.author ?? extracted.author ?? '').trim();
+    const normalizedDescription = (rawInput.description ?? '').trim();
+    const normalizedCoverUrl = (rawInput.coverUrl ?? '').trim();
+    const normalizedTags = normalizeTags(rawInput.tags);
+    const result =
+      shouldUseEpubReader && extracted.readerPayload
+        ? await createReadingContentFromEpubReader({
+            userId,
+            text: cleanedText,
+            title,
+            cefrLevel: rawInput.cefrLevel,
+            category: rawInput.category,
+            voice: rawInput.voice,
+            sourceType: 'ebook_upload',
+            author: normalizedAuthor,
+            description: normalizedDescription,
+            coverUrl: normalizedCoverUrl,
+            tags: normalizedTags,
+            sourceFileType: extracted.type,
+            sourceFileName: file.originalname,
+            readerPayload: extracted.readerPayload,
+          })
+        : await createReadingContentFromText({
+            userId,
+            text: cleanedText,
+            title,
+            cefrLevel: rawInput.cefrLevel,
+            category: rawInput.category,
+            voice: rawInput.voice,
+            sourceType: 'ebook_upload',
+            author: normalizedAuthor,
+            description: normalizedDescription,
+            coverUrl: normalizedCoverUrl,
+            tags: normalizedTags,
+            sourceFileType: extracted.type,
+            sourceFileName: file.originalname,
+          });
     res.json(result);
   }),
 );

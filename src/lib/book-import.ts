@@ -6,12 +6,32 @@ import { PDFParse } from 'pdf-parse';
 
 export type UploadedBookType = 'epub' | 'pdf';
 
+export type ExtractedEpubDocument = {
+  id: string;
+  href: string;
+  title: string;
+  html: string;
+  text: string;
+  chapterIndex?: number;
+  sentenceStartIndex?: number;
+  sentenceEndIndex?: number;
+  audioStartMs?: number;
+  audioEndMs?: number;
+};
+
+export type ExtractedEpubReaderPayload = {
+  format: 'epub';
+  version: 1;
+  documents: ExtractedEpubDocument[];
+};
+
 export type ExtractedBookContent = {
   type: UploadedBookType;
   text: string;
   title: string;
   author: string;
   chapters: string[];
+  readerPayload?: ExtractedEpubReaderPayload;
 };
 
 const xmlParser = new XMLParser({
@@ -138,6 +158,86 @@ function inferBookType(originalName: string, mimeType: string): UploadedBookType
   return null;
 }
 
+function normalizeEpubPath(basePath: string, relativePath: string): string {
+  const cleanRelative = relativePath.split('#')[0].split('?')[0].trim();
+  if (!cleanRelative) return '';
+  if (/^[a-z]+:\/\//i.test(cleanRelative)) return cleanRelative;
+  const normalizedBase = basePath === '.' ? '' : basePath;
+  return path.posix.normalize(path.posix.join(normalizedBase, cleanRelative));
+}
+
+function getMimeByPath(filePath: string): string {
+  const extension = path.posix.extname(filePath).toLowerCase();
+  if (extension === '.jpg' || extension === '.jpeg') return 'image/jpeg';
+  if (extension === '.png') return 'image/png';
+  if (extension === '.gif') return 'image/gif';
+  if (extension === '.webp') return 'image/webp';
+  if (extension === '.svg') return 'image/svg+xml';
+  return 'application/octet-stream';
+}
+
+async function loadImageDataUrl(zip: JSZip, resourcePath: string): Promise<string | null> {
+  const file = zip.file(resourcePath);
+  if (!file) return null;
+  const bytes = await file.async('uint8array');
+  const mimeType = getMimeByPath(resourcePath);
+  const base64 = Buffer.from(bytes).toString('base64');
+  return `data:${mimeType};base64,${base64}`;
+}
+
+async function inlineCssAndImages(params: { zip: JSZip; html: string; documentPath: string }): Promise<string> {
+  let html = params.html;
+  const documentDir = path.posix.dirname(params.documentPath);
+  const stylesheetRegex = /<link\b[^>]*rel=["'][^"']*stylesheet[^"']*["'][^>]*href=["']([^"']+)["'][^>]*>/gi;
+  const stylesheets: Array<{ original: string; href: string }> = [];
+  let styleMatch = stylesheetRegex.exec(html);
+  while (styleMatch) {
+    stylesheets.push({ original: styleMatch[0], href: styleMatch[1] });
+    styleMatch = stylesheetRegex.exec(html);
+  }
+  for (const stylesheet of stylesheets) {
+    const stylePath = normalizeEpubPath(documentDir, stylesheet.href);
+    if (!stylePath || /^[a-z]+:\/\//i.test(stylePath)) continue;
+    const file = params.zip.file(stylePath);
+    if (!file) continue;
+    const css = await file.async('string');
+    html = html.replace(stylesheet.original, `<style>${css}</style>`);
+  }
+  const imageAttrRegex = /(src|poster)=["']([^"']+)["']/gi;
+  const imageEntries: Array<{ attr: string; source: string }> = [];
+  let imageMatch = imageAttrRegex.exec(html);
+  while (imageMatch) {
+    imageEntries.push({ attr: imageMatch[1], source: imageMatch[2] });
+    imageMatch = imageAttrRegex.exec(html);
+  }
+  for (const image of imageEntries) {
+    const normalizedSource = image.source.trim();
+    if (!normalizedSource || normalizedSource.startsWith('data:') || /^[a-z]+:\/\//i.test(normalizedSource)) continue;
+    const assetPath = normalizeEpubPath(documentDir, normalizedSource);
+    if (!assetPath) continue;
+    const dataUrl = await loadImageDataUrl(params.zip, assetPath);
+    if (!dataUrl) continue;
+    const escapedSource = image.source.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const replaceRegex = new RegExp(`${image.attr}=["']${escapedSource}["']`, 'g');
+    html = html.replace(replaceRegex, `${image.attr}="${dataUrl}"`);
+  }
+  return html;
+}
+
+function buildReaderDocumentHtml(html: string): string {
+  const hasHtmlTag = /<html[\s>]/i.test(html);
+  if (hasHtmlTag) {
+    return html;
+  }
+  return `<html><head><meta charset="utf-8" /></head><body>${html}</body></html>`;
+}
+
+function inferTitleFromText(text: string, fallbackIndex: number): string {
+  const firstTextLine = text.split('\n').map((line) => line.trim()).find(Boolean) ?? '';
+  const titleFromText = firstTextLine.length <= 90 ? firstTextLine : '';
+  return titleFromText || `Chapter ${fallbackIndex}`;
+}
+
 async function extractFromPdf(buffer: Buffer): Promise<ExtractedBookContent> {
   const parser = new PDFParse({ data: buffer });
   try {
@@ -204,6 +304,7 @@ async function extractFromEpub(buffer: Buffer): Promise<ExtractedBookContent> {
   const spineItems = asArray(spineNode?.itemref as Record<string, unknown> | Record<string, unknown>[] | undefined);
   const opfDir = path.posix.dirname(opfPath);
   const chapters: string[] = [];
+  const documents: ExtractedEpubDocument[] = [];
   for (const itemRef of spineItems) {
     const idRef = typeof itemRef.idref === 'string' ? itemRef.idref.trim() : '';
     if (!idRef) continue;
@@ -216,8 +317,46 @@ async function extractFromEpub(buffer: Buffer): Promise<ExtractedBookContent> {
     const contentFile = zip.file(resolvedPath);
     if (!contentFile) continue;
     const html = await contentFile.async('string');
+    const inlinedHtml = await inlineCssAndImages({ zip, html, documentPath: resolvedPath });
     const chapterText = htmlToText(html);
-    if (chapterText) chapters.push(chapterText);
+    if (!chapterText) continue;
+    chapters.push(chapterText);
+    documents.push({
+      id: idRef,
+      href: resolvedPath,
+      title: inferTitleFromText(chapterText, documents.length + 1),
+      html: buildReaderDocumentHtml(inlinedHtml),
+      text: chapterText,
+    });
+  }
+  if (documents.length === 0) {
+    const contentFiles = Object.keys(zip.files)
+      .filter((filePath) => /\.(xhtml|html|htm)$/i.test(filePath))
+      .filter((filePath) => !/\/(nav|toc)\.(xhtml|html|htm)$/i.test(filePath))
+      .sort((left, right) => left.localeCompare(right, undefined, { sensitivity: 'base' }));
+    for (const filePath of contentFiles) {
+      const file = zip.file(filePath);
+      if (!file) continue;
+      const html = await file.async('string');
+      const chapterText = htmlToText(html);
+      if (!chapterText) continue;
+      const inlinedHtml = await inlineCssAndImages({ zip, html, documentPath: filePath });
+      chapters.push(chapterText);
+      documents.push({
+        id: `fallback-${documents.length + 1}`,
+        href: filePath,
+        title: inferTitleFromText(chapterText, documents.length + 1),
+        html: buildReaderDocumentHtml(inlinedHtml),
+        text: chapterText,
+      });
+    }
+  }
+  const expandedDocuments = documents;
+  if (expandedDocuments.length !== documents.length) {
+    chapters.length = 0;
+    for (const document of expandedDocuments) {
+      chapters.push(document.text);
+    }
   }
   const titleNode = metadata ? metadata['dc:title'] ?? metadata.title : '';
   const authorNode = metadata ? metadata['dc:creator'] ?? metadata.creator : '';
@@ -230,6 +369,11 @@ async function extractFromEpub(buffer: Buffer): Promise<ExtractedBookContent> {
     title,
     author,
     chapters: formatted.chapters,
+    readerPayload: {
+      format: 'epub',
+      version: 1,
+      documents: expandedDocuments,
+    },
   };
 }
 
