@@ -146,6 +146,38 @@ function normalizeTags(value: unknown): string[] {
     .filter(Boolean);
 }
 
+const importedBookTailPatterns: RegExp[] = [
+  /-\s*the\s+end\s*-/i,
+  /hope\s+you\s+have\s+enjoyed\s+the\s+reading!?/i,
+  /come\s+back\s+to\s*[`'"“”]?\s*https?:\/\/english-e-books\.net\/?\s*[`'"“”]?\s*to\s+find\s+more\s+fascinating\s+and\s+exciting\s+stories!?/i,
+  /\bexcerpt\s+from\b/i,
+  /this\s+material\s+may\s+be\s+protected\s+by\s+copyright\.?/i,
+];
+
+function sanitizeImportedBookText(rawText: string): { text: string; truncated: boolean } {
+  const normalized = rawText.replace(/\r/g, '\n');
+  let cutIndex = Number.POSITIVE_INFINITY;
+  for (const pattern of importedBookTailPatterns) {
+    const match = pattern.exec(normalized);
+    if (match && typeof match.index === 'number' && match.index >= 0) {
+      cutIndex = Math.min(cutIndex, match.index);
+    }
+  }
+  if (!Number.isFinite(cutIndex)) {
+    return { text: normalized.trim(), truncated: false };
+  }
+  return {
+    text: normalized.slice(0, cutIndex).trim(),
+    truncated: true,
+  };
+}
+
+function hasReadableBookContent(text: string): boolean {
+  const wordCount = text.split(/\s+/).filter(Boolean).length;
+  const letterCount = (text.match(/[a-zA-ZÀ-ÿ]/g) ?? []).length;
+  return wordCount >= 5 && letterCount >= 20;
+}
+
 async function createReadingContentFromText(params: {
   userId: string;
   text: string;
@@ -506,9 +538,17 @@ readingLabRouter.post(
       originalName: file.originalname,
       mimeType: file.mimetype,
     });
-    const cleanedText = extracted.text.trim();
+    const extractedText = typeof extracted.text === 'string' ? extracted.text : String(extracted.text ?? '');
+    const sanitized = sanitizeImportedBookText(extractedText);
+    const cleanedText = sanitized.text;
     if (cleanedText.length < 10) {
       throw new HttpError(400, 'Não foi possível extrair texto suficiente do arquivo');
+    }
+    if (!hasReadableBookContent(cleanedText)) {
+      throw new HttpError(400, 'O arquivo não contém texto legível suficiente para importação');
+    }
+    if (sanitized.truncated && cleanedText.length < 100) {
+      throw new HttpError(400, 'Texto removido por marcador de finalização deixou conteúdo insuficiente para processar');
     }
     if (cleanedText.length > 120000) {
       throw new HttpError(400, 'Livro muito grande para importação direta. Limite de 120000 caracteres');
