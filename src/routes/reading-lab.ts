@@ -149,6 +149,7 @@ async function createReadingContentFromText(params: {
   if (cached) {
     return {
       ...cached,
+      coverUrl: await getPlayableStorageUrl(cached.coverUrl),
       audioUrl: await getPlayableStorageUrl(cached.audioUrl),
       fromCache: true,
     };
@@ -245,6 +246,7 @@ async function createReadingContentFromText(params: {
     }
     return {
       ...result,
+      coverUrl: await getPlayableStorageUrl(result.coverUrl),
       audioUrl: await getPlayableStorageUrl(result.audioUrl),
       fromCache: false,
     };
@@ -297,6 +299,7 @@ readingLabRouter.get(
     const itemsWithPlayableUrl = await Promise.all(
       items.map(async (item) => ({
         ...item,
+        coverUrl: await getPlayableStorageUrl(item.coverUrl),
         audioUrl: await getPlayableStorageUrl(item.audioUrl),
       })),
     );
@@ -320,6 +323,7 @@ readingLabRouter.get(
     if (!content) throw new HttpError(404, 'Conteúdo não encontrado');
     res.json({
       ...content,
+      coverUrl: await getPlayableStorageUrl(content.coverUrl),
       audioUrl: await getPlayableStorageUrl(content.audioUrl),
     });
   }),
