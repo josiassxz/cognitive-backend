@@ -221,7 +221,7 @@ async function createReadingContentFromText(params: {
   const slugBase = slugify(params.title);
   const slug = `${slugBase || 'reading'}-${Date.now().toString(36)}`;
   const tmpAudioPath = `/tmp/reading-${slug}.mp3`;
-  const selectedVoice = params.voice ?? 'en-US-JennyNeural';
+  const selectedVoice = params.voice?.trim() || 'en-US-AvaMultilingualNeural';
   try {
     let ttsProvider: 'azure' | 'polly' = 'azure';
     let ttsResult;

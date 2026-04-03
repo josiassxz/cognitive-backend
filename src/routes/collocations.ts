@@ -38,7 +38,7 @@ collocationsRouter.get(
 
     const where: Record<string, unknown> = {};
     if (month) where.month = month;
-    if (cefrLevel) where.cefrLevel = cefrLevel;
+    if (cefrLevel) where.cefrLevel = { equals: cefrLevel, mode: 'insensitive' };
     if (type) where.type = type;
     if (search) {
       where.OR = [
@@ -71,7 +71,7 @@ collocationsRouter.get(
 
     const where: Record<string, unknown> = {};
     if (month) where.month = month;
-    if (cefrLevel) where.cefrLevel = cefrLevel;
+    if (cefrLevel) where.cefrLevel = { equals: cefrLevel, mode: 'insensitive' };
 
     const total = await prisma.collocationExercise.count({ where });
     if (total === 0) {
