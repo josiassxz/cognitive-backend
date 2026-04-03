@@ -308,6 +308,54 @@ readingLabRouter.get(
 );
 
 readingLabRouter.get(
+  '/progress',
+  authMiddleware,
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Não autorizado');
+    const rawContentIds = typeof req.query.contentIds === 'string' ? req.query.contentIds : '';
+    const ids = rawContentIds
+      .split(',')
+      .map((value) => Number(value.trim()))
+      .filter((value) => Number.isInteger(value) && value > 0);
+    if (ids.length === 0) {
+      res.json({ items: [] });
+      return;
+    }
+    const [items, sentenceCounts] = await Promise.all([
+      prisma.userReadingProgress.findMany({
+        where: {
+          userId,
+          contentId: { in: ids },
+        },
+        select: {
+          contentId: true,
+          lastSentence: true,
+          completed: true,
+          timeSpentMs: true,
+        },
+      }),
+      prisma.readingSentence.groupBy({
+        by: ['contentId'],
+        where: { contentId: { in: ids } },
+        _count: { _all: true },
+      }),
+    ]);
+    const countsByContent = new Map(sentenceCounts.map((item) => [item.contentId, item._count._all]));
+    const itemsWithPercent = items.map((item) => {
+      const totalSentences = Math.max(1, countsByContent.get(item.contentId) ?? 1);
+      const progressPercent = item.completed ? 100 : Math.min(100, Math.max(0, ((item.lastSentence + 1) / totalSentences) * 100));
+      return {
+        ...item,
+        totalSentences,
+        progressPercent,
+      };
+    });
+    res.json({ items: itemsWithPercent });
+  }),
+);
+
+readingLabRouter.get(
   '/:id',
   asyncHandler(async (req, res) => {
     const id = z.coerce.number().int().positive().parse(req.params.id);
@@ -325,6 +373,45 @@ readingLabRouter.get(
       ...content,
       coverUrl: await getPlayableStorageUrl(content.coverUrl),
       audioUrl: await getPlayableStorageUrl(content.audioUrl),
+    });
+  }),
+);
+
+readingLabRouter.get(
+  '/:id/progress',
+  authMiddleware,
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Não autorizado');
+    const contentId = z.coerce.number().int().positive().parse(req.params.id);
+    const progress = await prisma.userReadingProgress.findUnique({
+      where: { userId_contentId: { userId, contentId } },
+      select: {
+        id: true,
+        userId: true,
+        contentId: true,
+        lastSentence: true,
+        completed: true,
+        timeSpentMs: true,
+      },
+    });
+    if (!progress) {
+      res.json({ progress: null });
+      return;
+    }
+    const totalSentences = Math.max(
+      1,
+      await prisma.readingSentence.count({
+        where: { contentId },
+      }),
+    );
+    const progressPercent = progress.completed ? 100 : Math.min(100, Math.max(0, ((progress.lastSentence + 1) / totalSentences) * 100));
+    res.json({
+      progress: {
+        ...progress,
+        totalSentences,
+        progressPercent,
+      },
     });
   }),
 );
