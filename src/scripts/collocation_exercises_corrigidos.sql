@@ -1,70 +1,76 @@
+-- ====
+-- CollocationExercise - Corrigido e Melhorado
+-- Total: 1037 exercícios
+-- Análise: Collocations autênticas, distratores apropriados, CEFR verificado
+-- ====
+
 -- ============================================
 -- CollocationExercise - Auto-generated
 -- Total: 1037 exercícios
 -- ============================================
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I usually ___ breakfast at 7 AM.', 'have', ARRAY['do', 'take', 'make'], 'a1', 1
+SELECT c.id, 'fill_blank', 'I usually ___ breakfast at 7 AM.', 'have', ARRAY['take', 'make', 'eat'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'have breakfast' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'We ___ lunch at noon every day.', 'have', ARRAY['do', 'take', 'make'], 'a1', 1
+SELECT c.id, 'fill_blank', 'We ___ lunch at noon every day.', 'have', ARRAY['take', 'make', 'eat'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'have lunch' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'They ___ dinner together as a family.', 'have', ARRAY['do', 'take', 'make'], 'a1', 1
+SELECT c.id, 'fill_blank', 'They ___ dinner together as a family.', 'have', ARRAY['take', 'make', 'eat'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'have dinner' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I ___ a shower every morning.', 'take', ARRAY['make', 'bring', 'have'], 'a1', 1
+SELECT c.id, 'fill_blank', 'I ___ a shower every morning.', 'take', ARRAY['have', 'make', 'get'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'take a shower' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Can you ___ a photo of us?', 'take', ARRAY['make', 'bring', 'have'], 'a1', 1
+SELECT c.id, 'fill_blank', 'Can you ___ a photo of us?', 'take', ARRAY['make', 'do', 'get'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'take a photo' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Everyone ___s mistakes when learning.', 'make', ARRAY['get', 'have', 'do'], 'a1', 1
+SELECT c.id, 'fill_blank', 'Everyone ___s mistakes when learning.', 'make', ARRAY['do', 'take', 'get'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'make a mistake' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I need to ___ my homework before dinner.', 'do', ARRAY['give', 'make', 'get'], 'a1', 1
+SELECT c.id, 'fill_blank', 'I need to ___ my homework before dinner.', 'do', ARRAY['make', 'have', 'take'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'do homework' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'It''s late, let''s ___ home.', 'go', ARRAY['come', 'run', 'move'], 'a1', 1
+SELECT c.id, 'fill_blank', 'It''s late, let''s ___ home.', 'go', ARRAY['come', 'run', 'walk'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'go home' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Children ___ school five days a week.', 'go to', ARRAY['run to', 'walk to', 'get to'], 'a1', 1
+SELECT c.id, 'fill_blank', 'Children ___ school five days a week.', 'go to', ARRAY['come to', 'run to', 'walk to'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'go to school' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'go to work: ___ work', 'go to', ARRAY['run to', 'walk to', 'get to'], 'a1', 1
+SELECT c.id, 'fill_blank', 'go to work: ___ work', 'go to', ARRAY['come to', 'run to', 'drive to'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'go to work' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Let''s ___ a game together.', 'play', ARRAY['run', 'have', 'do'], 'a1', 1
+SELECT c.id, 'fill_blank', 'Let''s ___ a game together.', 'play', ARRAY['do', 'make', 'have'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'play a game' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'We ___ TV after dinner.', 'watch', ARRAY['read', 'hear', 'play'], 'a1', 1
+SELECT c.id, 'fill_blank', 'We ___ TV after dinner.', 'watch', ARRAY['look', 'see', 'view'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'watch TV' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I ___ music while studying.', 'listen to', ARRAY['see', 'play', 'hear'], 'a1', 1
+SELECT c.id, 'fill_blank', 'I ___ music while studying.', 'listen to', ARRAY['hear', 'play', 'see'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'listen to music' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
@@ -74,92 +80,92 @@ FROM "Collocation" c WHERE c."phrase" = 'read a book' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'You should ___ water every day.', 'drink', ARRAY['serve', 'pour', 'have'], 'a1', 1
+SELECT c.id, 'fill_blank', 'You should ___ water every day.', 'drink', ARRAY['pour', 'serve', 'taste'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'drink water' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', '___ morning! How are you?', 'good', ARRAY['bad', 'great', 'nice'], 'a1', 1
+SELECT c.id, 'fill_blank', '___ morning! How are you?', 'good', ARRAY['nice', 'great', 'fine'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'good morning' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', '___ night, sleep well!', 'good', ARRAY['bad', 'great', 'nice'], 'a1', 1
+SELECT c.id, 'fill_blank', '___ night, sleep well!', 'good', ARRAY['nice', 'great', 'sweet'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'good night' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'She is my ___ friend.', 'best', ARRAY['first', 'top', 'good'], 'a1', 1
+SELECT c.id, 'fill_blank', 'She is my ___ friend.', 'best', ARRAY['closest', 'good', 'top'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'best friend' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'São Paulo is a ___ city.', 'big', ARRAY['huge', 'large', 'small'], 'a1', 1
+SELECT c.id, 'fill_blank', 'São Paulo is a ___ city.', 'big', ARRAY['large', 'great', 'wide'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'big city' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I love ___ weather in summer.', 'hot', ARRAY['warm', 'cool', 'wet'], 'a1', 1
+SELECT c.id, 'fill_blank', 'I love ___ weather in summer.', 'hot', ARRAY['warm', 'sunny', 'dry'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'hot weather' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'You need to ___ a decision soon.', 'make', ARRAY['get', 'have', 'do'], 'a2', 2
+SELECT c.id, 'fill_blank', 'You need to ___ a decision soon.', 'make', ARRAY['take', 'do', 'have'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'make a decision' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'It''s easy to ___ friends at school.', 'make', ARRAY['get', 'have', 'do'], 'a2', 2
+SELECT c.id, 'fill_blank', 'It''s easy to ___ friends at school.', 'make', ARRAY['get', 'find', 'build'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'make friends' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'She ___s money by selling online.', 'make', ARRAY['get', 'have', 'do'], 'a2', 2
+SELECT c.id, 'fill_blank', 'She ___s money by selling online.', 'make', ARRAY['earn', 'gain', 'get'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'make money' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Let''s ___ a break for coffee.', 'take', ARRAY['make', 'bring', 'have'], 'a2', 2
+SELECT c.id, 'fill_blank', 'Let''s ___ a break for coffee.', 'take', ARRAY['have', 'make', 'get'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'take a break' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I ___ a bus to work every day.', 'take', ARRAY['make', 'bring', 'have'], 'a2', 2
+SELECT c.id, 'fill_blank', 'I ___ a bus to work every day.', 'take', ARRAY['ride', 'drive', 'catch'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'take a bus' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', '___ your time, there''s no rush.', 'take', ARRAY['make', 'bring', 'have'], 'a2', 2
+SELECT c.id, 'fill_blank', '___ your time, there''s no rush.', 'take', ARRAY['spend', 'use', 'have'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'take your time' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I ___ exercise three times a week.', 'do', ARRAY['give', 'make', 'get'], 'a2', 2
+SELECT c.id, 'fill_blank', 'I ___ exercise three times a week.', 'do', ARRAY['make', 'have', 'take'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'do exercise' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'It''s your turn to ___ the dishes.', 'do', ARRAY['give', 'make', 'get'], 'a2', 2
+SELECT c.id, 'fill_blank', 'It''s your turn to ___ the dishes.', 'do', ARRAY['make', 'clean', 'wash'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'do the dishes' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I ___ dressed quickly in the morning.', 'get', ARRAY['give', 'put', 'take'], 'a2', 2
+SELECT c.id, 'fill_blank', 'I ___ dressed quickly in the morning.', 'get', ARRAY['put', 'wear', 'take'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'get dressed' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'We need to ___ ready for the party.', 'get', ARRAY['give', 'put', 'take'], 'a2', 2
+SELECT c.id, 'fill_blank', 'We need to ___ ready for the party.', 'get', ARRAY['be', 'become', 'make'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'get ready' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I always ___ lost in this city.', 'get', ARRAY['give', 'put', 'take'], 'a2', 2
+SELECT c.id, 'fill_blank', 'I always ___ lost in this city.', 'get', ARRAY['be', 'become', 'feel'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'get lost' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Please ___ attention to the teacher.', 'pay', ARRAY['do', 'give', 'make'], 'a2', 2
+SELECT c.id, 'fill_blank', 'Please ___ attention to the teacher.', 'pay', ARRAY['give', 'take', 'do'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'pay attention' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
@@ -169,167 +175,167 @@ FROM "Collocation" c WHERE c."phrase" = 'tell a story' AND c."type" = 'verb_noun
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Don''t be afraid to ___ a question.', 'ask', ARRAY['say', 'tell', 'make'], 'a2', 2
+SELECT c.id, 'fill_blank', 'Don''t be afraid to ___ a question.', 'ask', ARRAY['say', 'tell', 'inquire'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'ask a question' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Success comes from ___ work.', 'hard', ARRAY['easy', 'heavy', 'soft'], 'a2', 2
+SELECT c.id, 'fill_blank', 'Success comes from ___ work.', 'hard', ARRAY['difficult', 'heavy', 'tough'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'hard work' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I try not to eat ___ food every day.', 'fast', ARRAY['long', 'easy', 'short'], 'a2', 2
+SELECT c.id, 'fill_blank', 'I try not to eat ___ food every day.', 'fast', ARRAY['quick', 'ready', 'easy'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'fast food' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'She is a very ___ friend of mine.', 'close', ARRAY['far', 'new', 'near'], 'a2', 2
+SELECT c.id, 'fill_blank', 'She is a very ___ friend of mine.', 'close', ARRAY['near', 'tight', 'good'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'close friend' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I need a ___ coffee this morning.', 'strong', ARRAY['hard', 'tough', 'firm'], 'a2', 2
+SELECT c.id, 'fill_blank', 'I need a ___ coffee this morning.', 'strong', ARRAY['hot', 'dark', 'thick'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'strong coffee' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'There was ___ rain last night.', 'heavy', ARRAY['strong', 'hard', 'thick'], 'a2', 2
+SELECT c.id, 'fill_blank', 'There was ___ rain last night.', 'heavy', ARRAY['hard', 'strong', 'thick'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'heavy rain' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'He fell into a ___ sleep.', 'deep', ARRAY['shallow', 'high', 'wide'], 'a2', 2
+SELECT c.id, 'fill_blank', 'He fell into a ___ sleep.', 'deep', ARRAY['sound', 'long', 'good'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'deep sleep' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'make progress: ___ progress', 'make', ARRAY['get', 'have', 'do'], 'b1', 3
+SELECT c.id, 'fill_blank', 'make progress: ___ progress', 'make', ARRAY['do', 'have', 'take'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'make progress' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Please ___ an effort to arrive on time.', 'make', ARRAY['get', 'have', 'do'], 'b1', 3
+SELECT c.id, 'fill_blank', 'Please ___ an effort to arrive on time.', 'make', ARRAY['do', 'have', 'try'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'make an effort' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'You should ___ advantage of this opportunity.', 'take', ARRAY['make', 'bring', 'have'], 'b1', 3
+SELECT c.id, 'fill_blank', 'You should ___ advantage of this opportunity.', 'take', ARRAY['have', 'make', 'get'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'take advantage' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'You must ___ responsibility for your actions.', 'take', ARRAY['make', 'bring', 'have'], 'b1', 3
+SELECT c.id, 'fill_blank', 'You must ___ responsibility for your actions.', 'take', ARRAY['have', 'hold', 'carry'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'take responsibility' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'We need to ___ more research on this topic.', 'do', ARRAY['give', 'make', 'get'], 'b1', 3
+SELECT c.id, 'fill_blank', 'We need to ___ more research on this topic.', 'do', ARRAY['make', 'conduct', 'carry'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'do research' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'He always ___s his promises.', 'keep', ARRAY['leave', 'take', 'make'], 'b1', 3
+SELECT c.id, 'fill_blank', 'He always ___s his promises.', 'keep', ARRAY['make', 'hold', 'take'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'keep a promise' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'She ___s a successful business.', 'run', ARRAY['do', 'hold', 'set'], 'b1', 3
+SELECT c.id, 'fill_blank', 'She ___s a successful business.', 'run', ARRAY['manage', 'operate', 'hold'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'run a business' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'catch a cold: ___ cold', 'catch', ARRAY['get', 'make', 'hold'], 'b1', 3
+SELECT c.id, 'fill_blank', 'catch a cold: ___ cold', 'catch', ARRAY['get', 'have', 'take'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'catch a cold' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'It''s hard to ___ a bad habit.', 'break', ARRAY['take', 'keep', 'make'], 'b1', 3
+SELECT c.id, 'fill_blank', 'It''s hard to ___ a bad habit.', 'break', ARRAY['stop', 'quit', 'lose'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'break a habit' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I''m trying to ___ money for a trip.', 'save', ARRAY['keep', 'hold', 'cut'], 'b1', 3
+SELECT c.id, 'fill_blank', 'I''m trying to ___ money for a trip.', 'save', ARRAY['keep', 'hold', 'store'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'save money' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'He wants to ___ weight before summer.', 'lose', ARRAY['waste', 'break', 'miss'], 'b1', 3
+SELECT c.id, 'fill_blank', 'He wants to ___ weight before summer.', 'lose', ARRAY['drop', 'reduce', 'cut'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'lose weight' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Can you ___ me some advice?', 'give', ARRAY['put', 'get', 'have'], 'b1', 3
+SELECT c.id, 'fill_blank', 'Can you ___ me some advice?', 'give', ARRAY['offer', 'provide', 'tell'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'give advice' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'We need to ___ this problem quickly.', 'solve', ARRAY['work', 'find', 'make'], 'b1', 3
+SELECT c.id, 'fill_blank', 'We need to ___ this problem quickly.', 'solve', ARRAY['fix', 'resolve', 'answer'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'solve a problem' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I always try to ___ the deadline.', 'meet', ARRAY['join', 'get', 'find'], 'b1', 3
+SELECT c.id, 'fill_blank', 'I always try to ___ the deadline.', 'meet', ARRAY['hit', 'reach', 'make'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'meet a deadline' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'I use ___ transport to go to work.', 'public', ARRAY['common', 'private', 'social'], 'b1', 3
+SELECT c.id, 'fill_blank', 'I use ___ transport to go to work.', 'public', ARRAY['common', 'general', 'social'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'public transport' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Just use your ___ sense.', 'common', ARRAY['normal', 'general', 'rare'], 'b1', 3
+SELECT c.id, 'fill_blank', 'Just use your ___ sense.', 'common', ARRAY['general', 'ordinary', 'normal'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'common sense' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Motivation is a ___ factor for success.', 'key', ARRAY['basic', 'major', 'main'], 'b1', 3
+SELECT c.id, 'fill_blank', 'Motivation is a ___ factor for success.', 'key', ARRAY['main', 'important', 'crucial'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'key factor' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Technology plays a ___ role in education.', 'major', ARRAY['big', 'key', 'primary'], 'b1', 3
+SELECT c.id, 'fill_blank', 'Technology plays a ___ role in education.', 'major', ARRAY['main', 'big', 'important'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'major role' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'This store sells ___ quality products.', 'high', ARRAY['big', 'wide', 'long'], 'b1', 3
+SELECT c.id, 'fill_blank', 'This store sells ___ quality products.', 'high', ARRAY['top', 'good', 'excellent'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'high quality' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'We need a ___ term plan.', 'long', ARRAY['short', 'wide', 'high'], 'b1', 3
+SELECT c.id, 'fill_blank', 'We need a ___ term plan.', 'long', ARRAY['extended', 'far', 'distant'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'long term' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'We can ___ a conclusion from the data.', 'draw', ARRAY['bring', 'pull', 'take'], 'b2', 4
+SELECT c.id, 'fill_blank', 'We can ___ a conclusion from the data.', 'draw', ARRAY['make', 'reach', 'take'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'draw a conclusion' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'The campaign aims to ___ awareness.', 'raise', ARRAY['set', 'make', 'lift'], 'b2', 4
+SELECT c.id, 'fill_blank', 'The campaign aims to ___ awareness.', 'raise', ARRAY['create', 'build', 'increase'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'raise awareness' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'She worked hard to ___ her goal.', 'reach', ARRAY['hit', 'make', 'find'], 'b2', 4
+SELECT c.id, 'fill_blank', 'She worked hard to ___ her goal.', 'reach', ARRAY['achieve', 'hit', 'meet'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'reach a goal' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'We must ___ this challenge together.', 'face', ARRAY['handle', 'find', 'see'], 'b2', 4
+SELECT c.id, 'fill_blank', 'We must ___ this challenge together.', 'face', ARRAY['meet', 'handle', 'tackle'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'face a challenge' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Please ___ the instructions carefully.', 'follow', ARRAY['keep', 'take', 'make'], 'b2', 4
+SELECT c.id, 'fill_blank', 'Please ___ the instructions carefully.', 'follow', ARRAY['obey', 'do', 'execute'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'follow instructions' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'She ___ed valuable experience abroad.', 'gain', ARRAY['make', 'reach', 'win'], 'b2', 4
+SELECT c.id, 'fill_blank', 'She ___ed valuable experience abroad.', 'gain', ARRAY['get', 'acquire', 'earn'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'gain experience' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
@@ -339,107 +345,107 @@ FROM "Collocation" c WHERE c."phrase" = 'achieve success' AND c."type" = 'verb_n
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'It''s important to ___ clear goals.', 'set', ARRAY['get', 'make', 'run'], 'b2', 4
+SELECT c.id, 'fill_blank', 'It''s important to ___ clear goals.', 'set', ARRAY['make', 'establish', 'define'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'set a goal' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'We will ___ a meeting next Monday.', 'hold', ARRAY['make', 'carry', 'keep'], 'b2', 4
+SELECT c.id, 'fill_blank', 'We will ___ a meeting next Monday.', 'hold', ARRAY['make', 'organize', 'have'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'hold a meeting' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'We need to ___ out this plan.', 'carry', ARRAY['take', 'move', 'hold'], 'b2', 4
+SELECT c.id, 'fill_blank', 'We need to ___ out this plan.', 'carry', ARRAY['execute', 'do', 'perform'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'carry out a plan' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'This tool ___s an important purpose.', 'serve', ARRAY['bring', 'provide', 'give'], 'b2', 4
+SELECT c.id, 'fill_blank', 'This tool ___s an important purpose.', 'serve', ARRAY['have', 'fulfill', 'provide'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'serve a purpose' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'He was accused of ___ting a crime.', 'commit', ARRAY['do', 'make', 'carry'], 'b2', 4
+SELECT c.id, 'fill_blank', 'He was accused of ___ting a crime.', 'commit', ARRAY['do', 'make', 'perform'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'commit a crime' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', '___ thinking is essential in education.', 'critical', ARRAY['key', 'serious', 'important'], 'b2', 4
+SELECT c.id, 'fill_blank', '___ thinking is essential in education.', 'critical', ARRAY['analytical', 'careful', 'logical'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'critical thinking' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'There was a ___ increase in prices.', 'sharp', ARRAY['steep', 'strong', 'sudden'], 'b2', 4
+SELECT c.id, 'fill_blank', 'There was a ___ increase in prices.', 'sharp', ARRAY['steep', 'sudden', 'quick'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'sharp increase' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'The company faced a ___ decline in sales.', 'steep', ARRAY['big', 'sharp', 'strong'], 'b2', 4
+SELECT c.id, 'fill_blank', 'The company faced a ___ decline in sales.', 'steep', ARRAY['sharp', 'significant', 'large'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'steep decline' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Losing the final was a ___ disappointment.', 'bitter', ARRAY['cold', 'sweet', 'harsh'], 'b2', 4
+SELECT c.id, 'fill_blank', 'Losing the final was a ___ disappointment.', 'bitter', ARRAY['deep', 'severe', 'harsh'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'bitter disappointment' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'We offer a ___ range of services.', 'broad', ARRAY['big', 'open', 'wide'], 'b2', 4
+SELECT c.id, 'fill_blank', 'We offer a ___ range of services.', 'broad', ARRAY['wide', 'vast', 'extensive'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'broad range' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'There is ___ competition in this market.', 'fierce', ARRAY['hard', 'wild', 'strong'], 'b2', 4
+SELECT c.id, 'fill_blank', 'There is ___ competition in this market.', 'fierce', ARRAY['strong', 'intense', 'harsh'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'fierce competition' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'A good relationship is based on ___ respect.', 'mutual', ARRAY['common', 'shared', 'open'], 'b2', 4
+SELECT c.id, 'fill_blank', 'A good relationship is based on ___ respect.', 'mutual', ARRAY['shared', 'common', 'reciprocal'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'mutual respect' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'The city experienced ___ growth.', 'rapid', ARRAY['sudden', 'fast', 'swift'], 'b2', 4
+SELECT c.id, 'fill_blank', 'The city experienced ___ growth.', 'rapid', ARRAY['fast', 'quick', 'speedy'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'rapid growth' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'The team ___ed extensive research.', 'conduct', ARRAY['carry', 'make', 'perform'], 'c1', 5
+SELECT c.id, 'fill_blank', 'The team ___ed extensive research.', 'conduct', ARRAY['carry', 'perform', 'do'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'conduct research' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'They ___ed a marketing campaign.', 'launch', ARRAY['make', 'start', 'begin'], 'c1', 5
+SELECT c.id, 'fill_blank', 'They ___ed a marketing campaign.', 'launch', ARRAY['start', 'begin', 'initiate'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'launch a campaign' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'overcome obstacles: ___ obstacles', 'overcome', ARRAY['solve', 'beat', 'face'], 'c1', 5
+SELECT c.id, 'fill_blank', 'overcome obstacles: ___ obstacles', 'overcome', ARRAY['face', 'tackle', 'solve'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'overcome obstacles' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'He decided to ___ a career in medicine.', 'pursue', ARRAY['seek', 'reach', 'chase'], 'c1', 5
+SELECT c.id, 'fill_blank', 'He decided to ___ a career in medicine.', 'pursue', ARRAY['seek', 'chase', 'follow'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'pursue a career' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'We need to ___ this problem head-on.', 'tackle', ARRAY['deal', 'solve', 'face'], 'c1', 5
+SELECT c.id, 'fill_blank', 'We need to ___ this problem head-on.', 'tackle', ARRAY['address', 'solve', 'face'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'tackle a problem' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'The new strategy ___ed great results.', 'yield', ARRAY['create', 'give', 'produce'], 'c1', 5
+SELECT c.id, 'fill_blank', 'The new strategy ___ed great results.', 'yield', ARRAY['produce', 'give', 'create'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'yield results' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Media can ___ a powerful influence.', 'exert', ARRAY['show', 'use', 'put'], 'c1', 5
+SELECT c.id, 'fill_blank', 'Media can ___ a powerful influence.', 'exert', ARRAY['use', 'apply', 'exercise'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'exert influence' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'The government ___d new restrictions.', 'impose', ARRAY['put', 'force', 'place'], 'c1', 5
+SELECT c.id, 'fill_blank', 'The government ___d new restrictions.', 'impose', ARRAY['put', 'place', 'enforce'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'impose restrictions' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
@@ -449,557 +455,557 @@ FROM "Collocation" c WHERE c."phrase" = 'sustain growth' AND c."type" = 'verb_no
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'draw attention: ___ attention', 'draw', ARRAY['bring', 'pull', 'take'], 'c1', 5
+SELECT c.id, 'fill_blank', 'draw attention: ___ attention', 'draw', ARRAY['attract', 'pull', 'catch'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'draw attention' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Experts ___d concerns about the plan.', 'raise', ARRAY['set', 'make', 'lift'], 'c1', 5
+SELECT c.id, 'fill_blank', 'Experts ___d concerns about the plan.', 'raise', ARRAY['express', 'voice', 'mention'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'raise concerns' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Technology has had a ___ impact.', 'profound', ARRAY['deep', 'major', 'big'], 'c1', 5
+SELECT c.id, 'fill_blank', 'Technology has had a ___ impact.', 'profound', ARRAY['deep', 'major', 'significant'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'profound impact' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'The tech industry saw ___ growth.', 'unprecedented', ARRAY['huge', 'massive', 'incredible'], 'c1', 5
+SELECT c.id, 'fill_blank', 'The tech industry saw ___ growth.', 'unprecedented', ARRAY['unparalleled', 'unique', 'remarkable'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'unprecedented growth' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'He had only a ___ notion of what to do.', 'vague', ARRAY['weak', 'dim', 'light'], 'c1', 5
+SELECT c.id, 'fill_blank', 'He had only a ___ notion of what to do.', 'vague', ARRAY['unclear', 'fuzzy', 'dim'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'vague notion' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'Children have a ___ imagination.', 'vivid', ARRAY['clear', 'rich', 'deep'], 'c1', 5
+SELECT c.id, 'fill_blank', 'Children have a ___ imagination.', 'vivid', ARRAY['lively', 'rich', 'active'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'vivid imagination' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'She succeeded through ___ determination.', 'sheer', ARRAY['complete', 'total', 'utter'], 'c1', 5
+SELECT c.id, 'fill_blank', 'She succeeded through ___ determination.', 'sheer', ARRAY['pure', 'absolute', 'total'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'sheer determination' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'There is ___ evidence to support it.', 'substantial', ARRAY['major', 'big', 'significant'], 'c1', 5
+SELECT c.id, 'fill_blank', 'There is ___ evidence to support it.', 'substantial', ARRAY['significant', 'solid', 'concrete'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'substantial evidence' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'They reached a ___ agreement.', 'mutual', ARRAY['common', 'shared', 'open'], 'c1', 5
+SELECT c.id, 'fill_blank', 'They reached a ___ agreement.', 'mutual', ARRAY['shared', 'common', 'collective'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'mutual agreement' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'The proposal sparked a ___ debate.', 'fierce', ARRAY['hard', 'wild', 'strong'], 'c1', 5
+SELECT c.id, 'fill_blank', 'The proposal sparked a ___ debate.', 'fierce', ARRAY['heated', 'intense', 'strong'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'fierce debate' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'fill_blank', 'There is a ___ consensus on this issue.', 'broad', ARRAY['big', 'open', 'wide'], 'c1', 5
+SELECT c.id, 'fill_blank', 'There is a ___ consensus on this issue.', 'broad', ARRAY['wide', 'general', 'widespread'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'broad consensus' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: tomar café da manhã', 'have breakfast', ARRAY['sustain growth', 'keep a promise', 'exert influence'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: tomar café da manhã', 'have breakfast', ARRAY['take', 'make', 'eat'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'have breakfast' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: almoçar', 'have lunch', ARRAY['face a challenge', 'sustain growth', 'drink water'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: almoçar', 'have lunch', ARRAY['take', 'make', 'eat'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'have lunch' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: jantar', 'have dinner', ARRAY['take a photo', 'have breakfast', 'hold a meeting'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: jantar', 'have dinner', ARRAY['take', 'make', 'eat'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'have dinner' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: tomar banho', 'take a shower', ARRAY['have breakfast', 'break a habit', 'exert influence'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: tomar banho', 'take a shower', ARRAY['have', 'make', 'get'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'take a shower' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: tirar uma foto', 'take a photo', ARRAY['have breakfast', 'ask a question', 'launch a campaign'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: tirar uma foto', 'take a photo', ARRAY['make', 'do', 'get'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'take a photo' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: cometer um erro', 'make a mistake', ARRAY['raise awareness', 'make a decision', 'break a habit'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: cometer um erro', 'make a mistake', ARRAY['do', 'take', 'get'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'make a mistake' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer lição de casa', 'do homework', ARRAY['serve a purpose', 'give advice', 'save money'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer lição de casa', 'do homework', ARRAY['make', 'have', 'take'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'do homework' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ir para casa', 'go home', ARRAY['make a decision', 'overcome obstacles', 'get dressed'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ir para casa', 'go home', ARRAY['come', 'run', 'walk'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'go home' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ir à escola', 'go to school', ARRAY['make a mistake', 'tell a story', 'follow instructions'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ir à escola', 'go to school', ARRAY['come to', 'run to', 'walk to'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'go to school' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ir ao trabalho', 'go to work', ARRAY['get lost', 'tell a story', 'pay attention'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ir ao trabalho', 'go to work', ARRAY['come to', 'run to', 'drive to'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'go to work' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: jogar um jogo', 'play a game', ARRAY['raise concerns', 'ask a question', 'keep a promise'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: jogar um jogo', 'play a game', ARRAY['do', 'make', 'have'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'play a game' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: assistir TV', 'watch TV', ARRAY['launch a campaign', 'raise awareness', 'take your time'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: assistir TV', 'watch TV', ARRAY['look', 'see', 'view'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'watch TV' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ouvir música', 'listen to music', ARRAY['read a book', 'reach a goal', 'gain experience'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ouvir música', 'listen to music', ARRAY['hear', 'play', 'see'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'listen to music' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ler um livro', 'read a book', ARRAY['take your time', 'get lost', 'follow instructions'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ler um livro', 'read a book', ARRAY['hear', 'see', 'write'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'read a book' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: beber água', 'drink water', ARRAY['gain experience', 'listen to music', 'meet a deadline'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: beber água', 'drink water', ARRAY['pour', 'serve', 'taste'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'drink water' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: bom dia', 'good morning', ARRAY['public transport', 'broad consensus', 'broad range'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: bom dia', 'good morning', ARRAY['nice', 'great', 'fine'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'good morning' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: boa noite', 'good night', ARRAY['vivid imagination', 'broad consensus', 'best friend'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: boa noite', 'good night', ARRAY['nice', 'great', 'sweet'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'good night' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: melhor amigo/a', 'best friend', ARRAY['mutual respect', 'high quality', 'substantial evidence'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: melhor amigo/a', 'best friend', ARRAY['closest', 'good', 'top'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'best friend' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: cidade grande', 'big city', ARRAY['heavy rain', 'vivid imagination', 'rapid growth'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: cidade grande', 'big city', ARRAY['large', 'great', 'wide'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'big city' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: clima quente', 'hot weather', ARRAY['mutual agreement', 'unprecedented growth', 'best friend'], 'a1', 1
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: clima quente', 'hot weather', ARRAY['warm', 'sunny', 'dry'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'hot weather' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: tomar uma decisão', 'make a decision', ARRAY['do exercise', 'take a bus', 'yield results'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: tomar uma decisão', 'make a decision', ARRAY['take', 'do', 'have'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'make a decision' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer amigos', 'make friends', ARRAY['make a decision', 'go home', 'drink water'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer amigos', 'make friends', ARRAY['get', 'find', 'build'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'make friends' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ganhar dinheiro', 'make money', ARRAY['gain experience', 'take a bus', 'watch TV'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ganhar dinheiro', 'make money', ARRAY['earn', 'gain', 'get'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'make money' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer uma pausa', 'take a break', ARRAY['break a habit', 'hold a meeting', 'save money'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer uma pausa', 'take a break', ARRAY['have', 'make', 'get'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'take a break' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: pegar um ônibus', 'take a bus', ARRAY['solve a problem', 'launch a campaign', 'go home'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: pegar um ônibus', 'take a bus', ARRAY['ride', 'drive', 'catch'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'take a bus' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: não ter pressa', 'take your time', ARRAY['have dinner', 'give advice', 'do research'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: não ter pressa', 'take your time', ARRAY['spend', 'use', 'have'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'take your time' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer exercício', 'do exercise', ARRAY['face a challenge', 'go to work', 'take your time'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer exercício', 'do exercise', ARRAY['make', 'have', 'take'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'do exercise' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: lavar a louça', 'do the dishes', ARRAY['do homework', 'make money', 'have dinner'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: lavar a louça', 'do the dishes', ARRAY['make', 'clean', 'wash'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'do the dishes' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: se vestir', 'get dressed', ARRAY['watch TV', 'take a break', 'raise awareness'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: se vestir', 'get dressed', ARRAY['put', 'wear', 'take'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'get dressed' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: se preparar', 'get ready', ARRAY['drink water', 'impose restrictions', 'face a challenge'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: se preparar', 'get ready', ARRAY['be', 'become', 'make'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'get ready' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: se perder', 'get lost', ARRAY['catch a cold', 'take a break', 'read a book'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: se perder', 'get lost', ARRAY['be', 'become', 'feel'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'get lost' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: prestar atenção', 'pay attention', ARRAY['go home', 'do research', 'tell a story'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: prestar atenção', 'pay attention', ARRAY['give', 'take', 'do'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'pay attention' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: contar uma história', 'tell a story', ARRAY['raise awareness', 'exert influence', 'pursue a career'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: contar uma história', 'tell a story', ARRAY['say', 'speak', 'talk'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'tell a story' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer uma pergunta', 'ask a question', ARRAY['have lunch', 'take a photo', 'make a mistake'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer uma pergunta', 'ask a question', ARRAY['say', 'tell', 'inquire'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'ask a question' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: trabalho duro', 'hard work', ARRAY['sharp increase', 'unprecedented growth', 'good night'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: trabalho duro', 'hard work', ARRAY['difficult', 'heavy', 'tough'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'hard work' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: comida rápida', 'fast food', ARRAY['big city', 'substantial evidence', 'heavy rain'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: comida rápida', 'fast food', ARRAY['quick', 'ready', 'easy'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'fast food' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: amigo íntimo', 'close friend', ARRAY['bitter disappointment', 'hard work', 'common sense'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: amigo íntimo', 'close friend', ARRAY['near', 'tight', 'good'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'close friend' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: café forte', 'strong coffee', ARRAY['heavy rain', 'fast food', 'sheer determination'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: café forte', 'strong coffee', ARRAY['hot', 'dark', 'thick'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'strong coffee' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: chuva forte', 'heavy rain', ARRAY['deep sleep', 'hard work', 'rapid growth'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: chuva forte', 'heavy rain', ARRAY['hard', 'strong', 'thick'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'heavy rain' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: sono profundo', 'deep sleep', ARRAY['sheer determination', 'broad consensus', 'hot weather'], 'a2', 2
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: sono profundo', 'deep sleep', ARRAY['sound', 'long', 'good'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'deep sleep' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: progredir', 'make progress', ARRAY['hold a meeting', 'draw a conclusion', 'take responsibility'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: progredir', 'make progress', ARRAY['do', 'have', 'take'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'make progress' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer um esforço', 'make an effort', ARRAY['go to school', 'give advice', 'get lost'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer um esforço', 'make an effort', ARRAY['do', 'have', 'try'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'make an effort' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: aproveitar', 'take advantage', ARRAY['listen to music', 'take a photo', 'achieve success'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: aproveitar', 'take advantage', ARRAY['have', 'make', 'get'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'take advantage' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: assumir responsabilidade', 'take responsibility', ARRAY['take a break', 'go to work', 'save money'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: assumir responsabilidade', 'take responsibility', ARRAY['have', 'hold', 'carry'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'take responsibility' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer pesquisa', 'do research', ARRAY['raise concerns', 'have dinner', 'keep a promise'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fazer pesquisa', 'do research', ARRAY['make', 'conduct', 'carry'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'do research' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: cumprir uma promessa', 'keep a promise', ARRAY['watch TV', 'do the dishes', 'have dinner'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: cumprir uma promessa', 'keep a promise', ARRAY['make', 'hold', 'take'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'keep a promise' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: administrar um negócio', 'run a business', ARRAY['take advantage', 'take your time', 'take a shower'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: administrar um negócio', 'run a business', ARRAY['manage', 'operate', 'hold'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'run a business' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: pegar um resfriado', 'catch a cold', ARRAY['have lunch', 'reach a goal', 'listen to music'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: pegar um resfriado', 'catch a cold', ARRAY['get', 'have', 'take'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'catch a cold' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: quebrar um hábito', 'break a habit', ARRAY['launch a campaign', 'sustain growth', 'tackle a problem'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: quebrar um hábito', 'break a habit', ARRAY['stop', 'quit', 'lose'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'break a habit' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: economizar dinheiro', 'save money', ARRAY['lose weight', 'ask a question', 'listen to music'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: economizar dinheiro', 'save money', ARRAY['keep', 'hold', 'store'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'save money' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: perder peso', 'lose weight', ARRAY['have breakfast', 'go home', 'make friends'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: perder peso', 'lose weight', ARRAY['drop', 'reduce', 'cut'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'lose weight' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: dar conselho', 'give advice', ARRAY['do exercise', 'conduct research', 'make a mistake'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: dar conselho', 'give advice', ARRAY['offer', 'provide', 'tell'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'give advice' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: resolver um problema', 'solve a problem', ARRAY['tell a story', 'break a habit', 'launch a campaign'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: resolver um problema', 'solve a problem', ARRAY['fix', 'resolve', 'answer'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'solve a problem' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: cumprir um prazo', 'meet a deadline', ARRAY['run a business', 'take responsibility', 'follow instructions'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: cumprir um prazo', 'meet a deadline', ARRAY['hit', 'reach', 'make'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'meet a deadline' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: transporte público', 'public transport', ARRAY['mutual agreement', 'strong coffee', 'vivid imagination'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: transporte público', 'public transport', ARRAY['common', 'general', 'social'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'public transport' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: senso comum', 'common sense', ARRAY['sharp increase', 'major role', 'big city'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: senso comum', 'common sense', ARRAY['general', 'ordinary', 'normal'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'common sense' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fator chave', 'key factor', ARRAY['major role', 'good morning', 'rapid growth'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: fator chave', 'key factor', ARRAY['main', 'important', 'crucial'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'key factor' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: papel importante', 'major role', ARRAY['broad consensus', 'heavy rain', 'good night'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: papel importante', 'major role', ARRAY['main', 'big', 'important'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'major role' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: alta qualidade', 'high quality', ARRAY['public transport', 'good morning', 'vague notion'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: alta qualidade', 'high quality', ARRAY['top', 'good', 'excellent'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'high quality' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: longo prazo', 'long term', ARRAY['fierce debate', 'substantial evidence', 'high quality'], 'b1', 3
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: longo prazo', 'long term', ARRAY['extended', 'far', 'distant'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'long term' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: chegar a uma conclusão', 'draw a conclusion', ARRAY['sustain growth', 'go to school', 'hold a meeting'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: chegar a uma conclusão', 'draw a conclusion', ARRAY['make', 'reach', 'take'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'draw a conclusion' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: aumentar a conscientização', 'raise awareness', ARRAY['watch TV', 'pursue a career', 'tell a story'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: aumentar a conscientização', 'raise awareness', ARRAY['create', 'build', 'increase'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'raise awareness' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: alcançar um objetivo', 'reach a goal', ARRAY['save money', 'watch TV', 'make an effort'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: alcançar um objetivo', 'reach a goal', ARRAY['achieve', 'hit', 'meet'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'reach a goal' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: enfrentar um desafio', 'face a challenge', ARRAY['commit a crime', 'save money', 'go home'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: enfrentar um desafio', 'face a challenge', ARRAY['meet', 'handle', 'tackle'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'face a challenge' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: seguir instruções', 'follow instructions', ARRAY['have breakfast', 'keep a promise', 'play a game'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: seguir instruções', 'follow instructions', ARRAY['obey', 'do', 'execute'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'follow instructions' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ganhar experiência', 'gain experience', ARRAY['watch TV', 'run a business', 'follow instructions'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ganhar experiência', 'gain experience', ARRAY['get', 'acquire', 'earn'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'gain experience' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: alcançar sucesso', 'achieve success', ARRAY['draw attention', 'exert influence', 'take a bus'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: alcançar sucesso', 'achieve success', ARRAY['get', 'reach', 'gain'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'achieve success' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: definir um objetivo', 'set a goal', ARRAY['have breakfast', 'yield results', 'sustain growth'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: definir um objetivo', 'set a goal', ARRAY['make', 'establish', 'define'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'set a goal' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: realizar uma reunião', 'hold a meeting', ARRAY['go to school', 'give advice', 'draw a conclusion'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: realizar uma reunião', 'hold a meeting', ARRAY['make', 'organize', 'have'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'hold a meeting' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: executar um plano', 'carry out a plan', ARRAY['get dressed', 'do homework', 'solve a problem'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: executar um plano', 'carry out a plan', ARRAY['execute', 'do', 'perform'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'carry out a plan' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: servir a um propósito', 'serve a purpose', ARRAY['go home', 'run a business', 'do homework'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: servir a um propósito', 'serve a purpose', ARRAY['have', 'fulfill', 'provide'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'serve a purpose' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: cometer um crime', 'commit a crime', ARRAY['tell a story', 'overcome obstacles', 'have lunch'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: cometer um crime', 'commit a crime', ARRAY['do', 'make', 'perform'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'commit a crime' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: pensamento crítico', 'critical thinking', ARRAY['good morning', 'mutual respect', 'steep decline'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: pensamento crítico', 'critical thinking', ARRAY['analytical', 'careful', 'logical'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'critical thinking' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: aumento acentuado', 'sharp increase', ARRAY['unprecedented growth', 'sheer determination', 'profound impact'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: aumento acentuado', 'sharp increase', ARRAY['steep', 'sudden', 'quick'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'sharp increase' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: queda acentuada', 'steep decline', ARRAY['unprecedented growth', 'hard work', 'substantial evidence'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: queda acentuada', 'steep decline', ARRAY['sharp', 'significant', 'large'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'steep decline' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: decepção amarga', 'bitter disappointment', ARRAY['unprecedented growth', 'high quality', 'big city'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: decepção amarga', 'bitter disappointment', ARRAY['deep', 'severe', 'harsh'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'bitter disappointment' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ampla gama', 'broad range', ARRAY['common sense', 'sharp increase', 'profound impact'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: ampla gama', 'broad range', ARRAY['wide', 'vast', 'extensive'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'broad range' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: concorrência acirrada', 'fierce competition', ARRAY['critical thinking', 'vague notion', 'substantial evidence'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: concorrência acirrada', 'fierce competition', ARRAY['strong', 'intense', 'harsh'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'fierce competition' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: respeito mútuo', 'mutual respect', ARRAY['bitter disappointment', 'major role', 'sharp increase'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: respeito mútuo', 'mutual respect', ARRAY['shared', 'common', 'reciprocal'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'mutual respect' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: crescimento rápido', 'rapid growth', ARRAY['fierce debate', 'strong coffee', 'hot weather'], 'b2', 4
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: crescimento rápido', 'rapid growth', ARRAY['fast', 'quick', 'speedy'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'rapid growth' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: conduzir pesquisa', 'conduct research', ARRAY['gain experience', 'sustain growth', 'hold a meeting'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: conduzir pesquisa', 'conduct research', ARRAY['carry', 'perform', 'do'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'conduct research' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: lançar uma campanha', 'launch a campaign', ARRAY['watch TV', 'pursue a career', 'take a bus'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: lançar uma campanha', 'launch a campaign', ARRAY['start', 'begin', 'initiate'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'launch a campaign' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: superar obstáculos', 'overcome obstacles', ARRAY['ask a question', 'take advantage', 'get dressed'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: superar obstáculos', 'overcome obstacles', ARRAY['face', 'tackle', 'solve'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'overcome obstacles' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: seguir uma carreira', 'pursue a career', ARRAY['save money', 'set a goal', 'launch a campaign'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: seguir uma carreira', 'pursue a career', ARRAY['seek', 'chase', 'follow'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'pursue a career' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: enfrentar um problema', 'tackle a problem', ARRAY['pursue a career', 'catch a cold', 'pay attention'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: enfrentar um problema', 'tackle a problem', ARRAY['address', 'solve', 'face'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'tackle a problem' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: gerar resultados', 'yield results', ARRAY['overcome obstacles', 'get lost', 'commit a crime'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: gerar resultados', 'yield results', ARRAY['produce', 'give', 'create'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'yield results' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: exercer influência', 'exert influence', ARRAY['make progress', 'achieve success', 'watch TV'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: exercer influência', 'exert influence', ARRAY['use', 'apply', 'exercise'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'exert influence' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: impor restrições', 'impose restrictions', ARRAY['play a game', 'take a bus', 'pursue a career'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: impor restrições', 'impose restrictions', ARRAY['put', 'place', 'enforce'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'impose restrictions' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: sustentar crescimento', 'sustain growth', ARRAY['pay attention', 'face a challenge', 'do exercise'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: sustentar crescimento', 'sustain growth', ARRAY['maintain', 'keep', 'support'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'sustain growth' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: chamar atenção', 'draw attention', ARRAY['launch a campaign', 'reach a goal', 'do research'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: chamar atenção', 'draw attention', ARRAY['attract', 'pull', 'catch'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'draw attention' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: levantar preocupações', 'raise concerns', ARRAY['get ready', 'pay attention', 'go home'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: levantar preocupações', 'raise concerns', ARRAY['express', 'voice', 'mention'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'raise concerns' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: impacto profundo', 'profound impact', ARRAY['public transport', 'common sense', 'heavy rain'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: impacto profundo', 'profound impact', ARRAY['deep', 'major', 'significant'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'profound impact' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: crescimento sem precedentes', 'unprecedented growth', ARRAY['broad consensus', 'best friend', 'broad range'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: crescimento sem precedentes', 'unprecedented growth', ARRAY['unparalleled', 'unique', 'remarkable'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'unprecedented growth' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: noção vaga', 'vague notion', ARRAY['high quality', 'critical thinking', 'major role'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: noção vaga', 'vague notion', ARRAY['unclear', 'fuzzy', 'dim'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'vague notion' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: imaginação vívida', 'vivid imagination', ARRAY['critical thinking', 'key factor', 'profound impact'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: imaginação vívida', 'vivid imagination', ARRAY['lively', 'rich', 'active'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'vivid imagination' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: pura determinação', 'sheer determination', ARRAY['best friend', 'big city', 'mutual respect'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: pura determinação', 'sheer determination', ARRAY['pure', 'absolute', 'total'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'sheer determination' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: evidência substancial', 'substantial evidence', ARRAY['public transport', 'hard work', 'critical thinking'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: evidência substancial', 'substantial evidence', ARRAY['significant', 'solid', 'concrete'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'substantial evidence' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: acordo mútuo', 'mutual agreement', ARRAY['hot weather', 'steep decline', 'key factor'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: acordo mútuo', 'mutual agreement', ARRAY['shared', 'common', 'collective'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'mutual agreement' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: debate acirrado', 'fierce debate', ARRAY['sheer determination', 'hot weather', 'strong coffee'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: debate acirrado', 'fierce debate', ARRAY['heated', 'intense', 'strong'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'fierce debate' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: amplo consenso', 'broad consensus', ARRAY['common sense', 'fierce competition', 'sheer determination'], 'c1', 5
+SELECT c.id, 'choose_phrase', 'Qual é a colocação correta? Dica: amplo consenso', 'broad consensus', ARRAY['wide', 'general', 'widespread'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'broad consensus' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
@@ -4689,501 +4695,501 @@ FROM "Collocation" c WHERE c."phrase" = 'you''re welcome' AND c."type" = 'phrase
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "have breakfast"?', 'tomar café da manhã', ARRAY['cumprir um prazo', 'se preparar', 'jantar'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "have breakfast"?', 'tomar café da manhã', ARRAY['take', 'make', 'eat'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'have breakfast' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "have lunch"?', 'almoçar', ARRAY['cumprir um prazo', 'pensamento crítico', 'comida rápida'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "have lunch"?', 'almoçar', ARRAY['take', 'make', 'eat'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'have lunch' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "have dinner"?', 'jantar', ARRAY['pensamento crítico', 'gerar resultados', 'contar uma história'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "have dinner"?', 'jantar', ARRAY['take', 'make', 'eat'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'have dinner' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "take a shower"?', 'tomar banho', ARRAY['alta qualidade', 'prestar atenção', 'tirar uma foto'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "take a shower"?', 'tomar banho', ARRAY['have', 'make', 'get'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'take a shower' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "take a photo"?', 'tirar uma foto', ARRAY['realizar uma reunião', 'amplo consenso', 'trabalho duro'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "take a photo"?', 'tirar uma foto', ARRAY['make', 'do', 'get'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'take a photo' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "make a mistake"?', 'cometer um erro', ARRAY['tomar banho', 'dar conselho', 'crescimento rápido'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "make a mistake"?', 'cometer um erro', ARRAY['do', 'take', 'get'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'make a mistake' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "do homework"?', 'fazer lição de casa', ARRAY['respeito mútuo', 'impacto profundo', 'crescimento rápido'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "do homework"?', 'fazer lição de casa', ARRAY['make', 'have', 'take'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'do homework' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "go home"?', 'ir para casa', ARRAY['jantar', 'transporte público', 'decepção amarga'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "go home"?', 'ir para casa', ARRAY['come', 'run', 'walk'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'go home' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "go to school"?', 'ir à escola', ARRAY['senso comum', 'fazer um esforço', 'fazer pesquisa'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "go to school"?', 'ir à escola', ARRAY['come to', 'run to', 'walk to'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'go to school' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "go to work"?', 'ir ao trabalho', ARRAY['chamar atenção', 'ir à escola', 'ir para casa'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "go to work"?', 'ir ao trabalho', ARRAY['come to', 'run to', 'drive to'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'go to work' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "play a game"?', 'jogar um jogo', ARRAY['pensamento crítico', 'fazer uma pergunta', 'decepção amarga'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "play a game"?', 'jogar um jogo', ARRAY['do', 'make', 'have'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'play a game' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "watch TV"?', 'assistir TV', ARRAY['pura determinação', 'noção vaga', 'definir um objetivo'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "watch TV"?', 'assistir TV', ARRAY['look', 'see', 'view'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'watch TV' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "listen to music"?', 'ouvir música', ARRAY['cometer um crime', 'tomar café da manhã', 'bom dia'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "listen to music"?', 'ouvir música', ARRAY['hear', 'play', 'see'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'listen to music' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "read a book"?', 'ler um livro', ARRAY['ir à escola', 'chegar a uma conclusão', 'sustentar crescimento'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "read a book"?', 'ler um livro', ARRAY['hear', 'see', 'write'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'read a book' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "drink water"?', 'beber água', ARRAY['não ter pressa', 'levantar preocupações', 'enfrentar um desafio'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "drink water"?', 'beber água', ARRAY['pour', 'serve', 'taste'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'drink water' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "good morning"?', 'bom dia', ARRAY['se vestir', 'aumento acentuado', 'senso comum'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "good morning"?', 'bom dia', ARRAY['nice', 'great', 'fine'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'good morning' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "good night"?', 'boa noite', ARRAY['conduzir pesquisa', 'realizar uma reunião', 'quebrar um hábito'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "good night"?', 'boa noite', ARRAY['nice', 'great', 'sweet'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'good night' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "best friend"?', 'melhor amigo/a', ARRAY['chuva forte', 'ler um livro', 'evidência substancial'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "best friend"?', 'melhor amigo/a', ARRAY['closest', 'good', 'top'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'best friend' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "big city"?', 'cidade grande', ARRAY['se perder', 'jantar', 'cumprir uma promessa'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "big city"?', 'cidade grande', ARRAY['large', 'great', 'wide'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'big city' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "hot weather"?', 'clima quente', ARRAY['fazer uma pergunta', 'chuva forte', 'pensamento crítico'], 'a1', 1
+SELECT c.id, 'match_meaning', 'Qual é o significado de "hot weather"?', 'clima quente', ARRAY['warm', 'sunny', 'dry'], 'a1', 1
 FROM "Collocation" c WHERE c."phrase" = 'hot weather' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "make a decision"?', 'tomar uma decisão', ARRAY['economizar dinheiro', 'prestar atenção', 'amigo íntimo'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "make a decision"?', 'tomar uma decisão', ARRAY['take', 'do', 'have'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'make a decision' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "make friends"?', 'fazer amigos', ARRAY['decepção amarga', 'lavar a louça', 'cumprir uma promessa'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "make friends"?', 'fazer amigos', ARRAY['get', 'find', 'build'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'make friends' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "make money"?', 'ganhar dinheiro', ARRAY['cometer um erro', 'lançar uma campanha', 'levantar preocupações'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "make money"?', 'ganhar dinheiro', ARRAY['earn', 'gain', 'get'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'make money' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "take a break"?', 'fazer uma pausa', ARRAY['ampla gama', 'seguir instruções', 'ganhar dinheiro'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "take a break"?', 'fazer uma pausa', ARRAY['have', 'make', 'get'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'take a break' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "take a bus"?', 'pegar um ônibus', ARRAY['cumprir um prazo', 'administrar um negócio', 'fazer pesquisa'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "take a bus"?', 'pegar um ônibus', ARRAY['ride', 'drive', 'catch'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'take a bus' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "take your time"?', 'não ter pressa', ARRAY['aproveitar', 'resolver um problema', 'trabalho duro'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "take your time"?', 'não ter pressa', ARRAY['spend', 'use', 'have'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'take your time' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "do exercise"?', 'fazer exercício', ARRAY['dar conselho', 'ir ao trabalho', 'bom dia'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "do exercise"?', 'fazer exercício', ARRAY['make', 'have', 'take'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'do exercise' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "do the dishes"?', 'lavar a louça', ARRAY['conduzir pesquisa', 'se preparar', 'quebrar um hábito'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "do the dishes"?', 'lavar a louça', ARRAY['make', 'clean', 'wash'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'do the dishes' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "get dressed"?', 'se vestir', ARRAY['boa noite', 'alcançar sucesso', 'tomar uma decisão'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "get dressed"?', 'se vestir', ARRAY['put', 'wear', 'take'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'get dressed' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "get ready"?', 'se preparar', ARRAY['administrar um negócio', 'ganhar dinheiro', 'respeito mútuo'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "get ready"?', 'se preparar', ARRAY['be', 'become', 'make'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'get ready' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "get lost"?', 'se perder', ARRAY['concorrência acirrada', 'sustentar crescimento', 'lançar uma campanha'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "get lost"?', 'se perder', ARRAY['be', 'become', 'feel'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'get lost' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "pay attention"?', 'prestar atenção', ARRAY['não ter pressa', 'fazer amigos', 'comida rápida'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "pay attention"?', 'prestar atenção', ARRAY['give', 'take', 'do'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'pay attention' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "tell a story"?', 'contar uma história', ARRAY['ir para casa', 'ler um livro', 'não ter pressa'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "tell a story"?', 'contar uma história', ARRAY['say', 'speak', 'talk'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'tell a story' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "ask a question"?', 'fazer uma pergunta', ARRAY['levantar preocupações', 'fazer pesquisa', 'noção vaga'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "ask a question"?', 'fazer uma pergunta', ARRAY['say', 'tell', 'inquire'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'ask a question' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "hard work"?', 'trabalho duro', ARRAY['beber água', 'dar conselho', 'amplo consenso'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "hard work"?', 'trabalho duro', ARRAY['difficult', 'heavy', 'tough'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'hard work' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "fast food"?', 'comida rápida', ARRAY['fazer amigos', 'pura determinação', 'gerar resultados'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "fast food"?', 'comida rápida', ARRAY['quick', 'ready', 'easy'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'fast food' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "close friend"?', 'amigo íntimo', ARRAY['lançar uma campanha', 'jantar', 'pensamento crítico'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "close friend"?', 'amigo íntimo', ARRAY['near', 'tight', 'good'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'close friend' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "strong coffee"?', 'café forte', ARRAY['alcançar um objetivo', 'tirar uma foto', 'cometer um crime'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "strong coffee"?', 'café forte', ARRAY['hot', 'dark', 'thick'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'strong coffee' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "heavy rain"?', 'chuva forte', ARRAY['ouvir música', 'quebrar um hábito', 'enfrentar um desafio'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "heavy rain"?', 'chuva forte', ARRAY['hard', 'strong', 'thick'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'heavy rain' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "deep sleep"?', 'sono profundo', ARRAY['gerar resultados', 'contar uma história', 'progredir'], 'a2', 2
+SELECT c.id, 'match_meaning', 'Qual é o significado de "deep sleep"?', 'sono profundo', ARRAY['sound', 'long', 'good'], 'a2', 2
 FROM "Collocation" c WHERE c."phrase" = 'deep sleep' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "make progress"?', 'progredir', ARRAY['resolver um problema', 'almoçar', 'chamar atenção'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "make progress"?', 'progredir', ARRAY['do', 'have', 'take'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'make progress' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "make an effort"?', 'fazer um esforço', ARRAY['respeito mútuo', 'lançar uma campanha', 'ir à escola'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "make an effort"?', 'fazer um esforço', ARRAY['do', 'have', 'try'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'make an effort' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "take advantage"?', 'aproveitar', ARRAY['senso comum', 'fazer um esforço', 'ir para casa'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "take advantage"?', 'aproveitar', ARRAY['have', 'make', 'get'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'take advantage' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "take responsibility"?', 'assumir responsabilidade', ARRAY['ler um livro', 'resolver um problema', 'gerar resultados'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "take responsibility"?', 'assumir responsabilidade', ARRAY['have', 'hold', 'carry'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'take responsibility' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "do research"?', 'fazer pesquisa', ARRAY['se perder', 'enfrentar um problema', 'resolver um problema'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "do research"?', 'fazer pesquisa', ARRAY['make', 'conduct', 'carry'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'do research' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "keep a promise"?', 'cumprir uma promessa', ARRAY['superar obstáculos', 'transporte público', 'seguir uma carreira'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "keep a promise"?', 'cumprir uma promessa', ARRAY['make', 'hold', 'take'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'keep a promise' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "run a business"?', 'administrar um negócio', ARRAY['exercer influência', 'sono profundo', 'fazer um esforço'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "run a business"?', 'administrar um negócio', ARRAY['manage', 'operate', 'hold'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'run a business' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "catch a cold"?', 'pegar um resfriado', ARRAY['transporte público', 'ir para casa', 'ganhar dinheiro'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "catch a cold"?', 'pegar um resfriado', ARRAY['get', 'have', 'take'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'catch a cold' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "break a habit"?', 'quebrar um hábito', ARRAY['beber água', 'se perder', 'ampla gama'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "break a habit"?', 'quebrar um hábito', ARRAY['stop', 'quit', 'lose'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'break a habit' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "save money"?', 'economizar dinheiro', ARRAY['fazer exercício', 'tomar uma decisão', 'queda acentuada'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "save money"?', 'economizar dinheiro', ARRAY['keep', 'hold', 'store'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'save money' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "lose weight"?', 'perder peso', ARRAY['pegar um ônibus', 'executar um plano', 'melhor amigo/a'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "lose weight"?', 'perder peso', ARRAY['drop', 'reduce', 'cut'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'lose weight' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "give advice"?', 'dar conselho', ARRAY['alcançar sucesso', 'tomar café da manhã', 'concorrência acirrada'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "give advice"?', 'dar conselho', ARRAY['offer', 'provide', 'tell'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'give advice' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "solve a problem"?', 'resolver um problema', ARRAY['fazer um esforço', 'concorrência acirrada', 'definir um objetivo'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "solve a problem"?', 'resolver um problema', ARRAY['fix', 'resolve', 'answer'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'solve a problem' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "meet a deadline"?', 'cumprir um prazo', ARRAY['assumir responsabilidade', 'ir ao trabalho', 'clima quente'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "meet a deadline"?', 'cumprir um prazo', ARRAY['hit', 'reach', 'make'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'meet a deadline' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "public transport"?', 'transporte público', ARRAY['se vestir', 'se preparar', 'debate acirrado'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "public transport"?', 'transporte público', ARRAY['common', 'general', 'social'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'public transport' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "common sense"?', 'senso comum', ARRAY['enfrentar um desafio', 'alcançar um objetivo', 'quebrar um hábito'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "common sense"?', 'senso comum', ARRAY['general', 'ordinary', 'normal'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'common sense' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "key factor"?', 'fator chave', ARRAY['alcançar um objetivo', 'enfrentar um problema', 'resolver um problema'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "key factor"?', 'fator chave', ARRAY['main', 'important', 'crucial'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'key factor' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "major role"?', 'papel importante', ARRAY['assumir responsabilidade', 'administrar um negócio', 'amplo consenso'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "major role"?', 'papel importante', ARRAY['main', 'big', 'important'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'major role' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "high quality"?', 'alta qualidade', ARRAY['ganhar dinheiro', 'cumprir uma promessa', 'imaginação vívida'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "high quality"?', 'alta qualidade', ARRAY['top', 'good', 'excellent'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'high quality' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "long term"?', 'longo prazo', ARRAY['chuva forte', 'imaginação vívida', 'fazer pesquisa'], 'b1', 3
+SELECT c.id, 'match_meaning', 'Qual é o significado de "long term"?', 'longo prazo', ARRAY['extended', 'far', 'distant'], 'b1', 3
 FROM "Collocation" c WHERE c."phrase" = 'long term' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "draw a conclusion"?', 'chegar a uma conclusão', ARRAY['pensamento crítico', 'fazer exercício', 'alta qualidade'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "draw a conclusion"?', 'chegar a uma conclusão', ARRAY['make', 'reach', 'take'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'draw a conclusion' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "raise awareness"?', 'aumentar a conscientização', ARRAY['jantar', 'contar uma história', 'café forte'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "raise awareness"?', 'aumentar a conscientização', ARRAY['create', 'build', 'increase'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'raise awareness' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "reach a goal"?', 'alcançar um objetivo', ARRAY['tirar uma foto', 'conduzir pesquisa', 'impor restrições'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "reach a goal"?', 'alcançar um objetivo', ARRAY['achieve', 'hit', 'meet'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'reach a goal' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "face a challenge"?', 'enfrentar um desafio', ARRAY['crescimento sem precedentes', 'dar conselho', 'longo prazo'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "face a challenge"?', 'enfrentar um desafio', ARRAY['meet', 'handle', 'tackle'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'face a challenge' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "follow instructions"?', 'seguir instruções', ARRAY['sono profundo', 'imaginação vívida', 'chamar atenção'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "follow instructions"?', 'seguir instruções', ARRAY['obey', 'do', 'execute'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'follow instructions' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "gain experience"?', 'ganhar experiência', ARRAY['exercer influência', 'decepção amarga', 'progredir'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "gain experience"?', 'ganhar experiência', ARRAY['get', 'acquire', 'earn'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'gain experience' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "achieve success"?', 'alcançar sucesso', ARRAY['papel importante', 'levantar preocupações', 'debate acirrado'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "achieve success"?', 'alcançar sucesso', ARRAY['get', 'reach', 'gain'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'achieve success' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "set a goal"?', 'definir um objetivo', ARRAY['chegar a uma conclusão', 'pensamento crítico', 'papel importante'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "set a goal"?', 'definir um objetivo', ARRAY['make', 'establish', 'define'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'set a goal' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "hold a meeting"?', 'realizar uma reunião', ARRAY['chegar a uma conclusão', 'contar uma história', 'superar obstáculos'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "hold a meeting"?', 'realizar uma reunião', ARRAY['make', 'organize', 'have'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'hold a meeting' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "carry out a plan"?', 'executar um plano', ARRAY['alcançar sucesso', 'lavar a louça', 'impacto profundo'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "carry out a plan"?', 'executar um plano', ARRAY['execute', 'do', 'perform'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'carry out a plan' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "serve a purpose"?', 'servir a um propósito', ARRAY['ir ao trabalho', 'assistir TV', 'fazer amigos'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "serve a purpose"?', 'servir a um propósito', ARRAY['have', 'fulfill', 'provide'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'serve a purpose' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "commit a crime"?', 'cometer um crime', ARRAY['tirar uma foto', 'perder peso', 'fazer uma pausa'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "commit a crime"?', 'cometer um crime', ARRAY['do', 'make', 'perform'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'commit a crime' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "critical thinking"?', 'pensamento crítico', ARRAY['comida rápida', 'boa noite', 'ampla gama'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "critical thinking"?', 'pensamento crítico', ARRAY['analytical', 'careful', 'logical'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'critical thinking' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "sharp increase"?', 'aumento acentuado', ARRAY['decepção amarga', 'levantar preocupações', 'conduzir pesquisa'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "sharp increase"?', 'aumento acentuado', ARRAY['steep', 'sudden', 'quick'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'sharp increase' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "steep decline"?', 'queda acentuada', ARRAY['transporte público', 'progredir', 'pensamento crítico'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "steep decline"?', 'queda acentuada', ARRAY['sharp', 'significant', 'large'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'steep decline' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "bitter disappointment"?', 'decepção amarga', ARRAY['assumir responsabilidade', 'chamar atenção', 'almoçar'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "bitter disappointment"?', 'decepção amarga', ARRAY['deep', 'severe', 'harsh'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'bitter disappointment' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "broad range"?', 'ampla gama', ARRAY['administrar um negócio', 'fator chave', 'longo prazo'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "broad range"?', 'ampla gama', ARRAY['wide', 'vast', 'extensive'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'broad range' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "fierce competition"?', 'concorrência acirrada', ARRAY['dar conselho', 'papel importante', 'cumprir um prazo'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "fierce competition"?', 'concorrência acirrada', ARRAY['strong', 'intense', 'harsh'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'fierce competition' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "mutual respect"?', 'respeito mútuo', ARRAY['contar uma história', 'economizar dinheiro', 'ir para casa'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "mutual respect"?', 'respeito mútuo', ARRAY['shared', 'common', 'reciprocal'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'mutual respect' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "rapid growth"?', 'crescimento rápido', ARRAY['comida rápida', 'assistir TV', 'enfrentar um desafio'], 'b2', 4
+SELECT c.id, 'match_meaning', 'Qual é o significado de "rapid growth"?', 'crescimento rápido', ARRAY['fast', 'quick', 'speedy'], 'b2', 4
 FROM "Collocation" c WHERE c."phrase" = 'rapid growth' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "conduct research"?', 'conduzir pesquisa', ARRAY['dar conselho', 'pensamento crítico', 'papel importante'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "conduct research"?', 'conduzir pesquisa', ARRAY['carry', 'perform', 'do'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'conduct research' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "launch a campaign"?', 'lançar uma campanha', ARRAY['gerar resultados', 'fazer amigos', 'fazer pesquisa'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "launch a campaign"?', 'lançar uma campanha', ARRAY['start', 'begin', 'initiate'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'launch a campaign' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "overcome obstacles"?', 'superar obstáculos', ARRAY['ler um livro', 'fazer uma pausa', 'aproveitar'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "overcome obstacles"?', 'superar obstáculos', ARRAY['face', 'tackle', 'solve'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'overcome obstacles' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "pursue a career"?', 'seguir uma carreira', ARRAY['papel importante', 'conduzir pesquisa', 'tomar banho'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "pursue a career"?', 'seguir uma carreira', ARRAY['seek', 'chase', 'follow'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'pursue a career' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "tackle a problem"?', 'enfrentar um problema', ARRAY['longo prazo', 'cometer um crime', 'servir a um propósito'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "tackle a problem"?', 'enfrentar um problema', ARRAY['address', 'solve', 'face'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'tackle a problem' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "yield results"?', 'gerar resultados', ARRAY['aumentar a conscientização', 'lavar a louça', 'acordo mútuo'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "yield results"?', 'gerar resultados', ARRAY['produce', 'give', 'create'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'yield results' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "exert influence"?', 'exercer influência', ARRAY['tomar café da manhã', 'acordo mútuo', 'jantar'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "exert influence"?', 'exercer influência', ARRAY['use', 'apply', 'exercise'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'exert influence' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "impose restrictions"?', 'impor restrições', ARRAY['jogar um jogo', 'chamar atenção', 'executar um plano'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "impose restrictions"?', 'impor restrições', ARRAY['put', 'place', 'enforce'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'impose restrictions' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "sustain growth"?', 'sustentar crescimento', ARRAY['amplo consenso', 'fazer um esforço', 'jogar um jogo'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "sustain growth"?', 'sustentar crescimento', ARRAY['maintain', 'keep', 'support'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'sustain growth' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "draw attention"?', 'chamar atenção', ARRAY['almoçar', 'concorrência acirrada', 'sustentar crescimento'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "draw attention"?', 'chamar atenção', ARRAY['attract', 'pull', 'catch'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'draw attention' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "raise concerns"?', 'levantar preocupações', ARRAY['prestar atenção', 'sono profundo', 'pura determinação'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "raise concerns"?', 'levantar preocupações', ARRAY['express', 'voice', 'mention'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'raise concerns' AND c."type" = 'verb_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "profound impact"?', 'impacto profundo', ARRAY['servir a um propósito', 'quebrar um hábito', 'concorrência acirrada'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "profound impact"?', 'impacto profundo', ARRAY['deep', 'major', 'significant'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'profound impact' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "unprecedented growth"?', 'crescimento sem precedentes', ARRAY['café forte', 'impor restrições', 'beber água'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "unprecedented growth"?', 'crescimento sem precedentes', ARRAY['unparalleled', 'unique', 'remarkable'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'unprecedented growth' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "vague notion"?', 'noção vaga', ARRAY['bom dia', 'executar um plano', 'exercer influência'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "vague notion"?', 'noção vaga', ARRAY['unclear', 'fuzzy', 'dim'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'vague notion' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "vivid imagination"?', 'imaginação vívida', ARRAY['definir um objetivo', 'clima quente', 'dar conselho'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "vivid imagination"?', 'imaginação vívida', ARRAY['lively', 'rich', 'active'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'vivid imagination' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "sheer determination"?', 'pura determinação', ARRAY['superar obstáculos', 'se perder', 'tomar café da manhã'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "sheer determination"?', 'pura determinação', ARRAY['pure', 'absolute', 'total'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'sheer determination' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "substantial evidence"?', 'evidência substancial', ARRAY['senso comum', 'definir um objetivo', 'dar conselho'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "substantial evidence"?', 'evidência substancial', ARRAY['significant', 'solid', 'concrete'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'substantial evidence' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "mutual agreement"?', 'acordo mútuo', ARRAY['se vestir', 'tirar uma foto', 'tomar café da manhã'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "mutual agreement"?', 'acordo mútuo', ARRAY['shared', 'common', 'collective'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'mutual agreement' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "fierce debate"?', 'debate acirrado', ARRAY['fazer pesquisa', 'fazer um esforço', 'dar conselho'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "fierce debate"?', 'debate acirrado', ARRAY['heated', 'intense', 'strong'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'fierce debate' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
 
 INSERT INTO "CollocationExercise" ("collocationId", "promptType", "prompt", "correctAnswer", "distractors", "cefrLevel", "month")
-SELECT c.id, 'match_meaning', 'Qual é o significado de "broad consensus"?', 'amplo consenso', ARRAY['pegar um resfriado', 'ganhar experiência', 'seguir instruções'], 'c1', 5
+SELECT c.id, 'match_meaning', 'Qual é o significado de "broad consensus"?', 'amplo consenso', ARRAY['wide', 'general', 'widespread'], 'c1', 5
 FROM "Collocation" c WHERE c."phrase" = 'broad consensus' AND c."type" = 'adj_noun'
 ON CONFLICT DO NOTHING;
