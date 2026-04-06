@@ -241,9 +241,17 @@ function inferTitleFromText(text: string, fallbackIndex: number): string {
 async function extractFromPdf(buffer: Buffer): Promise<ExtractedBookContent> {
   const parser = new PDFParse({ data: buffer });
   try {
-    const [textResult, infoResult] = await Promise.all([parser.getText(), parser.getInfo()]);
-    const titleFromInfo = typeof infoResult.info?.Title === 'string' ? infoResult.info.Title.trim() : '';
-    const authorFromInfo = typeof infoResult.info?.Author === 'string' ? infoResult.info.Author.trim() : '';
+    const textResult = await parser.getText();
+    let titleFromInfo = '';
+    let authorFromInfo = '';
+    try {
+      const infoResult = await parser.getInfo();
+      titleFromInfo = typeof infoResult.info?.Title === 'string' ? infoResult.info.Title.trim() : '';
+      authorFromInfo = typeof infoResult.info?.Author === 'string' ? infoResult.info.Author.trim() : '';
+    } catch {
+      titleFromInfo = '';
+      authorFromInfo = '';
+    }
     const formatted = splitAndFormatBookText(textResult.text ?? '');
     return {
       type: 'pdf',
