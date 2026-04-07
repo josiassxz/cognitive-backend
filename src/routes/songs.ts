@@ -6,6 +6,7 @@ import { prisma } from '../lib/prisma';
 import { parseCefrLevel, parseMonth, mapCefrToMonth } from '../services/content-service';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
+import { withCache } from '../lib/cache';
 
 export const songsRouter = Router();
 type SongWordItem = { id: number; songId: number; lineIndex: number; wordIndex: number; word: string; startMs: number; endMs: number };
@@ -120,6 +121,7 @@ songsRouter.get(
     const month = parseMonth(req.query.month);
     const slug = typeof req.query.slug === 'string' ? req.query.slug : undefined;
     const search = typeof req.query.search === 'string' ? req.query.search.trim() : '';
+    const category = typeof req.query.category === 'string' ? req.query.category : undefined;
 
     if (slug) {
       const item = await prisma.song.findUnique({
@@ -146,6 +148,9 @@ songsRouter.get(
     } else if (month) {
       where.month = month;
     }
+    if (category) {
+      where.category = category;
+    }
     if (search) {
       const searchFilters = [
         { title: { contains: search, mode: 'insensitive' } },
@@ -160,11 +165,14 @@ songsRouter.get(
       }
     }
 
-    const items = await prisma.song.findMany({
-      where,
-      include: { keyPhrases: true, vocabHighlights: true },
-      orderBy: [{ month: 'asc' }, { title: 'asc' }],
-    });
+    const cacheKey = `songs:${month ?? ''}:${cefrLevel ?? ''}:${category ?? ''}:${search ?? ''}`;
+    const items = await withCache(cacheKey, 300, () =>
+      prisma.song.findMany({
+        where,
+        include: { keyPhrases: true, vocabHighlights: true },
+        orderBy: [{ month: 'asc' }, { title: 'asc' }],
+      }),
+    );
     const lyricCounts = await prisma.songLyricLine.groupBy({
       by: ['songId'],
       _count: { songId: true },
@@ -224,6 +232,60 @@ songsRouter.get(
     }
     console.log(`[songs.wordTimestamps] songId=${songId} words=${words.length}`);
     res.json({ songId, words, total: words.length });
+  }),
+);
+
+songsRouter.get(
+  '/:songId/lyrics-quiz',
+  asyncHandler(async (req, res) => {
+    const songId = z.coerce.number().positive().parse(req.params.songId);
+    const { difficulty } = z.object({
+      difficulty: z.enum(['easy', 'hard']).default('easy'),
+    }).parse(req.query);
+
+    const lines = await prisma.songLyricLine.findMany({
+      where: { songId },
+      orderBy: { lineIndex: 'asc' },
+    });
+
+    if (!lines.length) throw new HttpError(404, 'Letra nao encontrada para esta musica');
+
+    const allWords = lines.flatMap((line) => line.text.split(/\s+/).filter(Boolean));
+
+    function selectRandomIndices(length: number, count: number): number[] {
+      const indices = Array.from({ length }, (_, i) => i);
+      for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+      }
+      return indices.slice(0, count);
+    }
+
+    function buildDistractors(word: string, pool: string[]): string[] {
+      const clean = word.toLowerCase().replace(/[^a-z]/g, '');
+      const candidates = pool
+        .filter((w) => w.toLowerCase().replace(/[^a-z]/g, '') !== clean)
+        .slice(0, 20);
+      return selectRandomIndices(candidates.length, 3).map((i) => candidates[i]);
+    }
+
+    const blanks = lines.flatMap((line) => {
+      const words = line.text.split(/\s+/).filter(Boolean);
+      const targetCount = Math.max(1, Math.floor(words.length * 0.3));
+      const indices = selectRandomIndices(words.length, targetCount);
+      return indices.map((idx) => ({
+        lineIndex: line.lineIndex,
+        wordIndex: idx,
+        word: words[idx],
+        startMs: line.startMs,
+        endMs: line.endMs,
+        options: difficulty === 'easy'
+          ? [words[idx], ...buildDistractors(words[idx], allWords)].sort(() => Math.random() - 0.5)
+          : null,
+      }));
+    });
+
+    res.json({ songId, difficulty, blanks });
   }),
 );
 

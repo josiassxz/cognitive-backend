@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { prisma } from '../lib/prisma';
 import { asyncHandler } from '../utils/async-handler';
 import { mapCefrToMonth, parseCefrLevel, parseMonth } from '../services/content-service';
+import { withCache } from '../lib/cache';
 
 export const vocabularyRouter = Router();
 
@@ -39,10 +40,13 @@ vocabularyRouter.get(
       }
     }
 
-    const items = await prisma.vocabulary.findMany({
-      where,
-      orderBy: [{ month: 'asc' }, { word: 'asc' }],
-    });
+    const cacheKey = `vocab:${month ?? ''}:${level ?? ''}:${category ?? ''}`;
+    const items = await withCache(cacheKey, 600, () =>
+      prisma.vocabulary.findMany({
+        where,
+        orderBy: [{ month: 'asc' }, { word: 'asc' }],
+      }),
+    );
 
     res.json(items);
   }),

@@ -4,6 +4,7 @@ import { prisma } from '../lib/prisma';
 import { XP_CONFIG, getLevelForXp } from '../lib/xp';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
+import { mapCefrToMonth } from '../services/content-service';
 
 function mapMonthToCefr(month: number): 'a1' | 'a2' | 'b1' | 'b2' | 'c1' | 'c2' {
   if (month <= 1) return 'a1';
@@ -76,7 +77,7 @@ userRouter.get(
     ] = await Promise.all([
       prisma.user.findUnique({
         where: { id: userId },
-        select: { id: true, name: true, email: true, currentMonth: true, createdAt: true },
+        select: { id: true, name: true, email: true, currentMonth: true, dailyGoalMinutes: true, createdAt: true },
       }),
       prisma.xpLog.aggregate({ where: { userId }, _sum: { amount: true } }),
       prisma.userStreak.findUnique({ where: { userId } }),
@@ -169,6 +170,29 @@ userRouter.post(
     if (newCurrent >= 30) await awardBadgeIfEligible(userId, 'streak-30');
 
     res.json({ streak, xpEarned: totalXp, isNewDay: true });
+  }),
+);
+
+userRouter.post(
+  '/streak/freeze',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Nao autorizado');
+
+    const streak = await prisma.userStreak.findUnique({ where: { userId } });
+    if (!streak) throw new HttpError(404, 'Streak nao encontrado');
+
+    // Use raw update to handle new fields added after last type generation
+    await prisma.$executeRaw`
+      UPDATE "UserStreak"
+      SET "lastActiveAt" = NOW(),
+          "freezesAvailable" = GREATEST(0, "freezesAvailable" - 1),
+          "lastFreezeUsedAt" = NOW()
+      WHERE "userId" = ${userId}
+        AND "freezesAvailable" > 0
+    `;
+
+    res.json({ success: true, message: 'Streak protegido com freeze!' });
   }),
 );
 
@@ -277,10 +301,11 @@ userRouter.post(
   asyncHandler(async (req, res) => {
     const userId = req.userId;
     if (!userId) throw new HttpError(401, 'Nao autorizado');
-    const { duration, sessionId } = z
+    const { duration, sessionId, module } = z
       .object({
         duration: z.number().int().positive(),
         sessionId: z.string().min(8).max(120),
+        module: z.enum(['music', 'reading', 'quiz', 'flashcards', 'podcast', 'vocabulary', 'livre']).default('livre'),
       })
       .parse(req.body);
     const xpEarned = XP_CONFIG.timer_session;
@@ -288,7 +313,7 @@ userRouter.post(
     await ensureSubmissionNotProcessed(userId, 'timer', sessionId);
 
     await prisma.userTimerSession.create({
-      data: { userId, duration, xpEarned },
+      data: { userId, duration, xpEarned, module },
     });
     await prisma.xpLog.create({
       data: {
@@ -304,6 +329,29 @@ userRouter.post(
     if (totalSessions >= 30) await awardBadgeIfEligible(userId, 'timer-30');
 
     res.json({ xpEarned, totalSessions });
+  }),
+);
+
+userRouter.get(
+  '/timer/today-breakdown',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Nao autorizado');
+    const todayStart = new Date();
+    todayStart.setHours(0, 0, 0, 0);
+
+    const sessions = await prisma.userTimerSession.findMany({
+      where: { userId, completedAt: { gte: todayStart } },
+      select: { module: true, duration: true },
+    });
+
+    const breakdown = sessions.reduce<Record<string, number>>((acc, s) => {
+      acc[s.module] = (acc[s.module] ?? 0) + s.duration;
+      return acc;
+    }, {});
+
+    const totalSeconds = sessions.reduce((sum, s) => sum + s.duration, 0);
+    res.json({ breakdown, totalSeconds });
   }),
 );
 
@@ -536,3 +584,118 @@ userRouter.delete(
     res.json({ success: true });
   }),
 );
+
+userRouter.patch(
+  '/settings',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Nao autorizado');
+    const { dailyGoalMinutes } = z.object({
+      dailyGoalMinutes: z.number().int().min(5).max(180),
+    }).parse(req.body);
+    await prisma.user.update({ where: { id: userId }, data: { dailyGoalMinutes } });
+    res.json({ success: true });
+  }),
+);
+
+userRouter.get(
+  '/activity-heatmap',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Nao autorizado');
+    const since = new Date();
+    since.setDate(since.getDate() - 90);
+
+    const logs = await prisma.xpLog.findMany({
+      where: { userId, createdAt: { gte: since } },
+      select: { createdAt: true, amount: true },
+    });
+
+    const heatmap: Record<string, number> = {};
+    for (const log of logs) {
+      const date = log.createdAt.toISOString().split('T')[0];
+      heatmap[date] = (heatmap[date] ?? 0) + log.amount;
+    }
+
+    res.json({ heatmap });
+  }),
+);
+
+userRouter.get(
+  '/quiz-accuracy',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Nao autorizado');
+    const attempts = await prisma.quizAttempt.findMany({
+      where: { userId },
+      select: { quizType: true, totalQ: true, correct: true },
+    });
+
+    const byType: Record<string, { correct: number; total: number }> = {};
+    for (const a of attempts) {
+      if (!byType[a.quizType]) byType[a.quizType] = { correct: 0, total: 0 };
+      byType[a.quizType].correct += a.correct;
+      byType[a.quizType].total += a.totalQ;
+    }
+
+    const result = Object.entries(byType).map(([type, stats]) => ({
+      type,
+      accuracy: stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0,
+      total: stats.total,
+    }));
+
+    res.json({ accuracy: result });
+  }),
+);
+
+userRouter.get(
+  '/leaderboard',
+  asyncHandler(async (_req, res) => {
+    const weekStart = new Date();
+    weekStart.setDate(weekStart.getDate() - weekStart.getDay());
+    weekStart.setHours(0, 0, 0, 0);
+
+    const rows = await prisma.xpLog.groupBy({
+      by: ['userId'],
+      where: { createdAt: { gte: weekStart } },
+      _sum: { amount: true },
+      orderBy: { _sum: { amount: 'desc' } },
+      take: 20,
+    });
+
+    const userIds = rows.map((r) => r.userId);
+    const users = await prisma.user.findMany({
+      where: { id: { in: userIds } },
+      select: { id: true, name: true },
+    });
+
+    const result = rows.map((row, i) => ({
+      position: i + 1,
+      userId: row.userId,
+      name: users.find((u) => u.id === row.userId)?.name ?? 'Anonimo',
+      xpThisWeek: row._sum.amount ?? 0,
+    }));
+
+    res.json({ leaderboard: result, weekStart });
+  }),
+);
+
+userRouter.patch(
+  '/cefr-level',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Nao autorizado');
+
+    const { cefrLevel } = z
+      .object({ cefrLevel: z.enum(['a1', 'a2', 'b1', 'b2', 'c1', 'c2']) })
+      .parse(req.body);
+
+    await prisma.user.update({
+      where: { id: userId },
+      data: { currentMonth: mapCefrToMonth(cefrLevel) },
+    });
+
+    res.json({ success: true, cefrLevel });
+  }),
+);
+

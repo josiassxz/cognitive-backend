@@ -19,6 +19,7 @@ describe('quiz-service', () => {
   it('gera quiz de vocabulary com 4 opcoes', () => {
     const questions = buildQuiz({
       type: 'vocabulary',
+      questionType: 'multiple_choice',
       count: 2,
       vocabulary: [
         { id: 1, word: 'hello', definition: 'olá', example: 'Hello there' },
@@ -41,6 +42,7 @@ describe('quiz-service', () => {
     expect(() =>
       buildQuiz({
         type: 'expressions',
+        questionType: 'multiple_choice',
         count: 5,
         vocabulary: [],
         phrasalVerbs: [],

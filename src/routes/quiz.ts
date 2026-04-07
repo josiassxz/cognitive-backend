@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { prisma } from '../lib/prisma';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
-import { buildQuiz, calculateQuizResult, QuizType } from '../services/quiz-service';
+import { buildQuiz, calculateQuizResult, generatePlacementTest, QuizType } from '../services/quiz-service';
 import { mapCefrToMonth, parseCefrLevel } from '../services/content-service';
 
 async function awardBadgeIfEligible(userId: string, slug: string): Promise<void> {
@@ -39,6 +39,16 @@ async function ensureSubmissionNotProcessed(userId: string, source: string, subm
 }
 
 quizRouter.get(
+  '/placement',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId;
+    if (!userId) throw new HttpError(401, 'Nao autorizado');
+    const questions = await generatePlacementTest();
+    res.json({ questions, sessionId: randomUUID() });
+  }),
+);
+
+quizRouter.get(
   '/generate',
   asyncHandler(async (req, res) => {
     const userId = req.userId;
@@ -51,6 +61,10 @@ quizRouter.get(
       .default('vocabulary')
       .parse(req.query.type ?? 'vocabulary');
     const count = z.coerce.number().int().min(1).max(20).default(10).parse(req.query.count ?? 10);
+    const questionType = z
+      .enum(['multiple_choice', 'fill_blank', 'listening'])
+      .default('multiple_choice')
+      .parse(req.query.questionType ?? 'multiple_choice');
 
     const [vocabulary, phrasalVerbs, expressions] = await Promise.all([
       type === 'vocabulary'
@@ -66,6 +80,7 @@ quizRouter.get(
 
     const questions = buildQuiz({
       type: type as QuizType,
+      questionType,
       count,
       vocabulary,
       phrasalVerbs,

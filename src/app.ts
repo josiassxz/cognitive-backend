@@ -26,6 +26,8 @@ import { sentenceExercisesRouter } from './routes/sentence-exercises';
 import { translateRouter } from './routes/translate';
 import { mobileRouter } from './routes/mobile';
 import { readingLabRouter } from './routes/reading-lab';
+import { missionsRouter } from './routes/missions';
+import { wordKnowledgeRouter } from './routes/word-knowledge';
 
 export function createApp() {
   const app = express();
@@ -89,6 +91,8 @@ export function createApp() {
   app.use('/api/translate', translateRouter);
   app.use('/api/mobile', mobileRouter);
   app.use('/api/reading-lab', readingLabRouter);
+  app.use('/api/missions', authMiddleware, missionsRouter);
+  app.use('/api/word-knowledge', authMiddleware, wordKnowledgeRouter);
   app.use('/api/user', authMiddleware, userRouter);
   app.use('/api/quiz', authMiddleware, quizRouter);
   app.use('/api/flashcards', authMiddleware, flashcardsRouter);
