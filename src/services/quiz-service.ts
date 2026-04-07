@@ -3,7 +3,7 @@ import { mapCefrToMonth } from './content-service';
 import { XP_CONFIG } from '../lib/xp';
 import { HttpError } from '../utils/http-error';
 
-export type QuizType = 'vocabulary' | 'phrasal-verbs' | 'expressions';
+export type QuizType = 'vocabulary' | 'phrasal-verbs' | 'expressions' | 'mixed';
 export type QuizQuestionType = 'multiple_choice' | 'fill_blank' | 'listening';
 
 export type QuizQuestion = {
@@ -152,6 +152,19 @@ export function buildQuiz(params: {
   if (params.type === 'phrasal-verbs') {
     if (params.phrasalVerbs.length < 4) throw new HttpError(400, 'Phrasal verbs insuficientes');
     return generatePhrasalQuiz(params.phrasalVerbs, count, qt);
+  }
+
+  if (params.type === 'mixed') {
+    // Spec 06 — distribuição equilibrada entre os buckets disponíveis: pega
+    // ceil(count/n) de cada bucket, embaralha e fatia, garantindo presença
+    // dos 3 tipos quando possível.
+    const buckets: QuizQuestion[][] = [];
+    const perBucket = Math.ceil(count / 3);
+    if (params.vocabulary.length >= 4) buckets.push(generateVocabQuiz(params.vocabulary, perBucket, qt));
+    if (params.phrasalVerbs.length >= 4) buckets.push(generatePhrasalQuiz(params.phrasalVerbs, perBucket, qt));
+    if (params.expressions.length >= 4) buckets.push(generateExpressionQuiz(params.expressions, perBucket, qt));
+    if (buckets.length === 0) throw new HttpError(400, 'Conteudo insuficiente para quiz misto');
+    return shuffle(buckets.flat()).slice(0, count);
   }
 
   if (params.expressions.length < 4) throw new HttpError(400, 'Expressoes insuficientes');

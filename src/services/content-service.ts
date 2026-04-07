@@ -105,8 +105,6 @@ export async function getStats(prisma: PrismaClient) {
     podcasts,
     expressions,
     oxfordWords,
-    collocations,
-    collocationExercises,
     sentenceExercises,
   ] = await Promise.all([
     prisma.vocabulary.count(),
@@ -117,8 +115,6 @@ export async function getStats(prisma: PrismaClient) {
     prisma.podcast.count(),
     prisma.expression.count(),
     prisma.oxfordWord.count(),
-    prisma.collocation.count(),
-    prisma.collocationExercise.count(),
     prisma.sentenceExercise.count(),
   ]);
 
@@ -131,8 +127,6 @@ export async function getStats(prisma: PrismaClient) {
     podcasts,
     expressions,
     oxfordWords,
-    collocations,
-    collocationExercises,
     sentenceExercises,
     total:
       vocabulary +
@@ -143,8 +137,6 @@ export async function getStats(prisma: PrismaClient) {
       podcasts +
       expressions +
       oxfordWords +
-      collocations +
-      collocationExercises +
       sentenceExercises,
   };
 }

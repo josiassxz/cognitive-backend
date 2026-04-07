@@ -21,13 +21,12 @@ import { userRouter } from './routes/user';
 import { videosRouter } from './routes/videos';
 import { vocabularyRouter } from './routes/vocabulary';
 import { oxfordWordsRouter } from './routes/oxford-words';
-import { collocationsRouter } from './routes/collocations';
 import { sentenceExercisesRouter } from './routes/sentence-exercises';
 import { translateRouter } from './routes/translate';
 import { mobileRouter } from './routes/mobile';
 import { readingLabRouter } from './routes/reading-lab';
 import { missionsRouter } from './routes/missions';
-import { wordKnowledgeRouter } from './routes/word-knowledge';
+import { vocabularySrsRouter } from './routes/vocabulary-srs';
 
 export function createApp() {
   const app = express();
@@ -86,13 +85,20 @@ export function createApp() {
   app.use('/api/grammar', grammarRouter);
   app.use('/api/stats', statsRouter);
   app.use('/api/oxford-words', oxfordWordsRouter);
-  app.use('/api/collocations', collocationsRouter);
   app.use('/api/sentence-exercises', sentenceExercisesRouter);
   app.use('/api/translate', translateRouter);
   app.use('/api/mobile', mobileRouter);
   app.use('/api/reading-lab', readingLabRouter);
+  // Spec 06 — collocations descontinuado. Mantém-se as tabelas no Prisma,
+  // mas qualquer chamada a /api/collocations responde 410 Gone.
+  app.all(/^\/api\/collocations(\/.*)?$/, (_req, res) => {
+    res.status(410).json({
+      error: 'gone',
+      message: 'O módulo de collocations foi descontinuado.',
+    });
+  });
   app.use('/api/missions', authMiddleware, missionsRouter);
-  app.use('/api/word-knowledge', authMiddleware, wordKnowledgeRouter);
+  app.use('/api/vocabulary-srs', authMiddleware, vocabularySrsRouter);
   app.use('/api/user', authMiddleware, userRouter);
   app.use('/api/quiz', authMiddleware, quizRouter);
   app.use('/api/flashcards', authMiddleware, flashcardsRouter);

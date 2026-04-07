@@ -5,7 +5,9 @@ import multer from 'multer';
 import { z } from 'zod';
 import { env } from '../config/env';
 import { synthesizeWithAzure } from '../lib/azure-tts';
-import { extractBookContentFromUpload, type ExtractedEpubReaderPayload } from '../lib/book-import';
+import { extractBookContentFromUpload, PARSER_VERSION, type ExtractedEpubReaderPayload } from '../lib/book-import';
+import { htmlChapterToParagraphs } from '../lib/book-import/epub/html-to-paragraphs';
+import { segmentIntoSentences } from '../lib/book-import/shared/sentences';
 import { synthesizeWithPolly } from '../lib/polly-tts';
 import { prisma } from '../lib/prisma';
 import { getPlayableStorageUrl, uploadToStorage } from '../lib/storage';
@@ -34,6 +36,8 @@ const cefrMap: Record<string, number> = {
 type StoredReaderPayload = {
   kind: 'epub_reader_payload';
   version: 1;
+  /** Parser version that produced `payload`. Missing means legacy v1. */
+  parserVersion?: number;
   payload: ExtractedEpubReaderPayload;
 };
 
@@ -41,6 +45,7 @@ function serializeReaderPayload(payload: ExtractedEpubReaderPayload): string {
   const wrapper: StoredReaderPayload = {
     kind: 'epub_reader_payload',
     version: 1,
+    parserVersion: PARSER_VERSION,
     payload,
   };
   return JSON.stringify(wrapper);
@@ -52,6 +57,7 @@ function parseReaderPayload(rawValue: string): ExtractedEpubReaderPayload | null
     const parsed = JSON.parse(rawValue) as {
       kind?: unknown;
       version?: unknown;
+      parserVersion?: unknown;
       payload?: {
         format?: unknown;
         version?: unknown;
@@ -59,6 +65,7 @@ function parseReaderPayload(rawValue: string): ExtractedEpubReaderPayload | null
       };
     };
     if (parsed.kind !== 'epub_reader_payload' || parsed.version !== 1) return null;
+    // parserVersion is optional; missing = legacy v1 payload, still valid.
     const payload = parsed.payload;
     if (!payload || payload.format !== 'epub' || payload.version !== 1 || !Array.isArray(payload.documents)) {
       return null;
@@ -156,43 +163,6 @@ function shouldFallbackToPolly(error: unknown): boolean {
   const message = error instanceof Error ? error.message : String(error);
   const lower = message.toLowerCase();
   return lower.includes('azure');
-}
-
-function segmentIntoSentences(text: string) {
-  const normalizedText = text.replace(/\r/g, '\n').trim();
-  if (!normalizedText) return [];
-  const blocks = normalizedText
-    .split(/\n{2,}/)
-    .map((block) => block.trim())
-    .filter(Boolean);
-  const sentences: string[] = [];
-  for (const block of blocks) {
-    const line = block
-      .split('\n')
-      .map((item) => item.trim())
-      .filter(Boolean)
-      .join(' ')
-      .replace(/\s+/g, ' ')
-      .trim();
-    if (!line) continue;
-    const isChapterHeading = /^(chapter|cap[ií]tulo)\s+([a-z0-9ivxlcdm-]+)$/i.test(line);
-    const isEndHeading = /^-+\s*the end\s*-+$/i.test(line);
-    const isLikelyShortHeading = !/[.!?]$/.test(line) && line.length <= 100 && line.split(/\s+/).length <= 10;
-    if (isChapterHeading || isEndHeading || isLikelyShortHeading) {
-      sentences.push(line);
-      continue;
-    }
-    const parts = line
-      .split(/(?<=[.!?])\s+/)
-      .map((part) => part.trim())
-      .filter(Boolean);
-    if (parts.length === 0) {
-      sentences.push(line);
-      continue;
-    }
-    sentences.push(...parts);
-  }
-  return sentences;
 }
 
 async function detectCefrLevel(text: string): Promise<'a1' | 'a2' | 'b1' | 'b2' | 'c1' | 'c2'> {
@@ -711,6 +681,81 @@ readingLabRouter.get(
   }),
 );
 
+// Spec 02 — serve a NormalizedBook-shaped payload derived from the legacy
+// stored EPUB reader payload (HTML per chapter). The mobile native renderer
+// (src/features/reader/) consumes this instead of the WebView reader.
+readingLabRouter.get(
+  '/:id/normalized',
+  asyncHandler(async (req, res) => {
+    const id = z.coerce.number().int().positive().parse(req.params.id);
+    const content = await prisma.readingContent.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        title: true,
+        author: true,
+        sourceFileType: true,
+        sourceFileName: true,
+        fullText: true,
+        wordCount: true,
+        createdAt: true,
+      },
+    });
+    if (!content) throw new HttpError(404, 'Conteúdo não encontrado');
+    const reader = parseReaderPayload(content.fullText);
+    const chapters = reader
+      ? reader.documents.map((doc, index) => {
+          const { paragraphs, firstHeading } = htmlChapterToParagraphs(doc.html ?? '');
+          const text = paragraphs.map((p) => p.text).join(' ');
+          const wordCount = text ? text.split(/\s+/).filter(Boolean).length : 0;
+          return {
+            index,
+            title: doc.title?.trim() || firstHeading || `Capítulo ${index + 1}`,
+            href: doc.href,
+            paragraphs,
+            wordCount,
+          };
+        })
+      : (() => {
+          // Fallback: no reader payload (plain text import). Split fullText by
+          // blank lines into paragraphs and treat as a single chapter.
+          const text = content.fullText ?? '';
+          const paragraphs = text
+            .split(/\n{2,}/)
+            .map((chunk, index) => ({
+              index,
+              text: chunk.replace(/\s+/g, ' ').trim(),
+              kind: 'paragraph' as const,
+            }))
+            .filter((p) => p.text.length > 0)
+            .map((p, i) => ({ ...p, index: i }));
+          return [
+            {
+              index: 0,
+              title: content.title,
+              paragraphs,
+              wordCount: paragraphs.reduce(
+                (sum, p) => sum + p.text.split(/\s+/).filter(Boolean).length,
+                0,
+              ),
+            },
+          ];
+        })();
+    res.json({
+      type: (content.sourceFileType as 'epub' | 'pdf') || 'epub',
+      title: content.title,
+      author: content.author || undefined,
+      chapters,
+      meta: {
+        sourceFileType: content.sourceFileType || 'epub',
+        originalFilename: content.sourceFileName || '',
+        importedAt: content.createdAt.toISOString(),
+        parserVersion: PARSER_VERSION,
+      },
+    });
+  }),
+);
+
 readingLabRouter.get(
   '/:id/progress',
   authMiddleware,
@@ -859,11 +904,37 @@ readingLabRouter.post(
         voice: z.string().min(1).max(120).optional(),
       })
       .parse(req.body);
-    const extracted = await extractBookContentFromUpload({
-      buffer: file.buffer,
-      originalName: file.originalname,
+    const importStartMs = Date.now();
+    console.log(JSON.stringify({
+      event: 'import_book_start',
+      userId,
+      fileName: file.originalname,
+      fileSize: file.size,
       mimeType: file.mimetype,
-    });
+      parserVersion: PARSER_VERSION,
+      timestamp: new Date().toISOString(),
+    }));
+    let extracted: Awaited<ReturnType<typeof extractBookContentFromUpload>>;
+    try {
+      extracted = await extractBookContentFromUpload({
+        buffer: file.buffer,
+        originalName: file.originalname,
+        mimeType: file.mimetype,
+      });
+    } catch (err) {
+      console.log(JSON.stringify({
+        event: 'import_book_extract_error',
+        userId,
+        fileName: file.originalname,
+        fileSize: file.size,
+        mimeType: file.mimetype,
+        parserVersion: PARSER_VERSION,
+        error: err instanceof Error ? err.message : String(err),
+        durationMs: Date.now() - importStartMs,
+        timestamp: new Date().toISOString(),
+      }));
+      throw err;
+    }
     const extractedText = typeof extracted.text === 'string' ? extracted.text : String(extracted.text ?? '');
     const shouldUseEpubReader = extracted.type === 'epub' && Boolean(extracted.readerPayload?.documents?.length);
     const sanitized = shouldUseEpubReader ? { text: extractedText.trim(), truncated: false } : sanitizeImportedBookText(extractedText);
@@ -922,6 +993,17 @@ readingLabRouter.post(
             sourceFileType: extracted.type,
             sourceFileName: file.originalname,
           });
+    console.log(JSON.stringify({
+      event: 'import_book_success',
+      userId,
+      contentId: (result as { content?: { id?: number } }).content?.id,
+      sourceFileType: extracted.type,
+      usedEpubReader: shouldUseEpubReader,
+      parserVersion: PARSER_VERSION,
+      fileSizeBytes: file.size,
+      durationMs: Date.now() - importStartMs,
+      timestamp: new Date().toISOString(),
+    }));
     res.json(result);
   }),
 );

@@ -26,7 +26,6 @@ model User {
   monthProgress     UserMonthProgress[]
   quizAttempts      QuizAttempt[]
   flashcardProgress     FlashcardProgress[]
-  collocationProgress   UserCollocationProgress[]
   sentenceProgress      UserSentenceProgress[]
   refreshTokens         RefreshToken[]
   savedPhrases          UserSavedPhrase[]
@@ -455,46 +454,6 @@ model OxfordWord {
   @@index([pos])
 }
 
-// ==================== COLLOCATIONS & PHRASES ====================
-model Collocation {
-  id              Int       @id @default(autoincrement())
-  phrase          String
-  baseWord        String
-  collocate       String
-  type            String
-  meaning         String    @default("")
-  example         String    @default("")
-  cefrLevel       String
-  month           Int
-  audioUrl        String    @default("")
-
-  exercises       CollocationExercise[]
-
-  @@unique([phrase, type])
-  @@index([cefrLevel])
-  @@index([month])
-  @@index([baseWord])
-  @@index([type])
-}
-
-model CollocationExercise {
-  id              Int       @id @default(autoincrement())
-  collocationId   Int
-  promptType      String
-  prompt          String
-  correctAnswer   String
-  distractors     String[]
-  cefrLevel       String
-  month           Int
-
-  collocation     Collocation @relation(fields: [collocationId], references: [id], onDelete: Cascade)
-
-  @@index([collocationId])
-  @@index([cefrLevel])
-  @@index([month])
-  @@index([promptType])
-}
-
 // ==================== SENTENCE COMPLETION ====================
 model SentenceExercise {
   id              Int       @id @default(autoincrement())
@@ -512,21 +471,6 @@ model SentenceExercise {
 }
 
 // ==================== USER PROGRESS (NEW EXERCISES) ====================
-model UserCollocationProgress {
-  id              Int       @id @default(autoincrement())
-  userId          String
-  collocationId   Int
-  correct         Int       @default(0)
-  attempts        Int       @default(0)
-  mastered        Boolean   @default(false)
-  lastAttemptAt   DateTime  @default(now())
-  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([userId, collocationId])
-  @@index([userId])
-  @@index([userId, mastered])
-}
-
 model UserSentenceProgress {
   id              Int       @id @default(autoincrement())
   userId          String
@@ -560,14 +504,26 @@ model DailyMission {
 }
 
 model UserWordKnowledge {
-  id        Int      @id @default(autoincrement())
-  userId    String
-  word      String
-  status    String   @default("unknown")
-  updatedAt DateTime @updatedAt
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id              Int      @id @default(autoincrement())
+  userId          String
+  word            String
+  status          String   @default("unknown")
+  lemma           String?
+  definition      String?
+  contextSentence String?
+  bookId          String?
+  chapterIndex    Int?
+  paragraphIndex  Int?
+  addedAt         DateTime @default(now())
+  nextReviewAt    DateTime @default(now())
+  easeFactor      Float    @default(2.5)
+  interval        Int      @default(0)
+  repetitions     Int      @default(0)
+  updatedAt       DateTime @updatedAt
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, word])
   @@index([userId])
   @@index([userId, status])
+  @@index([userId, nextReviewAt])
 }

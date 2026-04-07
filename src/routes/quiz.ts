@@ -57,7 +57,7 @@ quizRouter.get(
     const cefrLevel = parseCefrLevel(req.query.cefrLevel ?? 'a1') ?? 'a1';
     const month = mapCefrToMonth(cefrLevel);
     const type = z
-      .enum(['vocabulary', 'phrasal-verbs', 'expressions'])
+      .enum(['vocabulary', 'phrasal-verbs', 'expressions', 'mixed'])
       .default('vocabulary')
       .parse(req.query.type ?? 'vocabulary');
     const count = z.coerce.number().int().min(1).max(20).default(10).parse(req.query.count ?? 10);
@@ -66,14 +66,15 @@ quizRouter.get(
       .default('multiple_choice')
       .parse(req.query.questionType ?? 'multiple_choice');
 
+    const wantsAll = type === 'mixed';
     const [vocabulary, phrasalVerbs, expressions] = await Promise.all([
-      type === 'vocabulary'
+      wantsAll || type === 'vocabulary'
         ? prisma.vocabulary.findMany({ where: { month }, orderBy: { id: 'asc' } })
         : Promise.resolve([]),
-      type === 'phrasal-verbs'
+      wantsAll || type === 'phrasal-verbs'
         ? prisma.phrasalVerb.findMany({ where: { month }, orderBy: { id: 'asc' } })
         : Promise.resolve([]),
-      type === 'expressions'
+      wantsAll || type === 'expressions'
         ? prisma.expression.findMany({ where: { month }, orderBy: { id: 'asc' } })
         : Promise.resolve([]),
     ]);
@@ -99,7 +100,7 @@ quizRouter.post(
 
     const input = z
       .object({
-        type: z.enum(['vocabulary', 'phrasal-verbs', 'expressions']),
+        type: z.enum(['vocabulary', 'phrasal-verbs', 'expressions', 'mixed']),
         cefrLevel: z.enum(['a1', 'a2', 'b1', 'b2', 'c1', 'c2']).optional(),
         month: z.number().int().min(1).max(6).optional(),
         sessionId: z.string().min(8).max(120),

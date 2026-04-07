@@ -70,8 +70,6 @@ userRouter.get(
       quizCount,
       flashcardCount,
       timerCount,
-      collocationMastered,
-      collocationAttempted,
       sentenceMastered,
       sentenceAttempted,
     ] = await Promise.all([
@@ -89,8 +87,6 @@ userRouter.get(
       prisma.quizAttempt.count({ where: { userId } }),
       prisma.flashcardProgress.count({ where: { userId } }),
       prisma.userTimerSession.count({ where: { userId } }),
-      prisma.userCollocationProgress.count({ where: { userId, mastered: true } }),
-      prisma.userCollocationProgress.count({ where: { userId } }),
       prisma.userSentenceProgress.count({ where: { userId, mastered: true } }),
       prisma.userSentenceProgress.count({ where: { userId } }),
     ]);
@@ -116,7 +112,6 @@ userRouter.get(
         quizzes: quizCount,
         flashcards: flashcardCount,
         timerSessions: timerCount,
-        collocations: { mastered: collocationMastered, attempted: collocationAttempted },
         sentences: { mastered: sentenceMastered, attempted: sentenceAttempted },
       },
     });
