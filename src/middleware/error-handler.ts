@@ -27,5 +27,6 @@ export function errorHandler(error: unknown, _req: Request, res: Response, _next
     return;
   }
 
+  console.error('[500]', error);
   res.status(500).json({ error: 'Erro interno', code: 'INTERNAL_ERROR' });
 }

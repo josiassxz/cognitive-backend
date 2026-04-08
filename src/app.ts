@@ -27,6 +27,8 @@ import { mobileRouter } from './routes/mobile';
 import { readingLabRouter } from './routes/reading-lab';
 import { missionsRouter } from './routes/missions';
 import { vocabularySrsRouter } from './routes/vocabulary-srs';
+import transcriptRouter from './routes/transcript';
+import libraryRouter from './routes/library';
 
 export function createApp() {
   const app = express();
@@ -97,6 +99,8 @@ export function createApp() {
       message: 'O módulo de collocations foi descontinuado.',
     });
   });
+  app.use('/api/v1/transcript', transcriptRouter);
+  app.use('/api/library', authMiddleware, libraryRouter);
   app.use('/api/missions', authMiddleware, missionsRouter);
   app.use('/api/vocabulary-srs', authMiddleware, vocabularySrsRouter);
   app.use('/api/user', authMiddleware, userRouter);

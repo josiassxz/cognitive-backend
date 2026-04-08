@@ -38,6 +38,7 @@
     "openai": "^6.7.0",
     "pdf-parse": "^2.4.5",
     "xlsx": "^0.18.5",
+    "youtube-transcript-plus": "^2.0.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
