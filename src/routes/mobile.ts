@@ -136,6 +136,10 @@ mobileRouter.post(
   '/import-song',
   authMiddleware,
   asyncHandler(async (req, res) => {
+    res.set("Deprecation", "true");
+    res.set("Sunset", "2026-12-31");
+    res.set("Link", "</api/library/items>; rel=\"successor-version\"");
+
     const userId = req.userId;
     if (!userId) throw new HttpError(401, 'Nao autorizado');
 

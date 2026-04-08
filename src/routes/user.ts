@@ -524,6 +524,30 @@ userRouter.post(
           nextReviewAt: new Date(),
         },
       });
+
+      await prisma.userWordKnowledge.upsert({
+        where: {
+          userId_word: {
+            userId,
+            word: phrase.phrase.trim().toLowerCase(),
+          },
+        },
+        create: {
+          userId,
+          word: phrase.phrase.trim().toLowerCase(),
+          status: "learning",
+          definition: phrase.translation,
+          contextSentence: phrase.context ?? undefined,
+          easeFactor: 2.5,
+          interval: 1,
+          repetitions: 0,
+          nextReviewAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
+          addedAt: new Date(),
+        },
+        update: {
+          definition: phrase.translation,
+        },
+      });
     }
 
     await prisma.userSavedPhrase.updateMany({
