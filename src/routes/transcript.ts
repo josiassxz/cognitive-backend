@@ -5,6 +5,16 @@ import { prisma } from "../lib/prisma";
 
 const router = Router();
 
+function decodeHtmlEntities(text: string): string {
+  return text
+    .replace(/&#39;/g, "'")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)));
+}
+
 // Extrai videoId de URLs do YouTube
 function extractVideoId(url: string): string | null {
   const patterns = [
@@ -58,9 +68,9 @@ async function fetchTranscriptSupadata(videoId: string, lang = "en"): Promise<ob
     return content
       .filter((s: any) => s.text)
       .map((s: any) => ({
-        text: String(s.text),
-        offset: s.offset ?? s.start ?? 0,
-        duration: s.duration ?? 0,
+        text: decodeHtmlEntities(String(s.text)),
+        offset: Number(s.offset) || Number(s.start) || 0,
+        duration: Number(s.duration) || Number(s.dur) || 0,
       }));
   } catch {
     return null;
