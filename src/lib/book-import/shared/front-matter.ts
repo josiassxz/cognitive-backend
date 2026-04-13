@@ -11,7 +11,6 @@ const FRONT_MATTER_FILE_PATTERNS = [
   /(^|\/)dedication/i,
   /(^|\/)acknowledg/i,
   /(^|\/)colophon/i,
-  /(^|\/)index\./i,
   /(^|\/)imprint/i,
 ];
 

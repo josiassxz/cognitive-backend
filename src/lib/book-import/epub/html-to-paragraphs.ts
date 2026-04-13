@@ -44,7 +44,13 @@ export type HtmlToParagraphsResult = {
 };
 
 export function htmlChapterToParagraphs(html: string): HtmlToParagraphsResult {
-  const root = parse(html, { lowerCaseTagName: true, comment: false });
+  // Strip <script> tags before parsing. XHTML self-closing <script ... /> is
+  // not recognised by node-html-parser (HTML5 mode), causing it to swallow
+  // the rest of the document as script content — including <body>.
+  const cleaned = html
+    .replace(/<script\b[^>]*\/>/gi, '')
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
+  const root = parse(cleaned, { lowerCaseTagName: true, comment: false });
   const body = root.querySelector('body') ?? root;
   const blocks: HTMLElement[] = [];
   for (const child of body.childNodes) collectBlocks(child, blocks);

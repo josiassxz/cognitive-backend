@@ -19,7 +19,7 @@ import { HttpError } from '../utils/http-error';
 export const readingLabRouter = Router();
 const readingBookUpload = multer({
   storage: multer.memoryStorage(),
-  limits: { fileSize: 30 * 1024 * 1024 },
+  limits: { fileSize: 50 * 1024 * 1024 },
 });
 
 type CefrLevel = 'a1' | 'a2' | 'b1' | 'b2' | 'c1' | 'c2';
