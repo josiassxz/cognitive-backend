@@ -9,8 +9,8 @@ import { HttpError } from '../utils/http-error';
 import { withCache } from '../lib/cache';
 
 export const songsRouter = Router();
-type SongWordItem = { id: number; songId: number; lineIndex: number; wordIndex: number; word: string; startMs: number; endMs: number };
-type SongLyricItem = { id: number; songId: number; lineIndex: number; startMs: number; endMs: number; text: string; translation: string };
+export type SongWordItem = { id: number; songId: number; lineIndex: number; wordIndex: number; word: string; startMs: number; endMs: number };
+export type SongLyricItem = { id: number; songId: number; lineIndex: number; startMs: number; endMs: number; text: string; translation: string };
 
 function extractYoutubeId(input: string): string | null {
   const patterns = [
@@ -29,7 +29,7 @@ function extractYoutubeId(input: string): string | null {
   return null;
 }
 
-function parseWordTimestampsJson(rawJson: unknown, songId: number): SongWordItem[] {
+export function parseWordTimestampsJson(rawJson: unknown, songId: number): SongWordItem[] {
   if (!Array.isArray(rawJson)) return [];
   const normalized = rawJson
     .map((item, index) => {
@@ -69,7 +69,7 @@ function parseWordTimestampsJson(rawJson: unknown, songId: number): SongWordItem
   return words;
 }
 
-function buildLyricLinesFromWords(words: SongWordItem[]): SongLyricItem[] {
+export function buildLyricLinesFromWords(words: SongWordItem[]): SongLyricItem[] {
   if (words.length === 0) return [];
   const byLine = new Map<number, SongWordItem[]>();
   for (const word of words) {

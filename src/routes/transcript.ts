@@ -2,6 +2,16 @@ import { Router } from "express";
 import { asyncHandler } from "../utils/async-handler";
 import { HttpError } from "../utils/http-error";
 import { prisma } from "../lib/prisma";
+import { syncTranscriptToSong } from "../services/song-lyrics-sync";
+
+// Sincroniza com Song sem quebrar o fluxo principal se algo falhar.
+async function safeSyncToSong(videoId: string, transcript: object[]): Promise<void> {
+  try {
+    await syncTranscriptToSong(videoId, transcript as Parameters<typeof syncTranscriptToSong>[1]);
+  } catch (err) {
+    console.error(`[transcript] syncTranscriptToSong falhou videoId=${videoId}:`, err);
+  }
+}
 
 const router = Router();
 
@@ -162,6 +172,7 @@ router.post(
               create: { videoId, transcript, source: itemSource },
               update: { transcript, source: itemSource },
             });
+            await safeSyncToSong(videoId, transcript);
 
             return { videoId, transcript, source: itemSource, cached: false };
           })
@@ -192,6 +203,10 @@ router.post(
     // Cache
     const cached = await prisma.transcript.findUnique({ where: { videoId } });
     if (cached) {
+      // Cache do Transcript pode existir de antes da Song ter sido criada —
+      // re-aplica o sync (no-op se Song não existe ou já está populada com o
+      // mesmo conteúdo, porque parseWordTimestampsJson é determinístico).
+      await safeSyncToSong(videoId, cached.transcript as object[]);
       return res.json({ videoId, transcript: cached.transcript, source: "cache", cached: true });
     }
 
@@ -202,6 +217,7 @@ router.post(
         create: { videoId, transcript: clientTranscript, source: "client" },
         update: { transcript: clientTranscript, source: "client" },
       });
+      await safeSyncToSong(videoId, clientTranscript);
       return res.json({ videoId, transcript: clientTranscript, source: "client", cached: false });
     }
 
@@ -223,6 +239,7 @@ router.post(
       create: { videoId, transcript, source: finalSource },
       update: { transcript, source: finalSource },
     });
+    await safeSyncToSong(videoId, transcript);
 
     return res.json({ videoId, transcript, source: finalSource, cached: false });
   })
@@ -240,6 +257,9 @@ router.get(
     if (!cached) {
       return res.status(404).json({ error: "not_found", code: "NOT_FOUND" });
     }
+    // Garante que Song criada depois do Transcript também ganhe o wordTimestampsJson.
+    // O helper faz short-circuit se já está populada, então é barato.
+    await safeSyncToSong(videoId, cached.transcript as object[]);
     return res.json({
       videoId,
       transcript: cached.transcript,
