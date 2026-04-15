@@ -2,7 +2,7 @@ import { Router } from "express";
 import { asyncHandler } from "../utils/async-handler";
 import { HttpError } from "../utils/http-error";
 import { prisma } from "../lib/prisma";
-import { resolveMediaMetadata } from "../lib/media-metadata";
+import { resolveMediaMetadata, extractPlaylistId, resolvePlaylistVideos } from "../lib/media-metadata";
 
 const router = Router();
 const MAX_ITEMS_PER_USER = 100;
@@ -39,6 +39,9 @@ router.get(
 );
 
 // POST /library/items — { url: string }
+// Resposta discriminada:
+//   { kind: "item",     item: UserMediaItem }
+//   { kind: "playlist", playlist: UserPlaylist, itemCount, skipped }
 router.post(
   "/items",
   asyncHandler(async (req, res) => {
@@ -49,21 +52,109 @@ router.post(
       throw new HttpError(400, "URL é obrigatória.", "MISSING_URL");
     }
 
-    // Validar URL
     try { new URL(url); } catch {
       throw new HttpError(400, "URL inválida.", "INVALID_URL");
     }
 
-    // Verificar limite
-    const count = await prisma.userMediaItem.count({ where: { userId } });
-    if (count >= MAX_ITEMS_PER_USER) {
-      throw new HttpError(403, `Biblioteca cheia (máx. ${MAX_ITEMS_PER_USER} itens). Remova alguns para continuar.`, "LIBRARY_FULL");
+    // ── PLAYLIST ────────────────────────────────────────────────────────────
+    const playlistId = extractPlaylistId(url);
+    if (playlistId) {
+      console.log(`[library.items] playlist detected playlistId=${playlistId}`);
+      const result = await resolvePlaylistVideos(playlistId);
+      if (result.kind !== "ok") {
+        const messages: Record<typeof result.kind, [number, string, string]> = {
+          private: [403, "Esta playlist é privada ou requer login no YouTube.", "PLAYLIST_PRIVATE"],
+          not_found: [404, "Playlist não encontrada ou inacessível.", "PLAYLIST_NOT_FOUND"],
+          network_error: [503, "YouTube indisponível. Tente novamente em instantes.", "PLAYLIST_NETWORK"],
+        };
+        const [status, msg, code] = messages[result.kind];
+        console.log(`[library.items] playlist failed playlistId=${playlistId} kind=${result.kind}`);
+        throw new HttpError(status, msg, code);
+      }
+      const { title: playlistTitle, videoIds } = result;
+      console.log(`[library.items] playlist resolved playlistId=${playlistId} videos=${videoIds.length}`);
+
+      const existingCount = await prisma.userMediaItem.count({ where: { userId } });
+      const remaining = Math.max(0, MAX_ITEMS_PER_USER - existingCount);
+      if (remaining === 0) {
+        throw new HttpError(
+          403,
+          `Biblioteca cheia (máx. ${MAX_ITEMS_PER_USER} itens). Remova alguns para continuar.`,
+          "LIBRARY_FULL",
+        );
+      }
+
+      const playlist = await prisma.userPlaylist.create({
+        data: { userId, title: playlistTitle, description: "", coverUrl: "" },
+      });
+
+      let position = 0;
+      let skipped = 0;
+      let coverUrl = "";
+      for (const videoId of videoIds) {
+        if (position >= remaining) {
+          skipped += videoIds.length - position;
+          break;
+        }
+        const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+        let item = await prisma.userMediaItem.findFirst({
+          where: { userId, youtubeId: videoId },
+        });
+        if (!item) {
+          const meta = await resolveMediaMetadata(videoUrl);
+          item = await prisma.userMediaItem.create({
+            data: {
+              userId,
+              title: meta.title,
+              type: "youtube",
+              url: videoUrl,
+              youtubeId: videoId,
+              thumbnailUrl: meta.thumbnailUrl,
+            },
+          });
+        }
+        if (!coverUrl && item.thumbnailUrl) coverUrl = item.thumbnailUrl;
+        await prisma.userPlaylistItem.create({
+          data: { playlistId: playlist.id, mediaItemId: item.id, position },
+        });
+        position += 1;
+      }
+
+      let updatedPlaylist = playlist;
+      if (coverUrl) {
+        updatedPlaylist = await prisma.userPlaylist.update({
+          where: { id: playlist.id },
+          data: { coverUrl },
+        });
+      }
+
+      res.status(201).json({
+        kind: "playlist",
+        playlist: {
+          id: updatedPlaylist.id,
+          title: updatedPlaylist.title,
+          description: updatedPlaylist.description,
+          coverUrl: updatedPlaylist.coverUrl,
+          itemCount: position,
+        },
+        itemCount: position,
+        skipped,
+      });
+      return;
     }
 
-    // Resolver metadados
+    // ── ITEM ÚNICO ──────────────────────────────────────────────────────────
+    const count = await prisma.userMediaItem.count({ where: { userId } });
+    if (count >= MAX_ITEMS_PER_USER) {
+      throw new HttpError(
+        403,
+        `Biblioteca cheia (máx. ${MAX_ITEMS_PER_USER} itens). Remova alguns para continuar.`,
+        "LIBRARY_FULL",
+      );
+    }
+
     const meta = await resolveMediaMetadata(url);
 
-    // Verificar duplicata (mesmo url para o mesmo usuário)
     const existing = await prisma.userMediaItem.findFirst({ where: { userId, url } });
     if (existing) {
       throw new HttpError(409, "Este item já está na sua biblioteca.", "ALREADY_EXISTS");
@@ -80,7 +171,7 @@ router.post(
       },
     });
 
-    res.status(201).json(item);
+    res.status(201).json({ kind: "item", item });
   })
 );
 
