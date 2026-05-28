@@ -635,6 +635,9 @@ readingLabRouter.get(
         select: {
           contentId: true,
           lastSentence: true,
+          chapterIndex: true,
+          paragraphIndex: true,
+          totalChapters: true,
           completed: true,
           timeSpentMs: true,
         },
@@ -647,11 +650,17 @@ readingLabRouter.get(
     ]);
     const countsByContent = new Map(sentenceCounts.map((item) => [item.contentId, item._count._all]));
     const itemsWithPercent = items.map((item) => {
-      const totalSentences = Math.max(1, countsByContent.get(item.contentId) ?? 1);
-      const progressPercent = item.completed ? 100 : Math.min(100, Math.max(0, ((item.lastSentence + 1) / totalSentences) * 100));
+      let progressPercent: number;
+      if (item.completed) {
+        progressPercent = 100;
+      } else if (item.totalChapters > 0) {
+        progressPercent = Math.min(100, Math.max(0, (item.chapterIndex / item.totalChapters) * 100));
+      } else {
+        const totalSentences = Math.max(1, countsByContent.get(item.contentId) ?? 1);
+        progressPercent = Math.min(100, Math.max(0, ((item.lastSentence + 1) / totalSentences) * 100));
+      }
       return {
         ...item,
-        totalSentences,
         progressPercent,
       };
     });
@@ -770,6 +779,9 @@ readingLabRouter.get(
         userId: true,
         contentId: true,
         lastSentence: true,
+        chapterIndex: true,
+        paragraphIndex: true,
+        totalChapters: true,
         completed: true,
         timeSpentMs: true,
       },
@@ -778,17 +790,18 @@ readingLabRouter.get(
       res.json({ progress: null });
       return;
     }
-    const totalSentences = Math.max(
-      1,
-      await prisma.readingSentence.count({
-        where: { contentId },
-      }),
-    );
-    const progressPercent = progress.completed ? 100 : Math.min(100, Math.max(0, ((progress.lastSentence + 1) / totalSentences) * 100));
+    let progressPercent: number;
+    if (progress.completed) {
+      progressPercent = 100;
+    } else if (progress.totalChapters > 0) {
+      progressPercent = Math.min(100, Math.max(0, (progress.chapterIndex / progress.totalChapters) * 100));
+    } else {
+      const totalSentences = Math.max(1, await prisma.readingSentence.count({ where: { contentId } }));
+      progressPercent = Math.min(100, Math.max(0, ((progress.lastSentence + 1) / totalSentences) * 100));
+    }
     res.json({
       progress: {
         ...progress,
-        totalSentences,
         progressPercent,
       },
     });
@@ -1017,9 +1030,13 @@ readingLabRouter.post(
     const contentId = z.coerce.number().int().positive().parse(req.params.id);
     const input = z
       .object({
-        lastSentence: z.number().int().min(0),
+        chapterIndex: z.number().int().min(0),
+        paragraphIndex: z.number().int().min(0).default(0),
+        totalChapters: z.number().int().min(0).default(0),
         completed: z.boolean().optional(),
         timeSpentMs: z.number().int().min(0).optional(),
+        // kept for backward-compat with old clients still sending it
+        lastSentence: z.number().int().min(0).optional(),
       })
       .parse(req.body);
     const progress = await prisma.userReadingProgress.upsert({
@@ -1027,13 +1044,19 @@ readingLabRouter.post(
       create: {
         userId,
         contentId,
-        lastSentence: input.lastSentence,
+        lastSentence: input.lastSentence ?? input.chapterIndex,
+        chapterIndex: input.chapterIndex,
+        paragraphIndex: input.paragraphIndex,
+        totalChapters: input.totalChapters,
         completed: input.completed ?? false,
         completedAt: input.completed ? new Date() : null,
         timeSpentMs: input.timeSpentMs ?? 0,
       },
       update: {
-        lastSentence: input.lastSentence,
+        lastSentence: input.lastSentence ?? input.chapterIndex,
+        chapterIndex: input.chapterIndex,
+        paragraphIndex: input.paragraphIndex,
+        totalChapters: input.totalChapters,
         completed: input.completed ?? undefined,
         completedAt: input.completed ? new Date() : undefined,
         timeSpentMs: input.timeSpentMs ? { increment: input.timeSpentMs } : undefined,

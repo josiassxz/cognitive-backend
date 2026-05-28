@@ -368,15 +368,18 @@ model ReadingWordTimestamp {
 }
 
 model UserReadingProgress {
-  id           Int       @id @default(autoincrement())
-  userId       String
-  contentId    Int
-  lastSentence Int       @default(0)
-  completed    Boolean   @default(false)
-  completedAt  DateTime?
-  timeSpentMs  Int       @default(0)
-  createdAt    DateTime  @default(now())
-  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id             Int       @id @default(autoincrement())
+  userId         String
+  contentId      Int
+  lastSentence   Int       @default(0)
+  chapterIndex   Int       @default(0)
+  paragraphIndex Int       @default(0)
+  totalChapters  Int       @default(0)
+  completed      Boolean   @default(false)
+  completedAt    DateTime?
+  timeSpentMs    Int       @default(0)
+  createdAt      DateTime  @default(now())
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, contentId])
   @@index([userId])
