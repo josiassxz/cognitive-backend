@@ -93,7 +93,10 @@ export function createApp() {
     res.json({ ok: true });
   });
 
-  app.use('/api', authLimiter, authRouter);
+  // Limite rígido só nas rotas de credencial (força bruta). Montado em '/api' ele valia para a
+  // API inteira (20 req/min) e devolvia 429 na navegação normal.
+  app.use(['/api/signup', '/api/auth/login', '/api/auth/refresh'], authLimiter);
+  app.use('/api', authRouter);
   app.use('/api/contracts', contractsRouter);
   app.use('/api/vocabulary', vocabularyRouter);
   app.use('/api/videos', videosRouter);
