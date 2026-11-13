@@ -573,7 +573,7 @@ readingLabRouter.get(
     const cefrLevel = typeof req.query.cefrLevel === 'string' ? req.query.cefrLevel : undefined;
     const month = req.query.month ? z.coerce.number().int().min(1).max(12).parse(req.query.month) : undefined;
     const category = typeof req.query.category === 'string' ? req.query.category : undefined;
-    const limit = z.coerce.number().int().min(1).max(100).default(20).parse(req.query.limit ?? 20);
+    const limit = z.coerce.number().int().min(1).max(300).default(20).parse(req.query.limit ?? 20);
     const offset = z.coerce.number().int().min(0).default(0).parse(req.query.offset ?? 0);
     const where: Record<string, unknown> = { isPublic: true };
     // Publicação separada do processamento: só admin enxerga o que não está publicado.
@@ -611,6 +611,8 @@ readingLabRouter.get(
           sourceType: true,
           publishStatus: true,
           translationStatus: true,
+          coverPalette: true,
+          libraryMeta: true,
           createdAt: true,
         },
       }),

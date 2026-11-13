@@ -8,16 +8,16 @@ datasource db {
 }
 
 model User {
-  id                String              @id @default(cuid())
+  id                String                 @id @default(cuid())
   name              String?
-  email             String              @unique
+  email             String                 @unique
   passwordHash      String
-  role              String              @default("user")
-  currentMonth      Int                 @default(1)
-  level             String              @default("iniciante")
-  dailyGoalMinutes  Int                 @default(30)
-  createdAt         DateTime            @default(now())
-  updatedAt         DateTime            @updatedAt
+  role              String                 @default("user")
+  currentMonth      Int                    @default(1)
+  level             String                 @default("iniciante")
+  dailyGoalMinutes  Int                    @default(30)
+  createdAt         DateTime               @default(now())
+  updatedAt         DateTime               @updatedAt
   xpLog             XpLog[]
   badges            UserBadge[]
   streak            UserStreak?
@@ -25,29 +25,31 @@ model User {
   timerSessions     UserTimerSession[]
   monthProgress     UserMonthProgress[]
   quizAttempts      QuizAttempt[]
-  flashcardProgress     FlashcardProgress[]
-  sentenceProgress      UserSentenceProgress[]
-  refreshTokens         RefreshToken[]
-  savedPhrases          UserSavedPhrase[]
-  readingContents       ReadingContent[]
-  readingProgress       UserReadingProgress[]
-  dailyMissions         DailyMission[]
-  wordKnowledge         UserWordKnowledge[]
-  transcripts           Transcript[]
-  mediaItems            UserMediaItem[]
-  playlists             UserPlaylist[]
-  segmentProgress       UserSegmentProgress[]
+  flashcardProgress FlashcardProgress[]
+  sentenceProgress  UserSentenceProgress[]
+  refreshTokens     RefreshToken[]
+  savedPhrases      UserSavedPhrase[]
+  readingContents   ReadingContent[]
+  readingProgress   UserReadingProgress[]
+  dailyMissions     DailyMission[]
+  wordKnowledge     UserWordKnowledge[]
+  transcripts       Transcript[]
+  mediaItems        UserMediaItem[]
+  playlists         UserPlaylist[]
+  segmentProgress   UserSegmentProgress[]
+  studySettings     UserStudySettings?
+  studyCards        UserStudyCard[]
 }
 
 model RefreshToken {
-  id          String    @id @default(cuid())
-  userId      String
-  tokenHash   String    @unique
-  expiresAt   DateTime
-  revokedAt   DateTime?
-  replacedBy  String?
-  createdAt   DateTime  @default(now())
-  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id         String    @id @default(cuid())
+  userId     String
+  tokenHash  String    @unique
+  expiresAt  DateTime
+  revokedAt  DateTime?
+  replacedBy String?
+  createdAt  DateTime  @default(now())
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
   @@index([expiresAt])
@@ -127,11 +129,11 @@ model UserTimerSession {
 }
 
 model UserMonthProgress {
-  id       Int  @id @default(autoincrement())
+  id       Int    @id @default(autoincrement())
   userId   String
   month    Int
-  progress Int  @default(0)
-  user     User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  progress Int    @default(0)
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, month])
   @@index([userId])
@@ -195,25 +197,25 @@ model PhrasalVerb {
 }
 
 model Song {
-  id              Int         @id @default(autoincrement())
-  slug            String      @unique
-  title           String
-  artist          String
-  youtubeId       String
+  id                 Int                 @id @default(autoincrement())
+  slug               String              @unique
+  title              String
+  artist             String
+  youtubeId          String
   wordTimestampsJson Json?
-  audioUrl        String      @default("")
-  audioDurationMs Int         @default(0)
-  lyricsOffsetMs  Int         @default(0)
-  level           String
-  themes          String[]
-  learningNotes   String      @default("")
-  month           Int         @default(1)
-  category        String      @default("music")
-  keyPhrases      KeyPhrase[]
-  vocabHighlights SongVocab[]
-  lyricLines      SongLyricLine[]
-  wordTimestamps  SongWordTimestamp[]
-  savedPhrases    UserSavedPhrase[]
+  audioUrl           String              @default("")
+  audioDurationMs    Int                 @default(0)
+  lyricsOffsetMs     Int                 @default(0)
+  level              String
+  themes             String[]
+  learningNotes      String              @default("")
+  month              Int                 @default(1)
+  category           String              @default("music")
+  keyPhrases         KeyPhrase[]
+  vocabHighlights    SongVocab[]
+  lyricLines         SongLyricLine[]
+  wordTimestamps     SongWordTimestamp[]
+  savedPhrases       UserSavedPhrase[]
 
   @@index([month])
   @@index([level])
@@ -245,9 +247,9 @@ model SongWordTimestamp {
   endMs     Int
   song      Song   @relation(fields: [songId], references: [id], onDelete: Cascade)
 
+  @@unique([songId, lineIndex, wordIndex])
   @@index([songId])
   @@index([songId, lineIndex])
-  @@unique([songId, lineIndex, wordIndex])
 }
 
 model TranslationCache {
@@ -306,53 +308,57 @@ model SongVocab {
 }
 
 model ReadingContent {
-  id              Int               @id @default(autoincrement())
-  title           String
-  author          String            @default("")
-  description     String            @default("")
-  coverUrl        String            @default("")
-  tags            String[]          @default([])
-  slug            String            @unique
+  id                Int                   @id @default(autoincrement())
+  title             String
+  author            String                @default("")
+  description       String                @default("")
+  coverUrl          String                @default("")
+  tags              String[]              @default([])
+  slug              String                @unique
   // Hash do texto: NÃO é identidade (gravações diferentes podem ter o mesmo texto).
-  textHash        String
-  fullText        String
-  cefrLevel       String
-  wordCount       Int               @default(0)
-  estimatedTimeMs Int               @default(0)
-  audioUrl        String            @default("")
-  audioDurationMs Int               @default(0)
-  ttsProvider     String            @default("azure")
-  ttsVoice        String            @default("en-US-JennyNeural")
-  sourceType      String            @default("curated")
-  sourceFileType  String            @default("")
-  sourceFileName  String            @default("")
-  userId          String?
-  month           Int               @default(1)
-  category        String            @default("general")
-  isPublic        Boolean           @default(true)
-  createdAt       DateTime          @default(now())
+  textHash          String
+  fullText          String
+  cefrLevel         String
+  wordCount         Int                   @default(0)
+  estimatedTimeMs   Int                   @default(0)
+  audioUrl          String                @default("")
+  audioDurationMs   Int                   @default(0)
+  ttsProvider       String                @default("azure")
+  ttsVoice          String                @default("en-US-JennyNeural")
+  sourceType        String                @default("curated")
+  sourceFileType    String                @default("")
+  sourceFileName    String                @default("")
+  userId            String?
+  month             Int                   @default(1)
+  category          String                @default("general")
+  isPublic          Boolean               @default(true)
+  createdAt         DateTime              @default(now())
   // --- conteúdo reconstruído a partir de áudio (pipeline local) ---
   // Identidade da gravação: "sha256-<hash do áudio>". Nulo para conteúdos TTS antigos.
-  contentKey        String?         @unique
-  audioStorageKey   String          @default("")
-  coverStorageKey   String          @default("")
-  audioSha256       String          @default("")
+  contentKey        String?               @unique
+  audioStorageKey   String                @default("")
+  coverStorageKey   String                @default("")
+  audioSha256       String                @default("")
   audioMeta         Json?
-  language          String          @default("en")
-  pipelineRevision  String          @default("")
-  packageHash       String          @default("")
+  language          String                @default("en")
+  pipelineRevision  String                @default("")
+  packageHash       String                @default("")
   // draft | needs_review | ready | published (publicação separada do processamento)
-  publishStatus     String          @default("published")
-  qualityStatus     String          @default("")
+  publishStatus     String                @default("published")
+  qualityStatus     String                @default("")
   qualityReport     Json?
-  translationStatus String          @default("")
+  translationStatus String                @default("")
   // Controle de concorrência otimista do editor de revisão.
-  editVersion       Int             @default(0)
-  updatedAt         DateTime        @default(now()) @updatedAt
-  sentences       ReadingSentence[]
-  segmentProgress UserSegmentProgress[]
-  revisions       ReadingRevision[]
-  user            User?             @relation(fields: [userId], references: [id], onDelete: SetNull)
+  editVersion       Int                   @default(0)
+  // Vitrine da biblioteca (pipeline library-v1): paleta da capa e dificuldade estimada.
+  coverPalette      Json?
+  libraryMeta       Json?
+  updatedAt         DateTime              @default(now()) @updatedAt
+  sentences         ReadingSentence[]
+  segmentProgress   UserSegmentProgress[]
+  studyCards        UserStudyCard[]
+  revisions         ReadingRevision[]
+  user              User?                 @relation(fields: [userId], references: [id], onDelete: SetNull)
 
   @@index([textHash])
   @@index([publishStatus])
@@ -401,8 +407,8 @@ model ReadingWordTimestamp {
   score      Float?
   sentence   ReadingSentence @relation(fields: [sentenceId], references: [id], onDelete: Cascade)
 
-  @@index([sentenceId])
   @@unique([sentenceId, wordIndex])
+  @@index([sentenceId])
 }
 
 model UserReadingProgress {
@@ -416,6 +422,9 @@ model UserReadingProgress {
   completed      Boolean   @default(false)
   completedAt    DateTime?
   timeSpentMs    Int       @default(0)
+  // Posição de escuta (ms no áudio original) e último acesso, para "Continuar ouvindo".
+  positionMs     Int       @default(0)
+  lastOpenedAt   DateTime?
   createdAt      DateTime  @default(now())
   user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -527,15 +536,15 @@ model Expression {
 
 // ==================== OXFORD 3000/5000 REFERENCE ====================
 model OxfordWord {
-  id              Int       @id @default(autoincrement())
+  id              Int     @id @default(autoincrement())
   word            String
   pos             String
   cefrLevel       String
-  isOxford3000    Boolean   @default(false)
+  isOxford3000    Boolean @default(false)
   frequencyRank   Int?
-  definitionUrl   String    @default("")
-  audioUrl        String    @default("")
-  exampleSentence String    @default("")
+  definitionUrl   String  @default("")
+  audioUrl        String  @default("")
+  exampleSentence String  @default("")
   month           Int
 
   @@unique([word, pos])
@@ -547,14 +556,14 @@ model OxfordWord {
 
 // ==================== SENTENCE COMPLETION ====================
 model SentenceExercise {
-  id              Int       @id @default(autoincrement())
-  sentence        String
-  correctAnswer   String
-  distractors     String[]
-  grammarFocus    String    @default("geral")
-  cefrLevel       String
-  month           Int
-  explanation     String    @default("")
+  id            Int      @id @default(autoincrement())
+  sentence      String
+  correctAnswer String
+  distractors   String[]
+  grammarFocus  String   @default("geral")
+  cefrLevel     String
+  month         Int
+  explanation   String   @default("")
 
   @@index([cefrLevel])
   @@index([month])
@@ -563,14 +572,14 @@ model SentenceExercise {
 
 // ==================== USER PROGRESS (NEW EXERCISES) ====================
 model UserSentenceProgress {
-  id              Int       @id @default(autoincrement())
-  userId          String
-  exerciseId      Int
-  correct         Int       @default(0)
-  attempts        Int       @default(0)
-  mastered        Boolean   @default(false)
-  lastAttemptAt   DateTime  @default(now())
-  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id            Int      @id @default(autoincrement())
+  userId        String
+  exerciseId    Int
+  correct       Int      @default(0)
+  attempts      Int      @default(0)
+  mastered      Boolean  @default(false)
+  lastAttemptAt DateTime @default(now())
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, exerciseId])
   @@index([userId])
@@ -635,18 +644,18 @@ model Transcript {
 // ==================== BIBLIOTECA PESSOAL DO USUÁRIO ====================
 
 model UserMediaItem {
-  id           String             @id @default(cuid())
-  userId       String
-  title        String
-  type         String             // "youtube" | "podcast" | "audio"
-  url          String
-  youtubeId    String?
-  thumbnailUrl String             @default("")
-  description  String             @default("")
-  durationMs   Int                @default(0)
-  isFavorite   Boolean            @default(false)
-  addedAt      DateTime           @default(now())
-  user         User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id            String             @id @default(cuid())
+  userId        String
+  title         String
+  type          String // "youtube" | "podcast" | "audio"
+  url           String
+  youtubeId     String?
+  thumbnailUrl  String             @default("")
+  description   String             @default("")
+  durationMs    Int                @default(0)
+  isFavorite    Boolean            @default(false)
+  addedAt       DateTime           @default(now())
+  user          User               @relation(fields: [userId], references: [id], onDelete: Cascade)
   playlistItems UserPlaylistItem[]
 
   @@index([userId])
@@ -679,4 +688,72 @@ model UserPlaylistItem {
 
   @@unique([playlistId, mediaItemId])
   @@index([playlistId])
+}
+
+// ---------------------------------------------------------------- Estudo estilo Anki
+// Opções do baralho do usuário (espelho das "Opções do baralho" do Anki; ver src/lib/study/config.ts).
+model UserStudySettings {
+  userId    String   @id
+  config    Json
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Um cartão por frase (trecho) que o usuário pôs no baralho. Sem FK para o trecho: uma
+// nova segmentação não apaga histórico de estudo.
+model UserStudyCard {
+  id             Int               @id @default(autoincrement())
+  userId         String
+  contentId      Int
+  segmentKey     String
+  // new | learning | review | relearning
+  type           String            @default("new")
+  // new | learning | review | suspended
+  queue          String            @default("new")
+  // ordem entre os novos (menor primeiro); adicionados à mão entram na frente
+  position       Int               @default(0)
+  dueAt          DateTime?
+  dueDay         Int?
+  interval       Int               @default(0)
+  ease           Float             @default(2.5)
+  reps           Int               @default(0)
+  lapses         Int               @default(0)
+  remainingSteps Int               @default(0)
+  leech          Boolean           @default(false)
+  fsrs           Json?
+  manual         Boolean           @default(false)
+  introducedDay  Int?
+  lastReviewDay  Int?
+  lastReviewAt   DateTime?
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  user           User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  content        ReadingContent    @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  reviews        UserStudyReview[]
+
+  @@unique([userId, segmentKey])
+  @@index([userId, contentId, queue])
+}
+
+// Histórico de respostas (revlog do Anki).
+model UserStudyReview {
+  id           Int           @id @default(autoincrement())
+  cardId       Int
+  userId       String
+  contentId    Int
+  // 1 Errei | 2 Difícil | 3 Bom | 4 Fácil
+  answer       Int
+  // 0 aprendizado | 1 revisão | 2 reaprendizado (como no revlog do Anki)
+  kind         Int
+  // dias (>0) ou -segundos (<0), como no Anki
+  interval     Int
+  lastInterval Int
+  ease         Float
+  timeMs       Int
+  day          Int
+  createdAt    DateTime      @default(now())
+  card         UserStudyCard @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@index([userId, contentId, day])
+  @@index([cardId])
 }

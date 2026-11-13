@@ -20,8 +20,8 @@ RUN npm run build
 FROM ${NODE_IMAGE}
 ENV NODE_ENV=production
 WORKDIR /app
-# openssl: exigido pelos engines do Prisma no Alpine
-RUN apk add --no-cache openssl
+# openssl: exigido pelos engines do Prisma no Alpine; ffmpeg: recorte do áudio das frases (estudo/Anki)
+RUN apk add --no-cache openssl ffmpeg
 COPY package.json package-lock.json ./
 # Reaproveita as dependências do builder (cliente Prisma já gerado) e remove as de
 # desenvolvimento sem acessar a rede. `prisma` é dependência de produção (migrate deploy).

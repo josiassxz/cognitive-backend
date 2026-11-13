@@ -99,6 +99,17 @@ export const contentPackageSchema = z.object({
     .passthrough(),
   provenance: z.record(z.unknown()),
   segments: z.array(segmentSchema).min(1),
+  // Vitrine (opcional): paleta da capa e dificuldade ESTIMADA pelo pipeline.
+  library: z
+    .object({
+      revision: z.string().optional(),
+      palette: z.record(z.string().regex(/^#[0-9a-f]{6}$/)).nullable().optional(),
+      difficulty: z
+        .object({ cefrEstimate: z.enum(['a1', 'a2', 'b1', 'b2', 'c1']).nullable().optional() })
+        .passthrough()
+        .optional(),
+    })
+    .optional(),
 });
 
 export type ContentPackage = z.infer<typeof contentPackageSchema>;
@@ -384,7 +395,15 @@ export async function importContentPackage(
     }
     return report;
   }
-  if (existing && existing.editVersion > 0 && !options.force) {
+  // Qualquer ação humana no editor (edição, divisão, metadados, publicação) bloqueia a
+  // reimportação sem force; importações anteriores não contam como edição.
+  const manualEdits = existing
+    ? await prisma.readingRevision.count({ where: { contentId: existing.id, undoneAt: null, kind: { not: 'import' } } })
+    : 0;
+  const metaEdited = existing
+    ? (await prisma.readingRevision.count({ where: { contentId: existing.id, undoneAt: null, kind: 'meta' } })) > 0
+    : false;
+  if (existing && manualEdits > 0 && !options.force) {
     throw new HttpError(
       409,
       'Este conteúdo tem edições manuais feitas no editor. Reimporte com force=1 para substituí-las (as edições ficam no histórico e podem ser desfeitas).',
@@ -393,7 +412,8 @@ export async function importContentPackage(
 
   const newKeys = pkg.segments.map((segment) => segment.id);
   const fullText = pkg.segments.map((segment) => segment.text).join(' ');
-  const cefrLevel = estimateCefrLevel(fullText);
+  const libraryCefr = pkg.library?.difficulty?.cefrEstimate ?? null;
+  const cefrLevel = libraryCefr ?? estimateCefrLevel(fullText);
   const coverKey = pkg.cover.storageKey && coverFound !== false ? pkg.cover.storageKey : '';
   const contentData = {
     fullText,
@@ -421,9 +441,22 @@ export async function importContentPackage(
       titleConfirmed: pkg.titleConfirmed,
       authorConfirmed: pkg.authorConfirmed ?? false,
       coverConfirmed: pkg.cover.confirmed,
-      cefrLevelSource: 'heuristic_estimate',
+      cefrLevelSource: libraryCefr ? 'library_rare_word_estimate' : 'heuristic_estimate',
     } as Prisma.InputJsonValue,
     translationStatus: pkg.translation.status,
+    cefrLevel,
+    month: CEFR_MONTH[cefrLevel] ?? 3,
+    coverPalette: (pkg.library?.palette ?? Prisma.DbNull) as Prisma.InputJsonValue | typeof Prisma.DbNull,
+    libraryMeta: (pkg.library ? { revision: pkg.library.revision ?? null, difficulty: pkg.library.difficulty ?? null } : Prisma.DbNull) as
+      | Prisma.InputJsonValue
+      | typeof Prisma.DbNull,
+  };
+  // Metadados de vitrine vindos do pipeline; preservados se alguém já os editou no editor.
+  const displayData = {
+    title: pkg.title,
+    author: pkg.author ?? '',
+    coverUrl: coverKey ? mediaRef(coverKey) : '',
+    coverStorageKey: coverKey,
   };
 
   if (dryRun) {
@@ -456,7 +489,7 @@ export async function importContentPackage(
         const before = await snapshotSegments(tx, contentId);
         const current = await tx.readingContent.update({
           where: { id: contentId },
-          data: { ...contentData, editVersion: { increment: 1 } },
+          data: { ...contentData, ...(metaEdited ? {} : displayData), editVersion: { increment: 1 } },
           select: { editVersion: true },
         });
         await tx.readingRevision.create({
@@ -488,13 +521,8 @@ export async function importContentPackage(
         const created = await tx.readingContent.create({
           data: {
             ...contentData,
-            title: pkg.title,
-            author: pkg.author ?? '',
+            ...displayData,
             slug: `${slugify(pkg.title) || 'reading'}-${pkg.audio.sha256.slice(0, 8)}`,
-            coverUrl: coverKey ? mediaRef(coverKey) : '',
-            coverStorageKey: coverKey,
-            cefrLevel,
-            month: CEFR_MONTH[cefrLevel] ?? 3,
             category: 'general',
             sourceType: 'reconstructed_audio',
             // Áudio reconstruído não tem voz/provedor TTS conhecido: não herdar defaults antigos.

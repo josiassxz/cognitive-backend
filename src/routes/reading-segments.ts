@@ -3,6 +3,8 @@
 //   GET  /api/reading-lab/:id/segments?offset=&limit=       trechos paginados + progresso
 //   PUT  /api/reading-lab/:id/segments/:key/progress        marca/desmarca conclusão (idempotente)
 //   GET  /api/reading-lab/:id/segments/:key/details         vocabulário e destaques do trecho
+//   PUT  /api/reading-lab/:id/listening                     posição de escuta (retomar de onde parou)
+//   GET  /api/reading-lab/continue-listening                últimos conteúdos em andamento do usuário
 //
 // Conteúdos antigos (TTS) não têm segmentKey; suas frases são servidas com a chave
 // "sent_<id>" para que o mesmo player funcione com eles.
@@ -41,7 +43,7 @@ export async function loadVisibleContent(contentId: number, role: 'user' | 'admi
     select: {
       id: true, title: true, author: true, description: true, coverUrl: true, audioUrl: true, audioDurationMs: true,
       cefrLevel: true, wordCount: true, sourceType: true, language: true, publishStatus: true, qualityStatus: true,
-      translationStatus: true, editVersion: true, contentKey: true,
+      translationStatus: true, editVersion: true, contentKey: true, coverPalette: true, libraryMeta: true,
     },
   });
   if (!content || (content.publishStatus !== 'published' && role !== 'admin')) {
@@ -69,7 +71,7 @@ readingSegmentsRouter.get(
     const offset = z.coerce.number().int().min(0).default(0).parse(req.query.offset ?? 0);
     const limit = z.coerce.number().int().min(1).max(200).default(100).parse(req.query.limit ?? 100);
     const content = await loadVisibleContent(contentId, req.userRole);
-    const [rows, progress] = await Promise.all([
+    const [rows, progress, listening] = await Promise.all([
       prisma.readingSentence.findMany({
         where: { contentId },
         orderBy: { sentenceIndex: 'asc' },
@@ -78,6 +80,10 @@ readingSegmentsRouter.get(
         include: { wordTimestamps: { orderBy: { wordIndex: 'asc' } } },
       }),
       progressSummary(req.userId as string, contentId),
+      prisma.userReadingProgress.findUnique({
+        where: { userId_contentId: { userId: req.userId as string, contentId } },
+        select: { positionMs: true, timeSpentMs: true, lastOpenedAt: true },
+      }),
     ]);
     const segments = rows.map((row) => {
       const wordIndexByKey = new Map(row.wordTimestamps.map((word, index) => [word.wordKey, index]));
@@ -120,6 +126,7 @@ readingSegmentsRouter.get(
       limit,
       segments,
       progress,
+      listening: listening ?? { positionMs: 0, timeSpentMs: 0, lastOpenedAt: null },
     });
   }),
 );
@@ -239,5 +246,87 @@ readingSegmentsRouter.get(
       words: row.wordTimestamps.map((word) => ({ word: word.word, startMs: word.startMs, endMs: word.endMs })),
       note: row.note,
     });
+  }),
+);
+
+readingSegmentsRouter.put(
+  '/:id/listening',
+  authMiddleware,
+  asyncHandler(async (req, res) => {
+    const userId = req.userId as string;
+    const contentId = z.coerce.number().int().positive().parse(req.params.id);
+    const input = z
+      .object({
+        positionMs: z.number().int().min(0),
+        segmentIndex: z.number().int().min(0).optional(),
+        // Tempo efetivamente ouvido desde o último envio (limitado para não inflar estatística).
+        listenedMs: z.number().int().min(0).max(120_000).default(0),
+      })
+      .parse(req.body);
+    const content = await loadVisibleContent(contentId, req.userRole);
+    const positionMs = Math.min(input.positionMs, content.audioDurationMs || input.positionMs);
+    const now = new Date();
+    const progress = await prisma.userReadingProgress.upsert({
+      where: { userId_contentId: { userId, contentId } },
+      create: {
+        userId,
+        contentId,
+        positionMs,
+        lastOpenedAt: now,
+        lastSentence: input.segmentIndex ?? 0,
+        timeSpentMs: input.listenedMs,
+      },
+      update: {
+        positionMs,
+        lastOpenedAt: now,
+        ...(input.segmentIndex !== undefined ? { lastSentence: input.segmentIndex } : {}),
+        timeSpentMs: { increment: input.listenedMs },
+      },
+      select: { positionMs: true, timeSpentMs: true, completed: true },
+    });
+    res.json(progress);
+  }),
+);
+
+readingSegmentsRouter.get(
+  '/continue-listening',
+  authMiddleware,
+  asyncHandler(async (req, res) => {
+    const userId = req.userId as string;
+    const limit = z.coerce.number().int().min(1).max(20).default(8).parse(req.query.limit ?? 8);
+    const rows = await prisma.userReadingProgress.findMany({
+      where: { userId, lastOpenedAt: { not: null } },
+      orderBy: { lastOpenedAt: 'desc' },
+      take: limit * 2,
+      select: { contentId: true, positionMs: true, completed: true, lastOpenedAt: true, timeSpentMs: true },
+    });
+    const contents = await prisma.readingContent.findMany({
+      where: {
+        id: { in: rows.map((row) => row.contentId) },
+        sourceType: 'reconstructed_audio',
+        ...(req.userRole === 'admin' ? {} : { publishStatus: 'published' }),
+      },
+      select: {
+        id: true, title: true, author: true, coverUrl: true, audioDurationMs: true, cefrLevel: true,
+        coverPalette: true, publishStatus: true, translationStatus: true,
+      },
+    });
+    const byId = new Map(contents.map((content) => [content.id, content]));
+    const items = [];
+    for (const row of rows) {
+      const content = byId.get(row.contentId);
+      if (!content) continue;
+      const duration = content.audioDurationMs || 1;
+      items.push({
+        ...content,
+        coverUrl: await getPlayableStorageUrl(content.coverUrl),
+        positionMs: row.positionMs,
+        progressPercent: row.completed ? 100 : Math.min(100, Math.round((row.positionMs / duration) * 100)),
+        completed: row.completed,
+        lastOpenedAt: row.lastOpenedAt,
+      });
+      if (items.length >= limit) break;
+    }
+    res.json({ items });
   }),
 );
