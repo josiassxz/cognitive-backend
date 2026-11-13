@@ -5,6 +5,10 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import { env } from './config/env';
 import { authMiddleware, requireAdmin } from './middleware/auth';
+import { contentImportRouter } from './routes/content-import';
+import { mediaRouter } from './routes/media';
+import { readingEditorRouter } from './routes/reading-editor';
+import { readingSegmentsRouter } from './routes/reading-segments';
 import { errorHandler, notFoundHandler } from './middleware/error-handler';
 import { adminRouter } from './routes/admin';
 import { authRouter } from './routes/auth';
@@ -52,7 +56,8 @@ export function createApp() {
     legacyHeaders: false,
   });
 
-  app.use(helmet());
+  // Mídia é carregada por <audio>/<img> de outra origem em desenvolvimento (web em :8081).
+  app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
   app.use(
     cors({
       origin(origin, callback) {
@@ -66,10 +71,21 @@ export function createApp() {
         }
         callback(null, false);
       },
+      // Sessão web por cookie HttpOnly: só as origens listadas recebem credenciais.
+      credentials: true,
+      allowedHeaders: ['Content-Type', 'Authorization', 'X-Auth-Mode', 'X-Requested-With', 'X-Import-Token', 'Range'],
+      exposedHeaders: ['Content-Range', 'Accept-Ranges', 'Content-Length', 'ETag'],
     }),
   );
+  // Importação de pacotes do pipeline: corpo grande, com limite próprio e antes do limite geral.
+  app.use('/api/admin/content-import', express.json({ limit: '64mb' }), contentImportRouter);
   app.use(express.json({ limit: '1mb' }));
-  app.use(morgan('dev'));
+  app.use(morgan(env.NODE_ENV === 'production' ? 'combined' : 'dev', {
+    // Nunca registrar a query string de /media (contém a assinatura temporária).
+    skip: (req) => req.url.startsWith('/media/'),
+  }));
+  // Streaming de áudio faz muitas requisições de faixa; fica fora do limite geral.
+  app.use('/media', mediaRouter);
   app.use(defaultLimiter);
 
   app.get('/health', (_req, res) => {
@@ -90,6 +106,7 @@ export function createApp() {
   app.use('/api/sentence-exercises', sentenceExercisesRouter);
   app.use('/api/translate', translateRouter);
   app.use('/api/mobile', mobileRouter);
+  app.use('/api/reading-lab', readingSegmentsRouter);
   app.use('/api/reading-lab', readingLabRouter);
   // Spec 06 — collocations descontinuado. Mantém-se as tabelas no Prisma,
   // mas qualquer chamada a /api/collocations responde 410 Gone.
@@ -106,6 +123,7 @@ export function createApp() {
   app.use('/api/user', authMiddleware, userRouter);
   app.use('/api/quiz', authMiddleware, quizRouter);
   app.use('/api/flashcards', authMiddleware, flashcardsRouter);
+  app.use('/api/admin/reading', authMiddleware, requireAdmin, readingEditorRouter);
   app.use('/api/admin', authMiddleware, requireAdmin, adminRouter);
 
   app.use(notFoundHandler);

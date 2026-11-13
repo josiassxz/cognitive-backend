@@ -180,7 +180,7 @@ router.delete(
   "/items/:id",
   asyncHandler(async (req, res) => {
     const userId = req.userId!;
-    const { id } = req.params;
+    const { id } = req.params as { id: string };
 
     const item = await prisma.userMediaItem.findUnique({ where: { id } });
     if (!item || item.userId !== userId) throw new HttpError(404, "Item não encontrado.", "NOT_FOUND");
@@ -195,7 +195,7 @@ router.patch(
   "/items/:id/favorite",
   asyncHandler(async (req, res) => {
     const userId = req.userId!;
-    const { id } = req.params;
+    const { id } = req.params as { id: string };
 
     const item = await prisma.userMediaItem.findUnique({ where: { id } });
     if (!item || item.userId !== userId) throw new HttpError(404, "Item não encontrado.", "NOT_FOUND");
@@ -261,7 +261,7 @@ router.get(
   "/playlists/:id",
   asyncHandler(async (req, res) => {
     const userId = req.userId!;
-    const { id } = req.params;
+    const { id } = req.params as { id: string };
 
     const playlist = await prisma.userPlaylist.findUnique({
       where: { id },
@@ -292,7 +292,7 @@ router.patch(
   "/playlists/:id",
   asyncHandler(async (req, res) => {
     const userId = req.userId!;
-    const { id } = req.params;
+    const { id } = req.params as { id: string };
     const { title, description } = req.body as { title?: string; description?: string };
 
     const playlist = await prisma.userPlaylist.findUnique({ where: { id } });
@@ -315,7 +315,7 @@ router.delete(
   "/playlists/:id",
   asyncHandler(async (req, res) => {
     const userId = req.userId!;
-    const { id } = req.params;
+    const { id } = req.params as { id: string };
 
     const playlist = await prisma.userPlaylist.findUnique({ where: { id } });
     if (!playlist || playlist.userId !== userId) throw new HttpError(404, "Playlist não encontrada.", "NOT_FOUND");
@@ -330,7 +330,7 @@ router.post(
   "/playlists/:id/items",
   asyncHandler(async (req, res) => {
     const userId = req.userId!;
-    const { id: playlistId } = req.params;
+    const { id: playlistId } = req.params as { id: string };
     const { mediaItemId } = req.body as { mediaItemId: string };
 
     const playlist = await prisma.userPlaylist.findUnique({ where: { id: playlistId } });
@@ -366,7 +366,7 @@ router.delete(
   "/playlists/:id/items/:itemId",
   asyncHandler(async (req, res) => {
     const userId = req.userId!;
-    const { id: playlistId, itemId: mediaItemId } = req.params;
+    const { id: playlistId, itemId: mediaItemId } = req.params as { id: string; itemId: string };
 
     const playlist = await prisma.userPlaylist.findUnique({ where: { id: playlistId } });
     if (!playlist || playlist.userId !== userId) throw new HttpError(404, "Playlist não encontrada.", "NOT_FOUND");
@@ -381,7 +381,7 @@ router.patch(
   "/playlists/:id/reorder",
   asyncHandler(async (req, res) => {
     const userId = req.userId!;
-    const { id: playlistId } = req.params;
+    const { id: playlistId } = req.params as { id: string };
     const { order } = req.body as { order: string[] };
 
     const playlist = await prisma.userPlaylist.findUnique({ where: { id: playlistId } });

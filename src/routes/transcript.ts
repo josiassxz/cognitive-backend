@@ -249,7 +249,7 @@ router.post(
 router.get(
   "/:videoId",
   asyncHandler(async (req, res) => {
-    const { videoId } = req.params;
+    const { videoId } = req.params as { videoId: string };
     if (!videoId || videoId.length !== 11) {
       throw new HttpError(400, "videoId inválido.", "INVALID_VIDEO_ID");
     }

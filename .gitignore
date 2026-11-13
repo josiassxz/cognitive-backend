@@ -40,3 +40,8 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# exemplo sem segredos pode ser versionado
+!.env.example
+# mídia local do driver filesystem
+/data/

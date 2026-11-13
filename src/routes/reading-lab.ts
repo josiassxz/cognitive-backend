@@ -12,7 +12,7 @@ import { synthesizeWithPolly } from '../lib/polly-tts';
 import { prisma } from '../lib/prisma';
 import { getPlayableStorageUrl, uploadToStorage } from '../lib/storage';
 import { XP_CONFIG } from '../lib/xp';
-import { authMiddleware } from '../middleware/auth';
+import { authMiddleware, optionalAuth } from '../middleware/auth';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
 
@@ -261,7 +261,7 @@ async function createReadingContentFromText(params: {
 }) {
   const normalizedText = params.text.trim();
   const textHash = createHash('sha256').update(normalizedText).digest('hex');
-  const cached = await prisma.readingContent.findUnique({
+  const cached = await prisma.readingContent.findFirst({
     where: { textHash },
     include: {
       sentences: {
@@ -404,7 +404,7 @@ async function createReadingContentFromEpubReader(params: {
   const textHash = createHash('sha256')
     .update(`${normalizedText}\n${JSON.stringify(params.readerPayload)}\n${selectedVoice}`)
     .digest('hex');
-  const cached = await prisma.readingContent.findUnique({
+  const cached = await prisma.readingContent.findFirst({
     where: { textHash },
     include: {
       sentences: {
@@ -561,8 +561,14 @@ async function createReadingContentFromEpubReader(params: {
   }
 }
 
+// URL de áudio tocável só para usuário autenticado (a URL é temporária e por sessão).
+async function playableAudioFor(req: { userId?: string }, audioUrl: string): Promise<string> {
+  return req.userId ? getPlayableStorageUrl(audioUrl) : '';
+}
+
 readingLabRouter.get(
   '/',
+  optionalAuth,
   asyncHandler(async (req, res) => {
     const cefrLevel = typeof req.query.cefrLevel === 'string' ? req.query.cefrLevel : undefined;
     const month = req.query.month ? z.coerce.number().int().min(1).max(12).parse(req.query.month) : undefined;
@@ -570,6 +576,14 @@ readingLabRouter.get(
     const limit = z.coerce.number().int().min(1).max(100).default(20).parse(req.query.limit ?? 20);
     const offset = z.coerce.number().int().min(0).default(0).parse(req.query.offset ?? 0);
     const where: Record<string, unknown> = { isPublic: true };
+    // Publicação separada do processamento: só admin enxerga o que não está publicado.
+    const requestedStatus = typeof req.query.status === 'string' ? req.query.status : undefined;
+    if (req.userRole === 'admin') {
+      if (requestedStatus && requestedStatus !== 'all') where.publishStatus = requestedStatus;
+      else if (!requestedStatus) where.publishStatus = 'published';
+    } else {
+      where.publishStatus = 'published';
+    }
     if (cefrLevel) where.cefrLevel = cefrLevel;
     if (month) where.month = month;
     if (category) where.category = category;
@@ -595,6 +609,8 @@ readingLabRouter.get(
           category: true,
           month: true,
           sourceType: true,
+          publishStatus: true,
+          translationStatus: true,
           createdAt: true,
         },
       }),
@@ -603,8 +619,11 @@ readingLabRouter.get(
     const itemsWithPlayableUrl = await Promise.all(
       items.map(async (item) => ({
         ...item,
+        // Conteúdo com trechos didáticos abre no modo "Linha a linha".
+        hasSegments: item.sourceType === 'reconstructed_audio',
         coverUrl: await getPlayableStorageUrl(item.coverUrl),
-        audioUrl: await getPlayableStorageUrl(item.audioUrl),
+        // A lista não precisa do áudio; ele é entregue ao abrir o conteúdo.
+        audioUrl: '',
       })),
     );
     res.json({ items: itemsWithPlayableUrl, total, limit, offset });
@@ -670,6 +689,7 @@ readingLabRouter.get(
 
 readingLabRouter.get(
   '/:id',
+  optionalAuth,
   asyncHandler(async (req, res) => {
     const id = z.coerce.number().int().positive().parse(req.params.id);
     const content = await prisma.readingContent.findUnique({
@@ -681,11 +701,14 @@ readingLabRouter.get(
         },
       },
     });
-    if (!content) throw new HttpError(404, 'Conteúdo não encontrado');
+    if (!content || (content.publishStatus !== 'published' && req.userRole !== 'admin')) {
+      throw new HttpError(404, 'Conteúdo não encontrado');
+    }
     res.json({
       ...withReaderPayload(content),
+      hasSegments: content.sourceType === 'reconstructed_audio',
       coverUrl: await getPlayableStorageUrl(content.coverUrl),
-      audioUrl: await getPlayableStorageUrl(content.audioUrl),
+      audioUrl: await playableAudioFor(req, content.audioUrl),
     });
   }),
 );

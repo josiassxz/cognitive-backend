@@ -2,7 +2,9 @@ import { createReadStream } from 'node:fs';
 import OpenAI from 'openai';
 import { env } from '../config/env';
 
-const openai = new OpenAI({ apiKey: env.OPENAI_API_KEY });
+// Cliente criado só quando usado: a API sobe sem OPENAI_API_KEY. A transcrição dos
+// conteúdos de leitura é feita pelo worker local (audio-pipeline), não por esta função.
+let openai: OpenAI | null = null;
 
 export interface WhisperWord {
   word: string;
@@ -28,6 +30,7 @@ export async function transcribeWithWhisper(audioPath: string, language = 'en'):
   if (!env.OPENAI_API_KEY) {
     throw new Error('OPENAI_API_KEY não configurada');
   }
+  openai ??= new OpenAI({ apiKey: env.OPENAI_API_KEY });
   const response = await openai.audio.transcriptions.create({
     file: createReadStream(audioPath),
     model: 'whisper-1',

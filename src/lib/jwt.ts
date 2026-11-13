@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto';
 import jwt from 'jsonwebtoken';
 import type { SignOptions } from 'jsonwebtoken';
 import { env } from '../config/env';
@@ -28,8 +29,11 @@ export function signAccessToken(payload: Omit<AccessTokenPayload, 'tokenType'>):
 
 export function signRefreshToken(payload: Omit<RefreshTokenPayload, 'tokenType'>): string {
   const expiresIn = env.REFRESH_TOKEN_TTL as SignOptions['expiresIn'];
+  // jti único: dois logins/refreshes no mesmo segundo não podem gerar o mesmo token
+  // (o hash do refresh token é único no banco).
   return jwt.sign({ ...payload, tokenType: 'refresh' }, env.JWT_REFRESH_SECRET, {
     expiresIn,
+    jwtid: randomUUID(),
   });
 }
 

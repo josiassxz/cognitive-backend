@@ -36,6 +36,7 @@ model User {
   transcripts           Transcript[]
   mediaItems            UserMediaItem[]
   playlists             UserPlaylist[]
+  segmentProgress       UserSegmentProgress[]
 }
 
 model RefreshToken {
@@ -312,7 +313,8 @@ model ReadingContent {
   coverUrl        String            @default("")
   tags            String[]          @default([])
   slug            String            @unique
-  textHash        String            @unique
+  // Hash do texto: NÃO é identidade (gravações diferentes podem ter o mesmo texto).
+  textHash        String
   fullText        String
   cefrLevel       String
   wordCount       Int               @default(0)
@@ -329,9 +331,31 @@ model ReadingContent {
   category        String            @default("general")
   isPublic        Boolean           @default(true)
   createdAt       DateTime          @default(now())
+  // --- conteúdo reconstruído a partir de áudio (pipeline local) ---
+  // Identidade da gravação: "sha256-<hash do áudio>". Nulo para conteúdos TTS antigos.
+  contentKey        String?         @unique
+  audioStorageKey   String          @default("")
+  coverStorageKey   String          @default("")
+  audioSha256       String          @default("")
+  audioMeta         Json?
+  language          String          @default("en")
+  pipelineRevision  String          @default("")
+  packageHash       String          @default("")
+  // draft | needs_review | ready | published (publicação separada do processamento)
+  publishStatus     String          @default("published")
+  qualityStatus     String          @default("")
+  qualityReport     Json?
+  translationStatus String          @default("")
+  // Controle de concorrência otimista do editor de revisão.
+  editVersion       Int             @default(0)
+  updatedAt         DateTime        @default(now()) @updatedAt
   sentences       ReadingSentence[]
+  segmentProgress UserSegmentProgress[]
+  revisions       ReadingRevision[]
   user            User?             @relation(fields: [userId], references: [id], onDelete: SetNull)
 
+  @@index([textHash])
+  @@index([publishStatus])
   @@index([cefrLevel])
   @@index([month])
   @@index([userId])
@@ -347,6 +371,16 @@ model ReadingSentence {
   translation    String                 @default("")
   startMs        Int
   endMs          Int
+  // --- trecho didático (conteúdo reconstruído) ---
+  // ID estável do trecho; nunca usar sentenceIndex como identidade permanente.
+  segmentKey     String?                @unique
+  playStartMs    Int?
+  playEndMs      Int?
+  quality        String                 @default("")
+  reviewReasons  String[]               @default([])
+  // [{ wordKeys: string[], pt: { start, end, text } }] — offsets em unidades UTF-16
+  highlights     Json?
+  note           String                 @default("")
   content        ReadingContent         @relation(fields: [contentId], references: [id], onDelete: Cascade)
   wordTimestamps ReadingWordTimestamp[]
 
@@ -361,6 +395,10 @@ model ReadingWordTimestamp {
   word       String
   startMs    Int
   endMs      Int
+  wordKey    String          @default("")
+  // aligner | asr | interpolated | stale ("" em conteúdos TTS antigos)
+  timeSource String          @default("")
+  score      Float?
   sentence   ReadingSentence @relation(fields: [sentenceId], references: [id], onDelete: Cascade)
 
   @@index([sentenceId])
@@ -384,6 +422,53 @@ model UserReadingProgress {
   @@unique([userId, contentId])
   @@index([userId])
   @@index([userId, completed])
+}
+
+// Conclusão individual de cada trecho. Sem FK para o trecho de propósito: uma nova
+// segmentação não apaga checks; os que deixam de existir ficam com orphanedAt.
+model UserSegmentProgress {
+  id          Int            @id @default(autoincrement())
+  userId      String
+  contentId   Int
+  segmentKey  String
+  completedAt DateTime       @default(now())
+  orphanedAt  DateTime?
+  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  content     ReadingContent @relation(fields: [contentId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, segmentKey])
+  @@index([userId, contentId])
+  @@index([contentId, segmentKey])
+}
+
+// Histórico de revisões do editor/importador (permite desfazer).
+model ReadingRevision {
+  id          Int            @id @default(autoincrement())
+  contentId   Int
+  userId      String?
+  kind        String
+  note        String         @default("")
+  editVersion Int
+  // { before: [...trechos antes], createdKeys: [...chaves criadas pela operação] }
+  snapshot    Json
+  undoneAt    DateTime?
+  createdAt   DateTime       @default(now())
+  content     ReadingContent @relation(fields: [contentId], references: [id], onDelete: Cascade)
+
+  @@index([contentId, createdAt])
+}
+
+// Registro de cada importação de pacote do pipeline (jobs, tentativas, erros, versões).
+model ContentImport {
+  id          Int      @id @default(autoincrement())
+  contentKey  String
+  revision    String
+  packageHash String
+  status      String
+  report      Json
+  createdAt   DateTime @default(now())
+
+  @@index([contentKey, createdAt])
 }
 
 model Video {

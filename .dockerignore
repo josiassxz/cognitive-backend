@@ -1,0 +1,10 @@
+node_modules
+dist
+.env
+.env.*
+.git
+tests
+a1
+*.sql
+!prisma/migrations/**/*.sql
+.DS_Store
