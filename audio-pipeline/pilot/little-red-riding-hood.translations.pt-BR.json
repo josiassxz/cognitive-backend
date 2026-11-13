@@ -1,0 +1,564 @@
+{
+ "provider": "claude-code-session",
+ "model": "claude-fable-5-2",
+ "provenance": "Traduzido pelo Claude (Fable 5.2) em sessão do Claude Code em 2026-11-12, sem API (não havia ANTHROPIC_API_KEY). Revisão humana recomendada.",
+ "target": "pt-BR",
+ "items": [
+  {
+   "id": "seg_73a5caae054d1ea0",
+   "translation": "Era uma vez, em certa aldeia, uma menininha do campo,",
+   "highlights": [
+    {
+     "en": "Once upon a time",
+     "pt": "Era uma vez"
+    }
+   ]
+  },
+  {
+   "id": "seg_d63ae182f2635777",
+   "translation": "a criatura mais linda que já se viu.",
+   "highlights": []
+  },
+  {
+   "id": "seg_d92994eab1983d22",
+   "translation": "Sua mãe gostava muito dela, e sua avó a adorava ainda mais.",
+   "highlights": [
+    {
+     "en": "was fond of",
+     "pt": "gostava muito"
+    },
+    {
+     "en": "doted on",
+     "pt": "adorava"
+    }
+   ]
+  },
+  {
+   "id": "seg_9abf563ac2bcb63b",
+   "translation": "Essa boa senhora mandou fazer para ela um capuzinho vermelho.",
+   "highlights": [
+    {
+     "en": "had a little red riding hood made",
+     "pt": "mandou fazer para ela um capuzinho vermelho"
+    }
+   ]
+  },
+  {
+   "id": "seg_2340356445827637",
+   "translation": "Ele caía tão bem na menina",
+   "highlights": [
+    {
+     "en": "suited",
+     "pt": "caía tão bem"
+    }
+   ]
+  },
+  {
+   "id": "seg_888da7dcbdd79ccb",
+   "translation": "que todos a chamavam de Chapeuzinho Vermelho.",
+   "highlights": []
+  },
+  {
+   "id": "seg_3500b2666876b394",
+   "translation": "Um dia, sua mãe fez uns bolos e lhe disse:",
+   "highlights": []
+  },
+  {
+   "id": "seg_12888f7b2c1b53bc",
+   "translation": "Vá, minha querida, ver como está sua avó,",
+   "highlights": []
+  },
+  {
+   "id": "seg_71aef1c58e44ff04",
+   "translation": "porque ela tem estado muito doente.",
+   "highlights": [
+    {
+     "en": "has been very ill",
+     "pt": "tem estado muito doente"
+    }
+   ]
+  },
+  {
+   "id": "seg_57403cc6c22f5c09",
+   "translation": "Leve para ela um bolo e este potinho de manteiga.",
+   "highlights": []
+  },
+  {
+   "id": "seg_863bc494587725ca",
+   "translation": "Chapeuzinho Vermelho partiu imediatamente para a casa da avó,",
+   "highlights": [
+    {
+     "en": "set out",
+     "pt": "partiu"
+    }
+   ]
+  },
+  {
+   "id": "seg_9725fc4017d9190b",
+   "translation": "que morava em outra aldeia.",
+   "highlights": []
+  },
+  {
+   "id": "seg_027aa171d16a74ac",
+   "translation": "Quando atravessava o bosque,",
+   "highlights": []
+  },
+  {
+   "id": "seg_0e53c8db5e6c9e6d",
+   "translation": "ela encontrou um lobo",
+   "highlights": [
+    {
+     "en": "met with",
+     "pt": "encontrou"
+    }
+   ]
+  },
+  {
+   "id": "seg_8c241da69304e6ad",
+   "translation": "que estava com muita vontade de devorá-la,",
+   "highlights": [
+    {
+     "en": "had a very great mind to",
+     "pt": "estava com muita vontade de"
+    },
+    {
+     "en": "eat her up",
+     "pt": "devorá-la"
+    }
+   ]
+  },
+  {
+   "id": "seg_6a5312635644eee6",
+   "translation": "mas não se atreveu, por causa de uns lenhadores que trabalhavam ali perto, na floresta.",
+   "highlights": [
+    {
+     "en": "dared not",
+     "pt": "não se atreveu"
+    }
+   ]
+  },
+  {
+   "id": "seg_5685a7665e663d0d",
+   "translation": "Ele perguntou aonde ela ia.",
+   "highlights": []
+  },
+  {
+   "id": "seg_715b366d747b3930",
+   "translation": "A pobre criança, que não sabia",
+   "highlights": []
+  },
+  {
+   "id": "seg_84362c7bb5e19d6b",
+   "translation": "que era perigoso parar e conversar com um lobo,",
+   "highlights": []
+  },
+  {
+   "id": "seg_0dad3fd7f3016bb2",
+   "translation": "disse a ele: Vou ver a minha avó",
+   "highlights": []
+  },
+  {
+   "id": "seg_a2632409d7f1d365",
+   "translation": "e levar para ela um bolo e um potinho de manteiga, da parte da minha mãe.",
+   "highlights": []
+  },
+  {
+   "id": "seg_16f4b8fd7e0e4465",
+   "translation": "Ela mora longe?",
+   "highlights": [
+    {
+     "en": "far off",
+     "pt": "longe"
+    }
+   ]
+  },
+  {
+   "id": "seg_d33127f1066b9860",
+   "translation": "disse o lobo.",
+   "highlights": []
+  },
+  {
+   "id": "seg_c9e6dbd892297b6f",
+   "translation": "Ah, sim, respondeu Chapeuzinho Vermelho,",
+   "highlights": []
+  },
+  {
+   "id": "seg_ed1f67bdd46f9b11",
+   "translation": "fica além daquele moinho que você vê ali,",
+   "highlights": [
+    {
+     "en": "beyond",
+     "pt": "além"
+    }
+   ]
+  },
+  {
+   "id": "seg_888bf080ba39ce5a",
+   "translation": "na primeira casa da aldeia.",
+   "highlights": []
+  },
+  {
+   "id": "seg_bee2801be0a936fd",
+   "translation": "Bem, disse o lobo, eu também vou vê-la.",
+   "highlights": []
+  },
+  {
+   "id": "seg_7b7b0167e9b125f7",
+   "translation": "Eu vou por este caminho e você vai por aquele,",
+   "highlights": []
+  },
+  {
+   "id": "seg_3745a6b6e728431e",
+   "translation": "e veremos quem chega lá primeiro.",
+   "highlights": []
+  },
+  {
+   "id": "seg_7c82087ff8d0e355",
+   "translation": "O lobo correu o mais rápido que pôde,",
+   "highlights": [
+    {
+     "en": "as fast as he could",
+     "pt": "o mais rápido que pôde"
+    }
+   ]
+  },
+  {
+   "id": "seg_2a5e5c91bc5f4d0d",
+   "translation": "pegando o caminho mais curto, e a menina foi por um caminho mais longo,",
+   "highlights": [
+    {
+     "en": "roundabout way",
+     "pt": "caminho mais longo"
+    }
+   ]
+  },
+  {
+   "id": "seg_f1c004ed44b9b568",
+   "translation": "distraindo-se em colher nozes, correr atrás de borboletas",
+   "highlights": [
+    {
+     "en": "running after",
+     "pt": "correr atrás de"
+    }
+   ]
+  },
+  {
+   "id": "seg_27b38dd2b29ed7ef",
+   "translation": "e fazer buquês de florzinhas.",
+   "highlights": []
+  },
+  {
+   "id": "seg_bafdb5e969e523d6",
+   "translation": "Não demorou muito para o lobo chegar à casa da velhinha.",
+   "highlights": [
+    {
+     "en": "It was not long before",
+     "pt": "Não demorou muito para"
+    }
+   ]
+  },
+  {
+   "id": "seg_57c8313f3a81b80a",
+   "translation": "Ele bateu à porta. Toc, toc. Quem é?",
+   "highlights": [
+    {
+     "en": "knocked at",
+     "pt": "bateu à"
+    }
+   ]
+  },
+  {
+   "id": "seg_6a6ce9970fb75b79",
+   "translation": "Sua netinha, Chapeuzinho Vermelho, respondeu o lobo,",
+   "highlights": []
+  },
+  {
+   "id": "seg_6a38a087c9da98f7",
+   "translation": "imitando a voz dela, que lhe trouxe um bolo",
+   "highlights": [
+    {
+     "en": "counterfeiting",
+     "pt": "imitando"
+    }
+   ]
+  },
+  {
+   "id": "seg_8b443b32d0a9c5f9",
+   "translation": "e um potinho de manteiga que a mamãe mandou.",
+   "highlights": []
+  },
+  {
+   "id": "seg_883bff55d8b86dd7",
+   "translation": "A boa avó, que estava de cama porque estava doente,",
+   "highlights": [
+    {
+     "en": "was in bed",
+     "pt": "estava de cama"
+    }
+   ]
+  },
+  {
+   "id": "seg_76db05e3feb411c7",
+   "translation": "gritou: Puxe a cordinha, e o trinco vai subir.",
+   "highlights": [
+    {
+     "en": "cried out",
+     "pt": "gritou"
+    }
+   ]
+  },
+  {
+   "id": "seg_89b46f7dd22ac3b5",
+   "translation": "O lobo puxou a cordinha, e a porta se abriu,",
+   "highlights": []
+  },
+  {
+   "id": "seg_12c110e632f2e4ef",
+   "translation": "e então ele logo se atirou sobre a boa senhora",
+   "highlights": [
+    {
+     "en": "fell upon",
+     "pt": "se atirou sobre"
+    }
+   ]
+  },
+  {
+   "id": "seg_09e79636820f28f4",
+   "translation": "e a devorou num instante,",
+   "highlights": [
+    {
+     "en": "in a moment",
+     "pt": "num instante"
+    }
+   ]
+  },
+  {
+   "id": "seg_0f5a70eb39bc895d",
+   "translation": "pois fazia mais de três dias que ele não comia.",
+   "highlights": []
+  },
+  {
+   "id": "seg_bf86ec94bdae599e",
+   "translation": "Depois ele fechou a porta e se deitou na cama da avó,",
+   "highlights": [
+    {
+     "en": "got into",
+     "pt": "se deitou na"
+    }
+   ]
+  },
+  {
+   "id": "seg_d3fcad96c96bf4bf",
+   "translation": "esperando Chapeuzinho Vermelho,",
+   "highlights": []
+  },
+  {
+   "id": "seg_cf77e66f9e45f26b",
+   "translation": "que chegou algum tempo depois e bateu à porta. Toc, toc. Quem é?",
+   "highlights": [
+    {
+     "en": "some time afterwards",
+     "pt": "algum tempo depois"
+    }
+   ]
+  },
+  {
+   "id": "seg_d1df8b465f07098f",
+   "translation": "Chapeuzinho Vermelho,",
+   "highlights": []
+  },
+  {
+   "id": "seg_8b66562d9bb05baa",
+   "translation": "ao ouvir a voz grossa do lobo, a princípio ficou com medo,",
+   "highlights": [
+    {
+     "en": "at first",
+     "pt": "a princípio"
+    }
+   ]
+  },
+  {
+   "id": "seg_8d652084ebc0503a",
+   "translation": "mas, achando que a avó estava resfriada e rouca,",
+   "highlights": [
+    {
+     "en": "had a cold",
+     "pt": "estava resfriada"
+    },
+    {
+     "en": "hoarse",
+     "pt": "rouca"
+    }
+   ]
+  },
+  {
+   "id": "seg_95bcd5f7366f7a63",
+   "translation": "respondeu: É a sua netinha, Chapeuzinho Vermelho,",
+   "highlights": []
+  },
+  {
+   "id": "seg_1766dbf99af43951",
+   "translation": "que lhe trouxe um bolo",
+   "highlights": []
+  },
+  {
+   "id": "seg_8edfc78e44761623",
+   "translation": "e um potinho de manteiga que a mamãe lhe manda.",
+   "highlights": []
+  },
+  {
+   "id": "seg_986970f3f6e5c030",
+   "translation": "O lobo gritou para ela,",
+   "highlights": []
+  },
+  {
+   "id": "seg_9a046a5de858159b",
+   "translation": "suavizando a voz o quanto podia:",
+   "highlights": [
+    {
+     "en": "as much as he could",
+     "pt": "o quanto podia"
+    }
+   ]
+  },
+  {
+   "id": "seg_5fd6a916652700d6",
+   "translation": "Puxe a cordinha, e o trinco vai subir.",
+   "highlights": []
+  },
+  {
+   "id": "seg_e1e083c2daca5f4a",
+   "translation": "Chapeuzinho Vermelho puxou a cordinha, e a porta se abriu.",
+   "highlights": []
+  },
+  {
+   "id": "seg_f2b26e400b56396b",
+   "translation": "O lobo disse a ela, escondendo-se debaixo das cobertas:",
+   "highlights": [
+    {
+     "en": "bedclothes",
+     "pt": "cobertas"
+    }
+   ]
+  },
+  {
+   "id": "seg_8b99338d42f4e1d6",
+   "translation": "ponha o bolo e o potinho de manteiga em cima do banquinho",
+   "highlights": [
+    {
+     "en": "upon",
+     "pt": "em cima do"
+    }
+   ]
+  },
+  {
+   "id": "seg_471743e9f1e1ead9",
+   "translation": "e venha se deitar na cama comigo.",
+   "highlights": []
+  },
+  {
+   "id": "seg_79d76a345f7e01b4",
+   "translation": "Chapeuzinho Vermelho tirou a roupa e se deitou na cama.",
+   "highlights": [
+    {
+     "en": "took off",
+     "pt": "tirou"
+    }
+   ]
+  },
+  {
+   "id": "seg_5ae85d69a9bc5f42",
+   "translation": "Ela ficou muito espantada ao ver como a avó era de camisola",
+   "highlights": [
+    {
+     "en": "greatly amazed",
+     "pt": "muito espantada"
+    }
+   ]
+  },
+  {
+   "id": "seg_04d1074a26f924ef",
+   "translation": "e disse a ela: Vovó, que braços grandes você tem!",
+   "highlights": []
+  },
+  {
+   "id": "seg_5320a4943ce51aa8",
+   "translation": "É para te abraçar melhor, minha querida.",
+   "highlights": [
+    {
+     "en": "All the better to",
+     "pt": "É para"
+    }
+   ]
+  },
+  {
+   "id": "seg_3bc2b687b9fc28be",
+   "translation": "Vovó, que pernas grandes você tem!",
+   "highlights": []
+  },
+  {
+   "id": "seg_f8e6a0d8e321186b",
+   "translation": "É para correr melhor, minha criança.",
+   "highlights": []
+  },
+  {
+   "id": "seg_fab6e6be3d146653",
+   "translation": "Vovó, que orelhas grandes você tem!",
+   "highlights": []
+  },
+  {
+   "id": "seg_3785a7864a219a66",
+   "translation": "É para ouvir melhor, minha criança.",
+   "highlights": []
+  },
+  {
+   "id": "seg_163f49e456f8bf23",
+   "translation": "Vovó, que olhos grandes você tem!",
+   "highlights": []
+  },
+  {
+   "id": "seg_308c754237b60b1c",
+   "translation": "É para ver melhor, minha criança.",
+   "highlights": []
+  },
+  {
+   "id": "seg_0cdf66e7197ba7a1",
+   "translation": "Vovó, que dentes grandes você tem!",
+   "highlights": []
+  },
+  {
+   "id": "seg_0d8b7649a89298b6",
+   "translation": "É para te devorar melhor! E,",
+   "highlights": [
+    {
+     "en": "eat you up",
+     "pt": "te devorar"
+    }
+   ]
+  },
+  {
+   "id": "seg_aa30caadf972b4d0",
+   "translation": "dizendo essas palavras, esse lobo malvado se atirou sobre Chapeuzinho Vermelho",
+   "highlights": [
+    {
+     "en": "wicked",
+     "pt": "malvado"
+    },
+    {
+     "en": "fell upon",
+     "pt": "se atirou sobre"
+    }
+   ]
+  },
+  {
+   "id": "seg_c18e48ed0cd3bafe",
+   "translation": "e a devorou inteirinha. Fim.",
+   "highlights": [
+    {
+     "en": "ate her all up",
+     "pt": "a devorou inteirinha"
+    }
+   ]
+  }
+ ]
+}

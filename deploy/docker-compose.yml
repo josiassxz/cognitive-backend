@@ -1,0 +1,83 @@
+# Produção em uma VPS: proxy HTTPS (Caddy) + API + PostgreSQL + mídia persistente.
+# Uso: cd deploy && cp .env.example .env && (edite) && docker compose up -d --build
+# Frontend e API na MESMA origem: /  → app web estático, /api e /media → API.
+name: tunely
+
+services:
+  proxy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "${HTTP_PORT:-80}:80"
+      - "${HTTPS_PORT:-443}:443"
+    environment:
+      SITE_ADDRESS: "${SITE_ADDRESS:?defina SITE_ADDRESS (ex.: app.seudominio.com)}"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ${WEB_DIST:-../cognitive-mobile/dist}:/srv/web:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      api:
+        condition: service_healthy
+
+  api:
+    build:
+      context: ../cognitive-backend
+      additional_contexts:
+        # cache npm opcional para o build (padrão: pasta vazia)
+        npmcache: ${NPM_CACHE_DIR:-./empty-npm-cache}
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3333
+      DATABASE_URL: "postgresql://${POSTGRES_USER:-tunely}:${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-tunely}"
+      JWT_SECRET: "${JWT_SECRET:?defina JWT_SECRET}"
+      JWT_REFRESH_SECRET: "${JWT_REFRESH_SECRET:?defina JWT_REFRESH_SECRET}"
+      STORAGE_DRIVER: ${STORAGE_DRIVER:-filesystem}
+      MEDIA_ROOT: /data/media
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-}
+      CORS_ORIGINS: "${CORS_ORIGINS:?defina CORS_ORIGINS (ex.: https://app.seudominio.com)}"
+      MEDIA_URL_SECRET: "${MEDIA_URL_SECRET:?defina MEDIA_URL_SECRET}"
+      IMPORT_API_TOKEN: ${IMPORT_API_TOKEN:-}
+      ADMIN_EMAILS: ${ADMIN_EMAILS:-}
+      COOKIE_SECURE: ${COOKIE_SECURE:-true}
+      # Opcionais: cada recurso falha de forma localizada se a chave faltar.
+      DEEPL_API_KEY: ${DEEPL_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      AZURE_SPEECH_KEY: ${AZURE_SPEECH_KEY:-}
+      AZURE_SPEECH_REGION: ${AZURE_SPEECH_REGION:-eastus}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      AWS_S3_BUCKET: ${AWS_S3_BUCKET:-}
+    volumes:
+      # Mídia fora do container: sobrevive a recriações. Somente leitura para a API se não
+      # houver upload de TTS (troque :ro por :rw se usar importação de texto com TTS).
+      - "${MEDIA_DIR:?defina MEDIA_DIR (pasta persistente da mídia)}:/data/media:rw"
+    depends_on:
+      db:
+        condition: service_healthy
+    expose:
+      - "3333"
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-tunely}
+      POSTGRES_USER: ${POSTGRES_USER:-tunely}
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD}"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-tunely} -d ${POSTGRES_DB:-tunely}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    # Sem `ports`: o banco não fica exposto na internet, só na rede interna do compose.
+
+volumes:
+  pg_data:
+  caddy_data:
+  caddy_config:

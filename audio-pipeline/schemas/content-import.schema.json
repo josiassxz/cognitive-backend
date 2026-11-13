@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tunely/content-import/v1",
+  "title": "Pacote de conteúdo reconstruído a partir de áudio (v1)",
+  "type": "object",
+  "required": ["schemaVersion", "contentKey", "revision", "source", "title", "titleConfirmed", "language", "audio", "cover", "quality", "translation", "provenance", "segments", "packageHash"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "contentKey": { "type": "string", "pattern": "^sha256-[0-9a-f]{64}$" },
+    "revision": { "type": "string", "minLength": 1 },
+    "source": { "const": "reconstructed_audio" },
+    "title": { "type": "string", "minLength": 1 },
+    "titleConfirmed": { "type": "boolean" },
+    "author": { "type": "string" },
+    "authorConfirmed": { "type": "boolean" },
+    "language": { "type": "string" },
+    "packageHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "audio": {
+      "type": "object",
+      "required": ["storageKey", "sha256", "sizeBytes", "durationMs"],
+      "additionalProperties": false,
+      "properties": {
+        "storageKey": { "type": "string", "minLength": 1, "not": { "pattern": "(^/|\\.\\.|\\\\)" } },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "sizeBytes": { "type": "integer", "minimum": 1 },
+        "durationMs": { "type": "integer", "minimum": 1 },
+        "codec": { "type": "string" },
+        "channels": { "type": "integer" },
+        "sampleRate": { "type": "integer" }
+      }
+    },
+    "cover": {
+      "type": "object",
+      "required": ["storageKey", "confirmed"],
+      "additionalProperties": false,
+      "properties": {
+        "storageKey": {
+          "anyOf": [
+            { "type": "null" },
+            { "type": "string", "minLength": 1, "not": { "pattern": "(^/|\\.\\.|\\\\)" } }
+          ]
+        },
+        "confirmed": { "type": "boolean" }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "required": ["status", "auditoryValidation", "alignedRatio"],
+      "properties": {
+        "status": { "enum": ["needs_review", "ready"] },
+        "auditoryValidation": { "enum": ["pending", "done"] },
+        "alignedRatio": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "translation": {
+      "type": "object",
+      "required": ["status", "target", "highlightOffsets"],
+      "properties": {
+        "status": { "enum": ["complete", "translation_pending"] },
+        "target": { "const": "pt-BR" },
+        "highlightOffsets": { "const": "utf16" }
+      }
+    },
+    "provenance": { "type": "object" },
+    "library": {
+      "type": "object",
+      "description": "Metadados de vitrine (opcionais): paleta da capa e dificuldade ESTIMADA.",
+      "properties": {
+        "revision": { "type": "string" },
+        "palette": {
+          "type": ["object", "null"],
+          "additionalProperties": { "type": "string", "pattern": "^#[0-9a-f]{6}$" }
+        },
+        "difficulty": {
+          "type": "object",
+          "properties": {
+            "cefrEstimate": { "enum": ["a1", "a2", "b1", "b2", "c1", null] },
+            "rareWordPercent": { "type": ["number", "null"] }
+          }
+        }
+      }
+    },
+    "segments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "index", "text", "translation", "startMs", "endMs", "playStartMs", "playEndMs", "quality", "reviewReasons", "highlights", "words"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^seg_[0-9a-f]{16}$" },
+          "index": { "type": "integer", "minimum": 0 },
+          "text": { "type": "string", "minLength": 1 },
+          "translation": { "type": ["string", "null"] },
+          "startMs": { "type": "integer", "minimum": 0 },
+          "endMs": { "type": "integer", "minimum": 1 },
+          "playStartMs": { "type": "integer", "minimum": 0 },
+          "playEndMs": { "type": "integer", "minimum": 1 },
+          "quality": { "enum": ["ok", "needs_review"] },
+          "reviewReasons": { "type": "array", "items": { "type": "string" } },
+          "highlights": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["wordIds", "pt"],
+              "additionalProperties": false,
+              "properties": {
+                "wordIds": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+                "pt": {
+                  "type": "object",
+                  "required": ["start", "end", "text"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "start": { "type": "integer", "minimum": 0 },
+                    "end": { "type": "integer", "minimum": 1 },
+                    "text": { "type": "string", "minLength": 1 }
+                  }
+                }
+              }
+            }
+          },
+          "words": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["id", "word", "startMs", "endMs", "timeSource"],
+              "additionalProperties": false,
+              "properties": {
+                "id": { "type": "string" },
+                "word": { "type": "string", "minLength": 1 },
+                "startMs": { "type": "integer", "minimum": 0 },
+                "endMs": { "type": "integer", "minimum": 1 },
+                "timeSource": { "enum": ["aligner", "asr", "interpolated"] },
+                "score": { "type": "number" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

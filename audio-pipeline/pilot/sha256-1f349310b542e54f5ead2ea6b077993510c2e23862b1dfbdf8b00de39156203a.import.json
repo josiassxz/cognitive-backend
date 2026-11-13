@@ -1,0 +1,7020 @@
+{
+  "schemaVersion": 1,
+  "contentKey": "sha256-1f349310b542e54f5ead2ea6b077993510c2e23862b1dfbdf8b00de39156203a",
+  "revision": "pipeline-v1",
+  "source": "reconstructed_audio",
+  "title": "Little Red Riding Hood",
+  "titleConfirmed": false,
+  "author": "Charles Perrault",
+  "authorConfirmed": false,
+  "language": "en",
+  "audio": {
+    "storageKey": "reading/little-red-riding-hood-mnx2xc04.mp3",
+    "sha256": "1f349310b542e54f5ead2ea6b077993510c2e23862b1dfbdf8b00de39156203a",
+    "sizeBytes": 3581568,
+    "durationMs": 223848,
+    "codec": "mp3",
+    "channels": 1,
+    "sampleRate": 16000
+  },
+  "cover": {
+    "storageKey": "reading-lab/covers/little-red-riding-hood-charles-perrault.jpg",
+    "confirmed": false
+  },
+  "quality": {
+    "status": "needs_review",
+    "auditoryValidation": "pending",
+    "alignedRatio": 0.9899,
+    "wordsByTimeSource": {
+      "aligner": 685,
+      "asr": 7
+    },
+    "segmentsNeedingReview": 13,
+    "asrFlags": [
+      {
+        "kind": "punctuation_missing",
+        "fromWord": "w000603",
+        "toWord": "w000692",
+        "detail": "90 palavras seguidas sem pontuação final"
+      }
+    ],
+    "corrections": [],
+    "editorialExclusions": [
+      {
+        "fromWordId": "w000666",
+        "toWordId": "w000692",
+        "wordCount": 27,
+        "reason": "rodapé do site de origem lido pelo narrador (não faz parte do texto)",
+        "auto": true
+      }
+    ]
+  },
+  "translation": {
+    "status": "complete",
+    "target": "pt-BR",
+    "provider": "claude-code-session",
+    "model": "claude-fable-5-2",
+    "provenance": "Traduzido pelo Claude (Fable 5.2) em sessão do Claude Code em 2026-11-12, sem API (não havia ANTHROPIC_API_KEY). Revisão humana recomendada.",
+    "highlightOffsets": "utf16"
+  },
+  "provenance": {
+    "pipelineRevision": "pipeline-v1",
+    "asr": {
+      "engine": "mlx",
+      "model": "mlx-community/whisper-large-v3-turbo",
+      "modelRevision": "a4aaeec0636e6fef84abdcbe3544cb2bf7e9f6fb",
+      "packageVersions": {
+        "mlx-whisper": "0.4.3",
+        "mlx": "0.32.4"
+      }
+    },
+    "aligner": {
+      "engine": "whisperx",
+      "model": "WAV2VEC2_ASR_BASE_960H (torchaudio)",
+      "packageVersions": {
+        "whisperx": "3.8.6",
+        "torch": "2.8.0",
+        "torchaudio": "2.8.0"
+      }
+    },
+    "segmentation": "rules-v2",
+    "generatedAt": "2026-11-12T22:47:34Z"
+  },
+  "segments": [
+    {
+      "id": "seg_73a5caae054d1ea0",
+      "index": 0,
+      "text": "Once upon a time there lived in a certain village a little country girl,",
+      "translation": "Era uma vez, em certa aldeia, uma menininha do campo,",
+      "startMs": 261,
+      "endMs": 3872,
+      "playStartMs": 181,
+      "playEndMs": 4032,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000001",
+            "w000002",
+            "w000003",
+            "w000004"
+          ],
+          "pt": {
+            "start": 0,
+            "end": 11,
+            "text": "Era uma vez"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000001",
+          "word": "Once",
+          "startMs": 261,
+          "endMs": 421,
+          "timeSource": "aligner",
+          "score": 0.613
+        },
+        {
+          "id": "w000002",
+          "word": "upon",
+          "startMs": 502,
+          "endMs": 722,
+          "timeSource": "aligner",
+          "score": 0.898
+        },
+        {
+          "id": "w000003",
+          "word": "a",
+          "startMs": 762,
+          "endMs": 802,
+          "timeSource": "aligner",
+          "score": 0.51
+        },
+        {
+          "id": "w000004",
+          "word": "time",
+          "startMs": 863,
+          "endMs": 1144,
+          "timeSource": "aligner",
+          "score": 0.873
+        },
+        {
+          "id": "w000005",
+          "word": "there",
+          "startMs": 1204,
+          "endMs": 1364,
+          "timeSource": "aligner",
+          "score": 0.873
+        },
+        {
+          "id": "w000006",
+          "word": "lived",
+          "startMs": 1424,
+          "endMs": 1685,
+          "timeSource": "aligner",
+          "score": 0.777
+        },
+        {
+          "id": "w000007",
+          "word": "in",
+          "startMs": 1765,
+          "endMs": 1826,
+          "timeSource": "aligner",
+          "score": 0.752
+        },
+        {
+          "id": "w000008",
+          "word": "a",
+          "startMs": 1866,
+          "endMs": 1906,
+          "timeSource": "aligner",
+          "score": 0.5
+        },
+        {
+          "id": "w000009",
+          "word": "certain",
+          "startMs": 1946,
+          "endMs": 2227,
+          "timeSource": "aligner",
+          "score": 0.791
+        },
+        {
+          "id": "w000010",
+          "word": "village",
+          "startMs": 2267,
+          "endMs": 2628,
+          "timeSource": "aligner",
+          "score": 0.801
+        },
+        {
+          "id": "w000011",
+          "word": "a",
+          "startMs": 2748,
+          "endMs": 2789,
+          "timeSource": "aligner",
+          "score": 0.99
+        },
+        {
+          "id": "w000012",
+          "word": "little",
+          "startMs": 2889,
+          "endMs": 3130,
+          "timeSource": "aligner",
+          "score": 0.826
+        },
+        {
+          "id": "w000013",
+          "word": "country",
+          "startMs": 3190,
+          "endMs": 3551,
+          "timeSource": "aligner",
+          "score": 0.805
+        },
+        {
+          "id": "w000014",
+          "word": "girl,",
+          "startMs": 3571,
+          "endMs": 3872,
+          "timeSource": "aligner",
+          "score": 0.778
+        }
+      ]
+    },
+    {
+      "id": "seg_d63ae182f2635777",
+      "index": 1,
+      "text": "the prettiest creature who has ever seen.",
+      "translation": "a criatura mais linda que já se viu.",
+      "startMs": 4414,
+      "endMs": 6460,
+      "playStartMs": 4334,
+      "playEndMs": 6620,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000015",
+          "word": "the",
+          "startMs": 4414,
+          "endMs": 4514,
+          "timeSource": "aligner",
+          "score": 0.929
+        },
+        {
+          "id": "w000016",
+          "word": "prettiest",
+          "startMs": 4554,
+          "endMs": 4975,
+          "timeSource": "aligner",
+          "score": 0.813
+        },
+        {
+          "id": "w000017",
+          "word": "creature",
+          "startMs": 5035,
+          "endMs": 5437,
+          "timeSource": "aligner",
+          "score": 0.762
+        },
+        {
+          "id": "w000018",
+          "word": "who",
+          "startMs": 5637,
+          "endMs": 5738,
+          "timeSource": "aligner",
+          "score": 0.69
+        },
+        {
+          "id": "w000019",
+          "word": "has",
+          "startMs": 5778,
+          "endMs": 5878,
+          "timeSource": "aligner",
+          "score": 0.94
+        },
+        {
+          "id": "w000020",
+          "word": "ever",
+          "startMs": 6039,
+          "endMs": 6199,
+          "timeSource": "aligner",
+          "score": 0.755
+        },
+        {
+          "id": "w000021",
+          "word": "seen.",
+          "startMs": 6259,
+          "endMs": 6460,
+          "timeSource": "aligner",
+          "score": 0.958
+        }
+      ]
+    },
+    {
+      "id": "seg_d92994eab1983d22",
+      "index": 2,
+      "text": "Her mother was fond of her, and her grandmother doted on her still more.",
+      "translation": "Sua mãe gostava muito dela, e sua avó a adorava ainda mais.",
+      "startMs": 7042,
+      "endMs": 10960,
+      "playStartMs": 6962,
+      "playEndMs": 11120,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000024",
+            "w000025",
+            "w000026"
+          ],
+          "pt": {
+            "start": 8,
+            "end": 21,
+            "text": "gostava muito"
+          }
+        },
+        {
+          "wordIds": [
+            "w000031",
+            "w000032"
+          ],
+          "pt": {
+            "start": 40,
+            "end": 47,
+            "text": "adorava"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000022",
+          "word": "Her",
+          "startMs": 7042,
+          "endMs": 7142,
+          "timeSource": "aligner",
+          "score": 0.834
+        },
+        {
+          "id": "w000023",
+          "word": "mother",
+          "startMs": 7202,
+          "endMs": 7423,
+          "timeSource": "aligner",
+          "score": 0.844
+        },
+        {
+          "id": "w000024",
+          "word": "was",
+          "startMs": 7464,
+          "endMs": 7584,
+          "timeSource": "aligner",
+          "score": 0.785
+        },
+        {
+          "id": "w000025",
+          "word": "fond",
+          "startMs": 7665,
+          "endMs": 7886,
+          "timeSource": "aligner",
+          "score": 0.888
+        },
+        {
+          "id": "w000026",
+          "word": "of",
+          "startMs": 7926,
+          "endMs": 7986,
+          "timeSource": "aligner",
+          "score": 0.75
+        },
+        {
+          "id": "w000027",
+          "word": "her,",
+          "startMs": 8026,
+          "endMs": 8167,
+          "timeSource": "aligner",
+          "score": 0.751
+        },
+        {
+          "id": "w000028",
+          "word": "and",
+          "startMs": 8750,
+          "endMs": 8850,
+          "timeSource": "aligner",
+          "score": 0.669
+        },
+        {
+          "id": "w000029",
+          "word": "her",
+          "startMs": 8930,
+          "endMs": 9031,
+          "timeSource": "aligner",
+          "score": 0.669
+        },
+        {
+          "id": "w000030",
+          "word": "grandmother",
+          "startMs": 9071,
+          "endMs": 9573,
+          "timeSource": "aligner",
+          "score": 0.821
+        },
+        {
+          "id": "w000031",
+          "word": "doted",
+          "startMs": 9634,
+          "endMs": 10016,
+          "timeSource": "aligner",
+          "score": 0.831
+        },
+        {
+          "id": "w000032",
+          "word": "on",
+          "startMs": 10196,
+          "endMs": 10277,
+          "timeSource": "aligner",
+          "score": 0.836
+        },
+        {
+          "id": "w000033",
+          "word": "her",
+          "startMs": 10297,
+          "endMs": 10397,
+          "timeSource": "aligner",
+          "score": 0.84
+        },
+        {
+          "id": "w000034",
+          "word": "still",
+          "startMs": 10478,
+          "endMs": 10739,
+          "timeSource": "aligner",
+          "score": 0.86
+        },
+        {
+          "id": "w000035",
+          "word": "more.",
+          "startMs": 10779,
+          "endMs": 10960,
+          "timeSource": "aligner",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "id": "seg_9abf563ac2bcb63b",
+      "index": 3,
+      "text": "This good woman had a little red riding hood made for her.",
+      "translation": "Essa boa senhora mandou fazer para ela um capuzinho vermelho.",
+      "startMs": 11522,
+      "endMs": 14300,
+      "playStartMs": 11442,
+      "playEndMs": 14460,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000039",
+            "w000040",
+            "w000041",
+            "w000042",
+            "w000043",
+            "w000044",
+            "w000045"
+          ],
+          "pt": {
+            "start": 17,
+            "end": 60,
+            "text": "mandou fazer para ela um capuzinho vermelho"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000036",
+          "word": "This",
+          "startMs": 11522,
+          "endMs": 11703,
+          "timeSource": "aligner",
+          "score": 0.829
+        },
+        {
+          "id": "w000037",
+          "word": "good",
+          "startMs": 11784,
+          "endMs": 11945,
+          "timeSource": "aligner",
+          "score": 0.874
+        },
+        {
+          "id": "w000038",
+          "word": "woman",
+          "startMs": 11985,
+          "endMs": 12267,
+          "timeSource": "aligner",
+          "score": 0.851
+        },
+        {
+          "id": "w000039",
+          "word": "had",
+          "startMs": 12367,
+          "endMs": 12529,
+          "timeSource": "aligner",
+          "score": 0.709
+        },
+        {
+          "id": "w000040",
+          "word": "a",
+          "startMs": 12569,
+          "endMs": 12609,
+          "timeSource": "aligner",
+          "score": 0.5
+        },
+        {
+          "id": "w000041",
+          "word": "little",
+          "startMs": 12690,
+          "endMs": 12951,
+          "timeSource": "aligner",
+          "score": 0.743
+        },
+        {
+          "id": "w000042",
+          "word": "red",
+          "startMs": 13052,
+          "endMs": 13253,
+          "timeSource": "aligner",
+          "score": 0.784
+        },
+        {
+          "id": "w000043",
+          "word": "riding",
+          "startMs": 13334,
+          "endMs": 13615,
+          "timeSource": "aligner",
+          "score": 0.947
+        },
+        {
+          "id": "w000044",
+          "word": "hood",
+          "startMs": 13656,
+          "endMs": 13797,
+          "timeSource": "aligner",
+          "score": 0.876
+        },
+        {
+          "id": "w000045",
+          "word": "made",
+          "startMs": 13837,
+          "endMs": 14018,
+          "timeSource": "aligner",
+          "score": 0.822
+        },
+        {
+          "id": "w000046",
+          "word": "for",
+          "startMs": 14058,
+          "endMs": 14159,
+          "timeSource": "aligner",
+          "score": 0.976
+        },
+        {
+          "id": "w000047",
+          "word": "her.",
+          "startMs": 14199,
+          "endMs": 14300,
+          "timeSource": "aligner",
+          "score": 0.894
+        }
+      ]
+    },
+    {
+      "id": "seg_2340356445827637",
+      "index": 4,
+      "text": "It suited the girl so extremely well",
+      "translation": "Ele caía tão bem na menina",
+      "startMs": 14881,
+      "endMs": 17130,
+      "playStartMs": 14801,
+      "playEndMs": 17150,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000049"
+          ],
+          "pt": {
+            "start": 4,
+            "end": 16,
+            "text": "caía tão bem"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000048",
+          "word": "It",
+          "startMs": 14881,
+          "endMs": 14962,
+          "timeSource": "aligner",
+          "score": 0.989
+        },
+        {
+          "id": "w000049",
+          "word": "suited",
+          "startMs": 15062,
+          "endMs": 15343,
+          "timeSource": "aligner",
+          "score": 0.732
+        },
+        {
+          "id": "w000050",
+          "word": "the",
+          "startMs": 15383,
+          "endMs": 15464,
+          "timeSource": "aligner",
+          "score": 0.833
+        },
+        {
+          "id": "w000051",
+          "word": "girl",
+          "startMs": 15484,
+          "endMs": 15765,
+          "timeSource": "aligner",
+          "score": 0.81
+        },
+        {
+          "id": "w000052",
+          "word": "so",
+          "startMs": 15925,
+          "endMs": 16206,
+          "timeSource": "aligner",
+          "score": 0.986
+        },
+        {
+          "id": "w000053",
+          "word": "extremely",
+          "startMs": 16307,
+          "endMs": 16849,
+          "timeSource": "aligner",
+          "score": 0.787
+        },
+        {
+          "id": "w000054",
+          "word": "well",
+          "startMs": 16889,
+          "endMs": 17130,
+          "timeSource": "aligner",
+          "score": 0.776
+        }
+      ]
+    },
+    {
+      "id": "seg_888da7dcbdd79ccb",
+      "index": 5,
+      "text": "that everybody called her little red riding hood.",
+      "translation": "que todos a chamavam de Chapeuzinho Vermelho.",
+      "startMs": 17170,
+      "endMs": 19740,
+      "playStartMs": 17150,
+      "playEndMs": 19900,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000055",
+          "word": "that",
+          "startMs": 17170,
+          "endMs": 17331,
+          "timeSource": "aligner",
+          "score": 0.748
+        },
+        {
+          "id": "w000056",
+          "word": "everybody",
+          "startMs": 17672,
+          "endMs": 18094,
+          "timeSource": "aligner",
+          "score": 0.748
+        },
+        {
+          "id": "w000057",
+          "word": "called",
+          "startMs": 18154,
+          "endMs": 18475,
+          "timeSource": "aligner",
+          "score": 0.832
+        },
+        {
+          "id": "w000058",
+          "word": "her",
+          "startMs": 18535,
+          "endMs": 18656,
+          "timeSource": "aligner",
+          "score": 0.737
+        },
+        {
+          "id": "w000059",
+          "word": "little",
+          "startMs": 18756,
+          "endMs": 18977,
+          "timeSource": "aligner",
+          "score": 0.94
+        },
+        {
+          "id": "w000060",
+          "word": "red",
+          "startMs": 19037,
+          "endMs": 19198,
+          "timeSource": "aligner",
+          "score": 0.889
+        },
+        {
+          "id": "w000061",
+          "word": "riding",
+          "startMs": 19258,
+          "endMs": 19519,
+          "timeSource": "aligner",
+          "score": 0.973
+        },
+        {
+          "id": "w000062",
+          "word": "hood.",
+          "startMs": 19559,
+          "endMs": 19740,
+          "timeSource": "aligner",
+          "score": 0.987
+        }
+      ]
+    },
+    {
+      "id": "seg_3500b2666876b394",
+      "index": 6,
+      "text": "One day her mother made some cakes and said to her,",
+      "translation": "Um dia, sua mãe fez uns bolos e lhe disse:",
+      "startMs": 20323,
+      "endMs": 22500,
+      "playStartMs": 20243,
+      "playEndMs": 22660,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000063",
+          "word": "One",
+          "startMs": 20323,
+          "endMs": 20444,
+          "timeSource": "aligner",
+          "score": 0.632
+        },
+        {
+          "id": "w000064",
+          "word": "day",
+          "startMs": 20464,
+          "endMs": 20625,
+          "timeSource": "aligner",
+          "score": 0.724
+        },
+        {
+          "id": "w000065",
+          "word": "her",
+          "startMs": 20685,
+          "endMs": 20786,
+          "timeSource": "aligner",
+          "score": 0.826
+        },
+        {
+          "id": "w000066",
+          "word": "mother",
+          "startMs": 20806,
+          "endMs": 21028,
+          "timeSource": "aligner",
+          "score": 0.79
+        },
+        {
+          "id": "w000067",
+          "word": "made",
+          "startMs": 21068,
+          "endMs": 21230,
+          "timeSource": "aligner",
+          "score": 0.882
+        },
+        {
+          "id": "w000068",
+          "word": "some",
+          "startMs": 21270,
+          "endMs": 21431,
+          "timeSource": "aligner",
+          "score": 0.877
+        },
+        {
+          "id": "w000069",
+          "word": "cakes",
+          "startMs": 21492,
+          "endMs": 21794,
+          "timeSource": "aligner",
+          "score": 0.673
+        },
+        {
+          "id": "w000070",
+          "word": "and",
+          "startMs": 21875,
+          "endMs": 21996,
+          "timeSource": "aligner",
+          "score": 0.797
+        },
+        {
+          "id": "w000071",
+          "word": "said",
+          "startMs": 22036,
+          "endMs": 22238,
+          "timeSource": "aligner",
+          "score": 0.909
+        },
+        {
+          "id": "w000072",
+          "word": "to",
+          "startMs": 22258,
+          "endMs": 22318,
+          "timeSource": "aligner",
+          "score": 0.731
+        },
+        {
+          "id": "w000073",
+          "word": "her,",
+          "startMs": 22379,
+          "endMs": 22500,
+          "timeSource": "aligner",
+          "score": 0.86
+        }
+      ]
+    },
+    {
+      "id": "seg_12888f7b2c1b53bc",
+      "index": 7,
+      "text": "Go, my dear, and see how your grandmother is doing,",
+      "translation": "Vá, minha querida, ver como está sua avó,",
+      "startMs": 23102,
+      "endMs": 25893,
+      "playStartMs": 23022,
+      "playEndMs": 26053,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000074",
+          "word": "Go,",
+          "startMs": 23102,
+          "endMs": 23302,
+          "timeSource": "aligner",
+          "score": 0.896
+        },
+        {
+          "id": "w000075",
+          "word": "my",
+          "startMs": 23363,
+          "endMs": 23503,
+          "timeSource": "aligner",
+          "score": 0.993
+        },
+        {
+          "id": "w000076",
+          "word": "dear,",
+          "startMs": 23564,
+          "endMs": 23845,
+          "timeSource": "aligner",
+          "score": 0.749
+        },
+        {
+          "id": "w000077",
+          "word": "and",
+          "startMs": 24266,
+          "endMs": 24347,
+          "timeSource": "aligner",
+          "score": 0.852
+        },
+        {
+          "id": "w000078",
+          "word": "see",
+          "startMs": 24487,
+          "endMs": 24648,
+          "timeSource": "aligner",
+          "score": 0.95
+        },
+        {
+          "id": "w000079",
+          "word": "how",
+          "startMs": 24708,
+          "endMs": 24808,
+          "timeSource": "aligner",
+          "score": 0.68
+        },
+        {
+          "id": "w000080",
+          "word": "your",
+          "startMs": 24828,
+          "endMs": 24949,
+          "timeSource": "aligner",
+          "score": 0.996
+        },
+        {
+          "id": "w000081",
+          "word": "grandmother",
+          "startMs": 24989,
+          "endMs": 25411,
+          "timeSource": "aligner",
+          "score": 0.882
+        },
+        {
+          "id": "w000082",
+          "word": "is",
+          "startMs": 25471,
+          "endMs": 25531,
+          "timeSource": "aligner",
+          "score": 0.752
+        },
+        {
+          "id": "w000083",
+          "word": "doing,",
+          "startMs": 25591,
+          "endMs": 25893,
+          "timeSource": "aligner",
+          "score": 0.8
+        }
+      ]
+    },
+    {
+      "id": "seg_71aef1c58e44ff04",
+      "index": 8,
+      "text": "because she has been very ill.",
+      "translation": "porque ela tem estado muito doente.",
+      "startMs": 26334,
+      "endMs": 27820,
+      "playStartMs": 26254,
+      "playEndMs": 27980,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000086",
+            "w000087",
+            "w000088",
+            "w000089"
+          ],
+          "pt": {
+            "start": 11,
+            "end": 34,
+            "text": "tem estado muito doente"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000084",
+          "word": "because",
+          "startMs": 26334,
+          "endMs": 26595,
+          "timeSource": "aligner",
+          "score": 0.816
+        },
+        {
+          "id": "w000085",
+          "word": "she",
+          "startMs": 26655,
+          "endMs": 26776,
+          "timeSource": "aligner",
+          "score": 0.506
+        },
+        {
+          "id": "w000086",
+          "word": "has",
+          "startMs": 26796,
+          "endMs": 26896,
+          "timeSource": "aligner",
+          "score": 0.986
+        },
+        {
+          "id": "w000087",
+          "word": "been",
+          "startMs": 26916,
+          "endMs": 27077,
+          "timeSource": "aligner",
+          "score": 0.752
+        },
+        {
+          "id": "w000088",
+          "word": "very",
+          "startMs": 27278,
+          "endMs": 27619,
+          "timeSource": "aligner",
+          "score": 0.772
+        },
+        {
+          "id": "w000089",
+          "word": "ill.",
+          "startMs": 27700,
+          "endMs": 27820,
+          "timeSource": "aligner",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "id": "seg_57403cc6c22f5c09",
+      "index": 9,
+      "text": "Take her a cake and this little pot of butter.",
+      "translation": "Leve para ela um bolo e este potinho de manteiga.",
+      "startMs": 28361,
+      "endMs": 30740,
+      "playStartMs": 28281,
+      "playEndMs": 30900,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000090",
+          "word": "Take",
+          "startMs": 28361,
+          "endMs": 28542,
+          "timeSource": "aligner",
+          "score": 0.872
+        },
+        {
+          "id": "w000091",
+          "word": "her",
+          "startMs": 28583,
+          "endMs": 28683,
+          "timeSource": "aligner",
+          "score": 0.798
+        },
+        {
+          "id": "w000092",
+          "word": "a",
+          "startMs": 28724,
+          "endMs": 28764,
+          "timeSource": "aligner",
+          "score": 0.502
+        },
+        {
+          "id": "w000093",
+          "word": "cake",
+          "startMs": 28825,
+          "endMs": 29107,
+          "timeSource": "aligner",
+          "score": 0.777
+        },
+        {
+          "id": "w000094",
+          "word": "and",
+          "startMs": 29429,
+          "endMs": 29530,
+          "timeSource": "aligner",
+          "score": 0.834
+        },
+        {
+          "id": "w000095",
+          "word": "this",
+          "startMs": 29591,
+          "endMs": 29772,
+          "timeSource": "aligner",
+          "score": 0.877
+        },
+        {
+          "id": "w000096",
+          "word": "little",
+          "startMs": 29913,
+          "endMs": 30135,
+          "timeSource": "aligner",
+          "score": 0.902
+        },
+        {
+          "id": "w000097",
+          "word": "pot",
+          "startMs": 30196,
+          "endMs": 30397,
+          "timeSource": "aligner",
+          "score": 0.883
+        },
+        {
+          "id": "w000098",
+          "word": "of",
+          "startMs": 30417,
+          "endMs": 30478,
+          "timeSource": "aligner",
+          "score": 0.756
+        },
+        {
+          "id": "w000099",
+          "word": "butter.",
+          "startMs": 30538,
+          "endMs": 30740,
+          "timeSource": "aligner",
+          "score": 0.715
+        }
+      ]
+    },
+    {
+      "id": "seg_863bc494587725ca",
+      "index": 10,
+      "text": "Little Red Riding had set out immediately to go to her grandmother,",
+      "translation": "Chapeuzinho Vermelho partiu imediatamente para a casa da avó,",
+      "startMs": 31621,
+      "endMs": 34693,
+      "playStartMs": 31541,
+      "playEndMs": 34853,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000104",
+            "w000105"
+          ],
+          "pt": {
+            "start": 21,
+            "end": 27,
+            "text": "partiu"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000100",
+          "word": "Little",
+          "startMs": 31621,
+          "endMs": 31882,
+          "timeSource": "aligner",
+          "score": 0.751
+        },
+        {
+          "id": "w000101",
+          "word": "Red",
+          "startMs": 31962,
+          "endMs": 32143,
+          "timeSource": "aligner",
+          "score": 0.701
+        },
+        {
+          "id": "w000102",
+          "word": "Riding",
+          "startMs": 32223,
+          "endMs": 32524,
+          "timeSource": "aligner",
+          "score": 0.921
+        },
+        {
+          "id": "w000103",
+          "word": "had",
+          "startMs": 32585,
+          "endMs": 32705,
+          "timeSource": "aligner",
+          "score": 0.945
+        },
+        {
+          "id": "w000104",
+          "word": "set",
+          "startMs": 32785,
+          "endMs": 32946,
+          "timeSource": "aligner",
+          "score": 0.999
+        },
+        {
+          "id": "w000105",
+          "word": "out",
+          "startMs": 33026,
+          "endMs": 33107,
+          "timeSource": "aligner",
+          "score": 0.96
+        },
+        {
+          "id": "w000106",
+          "word": "immediately",
+          "startMs": 33147,
+          "endMs": 33609,
+          "timeSource": "aligner",
+          "score": 0.817
+        },
+        {
+          "id": "w000107",
+          "word": "to",
+          "startMs": 33689,
+          "endMs": 33770,
+          "timeSource": "aligner",
+          "score": 0.872
+        },
+        {
+          "id": "w000108",
+          "word": "go",
+          "startMs": 33810,
+          "endMs": 33930,
+          "timeSource": "aligner",
+          "score": 1.0
+        },
+        {
+          "id": "w000109",
+          "word": "to",
+          "startMs": 33970,
+          "endMs": 34051,
+          "timeSource": "aligner",
+          "score": 0.64
+        },
+        {
+          "id": "w000110",
+          "word": "her",
+          "startMs": 34071,
+          "endMs": 34171,
+          "timeSource": "aligner",
+          "score": 0.679
+        },
+        {
+          "id": "w000111",
+          "word": "grandmother,",
+          "startMs": 34211,
+          "endMs": 34693,
+          "timeSource": "aligner",
+          "score": 0.898
+        }
+      ]
+    },
+    {
+      "id": "seg_9725fc4017d9190b",
+      "index": 11,
+      "text": "who lived in another village.",
+      "translation": "que morava em outra aldeia.",
+      "startMs": 35196,
+      "endMs": 36637,
+      "playStartMs": 35116,
+      "playEndMs": 36797,
+      "quality": "needs_review",
+      "reviewReasons": [
+        "word_time_asr"
+      ],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000112",
+          "word": "who",
+          "startMs": 35196,
+          "endMs": 35336,
+          "timeSource": "aligner",
+          "score": 0.876
+        },
+        {
+          "id": "w000113",
+          "word": "lived",
+          "startMs": 35396,
+          "endMs": 35698,
+          "timeSource": "aligner",
+          "score": 0.8
+        },
+        {
+          "id": "w000114",
+          "word": "in",
+          "startMs": 35698,
+          "endMs": 35940,
+          "timeSource": "asr",
+          "score": 0.0
+        },
+        {
+          "id": "w000115",
+          "word": "another",
+          "startMs": 35940,
+          "endMs": 36079,
+          "timeSource": "aligner",
+          "score": 0.214
+        },
+        {
+          "id": "w000116",
+          "word": "village.",
+          "startMs": 36324,
+          "endMs": 36637,
+          "timeSource": "aligner",
+          "score": 0.726
+        }
+      ]
+    },
+    {
+      "id": "seg_027aa171d16a74ac",
+      "index": 12,
+      "text": "As she was going through the wood,",
+      "translation": "Quando atravessava o bosque,",
+      "startMs": 37302,
+      "endMs": 38587,
+      "playStartMs": 37222,
+      "playEndMs": 38747,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000117",
+          "word": "As",
+          "startMs": 37302,
+          "endMs": 37382,
+          "timeSource": "aligner",
+          "score": 0.968
+        },
+        {
+          "id": "w000118",
+          "word": "she",
+          "startMs": 37442,
+          "endMs": 37522,
+          "timeSource": "aligner",
+          "score": 0.847
+        },
+        {
+          "id": "w000119",
+          "word": "was",
+          "startMs": 37563,
+          "endMs": 37683,
+          "timeSource": "aligner",
+          "score": 0.621
+        },
+        {
+          "id": "w000120",
+          "word": "going",
+          "startMs": 37743,
+          "endMs": 37984,
+          "timeSource": "aligner",
+          "score": 0.942
+        },
+        {
+          "id": "w000121",
+          "word": "through",
+          "startMs": 38024,
+          "endMs": 38205,
+          "timeSource": "aligner",
+          "score": 0.869
+        },
+        {
+          "id": "w000122",
+          "word": "the",
+          "startMs": 38245,
+          "endMs": 38306,
+          "timeSource": "aligner",
+          "score": 0.999
+        },
+        {
+          "id": "w000123",
+          "word": "wood,",
+          "startMs": 38346,
+          "endMs": 38587,
+          "timeSource": "aligner",
+          "score": 0.841
+        }
+      ]
+    },
+    {
+      "id": "seg_0e53c8db5e6c9e6d",
+      "index": 13,
+      "text": "she met with a wolf",
+      "translation": "ela encontrou um lobo",
+      "startMs": 39149,
+      "endMs": 40032,
+      "playStartMs": 39069,
+      "playEndMs": 40192,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000125",
+            "w000126"
+          ],
+          "pt": {
+            "start": 4,
+            "end": 13,
+            "text": "encontrou"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000124",
+          "word": "she",
+          "startMs": 39149,
+          "endMs": 39269,
+          "timeSource": "aligner",
+          "score": 0.611
+        },
+        {
+          "id": "w000125",
+          "word": "met",
+          "startMs": 39330,
+          "endMs": 39470,
+          "timeSource": "aligner",
+          "score": 0.815
+        },
+        {
+          "id": "w000126",
+          "word": "with",
+          "startMs": 39510,
+          "endMs": 39631,
+          "timeSource": "aligner",
+          "score": 0.89
+        },
+        {
+          "id": "w000127",
+          "word": "a",
+          "startMs": 39691,
+          "endMs": 39711,
+          "timeSource": "aligner",
+          "score": 0.998
+        },
+        {
+          "id": "w000128",
+          "word": "wolf",
+          "startMs": 39771,
+          "endMs": 40032,
+          "timeSource": "aligner",
+          "score": 0.751
+        }
+      ]
+    },
+    {
+      "id": "seg_8c241da69304e6ad",
+      "index": 14,
+      "text": "who had a very great mind to eat her up,",
+      "translation": "que estava com muita vontade de devorá-la,",
+      "startMs": 40334,
+      "endMs": 42362,
+      "playStartMs": 40254,
+      "playEndMs": 42522,
+      "quality": "needs_review",
+      "reviewReasons": [
+        "word_time_asr"
+      ],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000130",
+            "w000131",
+            "w000132",
+            "w000133",
+            "w000134",
+            "w000135"
+          ],
+          "pt": {
+            "start": 4,
+            "end": 31,
+            "text": "estava com muita vontade de"
+          }
+        },
+        {
+          "wordIds": [
+            "w000136",
+            "w000137",
+            "w000138"
+          ],
+          "pt": {
+            "start": 32,
+            "end": 41,
+            "text": "devorá-la"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000129",
+          "word": "who",
+          "startMs": 40334,
+          "endMs": 40414,
+          "timeSource": "aligner",
+          "score": 0.834
+        },
+        {
+          "id": "w000130",
+          "word": "had",
+          "startMs": 40454,
+          "endMs": 40554,
+          "timeSource": "aligner",
+          "score": 0.834
+        },
+        {
+          "id": "w000131",
+          "word": "a",
+          "startMs": 40554,
+          "endMs": 40680,
+          "timeSource": "asr",
+          "score": 0.189
+        },
+        {
+          "id": "w000132",
+          "word": "very",
+          "startMs": 40755,
+          "endMs": 41056,
+          "timeSource": "aligner",
+          "score": 0.806
+        },
+        {
+          "id": "w000133",
+          "word": "great",
+          "startMs": 41117,
+          "endMs": 41398,
+          "timeSource": "aligner",
+          "score": 0.857
+        },
+        {
+          "id": "w000134",
+          "word": "mind",
+          "startMs": 41438,
+          "endMs": 41719,
+          "timeSource": "aligner",
+          "score": 0.93
+        },
+        {
+          "id": "w000135",
+          "word": "to",
+          "startMs": 41759,
+          "endMs": 41840,
+          "timeSource": "aligner",
+          "score": 0.756
+        },
+        {
+          "id": "w000136",
+          "word": "eat",
+          "startMs": 41900,
+          "endMs": 41960,
+          "timeSource": "aligner",
+          "score": 0.51
+        },
+        {
+          "id": "w000137",
+          "word": "her",
+          "startMs": 42020,
+          "endMs": 42141,
+          "timeSource": "aligner",
+          "score": 0.885
+        },
+        {
+          "id": "w000138",
+          "word": "up,",
+          "startMs": 42261,
+          "endMs": 42362,
+          "timeSource": "aligner",
+          "score": 0.904
+        }
+      ]
+    },
+    {
+      "id": "seg_6a5312635644eee6",
+      "index": 15,
+      "text": "but he dared not because of some woodcutters working nearby in the forest.",
+      "translation": "mas não se atreveu, por causa de uns lenhadores que trabalhavam ali perto, na floresta.",
+      "startMs": 42803,
+      "endMs": 46800,
+      "playStartMs": 42723,
+      "playEndMs": 46960,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000141",
+            "w000142"
+          ],
+          "pt": {
+            "start": 4,
+            "end": 18,
+            "text": "não se atreveu"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000139",
+          "word": "but",
+          "startMs": 42803,
+          "endMs": 42904,
+          "timeSource": "aligner",
+          "score": 0.965
+        },
+        {
+          "id": "w000140",
+          "word": "he",
+          "startMs": 42984,
+          "endMs": 43085,
+          "timeSource": "aligner",
+          "score": 0.668
+        },
+        {
+          "id": "w000141",
+          "word": "dared",
+          "startMs": 43165,
+          "endMs": 43426,
+          "timeSource": "aligner",
+          "score": 0.745
+        },
+        {
+          "id": "w000142",
+          "word": "not",
+          "startMs": 43486,
+          "endMs": 43747,
+          "timeSource": "aligner",
+          "score": 0.765
+        },
+        {
+          "id": "w000143",
+          "word": "because",
+          "startMs": 44229,
+          "endMs": 44511,
+          "timeSource": "aligner",
+          "score": 0.748
+        },
+        {
+          "id": "w000144",
+          "word": "of",
+          "startMs": 44551,
+          "endMs": 44591,
+          "timeSource": "aligner",
+          "score": 1.0
+        },
+        {
+          "id": "w000145",
+          "word": "some",
+          "startMs": 44651,
+          "endMs": 44812,
+          "timeSource": "aligner",
+          "score": 0.874
+        },
+        {
+          "id": "w000146",
+          "word": "woodcutters",
+          "startMs": 44852,
+          "endMs": 45414,
+          "timeSource": "aligner",
+          "score": 0.865
+        },
+        {
+          "id": "w000147",
+          "word": "working",
+          "startMs": 45475,
+          "endMs": 45776,
+          "timeSource": "aligner",
+          "score": 0.824
+        },
+        {
+          "id": "w000148",
+          "word": "nearby",
+          "startMs": 45816,
+          "endMs": 46198,
+          "timeSource": "aligner",
+          "score": 0.906
+        },
+        {
+          "id": "w000149",
+          "word": "in",
+          "startMs": 46238,
+          "endMs": 46298,
+          "timeSource": "aligner",
+          "score": 0.786
+        },
+        {
+          "id": "w000150",
+          "word": "the",
+          "startMs": 46318,
+          "endMs": 46398,
+          "timeSource": "aligner",
+          "score": 0.833
+        },
+        {
+          "id": "w000151",
+          "word": "forest.",
+          "startMs": 46439,
+          "endMs": 46800,
+          "timeSource": "aligner",
+          "score": 0.767
+        }
+      ]
+    },
+    {
+      "id": "seg_5685a7665e663d0d",
+      "index": 16,
+      "text": "He asked her where she was going.",
+      "translation": "Ele perguntou aonde ela ia.",
+      "startMs": 47362,
+      "endMs": 48720,
+      "playStartMs": 47282,
+      "playEndMs": 48880,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000152",
+          "word": "He",
+          "startMs": 47362,
+          "endMs": 47484,
+          "timeSource": "aligner",
+          "score": 0.83
+        },
+        {
+          "id": "w000153",
+          "word": "asked",
+          "startMs": 47626,
+          "endMs": 47828,
+          "timeSource": "aligner",
+          "score": 0.835
+        },
+        {
+          "id": "w000154",
+          "word": "her",
+          "startMs": 47869,
+          "endMs": 47950,
+          "timeSource": "aligner",
+          "score": 0.844
+        },
+        {
+          "id": "w000155",
+          "word": "where",
+          "startMs": 47970,
+          "endMs": 48112,
+          "timeSource": "aligner",
+          "score": 0.867
+        },
+        {
+          "id": "w000156",
+          "word": "she",
+          "startMs": 48153,
+          "endMs": 48234,
+          "timeSource": "aligner",
+          "score": 0.959
+        },
+        {
+          "id": "w000157",
+          "word": "was",
+          "startMs": 48274,
+          "endMs": 48376,
+          "timeSource": "aligner",
+          "score": 0.93
+        },
+        {
+          "id": "w000158",
+          "word": "going.",
+          "startMs": 48436,
+          "endMs": 48720,
+          "timeSource": "aligner",
+          "score": 0.489
+        }
+      ]
+    },
+    {
+      "id": "seg_715b366d747b3930",
+      "index": 17,
+      "text": "The poor child, who did not know",
+      "translation": "A pobre criança, que não sabia",
+      "startMs": 49241,
+      "endMs": 51209,
+      "playStartMs": 49161,
+      "playEndMs": 51229,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000159",
+          "word": "The",
+          "startMs": 49241,
+          "endMs": 49341,
+          "timeSource": "aligner",
+          "score": 0.989
+        },
+        {
+          "id": "w000160",
+          "word": "poor",
+          "startMs": 49381,
+          "endMs": 49602,
+          "timeSource": "aligner",
+          "score": 0.734
+        },
+        {
+          "id": "w000161",
+          "word": "child,",
+          "startMs": 49683,
+          "endMs": 50084,
+          "timeSource": "aligner",
+          "score": 0.747
+        },
+        {
+          "id": "w000162",
+          "word": "who",
+          "startMs": 50466,
+          "endMs": 50586,
+          "timeSource": "aligner",
+          "score": 0.722
+        },
+        {
+          "id": "w000163",
+          "word": "did",
+          "startMs": 50626,
+          "endMs": 50747,
+          "timeSource": "aligner",
+          "score": 0.992
+        },
+        {
+          "id": "w000164",
+          "word": "not",
+          "startMs": 50807,
+          "endMs": 50988,
+          "timeSource": "aligner",
+          "score": 0.758
+        },
+        {
+          "id": "w000165",
+          "word": "know",
+          "startMs": 51048,
+          "endMs": 51209,
+          "timeSource": "aligner",
+          "score": 0.821
+        }
+      ]
+    },
+    {
+      "id": "seg_84362c7bb5e19d6b",
+      "index": 18,
+      "text": "that it was dangerous to stay and talk to a wolf,",
+      "translation": "que era perigoso parar e conversar com um lobo,",
+      "startMs": 51249,
+      "endMs": 53578,
+      "playStartMs": 51229,
+      "playEndMs": 53738,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000166",
+          "word": "that",
+          "startMs": 51249,
+          "endMs": 51369,
+          "timeSource": "aligner",
+          "score": 0.813
+        },
+        {
+          "id": "w000167",
+          "word": "it",
+          "startMs": 51389,
+          "endMs": 51430,
+          "timeSource": "aligner",
+          "score": 1.0
+        },
+        {
+          "id": "w000168",
+          "word": "was",
+          "startMs": 51470,
+          "endMs": 51550,
+          "timeSource": "aligner",
+          "score": 0.859
+        },
+        {
+          "id": "w000169",
+          "word": "dangerous",
+          "startMs": 51610,
+          "endMs": 52012,
+          "timeSource": "aligner",
+          "score": 0.806
+        },
+        {
+          "id": "w000170",
+          "word": "to",
+          "startMs": 52052,
+          "endMs": 52152,
+          "timeSource": "aligner",
+          "score": 0.653
+        },
+        {
+          "id": "w000171",
+          "word": "stay",
+          "startMs": 52213,
+          "endMs": 52554,
+          "timeSource": "aligner",
+          "score": 0.871
+        },
+        {
+          "id": "w000172",
+          "word": "and",
+          "startMs": 52715,
+          "endMs": 52795,
+          "timeSource": "aligner",
+          "score": 0.86
+        },
+        {
+          "id": "w000173",
+          "word": "talk",
+          "startMs": 52855,
+          "endMs": 53076,
+          "timeSource": "aligner",
+          "score": 0.943
+        },
+        {
+          "id": "w000174",
+          "word": "to",
+          "startMs": 53096,
+          "endMs": 53197,
+          "timeSource": "aligner",
+          "score": 0.647
+        },
+        {
+          "id": "w000175",
+          "word": "a",
+          "startMs": 53237,
+          "endMs": 53277,
+          "timeSource": "aligner",
+          "score": 0.499
+        },
+        {
+          "id": "w000176",
+          "word": "wolf,",
+          "startMs": 53317,
+          "endMs": 53578,
+          "timeSource": "aligner",
+          "score": 0.859
+        }
+      ]
+    },
+    {
+      "id": "seg_0dad3fd7f3016bb2",
+      "index": 19,
+      "text": "said to him, I am going to see my grandmother",
+      "translation": "disse a ele: Vou ver a minha avó",
+      "startMs": 53960,
+      "endMs": 56448,
+      "playStartMs": 53880,
+      "playEndMs": 56608,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000177",
+          "word": "said",
+          "startMs": 53960,
+          "endMs": 54080,
+          "timeSource": "aligner",
+          "score": 0.754
+        },
+        {
+          "id": "w000178",
+          "word": "to",
+          "startMs": 54144,
+          "endMs": 54229,
+          "timeSource": "aligner",
+          "score": 0.728
+        },
+        {
+          "id": "w000179",
+          "word": "him,",
+          "startMs": 54250,
+          "endMs": 54399,
+          "timeSource": "aligner",
+          "score": 0.421
+        },
+        {
+          "id": "w000180",
+          "word": "I",
+          "startMs": 55143,
+          "endMs": 55183,
+          "timeSource": "aligner",
+          "score": 1.0
+        },
+        {
+          "id": "w000181",
+          "word": "am",
+          "startMs": 55243,
+          "endMs": 55303,
+          "timeSource": "aligner",
+          "score": 0.998
+        },
+        {
+          "id": "w000182",
+          "word": "going",
+          "startMs": 55323,
+          "endMs": 55504,
+          "timeSource": "aligner",
+          "score": 0.745
+        },
+        {
+          "id": "w000183",
+          "word": "to",
+          "startMs": 55524,
+          "endMs": 55584,
+          "timeSource": "aligner",
+          "score": 0.75
+        },
+        {
+          "id": "w000184",
+          "word": "see",
+          "startMs": 55605,
+          "endMs": 55745,
+          "timeSource": "aligner",
+          "score": 0.991
+        },
+        {
+          "id": "w000185",
+          "word": "my",
+          "startMs": 55805,
+          "endMs": 55906,
+          "timeSource": "aligner",
+          "score": 0.8
+        },
+        {
+          "id": "w000186",
+          "word": "grandmother",
+          "startMs": 55946,
+          "endMs": 56448,
+          "timeSource": "aligner",
+          "score": 0.851
+        }
+      ]
+    },
+    {
+      "id": "seg_a2632409d7f1d365",
+      "index": 20,
+      "text": "and carry her a cake and a little pot of butter for my mother.",
+      "translation": "e levar para ela um bolo e um potinho de manteiga, da parte da minha mãe.",
+      "startMs": 56729,
+      "endMs": 59620,
+      "playStartMs": 56649,
+      "playEndMs": 59780,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000187",
+          "word": "and",
+          "startMs": 56729,
+          "endMs": 56829,
+          "timeSource": "aligner",
+          "score": 0.693
+        },
+        {
+          "id": "w000188",
+          "word": "carry",
+          "startMs": 56910,
+          "endMs": 57191,
+          "timeSource": "aligner",
+          "score": 0.943
+        },
+        {
+          "id": "w000189",
+          "word": "her",
+          "startMs": 57231,
+          "endMs": 57331,
+          "timeSource": "aligner",
+          "score": 0.701
+        },
+        {
+          "id": "w000190",
+          "word": "a",
+          "startMs": 57371,
+          "endMs": 57412,
+          "timeSource": "aligner",
+          "score": 0.501
+        },
+        {
+          "id": "w000191",
+          "word": "cake",
+          "startMs": 57472,
+          "endMs": 57753,
+          "timeSource": "aligner",
+          "score": 0.98
+        },
+        {
+          "id": "w000192",
+          "word": "and",
+          "startMs": 57974,
+          "endMs": 58074,
+          "timeSource": "aligner",
+          "score": 0.789
+        },
+        {
+          "id": "w000193",
+          "word": "a",
+          "startMs": 58094,
+          "endMs": 58134,
+          "timeSource": "aligner",
+          "score": 0.499
+        },
+        {
+          "id": "w000194",
+          "word": "little",
+          "startMs": 58235,
+          "endMs": 58476,
+          "timeSource": "aligner",
+          "score": 0.781
+        },
+        {
+          "id": "w000195",
+          "word": "pot",
+          "startMs": 58516,
+          "endMs": 58717,
+          "timeSource": "aligner",
+          "score": 0.861
+        },
+        {
+          "id": "w000196",
+          "word": "of",
+          "startMs": 58737,
+          "endMs": 58797,
+          "timeSource": "aligner",
+          "score": 0.75
+        },
+        {
+          "id": "w000197",
+          "word": "butter",
+          "startMs": 58857,
+          "endMs": 59078,
+          "timeSource": "aligner",
+          "score": 0.867
+        },
+        {
+          "id": "w000198",
+          "word": "for",
+          "startMs": 59118,
+          "endMs": 59239,
+          "timeSource": "aligner",
+          "score": 0.759
+        },
+        {
+          "id": "w000199",
+          "word": "my",
+          "startMs": 59259,
+          "endMs": 59379,
+          "timeSource": "aligner",
+          "score": 0.666
+        },
+        {
+          "id": "w000200",
+          "word": "mother.",
+          "startMs": 59419,
+          "endMs": 59620,
+          "timeSource": "aligner",
+          "score": 0.7
+        }
+      ]
+    },
+    {
+      "id": "seg_16f4b8fd7e0e4465",
+      "index": 21,
+      "text": "Does she live far off?",
+      "translation": "Ela mora longe?",
+      "startMs": 60301,
+      "endMs": 61325,
+      "playStartMs": 60221,
+      "playEndMs": 61485,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000204",
+            "w000205"
+          ],
+          "pt": {
+            "start": 9,
+            "end": 14,
+            "text": "longe"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000201",
+          "word": "Does",
+          "startMs": 60301,
+          "endMs": 60462,
+          "timeSource": "aligner",
+          "score": 0.794
+        },
+        {
+          "id": "w000202",
+          "word": "she",
+          "startMs": 60482,
+          "endMs": 60602,
+          "timeSource": "aligner",
+          "score": 0.689
+        },
+        {
+          "id": "w000203",
+          "word": "live",
+          "startMs": 60663,
+          "endMs": 60823,
+          "timeSource": "aligner",
+          "score": 0.953
+        },
+        {
+          "id": "w000204",
+          "word": "far",
+          "startMs": 60863,
+          "endMs": 61044,
+          "timeSource": "aligner",
+          "score": 0.833
+        },
+        {
+          "id": "w000205",
+          "word": "off?",
+          "startMs": 61164,
+          "endMs": 61325,
+          "timeSource": "aligner",
+          "score": 0.986
+        }
+      ]
+    },
+    {
+      "id": "seg_d33127f1066b9860",
+      "index": 22,
+      "text": "said the wolf.",
+      "translation": "disse o lobo.",
+      "startMs": 61766,
+      "endMs": 62288,
+      "playStartMs": 61686,
+      "playEndMs": 62448,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000206",
+          "word": "said",
+          "startMs": 61766,
+          "endMs": 61907,
+          "timeSource": "aligner",
+          "score": 0.91
+        },
+        {
+          "id": "w000207",
+          "word": "the",
+          "startMs": 61927,
+          "endMs": 62007,
+          "timeSource": "aligner",
+          "score": 0.874
+        },
+        {
+          "id": "w000208",
+          "word": "wolf.",
+          "startMs": 62047,
+          "endMs": 62288,
+          "timeSource": "aligner",
+          "score": 0.806
+        }
+      ]
+    },
+    {
+      "id": "seg_c9e6dbd892297b6f",
+      "index": 23,
+      "text": "Oh, I say, answered little red riding hood,",
+      "translation": "Ah, sim, respondeu Chapeuzinho Vermelho,",
+      "startMs": 62971,
+      "endMs": 65660,
+      "playStartMs": 62891,
+      "playEndMs": 65820,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000209",
+          "word": "Oh,",
+          "startMs": 62971,
+          "endMs": 63091,
+          "timeSource": "aligner",
+          "score": 0.772
+        },
+        {
+          "id": "w000210",
+          "word": "I",
+          "startMs": 63211,
+          "endMs": 63292,
+          "timeSource": "aligner",
+          "score": 0.801
+        },
+        {
+          "id": "w000211",
+          "word": "say,",
+          "startMs": 63352,
+          "endMs": 63713,
+          "timeSource": "aligner",
+          "score": 0.834
+        },
+        {
+          "id": "w000212",
+          "word": "answered",
+          "startMs": 63733,
+          "endMs": 64616,
+          "timeSource": "aligner",
+          "score": 0.713
+        },
+        {
+          "id": "w000213",
+          "word": "little",
+          "startMs": 64677,
+          "endMs": 64917,
+          "timeSource": "aligner",
+          "score": 0.835
+        },
+        {
+          "id": "w000214",
+          "word": "red",
+          "startMs": 64978,
+          "endMs": 65138,
+          "timeSource": "aligner",
+          "score": 0.966
+        },
+        {
+          "id": "w000215",
+          "word": "riding",
+          "startMs": 65198,
+          "endMs": 65479,
+          "timeSource": "aligner",
+          "score": 0.934
+        },
+        {
+          "id": "w000216",
+          "word": "hood,",
+          "startMs": 65499,
+          "endMs": 65660,
+          "timeSource": "aligner",
+          "score": 0.599
+        }
+      ]
+    },
+    {
+      "id": "seg_ed1f67bdd46f9b11",
+      "index": 24,
+      "text": "it is beyond that mill you see there,",
+      "translation": "fica além daquele moinho que você vê ali,",
+      "startMs": 66342,
+      "endMs": 68051,
+      "playStartMs": 66262,
+      "playEndMs": 68211,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000219"
+          ],
+          "pt": {
+            "start": 5,
+            "end": 9,
+            "text": "além"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000217",
+          "word": "it",
+          "startMs": 66342,
+          "endMs": 66403,
+          "timeSource": "aligner",
+          "score": 0.986
+        },
+        {
+          "id": "w000218",
+          "word": "is",
+          "startMs": 66463,
+          "endMs": 66523,
+          "timeSource": "aligner",
+          "score": 0.798
+        },
+        {
+          "id": "w000219",
+          "word": "beyond",
+          "startMs": 66583,
+          "endMs": 66945,
+          "timeSource": "aligner",
+          "score": 0.869
+        },
+        {
+          "id": "w000220",
+          "word": "that",
+          "startMs": 66986,
+          "endMs": 67126,
+          "timeSource": "aligner",
+          "score": 0.614
+        },
+        {
+          "id": "w000221",
+          "word": "mill",
+          "startMs": 67187,
+          "endMs": 67408,
+          "timeSource": "aligner",
+          "score": 0.913
+        },
+        {
+          "id": "w000222",
+          "word": "you",
+          "startMs": 67448,
+          "endMs": 67589,
+          "timeSource": "aligner",
+          "score": 0.922
+        },
+        {
+          "id": "w000223",
+          "word": "see",
+          "startMs": 67629,
+          "endMs": 67790,
+          "timeSource": "aligner",
+          "score": 0.999
+        },
+        {
+          "id": "w000224",
+          "word": "there,",
+          "startMs": 67830,
+          "endMs": 68051,
+          "timeSource": "aligner",
+          "score": 0.89
+        }
+      ]
+    },
+    {
+      "id": "seg_888bf080ba39ce5a",
+      "index": 25,
+      "text": "at the first house in the village.",
+      "translation": "na primeira casa da aldeia.",
+      "startMs": 68433,
+      "endMs": 69840,
+      "playStartMs": 68353,
+      "playEndMs": 70000,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000225",
+          "word": "at",
+          "startMs": 68433,
+          "endMs": 68493,
+          "timeSource": "aligner",
+          "score": 0.812
+        },
+        {
+          "id": "w000226",
+          "word": "the",
+          "startMs": 68533,
+          "endMs": 68634,
+          "timeSource": "aligner",
+          "score": 0.852
+        },
+        {
+          "id": "w000227",
+          "word": "first",
+          "startMs": 68694,
+          "endMs": 68956,
+          "timeSource": "aligner",
+          "score": 0.916
+        },
+        {
+          "id": "w000228",
+          "word": "house",
+          "startMs": 68996,
+          "endMs": 69237,
+          "timeSource": "aligner",
+          "score": 0.758
+        },
+        {
+          "id": "w000229",
+          "word": "in",
+          "startMs": 69277,
+          "endMs": 69337,
+          "timeSource": "aligner",
+          "score": 0.747
+        },
+        {
+          "id": "w000230",
+          "word": "the",
+          "startMs": 69358,
+          "endMs": 69438,
+          "timeSource": "aligner",
+          "score": 0.826
+        },
+        {
+          "id": "w000231",
+          "word": "village.",
+          "startMs": 69458,
+          "endMs": 69840,
+          "timeSource": "aligner",
+          "score": 0.987
+        }
+      ]
+    },
+    {
+      "id": "seg_bee2801be0a936fd",
+      "index": 26,
+      "text": "Well, said the wolf, and I'll go and see her too.",
+      "translation": "Bem, disse o lobo, eu também vou vê-la.",
+      "startMs": 70760,
+      "endMs": 74212,
+      "playStartMs": 70680,
+      "playEndMs": 74372,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000232",
+          "word": "Well,",
+          "startMs": 70760,
+          "endMs": 71041,
+          "timeSource": "aligner",
+          "score": 0.767
+        },
+        {
+          "id": "w000233",
+          "word": "said",
+          "startMs": 71663,
+          "endMs": 71804,
+          "timeSource": "aligner",
+          "score": 0.875
+        },
+        {
+          "id": "w000234",
+          "word": "the",
+          "startMs": 71824,
+          "endMs": 71924,
+          "timeSource": "aligner",
+          "score": 0.666
+        },
+        {
+          "id": "w000235",
+          "word": "wolf,",
+          "startMs": 71944,
+          "endMs": 72185,
+          "timeSource": "aligner",
+          "score": 0.855
+        },
+        {
+          "id": "w000236",
+          "word": "and",
+          "startMs": 72707,
+          "endMs": 72807,
+          "timeSource": "aligner",
+          "score": 0.819
+        },
+        {
+          "id": "w000237",
+          "word": "I'll",
+          "startMs": 72847,
+          "endMs": 73028,
+          "timeSource": "aligner",
+          "score": 0.737
+        },
+        {
+          "id": "w000238",
+          "word": "go",
+          "startMs": 73048,
+          "endMs": 73309,
+          "timeSource": "aligner",
+          "score": 0.724
+        },
+        {
+          "id": "w000239",
+          "word": "and",
+          "startMs": 73469,
+          "endMs": 73570,
+          "timeSource": "aligner",
+          "score": 0.79
+        },
+        {
+          "id": "w000240",
+          "word": "see",
+          "startMs": 73650,
+          "endMs": 73811,
+          "timeSource": "aligner",
+          "score": 0.97
+        },
+        {
+          "id": "w000241",
+          "word": "her",
+          "startMs": 73851,
+          "endMs": 73951,
+          "timeSource": "aligner",
+          "score": 0.928
+        },
+        {
+          "id": "w000242",
+          "word": "too.",
+          "startMs": 73991,
+          "endMs": 74212,
+          "timeSource": "aligner",
+          "score": 0.933
+        }
+      ]
+    },
+    {
+      "id": "seg_7b7b0167e9b125f7",
+      "index": 27,
+      "text": "I'll go this way and go you that,",
+      "translation": "Eu vou por este caminho e você vai por aquele,",
+      "startMs": 74714,
+      "endMs": 76500,
+      "playStartMs": 74634,
+      "playEndMs": 76660,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000243",
+          "word": "I'll",
+          "startMs": 74714,
+          "endMs": 74894,
+          "timeSource": "aligner",
+          "score": 0.77
+        },
+        {
+          "id": "w000244",
+          "word": "go",
+          "startMs": 74914,
+          "endMs": 75075,
+          "timeSource": "aligner",
+          "score": 0.8
+        },
+        {
+          "id": "w000245",
+          "word": "this",
+          "startMs": 75135,
+          "endMs": 75296,
+          "timeSource": "aligner",
+          "score": 0.875
+        },
+        {
+          "id": "w000246",
+          "word": "way",
+          "startMs": 75376,
+          "endMs": 75637,
+          "timeSource": "aligner",
+          "score": 0.828
+        },
+        {
+          "id": "w000247",
+          "word": "and",
+          "startMs": 75777,
+          "endMs": 75878,
+          "timeSource": "aligner",
+          "score": 0.803
+        },
+        {
+          "id": "w000248",
+          "word": "go",
+          "startMs": 75918,
+          "endMs": 76099,
+          "timeSource": "aligner",
+          "score": 0.862
+        },
+        {
+          "id": "w000249",
+          "word": "you",
+          "startMs": 76159,
+          "endMs": 76279,
+          "timeSource": "aligner",
+          "score": 0.999
+        },
+        {
+          "id": "w000250",
+          "word": "that,",
+          "startMs": 76319,
+          "endMs": 76500,
+          "timeSource": "aligner",
+          "score": 0.851
+        }
+      ]
+    },
+    {
+      "id": "seg_3745a6b6e728431e",
+      "index": 28,
+      "text": "and we shall see who will be there first.",
+      "translation": "e veremos quem chega lá primeiro.",
+      "startMs": 76921,
+      "endMs": 78887,
+      "playStartMs": 76841,
+      "playEndMs": 79047,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000251",
+          "word": "and",
+          "startMs": 76921,
+          "endMs": 77021,
+          "timeSource": "aligner",
+          "score": 0.823
+        },
+        {
+          "id": "w000252",
+          "word": "we",
+          "startMs": 77081,
+          "endMs": 77222,
+          "timeSource": "aligner",
+          "score": 0.866
+        },
+        {
+          "id": "w000253",
+          "word": "shall",
+          "startMs": 77262,
+          "endMs": 77483,
+          "timeSource": "aligner",
+          "score": 0.842
+        },
+        {
+          "id": "w000254",
+          "word": "see",
+          "startMs": 77563,
+          "endMs": 77824,
+          "timeSource": "aligner",
+          "score": 0.702
+        },
+        {
+          "id": "w000255",
+          "word": "who",
+          "startMs": 77924,
+          "endMs": 78004,
+          "timeSource": "aligner",
+          "score": 0.999
+        },
+        {
+          "id": "w000256",
+          "word": "will",
+          "startMs": 78024,
+          "endMs": 78165,
+          "timeSource": "aligner",
+          "score": 0.842
+        },
+        {
+          "id": "w000257",
+          "word": "be",
+          "startMs": 78185,
+          "endMs": 78245,
+          "timeSource": "aligner",
+          "score": 0.756
+        },
+        {
+          "id": "w000258",
+          "word": "there",
+          "startMs": 78265,
+          "endMs": 78426,
+          "timeSource": "aligner",
+          "score": 0.867
+        },
+        {
+          "id": "w000259",
+          "word": "first.",
+          "startMs": 78486,
+          "endMs": 78887,
+          "timeSource": "aligner",
+          "score": 0.837
+        }
+      ]
+    },
+    {
+      "id": "seg_7c82087ff8d0e355",
+      "index": 29,
+      "text": "The wolf ran as fast as he could,",
+      "translation": "O lobo correu o mais rápido que pôde,",
+      "startMs": 79429,
+      "endMs": 81315,
+      "playStartMs": 79349,
+      "playEndMs": 81475,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000263",
+            "w000264",
+            "w000265",
+            "w000266",
+            "w000267"
+          ],
+          "pt": {
+            "start": 14,
+            "end": 36,
+            "text": "o mais rápido que pôde"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000260",
+          "word": "The",
+          "startMs": 79429,
+          "endMs": 79529,
+          "timeSource": "aligner",
+          "score": 0.88
+        },
+        {
+          "id": "w000261",
+          "word": "wolf",
+          "startMs": 79569,
+          "endMs": 79850,
+          "timeSource": "aligner",
+          "score": 0.814
+        },
+        {
+          "id": "w000262",
+          "word": "ran",
+          "startMs": 79950,
+          "endMs": 80211,
+          "timeSource": "aligner",
+          "score": 0.713
+        },
+        {
+          "id": "w000263",
+          "word": "as",
+          "startMs": 80292,
+          "endMs": 80372,
+          "timeSource": "aligner",
+          "score": 0.704
+        },
+        {
+          "id": "w000264",
+          "word": "fast",
+          "startMs": 80452,
+          "endMs": 80753,
+          "timeSource": "aligner",
+          "score": 0.833
+        },
+        {
+          "id": "w000265",
+          "word": "as",
+          "startMs": 80813,
+          "endMs": 80873,
+          "timeSource": "aligner",
+          "score": 0.99
+        },
+        {
+          "id": "w000266",
+          "word": "he",
+          "startMs": 80914,
+          "endMs": 81014,
+          "timeSource": "aligner",
+          "score": 0.568
+        },
+        {
+          "id": "w000267",
+          "word": "could,",
+          "startMs": 81054,
+          "endMs": 81315,
+          "timeSource": "aligner",
+          "score": 0.774
+        }
+      ]
+    },
+    {
+      "id": "seg_2a5e5c91bc5f4d0d",
+      "index": 30,
+      "text": "taking the shortest path, and the little girl took a roundabout way,",
+      "translation": "pegando o caminho mais curto, e a menina foi por um caminho mais longo,",
+      "startMs": 81816,
+      "endMs": 85130,
+      "playStartMs": 81736,
+      "playEndMs": 85290,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000278",
+            "w000279"
+          ],
+          "pt": {
+            "start": 52,
+            "end": 70,
+            "text": "caminho mais longo"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000268",
+          "word": "taking",
+          "startMs": 81816,
+          "endMs": 82097,
+          "timeSource": "aligner",
+          "score": 0.844
+        },
+        {
+          "id": "w000269",
+          "word": "the",
+          "startMs": 82117,
+          "endMs": 82218,
+          "timeSource": "aligner",
+          "score": 0.754
+        },
+        {
+          "id": "w000270",
+          "word": "shortest",
+          "startMs": 82278,
+          "endMs": 82619,
+          "timeSource": "aligner",
+          "score": 0.932
+        },
+        {
+          "id": "w000271",
+          "word": "path,",
+          "startMs": 82679,
+          "endMs": 82960,
+          "timeSource": "aligner",
+          "score": 0.861
+        },
+        {
+          "id": "w000272",
+          "word": "and",
+          "startMs": 83322,
+          "endMs": 83402,
+          "timeSource": "aligner",
+          "score": 0.921
+        },
+        {
+          "id": "w000273",
+          "word": "the",
+          "startMs": 83462,
+          "endMs": 83543,
+          "timeSource": "aligner",
+          "score": 0.857
+        },
+        {
+          "id": "w000274",
+          "word": "little",
+          "startMs": 83583,
+          "endMs": 83804,
+          "timeSource": "aligner",
+          "score": 0.888
+        },
+        {
+          "id": "w000275",
+          "word": "girl",
+          "startMs": 83824,
+          "endMs": 84045,
+          "timeSource": "aligner",
+          "score": 0.882
+        },
+        {
+          "id": "w000276",
+          "word": "took",
+          "startMs": 84105,
+          "endMs": 84286,
+          "timeSource": "aligner",
+          "score": 0.826
+        },
+        {
+          "id": "w000277",
+          "word": "a",
+          "startMs": 84326,
+          "endMs": 84366,
+          "timeSource": "aligner",
+          "score": 0.869
+        },
+        {
+          "id": "w000278",
+          "word": "roundabout",
+          "startMs": 84406,
+          "endMs": 84848,
+          "timeSource": "aligner",
+          "score": 0.844
+        },
+        {
+          "id": "w000279",
+          "word": "way,",
+          "startMs": 84868,
+          "endMs": 85130,
+          "timeSource": "aligner",
+          "score": 0.921
+        }
+      ]
+    },
+    {
+      "id": "seg_f1c004ed44b9b568",
+      "index": 31,
+      "text": "entertaining herself by gathering nuts, running after butterflies,",
+      "translation": "distraindo-se em colher nozes, correr atrás de borboletas",
+      "startMs": 85652,
+      "endMs": 89146,
+      "playStartMs": 85572,
+      "playEndMs": 89306,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000285",
+            "w000286"
+          ],
+          "pt": {
+            "start": 31,
+            "end": 46,
+            "text": "correr atrás de"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000280",
+          "word": "entertaining",
+          "startMs": 85652,
+          "endMs": 86114,
+          "timeSource": "aligner",
+          "score": 0.901
+        },
+        {
+          "id": "w000281",
+          "word": "herself",
+          "startMs": 86154,
+          "endMs": 86516,
+          "timeSource": "aligner",
+          "score": 0.83
+        },
+        {
+          "id": "w000282",
+          "word": "by",
+          "startMs": 86616,
+          "endMs": 86757,
+          "timeSource": "aligner",
+          "score": 0.833
+        },
+        {
+          "id": "w000283",
+          "word": "gathering",
+          "startMs": 86817,
+          "endMs": 87219,
+          "timeSource": "aligner",
+          "score": 0.847
+        },
+        {
+          "id": "w000284",
+          "word": "nuts,",
+          "startMs": 87299,
+          "endMs": 87520,
+          "timeSource": "aligner",
+          "score": 0.992
+        },
+        {
+          "id": "w000285",
+          "word": "running",
+          "startMs": 88040,
+          "endMs": 88282,
+          "timeSource": "aligner",
+          "score": 0.857
+        },
+        {
+          "id": "w000286",
+          "word": "after",
+          "startMs": 88342,
+          "endMs": 88543,
+          "timeSource": "aligner",
+          "score": 0.854
+        },
+        {
+          "id": "w000287",
+          "word": "butterflies,",
+          "startMs": 88583,
+          "endMs": 89146,
+          "timeSource": "aligner",
+          "score": 0.855
+        }
+      ]
+    },
+    {
+      "id": "seg_27b38dd2b29ed7ef",
+      "index": 32,
+      "text": "and gathering bouquets of little flowers.",
+      "translation": "e fazer buquês de florzinhas.",
+      "startMs": 89549,
+      "endMs": 91580,
+      "playStartMs": 89469,
+      "playEndMs": 91740,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000288",
+          "word": "and",
+          "startMs": 89549,
+          "endMs": 89649,
+          "timeSource": "aligner",
+          "score": 0.831
+        },
+        {
+          "id": "w000289",
+          "word": "gathering",
+          "startMs": 89730,
+          "endMs": 90172,
+          "timeSource": "aligner",
+          "score": 0.773
+        },
+        {
+          "id": "w000290",
+          "word": "bouquets",
+          "startMs": 90212,
+          "endMs": 90755,
+          "timeSource": "aligner",
+          "score": 0.59
+        },
+        {
+          "id": "w000291",
+          "word": "of",
+          "startMs": 90856,
+          "endMs": 90936,
+          "timeSource": "aligner",
+          "score": 0.68
+        },
+        {
+          "id": "w000292",
+          "word": "little",
+          "startMs": 91017,
+          "endMs": 91238,
+          "timeSource": "aligner",
+          "score": 0.9
+        },
+        {
+          "id": "w000293",
+          "word": "flowers.",
+          "startMs": 91278,
+          "endMs": 91580,
+          "timeSource": "aligner",
+          "score": 0.361
+        }
+      ]
+    },
+    {
+      "id": "seg_bafdb5e969e523d6",
+      "index": 33,
+      "text": "It was not long before the wolf arrived at the old woman's house.",
+      "translation": "Não demorou muito para o lobo chegar à casa da velhinha.",
+      "startMs": 92283,
+      "endMs": 95420,
+      "playStartMs": 92203,
+      "playEndMs": 95580,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000294",
+            "w000295",
+            "w000296",
+            "w000297",
+            "w000298"
+          ],
+          "pt": {
+            "start": 0,
+            "end": 22,
+            "text": "Não demorou muito para"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000294",
+          "word": "It",
+          "startMs": 92283,
+          "endMs": 92343,
+          "timeSource": "aligner",
+          "score": 0.767
+        },
+        {
+          "id": "w000295",
+          "word": "was",
+          "startMs": 92363,
+          "endMs": 92484,
+          "timeSource": "aligner",
+          "score": 0.536
+        },
+        {
+          "id": "w000296",
+          "word": "not",
+          "startMs": 92564,
+          "endMs": 92745,
+          "timeSource": "aligner",
+          "score": 0.986
+        },
+        {
+          "id": "w000297",
+          "word": "long",
+          "startMs": 92806,
+          "endMs": 93087,
+          "timeSource": "aligner",
+          "score": 0.721
+        },
+        {
+          "id": "w000298",
+          "word": "before",
+          "startMs": 93148,
+          "endMs": 93389,
+          "timeSource": "aligner",
+          "score": 0.838
+        },
+        {
+          "id": "w000299",
+          "word": "the",
+          "startMs": 93429,
+          "endMs": 93489,
+          "timeSource": "aligner",
+          "score": 0.999
+        },
+        {
+          "id": "w000300",
+          "word": "wolf",
+          "startMs": 93510,
+          "endMs": 93731,
+          "timeSource": "aligner",
+          "score": 0.827
+        },
+        {
+          "id": "w000301",
+          "word": "arrived",
+          "startMs": 93791,
+          "endMs": 94233,
+          "timeSource": "aligner",
+          "score": 0.786
+        },
+        {
+          "id": "w000302",
+          "word": "at",
+          "startMs": 94314,
+          "endMs": 94374,
+          "timeSource": "aligner",
+          "score": 0.812
+        },
+        {
+          "id": "w000303",
+          "word": "the",
+          "startMs": 94414,
+          "endMs": 94495,
+          "timeSource": "aligner",
+          "score": 0.86
+        },
+        {
+          "id": "w000304",
+          "word": "old",
+          "startMs": 94656,
+          "endMs": 94776,
+          "timeSource": "aligner",
+          "score": 0.85
+        },
+        {
+          "id": "w000305",
+          "word": "woman's",
+          "startMs": 94837,
+          "endMs": 95118,
+          "timeSource": "aligner",
+          "score": 0.913
+        },
+        {
+          "id": "w000306",
+          "word": "house.",
+          "startMs": 95158,
+          "endMs": 95420,
+          "timeSource": "aligner",
+          "score": 0.963
+        }
+      ]
+    },
+    {
+      "id": "seg_57c8313f3a81b80a",
+      "index": 34,
+      "text": "He knocked at the door. Tap, tap. Who's there?",
+      "translation": "Ele bateu à porta. Toc, toc. Quem é?",
+      "startMs": 95986,
+      "endMs": 99260,
+      "playStartMs": 95906,
+      "playEndMs": 99420,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000308",
+            "w000309"
+          ],
+          "pt": {
+            "start": 4,
+            "end": 11,
+            "text": "bateu à"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000307",
+          "word": "He",
+          "startMs": 95986,
+          "endMs": 96088,
+          "timeSource": "aligner",
+          "score": 0.664
+        },
+        {
+          "id": "w000308",
+          "word": "knocked",
+          "startMs": 96149,
+          "endMs": 96393,
+          "timeSource": "aligner",
+          "score": 0.83
+        },
+        {
+          "id": "w000309",
+          "word": "at",
+          "startMs": 96413,
+          "endMs": 96474,
+          "timeSource": "aligner",
+          "score": 0.744
+        },
+        {
+          "id": "w000310",
+          "word": "the",
+          "startMs": 96494,
+          "endMs": 96576,
+          "timeSource": "aligner",
+          "score": 0.829
+        },
+        {
+          "id": "w000311",
+          "word": "door.",
+          "startMs": 96617,
+          "endMs": 96820,
+          "timeSource": "aligner",
+          "score": 0.925
+        },
+        {
+          "id": "w000312",
+          "word": "Tap,",
+          "startMs": 97283,
+          "endMs": 97609,
+          "timeSource": "aligner",
+          "score": 0.926
+        },
+        {
+          "id": "w000313",
+          "word": "tap.",
+          "startMs": 97957,
+          "endMs": 98120,
+          "timeSource": "aligner",
+          "score": 0.251
+        },
+        {
+          "id": "w000314",
+          "word": "Who's",
+          "startMs": 98727,
+          "endMs": 98993,
+          "timeSource": "aligner",
+          "score": 0.864
+        },
+        {
+          "id": "w000315",
+          "word": "there?",
+          "startMs": 99034,
+          "endMs": 99260,
+          "timeSource": "aligner",
+          "score": 0.838
+        }
+      ]
+    },
+    {
+      "id": "seg_6a6ce9970fb75b79",
+      "index": 35,
+      "text": "Your grandchild, Little Red Riding Hood, replied the wolf,",
+      "translation": "Sua netinha, Chapeuzinho Vermelho, respondeu o lobo,",
+      "startMs": 100082,
+      "endMs": 103315,
+      "playStartMs": 100002,
+      "playEndMs": 103475,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000316",
+          "word": "Your",
+          "startMs": 100082,
+          "endMs": 100222,
+          "timeSource": "aligner",
+          "score": 0.871
+        },
+        {
+          "id": "w000317",
+          "word": "grandchild,",
+          "startMs": 100262,
+          "endMs": 100985,
+          "timeSource": "aligner",
+          "score": 0.848
+        },
+        {
+          "id": "w000318",
+          "word": "Little",
+          "startMs": 101106,
+          "endMs": 101327,
+          "timeSource": "aligner",
+          "score": 0.833
+        },
+        {
+          "id": "w000319",
+          "word": "Red",
+          "startMs": 101367,
+          "endMs": 101528,
+          "timeSource": "aligner",
+          "score": 0.651
+        },
+        {
+          "id": "w000320",
+          "word": "Riding",
+          "startMs": 101568,
+          "endMs": 101809,
+          "timeSource": "aligner",
+          "score": 0.944
+        },
+        {
+          "id": "w000321",
+          "word": "Hood,",
+          "startMs": 101849,
+          "endMs": 102070,
+          "timeSource": "aligner",
+          "score": 0.935
+        },
+        {
+          "id": "w000322",
+          "word": "replied",
+          "startMs": 102572,
+          "endMs": 102893,
+          "timeSource": "aligner",
+          "score": 0.92
+        },
+        {
+          "id": "w000323",
+          "word": "the",
+          "startMs": 102933,
+          "endMs": 103014,
+          "timeSource": "aligner",
+          "score": 0.833
+        },
+        {
+          "id": "w000324",
+          "word": "wolf,",
+          "startMs": 103034,
+          "endMs": 103315,
+          "timeSource": "aligner",
+          "score": 0.853
+        }
+      ]
+    },
+    {
+      "id": "seg_6a38a087c9da98f7",
+      "index": 36,
+      "text": "counterfeiting her voice, who has brought you a cake",
+      "translation": "imitando a voz dela, que lhe trouxe um bolo",
+      "startMs": 103516,
+      "endMs": 106108,
+      "playStartMs": 103436,
+      "playEndMs": 106268,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000325"
+          ],
+          "pt": {
+            "start": 0,
+            "end": 8,
+            "text": "imitando"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000325",
+          "word": "counterfeiting",
+          "startMs": 103516,
+          "endMs": 104018,
+          "timeSource": "aligner",
+          "score": 0.848
+        },
+        {
+          "id": "w000326",
+          "word": "her",
+          "startMs": 104058,
+          "endMs": 104138,
+          "timeSource": "aligner",
+          "score": 0.867
+        },
+        {
+          "id": "w000327",
+          "word": "voice,",
+          "startMs": 104179,
+          "endMs": 104460,
+          "timeSource": "aligner",
+          "score": 0.891
+        },
+        {
+          "id": "w000328",
+          "word": "who",
+          "startMs": 105082,
+          "endMs": 105203,
+          "timeSource": "aligner",
+          "score": 0.767
+        },
+        {
+          "id": "w000329",
+          "word": "has",
+          "startMs": 105243,
+          "endMs": 105344,
+          "timeSource": "aligner",
+          "score": 0.792
+        },
+        {
+          "id": "w000330",
+          "word": "brought",
+          "startMs": 105384,
+          "endMs": 105585,
+          "timeSource": "aligner",
+          "score": 0.908
+        },
+        {
+          "id": "w000331",
+          "word": "you",
+          "startMs": 105605,
+          "endMs": 105706,
+          "timeSource": "aligner",
+          "score": 0.778
+        },
+        {
+          "id": "w000332",
+          "word": "a",
+          "startMs": 105746,
+          "endMs": 105766,
+          "timeSource": "aligner",
+          "score": 0.999
+        },
+        {
+          "id": "w000333",
+          "word": "cake",
+          "startMs": 105826,
+          "endMs": 106108,
+          "timeSource": "aligner",
+          "score": 0.913
+        }
+      ]
+    },
+    {
+      "id": "seg_8b443b32d0a9c5f9",
+      "index": 37,
+      "text": "and a little pot of butter sent you by mother.",
+      "translation": "e um potinho de manteiga que a mamãe mandou.",
+      "startMs": 106289,
+      "endMs": 108340,
+      "playStartMs": 106209,
+      "playEndMs": 108500,
+      "quality": "needs_review",
+      "reviewReasons": [
+        "word_time_asr"
+      ],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000334",
+          "word": "and",
+          "startMs": 106289,
+          "endMs": 106389,
+          "timeSource": "aligner",
+          "score": 0.673
+        },
+        {
+          "id": "w000335",
+          "word": "a",
+          "startMs": 106450,
+          "endMs": 106470,
+          "timeSource": "aligner",
+          "score": 0.998
+        },
+        {
+          "id": "w000336",
+          "word": "little",
+          "startMs": 106590,
+          "endMs": 106812,
+          "timeSource": "aligner",
+          "score": 0.872
+        },
+        {
+          "id": "w000337",
+          "word": "pot",
+          "startMs": 106852,
+          "endMs": 107053,
+          "timeSource": "aligner",
+          "score": 0.991
+        },
+        {
+          "id": "w000338",
+          "word": "of",
+          "startMs": 107093,
+          "endMs": 107153,
+          "timeSource": "aligner",
+          "score": 0.75
+        },
+        {
+          "id": "w000339",
+          "word": "butter",
+          "startMs": 107214,
+          "endMs": 107475,
+          "timeSource": "aligner",
+          "score": 0.848
+        },
+        {
+          "id": "w000340",
+          "word": "sent",
+          "startMs": 107536,
+          "endMs": 107757,
+          "timeSource": "aligner",
+          "score": 0.606
+        },
+        {
+          "id": "w000341",
+          "word": "you",
+          "startMs": 107797,
+          "endMs": 107918,
+          "timeSource": "aligner",
+          "score": 0.944
+        },
+        {
+          "id": "w000342",
+          "word": "by",
+          "startMs": 107958,
+          "endMs": 108079,
+          "timeSource": "aligner",
+          "score": 0.852
+        },
+        {
+          "id": "w000343",
+          "word": "mother.",
+          "startMs": 108079,
+          "endMs": 108340,
+          "timeSource": "asr",
+          "score": 0.184
+        }
+      ]
+    },
+    {
+      "id": "seg_883bff55d8b86dd7",
+      "index": 38,
+      "text": "The good grandmother, who was in bed because she was ill,",
+      "translation": "A boa avó, que estava de cama porque estava doente,",
+      "startMs": 109010,
+      "endMs": 111998,
+      "playStartMs": 108930,
+      "playEndMs": 112158,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000348",
+            "w000349",
+            "w000350"
+          ],
+          "pt": {
+            "start": 15,
+            "end": 29,
+            "text": "estava de cama"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000344",
+          "word": "The",
+          "startMs": 109010,
+          "endMs": 109111,
+          "timeSource": "aligner",
+          "score": 0.88
+        },
+        {
+          "id": "w000345",
+          "word": "good",
+          "startMs": 109131,
+          "endMs": 109311,
+          "timeSource": "aligner",
+          "score": 0.942
+        },
+        {
+          "id": "w000346",
+          "word": "grandmother,",
+          "startMs": 109371,
+          "endMs": 109913,
+          "timeSource": "aligner",
+          "score": 0.84
+        },
+        {
+          "id": "w000347",
+          "word": "who",
+          "startMs": 110153,
+          "endMs": 110254,
+          "timeSource": "aligner",
+          "score": 0.834
+        },
+        {
+          "id": "w000348",
+          "word": "was",
+          "startMs": 110274,
+          "endMs": 110394,
+          "timeSource": "aligner",
+          "score": 0.821
+        },
+        {
+          "id": "w000349",
+          "word": "in",
+          "startMs": 110434,
+          "endMs": 110514,
+          "timeSource": "aligner",
+          "score": 0.831
+        },
+        {
+          "id": "w000350",
+          "word": "bed",
+          "startMs": 110554,
+          "endMs": 110855,
+          "timeSource": "aligner",
+          "score": 0.83
+        },
+        {
+          "id": "w000351",
+          "word": "because",
+          "startMs": 111156,
+          "endMs": 111376,
+          "timeSource": "aligner",
+          "score": 0.786
+        },
+        {
+          "id": "w000352",
+          "word": "she",
+          "startMs": 111416,
+          "endMs": 111517,
+          "timeSource": "aligner",
+          "score": 0.69
+        },
+        {
+          "id": "w000353",
+          "word": "was",
+          "startMs": 111557,
+          "endMs": 111677,
+          "timeSource": "aligner",
+          "score": 0.64
+        },
+        {
+          "id": "w000354",
+          "word": "ill,",
+          "startMs": 111817,
+          "endMs": 111998,
+          "timeSource": "aligner",
+          "score": 0.846
+        }
+      ]
+    },
+    {
+      "id": "seg_76db05e3feb411c7",
+      "index": 39,
+      "text": "cried out, Pull the bobbin, and the latch will go up.",
+      "translation": "gritou: Puxe a cordinha, e o trinco vai subir.",
+      "startMs": 112359,
+      "endMs": 115800,
+      "playStartMs": 112279,
+      "playEndMs": 115960,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000355",
+            "w000356"
+          ],
+          "pt": {
+            "start": 0,
+            "end": 6,
+            "text": "gritou"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000355",
+          "word": "cried",
+          "startMs": 112359,
+          "endMs": 112659,
+          "timeSource": "aligner",
+          "score": 0.721
+        },
+        {
+          "id": "w000356",
+          "word": "out,",
+          "startMs": 112780,
+          "endMs": 112880,
+          "timeSource": "aligner",
+          "score": 0.947
+        },
+        {
+          "id": "w000357",
+          "word": "Pull",
+          "startMs": 113483,
+          "endMs": 113704,
+          "timeSource": "aligner",
+          "score": 0.928
+        },
+        {
+          "id": "w000358",
+          "word": "the",
+          "startMs": 113724,
+          "endMs": 113805,
+          "timeSource": "aligner",
+          "score": 0.968
+        },
+        {
+          "id": "w000359",
+          "word": "bobbin,",
+          "startMs": 113825,
+          "endMs": 114228,
+          "timeSource": "aligner",
+          "score": 0.924
+        },
+        {
+          "id": "w000360",
+          "word": "and",
+          "startMs": 114691,
+          "endMs": 114792,
+          "timeSource": "aligner",
+          "score": 0.725
+        },
+        {
+          "id": "w000361",
+          "word": "the",
+          "startMs": 114833,
+          "endMs": 114913,
+          "timeSource": "aligner",
+          "score": 0.833
+        },
+        {
+          "id": "w000362",
+          "word": "latch",
+          "startMs": 114953,
+          "endMs": 115256,
+          "timeSource": "aligner",
+          "score": 0.93
+        },
+        {
+          "id": "w000363",
+          "word": "will",
+          "startMs": 115276,
+          "endMs": 115437,
+          "timeSource": "aligner",
+          "score": 0.75
+        },
+        {
+          "id": "w000364",
+          "word": "go",
+          "startMs": 115457,
+          "endMs": 115618,
+          "timeSource": "aligner",
+          "score": 0.869
+        },
+        {
+          "id": "w000365",
+          "word": "up.",
+          "startMs": 115719,
+          "endMs": 115800,
+          "timeSource": "aligner",
+          "score": 0.875
+        }
+      ]
+    },
+    {
+      "id": "seg_89b46f7dd22ac3b5",
+      "index": 40,
+      "text": "The wolf pulled the bobbin, and the door opened,",
+      "translation": "O lobo puxou a cordinha, e a porta se abriu,",
+      "startMs": 116483,
+      "endMs": 118820,
+      "playStartMs": 116403,
+      "playEndMs": 118980,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000366",
+          "word": "The",
+          "startMs": 116483,
+          "endMs": 116583,
+          "timeSource": "aligner",
+          "score": 0.809
+        },
+        {
+          "id": "w000367",
+          "word": "wolf",
+          "startMs": 116624,
+          "endMs": 116886,
+          "timeSource": "aligner",
+          "score": 0.81
+        },
+        {
+          "id": "w000368",
+          "word": "pulled",
+          "startMs": 116966,
+          "endMs": 117188,
+          "timeSource": "aligner",
+          "score": 0.852
+        },
+        {
+          "id": "w000369",
+          "word": "the",
+          "startMs": 117228,
+          "endMs": 117289,
+          "timeSource": "aligner",
+          "score": 1.0
+        },
+        {
+          "id": "w000370",
+          "word": "bobbin,",
+          "startMs": 117309,
+          "endMs": 117692,
+          "timeSource": "aligner",
+          "score": 0.907
+        },
+        {
+          "id": "w000371",
+          "word": "and",
+          "startMs": 118034,
+          "endMs": 118135,
+          "timeSource": "aligner",
+          "score": 0.806
+        },
+        {
+          "id": "w000372",
+          "word": "the",
+          "startMs": 118155,
+          "endMs": 118236,
+          "timeSource": "aligner",
+          "score": 0.833
+        },
+        {
+          "id": "w000373",
+          "word": "door",
+          "startMs": 118276,
+          "endMs": 118498,
+          "timeSource": "aligner",
+          "score": 0.828
+        },
+        {
+          "id": "w000374",
+          "word": "opened,",
+          "startMs": 118598,
+          "endMs": 118820,
+          "timeSource": "aligner",
+          "score": 0.707
+        }
+      ]
+    },
+    {
+      "id": "seg_12c110e632f2e4ef",
+      "index": 41,
+      "text": "and then he immediately fell upon the good woman",
+      "translation": "e então ele logo se atirou sobre a boa senhora",
+      "startMs": 119322,
+      "endMs": 121553,
+      "playStartMs": 119242,
+      "playEndMs": 121713,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000379",
+            "w000380"
+          ],
+          "pt": {
+            "start": 17,
+            "end": 32,
+            "text": "se atirou sobre"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000375",
+          "word": "and",
+          "startMs": 119322,
+          "endMs": 119423,
+          "timeSource": "aligner",
+          "score": 0.825
+        },
+        {
+          "id": "w000376",
+          "word": "then",
+          "startMs": 119463,
+          "endMs": 119644,
+          "timeSource": "aligner",
+          "score": 0.856
+        },
+        {
+          "id": "w000377",
+          "word": "he",
+          "startMs": 119724,
+          "endMs": 119825,
+          "timeSource": "aligner",
+          "score": 0.751
+        },
+        {
+          "id": "w000378",
+          "word": "immediately",
+          "startMs": 119885,
+          "endMs": 120387,
+          "timeSource": "aligner",
+          "score": 0.773
+        },
+        {
+          "id": "w000379",
+          "word": "fell",
+          "startMs": 120468,
+          "endMs": 120689,
+          "timeSource": "aligner",
+          "score": 0.873
+        },
+        {
+          "id": "w000380",
+          "word": "upon",
+          "startMs": 120749,
+          "endMs": 120950,
+          "timeSource": "aligner",
+          "score": 0.847
+        },
+        {
+          "id": "w000381",
+          "word": "the",
+          "startMs": 120970,
+          "endMs": 121050,
+          "timeSource": "aligner",
+          "score": 0.833
+        },
+        {
+          "id": "w000382",
+          "word": "good",
+          "startMs": 121070,
+          "endMs": 121211,
+          "timeSource": "aligner",
+          "score": 0.998
+        },
+        {
+          "id": "w000383",
+          "word": "woman",
+          "startMs": 121251,
+          "endMs": 121553,
+          "timeSource": "aligner",
+          "score": 0.801
+        }
+      ]
+    },
+    {
+      "id": "seg_09e79636820f28f4",
+      "index": 42,
+      "text": "and ate her up in a moment,",
+      "translation": "e a devorou num instante,",
+      "startMs": 121955,
+      "endMs": 123080,
+      "playStartMs": 121875,
+      "playEndMs": 123240,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000388",
+            "w000389",
+            "w000390"
+          ],
+          "pt": {
+            "start": 12,
+            "end": 24,
+            "text": "num instante"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000384",
+          "word": "and",
+          "startMs": 121955,
+          "endMs": 122075,
+          "timeSource": "aligner",
+          "score": 0.417
+        },
+        {
+          "id": "w000385",
+          "word": "ate",
+          "startMs": 122216,
+          "endMs": 122357,
+          "timeSource": "aligner",
+          "score": 0.908
+        },
+        {
+          "id": "w000386",
+          "word": "her",
+          "startMs": 122397,
+          "endMs": 122497,
+          "timeSource": "aligner",
+          "score": 0.676
+        },
+        {
+          "id": "w000387",
+          "word": "up",
+          "startMs": 122578,
+          "endMs": 122638,
+          "timeSource": "aligner",
+          "score": 0.982
+        },
+        {
+          "id": "w000388",
+          "word": "in",
+          "startMs": 122678,
+          "endMs": 122738,
+          "timeSource": "aligner",
+          "score": 0.742
+        },
+        {
+          "id": "w000389",
+          "word": "a",
+          "startMs": 122758,
+          "endMs": 122779,
+          "timeSource": "aligner",
+          "score": 0.987
+        },
+        {
+          "id": "w000390",
+          "word": "moment,",
+          "startMs": 122819,
+          "endMs": 123080,
+          "timeSource": "aligner",
+          "score": 0.851
+        }
+      ]
+    },
+    {
+      "id": "seg_0f5a70eb39bc895d",
+      "index": 43,
+      "text": "for it had been more than three days since he had eaten.",
+      "translation": "pois fazia mais de três dias que ele não comia.",
+      "startMs": 123562,
+      "endMs": 125760,
+      "playStartMs": 123482,
+      "playEndMs": 125920,
+      "quality": "needs_review",
+      "reviewReasons": [
+        "word_time_asr"
+      ],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000391",
+          "word": "for",
+          "startMs": 123562,
+          "endMs": 123643,
+          "timeSource": "aligner",
+          "score": 0.998
+        },
+        {
+          "id": "w000392",
+          "word": "it",
+          "startMs": 123680,
+          "endMs": 123760,
+          "timeSource": "asr",
+          "score": 0.0
+        },
+        {
+          "id": "w000393",
+          "word": "had",
+          "startMs": 123760,
+          "endMs": 123880,
+          "timeSource": "asr",
+          "score": 0.001
+        },
+        {
+          "id": "w000394",
+          "word": "been",
+          "startMs": 123880,
+          "endMs": 123945,
+          "timeSource": "aligner",
+          "score": 0.857
+        },
+        {
+          "id": "w000395",
+          "word": "more",
+          "startMs": 123986,
+          "endMs": 124167,
+          "timeSource": "aligner",
+          "score": 0.86
+        },
+        {
+          "id": "w000396",
+          "word": "than",
+          "startMs": 124207,
+          "endMs": 124349,
+          "timeSource": "aligner",
+          "score": 0.912
+        },
+        {
+          "id": "w000397",
+          "word": "three",
+          "startMs": 124409,
+          "endMs": 124651,
+          "timeSource": "aligner",
+          "score": 0.782
+        },
+        {
+          "id": "w000398",
+          "word": "days",
+          "startMs": 124691,
+          "endMs": 124994,
+          "timeSource": "aligner",
+          "score": 0.882
+        },
+        {
+          "id": "w000399",
+          "word": "since",
+          "startMs": 125095,
+          "endMs": 125276,
+          "timeSource": "aligner",
+          "score": 0.868
+        },
+        {
+          "id": "w000400",
+          "word": "he",
+          "startMs": 125316,
+          "endMs": 125377,
+          "timeSource": "aligner",
+          "score": 0.954
+        },
+        {
+          "id": "w000401",
+          "word": "had",
+          "startMs": 125417,
+          "endMs": 125518,
+          "timeSource": "aligner",
+          "score": 0.886
+        },
+        {
+          "id": "w000402",
+          "word": "eaten.",
+          "startMs": 125619,
+          "endMs": 125760,
+          "timeSource": "aligner",
+          "score": 0.864
+        }
+      ]
+    },
+    {
+      "id": "seg_bf86ec94bdae599e",
+      "index": 44,
+      "text": "He then shut the door and got into the grandmother's bed,",
+      "translation": "Depois ele fechou a porta e se deitou na cama da avó,",
+      "startMs": 126382,
+      "endMs": 129120,
+      "playStartMs": 126302,
+      "playEndMs": 129280,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000409",
+            "w000410"
+          ],
+          "pt": {
+            "start": 28,
+            "end": 40,
+            "text": "se deitou na"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000403",
+          "word": "He",
+          "startMs": 126382,
+          "endMs": 126483,
+          "timeSource": "aligner",
+          "score": 0.794
+        },
+        {
+          "id": "w000404",
+          "word": "then",
+          "startMs": 126523,
+          "endMs": 126684,
+          "timeSource": "aligner",
+          "score": 0.873
+        },
+        {
+          "id": "w000405",
+          "word": "shut",
+          "startMs": 126785,
+          "endMs": 126986,
+          "timeSource": "aligner",
+          "score": 0.849
+        },
+        {
+          "id": "w000406",
+          "word": "the",
+          "startMs": 127027,
+          "endMs": 127107,
+          "timeSource": "aligner",
+          "score": 0.833
+        },
+        {
+          "id": "w000407",
+          "word": "door",
+          "startMs": 127147,
+          "endMs": 127429,
+          "timeSource": "aligner",
+          "score": 0.644
+        },
+        {
+          "id": "w000408",
+          "word": "and",
+          "startMs": 127731,
+          "endMs": 127832,
+          "timeSource": "aligner",
+          "score": 0.722
+        },
+        {
+          "id": "w000409",
+          "word": "got",
+          "startMs": 127892,
+          "endMs": 128053,
+          "timeSource": "aligner",
+          "score": 0.877
+        },
+        {
+          "id": "w000410",
+          "word": "into",
+          "startMs": 128093,
+          "endMs": 128234,
+          "timeSource": "aligner",
+          "score": 0.873
+        },
+        {
+          "id": "w000411",
+          "word": "the",
+          "startMs": 128254,
+          "endMs": 128335,
+          "timeSource": "aligner",
+          "score": 0.833
+        },
+        {
+          "id": "w000412",
+          "word": "grandmother's",
+          "startMs": 128355,
+          "endMs": 128838,
+          "timeSource": "aligner",
+          "score": 0.831
+        },
+        {
+          "id": "w000413",
+          "word": "bed,",
+          "startMs": 128878,
+          "endMs": 129120,
+          "timeSource": "aligner",
+          "score": 0.885
+        }
+      ]
+    },
+    {
+      "id": "seg_d3fcad96c96bf4bf",
+      "index": 45,
+      "text": "expecting Little Red Riding Hood,",
+      "translation": "esperando Chapeuzinho Vermelho,",
+      "startMs": 129661,
+      "endMs": 131268,
+      "playStartMs": 129581,
+      "playEndMs": 131428,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000414",
+          "word": "expecting",
+          "startMs": 129661,
+          "endMs": 130183,
+          "timeSource": "aligner",
+          "score": 0.929
+        },
+        {
+          "id": "w000415",
+          "word": "Little",
+          "startMs": 130243,
+          "endMs": 130484,
+          "timeSource": "aligner",
+          "score": 0.784
+        },
+        {
+          "id": "w000416",
+          "word": "Red",
+          "startMs": 130565,
+          "endMs": 130705,
+          "timeSource": "aligner",
+          "score": 0.886
+        },
+        {
+          "id": "w000417",
+          "word": "Riding",
+          "startMs": 130745,
+          "endMs": 131006,
+          "timeSource": "aligner",
+          "score": 0.922
+        },
+        {
+          "id": "w000418",
+          "word": "Hood,",
+          "startMs": 131047,
+          "endMs": 131268,
+          "timeSource": "aligner",
+          "score": 0.889
+        }
+      ]
+    },
+    {
+      "id": "seg_cf77e66f9e45f26b",
+      "index": 46,
+      "text": "who came some time afterwards and knocked at the door. Tap, tap. Who's there?",
+      "translation": "que chegou algum tempo depois e bateu à porta. Toc, toc. Quem é?",
+      "startMs": 131750,
+      "endMs": 136640,
+      "playStartMs": 131670,
+      "playEndMs": 136800,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000421",
+            "w000422",
+            "w000423"
+          ],
+          "pt": {
+            "start": 11,
+            "end": 29,
+            "text": "algum tempo depois"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000419",
+          "word": "who",
+          "startMs": 131750,
+          "endMs": 131850,
+          "timeSource": "aligner",
+          "score": 1.0
+        },
+        {
+          "id": "w000420",
+          "word": "came",
+          "startMs": 131890,
+          "endMs": 132091,
+          "timeSource": "aligner",
+          "score": 0.875
+        },
+        {
+          "id": "w000421",
+          "word": "some",
+          "startMs": 132131,
+          "endMs": 132292,
+          "timeSource": "aligner",
+          "score": 0.948
+        },
+        {
+          "id": "w000422",
+          "word": "time",
+          "startMs": 132332,
+          "endMs": 132573,
+          "timeSource": "aligner",
+          "score": 0.883
+        },
+        {
+          "id": "w000423",
+          "word": "afterwards",
+          "startMs": 132654,
+          "endMs": 133136,
+          "timeSource": "aligner",
+          "score": 0.732
+        },
+        {
+          "id": "w000424",
+          "word": "and",
+          "startMs": 133236,
+          "endMs": 133337,
+          "timeSource": "aligner",
+          "score": 0.675
+        },
+        {
+          "id": "w000425",
+          "word": "knocked",
+          "startMs": 133397,
+          "endMs": 133658,
+          "timeSource": "aligner",
+          "score": 0.824
+        },
+        {
+          "id": "w000426",
+          "word": "at",
+          "startMs": 133678,
+          "endMs": 133738,
+          "timeSource": "aligner",
+          "score": 0.748
+        },
+        {
+          "id": "w000427",
+          "word": "the",
+          "startMs": 133759,
+          "endMs": 133839,
+          "timeSource": "aligner",
+          "score": 0.841
+        },
+        {
+          "id": "w000428",
+          "word": "door.",
+          "startMs": 133859,
+          "endMs": 134040,
+          "timeSource": "aligner",
+          "score": 0.898
+        },
+        {
+          "id": "w000429",
+          "word": "Tap,",
+          "startMs": 134621,
+          "endMs": 134944,
+          "timeSource": "aligner",
+          "score": 0.969
+        },
+        {
+          "id": "w000430",
+          "word": "tap.",
+          "startMs": 135267,
+          "endMs": 135590,
+          "timeSource": "aligner",
+          "score": 0.801
+        },
+        {
+          "id": "w000431",
+          "word": "Who's",
+          "startMs": 136115,
+          "endMs": 136378,
+          "timeSource": "aligner",
+          "score": 0.851
+        },
+        {
+          "id": "w000432",
+          "word": "there?",
+          "startMs": 136418,
+          "endMs": 136640,
+          "timeSource": "aligner",
+          "score": 0.855
+        }
+      ]
+    },
+    {
+      "id": "seg_d1df8b465f07098f",
+      "index": 47,
+      "text": "Little Red Riding Hood,",
+      "translation": "Chapeuzinho Vermelho,",
+      "startMs": 137521,
+      "endMs": 138645,
+      "playStartMs": 137441,
+      "playEndMs": 138805,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000433",
+          "word": "Little",
+          "startMs": 137521,
+          "endMs": 137762,
+          "timeSource": "aligner",
+          "score": 0.839
+        },
+        {
+          "id": "w000434",
+          "word": "Red",
+          "startMs": 137842,
+          "endMs": 138023,
+          "timeSource": "aligner",
+          "score": 0.701
+        },
+        {
+          "id": "w000435",
+          "word": "Riding",
+          "startMs": 138083,
+          "endMs": 138364,
+          "timeSource": "aligner",
+          "score": 0.809
+        },
+        {
+          "id": "w000436",
+          "word": "Hood,",
+          "startMs": 138404,
+          "endMs": 138645,
+          "timeSource": "aligner",
+          "score": 0.822
+        }
+      ]
+    },
+    {
+      "id": "seg_8b66562d9bb05baa",
+      "index": 48,
+      "text": "hearing the big voice of the wolf, was at first afraid,",
+      "translation": "ao ouvir a voz grossa do lobo, a princípio ficou com medo,",
+      "startMs": 139106,
+      "endMs": 142096,
+      "playStartMs": 139026,
+      "playEndMs": 142256,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000445",
+            "w000446"
+          ],
+          "pt": {
+            "start": 31,
+            "end": 42,
+            "text": "a princípio"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000437",
+          "word": "hearing",
+          "startMs": 139106,
+          "endMs": 139387,
+          "timeSource": "aligner",
+          "score": 0.784
+        },
+        {
+          "id": "w000438",
+          "word": "the",
+          "startMs": 139427,
+          "endMs": 139508,
+          "timeSource": "aligner",
+          "score": 0.858
+        },
+        {
+          "id": "w000439",
+          "word": "big",
+          "startMs": 139548,
+          "endMs": 139769,
+          "timeSource": "aligner",
+          "score": 0.745
+        },
+        {
+          "id": "w000440",
+          "word": "voice",
+          "startMs": 139809,
+          "endMs": 140050,
+          "timeSource": "aligner",
+          "score": 0.712
+        },
+        {
+          "id": "w000441",
+          "word": "of",
+          "startMs": 140090,
+          "endMs": 140130,
+          "timeSource": "aligner",
+          "score": 1.0
+        },
+        {
+          "id": "w000442",
+          "word": "the",
+          "startMs": 140150,
+          "endMs": 140250,
+          "timeSource": "aligner",
+          "score": 0.674
+        },
+        {
+          "id": "w000443",
+          "word": "wolf,",
+          "startMs": 140270,
+          "endMs": 140571,
+          "timeSource": "aligner",
+          "score": 0.808
+        },
+        {
+          "id": "w000444",
+          "word": "was",
+          "startMs": 141013,
+          "endMs": 141133,
+          "timeSource": "aligner",
+          "score": 0.981
+        },
+        {
+          "id": "w000445",
+          "word": "at",
+          "startMs": 141193,
+          "endMs": 141274,
+          "timeSource": "aligner",
+          "score": 0.67
+        },
+        {
+          "id": "w000446",
+          "word": "first",
+          "startMs": 141354,
+          "endMs": 141615,
+          "timeSource": "aligner",
+          "score": 0.738
+        },
+        {
+          "id": "w000447",
+          "word": "afraid,",
+          "startMs": 141675,
+          "endMs": 142096,
+          "timeSource": "aligner",
+          "score": 0.97
+        }
+      ]
+    },
+    {
+      "id": "seg_8d652084ebc0503a",
+      "index": 49,
+      "text": "but believing her grandmother had a cold and was hoarse,",
+      "translation": "mas, achando que a avó estava resfriada e rouca,",
+      "startMs": 142558,
+      "endMs": 145167,
+      "playStartMs": 142478,
+      "playEndMs": 145327,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000452",
+            "w000453",
+            "w000454"
+          ],
+          "pt": {
+            "start": 23,
+            "end": 39,
+            "text": "estava resfriada"
+          }
+        },
+        {
+          "wordIds": [
+            "w000457"
+          ],
+          "pt": {
+            "start": 42,
+            "end": 47,
+            "text": "rouca"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000448",
+          "word": "but",
+          "startMs": 142558,
+          "endMs": 142678,
+          "timeSource": "aligner",
+          "score": 0.88
+        },
+        {
+          "id": "w000449",
+          "word": "believing",
+          "startMs": 142718,
+          "endMs": 143100,
+          "timeSource": "aligner",
+          "score": 0.896
+        },
+        {
+          "id": "w000450",
+          "word": "her",
+          "startMs": 143140,
+          "endMs": 143200,
+          "timeSource": "aligner",
+          "score": 0.693
+        },
+        {
+          "id": "w000451",
+          "word": "grandmother",
+          "startMs": 143240,
+          "endMs": 143682,
+          "timeSource": "aligner",
+          "score": 0.889
+        },
+        {
+          "id": "w000452",
+          "word": "had",
+          "startMs": 143722,
+          "endMs": 143822,
+          "timeSource": "aligner",
+          "score": 0.883
+        },
+        {
+          "id": "w000453",
+          "word": "a",
+          "startMs": 143862,
+          "endMs": 143882,
+          "timeSource": "aligner",
+          "score": 0.999
+        },
+        {
+          "id": "w000454",
+          "word": "cold",
+          "startMs": 143983,
+          "endMs": 144344,
+          "timeSource": "aligner",
+          "score": 0.852
+        },
+        {
+          "id": "w000455",
+          "word": "and",
+          "startMs": 144565,
+          "endMs": 144665,
+          "timeSource": "aligner",
+          "score": 0.763
+        },
+        {
+          "id": "w000456",
+          "word": "was",
+          "startMs": 144685,
+          "endMs": 144786,
+          "timeSource": "aligner",
+          "score": 0.839
+        },
+        {
+          "id": "w000457",
+          "word": "hoarse,",
+          "startMs": 144846,
+          "endMs": 145167,
+          "timeSource": "aligner",
+          "score": 0.786
+        }
+      ]
+    },
+    {
+      "id": "seg_95bcd5f7366f7a63",
+      "index": 50,
+      "text": "answered, It is your grandchild Little Red Riding Hood,",
+      "translation": "respondeu: É a sua netinha, Chapeuzinho Vermelho,",
+      "startMs": 145669,
+      "endMs": 148700,
+      "playStartMs": 145589,
+      "playEndMs": 148860,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000458",
+          "word": "answered,",
+          "startMs": 145669,
+          "endMs": 146050,
+          "timeSource": "aligner",
+          "score": 0.822
+        },
+        {
+          "id": "w000459",
+          "word": "It",
+          "startMs": 146572,
+          "endMs": 146632,
+          "timeSource": "aligner",
+          "score": 0.777
+        },
+        {
+          "id": "w000460",
+          "word": "is",
+          "startMs": 146673,
+          "endMs": 146733,
+          "timeSource": "aligner",
+          "score": 0.803
+        },
+        {
+          "id": "w000461",
+          "word": "your",
+          "startMs": 146773,
+          "endMs": 146914,
+          "timeSource": "aligner",
+          "score": 0.9
+        },
+        {
+          "id": "w000462",
+          "word": "grandchild",
+          "startMs": 146974,
+          "endMs": 147676,
+          "timeSource": "aligner",
+          "score": 0.878
+        },
+        {
+          "id": "w000463",
+          "word": "Little",
+          "startMs": 147716,
+          "endMs": 147957,
+          "timeSource": "aligner",
+          "score": 0.718
+        },
+        {
+          "id": "w000464",
+          "word": "Red",
+          "startMs": 148018,
+          "endMs": 148178,
+          "timeSource": "aligner",
+          "score": 0.921
+        },
+        {
+          "id": "w000465",
+          "word": "Riding",
+          "startMs": 148238,
+          "endMs": 148519,
+          "timeSource": "aligner",
+          "score": 0.96
+        },
+        {
+          "id": "w000466",
+          "word": "Hood,",
+          "startMs": 148539,
+          "endMs": 148700,
+          "timeSource": "aligner",
+          "score": 0.693
+        }
+      ]
+    },
+    {
+      "id": "seg_1766dbf99af43951",
+      "index": 51,
+      "text": "who has brought you a cake",
+      "translation": "que lhe trouxe um bolo",
+      "startMs": 149221,
+      "endMs": 150185,
+      "playStartMs": 149141,
+      "playEndMs": 150306,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000467",
+          "word": "who",
+          "startMs": 149221,
+          "endMs": 149302,
+          "timeSource": "aligner",
+          "score": 0.977
+        },
+        {
+          "id": "w000468",
+          "word": "has",
+          "startMs": 149342,
+          "endMs": 149442,
+          "timeSource": "aligner",
+          "score": 0.801
+        },
+        {
+          "id": "w000469",
+          "word": "brought",
+          "startMs": 149462,
+          "endMs": 149643,
+          "timeSource": "aligner",
+          "score": 0.912
+        },
+        {
+          "id": "w000470",
+          "word": "you",
+          "startMs": 149683,
+          "endMs": 149784,
+          "timeSource": "aligner",
+          "score": 0.887
+        },
+        {
+          "id": "w000471",
+          "word": "a",
+          "startMs": 149804,
+          "endMs": 149844,
+          "timeSource": "aligner",
+          "score": 0.499
+        },
+        {
+          "id": "w000472",
+          "word": "cake",
+          "startMs": 149904,
+          "endMs": 150185,
+          "timeSource": "aligner",
+          "score": 0.759
+        }
+      ]
+    },
+    {
+      "id": "seg_8edfc78e44761623",
+      "index": 52,
+      "text": "and a little pot of butter mother sends you.",
+      "translation": "e um potinho de manteiga que a mamãe lhe manda.",
+      "startMs": 150326,
+      "endMs": 152534,
+      "playStartMs": 150246,
+      "playEndMs": 152694,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000473",
+          "word": "and",
+          "startMs": 150326,
+          "endMs": 150446,
+          "timeSource": "aligner",
+          "score": 0.773
+        },
+        {
+          "id": "w000474",
+          "word": "a",
+          "startMs": 150486,
+          "endMs": 150506,
+          "timeSource": "aligner",
+          "score": 0.984
+        },
+        {
+          "id": "w000475",
+          "word": "little",
+          "startMs": 150627,
+          "endMs": 150848,
+          "timeSource": "aligner",
+          "score": 0.832
+        },
+        {
+          "id": "w000476",
+          "word": "pot",
+          "startMs": 150908,
+          "endMs": 151229,
+          "timeSource": "aligner",
+          "score": 0.849
+        },
+        {
+          "id": "w000477",
+          "word": "of",
+          "startMs": 151249,
+          "endMs": 151329,
+          "timeSource": "aligner",
+          "score": 0.68
+        },
+        {
+          "id": "w000478",
+          "word": "butter",
+          "startMs": 151390,
+          "endMs": 151651,
+          "timeSource": "aligner",
+          "score": 0.935
+        },
+        {
+          "id": "w000479",
+          "word": "mother",
+          "startMs": 151671,
+          "endMs": 151952,
+          "timeSource": "aligner",
+          "score": 0.8
+        },
+        {
+          "id": "w000480",
+          "word": "sends",
+          "startMs": 152072,
+          "endMs": 152333,
+          "timeSource": "aligner",
+          "score": 0.895
+        },
+        {
+          "id": "w000481",
+          "word": "you.",
+          "startMs": 152393,
+          "endMs": 152534,
+          "timeSource": "aligner",
+          "score": 0.935
+        }
+      ]
+    },
+    {
+      "id": "seg_986970f3f6e5c030",
+      "index": 53,
+      "text": "The wolf cried out to her,",
+      "translation": "O lobo gritou para ela,",
+      "startMs": 153136,
+      "endMs": 154361,
+      "playStartMs": 153056,
+      "playEndMs": 154521,
+      "quality": "needs_review",
+      "reviewReasons": [
+        "word_time_asr"
+      ],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000482",
+          "word": "The",
+          "startMs": 153136,
+          "endMs": 153237,
+          "timeSource": "aligner",
+          "score": 0.807
+        },
+        {
+          "id": "w000483",
+          "word": "wolf",
+          "startMs": 153277,
+          "endMs": 153558,
+          "timeSource": "aligner",
+          "score": 0.73
+        },
+        {
+          "id": "w000484",
+          "word": "cried",
+          "startMs": 153658,
+          "endMs": 153879,
+          "timeSource": "aligner",
+          "score": 0.958
+        },
+        {
+          "id": "w000485",
+          "word": "out",
+          "startMs": 153939,
+          "endMs": 154040,
+          "timeSource": "aligner",
+          "score": 0.976
+        },
+        {
+          "id": "w000486",
+          "word": "to",
+          "startMs": 154040,
+          "endMs": 154120,
+          "timeSource": "asr",
+          "score": 0.05
+        },
+        {
+          "id": "w000487",
+          "word": "her,",
+          "startMs": 154180,
+          "endMs": 154361,
+          "timeSource": "aligner",
+          "score": 0.903
+        }
+      ]
+    },
+    {
+      "id": "seg_9a046a5de858159b",
+      "index": 54,
+      "text": "softening his voice as much as he could,",
+      "translation": "suavizando a voz o quanto podia:",
+      "startMs": 154863,
+      "endMs": 156910,
+      "playStartMs": 154783,
+      "playEndMs": 157070,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000491",
+            "w000492",
+            "w000493",
+            "w000494",
+            "w000495"
+          ],
+          "pt": {
+            "start": 17,
+            "end": 31,
+            "text": "o quanto podia"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000488",
+          "word": "softening",
+          "startMs": 154863,
+          "endMs": 155304,
+          "timeSource": "aligner",
+          "score": 0.901
+        },
+        {
+          "id": "w000489",
+          "word": "his",
+          "startMs": 155345,
+          "endMs": 155445,
+          "timeSource": "aligner",
+          "score": 0.733
+        },
+        {
+          "id": "w000490",
+          "word": "voice",
+          "startMs": 155505,
+          "endMs": 155806,
+          "timeSource": "aligner",
+          "score": 0.729
+        },
+        {
+          "id": "w000491",
+          "word": "as",
+          "startMs": 155987,
+          "endMs": 156067,
+          "timeSource": "aligner",
+          "score": 0.832
+        },
+        {
+          "id": "w000492",
+          "word": "much",
+          "startMs": 156127,
+          "endMs": 156308,
+          "timeSource": "aligner",
+          "score": 0.694
+        },
+        {
+          "id": "w000493",
+          "word": "as",
+          "startMs": 156348,
+          "endMs": 156408,
+          "timeSource": "aligner",
+          "score": 0.895
+        },
+        {
+          "id": "w000494",
+          "word": "he",
+          "startMs": 156469,
+          "endMs": 156549,
+          "timeSource": "aligner",
+          "score": 0.771
+        },
+        {
+          "id": "w000495",
+          "word": "could,",
+          "startMs": 156589,
+          "endMs": 156910,
+          "timeSource": "aligner",
+          "score": 0.723
+        }
+      ]
+    },
+    {
+      "id": "seg_5fd6a916652700d6",
+      "index": 55,
+      "text": "Pull the bobbin, and the latch will go up.",
+      "translation": "Puxe a cordinha, e o trinco vai subir.",
+      "startMs": 157432,
+      "endMs": 159500,
+      "playStartMs": 157352,
+      "playEndMs": 159660,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000496",
+          "word": "Pull",
+          "startMs": 157432,
+          "endMs": 157613,
+          "timeSource": "aligner",
+          "score": 0.824
+        },
+        {
+          "id": "w000497",
+          "word": "the",
+          "startMs": 157653,
+          "endMs": 157713,
+          "timeSource": "aligner",
+          "score": 0.999
+        },
+        {
+          "id": "w000498",
+          "word": "bobbin,",
+          "startMs": 157733,
+          "endMs": 158135,
+          "timeSource": "aligner",
+          "score": 0.919
+        },
+        {
+          "id": "w000499",
+          "word": "and",
+          "startMs": 158396,
+          "endMs": 158476,
+          "timeSource": "aligner",
+          "score": 0.87
+        },
+        {
+          "id": "w000500",
+          "word": "the",
+          "startMs": 158516,
+          "endMs": 158617,
+          "timeSource": "aligner",
+          "score": 0.693
+        },
+        {
+          "id": "w000501",
+          "word": "latch",
+          "startMs": 158677,
+          "endMs": 158958,
+          "timeSource": "aligner",
+          "score": 0.999
+        },
+        {
+          "id": "w000502",
+          "word": "will",
+          "startMs": 158998,
+          "endMs": 159159,
+          "timeSource": "aligner",
+          "score": 0.792
+        },
+        {
+          "id": "w000503",
+          "word": "go",
+          "startMs": 159179,
+          "endMs": 159319,
+          "timeSource": "aligner",
+          "score": 0.842
+        },
+        {
+          "id": "w000504",
+          "word": "up.",
+          "startMs": 159440,
+          "endMs": 159500,
+          "timeSource": "aligner",
+          "score": 0.874
+        }
+      ]
+    },
+    {
+      "id": "seg_e1e083c2daca5f4a",
+      "index": 56,
+      "text": "Little Red Riding Hood pulled the bobbin, and the door opened.",
+      "translation": "Chapeuzinho Vermelho puxou a cordinha, e a porta se abriu.",
+      "startMs": 160081,
+      "endMs": 163074,
+      "playStartMs": 160001,
+      "playEndMs": 163234,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000505",
+          "word": "Little",
+          "startMs": 160081,
+          "endMs": 160322,
+          "timeSource": "aligner",
+          "score": 0.83
+        },
+        {
+          "id": "w000506",
+          "word": "Red",
+          "startMs": 160403,
+          "endMs": 160563,
+          "timeSource": "aligner",
+          "score": 0.971
+        },
+        {
+          "id": "w000507",
+          "word": "Riding",
+          "startMs": 160624,
+          "endMs": 160905,
+          "timeSource": "aligner",
+          "score": 0.951
+        },
+        {
+          "id": "w000508",
+          "word": "Hood",
+          "startMs": 160945,
+          "endMs": 161106,
+          "timeSource": "aligner",
+          "score": 0.853
+        },
+        {
+          "id": "w000509",
+          "word": "pulled",
+          "startMs": 161146,
+          "endMs": 161367,
+          "timeSource": "aligner",
+          "score": 0.875
+        },
+        {
+          "id": "w000510",
+          "word": "the",
+          "startMs": 161407,
+          "endMs": 161467,
+          "timeSource": "aligner",
+          "score": 1.0
+        },
+        {
+          "id": "w000511",
+          "word": "bobbin,",
+          "startMs": 161487,
+          "endMs": 161869,
+          "timeSource": "aligner",
+          "score": 0.959
+        },
+        {
+          "id": "w000512",
+          "word": "and",
+          "startMs": 162130,
+          "endMs": 162251,
+          "timeSource": "aligner",
+          "score": 0.645
+        },
+        {
+          "id": "w000513",
+          "word": "the",
+          "startMs": 162291,
+          "endMs": 162371,
+          "timeSource": "aligner",
+          "score": 0.838
+        },
+        {
+          "id": "w000514",
+          "word": "door",
+          "startMs": 162411,
+          "endMs": 162652,
+          "timeSource": "aligner",
+          "score": 0.732
+        },
+        {
+          "id": "w000515",
+          "word": "opened.",
+          "startMs": 162773,
+          "endMs": 163074,
+          "timeSource": "aligner",
+          "score": 0.907
+        }
+      ]
+    },
+    {
+      "id": "seg_f2b26e400b56396b",
+      "index": 57,
+      "text": "The wolf said to her, hiding himself under the bedclothes,",
+      "translation": "O lobo disse a ela, escondendo-se debaixo das cobertas:",
+      "startMs": 163576,
+      "endMs": 166368,
+      "playStartMs": 163496,
+      "playEndMs": 166528,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000525"
+          ],
+          "pt": {
+            "start": 46,
+            "end": 54,
+            "text": "cobertas"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000516",
+          "word": "The",
+          "startMs": 163576,
+          "endMs": 163677,
+          "timeSource": "aligner",
+          "score": 0.825
+        },
+        {
+          "id": "w000517",
+          "word": "wolf",
+          "startMs": 163697,
+          "endMs": 163938,
+          "timeSource": "aligner",
+          "score": 0.814
+        },
+        {
+          "id": "w000518",
+          "word": "said",
+          "startMs": 163958,
+          "endMs": 164139,
+          "timeSource": "aligner",
+          "score": 0.902
+        },
+        {
+          "id": "w000519",
+          "word": "to",
+          "startMs": 164159,
+          "endMs": 164239,
+          "timeSource": "aligner",
+          "score": 0.411
+        },
+        {
+          "id": "w000520",
+          "word": "her,",
+          "startMs": 164280,
+          "endMs": 164380,
+          "timeSource": "aligner",
+          "score": 0.79
+        },
+        {
+          "id": "w000521",
+          "word": "hiding",
+          "startMs": 164782,
+          "endMs": 165043,
+          "timeSource": "aligner",
+          "score": 0.958
+        },
+        {
+          "id": "w000522",
+          "word": "himself",
+          "startMs": 165083,
+          "endMs": 165444,
+          "timeSource": "aligner",
+          "score": 0.853
+        },
+        {
+          "id": "w000523",
+          "word": "under",
+          "startMs": 165544,
+          "endMs": 165705,
+          "timeSource": "aligner",
+          "score": 0.871
+        },
+        {
+          "id": "w000524",
+          "word": "the",
+          "startMs": 165725,
+          "endMs": 165805,
+          "timeSource": "aligner",
+          "score": 0.83
+        },
+        {
+          "id": "w000525",
+          "word": "bedclothes,",
+          "startMs": 165826,
+          "endMs": 166368,
+          "timeSource": "aligner",
+          "score": 0.833
+        }
+      ]
+    },
+    {
+      "id": "seg_8b99338d42f4e1d6",
+      "index": 58,
+      "text": "put the cake and the little pot of butter upon the stool",
+      "translation": "ponha o bolo e o potinho de manteiga em cima do banquinho",
+      "startMs": 166890,
+      "endMs": 169520,
+      "playStartMs": 166810,
+      "playEndMs": 169680,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000535"
+          ],
+          "pt": {
+            "start": 37,
+            "end": 47,
+            "text": "em cima do"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000526",
+          "word": "put",
+          "startMs": 166890,
+          "endMs": 167050,
+          "timeSource": "aligner",
+          "score": 0.722
+        },
+        {
+          "id": "w000527",
+          "word": "the",
+          "startMs": 167070,
+          "endMs": 167151,
+          "timeSource": "aligner",
+          "score": 0.836
+        },
+        {
+          "id": "w000528",
+          "word": "cake",
+          "startMs": 167191,
+          "endMs": 167512,
+          "timeSource": "aligner",
+          "score": 0.813
+        },
+        {
+          "id": "w000529",
+          "word": "and",
+          "startMs": 167673,
+          "endMs": 167753,
+          "timeSource": "aligner",
+          "score": 0.837
+        },
+        {
+          "id": "w000530",
+          "word": "the",
+          "startMs": 167793,
+          "endMs": 167853,
+          "timeSource": "aligner",
+          "score": 0.843
+        },
+        {
+          "id": "w000531",
+          "word": "little",
+          "startMs": 167934,
+          "endMs": 168155,
+          "timeSource": "aligner",
+          "score": 0.818
+        },
+        {
+          "id": "w000532",
+          "word": "pot",
+          "startMs": 168215,
+          "endMs": 168436,
+          "timeSource": "aligner",
+          "score": 0.942
+        },
+        {
+          "id": "w000533",
+          "word": "of",
+          "startMs": 168456,
+          "endMs": 168536,
+          "timeSource": "aligner",
+          "score": 0.702
+        },
+        {
+          "id": "w000534",
+          "word": "butter",
+          "startMs": 168596,
+          "endMs": 168857,
+          "timeSource": "aligner",
+          "score": 0.894
+        },
+        {
+          "id": "w000535",
+          "word": "upon",
+          "startMs": 168917,
+          "endMs": 169118,
+          "timeSource": "aligner",
+          "score": 0.986
+        },
+        {
+          "id": "w000536",
+          "word": "the",
+          "startMs": 169158,
+          "endMs": 169239,
+          "timeSource": "aligner",
+          "score": 0.835
+        },
+        {
+          "id": "w000537",
+          "word": "stool",
+          "startMs": 169279,
+          "endMs": 169520,
+          "timeSource": "aligner",
+          "score": 0.852
+        }
+      ]
+    },
+    {
+      "id": "seg_471743e9f1e1ead9",
+      "index": 59,
+      "text": "and come get into bed with me.",
+      "translation": "e venha se deitar na cama comigo.",
+      "startMs": 170082,
+      "endMs": 171346,
+      "playStartMs": 170002,
+      "playEndMs": 171506,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000538",
+          "word": "and",
+          "startMs": 170082,
+          "endMs": 170182,
+          "timeSource": "aligner",
+          "score": 0.727
+        },
+        {
+          "id": "w000539",
+          "word": "come",
+          "startMs": 170262,
+          "endMs": 170423,
+          "timeSource": "aligner",
+          "score": 0.875
+        },
+        {
+          "id": "w000540",
+          "word": "get",
+          "startMs": 170463,
+          "endMs": 170584,
+          "timeSource": "aligner",
+          "score": 0.854
+        },
+        {
+          "id": "w000541",
+          "word": "into",
+          "startMs": 170604,
+          "endMs": 170784,
+          "timeSource": "aligner",
+          "score": 0.872
+        },
+        {
+          "id": "w000542",
+          "word": "bed",
+          "startMs": 170825,
+          "endMs": 170985,
+          "timeSource": "aligner",
+          "score": 0.855
+        },
+        {
+          "id": "w000543",
+          "word": "with",
+          "startMs": 171005,
+          "endMs": 171146,
+          "timeSource": "aligner",
+          "score": 0.63
+        },
+        {
+          "id": "w000544",
+          "word": "me.",
+          "startMs": 171186,
+          "endMs": 171346,
+          "timeSource": "aligner",
+          "score": 0.819
+        }
+      ]
+    },
+    {
+      "id": "seg_79d76a345f7e01b4",
+      "index": 60,
+      "text": "Little Red Riding Hood took off her clothes and got into bed.",
+      "translation": "Chapeuzinho Vermelho tirou a roupa e se deitou na cama.",
+      "startMs": 172009,
+      "endMs": 175080,
+      "playStartMs": 171929,
+      "playEndMs": 175240,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000549",
+            "w000550"
+          ],
+          "pt": {
+            "start": 21,
+            "end": 26,
+            "text": "tirou"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000545",
+          "word": "Little",
+          "startMs": 172009,
+          "endMs": 172250,
+          "timeSource": "aligner",
+          "score": 0.85
+        },
+        {
+          "id": "w000546",
+          "word": "Red",
+          "startMs": 172310,
+          "endMs": 172471,
+          "timeSource": "aligner",
+          "score": 0.897
+        },
+        {
+          "id": "w000547",
+          "word": "Riding",
+          "startMs": 172531,
+          "endMs": 172792,
+          "timeSource": "aligner",
+          "score": 0.925
+        },
+        {
+          "id": "w000548",
+          "word": "Hood",
+          "startMs": 172832,
+          "endMs": 172952,
+          "timeSource": "aligner",
+          "score": 0.863
+        },
+        {
+          "id": "w000549",
+          "word": "took",
+          "startMs": 172972,
+          "endMs": 173133,
+          "timeSource": "aligner",
+          "score": 0.919
+        },
+        {
+          "id": "w000550",
+          "word": "off",
+          "startMs": 173193,
+          "endMs": 173294,
+          "timeSource": "aligner",
+          "score": 0.997
+        },
+        {
+          "id": "w000551",
+          "word": "her",
+          "startMs": 173334,
+          "endMs": 173434,
+          "timeSource": "aligner",
+          "score": 0.853
+        },
+        {
+          "id": "w000552",
+          "word": "clothes",
+          "startMs": 173474,
+          "endMs": 173896,
+          "timeSource": "aligner",
+          "score": 0.707
+        },
+        {
+          "id": "w000553",
+          "word": "and",
+          "startMs": 174237,
+          "endMs": 174377,
+          "timeSource": "aligner",
+          "score": 0.62
+        },
+        {
+          "id": "w000554",
+          "word": "got",
+          "startMs": 174438,
+          "endMs": 174638,
+          "timeSource": "aligner",
+          "score": 0.847
+        },
+        {
+          "id": "w000555",
+          "word": "into",
+          "startMs": 174658,
+          "endMs": 174819,
+          "timeSource": "aligner",
+          "score": 0.938
+        },
+        {
+          "id": "w000556",
+          "word": "bed.",
+          "startMs": 174879,
+          "endMs": 175080,
+          "timeSource": "aligner",
+          "score": 0.685
+        }
+      ]
+    },
+    {
+      "id": "seg_5ae85d69a9bc5f42",
+      "index": 61,
+      "text": "She was greatly amazed to see how her grandmother looked in her nightclothes",
+      "translation": "Ela ficou muito espantada ao ver como a avó era de camisola",
+      "startMs": 175642,
+      "endMs": 179076,
+      "playStartMs": 175562,
+      "playEndMs": 179236,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000559",
+            "w000560"
+          ],
+          "pt": {
+            "start": 10,
+            "end": 25,
+            "text": "muito espantada"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000557",
+          "word": "She",
+          "startMs": 175642,
+          "endMs": 175762,
+          "timeSource": "aligner",
+          "score": 0.667
+        },
+        {
+          "id": "w000558",
+          "word": "was",
+          "startMs": 175782,
+          "endMs": 175903,
+          "timeSource": "aligner",
+          "score": 0.926
+        },
+        {
+          "id": "w000559",
+          "word": "greatly",
+          "startMs": 176003,
+          "endMs": 176385,
+          "timeSource": "aligner",
+          "score": 0.781
+        },
+        {
+          "id": "w000560",
+          "word": "amazed",
+          "startMs": 176445,
+          "endMs": 176786,
+          "timeSource": "aligner",
+          "score": 0.913
+        },
+        {
+          "id": "w000561",
+          "word": "to",
+          "startMs": 176827,
+          "endMs": 176907,
+          "timeSource": "aligner",
+          "score": 0.552
+        },
+        {
+          "id": "w000562",
+          "word": "see",
+          "startMs": 176987,
+          "endMs": 177208,
+          "timeSource": "aligner",
+          "score": 0.834
+        },
+        {
+          "id": "w000563",
+          "word": "how",
+          "startMs": 177248,
+          "endMs": 177369,
+          "timeSource": "aligner",
+          "score": 0.715
+        },
+        {
+          "id": "w000564",
+          "word": "her",
+          "startMs": 177389,
+          "endMs": 177489,
+          "timeSource": "aligner",
+          "score": 0.74
+        },
+        {
+          "id": "w000565",
+          "word": "grandmother",
+          "startMs": 177529,
+          "endMs": 177991,
+          "timeSource": "aligner",
+          "score": 0.822
+        },
+        {
+          "id": "w000566",
+          "word": "looked",
+          "startMs": 178052,
+          "endMs": 178273,
+          "timeSource": "aligner",
+          "score": 0.89
+        },
+        {
+          "id": "w000567",
+          "word": "in",
+          "startMs": 178313,
+          "endMs": 178353,
+          "timeSource": "aligner",
+          "score": 0.996
+        },
+        {
+          "id": "w000568",
+          "word": "her",
+          "startMs": 178393,
+          "endMs": 178494,
+          "timeSource": "aligner",
+          "score": 0.779
+        },
+        {
+          "id": "w000569",
+          "word": "nightclothes",
+          "startMs": 178534,
+          "endMs": 179076,
+          "timeSource": "aligner",
+          "score": 0.827
+        }
+      ]
+    },
+    {
+      "id": "seg_04d1074a26f924ef",
+      "index": 62,
+      "text": "and said to her, Grandmother, what big arms you have.",
+      "translation": "e disse a ela: Vovó, que braços grandes você tem!",
+      "startMs": 179377,
+      "endMs": 183009,
+      "playStartMs": 179297,
+      "playEndMs": 183169,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000570",
+          "word": "and",
+          "startMs": 179377,
+          "endMs": 179478,
+          "timeSource": "aligner",
+          "score": 0.746
+        },
+        {
+          "id": "w000571",
+          "word": "said",
+          "startMs": 179538,
+          "endMs": 179719,
+          "timeSource": "aligner",
+          "score": 0.939
+        },
+        {
+          "id": "w000572",
+          "word": "to",
+          "startMs": 179759,
+          "endMs": 179819,
+          "timeSource": "aligner",
+          "score": 0.942
+        },
+        {
+          "id": "w000573",
+          "word": "her,",
+          "startMs": 179879,
+          "endMs": 179980,
+          "timeSource": "aligner",
+          "score": 0.992
+        },
+        {
+          "id": "w000574",
+          "word": "Grandmother,",
+          "startMs": 180920,
+          "endMs": 181181,
+          "timeSource": "aligner",
+          "score": 0.214
+        },
+        {
+          "id": "w000575",
+          "word": "what",
+          "startMs": 181663,
+          "endMs": 181824,
+          "timeSource": "aligner",
+          "score": 0.708
+        },
+        {
+          "id": "w000576",
+          "word": "big",
+          "startMs": 181884,
+          "endMs": 182105,
+          "timeSource": "aligner",
+          "score": 0.916
+        },
+        {
+          "id": "w000577",
+          "word": "arms",
+          "startMs": 182286,
+          "endMs": 182527,
+          "timeSource": "aligner",
+          "score": 0.859
+        },
+        {
+          "id": "w000578",
+          "word": "you",
+          "startMs": 182567,
+          "endMs": 182708,
+          "timeSource": "aligner",
+          "score": 0.757
+        },
+        {
+          "id": "w000579",
+          "word": "have.",
+          "startMs": 182748,
+          "endMs": 183009,
+          "timeSource": "aligner",
+          "score": 0.894
+        }
+      ]
+    },
+    {
+      "id": "seg_5320a4943ce51aa8",
+      "index": 63,
+      "text": "All the better to hug you with, my dear.",
+      "translation": "É para te abraçar melhor, minha querida.",
+      "startMs": 183713,
+      "endMs": 185380,
+      "playStartMs": 183633,
+      "playEndMs": 185540,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000580",
+            "w000581",
+            "w000582",
+            "w000583"
+          ],
+          "pt": {
+            "start": 0,
+            "end": 6,
+            "text": "É para"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000580",
+          "word": "All",
+          "startMs": 183713,
+          "endMs": 183873,
+          "timeSource": "aligner",
+          "score": 0.874
+        },
+        {
+          "id": "w000581",
+          "word": "the",
+          "startMs": 183913,
+          "endMs": 183994,
+          "timeSource": "aligner",
+          "score": 0.842
+        },
+        {
+          "id": "w000582",
+          "word": "better",
+          "startMs": 184014,
+          "endMs": 184255,
+          "timeSource": "aligner",
+          "score": 0.905
+        },
+        {
+          "id": "w000583",
+          "word": "to",
+          "startMs": 184295,
+          "endMs": 184355,
+          "timeSource": "aligner",
+          "score": 0.75
+        },
+        {
+          "id": "w000584",
+          "word": "hug",
+          "startMs": 184416,
+          "endMs": 184617,
+          "timeSource": "aligner",
+          "score": 0.845
+        },
+        {
+          "id": "w000585",
+          "word": "you",
+          "startMs": 184637,
+          "endMs": 184737,
+          "timeSource": "aligner",
+          "score": 1.0
+        },
+        {
+          "id": "w000586",
+          "word": "with,",
+          "startMs": 184777,
+          "endMs": 184938,
+          "timeSource": "aligner",
+          "score": 0.964
+        },
+        {
+          "id": "w000587",
+          "word": "my",
+          "startMs": 184978,
+          "endMs": 185119,
+          "timeSource": "aligner",
+          "score": 0.99
+        },
+        {
+          "id": "w000588",
+          "word": "dear.",
+          "startMs": 185179,
+          "endMs": 185380,
+          "timeSource": "aligner",
+          "score": 0.841
+        }
+      ]
+    },
+    {
+      "id": "seg_3bc2b687b9fc28be",
+      "index": 64,
+      "text": "Grandmother, what big legs you have.",
+      "translation": "Vovó, que pernas grandes você tem!",
+      "startMs": 185980,
+      "endMs": 188231,
+      "playStartMs": 185900,
+      "playEndMs": 188391,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000589",
+          "word": "Grandmother,",
+          "startMs": 185980,
+          "endMs": 186503,
+          "timeSource": "aligner",
+          "score": 0.882
+        },
+        {
+          "id": "w000590",
+          "word": "what",
+          "startMs": 186985,
+          "endMs": 187146,
+          "timeSource": "aligner",
+          "score": 0.747
+        },
+        {
+          "id": "w000591",
+          "word": "big",
+          "startMs": 187286,
+          "endMs": 187507,
+          "timeSource": "aligner",
+          "score": 0.916
+        },
+        {
+          "id": "w000592",
+          "word": "legs",
+          "startMs": 187547,
+          "endMs": 187768,
+          "timeSource": "aligner",
+          "score": 0.872
+        },
+        {
+          "id": "w000593",
+          "word": "you",
+          "startMs": 187789,
+          "endMs": 187909,
+          "timeSource": "aligner",
+          "score": 0.892
+        },
+        {
+          "id": "w000594",
+          "word": "have.",
+          "startMs": 187949,
+          "endMs": 188231,
+          "timeSource": "aligner",
+          "score": 0.824
+        }
+      ]
+    },
+    {
+      "id": "seg_f8e6a0d8e321186b",
+      "index": 65,
+      "text": "All the better to run with, my child.",
+      "translation": "É para correr melhor, minha criança.",
+      "startMs": 188673,
+      "endMs": 190260,
+      "playStartMs": 188593,
+      "playEndMs": 190420,
+      "quality": "ok",
+      "reviewReasons": [],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000595",
+          "word": "All",
+          "startMs": 188673,
+          "endMs": 188793,
+          "timeSource": "aligner",
+          "score": 0.834
+        },
+        {
+          "id": "w000596",
+          "word": "the",
+          "startMs": 188833,
+          "endMs": 188914,
+          "timeSource": "aligner",
+          "score": 0.834
+        },
+        {
+          "id": "w000597",
+          "word": "better",
+          "startMs": 188954,
+          "endMs": 189175,
+          "timeSource": "aligner",
+          "score": 0.871
+        },
+        {
+          "id": "w000598",
+          "word": "to",
+          "startMs": 189215,
+          "endMs": 189296,
+          "timeSource": "aligner",
+          "score": 0.752
+        },
+        {
+          "id": "w000599",
+          "word": "run",
+          "startMs": 189336,
+          "endMs": 189476,
+          "timeSource": "aligner",
+          "score": 0.724
+        },
+        {
+          "id": "w000600",
+          "word": "with,",
+          "startMs": 189517,
+          "endMs": 189677,
+          "timeSource": "aligner",
+          "score": 0.86
+        },
+        {
+          "id": "w000601",
+          "word": "my",
+          "startMs": 189738,
+          "endMs": 189878,
+          "timeSource": "aligner",
+          "score": 0.834
+        },
+        {
+          "id": "w000602",
+          "word": "child.",
+          "startMs": 189939,
+          "endMs": 190260,
+          "timeSource": "aligner",
+          "score": 0.932
+        }
+      ]
+    },
+    {
+      "id": "seg_fab6e6be3d146653",
+      "index": 66,
+      "text": "Grandmother What big ears you have",
+      "translation": "Vovó, que orelhas grandes você tem!",
+      "startMs": 190750,
+      "endMs": 193000,
+      "playStartMs": 190670,
+      "playEndMs": 193160,
+      "quality": "needs_review",
+      "reviewReasons": [
+        "asr_flagged"
+      ],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000603",
+          "word": "Grandmother",
+          "startMs": 190750,
+          "endMs": 191220,
+          "timeSource": "aligner",
+          "score": 0.524
+        },
+        {
+          "id": "w000604",
+          "word": "What",
+          "startMs": 191887,
+          "endMs": 192049,
+          "timeSource": "aligner",
+          "score": 0.867
+        },
+        {
+          "id": "w000605",
+          "word": "big",
+          "startMs": 192130,
+          "endMs": 192332,
+          "timeSource": "aligner",
+          "score": 0.916
+        },
+        {
+          "id": "w000606",
+          "word": "ears",
+          "startMs": 192373,
+          "endMs": 192555,
+          "timeSource": "aligner",
+          "score": 0.278
+        },
+        {
+          "id": "w000607",
+          "word": "you",
+          "startMs": 192595,
+          "endMs": 192737,
+          "timeSource": "aligner",
+          "score": 0.86
+        },
+        {
+          "id": "w000608",
+          "word": "have",
+          "startMs": 192777,
+          "endMs": 193000,
+          "timeSource": "aligner",
+          "score": 0.881
+        }
+      ]
+    },
+    {
+      "id": "seg_3785a7864a219a66",
+      "index": 67,
+      "text": "All the better to hear with my child",
+      "translation": "É para ouvir melhor, minha criança.",
+      "startMs": 193565,
+      "endMs": 195200,
+      "playStartMs": 193485,
+      "playEndMs": 195360,
+      "quality": "needs_review",
+      "reviewReasons": [
+        "asr_flagged"
+      ],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000609",
+          "word": "All",
+          "startMs": 193565,
+          "endMs": 193726,
+          "timeSource": "aligner",
+          "score": 0.628
+        },
+        {
+          "id": "w000610",
+          "word": "the",
+          "startMs": 193767,
+          "endMs": 193868,
+          "timeSource": "aligner",
+          "score": 0.705
+        },
+        {
+          "id": "w000611",
+          "word": "better",
+          "startMs": 193888,
+          "endMs": 194110,
+          "timeSource": "aligner",
+          "score": 0.843
+        },
+        {
+          "id": "w000612",
+          "word": "to",
+          "startMs": 194130,
+          "endMs": 194191,
+          "timeSource": "aligner",
+          "score": 0.748
+        },
+        {
+          "id": "w000613",
+          "word": "hear",
+          "startMs": 194231,
+          "endMs": 194413,
+          "timeSource": "aligner",
+          "score": 0.901
+        },
+        {
+          "id": "w000614",
+          "word": "with",
+          "startMs": 194453,
+          "endMs": 194614,
+          "timeSource": "aligner",
+          "score": 0.912
+        },
+        {
+          "id": "w000615",
+          "word": "my",
+          "startMs": 194675,
+          "endMs": 194836,
+          "timeSource": "aligner",
+          "score": 0.865
+        },
+        {
+          "id": "w000616",
+          "word": "child",
+          "startMs": 194897,
+          "endMs": 195200,
+          "timeSource": "aligner",
+          "score": 0.908
+        }
+      ]
+    },
+    {
+      "id": "seg_163f49e456f8bf23",
+      "index": 68,
+      "text": "Grandmother What big eyes you have",
+      "translation": "Vovó, que olhos grandes você tem!",
+      "startMs": 195710,
+      "endMs": 197960,
+      "playStartMs": 195630,
+      "playEndMs": 198120,
+      "quality": "needs_review",
+      "reviewReasons": [
+        "asr_flagged"
+      ],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000617",
+          "word": "Grandmother",
+          "startMs": 195710,
+          "endMs": 196180,
+          "timeSource": "aligner",
+          "score": 0.535
+        },
+        {
+          "id": "w000618",
+          "word": "What",
+          "startMs": 196787,
+          "endMs": 196969,
+          "timeSource": "aligner",
+          "score": 0.777
+        },
+        {
+          "id": "w000619",
+          "word": "big",
+          "startMs": 197090,
+          "endMs": 197272,
+          "timeSource": "aligner",
+          "score": 0.99
+        },
+        {
+          "id": "w000620",
+          "word": "eyes",
+          "startMs": 197373,
+          "endMs": 197494,
+          "timeSource": "aligner",
+          "score": 0.755
+        },
+        {
+          "id": "w000621",
+          "word": "you",
+          "startMs": 197535,
+          "endMs": 197676,
+          "timeSource": "aligner",
+          "score": 0.931
+        },
+        {
+          "id": "w000622",
+          "word": "have",
+          "startMs": 197717,
+          "endMs": 197960,
+          "timeSource": "aligner",
+          "score": 0.999
+        }
+      ]
+    },
+    {
+      "id": "seg_308c754237b60b1c",
+      "index": 69,
+      "text": "All the better to see with my child",
+      "translation": "É para ver melhor, minha criança.",
+      "startMs": 198424,
+      "endMs": 200080,
+      "playStartMs": 198344,
+      "playEndMs": 200240,
+      "quality": "needs_review",
+      "reviewReasons": [
+        "asr_flagged"
+      ],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000623",
+          "word": "All",
+          "startMs": 198424,
+          "endMs": 198586,
+          "timeSource": "aligner",
+          "score": 0.77
+        },
+        {
+          "id": "w000624",
+          "word": "the",
+          "startMs": 198626,
+          "endMs": 198687,
+          "timeSource": "aligner",
+          "score": 1.0
+        },
+        {
+          "id": "w000625",
+          "word": "better",
+          "startMs": 198727,
+          "endMs": 198929,
+          "timeSource": "aligner",
+          "score": 0.835
+        },
+        {
+          "id": "w000626",
+          "word": "to",
+          "startMs": 198949,
+          "endMs": 199030,
+          "timeSource": "aligner",
+          "score": 0.739
+        },
+        {
+          "id": "w000627",
+          "word": "see",
+          "startMs": 199070,
+          "endMs": 199252,
+          "timeSource": "aligner",
+          "score": 0.804
+        },
+        {
+          "id": "w000628",
+          "word": "with",
+          "startMs": 199292,
+          "endMs": 199454,
+          "timeSource": "aligner",
+          "score": 0.766
+        },
+        {
+          "id": "w000629",
+          "word": "my",
+          "startMs": 199535,
+          "endMs": 199676,
+          "timeSource": "aligner",
+          "score": 0.87
+        },
+        {
+          "id": "w000630",
+          "word": "child",
+          "startMs": 199737,
+          "endMs": 200080,
+          "timeSource": "aligner",
+          "score": 0.86
+        }
+      ]
+    },
+    {
+      "id": "seg_0cdf66e7197ba7a1",
+      "index": 70,
+      "text": "Grandmother What big teeth you have got",
+      "translation": "Vovó, que dentes grandes você tem!",
+      "startMs": 200530,
+      "endMs": 202779,
+      "playStartMs": 200450,
+      "playEndMs": 202939,
+      "quality": "needs_review",
+      "reviewReasons": [
+        "asr_flagged"
+      ],
+      "highlights": [],
+      "words": [
+        {
+          "id": "w000631",
+          "word": "Grandmother",
+          "startMs": 200530,
+          "endMs": 201000,
+          "timeSource": "aligner",
+          "score": 0.698
+        },
+        {
+          "id": "w000632",
+          "word": "What",
+          "startMs": 201526,
+          "endMs": 201708,
+          "timeSource": "aligner",
+          "score": 0.739
+        },
+        {
+          "id": "w000633",
+          "word": "big",
+          "startMs": 201849,
+          "endMs": 202051,
+          "timeSource": "aligner",
+          "score": 0.902
+        },
+        {
+          "id": "w000634",
+          "word": "teeth",
+          "startMs": 202112,
+          "endMs": 202314,
+          "timeSource": "aligner",
+          "score": 0.874
+        },
+        {
+          "id": "w000635",
+          "word": "you",
+          "startMs": 202335,
+          "endMs": 202436,
+          "timeSource": "aligner",
+          "score": 0.829
+        },
+        {
+          "id": "w000636",
+          "word": "have",
+          "startMs": 202456,
+          "endMs": 202557,
+          "timeSource": "aligner",
+          "score": 0.909
+        },
+        {
+          "id": "w000637",
+          "word": "got",
+          "startMs": 202597,
+          "endMs": 202779,
+          "timeSource": "aligner",
+          "score": 0.995
+        }
+      ]
+    },
+    {
+      "id": "seg_0d8b7649a89298b6",
+      "index": 71,
+      "text": "All the better to eat you up with And,",
+      "translation": "É para te devorar melhor! E,",
+      "startMs": 203346,
+      "endMs": 205388,
+      "playStartMs": 203266,
+      "playEndMs": 205548,
+      "quality": "needs_review",
+      "reviewReasons": [
+        "asr_flagged"
+      ],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000642",
+            "w000643",
+            "w000644"
+          ],
+          "pt": {
+            "start": 7,
+            "end": 17,
+            "text": "te devorar"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000638",
+          "word": "All",
+          "startMs": 203346,
+          "endMs": 203487,
+          "timeSource": "aligner",
+          "score": 0.926
+        },
+        {
+          "id": "w000639",
+          "word": "the",
+          "startMs": 203548,
+          "endMs": 203609,
+          "timeSource": "aligner",
+          "score": 1.0
+        },
+        {
+          "id": "w000640",
+          "word": "better",
+          "startMs": 203649,
+          "endMs": 203871,
+          "timeSource": "aligner",
+          "score": 0.843
+        },
+        {
+          "id": "w000641",
+          "word": "to",
+          "startMs": 203912,
+          "endMs": 203973,
+          "timeSource": "aligner",
+          "score": 0.788
+        },
+        {
+          "id": "w000642",
+          "word": "eat",
+          "startMs": 204033,
+          "endMs": 204134,
+          "timeSource": "aligner",
+          "score": 0.824
+        },
+        {
+          "id": "w000643",
+          "word": "you",
+          "startMs": 204155,
+          "endMs": 204256,
+          "timeSource": "aligner",
+          "score": 0.978
+        },
+        {
+          "id": "w000644",
+          "word": "up",
+          "startMs": 204337,
+          "endMs": 204397,
+          "timeSource": "aligner",
+          "score": 0.964
+        },
+        {
+          "id": "w000645",
+          "word": "with",
+          "startMs": 204438,
+          "endMs": 204579,
+          "timeSource": "aligner",
+          "score": 0.834
+        },
+        {
+          "id": "w000646",
+          "word": "And,",
+          "startMs": 205226,
+          "endMs": 205388,
+          "timeSource": "aligner",
+          "score": 0.808
+        }
+      ]
+    },
+    {
+      "id": "seg_aa30caadf972b4d0",
+      "index": 72,
+      "text": "saying these words This wicked wolf fell upon little red riding hood",
+      "translation": "dizendo essas palavras, esse lobo malvado se atirou sobre Chapeuzinho Vermelho",
+      "startMs": 205731,
+      "endMs": 210040,
+      "playStartMs": 205651,
+      "playEndMs": 210200,
+      "quality": "needs_review",
+      "reviewReasons": [
+        "asr_flagged"
+      ],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000651"
+          ],
+          "pt": {
+            "start": 34,
+            "end": 41,
+            "text": "malvado"
+          }
+        },
+        {
+          "wordIds": [
+            "w000653",
+            "w000654"
+          ],
+          "pt": {
+            "start": 42,
+            "end": 57,
+            "text": "se atirou sobre"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000647",
+          "word": "saying",
+          "startMs": 205731,
+          "endMs": 206014,
+          "timeSource": "aligner",
+          "score": 0.816
+        },
+        {
+          "id": "w000648",
+          "word": "these",
+          "startMs": 206054,
+          "endMs": 206236,
+          "timeSource": "aligner",
+          "score": 0.783
+        },
+        {
+          "id": "w000649",
+          "word": "words",
+          "startMs": 206297,
+          "endMs": 206600,
+          "timeSource": "aligner",
+          "score": 0.846
+        },
+        {
+          "id": "w000650",
+          "word": "This",
+          "startMs": 207163,
+          "endMs": 207364,
+          "timeSource": "aligner",
+          "score": 0.843
+        },
+        {
+          "id": "w000651",
+          "word": "wicked",
+          "startMs": 207485,
+          "endMs": 207767,
+          "timeSource": "aligner",
+          "score": 0.874
+        },
+        {
+          "id": "w000652",
+          "word": "wolf",
+          "startMs": 207807,
+          "endMs": 208048,
+          "timeSource": "aligner",
+          "score": 0.844
+        },
+        {
+          "id": "w000653",
+          "word": "fell",
+          "startMs": 208169,
+          "endMs": 208471,
+          "timeSource": "aligner",
+          "score": 0.867
+        },
+        {
+          "id": "w000654",
+          "word": "upon",
+          "startMs": 208672,
+          "endMs": 208974,
+          "timeSource": "aligner",
+          "score": 0.683
+        },
+        {
+          "id": "w000655",
+          "word": "little",
+          "startMs": 209054,
+          "endMs": 209275,
+          "timeSource": "aligner",
+          "score": 0.838
+        },
+        {
+          "id": "w000656",
+          "word": "red",
+          "startMs": 209336,
+          "endMs": 209477,
+          "timeSource": "aligner",
+          "score": 0.999
+        },
+        {
+          "id": "w000657",
+          "word": "riding",
+          "startMs": 209537,
+          "endMs": 209818,
+          "timeSource": "aligner",
+          "score": 0.995
+        },
+        {
+          "id": "w000658",
+          "word": "hood",
+          "startMs": 209859,
+          "endMs": 210040,
+          "timeSource": "aligner",
+          "score": 0.994
+        }
+      ]
+    },
+    {
+      "id": "seg_c18e48ed0cd3bafe",
+      "index": 73,
+      "text": "And ate her all up The end",
+      "translation": "e a devorou inteirinha. Fim.",
+      "startMs": 210607,
+      "endMs": 212539,
+      "playStartMs": 210527,
+      "playEndMs": 212699,
+      "quality": "needs_review",
+      "reviewReasons": [
+        "asr_flagged"
+      ],
+      "highlights": [
+        {
+          "wordIds": [
+            "w000660",
+            "w000661",
+            "w000662",
+            "w000663"
+          ],
+          "pt": {
+            "start": 2,
+            "end": 22,
+            "text": "a devorou inteirinha"
+          }
+        }
+      ],
+      "words": [
+        {
+          "id": "w000659",
+          "word": "And",
+          "startMs": 210607,
+          "endMs": 210708,
+          "timeSource": "aligner",
+          "score": 0.802
+        },
+        {
+          "id": "w000660",
+          "word": "ate",
+          "startMs": 210850,
+          "endMs": 211012,
+          "timeSource": "aligner",
+          "score": 0.762
+        },
+        {
+          "id": "w000661",
+          "word": "her",
+          "startMs": 211072,
+          "endMs": 211173,
+          "timeSource": "aligner",
+          "score": 0.841
+        },
+        {
+          "id": "w000662",
+          "word": "all",
+          "startMs": 211335,
+          "endMs": 211477,
+          "timeSource": "aligner",
+          "score": 0.824
+        },
+        {
+          "id": "w000663",
+          "word": "up",
+          "startMs": 211578,
+          "endMs": 211619,
+          "timeSource": "aligner",
+          "score": 0.874
+        },
+        {
+          "id": "w000664",
+          "word": "The",
+          "startMs": 212130,
+          "endMs": 212252,
+          "timeSource": "aligner",
+          "score": 0.944
+        },
+        {
+          "id": "w000665",
+          "word": "end",
+          "startMs": 212416,
+          "endMs": 212539,
+          "timeSource": "aligner",
+          "score": 0.689
+        }
+      ]
+    }
+  ],
+  "packageHash": "35c7e30a340d22d6f198bfc1ccccd80007089e2df4d845328351ca5d9b703ab6"
+}
