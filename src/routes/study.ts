@@ -1,16 +1,21 @@
-// Estudo de frases estilo Anki (cartão: inglês + áudio na frente, tradução no verso).
+// Estudo de frases no modelo do Anki (cartão: inglês + áudio na frente, tradução no verso).
 //
-//   GET  /api/study/settings                       opções do baralho (+ padrões do Anki)
-//   PUT  /api/study/settings                       atualiza opções (parcial)
-//   GET  /api/study/decks                          livros com cartões e contagens do dia
-//   GET  /api/study/:contentId/overview            contagens do dia + estado de cada frase
-//   POST /api/study/:contentId/cards               { segmentKeys, target: 'app'|'anki' }
-//   DELETE /api/study/:contentId/cards/:key        tira a frase do baralho
-//   GET  /api/study/:contentId/next                próximo cartão (fila do Anki v3)
-//   POST /api/study/cards/:id/answer               { answer: 1..4, timeMs } → próximo cartão
-//   POST /api/study/cards/:id/suspend              { suspended }
-//   POST /api/study/:contentId/export              { scope, count?, segmentKeys? } → .apkg
-//   POST /api/study/:contentId/anki-notes          mesmo corpo → notas p/ AnkiConnect
+// Opções (como no Anki):
+//   GET    /api/study/options?deck=ID               opções globais + presets + baralho (0 = "Tunely")
+//   PUT    /api/study/options                       salva global, config do preset e limites do baralho
+//   POST   /api/study/presets                       { name, cloneFrom? } adicionar/clonar preset
+//   PATCH  /api/study/presets/:id                   { name } renomear
+//   DELETE /api/study/presets/:id                   remover (baralhos voltam ao Default)
+//   POST   /api/study/presets/from-anki             converte preset do Anki (AnkiConnect) em opções
+// Baralhos e estudo (deck 0 = raiz "Tunely", demais = livro):
+//   GET  /api/study/decks                           árvore com contagens Novos/Aprender/Revisar
+//   GET  /api/study/:deck/overview                  contagens do dia (+ estado das frases do livro)
+//   GET  /api/study/:deck/next                      próximo cartão (fila do Anki v3)
+//   POST /api/study/cards/:id/answer                { answer: 1..4, timeMs, deck } → próximo cartão
+//   POST /api/study/cards/:id/suspend | /bury       suspender / ocultar até amanhã
+// Frases e Anki do usuário:
+//   GET/POST /api/study/:contentId/cards, DELETE /api/study/:contentId/cards/:key
+//   POST /api/study/:contentId/export (.apkg) | /anki-notes (AnkiConnect) | /anki-sent
 //
 // Filas: new | learning | review | suspended (estudo no app) e anki-pending | anki
 // (frases marcadas para mandar ao Anki do usuário / já enviadas).
@@ -18,9 +23,17 @@ import { Router, type Request } from 'express';
 import { z } from 'zod';
 import type { Prisma, UserStudyCard } from '@prisma/client';
 import { prisma } from '../lib/prisma';
-import { buildApkg, legacyDeckConfig } from '../lib/study/apkg';
+import { fromLegacyDeckConfig, legacyDeckConfig } from '../lib/study/anki-map';
+import { buildApkg } from '../lib/study/apkg';
 import { clipStorageKey, clipUrl, ensureClip, mapLimit, type ClipSource } from '../lib/study/clips';
-import { dayNumber, DEFAULT_STUDY_CONFIG, resolveStudyConfig, studyConfigSchema, type StudyConfig } from '../lib/study/config';
+import {
+  dayNumber, DEFAULT_GLOBAL_CONFIG, DEFAULT_PRESET_CONFIG, globalConfigSchema, presetConfigSchema, resolvePresetConfig,
+  type StudyConfig,
+} from '../lib/study/config';
+import {
+  buildQueue, deckLimits, deckRow, DEFAULT_PRESET_NAME, effectiveConfig, ensureDefaultPreset, listBookDecks, loadGlobal,
+  presetForDeck, ROOT_DECK, ROOT_DECK_NAME, saveGlobal,
+} from '../lib/study/decks';
 import { answerCard, previewAnswers, type Answer, type CardSched, type CardType, type FsrsCardJson } from '../lib/study/scheduler';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
@@ -32,13 +45,15 @@ const APP_QUEUES = ['new', 'learning', 'review', 'suspended'];
 const MAX_EXPORT = 2000;
 
 // ----------------------------------------------------------------------------- helpers
-async function loadConfig(userId: string): Promise<StudyConfig> {
-  const row = await prisma.userStudySettings.findUnique({ where: { userId } });
-  return resolveStudyConfig(row?.config);
-}
-
 function contentIdParam(req: Request): number {
   return z.coerce.number().int().positive().parse(req.params.contentId);
+}
+
+/** Baralho do parâmetro: 0 = raiz "Tunely"; > 0 = livro (precisa estar visível). */
+async function deckParam(req: Request): Promise<number> {
+  const deck = z.coerce.number().int().min(0).parse(req.params.deck);
+  if (deck !== ROOT_DECK) await loadVisibleContent(deck, req.userRole);
+  return deck;
 }
 
 interface SentenceRow {
@@ -100,101 +115,6 @@ function positionFor(row: SentenceRow, manual: boolean, random: boolean): number
   return random ? Math.floor(Math.random() * 1_000_000) : row.sentenceIndex;
 }
 
-// ----------------------------------------------------------------------------- fila
-interface DayCounts {
-  today: number;
-  newLimit: number;
-  reviewLimit: number;
-  newDone: number;
-  reviewsDone: number;
-}
-
-async function dayCounts(userId: string, contentId: number, config: StudyConfig, now: Date): Promise<DayCounts> {
-  const today = dayNumber(now, config);
-  const [newDone, reviewsDone] = await Promise.all([
-    prisma.userStudyCard.count({ where: { userId, contentId, introducedDay: today } }),
-    prisma.userStudyReview.count({ where: { userId, contentId, day: today, kind: 1 } }),
-  ]);
-  const reviewLimit = Math.max(config.reviewsPerDay - reviewsDone, 0);
-  // Agendador v3: o limite de revisões também limita os novos.
-  const newLimit = Math.min(Math.max(config.newPerDay - newDone, 0), reviewLimit);
-  return { today, newLimit, reviewLimit, newDone, reviewsDone };
-}
-
-/** Puxa as próximas frases do livro para a fila de novos até cobrir o limite do dia. */
-async function topUpNewCards(userId: string, contentId: number, config: StudyConfig, needed: number) {
-  if (!config.autoAddFromBook || needed <= 0) return;
-  const have = await prisma.userStudyCard.count({ where: { userId, contentId, queue: 'new' } });
-  const missing = needed - have;
-  if (missing <= 0) return;
-  const existing = new Set(
-    (await prisma.userStudyCard.findMany({ where: { userId, contentId }, select: { segmentKey: true } })).map((r) => r.segmentKey),
-  );
-  const rows = await prisma.readingSentence.findMany({
-    where: { contentId, translation: { not: '' } },
-    select: sentenceSelect,
-    orderBy: { sentenceIndex: 'asc' },
-  });
-  let candidates = rows.filter((row) => !existing.has(publicSegmentKey(row)) && row.text.trim().length > 0);
-  if (config.insertionOrder === 'random') candidates = candidates.sort(() => Math.random() - 0.5);
-  const picked = candidates.slice(0, missing);
-  if (picked.length === 0) return;
-  await prisma.userStudyCard.createMany({
-    data: picked.map((row) => ({
-      userId, contentId, segmentKey: publicSegmentKey(row), position: positionFor(row, false, config.insertionOrder === 'random'),
-      ease: config.startingEase,
-    })),
-    skipDuplicates: true,
-  });
-}
-
-async function queueState(userId: string, contentId: number, config: StudyConfig, now: Date) {
-  const counts = await dayCounts(userId, contentId, config, now);
-  await topUpNewCards(userId, contentId, config, counts.newLimit);
-  const aheadLimit = new Date(now.getTime() + config.learnAheadMinutes * 60_000);
-  const [learningDueNow, learningAhead, reviewDue, newCards, nextLearning] = await Promise.all([
-    prisma.userStudyCard.findFirst({ where: { userId, contentId, queue: 'learning', dueAt: { lte: now } }, orderBy: { dueAt: 'asc' } }),
-    prisma.userStudyCard.count({ where: { userId, contentId, queue: 'learning', dueAt: { lte: aheadLimit } } }),
-    prisma.userStudyCard.findMany({
-      where: { userId, contentId, queue: 'review', dueDay: { lte: counts.today } },
-      orderBy: [{ dueDay: 'asc' }, { id: 'asc' }],
-      take: Math.max(counts.reviewLimit, 0),
-    }),
-    prisma.userStudyCard.findMany({
-      where: { userId, contentId, queue: 'new' },
-      orderBy: [{ position: 'asc' }, { id: 'asc' }],
-      take: Math.max(counts.newLimit, 0),
-    }),
-    prisma.userStudyCard.findFirst({ where: { userId, contentId, queue: 'learning' }, orderBy: { dueAt: 'asc' }, select: { dueAt: true } }),
-  ]);
-
-  let card: UserStudyCard | null = learningDueNow;
-  if (!card) {
-    const review = reviewDue[0] ?? null;
-    const fresh = newCards[0] ?? null;
-    if (review && fresh) {
-      if (config.newReviewMix === 'newFirst') card = fresh;
-      else if (config.newReviewMix === 'reviewsFirst') card = review;
-      else {
-        // Intercala novos entre revisões na proporção do que resta (como o "misturar" do Anki).
-        const every = Math.max(Math.floor(reviewDue.length / newCards.length), 1);
-        card = (counts.reviewsDone + 1) % (every + 1) === 0 ? fresh : review;
-      }
-    } else {
-      card = review ?? fresh;
-    }
-  }
-  if (!card && learningAhead > 0) {
-    card = await prisma.userStudyCard.findFirst({ where: { userId, contentId, queue: 'learning', dueAt: { lte: aheadLimit } }, orderBy: { dueAt: 'asc' } });
-  }
-  return {
-    card,
-    counts: { new: newCards.length, learning: learningAhead, review: reviewDue.length },
-    today: counts,
-    nextLearningAt: card ? null : (nextLearning?.dueAt ?? null),
-  };
-}
-
 async function serializeCard(card: UserStudyCard, config: StudyConfig, now: Date, today: number) {
   const sentences = await sentencesByKey(card.contentId, [card.segmentKey]);
   const row = sentences.get(card.segmentKey);
@@ -205,8 +125,11 @@ async function serializeCard(card: UserStudyCard, config: StudyConfig, now: Date
   } catch (error) {
     console.error('[study] falha ao recortar áudio:', error instanceof Error ? error.message : error);
   }
+  const content = await prisma.readingContent.findUnique({ where: { id: card.contentId }, select: { title: true } });
   return {
     id: card.id,
+    contentId: card.contentId,
+    bookTitle: content?.title ?? '',
     segmentKey: card.segmentKey,
     type: card.type,
     leech: card.leech,
@@ -220,42 +143,198 @@ async function serializeCard(card: UserStudyCard, config: StudyConfig, now: Date
   };
 }
 
-async function nextPayload(userId: string, contentId: number, config: StudyConfig) {
+async function nextPayload(userId: string, deck: number) {
   const now = new Date();
   for (let attempt = 0; attempt < 5; attempt++) {
-    const state = await queueState(userId, contentId, config, now);
-    if (!state.card) return { card: null, counts: state.counts, nextLearningAt: state.nextLearningAt, config };
-    const card = await serializeCard(state.card, config, now, state.today.today);
-    if (card) return { card, counts: state.counts, nextLearningAt: null, config };
+    const queue = await buildQueue(userId, deck, now);
+    // Cartão mostrado com as opções do baralho dele (o livro), como no Anki.
+    const cardConfig = queue.card ? await effectiveConfig(userId, queue.card.contentId) : queue.config;
+    const base = { counts: queue.counts, config: cardConfig, deck };
+    if (!queue.card) return { ...base, card: null, nextLearningAt: queue.nextLearningAt };
+    const card = await serializeCard(queue.card, cardConfig, now, queue.today);
+    if (card) return { ...base, card, nextLearningAt: null };
     // Frase sumiu (nova segmentação): suspende o cartão órfão e tenta o próximo.
-    await prisma.userStudyCard.update({ where: { id: state.card.id }, data: { queue: 'suspended' } });
+    await prisma.userStudyCard.update({ where: { id: queue.card.id }, data: { queue: 'suspended' } });
   }
-  return { card: null, counts: { new: 0, learning: 0, review: 0 }, nextLearningAt: null, config };
+  return { card: null, counts: { new: 0, learning: 0, review: 0 }, nextLearningAt: null, config: await effectiveConfig(userId, deck), deck };
 }
 
 // ----------------------------------------------------------------------------- opções
+async function presetsWithUsage(userId: string) {
+  const fallback = await ensureDefaultPreset(userId);
+  const [presets, decks] = await Promise.all([
+    prisma.userStudyPreset.findMany({ where: { userId }, orderBy: [{ createdAt: 'asc' }, { id: 'asc' }] }),
+    prisma.userStudyDeck.findMany({ where: { userId }, select: { contentId: true, presetId: true } }),
+  ]);
+  const deckIds = new Set([ROOT_DECK, ...(await listBookDecks(userId))]);
+  const assigned = new Map(decks.map((d) => [d.contentId, d.presetId ?? fallback.id]));
+  const usage = new Map<number, number>();
+  for (const id of deckIds) {
+    const presetId = assigned.get(id) ?? fallback.id;
+    usage.set(presetId, (usage.get(presetId) ?? 0) + 1);
+  }
+  return presets.map((preset) => ({ id: preset.id, name: preset.name, config: resolvePresetConfig(preset.config), usedBy: usage.get(preset.id) ?? 0 }));
+}
+
+async function deckInfo(userId: string, deck: number) {
+  const [row, global] = await Promise.all([deckRow(userId, deck), loadGlobal(userId)]);
+  const preset = await presetForDeck(userId, row);
+  const today = dayNumber(new Date(), global);
+  const title = deck === ROOT_DECK
+    ? ROOT_DECK_NAME
+    : (await prisma.readingContent.findUnique({ where: { id: deck }, select: { title: true } }))?.title ?? 'Livro';
+  const todayValue = (value: unknown) => {
+    const parsed = value as { day?: number; limit?: number } | null;
+    return parsed && parsed.day === today && typeof parsed.limit === 'number' ? parsed.limit : null;
+  };
+  return {
+    contentId: deck,
+    title,
+    presetId: preset.id,
+    newLimit: row?.newLimit ?? null,
+    reviewLimit: row?.reviewLimit ?? null,
+    newLimitToday: todayValue(row?.newLimitToday),
+    reviewLimitToday: todayValue(row?.reviewLimitToday),
+    effective: deckLimits(row, resolvePresetConfig(preset.config), today),
+  };
+}
+
 studyRouter.get(
-  '/settings',
+  '/options',
   asyncHandler(async (req, res) => {
-    res.json({ config: await loadConfig(req.userId as string), defaults: DEFAULT_STUDY_CONFIG });
+    const userId = req.userId as string;
+    const deck = z.coerce.number().int().min(0).default(ROOT_DECK).parse(req.query.deck ?? ROOT_DECK);
+    if (deck !== ROOT_DECK) await loadVisibleContent(deck, req.userRole);
+    res.json({
+      global: await loadGlobal(userId),
+      presets: await presetsWithUsage(userId),
+      deck: await deckInfo(userId, deck),
+      defaults: { global: DEFAULT_GLOBAL_CONFIG, preset: DEFAULT_PRESET_CONFIG },
+    });
   }),
 );
 
+const limitValue = z.number().int().min(0).max(99999).nullable();
+const optionsSaveSchema = z.object({
+  deck: z.number().int().min(0),
+  presetId: z.number().int().positive(),
+  config: presetConfigSchema,
+  global: globalConfigSchema.partial().optional(),
+  limits: z
+    .object({ newLimit: limitValue, reviewLimit: limitValue, newLimitToday: limitValue, reviewLimitToday: limitValue })
+    .partial()
+    .optional(),
+  // Edições feitas em outros presets nesta mesma tela (o Anki salva todas juntas).
+  otherPresets: z.array(z.object({ id: z.number().int().positive(), config: presetConfigSchema })).max(50).default([]),
+  // "Salvar em todos os subbaralhos" (só na raiz).
+  applyToChildren: z.boolean().default(false),
+});
+
 studyRouter.put(
-  '/settings',
+  '/options',
   asyncHandler(async (req, res) => {
     const userId = req.userId as string;
-    const patch = studyConfigSchema.partial().parse(req.body);
-    const config = studyConfigSchema.parse({ ...(await loadConfig(userId)), ...patch });
-    if (config.easyInterval < config.graduatingInterval) {
+    const body = optionsSaveSchema.parse(req.body);
+    if (body.deck !== ROOT_DECK) await loadVisibleContent(body.deck, req.userRole);
+    if (body.config.easyInterval < body.config.graduatingInterval) {
       throw new HttpError(400, 'O intervalo fácil deve ser maior ou igual ao intervalo de graduação');
     }
-    await prisma.userStudySettings.upsert({
-      where: { userId },
-      create: { userId, config: config as unknown as Prisma.InputJsonValue },
-      update: { config: config as unknown as Prisma.InputJsonValue },
+    const preset = await prisma.userStudyPreset.findFirst({ where: { id: body.presetId, userId } });
+    if (!preset) throw new HttpError(404, 'Preset não encontrado');
+    await prisma.userStudyPreset.update({ where: { id: preset.id }, data: { config: body.config as unknown as Prisma.InputJsonValue } });
+    for (const other of body.otherPresets) {
+      if (other.id === preset.id) continue;
+      await prisma.userStudyPreset.updateMany({ where: { id: other.id, userId }, data: { config: other.config as unknown as Prisma.InputJsonValue } });
+    }
+    if (body.global) await saveGlobal(userId, { ...(await loadGlobal(userId)), ...body.global });
+    const today = dayNumber(new Date(), await loadGlobal(userId));
+    const limits = body.limits ?? {};
+    const todayJson = (value: number | null | undefined) =>
+      value === undefined ? undefined : value === null ? (null as unknown as Prisma.InputJsonValue) : ({ day: today, limit: value } as Prisma.InputJsonValue);
+    const deckData = {
+      presetId: preset.id,
+      newLimit: limits.newLimit,
+      reviewLimit: limits.reviewLimit,
+      newLimitToday: todayJson(limits.newLimitToday),
+      reviewLimitToday: todayJson(limits.reviewLimitToday),
+    };
+    await prisma.userStudyDeck.upsert({
+      where: { userId_contentId: { userId, contentId: body.deck } },
+      create: { userId, contentId: body.deck, ...deckData },
+      update: deckData,
     });
-    res.json({ config, defaults: DEFAULT_STUDY_CONFIG });
+    if (body.applyToChildren && body.deck === ROOT_DECK) {
+      for (const child of await listBookDecks(userId)) {
+        await prisma.userStudyDeck.upsert({
+          where: { userId_contentId: { userId, contentId: child } },
+          create: { userId, contentId: child, presetId: preset.id },
+          update: { presetId: preset.id },
+        });
+      }
+    }
+    res.json({
+      global: await loadGlobal(userId),
+      presets: await presetsWithUsage(userId),
+      deck: await deckInfo(userId, body.deck),
+      defaults: { global: DEFAULT_GLOBAL_CONFIG, preset: DEFAULT_PRESET_CONFIG },
+    });
+  }),
+);
+
+studyRouter.post(
+  '/presets',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId as string;
+    const { name, cloneFrom } = z.object({ name: z.string().trim().min(1).max(80), cloneFrom: z.number().int().positive().optional() }).parse(req.body);
+    await ensureDefaultPreset(userId);
+    let config = DEFAULT_PRESET_CONFIG;
+    if (cloneFrom) {
+      const source = await prisma.userStudyPreset.findFirst({ where: { id: cloneFrom, userId } });
+      if (!source) throw new HttpError(404, 'Preset não encontrado');
+      config = resolvePresetConfig(source.config);
+    }
+    const exists = await prisma.userStudyPreset.findUnique({ where: { userId_name: { userId, name } } });
+    if (exists) throw new HttpError(409, 'Já existe um preset com esse nome');
+    const created = await prisma.userStudyPreset.create({ data: { userId, name, config: config as unknown as Prisma.InputJsonValue } });
+    res.status(201).json({ id: created.id, name: created.name, config, usedBy: 0 });
+  }),
+);
+
+studyRouter.patch(
+  '/presets/:id',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId as string;
+    const id = z.coerce.number().int().positive().parse(req.params.id);
+    const { name } = z.object({ name: z.string().trim().min(1).max(80) }).parse(req.body);
+    const preset = await prisma.userStudyPreset.findFirst({ where: { id, userId } });
+    if (!preset) throw new HttpError(404, 'Preset não encontrado');
+    if (preset.name === DEFAULT_PRESET_NAME) throw new HttpError(400, 'O preset Default não pode ser renomeado');
+    const clash = await prisma.userStudyPreset.findUnique({ where: { userId_name: { userId, name } } });
+    if (clash && clash.id !== id) throw new HttpError(409, 'Já existe um preset com esse nome');
+    await prisma.userStudyPreset.update({ where: { id }, data: { name } });
+    res.json({ id, name });
+  }),
+);
+
+studyRouter.delete(
+  '/presets/:id',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId as string;
+    const id = z.coerce.number().int().positive().parse(req.params.id);
+    const preset = await prisma.userStudyPreset.findFirst({ where: { id, userId } });
+    if (!preset) throw new HttpError(404, 'Preset não encontrado');
+    if (preset.name === DEFAULT_PRESET_NAME) throw new HttpError(400, 'O preset Default não pode ser removido');
+    // Baralhos que usavam o preset voltam ao Default (presetId = null).
+    await prisma.userStudyPreset.delete({ where: { id } });
+    res.json({ removed: true });
+  }),
+);
+
+studyRouter.post(
+  '/presets/from-anki',
+  asyncHandler(async (req, res) => {
+    const { config } = z.object({ config: z.record(z.unknown()) }).parse(req.body);
+    res.json({ config: fromLegacyDeckConfig(config) });
   }),
 );
 
@@ -264,53 +343,43 @@ studyRouter.get(
   '/decks',
   asyncHandler(async (req, res) => {
     const userId = req.userId as string;
-    const config = await loadConfig(userId);
     const now = new Date();
-    const today = dayNumber(now, config);
-    const grouped = await prisma.userStudyCard.groupBy({ by: ['contentId', 'queue'], where: { userId }, _count: { _all: true } });
-    const contentIds = [...new Set(grouped.map((g) => g.contentId))];
-    const [contents, due] = await Promise.all([
-      prisma.readingContent.findMany({ where: { id: { in: contentIds } }, select: { id: true, title: true, author: true, cefrLevel: true } }),
-      prisma.userStudyCard.groupBy({
-        by: ['contentId'],
-        where: {
-          userId,
-          OR: [{ queue: 'review', dueDay: { lte: today } }, { queue: 'learning', dueAt: { lte: new Date(now.getTime() + config.learnAheadMinutes * 60_000) } }],
-        },
-        _count: { _all: true },
-      }),
-    ]);
-    const dueBy = new Map(due.map((d) => [d.contentId, d._count._all]));
-    res.json({
-      decks: contents.map((content) => {
-        const byQueue = Object.fromEntries(grouped.filter((g) => g.contentId === content.id).map((g) => [g.queue, g._count._all]));
-        return { ...content, queues: byQueue, due: dueBy.get(content.id) ?? 0 };
-      }),
+    const books = await listBookDecks(userId);
+    const contents = await prisma.readingContent.findMany({
+      where: { id: { in: books } },
+      select: { id: true, title: true, author: true, coverUrl: true, coverPalette: true },
     });
+    const children = await Promise.all(
+      contents.map(async (content) => ({ ...content, counts: (await buildQueue(userId, content.id, now, { dryRun: true })).counts })),
+    );
+    children.sort((a, b) => a.title.localeCompare(b.title));
+    const root = await buildQueue(userId, ROOT_DECK, now, { dryRun: true });
+    res.json({ root: { contentId: ROOT_DECK, title: ROOT_DECK_NAME, counts: root.counts }, decks: children });
   }),
 );
 
 studyRouter.get(
-  '/:contentId/overview',
+  '/:deck/overview',
   asyncHandler(async (req, res) => {
     const userId = req.userId as string;
-    const contentId = contentIdParam(req);
-    await loadVisibleContent(contentId, req.userRole);
-    const config = await loadConfig(userId);
-    const now = new Date();
-    const state = await queueState(userId, contentId, config, now);
-    const cards = await prisma.userStudyCard.findMany({ where: { userId, contentId }, select: { segmentKey: true, queue: true } });
+    const deck = await deckParam(req);
+    const queue = await buildQueue(userId, deck, new Date());
+    const where = deck === ROOT_DECK ? { userId } : { userId, contentId: deck };
+    const cards = await prisma.userStudyCard.findMany({ where, select: { segmentKey: true, queue: true } });
     const queues: Record<string, number> = {};
     for (const card of cards) queues[card.queue] = (queues[card.queue] ?? 0) + 1;
-    const totalLines = await prisma.readingSentence.count({ where: { contentId } });
+    const totalLines = deck === ROOT_DECK ? 0 : await prisma.readingSentence.count({ where: { contentId: deck } });
+    const info = await deckInfo(userId, deck);
+    const preset = await prisma.userStudyPreset.findUnique({ where: { id: info.presetId }, select: { name: true } });
     res.json({
-      config,
-      counts: state.counts,
-      today: { newDone: state.today.newDone, reviewsDone: state.today.reviewsDone },
-      nextLearningAt: state.card ? null : state.nextLearningAt,
+      config: queue.config,
+      deck: { ...info, presetName: preset?.name ?? DEFAULT_PRESET_NAME },
+      counts: queue.counts,
+      today: { newDone: queue.newDone, reviewsDone: queue.reviewsDone },
+      nextLearningAt: queue.card ? null : queue.nextLearningAt,
       queues,
       totalLines,
-      cards: Object.fromEntries(cards.map((card) => [card.segmentKey, card.queue])),
+      cards: deck === ROOT_DECK ? {} : Object.fromEntries(cards.map((card) => [card.segmentKey, card.queue])),
     });
   }),
 );
@@ -336,7 +405,7 @@ studyRouter.post(
       .object({ segmentKeys: z.array(z.string().min(1).max(64)).min(1).max(MAX_EXPORT), target: z.enum(['app', 'anki']).default('app') })
       .parse(req.body);
     await loadVisibleContent(contentId, req.userRole);
-    const config = await loadConfig(userId);
+    const config = await effectiveConfig(userId, contentId);
     const rows = await sentencesByKey(contentId, segmentKeys);
     const queue = target === 'anki' ? 'anki-pending' : 'new';
     let changed = 0;
@@ -373,12 +442,10 @@ studyRouter.delete(
 
 // ----------------------------------------------------------------------------- estudo
 studyRouter.get(
-  '/:contentId/next',
+  '/:deck/next',
   asyncHandler(async (req, res) => {
     const userId = req.userId as string;
-    const contentId = contentIdParam(req);
-    await loadVisibleContent(contentId, req.userRole);
-    res.json(await nextPayload(userId, contentId, await loadConfig(userId)));
+    res.json(await nextPayload(userId, await deckParam(req)));
   }),
 );
 
@@ -387,12 +454,16 @@ studyRouter.post(
   asyncHandler(async (req, res) => {
     const userId = req.userId as string;
     const id = z.coerce.number().int().positive().parse(req.params.id);
-    const { answer, timeMs } = z
-      .object({ answer: z.number().int().min(1).max(4), timeMs: z.number().int().min(0).max(3_600_000).default(0) })
+    const { answer, timeMs, deck } = z
+      .object({
+        answer: z.number().int().min(1).max(4),
+        timeMs: z.number().int().min(0).max(3_600_000).default(0),
+        deck: z.number().int().min(0).optional(),
+      })
       .parse(req.body);
     const card = await prisma.userStudyCard.findFirst({ where: { id, userId } });
     if (!card || !APP_QUEUES.includes(card.queue) || card.queue === 'suspended') throw new HttpError(404, 'Cartão não encontrado');
-    const config = await loadConfig(userId);
+    const config = await effectiveConfig(userId, card.contentId);
     const now = new Date();
     const today = dayNumber(now, config);
     const outcome = answerCard(toSched(card), answer as Answer, config, now, today);
@@ -428,7 +499,7 @@ studyRouter.post(
         },
       }),
     ]);
-    const next = await nextPayload(userId, card.contentId, config);
+    const next = await nextPayload(userId, deck ?? card.contentId);
     res.json({ ...next, answered: { id, becameLeech: outcome.becameLeech, suspended: suspend } });
   }),
 );
@@ -444,6 +515,20 @@ studyRouter.post(
     const queue = suspended ? 'suspended' : card.type === 'new' ? 'new' : card.type === 'review' ? 'review' : 'learning';
     await prisma.userStudyCard.update({ where: { id }, data: { queue } });
     res.json({ id, queue });
+  }),
+);
+
+/** Ocultar ("bury") até o próximo dia de estudo. */
+studyRouter.post(
+  '/cards/:id/bury',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId as string;
+    const id = z.coerce.number().int().positive().parse(req.params.id);
+    const card = await prisma.userStudyCard.findFirst({ where: { id, userId } });
+    if (!card) throw new HttpError(404, 'Cartão não encontrado');
+    const global = await loadGlobal(userId);
+    await prisma.userStudyCard.update({ where: { id }, data: { buriedDay: dayNumber(new Date(), global) } });
+    res.json({ id, buried: true });
   }),
 );
 
@@ -477,7 +562,7 @@ async function collectExport(userId: string, contentId: number, body: z.infer<ty
 
 async function markSent(userId: string, contentId: number, keys: string[], queueOf: Map<string, string>, scope: string) {
   if (scope === 'deck') return;
-  const config = await loadConfig(userId);
+  const config = await effectiveConfig(userId, contentId);
   const fresh = keys.filter((key) => !queueOf.has(key));
   if (fresh.length) {
     await prisma.userStudyCard.createMany({
@@ -507,7 +592,8 @@ studyRouter.post(
     const contentId = contentIdParam(req);
     const body = exportSchema.parse(req.body);
     const content = await loadVisibleContent(contentId, req.userRole);
-    const config = await loadConfig(userId);
+    const config = await effectiveConfig(userId, contentId);
+    const preset = await presetForDeck(userId, await deckRow(userId, contentId));
     const { keys, sentences, queueOf } = await collectExport(userId, contentId, body);
     if (keys.length === 0) throw new HttpError(400, 'Nenhuma frase para exportar com essa escolha');
     const source = await clipSourceFor(contentId);
@@ -526,6 +612,7 @@ studyRouter.post(
       deckId: 1_731_600_000_000 + contentId,
       bookTitle: content.title,
       config: { ...config, cardType: body.cardType ?? config.cardType },
+      presetName: preset.name,
       notes,
     });
     if (body.markSent) await markSent(userId, contentId, keys, queueOf, body.scope);
@@ -544,7 +631,8 @@ studyRouter.post(
     const contentId = contentIdParam(req);
     const body = exportSchema.parse(req.body);
     const content = await loadVisibleContent(contentId, req.userRole);
-    const config = await loadConfig(userId);
+    const config = await effectiveConfig(userId, contentId);
+    const preset = await presetForDeck(userId, await deckRow(userId, contentId));
     const { keys, sentences } = await collectExport(userId, contentId, body);
     const source = await clipSourceFor(contentId);
     const notes = await mapLimit(keys, 4, async (key) => {
@@ -561,7 +649,8 @@ studyRouter.post(
       deckName: deckNameFor(content.title),
       bookTitle: content.title,
       cardType: body.cardType ?? config.cardType,
-      deckConfig: legacyDeckConfig(config, Math.floor(Date.now() / 1000)),
+      presetName: preset.name,
+      deckConfig: legacyDeckConfig(config, Math.floor(Date.now() / 1000), preset.id, preset.name),
       notes,
     });
   }),

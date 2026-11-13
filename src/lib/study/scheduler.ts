@@ -3,7 +3,7 @@
 // e usa ts-fsrs quando o FSRS está ligado — como o Anki faz com o crate `fsrs`.
 // Referência: ankitects/anki rslib/src/scheduler/states/{steps,learning,review,relearning,fuzz}.rs
 import { createEmptyCard, fsrs, Rating, State, type Card as FsrsCard, type Grade, type StepUnit } from 'ts-fsrs';
-import type { StudyConfig } from './config';
+import { weekdayIndex, type StudyConfig } from './config';
 
 export type CardType = 'new' | 'learning' | 'review' | 'relearning';
 export type Answer = 1 | 2 | 3 | 4; // Errei | Difícil | Bom | Fácil (como no Anki)
@@ -154,6 +154,32 @@ interface Ctx {
   relearn: Steps;
   config: StudyConfig;
   fuzz: number | null;
+  today: number;
+}
+
+/**
+ * Fuzz com "Dias de Descanso": dentro da faixa de fuzz, os dias da semana marcados como
+ * Reduzido/Mínimo recebem menos (ou nenhuma) revisão, como o balanceador do Anki.
+ */
+export function fuzzedWithEasyDays(
+  fuzz: number | null, interval: number, minimum: number, maximum: number, today: number, easyDays: number[],
+): number {
+  if (fuzz === null || easyDays.every((weight) => weight >= 1)) return withFuzz(fuzz, interval, minimum, maximum);
+  const [lower, upper] = constrainedFuzzBounds(interval, minimum, maximum);
+  const weights: number[] = [];
+  for (let days = lower; days <= upper; days++) weights.push(easyDays[weekdayIndex(today + days)] ?? 1);
+  const total = weights.reduce((sum, weight) => sum + weight, 0);
+  if (total <= 0) return withFuzz(fuzz, interval, minimum, maximum);
+  let target = fuzz * total;
+  for (let i = 0; i < weights.length; i++) {
+    target -= weights[i];
+    if (target < 0) return lower + i;
+  }
+  return upper;
+}
+
+function fuzzed(ctx: Ctx, interval: number, minimum: number, maximum: number): number {
+  return fuzzedWithEasyDays(ctx.fuzz, interval, minimum, maximum, ctx.today, ctx.config.easyDays);
 }
 
 function minMax(ctx: Ctx, minimum: number): [number, number] {
@@ -170,7 +196,7 @@ function leechMet(lapses: number, threshold: number): boolean {
 function constrainPassing(ctx: Ctx, interval: number, minimum: number, fuzz: boolean): number {
   const [min, max] = minMax(ctx, minimum);
   const value = interval * ctx.config.intervalModifier;
-  return fuzz ? withFuzz(ctx.fuzz, value, min, max) : Math.min(Math.max(Math.round(value), min), max);
+  return fuzz ? fuzzed(ctx, value, min, max) : Math.min(Math.max(Math.round(value), min), max);
 }
 
 function learnOutcome(card: CardSched, answer: Answer, ctx: Ctx): Outcome {
@@ -179,7 +205,7 @@ function learnOutcome(card: CardSched, answer: Answer, ctx: Ctx): Outcome {
   const base = { ease: config.startingEase, lapses: card.lapses, leech: card.leech, fsrs: null, revlogKind: 0 as const, becameLeech: false };
   const graduate = (days: number): Outcome => {
     const [min, max] = minMax(ctx, 1);
-    const interval = withFuzz(ctx.fuzz, days, min, max);
+    const interval = fuzzed(ctx, days, min, max);
     return { ...base, type: 'review', remainingSteps: 0, interval, delay: { days: interval } };
   };
   const learn = (secs: number, left: number): Outcome => ({
@@ -187,7 +213,7 @@ function learnOutcome(card: CardSched, answer: Answer, ctx: Ctx): Outcome {
   });
   if (answer === 4) {
     const [min, max] = minMax(ctx, 1);
-    const interval = withFuzz(ctx.fuzz, config.easyInterval, min, max);
+    const interval = fuzzed(ctx, config.easyInterval, min, max);
     return { ...base, type: 'review', remainingSteps: 0, interval, delay: { days: interval } };
   }
   if (answer === 1) {
@@ -204,7 +230,7 @@ function learnOutcome(card: CardSched, answer: Answer, ctx: Ctx): Outcome {
 
 function failingInterval(scheduled: number, ctx: Ctx): number {
   const [min, max] = minMax(ctx, ctx.config.minimumInterval);
-  return withFuzz(ctx.fuzz, Math.max(scheduled, 1) * ctx.config.newInterval, min, max);
+  return fuzzed(ctx, Math.max(scheduled, 1) * ctx.config.newInterval, min, max);
 }
 
 function reviewOutcome(card: CardSched, answer: Answer, ctx: Ctx, today: number): Outcome {
@@ -317,7 +343,9 @@ function seedFsrsFromSm2(card: CardSched, now: Date): FsrsCardJson | null {
 }
 
 function fsrsOutcome(card: CardSched, answer: Answer, config: StudyConfig, now: Date, today: number): Outcome {
+  const validParams = [17, 19, 21].includes(config.fsrsParams.length);
   const scheduler = fsrs({
+    ...(validParams ? { w: config.fsrsParams } : {}),
     request_retention: config.desiredRetention,
     maximum_interval: config.maximumInterval,
     enable_fuzz: true,
@@ -360,6 +388,7 @@ export function answerCard(card: CardSched, answer: Answer, config: StudyConfig,
     relearn: new Steps(config.relearnSteps),
     config,
     fuzz: fuzzFactorFor(card.id, card.reps),
+    today,
   };
   if (card.type === 'new' || card.type === 'learning') return learnOutcome(card, answer, ctx);
   if (card.type === 'relearning') return relearnOutcome(card, answer, ctx);

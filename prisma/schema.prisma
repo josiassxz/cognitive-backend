@@ -39,6 +39,8 @@ model User {
   segmentProgress   UserSegmentProgress[]
   studySettings     UserStudySettings?
   studyCards        UserStudyCard[]
+  userStudyPresets  UserStudyPreset[]
+  userStudyDecks    UserStudyDeck[]
 }
 
 model RefreshToken {
@@ -691,7 +693,7 @@ model UserPlaylistItem {
 }
 
 // ---------------------------------------------------------------- Estudo estilo Anki
-// Opções do baralho do usuário (espelho das "Opções do baralho" do Anki; ver src/lib/study/config.ts).
+// Opções globais da coleção (as marcadas com 🌐 no Anki; ver src/lib/study/config.ts).
 model UserStudySettings {
   userId    String   @id
   config    Json
@@ -723,6 +725,8 @@ model UserStudyCard {
   fsrs           Json?
   manual         Boolean           @default(false)
   introducedDay  Int?
+  // Oculto ("bury") até o fim deste dia de estudo.
+  buriedDay      Int?
   lastReviewDay  Int?
   lastReviewAt   DateTime?
   createdAt      DateTime          @default(now())
@@ -756,4 +760,37 @@ model UserStudyReview {
 
   @@index([userId, contentId, day])
   @@index([cardId])
+}
+
+// Preset de opções do baralho (ex.: "Default (usado por 2 baralhos)").
+model UserStudyPreset {
+  id        Int             @id @default(autoincrement())
+  userId    String
+  name      String
+  config    Json
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  decks     UserStudyDeck[]
+
+  @@unique([userId, name])
+}
+
+// Baralho: contentId 0 = baralho raiz "Tunely"; demais = um livro. Guarda o preset usado e os
+// limites "Esse baralho" e "Somente hoje" ({ day, limit }) das Opções do Anki.
+model UserStudyDeck {
+  id               Int              @id @default(autoincrement())
+  userId           String
+  contentId        Int
+  presetId         Int?
+  newLimit         Int?
+  reviewLimit      Int?
+  newLimitToday    Json?
+  reviewLimitToday Json?
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  user             User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  preset           UserStudyPreset? @relation(fields: [presetId], references: [id], onDelete: SetNull)
+
+  @@unique([userId, contentId])
 }

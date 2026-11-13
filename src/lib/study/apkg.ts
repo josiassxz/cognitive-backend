@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import JSZip from 'jszip';
 import initSqlJs from 'sql.js';
+import { legacyDeckConfig } from './anki-map';
 import type { StudyConfig } from './config';
 
 export interface ApkgNote {
@@ -21,6 +22,7 @@ export interface ApkgInput {
   deckId: number;
   bookTitle: string;
   config: StudyConfig;
+  presetName?: string;
   notes: ApkgNote[];
   now?: Date;
 }
@@ -105,48 +107,6 @@ function guidFor(source: string): string {
   return createHash('sha256').update(`tunely:${source}`).digest('base64').replace(/[^A-Za-z0-9]/g, '').slice(0, 12);
 }
 
-/** Predefinição de opções no formato legado (dconf) que o Anki lê na importação. */
-export function legacyDeckConfig(config: StudyConfig, mod: number) {
-  return {
-    id: DCONF_ID,
-    name: 'Tunely',
-    mod,
-    usn: -1,
-    dyn: false,
-    maxTaken: config.maxAnswerSeconds,
-    autoplay: config.autoplayAudio,
-    timer: config.showTimer ? 1 : 0,
-    replayq: config.replayQuestionAudio,
-    new: {
-      bury: false,
-      delays: config.learnSteps,
-      initialFactor: Math.round(config.startingEase * 1000),
-      ints: [config.graduatingInterval, config.easyInterval, 0],
-      order: config.insertionOrder === 'random' ? 0 : 1,
-      perDay: config.newPerDay,
-      separate: true,
-    },
-    lapse: {
-      delays: config.relearnSteps,
-      leechAction: config.leechAction === 'suspend' ? 0 : 1,
-      leechFails: config.leechThreshold,
-      minInt: config.minimumInterval,
-      mult: config.newInterval,
-    },
-    rev: {
-      bury: false,
-      ease4: config.easyBonus,
-      fuzz: 0.05,
-      ivlFct: config.intervalModifier,
-      maxIvl: config.maximumInterval,
-      minSpace: 1,
-      perDay: config.reviewsPerDay,
-      hardFactor: config.hardInterval,
-    },
-    desiredRetention: config.desiredRetention,
-  };
-}
-
 export async function buildApkg(input: ApkgInput): Promise<Buffer> {
   const now = input.now ?? new Date();
   const nowMs = now.getTime();
@@ -178,7 +138,7 @@ export async function buildApkg(input: ApkgInput): Promise<Buffer> {
     1: { ...deckBase, id: 1, name: 'Default', conf: 1, desc: '' },
     [input.deckId]: { ...deckBase, id: input.deckId, name: input.deckName, conf: DCONF_ID, desc: `Frases de <b>${escapeHtml(input.bookTitle)}</b> com áudio e tradução — exportado do Tunely.` },
   };
-  const dconf = { [DCONF_ID]: legacyDeckConfig(input.config, nowSecs) };
+  const dconf = { [DCONF_ID]: legacyDeckConfig(input.config, nowSecs, DCONF_ID, input.presetName ?? 'Tunely') };
   const conf = {
     activeDecks: [1], curDeck: 1, newSpread: 0, collapseTime: 1200, timeLim: 0, estTimes: true, dueCounts: true,
     curModel: modelId, nextPos: input.notes.length + 1, sortType: 'noteFld', sortBackwards: false, addToCur: true,

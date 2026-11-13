@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { dayNumber, dayStart, DEFAULT_STUDY_CONFIG, resolveStudyConfig } from '../src/lib/study/config';
-import { answerCard, constrainedFuzzBounds, Steps, type CardSched } from '../src/lib/study/scheduler';
+import { fromLegacyDeckConfig, legacyDeckConfig } from '../src/lib/study/anki-map';
+import { dayNumber, dayStart, DEFAULT_STUDY_CONFIG, resolveStudyConfig, weekdayIndex } from '../src/lib/study/config';
+import { answerCard, constrainedFuzzBounds, fuzzedWithEasyDays, Steps, type CardSched } from '../src/lib/study/scheduler';
 
 const now = new Date('2026-11-13T15:00:00Z');
 const config = { ...DEFAULT_STUDY_CONFIG };
@@ -108,5 +109,34 @@ describe('dia de estudo', () => {
     const resolved = resolveStudyConfig({ newPerDay: 30, learnSteps: 'x', bogus: 1 });
     expect(resolved.newPerDay).toBe(30);
     expect(resolved.learnSteps).toEqual([1, 10]);
+  });
+});
+
+describe('Dias de Descanso (easy days)', () => {
+  it('evita os dias marcados como Mínimo dentro da faixa de fuzz', () => {
+    // segunda..domingo; zera sábado e domingo
+    const easyDays = [1, 1, 1, 1, 1, 0, 0];
+    for (let seed = 0; seed < 50; seed++) {
+      const fuzz = seed / 50;
+      const days = fuzzedWithEasyDays(fuzz, 20, 1, 36500, 100, easyDays);
+      expect([5, 6]).not.toContain(weekdayIndex(100 + days));
+    }
+  });
+});
+
+describe('formato de preset do Anki (schema 11)', () => {
+  it('ida e volta preserva as opções', () => {
+    const config = {
+      ...DEFAULT_STUDY_CONFIG,
+      newPerDay: 30, learnSteps: [1, 10, 60], newInterval: 0.5, leechAction: 'suspend' as const,
+      reviewOrder: 'relativeOverdueness' as const, newGatherPriority: 'randomCards' as const, newReviewMix: 'newFirst' as const,
+      answerAction: 'answerGood' as const, easyDays: [1, 1, 1, 1, 1, 0.5, 0], disableAutoplay: true,
+    };
+    const back = fromLegacyDeckConfig(legacyDeckConfig(config, 0));
+    expect(back).toMatchObject({
+      newPerDay: 30, learnSteps: [1, 10, 60], newInterval: 0.5, leechAction: 'suspend', reviewOrder: 'relativeOverdueness',
+      newGatherPriority: 'randomCards', newReviewMix: 'newFirst', answerAction: 'answerGood', easyDays: [1, 1, 1, 1, 1, 0.5, 0],
+      disableAutoplay: true,
+    });
   });
 });
