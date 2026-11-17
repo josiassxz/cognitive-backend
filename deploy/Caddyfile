@@ -1,3 +1,11 @@
+# Global: atrás de outro proxy (ex.: Caddy compartilhado da VPS), preserva o IP real do
+# cliente vindo de redes privadas; de IPs públicos o X-Forwarded-For é sempre sobrescrito.
+{
+	servers {
+		trusted_proxies static private_ranges
+	}
+}
+
 # TLS automático (Let's Encrypt) quando SITE_ADDRESS é um domínio público apontado para a VPS.
 # Para teste local sem domínio: SITE_ADDRESS=:80 (HTTP puro) e COOKIE_SECURE=false.
 {$SITE_ADDRESS} {

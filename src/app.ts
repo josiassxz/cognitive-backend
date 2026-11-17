@@ -37,7 +37,10 @@ import { studyRouter } from './routes/study';
 
 export function createApp() {
   const app = express();
-  app.set('trust proxy', env.NODE_ENV === 'production' ? 1 : false);
+  // Em produção há até dois proxies na frente (Caddy compartilhado do domínio → Caddy do Tunely).
+  // Confiar só em endereços privados/loopback faz req.ip ser o IP real do cliente nos dois
+  // caminhos (domínio e porta direta), sem aceitar X-Forwarded-For forjado vindo da internet.
+  app.set('trust proxy', env.NODE_ENV === 'production' ? ['loopback', 'linklocal', 'uniquelocal'] : false);
   const isDevelopment = env.NODE_ENV === 'development';
   const defaultLimitMax = isDevelopment ? Math.max(env.RATE_LIMIT_MAX, 1000) : env.RATE_LIMIT_MAX;
   const authLimitMax = isDevelopment ? Math.max(env.AUTH_RATE_LIMIT_MAX, 120) : env.AUTH_RATE_LIMIT_MAX;
