@@ -20,7 +20,7 @@ export const globalConfigSchema = z.object({
 
 export const presetConfigSchema = z.object({
   // Limites Diários
-  newPerDay: z.number().int().min(0).max(9999).default(20),
+  newPerDay: z.number().int().min(0).max(99999).default(20),
   reviewsPerDay: z.number().int().min(0).max(99999).default(200),
   // Novos Cartões
   learnSteps: z.array(minutes).max(20).default([1, 10]),
