@@ -13,6 +13,8 @@
 //   GET  /api/study/:deck/next                      próximo cartão (fila do Anki v3)
 //   POST /api/study/cards/:id/answer                { answer: 1..4, timeMs, deck } → próximo cartão
 //   POST /api/study/cards/:id/suspend | /bury       suspender / ocultar até amanhã
+//   POST /api/study/:deck/reset                     redefinir o baralho do livro (cartões voltam a novos)
+//   DELETE /api/study/:deck                         excluir o baralho do livro (cartões + histórico)
 // Frases e Anki do usuário:
 //   GET/POST /api/study/:contentId/cards, DELETE /api/study/:contentId/cards/:key
 //   POST /api/study/:contentId/export (.apkg) | /anki-notes (AnkiConnect) | /anki-sent
@@ -21,7 +23,7 @@
 // (frases marcadas para mandar ao Anki do usuário / já enviadas).
 import { Router, type Request } from 'express';
 import { z } from 'zod';
-import type { Prisma, UserStudyCard } from '@prisma/client';
+import { Prisma, type UserStudyCard } from '@prisma/client';
 import { prisma } from '../lib/prisma';
 import { fromLegacyDeckConfig, legacyDeckConfig } from '../lib/study/anki-map';
 import { buildApkg } from '../lib/study/apkg';
@@ -437,6 +439,56 @@ studyRouter.delete(
     const key = z.string().min(1).max(64).parse(req.params.key);
     await prisma.userStudyCard.deleteMany({ where: { userId, contentId: contentIdParam(req), segmentKey: key } });
     res.json({ removed: true });
+  }),
+);
+
+// ----------------------------------------------------------------------------- redefinir / excluir
+/** Livro do parâmetro para ações destrutivas (a raiz "Tunely" não pode ser redefinida/excluída aqui). */
+async function bookDeckParam(req: Request): Promise<number> {
+  const deck = z.coerce.number().int().positive().parse(req.params.deck);
+  await loadVisibleContent(deck, req.userRole);
+  return deck;
+}
+
+/**
+ * Redefinir ("Esquecer" do Anki): todos os cartões do app deste livro voltam a ser novos,
+ * sem intervalos nem histórico. Frases enviadas ao Anki do usuário não mudam.
+ */
+studyRouter.post(
+  '/:deck/reset',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId as string;
+    const deck = await bookDeckParam(req);
+    const config = await effectiveConfig(userId, deck);
+    const where = { userId, contentId: deck, queue: { in: APP_QUEUES } };
+    const cards = await prisma.userStudyCard.findMany({ where, select: { id: true } });
+    const ids = cards.map((c) => c.id);
+    await prisma.$transaction([
+      prisma.userStudyReview.deleteMany({ where: { userId, cardId: { in: ids } } }),
+      prisma.userStudyCard.updateMany({
+        where,
+        data: {
+          type: 'new', queue: 'new', dueAt: null, dueDay: null, interval: 0, ease: config.startingEase, reps: 0, lapses: 0,
+          remainingSteps: 0, leech: false, fsrs: Prisma.DbNull, introducedDay: null, lastReviewDay: null, lastReviewAt: null, buriedDay: null,
+        },
+      }),
+    ]);
+    res.json({ reset: ids.length });
+  }),
+);
+
+/** Excluir o baralho do livro: remove todos os cartões, o histórico e as opções próprias do baralho. */
+studyRouter.delete(
+  '/:deck',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId as string;
+    const deck = await bookDeckParam(req);
+    const [, removed] = await prisma.$transaction([
+      prisma.userStudyReview.deleteMany({ where: { userId, contentId: deck } }),
+      prisma.userStudyCard.deleteMany({ where: { userId, contentId: deck } }),
+      prisma.userStudyDeck.deleteMany({ where: { userId, contentId: deck } }),
+    ]);
+    res.json({ deleted: removed.count });
   }),
 );
 
