@@ -118,9 +118,14 @@ async function deckState(userId: string, contentId: number, global: GlobalConfig
 }
 
 /** Puxa as próximas frases do livro para a fila de novos até cobrir o limite do dia. */
+// Regra do produto: o livro NUNCA entra inteiro no baralho. Só viram cartões as frases que o
+// aluno marca como concluídas no linha a linha (ver routes/reading-segments.ts). Esta função
+// fica desligada e só é mantida para uma eventual opção futura.
+const AUTO_ADD_ENABLED = false;
+
 async function topUpNewCards(userId: string, state: DeckState) {
   const { contentId, config } = state;
-  if (!config.autoAddFromBook || state.newRemaining <= 0 || contentId === ROOT_DECK) return;
+  if (!AUTO_ADD_ENABLED || !config.autoAddFromBook || state.newRemaining <= 0 || contentId === ROOT_DECK) return;
   const have = await prisma.userStudyCard.count({ where: { userId, contentId, queue: 'new' } });
   const missing = state.newRemaining - have;
   if (missing <= 0) return;
@@ -286,7 +291,7 @@ export async function buildQueue(userId: string, scope: number, now: Date, optio
     // Conta também as frases que ainda seriam puxadas do livro.
     let extraTotal = 0;
     for (const state of states) {
-      if (!state.config.autoAddFromBook) continue;
+      if (!AUTO_ADD_ENABLED || !state.config.autoAddFromBook) continue;
       const have = newCards.filter((c) => c.contentId === state.contentId).length;
       const room = Math.max(state.newRemaining - have, 0);
       if (room > 0) extraTotal += Math.min(room, await availableFromBook(userId, state.contentId));

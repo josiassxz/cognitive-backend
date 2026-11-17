@@ -153,8 +153,16 @@ readingSegmentsRouter.put(
         create: { userId, contentId, segmentKey: key },
         update: { orphanedAt: null },
       });
+      // Frase concluída vira cartão no baralho (única forma de entrar no baralho).
+      await prisma.userStudyCard.upsert({
+        where: { userId_segmentKey: { userId, segmentKey: key } },
+        create: { userId, contentId, segmentKey: key, queue: 'new', manual: true, position: sentence.sentenceIndex },
+        update: {},
+      });
     } else {
       await prisma.userSegmentProgress.deleteMany({ where: { userId, segmentKey: key } });
+      // Desmarcou antes de estudar o cartão: sai do baralho. Já estudado: mantém o histórico.
+      await prisma.userStudyCard.deleteMany({ where: { userId, segmentKey: key, reps: 0, queue: 'new' } });
     }
     const progress = await progressSummary(userId, contentId);
 

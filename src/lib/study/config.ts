@@ -75,7 +75,8 @@ export const presetConfigSchema = z.object({
   customScheduling: z.string().max(20000).default(''),
   // Tunely (cartão gerado a partir das frases)
   cardType: z.enum(['en-pt', 'audio-first', 'pt-en']).default('en-pt'),
-  autoAddFromBook: z.boolean().default(true),
+  // Desligado por regra: só frases marcadas como concluídas viram cartões.
+  autoAddFromBook: z.boolean().default(false),
 });
 
 export type GlobalConfig = z.infer<typeof globalConfigSchema>;
