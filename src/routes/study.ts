@@ -13,6 +13,8 @@
 //   GET  /api/study/:deck/next                      próximo cartão (fila do Anki v3)
 //   POST /api/study/cards/:id/answer                { answer: 1..4, timeMs, deck } → próximo cartão
 //   POST /api/study/cards/:id/suspend | /bury       suspender / ocultar até amanhã
+//   GET  /api/study/:deck/offline-pack             cartões do dia p/ revisar offline (texto, tradução, áudio)
+//   POST /api/study/sync                           { answers: [{cardId, answer, timeMs, at}] } respostas offline
 //   POST /api/study/:deck/reset                     redefinir o baralho do livro (cartões voltam a novos)
 //   DELETE /api/study/:deck                         excluir o baralho do livro (cartões + histórico)
 // Frases e Anki do usuário:
@@ -501,6 +503,51 @@ studyRouter.get(
   }),
 );
 
+/**
+ * Aplica uma resposta a um cartão no instante `now` (agora, ou o momento real em que foi dada
+ * offline). Devolve null se o cartão não existir mais / não estiver estudável.
+ */
+async function applyAnswer(userId: string, cardId: number, answer: Answer, timeMs: number, now: Date) {
+  const card = await prisma.userStudyCard.findFirst({ where: { id: cardId, userId } });
+  if (!card || !APP_QUEUES.includes(card.queue) || card.queue === 'suspended') return null;
+  const config = await effectiveConfig(userId, card.contentId);
+  const today = dayNumber(now, config);
+  const outcome = answerCard(toSched(card), answer, config, now, today);
+  const isReview = outcome.type === 'review';
+  const days = 'days' in outcome.delay ? outcome.delay.days : 0;
+  const secs = 'secs' in outcome.delay ? outcome.delay.secs : 0;
+  const suspend = outcome.becameLeech && config.leechAction === 'suspend';
+  await prisma.$transaction([
+    prisma.userStudyCard.update({
+      where: { id: card.id },
+      data: {
+        type: outcome.type,
+        queue: suspend ? 'suspended' : isReview ? 'review' : 'learning',
+        dueDay: isReview ? today + days : null,
+        dueAt: isReview ? null : new Date(now.getTime() + secs * 1000),
+        interval: outcome.interval,
+        ease: outcome.ease,
+        lapses: outcome.lapses,
+        leech: outcome.leech,
+        remainingSteps: outcome.remainingSteps,
+        fsrs: outcome.fsrs ? (outcome.fsrs as unknown as Prisma.InputJsonValue) : undefined,
+        reps: { increment: 1 },
+        introducedDay: card.introducedDay ?? today,
+        lastReviewDay: today,
+        lastReviewAt: now,
+      },
+    }),
+    prisma.userStudyReview.create({
+      data: {
+        cardId: card.id, userId, contentId: card.contentId, answer, kind: outcome.revlogKind,
+        interval: isReview ? days : -secs, lastInterval: card.type === 'review' ? card.interval : 0,
+        ease: outcome.ease, timeMs: Math.min(timeMs, config.maxAnswerSeconds * 1000), day: today, createdAt: now,
+      },
+    }),
+  ]);
+  return { card, outcome, suspend };
+}
+
 studyRouter.post(
   '/cards/:id/answer',
   asyncHandler(async (req, res) => {
@@ -513,46 +560,122 @@ studyRouter.post(
         deck: z.number().int().min(0).optional(),
       })
       .parse(req.body);
-    const card = await prisma.userStudyCard.findFirst({ where: { id, userId } });
-    if (!card || !APP_QUEUES.includes(card.queue) || card.queue === 'suspended') throw new HttpError(404, 'Cartão não encontrado');
-    const config = await effectiveConfig(userId, card.contentId);
+    const applied = await applyAnswer(userId, id, answer as Answer, timeMs, new Date());
+    if (!applied) throw new HttpError(404, 'Cartão não encontrado');
+    const next = await nextPayload(userId, deck ?? applied.card.contentId);
+    res.json({ ...next, answered: { id, becameLeech: applied.outcome.becameLeech, suspended: applied.suspend } });
+  }),
+);
+
+// ----------------------------------------------------------------------------- offline
+/**
+ * Pacote para revisar sem internet: cartões do dia (aprendendo, revisões que vencem nos
+ * próximos `days` dias e os novos de hoje), com texto, tradução, áudio e as opções de cada
+ * livro. O app agenda localmente com o mesmo algoritmo e depois sincroniza as respostas.
+ */
+studyRouter.get(
+  '/:deck/offline-pack',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId as string;
+    const deck = await deckParam(req);
+    const days = z.coerce.number().int().min(0).max(14).default(3).parse(req.query.days ?? 3);
     const now = new Date();
-    const today = dayNumber(now, config);
-    const outcome = answerCard(toSched(card), answer as Answer, config, now, today);
-    const isReview = outcome.type === 'review';
-    const days = 'days' in outcome.delay ? outcome.delay.days : 0;
-    const secs = 'secs' in outcome.delay ? outcome.delay.secs : 0;
-    const suspend = outcome.becameLeech && config.leechAction === 'suspend';
-    await prisma.$transaction([
-      prisma.userStudyCard.update({
-        where: { id },
-        data: {
-          type: outcome.type,
-          queue: suspend ? 'suspended' : isReview ? 'review' : 'learning',
-          dueDay: isReview ? today + days : null,
-          dueAt: isReview ? null : new Date(now.getTime() + secs * 1000),
-          interval: outcome.interval,
-          ease: outcome.ease,
-          lapses: outcome.lapses,
-          leech: outcome.leech,
-          remainingSteps: outcome.remainingSteps,
-          fsrs: outcome.fsrs ? (outcome.fsrs as unknown as Prisma.InputJsonValue) : undefined,
-          reps: { increment: 1 },
-          introducedDay: card.introducedDay ?? today,
-          lastReviewDay: today,
-          lastReviewAt: now,
-        },
-      }),
-      prisma.userStudyReview.create({
-        data: {
-          cardId: id, userId, contentId: card.contentId, answer, kind: outcome.revlogKind,
-          interval: isReview ? days : -secs, lastInterval: card.type === 'review' ? card.interval : 0,
-          ease: outcome.ease, timeMs: Math.min(timeMs, config.maxAnswerSeconds * 1000), day: today,
-        },
-      }),
-    ]);
-    const next = await nextPayload(userId, deck ?? card.contentId);
-    res.json({ ...next, answered: { id, becameLeech: outcome.becameLeech, suspended: suspend } });
+    // Garante os novos de hoje já criados (como ao abrir o baralho).
+    const queue = await buildQueue(userId, deck, now);
+    const books = deck === ROOT_DECK ? await listBookDecks(userId) : [deck];
+    const cards = await prisma.userStudyCard.findMany({
+      where: {
+        userId,
+        contentId: { in: books },
+        OR: [
+          { queue: 'learning' },
+          { queue: 'review', dueDay: { lte: queue.today + days } },
+          { queue: 'new' },
+        ],
+      },
+      orderBy: [{ position: 'asc' }, { id: 'asc' }],
+    });
+    const configs: Record<number, StudyConfig> = {};
+    const titles: Record<number, string> = {};
+    const items = [];
+    for (const contentId of books) {
+      configs[contentId] = await effectiveConfig(userId, contentId);
+      const content = await prisma.readingContent.findUnique({ where: { id: contentId }, select: { title: true } });
+      titles[contentId] = content?.title ?? '';
+      const own = cards.filter((c) => c.contentId === contentId);
+      if (!own.length) continue;
+      const sentences = await sentencesByKey(contentId, own.map((c) => c.segmentKey));
+      const source = await clipSourceFor(contentId);
+      // Limita os novos ao que cabe em `days` dias (o resto vem na próxima sincronização).
+      let newLeft = configs[contentId].newPerDay * Math.max(days, 1);
+      const chosen = own.filter((c) => (c.queue === 'new' ? newLeft-- > 0 : true));
+      const built = await mapLimit(chosen, 4, async (card) => {
+        const row = sentences.get(card.segmentKey);
+        if (!row) return null;
+        let clipUrlValue = '';
+        try {
+          clipUrlValue = await clipUrl(source, clipSegment(card.segmentKey, row));
+        } catch {
+          clipUrlValue = '';
+        }
+        return {
+          id: card.id, contentId, segmentKey: card.segmentKey, type: card.type, queue: card.queue, position: card.position,
+          dueAt: card.dueAt?.toISOString() ?? null, dueDay: card.dueDay, interval: card.interval, ease: card.ease, reps: card.reps,
+          lapses: card.lapses, remainingSteps: card.remainingSteps, leech: card.leech, fsrs: card.fsrs, introducedDay: card.introducedDay,
+          lastReviewDay: card.lastReviewDay, lastReviewAt: card.lastReviewAt?.toISOString() ?? null, buriedDay: card.buriedDay,
+          line: row.sentenceIndex + 1, english: row.text, portuguese: row.translation, bookTitle: titles[contentId], audioUrl: clipUrlValue,
+        };
+      });
+      items.push(...built.filter((x): x is NonNullable<typeof x> => x !== null));
+    }
+    res.json({
+      deck,
+      generatedAt: now.toISOString(),
+      today: queue.today,
+      done: { newDone: queue.newDone, reviewsDone: queue.reviewsDone },
+      configs,
+      titles,
+      cards: items,
+    });
+  }),
+);
+
+/**
+ * Recebe respostas dadas offline e as reaplica na ordem, cada uma no instante real em que
+ * aconteceu (o servidor recalcula o agendamento). Idempotente: respostas já aplicadas (mesmo
+ * cartão e mesmo instante) são ignoradas.
+ */
+studyRouter.post(
+  '/sync',
+  asyncHandler(async (req, res) => {
+    const userId = req.userId as string;
+    const { answers } = z
+      .object({
+        answers: z
+          .array(z.object({
+            cardId: z.number().int().positive(),
+            answer: z.number().int().min(1).max(4),
+            timeMs: z.number().int().min(0).max(3_600_000).default(0),
+            at: z.string().datetime(),
+          }))
+          .max(5000),
+      })
+      .parse(req.body);
+    const sorted = [...answers].sort((a, b) => a.at.localeCompare(b.at));
+    let applied = 0;
+    let skipped = 0;
+    for (const item of sorted) {
+      const at = new Date(item.at);
+      const exists = await prisma.userStudyReview.findFirst({ where: { userId, cardId: item.cardId, createdAt: at }, select: { id: true } });
+      if (exists) {
+        skipped++;
+        continue;
+      }
+      const result = await applyAnswer(userId, item.cardId, item.answer as Answer, item.timeMs, at);
+      if (result) applied++;
+      else skipped++;
+    }
+    res.json({ applied, skipped });
   }),
 );
 
