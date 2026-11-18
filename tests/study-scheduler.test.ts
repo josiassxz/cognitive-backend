@@ -65,11 +65,19 @@ describe('revisão (SM-2 do Anki)', () => {
   });
 
   it('Errei → reaprendizado de 10 min, facilidade −20%, lapso contado', () => {
-    const again = answerCard(review, 1, config, now, 100);
+    // Novo intervalo 0 (padrão do Anki): o intervalo volta para o mínimo.
+    const again = answerCard(review, 1, { ...config, newInterval: 0 }, now, 100);
     expect(again).toMatchObject({ type: 'relearning', delay: { secs: 600 }, lapses: 1, interval: 1 });
     expect(again.ease).toBeCloseTo(2.3);
     const back = answerCard(card({ ...review, type: 'relearning', interval: 1, remainingSteps: 1, lapses: 1, ease: 2.3 }), 3, config, now, 100);
     expect(back).toMatchObject({ type: 'review', interval: 1 });
+  });
+
+  it('novo intervalo 0,50 (padrão do Tunely): errar mantém metade do intervalo', () => {
+    const big = card({ ...review, interval: 20, lastReviewDay: 80 });
+    const interval = answerCard(big, 1, { ...config, newInterval: 0.5 }, now, 100).interval;
+    expect(interval).toBeGreaterThanOrEqual(9); // 10 dias ± fuzz
+    expect(interval).toBeLessThanOrEqual(11);
   });
 
   it('respeita o intervalo máximo', () => {

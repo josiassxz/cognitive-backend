@@ -3,7 +3,8 @@
 //   "os limites começam do deck superior", horário de virada do dia, antecipação.
 // - PRESETS de opções (nome + config), compartilhados entre baralhos ("Default (usado por N baralhos)").
 // Cada livro é um baralho filho de "Tunely" e usa um preset.
-// Padrões = padrões do Anki 25 (ankitects/anki rslib/src/deckconfig).
+// Padrões = padrões do Anki 25 (ankitects/anki rslib/src/deckconfig), exceto os do Tunely:
+// 9999 novos/dia, 9999 revisões/dia e novo intervalo 0,50.
 import { z } from 'zod';
 
 const minutes = z.number().positive().max(60 * 24 * 365);
@@ -20,8 +21,8 @@ export const globalConfigSchema = z.object({
 
 export const presetConfigSchema = z.object({
   // Limites Diários
-  newPerDay: z.number().int().min(0).max(99999).default(20),
-  reviewsPerDay: z.number().int().min(0).max(99999).default(200),
+  newPerDay: z.number().int().min(0).max(99999).default(9999),
+  reviewsPerDay: z.number().int().min(0).max(99999).default(9999),
   // Novos Cartões
   learnSteps: z.array(minutes).max(20).default([1, 10]),
   graduatingInterval: z.number().int().min(1).max(36500).default(1),
@@ -71,7 +72,7 @@ export const presetConfigSchema = z.object({
   easyBonus: z.number().min(1).max(5).default(1.3),
   intervalModifier: z.number().min(0.5).max(2).default(1),
   hardInterval: z.number().min(0.5).max(1.3).default(1.2),
-  newInterval: z.number().min(0).max(1).default(0),
+  newInterval: z.number().min(0).max(1).default(0.5),
   customScheduling: z.string().max(20000).default(''),
   // Tunely (cartão gerado a partir das frases)
   cardType: z.enum(['en-pt', 'audio-first', 'pt-en']).default('en-pt'),
