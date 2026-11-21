@@ -389,6 +389,8 @@ model ReadingSentence {
   // [{ wordKeys: string[], pt: { start, end, text } }] — offsets em unidades UTF-16
   highlights     Json?
   note           String                 @default("")
+  // Áudio próprio do cartão (baralhos criados pelo usuário): chave em MEDIA_ROOT. Vazio = recorte do áudio do livro.
+  audioKey       String                 @default("")
   content        ReadingContent         @relation(fields: [contentId], references: [id], onDelete: Cascade)
   wordTimestamps ReadingWordTimestamp[]
 

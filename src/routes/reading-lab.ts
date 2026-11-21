@@ -575,7 +575,7 @@ readingLabRouter.get(
     const category = typeof req.query.category === 'string' ? req.query.category : undefined;
     const limit = z.coerce.number().int().min(1).max(300).default(20).parse(req.query.limit ?? 20);
     const offset = z.coerce.number().int().min(0).default(0).parse(req.query.offset ?? 0);
-    const where: Record<string, unknown> = { isPublic: true };
+    const where: Record<string, unknown> = { isPublic: true, sourceType: { not: 'custom-deck' } };
     // Publicação separada do processamento: só admin enxerga o que não está publicado.
     const requestedStatus = typeof req.query.status === 'string' ? req.query.status : undefined;
     if (req.userRole === 'admin') {

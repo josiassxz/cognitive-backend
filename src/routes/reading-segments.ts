@@ -16,6 +16,10 @@ import { XP_CONFIG } from '../lib/xp';
 import { authMiddleware } from '../middleware/auth';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
+import { CUSTOM_DECK_SOURCE } from '../lib/study/custom-decks';
+
+// sourceType dos baralhos criados pelo próprio usuário (privados, fora da biblioteca).
+export { CUSTOM_DECK_SOURCE };
 
 export const readingSegmentsRouter = Router();
 
@@ -36,16 +40,25 @@ function sentenceWhere(contentId: number, key: string) {
 
 type HighlightRow = { wordKeys?: string[]; pt?: { start: number; end: number; text: string } };
 
-/** Conteúdo visível para o usuário: publicado, ou qualquer status para admin. */
-export async function loadVisibleContent(contentId: number, role: 'user' | 'admin' | undefined) {
+
+/**
+ * Conteúdo visível para o usuário: publicado, ou qualquer status para admin.
+ * Baralhos criados pelo usuário só são visíveis ao dono, e só quando `userId` é informado
+ * (rotas de estudo); nas rotas de leitura eles não existem.
+ */
+export async function loadVisibleContent(contentId: number, role: 'user' | 'admin' | undefined, userId?: string) {
   const content = await prisma.readingContent.findUnique({
     where: { id: contentId },
     select: {
       id: true, title: true, author: true, description: true, coverUrl: true, audioUrl: true, audioDurationMs: true,
       cefrLevel: true, wordCount: true, sourceType: true, language: true, publishStatus: true, qualityStatus: true,
-      translationStatus: true, editVersion: true, contentKey: true, coverPalette: true, libraryMeta: true,
+      translationStatus: true, editVersion: true, contentKey: true, coverPalette: true, libraryMeta: true, userId: true,
     },
   });
+  if (content?.sourceType === CUSTOM_DECK_SOURCE) {
+    if (!userId || content.userId !== userId) throw new HttpError(404, 'Conteúdo não encontrado');
+    return content;
+  }
   if (!content || (content.publishStatus !== 'published' && role !== 'admin')) {
     throw new HttpError(404, 'Conteúdo não encontrado');
   }

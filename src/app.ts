@@ -34,6 +34,7 @@ import { vocabularySrsRouter } from './routes/vocabulary-srs';
 import transcriptRouter from './routes/transcript';
 import libraryRouter from './routes/library';
 import { studyRouter } from './routes/study';
+import { customDecksRouter } from './routes/custom-decks';
 
 export function createApp() {
   const app = express();
@@ -131,6 +132,7 @@ export function createApp() {
   app.use('/api/quiz', authMiddleware, quizRouter);
   app.use('/api/flashcards', authMiddleware, flashcardsRouter);
   app.use('/api/study', authMiddleware, studyRouter);
+  app.use('/api/custom-decks', authMiddleware, customDecksRouter);
   app.use('/api/admin/reading', authMiddleware, requireAdmin, readingEditorRouter);
   app.use('/api/admin', authMiddleware, requireAdmin, adminRouter);
 

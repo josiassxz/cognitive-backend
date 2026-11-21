@@ -30,6 +30,8 @@ import { prisma } from '../lib/prisma';
 import { fromLegacyDeckConfig, legacyDeckConfig } from '../lib/study/anki-map';
 import { buildApkg } from '../lib/study/apkg';
 import { clipStorageKey, clipUrl, ensureClip, mapLimit, type ClipSource } from '../lib/study/clips';
+import { removeCustomDeck } from '../lib/study/custom-decks';
+import { resolveMediaPath, signMediaUrl } from '../lib/storage';
 import {
   dayNumber, DEFAULT_GLOBAL_CONFIG, DEFAULT_PRESET_CONFIG, globalConfigSchema, presetConfigSchema, resolvePresetConfig,
   type StudyConfig,
@@ -41,7 +43,7 @@ import {
 import { answerCard, previewAnswers, type Answer, type CardSched, type CardType, type FsrsCardJson } from '../lib/study/scheduler';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
-import { loadVisibleContent, publicSegmentKey } from './reading-segments';
+import { CUSTOM_DECK_SOURCE, loadVisibleContent, publicSegmentKey } from './reading-segments';
 
 export const studyRouter = Router();
 
@@ -56,7 +58,7 @@ function contentIdParam(req: Request): number {
 /** Baralho do parâmetro: 0 = raiz "Tunely"; > 0 = livro (precisa estar visível). */
 async function deckParam(req: Request): Promise<number> {
   const deck = z.coerce.number().int().min(0).parse(req.params.deck);
-  if (deck !== ROOT_DECK) await loadVisibleContent(deck, req.userRole);
+  if (deck !== ROOT_DECK) await loadVisibleContent(deck, req.userRole, req.userId);
   return deck;
 }
 
@@ -70,11 +72,12 @@ interface SentenceRow {
   endMs: number;
   playStartMs: number | null;
   playEndMs: number | null;
+  audioKey: string;
 }
 
 const sentenceSelect = {
   id: true, segmentKey: true, sentenceIndex: true, text: true, translation: true,
-  startMs: true, endMs: true, playStartMs: true, playEndMs: true,
+  startMs: true, endMs: true, playStartMs: true, playEndMs: true, audioKey: true,
 } as const;
 
 async function sentencesByKey(contentId: number, keys?: string[]): Promise<Map<string, SentenceRow>> {
@@ -95,6 +98,20 @@ function clipSegment(key: string, row: SentenceRow) {
 async function clipSourceFor(contentId: number): Promise<ClipSource> {
   const content = await prisma.readingContent.findUnique({ where: { id: contentId }, select: { audioUrl: true } });
   return { contentId, audioUrl: content?.audioUrl ?? '' };
+}
+
+/** URL tocável do áudio do cartão: o áudio próprio (baralho do usuário) ou o recorte do livro. */
+async function rowAudioUrl(source: ClipSource, key: string, row: SentenceRow): Promise<string> {
+  if (row.audioKey) return signMediaUrl(row.audioKey);
+  if (!source.audioUrl) return '';
+  return clipUrl(source, clipSegment(key, row));
+}
+
+/** Arquivo local do áudio do cartão (exportação .apkg). */
+async function rowAudioPath(source: ClipSource, key: string, row: SentenceRow): Promise<string | null> {
+  if (row.audioKey) return resolveMediaPath(row.audioKey);
+  if (!source.audioUrl) return null;
+  return ensureClip(source, clipSegment(key, row));
 }
 
 function toSched(card: UserStudyCard): CardSched {
@@ -125,7 +142,7 @@ async function serializeCard(card: UserStudyCard, config: StudyConfig, now: Date
   if (!row) return null;
   let audioUrl = '';
   try {
-    audioUrl = await clipUrl(await clipSourceFor(card.contentId), clipSegment(card.segmentKey, row));
+    audioUrl = await rowAudioUrl(await clipSourceFor(card.contentId), card.segmentKey, row);
   } catch (error) {
     console.error('[study] falha ao recortar áudio:', error instanceof Error ? error.message : error);
   }
@@ -184,9 +201,8 @@ async function deckInfo(userId: string, deck: number) {
   const [row, global] = await Promise.all([deckRow(userId, deck), loadGlobal(userId)]);
   const preset = await presetForDeck(userId, row);
   const today = dayNumber(new Date(), global);
-  const title = deck === ROOT_DECK
-    ? ROOT_DECK_NAME
-    : (await prisma.readingContent.findUnique({ where: { id: deck }, select: { title: true } }))?.title ?? 'Livro';
+  const content = deck === ROOT_DECK ? null : await prisma.readingContent.findUnique({ where: { id: deck }, select: { title: true, sourceType: true } });
+  const title = deck === ROOT_DECK ? ROOT_DECK_NAME : content?.title ?? 'Livro';
   const todayValue = (value: unknown) => {
     const parsed = value as { day?: number; limit?: number } | null;
     return parsed && parsed.day === today && typeof parsed.limit === 'number' ? parsed.limit : null;
@@ -194,6 +210,7 @@ async function deckInfo(userId: string, deck: number) {
   return {
     contentId: deck,
     title,
+    custom: content?.sourceType === CUSTOM_DECK_SOURCE,
     presetId: preset.id,
     newLimit: row?.newLimit ?? null,
     reviewLimit: row?.reviewLimit ?? null,
@@ -208,7 +225,7 @@ studyRouter.get(
   asyncHandler(async (req, res) => {
     const userId = req.userId as string;
     const deck = z.coerce.number().int().min(0).default(ROOT_DECK).parse(req.query.deck ?? ROOT_DECK);
-    if (deck !== ROOT_DECK) await loadVisibleContent(deck, req.userRole);
+    if (deck !== ROOT_DECK) await loadVisibleContent(deck, req.userRole, req.userId);
     res.json({
       global: await loadGlobal(userId),
       presets: await presetsWithUsage(userId),
@@ -239,7 +256,7 @@ studyRouter.put(
   asyncHandler(async (req, res) => {
     const userId = req.userId as string;
     const body = optionsSaveSchema.parse(req.body);
-    if (body.deck !== ROOT_DECK) await loadVisibleContent(body.deck, req.userRole);
+    if (body.deck !== ROOT_DECK) await loadVisibleContent(body.deck, req.userRole, req.userId);
     if (body.config.easyInterval < body.config.graduatingInterval) {
       throw new HttpError(400, 'O intervalo fácil deve ser maior ou igual ao intervalo de graduação');
     }
@@ -351,10 +368,14 @@ studyRouter.get(
     const books = await listBookDecks(userId);
     const contents = await prisma.readingContent.findMany({
       where: { id: { in: books } },
-      select: { id: true, title: true, author: true, coverUrl: true, coverPalette: true },
+      select: { id: true, title: true, author: true, coverUrl: true, coverPalette: true, sourceType: true },
     });
     const children = await Promise.all(
-      contents.map(async (content) => ({ ...content, counts: (await buildQueue(userId, content.id, now, { dryRun: true })).counts })),
+      contents.map(async ({ sourceType, ...content }) => ({
+        ...content,
+        custom: sourceType === CUSTOM_DECK_SOURCE,
+        counts: (await buildQueue(userId, content.id, now, { dryRun: true })).counts,
+      })),
     );
     children.sort((a, b) => a.title.localeCompare(b.title));
     const root = await buildQueue(userId, ROOT_DECK, now, { dryRun: true });
@@ -408,7 +429,7 @@ studyRouter.post(
     const { segmentKeys, target } = z
       .object({ segmentKeys: z.array(z.string().min(1).max(64)).min(1).max(MAX_EXPORT), target: z.enum(['app', 'anki']).default('app') })
       .parse(req.body);
-    await loadVisibleContent(contentId, req.userRole);
+    await loadVisibleContent(contentId, req.userRole, req.userId);
     const config = await effectiveConfig(userId, contentId);
     const rows = await sentencesByKey(contentId, segmentKeys);
     const queue = target === 'anki' ? 'anki-pending' : 'new';
@@ -448,7 +469,7 @@ studyRouter.delete(
 /** Livro do parâmetro para ações destrutivas (a raiz "Tunely" não pode ser redefinida/excluída aqui). */
 async function bookDeckParam(req: Request): Promise<number> {
   const deck = z.coerce.number().int().positive().parse(req.params.deck);
-  await loadVisibleContent(deck, req.userRole);
+  await loadVisibleContent(deck, req.userRole, req.userId);
   return deck;
 }
 
@@ -485,6 +506,12 @@ studyRouter.delete(
   asyncHandler(async (req, res) => {
     const userId = req.userId as string;
     const deck = await bookDeckParam(req);
+    const content = await prisma.readingContent.findUnique({ where: { id: deck }, select: { sourceType: true } });
+    if (content?.sourceType === CUSTOM_DECK_SOURCE) {
+      // Baralho criado pelo usuário: some por inteiro (cartões, histórico, textos e áudios).
+      res.json({ deleted: await removeCustomDeck(userId, deck) });
+      return;
+    }
     const [, removed] = await prisma.$transaction([
       prisma.userStudyReview.deleteMany({ where: { userId, contentId: deck } }),
       prisma.userStudyCard.deleteMany({ where: { userId, contentId: deck } }),
@@ -614,7 +641,7 @@ studyRouter.get(
         if (!row) return null;
         let clipUrlValue = '';
         try {
-          clipUrlValue = await clipUrl(source, clipSegment(card.segmentKey, row));
+          clipUrlValue = await rowAudioUrl(source, card.segmentKey, row);
         } catch {
           clipUrlValue = '';
         }
@@ -766,7 +793,7 @@ studyRouter.post(
     const userId = req.userId as string;
     const contentId = contentIdParam(req);
     const body = exportSchema.parse(req.body);
-    const content = await loadVisibleContent(contentId, req.userRole);
+    const content = await loadVisibleContent(contentId, req.userRole, req.userId);
     const config = await effectiveConfig(userId, contentId);
     const preset = await presetForDeck(userId, await deckRow(userId, contentId));
     const { keys, sentences, queueOf } = await collectExport(userId, contentId, body);
@@ -776,7 +803,7 @@ studyRouter.post(
       const row = sentences.get(key) as SentenceRow;
       let audioPath: string | null = null;
       try {
-        audioPath = await ensureClip(source, clipSegment(key, row));
+        audioPath = await rowAudioPath(source, key, row);
       } catch (error) {
         console.error('[study] export sem áudio:', error instanceof Error ? error.message : error);
       }
@@ -805,7 +832,7 @@ studyRouter.post(
     const userId = req.userId as string;
     const contentId = contentIdParam(req);
     const body = exportSchema.parse(req.body);
-    const content = await loadVisibleContent(contentId, req.userRole);
+    const content = await loadVisibleContent(contentId, req.userRole, req.userId);
     const config = await effectiveConfig(userId, contentId);
     const preset = await presetForDeck(userId, await deckRow(userId, contentId));
     const { keys, sentences } = await collectExport(userId, contentId, body);
@@ -814,7 +841,7 @@ studyRouter.post(
       const row = sentences.get(key) as SentenceRow;
       let audioUrl = '';
       try {
-        audioUrl = await clipUrl(source, clipSegment(key, row));
+        audioUrl = await rowAudioUrl(source, key, row);
       } catch (error) {
         console.error('[study] nota sem áudio:', error instanceof Error ? error.message : error);
       }
