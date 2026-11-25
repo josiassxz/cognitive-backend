@@ -45,12 +45,12 @@ contractsRouter.get('/', (_req, res) => {
     study: {
       decks: {
         method: 'GET', path: '/api/study/decks', auth: true,
-        description: 'Catálogo de todos os baralhos personalizados e livros que já viraram baralhos. Livros pessoais mantêm sua visibilidade. Contagens e progresso pertencem ao usuário autenticado.',
+        description: 'Baralhos do usuário autenticado e suas contagens pessoais.',
         response: { root: '{ contentId, title, counts }', decks: '[{ id, title, custom, canEdit, counts: { new, learning, review } }]' },
       },
       playlist: {
         method: 'GET', path: '/api/study/:deck/playlist', auth: true,
-        description: 'Somente frases que estão nos flashcards do ouvinte, na ordem do baralho, inclusive as já revisadas. Não altera progresso. Edição e exclusão de baralhos personalizados continuam exclusivas do dono.',
+        description: 'Nos livros, somente frases marcadas como concluídas pelo ouvinte e presentes nos seus flashcards. Nos baralhos personalizados, somente os cartões do dono. Não altera progresso. Edição e exclusão de baralhos personalizados continuam exclusivas do dono.',
         response: { deck: '{ id, title }', cards: '[{ key, index, front, back, hasAudio, audioUrl }]' },
         errors: ['HTTP_401', 'HTTP_404'],
       },

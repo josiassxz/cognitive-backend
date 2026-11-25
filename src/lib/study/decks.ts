@@ -76,13 +76,18 @@ export function deckLimits(deck: UserStudyDeck | null, preset: PresetConfig, tod
   };
 }
 
-/** Livros que viraram baralho. Sem userId, lista o catálogo compartilhado; filas usam o usuário. */
-export async function listBookDecks(userId?: string): Promise<number[]> {
+/** Livros que viraram baralho para este usuário. */
+export async function listBookDecks(userId: string): Promise<number[]> {
   const [cards, decks] = await Promise.all([
     prisma.userStudyCard.groupBy({ by: ['contentId'], where: { userId } }),
     prisma.userStudyDeck.findMany({ where: { userId, contentId: { gt: 0 } }, select: { contentId: true } }),
   ]);
-  return [...new Set([...cards.map((c) => c.contentId), ...decks.map((d) => d.contentId)])];
+  const ids = [...new Set([...cards.map(c => c.contentId), ...decks.map(d => d.contentId)])];
+  const visible = await prisma.readingContent.findMany({
+    where: { id: { in: ids }, OR: [{ userId }, { isPublic: true, sourceType: { not: 'custom-deck' } }] },
+    select: { id: true },
+  });
+  return visible.map(content => content.id);
 }
 
 // ----------------------------------------------------------------------------- fila
