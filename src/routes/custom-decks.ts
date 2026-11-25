@@ -107,8 +107,10 @@ customDecksRouter.get(
     const userId = req.userId as string;
     const id = deckId(req);
     // O player das versões anteriores do app usa esta lista. O estado de estudo é sempre do ouvinte.
-    const deck = await prisma.readingContent.findFirst({ where: { id, sourceType: CUSTOM_DECK_SOURCE }, select: { id: true, title: true } });
+    const deck = await prisma.readingContent.findFirst({ where: { id, sourceType: CUSTOM_DECK_SOURCE }, select: { id: true, title: true, userId: true } });
     if (!deck) throw new HttpError(404, 'Baralho não encontrado');
+    const editing = req.query.view === 'editor';
+    if (editing && deck.userId !== userId) throw new HttpError(404, 'Baralho não encontrado');
     const [rows, cards] = await Promise.all([
       prisma.readingSentence.findMany({
         where: { contentId: id },
@@ -120,7 +122,7 @@ customDecksRouter.get(
     const state = new Map(cards.map((c) => [c.segmentKey, c]));
     res.json({
       deck: { id: deck.id, title: deck.title },
-      cards: rows.map((row) => {
+      cards: rows.filter(row => editing || state.has(row.segmentKey as string)).map((row) => {
         const card = state.get(row.segmentKey as string);
         return serializeCard(row, card?.queue, card?.reps, card?.id);
       }),

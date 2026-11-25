@@ -50,13 +50,13 @@ contractsRouter.get('/', (_req, res) => {
       },
       playlist: {
         method: 'GET', path: '/api/study/:deck/playlist', auth: true,
-        description: 'Frases na ordem do baralho, mesmo sem cartões na fila do ouvinte. Não altera progresso. Edição e exclusão de baralhos personalizados continuam exclusivas do dono.',
+        description: 'Somente frases que estão nos flashcards do ouvinte, na ordem do baralho, inclusive as já revisadas. Não altera progresso. Edição e exclusão de baralhos personalizados continuam exclusivas do dono.',
         response: { deck: '{ id, title }', cards: '[{ key, index, front, back, hasAudio, audioUrl }]' },
         errors: ['HTTP_401', 'HTTP_404'],
       },
       playlistAudio: {
         method: 'GET', path: '/api/study/:deck/playlist/:key/audio', auth: true,
-        description: 'Resolve o áudio de uma frase. Use quando hasAudio=true e audioUrl estiver vazio; recortes de livros são gerados e armazenados sob demanda.',
+        description: 'Resolve o áudio de um flashcard do ouvinte. Use quando hasAudio=true e audioUrl estiver vazio; recortes de livros são gerados e armazenados sob demanda.',
         response: { audioUrl: 'string — URL assinada de mídia' },
         errors: ['HTTP_401', 'HTTP_404'],
       },

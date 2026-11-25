@@ -9,7 +9,7 @@
 //   POST   /api/study/presets/from-anki             converte preset do Anki (AnkiConnect) em opções
 // Baralhos e estudo (deck 0 = raiz "Tunely", demais = livro):
 //   GET  /api/study/decks                           árvore com contagens Novos/Aprender/Revisar
-//   GET  /api/study/:deck/playlist                  todas as frases, sem depender da fila pessoal
+//   GET  /api/study/:deck/playlist                  frases dos flashcards pessoais, na ordem do baralho
 //   GET  /api/study/:deck/playlist/:key/audio       áudio próprio ou recorte gerado sob demanda
 //   GET  /api/study/:deck/overview                  contagens do dia (+ estado das frases do livro)
 //   GET  /api/study/:deck/next                      próximo cartão (fila do Anki v3)
@@ -60,7 +60,7 @@ function contentIdParam(req: Request): number {
 /** Baralho do parâmetro: 0 = raiz "Tunely"; > 0 = livro (precisa estar visível). */
 async function deckParam(req: Request): Promise<number> {
   const deck = z.coerce.number().int().min(0).parse(req.params.deck);
-  if (deck !== ROOT_DECK) await loadVisibleContent(deck, req.userRole, req.userId);
+  if (deck !== ROOT_DECK) await loadVisibleContent(deck, req.userRole, req.userId, true);
   return deck;
 }
 
@@ -392,13 +392,30 @@ studyRouter.get(
   }),
 );
 
+// Seleção de flashcards: mostra os textos do baralho sem emitir links de áudio.
+studyRouter.get(
+  '/:deck/phrases',
+  asyncHandler(async (req, res) => {
+    const id = z.coerce.number().int().positive().parse(req.params.deck);
+    await loadVisibleContent(id, req.userRole, req.userId, true);
+    const rows = await prisma.readingSentence.findMany({
+      where: { contentId: id }, select: { id: true, segmentKey: true, text: true },
+      orderBy: { sentenceIndex: 'asc' },
+    });
+    res.json({ phrases: rows.map(row => ({ key: publicSegmentKey(row), text: row.text })) });
+  }),
+);
+
 /** Catálogo de escuta: não cria cartões nem compartilha o histórico de outra pessoa. */
 studyRouter.get(
   '/:deck/playlist',
   asyncHandler(async (req, res) => {
     const id = z.coerce.number().int().positive().parse(req.params.deck);
     const content = await loadVisibleContent(id, req.userRole, req.userId, true);
-    const rows = await sentencesByKey(id);
+    const saved = await prisma.userStudyCard.findMany({
+      where: { userId: req.userId as string, contentId: id }, select: { segmentKey: true },
+    });
+    const rows = saved.length ? await sentencesByKey(id, saved.map(card => card.segmentKey)) : [];
     res.json({
       deck: { id, title: content.title },
       cards: [...rows].map(([key, row]) => ({
@@ -416,6 +433,10 @@ studyRouter.get(
     const id = z.coerce.number().int().positive().parse(req.params.deck);
     const key = z.string().min(1).max(64).parse(req.params.key);
     const content = await loadVisibleContent(id, req.userRole, req.userId, true);
+    const saved = await prisma.userStudyCard.findFirst({
+      where: { userId: req.userId as string, contentId: id, segmentKey: key }, select: { id: true },
+    });
+    if (!saved) throw new HttpError(404, 'Cartão não encontrado');
     const row = (await sentencesByKey(id, [key])).get(key);
     if (!row) throw new HttpError(404, 'Cartão não encontrado');
     const audioUrl = await rowAudioUrl({ contentId: id, audioUrl: content.audioUrl }, key, row);
@@ -471,7 +492,7 @@ studyRouter.post(
     const { segmentKeys, target } = z
       .object({ segmentKeys: z.array(z.string().min(1).max(64)).min(1).max(MAX_EXPORT), target: z.enum(['app', 'anki']).default('app') })
       .parse(req.body);
-    await loadVisibleContent(contentId, req.userRole, req.userId);
+    await loadVisibleContent(contentId, req.userRole, req.userId, true);
     const config = await effectiveConfig(userId, contentId);
     const rows = await sentencesByKey(contentId, segmentKeys);
     const queue = target === 'anki' ? 'anki-pending' : 'new';

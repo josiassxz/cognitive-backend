@@ -93,24 +93,43 @@ describe.skipIf(!hasDatabase)('catálogo e playlists compartilhados entre contas
     expect(result.body).toMatchObject({ totalLines: 3, counts: zero, cards: {} });
   });
 
-  it('entrega todas as frases na ordem e áudio tocável sem histórico do dono', async () => {
-    const result = await request(app).get(`/api/study/${custom}/playlist`).auth(listenerToken, { type: 'bearer' });
-    expect(result.status).toBe(200);
-    expect(result.body.cards.map((c: { front: string }) => c.front)).toEqual(['First', 'Second', 'No audio']);
-    expect(result.body.cards[0]).toMatchObject({ hasAudio: true, back: 'Primeira' });
-    expect(result.body.cards[2]).toMatchObject({ hasAudio: false, audioUrl: '' });
-    expect(result.body.cards[0]).not.toHaveProperty('reps');
-    expect(result.body.cards[0]).not.toHaveProperty('cardId');
-    const audio = await request(app).get(result.body.cards[0].audioUrl).set('Range', 'bytes=0-99');
-    expect(audio.status).toBe(206);
-    expect(audio.headers['content-type']).toContain('audio/mpeg');
-    expect(await prisma.userStudyCard.count({ where: { userId: listener } })).toBe(0);
+  it('separa os flashcards de cada ouvinte e atualiza a playlist ao adicionar e remover', async () => {
+    const url = `/api/study/${custom}`;
+    const playlist = (token: string) => request(app).get(`${url}/playlist`).auth(token, { type: 'bearer' }).expect(200);
+    const direct = (key: string) => request(app).get(`${url}/playlist/${prefix}-${key}/audio`).auth(listenerToken, { type: 'bearer' });
+    const legacy = () => request(app).get(`/api/custom-decks/${custom}/cards`).auth(listenerToken, { type: 'bearer' }).expect(200);
+    expect((await playlist(listenerToken)).body.cards).toEqual([]);
+    expect((await legacy()).body.cards).toEqual([]);
+    expect((await playlist(ownerToken)).body.cards.map((c: {front: string}) => c.front)).toEqual(['First']);
+    await direct('first').expect(404);
+    const choices = await request(app).get(`${url}/phrases`).auth(listenerToken, { type: 'bearer' }).expect(200);
+    expect(choices.body.phrases).toHaveLength(3);
+    expect(choices.body.phrases[0]).not.toHaveProperty('audioUrl');
+    await request(app).post(`${url}/cards`).auth(listenerToken, { type: 'bearer' })
+      .send({ segmentKeys: [`${prefix}-silent`, `${prefix}-second`] }).expect(200);
+    const { cards } = (await playlist(listenerToken)).body;
+    expect(cards.map((c: {front: string}) => c.front)).toEqual(['Second', 'No audio']);
+    expect(cards[1]).toMatchObject({ hasAudio: false, audioUrl: '' });
+    expect((await legacy()).body.cards).toHaveLength(2);
+    await request(app).get(cards[0].audioUrl).set('Range', 'bytes=0-99').expect(206);
+    await direct('silent').expect(404);
+    await direct('first').expect(404);
+    await request(app).delete(`${url}/cards/${prefix}-second`).auth(listenerToken, { type: 'bearer' }).expect(200);
+    expect((await playlist(listenerToken)).body.cards).toHaveLength(1);
+    await direct('second').expect(404);
     expect(await prisma.userStudyReview.count({ where: { userId: listener } })).toBe(0);
+    await request(app).get(`/api/custom-decks/${custom}/cards?view=editor`).auth(listenerToken, {type:'bearer'}).expect(404);
+    const editor = await request(app).get(`/api/custom-decks/${custom}/cards?view=editor`).auth(ownerToken, {type:'bearer'}).expect(200);
+    expect(editor.body.cards).toHaveLength(3);
   });
 
-  it('gera recorte tocável do livro sob demanda, sem exigir cartão pessoal', async () => {
-    const result = await request(app).get(`/api/study/${book}/playlist`).auth(listenerToken, { type: 'bearer' });
-    expect(result.status).toBe(200);
+  it('gera recorte de uma frase legada do livro depois de adicioná-la', async () => {
+    const url = `/api/study/${book}`;
+    const { body } = await request(app).get(`${url}/phrases`).auth(listenerToken, {type:'bearer'}).expect(200);
+    const key = body.phrases[0].key;
+    await request(app).get(`${url}/playlist/${key}/audio`).auth(listenerToken, {type:'bearer'}).expect(404);
+    await request(app).post(`${url}/cards`).auth(listenerToken, {type:'bearer'}).send({segmentKeys:[key]}).expect(200);
+    const result = await request(app).get(`${url}/playlist`).auth(listenerToken, {type:'bearer'}).expect(200);
     const [card] = result.body.cards;
     expect(card).toMatchObject({ hasAudio: true, audioUrl: '' });
     expect(card.key).toMatch(/^sent_/);
