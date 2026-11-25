@@ -40,9 +40,10 @@ const nameSchema = z.object({ name: z.string().trim().min(1, 'Dê um nome ao bar
 const deckId = (req: Request) => z.coerce.number().int().positive().parse(req.params.id);
 const cardKey = (req: Request) => z.string().min(1).max(64).parse(req.params.key);
 
-function serializeCard(row: { segmentKey: string | null; sentenceIndex: number; text: string; translation: string; audioKey: string }, queue?: string, reps?: number) {
+function serializeCard(row: { segmentKey: string | null; sentenceIndex: number; text: string; translation: string; audioKey: string }, queue?: string, reps?: number, cardId?: number) {
   return {
     key: row.segmentKey as string,
+    cardId: cardId ?? null,
     index: row.sentenceIndex,
     front: row.text,
     back: row.translation,
@@ -112,12 +113,15 @@ customDecksRouter.get(
         select: { segmentKey: true, sentenceIndex: true, text: true, translation: true, audioKey: true },
         orderBy: { sentenceIndex: 'asc' },
       }),
-      prisma.userStudyCard.findMany({ where: { userId, contentId: id }, select: { segmentKey: true, queue: true, reps: true } }),
+      prisma.userStudyCard.findMany({ where: { userId, contentId: id }, select: { id: true, segmentKey: true, queue: true, reps: true } }),
     ]);
     const state = new Map(cards.map((c) => [c.segmentKey, c]));
     res.json({
       deck: { id: deck.id, title: deck.title },
-      cards: rows.map((row) => serializeCard(row, state.get(row.segmentKey as string)?.queue, state.get(row.segmentKey as string)?.reps)),
+      cards: rows.map((row) => {
+        const card = state.get(row.segmentKey as string);
+        return serializeCard(row, card?.queue, card?.reps, card?.id);
+      }),
     });
   }),
 );
@@ -165,8 +169,8 @@ customDecksRouter.patch(
       select: { segmentKey: true, sentenceIndex: true, text: true, translation: true, audioKey: true },
     });
     if (audioKey !== row.audioKey) await removeAudioKey(row.audioKey);
-    const card = await prisma.userStudyCard.findUnique({ where: { userId_segmentKey: { userId, segmentKey: row.segmentKey as string } }, select: { queue: true, reps: true } });
-    res.json({ card: serializeCard(updated, card?.queue, card?.reps) });
+    const card = await prisma.userStudyCard.findUnique({ where: { userId_segmentKey: { userId, segmentKey: row.segmentKey as string } }, select: { id: true, queue: true, reps: true } });
+    res.json({ card: serializeCard(updated, card?.queue, card?.reps, card?.id) });
   }),
 );
 
