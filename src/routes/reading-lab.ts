@@ -580,14 +580,9 @@ readingLabRouter.get(
       sourceType: { not: 'custom-deck' },
       OR: req.userId ? [{ isPublic: true }, { isPublic: false, userId: req.userId }] : [{ isPublic: true }],
     };
-    // Publicação separada do processamento: só admin enxerga o que não está publicado.
+    // O status de revisão não restringe a visibilidade dos livros da biblioteca.
     const requestedStatus = typeof req.query.status === 'string' ? req.query.status : undefined;
-    if (req.userRole === 'admin') {
-      if (requestedStatus && requestedStatus !== 'all') where.publishStatus = requestedStatus;
-      else if (!requestedStatus) where.publishStatus = 'published';
-    } else {
-      where.publishStatus = 'published';
-    }
+    if (requestedStatus && requestedStatus !== 'all') where.publishStatus = requestedStatus;
     if (cefrLevel) where.cefrLevel = cefrLevel;
     if (month) where.month = month;
     if (category) where.category = category;
@@ -707,7 +702,7 @@ readingLabRouter.get(
         },
       },
     });
-    if (!content || (content.publishStatus !== 'published' && req.userRole !== 'admin')) {
+    if (!content) {
       throw new HttpError(404, 'Conteúdo não encontrado');
     }
     if ((!content.isPublic || content.sourceType === 'custom-deck') && content.userId !== req.userId) {

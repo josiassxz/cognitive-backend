@@ -42,11 +42,11 @@ type HighlightRow = { wordKeys?: string[]; pt?: { start: number; end: number; te
 
 
 /**
- * Conteúdo visível para o usuário: publicado, ou qualquer status para admin.
+ * Livros da biblioteca são visíveis em qualquer status de revisão, independentemente do papel.
  * Baralhos criados pelo usuário só são visíveis ao dono, e só quando `userId` é informado
  * (rotas de estudo); nas rotas de leitura eles não existem.
  */
-export async function loadVisibleContent(contentId: number, role: 'user' | 'admin' | undefined, userId?: string) {
+export async function loadVisibleContent(contentId: number, _role: 'user' | 'admin' | undefined, userId?: string) {
   const content = await prisma.readingContent.findUnique({
     where: { id: contentId },
     select: {
@@ -64,7 +64,7 @@ export async function loadVisibleContent(contentId: number, role: 'user' | 'admi
   if (content && !content.isPublic && (!userId || content.userId !== userId)) {
     throw new HttpError(404, 'Conteúdo não encontrado');
   }
-  if (!content || (content.publishStatus !== 'published' && role !== 'admin')) {
+  if (!content) {
     throw new HttpError(404, 'Conteúdo não encontrado');
   }
   return content;
@@ -330,7 +330,7 @@ readingSegmentsRouter.get(
       where: {
         id: { in: rows.map((row) => row.contentId) },
         sourceType: 'reconstructed_audio',
-        ...(req.userRole === 'admin' ? {} : { publishStatus: 'published' }),
+        OR: [{ isPublic: true }, { isPublic: false, userId }],
       },
       select: {
         id: true, title: true, author: true, coverUrl: true, audioDurationMs: true, cefrLevel: true,

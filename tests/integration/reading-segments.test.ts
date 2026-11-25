@@ -134,16 +134,44 @@ describe.skipIf(!hasDatabase)('conteúdo reconstruído: importação, trechos, p
   });
 
   // ------------------------------------------------------------------ visibilidade
-  it('conteúdo não publicado só aparece para admin', async () => {
+  it.each(['draft', 'needs_review', 'ready', 'published'])('livros com status %s aparecem e abrem para todos os usuários', async (publishStatus) => {
     const imported = await importPackage(buildPackage(audio));
     const id = imported.body.contentId;
-    const asUser = await request(app).get(`/api/reading-lab/${id}/segments`).set('Authorization', `Bearer ${userToken}`);
-    expect(asUser.status).toBe(404);
-    const list = await request(app).get('/api/reading-lab').set('Authorization', `Bearer ${userToken}`);
-    expect(list.body.items).toHaveLength(0);
-    const asAdmin = await request(app).get(`/api/reading-lab/${id}/segments`).set('Authorization', `Bearer ${adminToken}`);
-    expect(asAdmin.status).toBe(200);
+    await prisma.readingContent.update({ where: { id }, data: { publishStatus } });
+    for (const token of [userToken, user2Token, adminToken]) {
+      const auth = { Authorization: `Bearer ${token}` };
+      const list = await request(app).get('/api/reading-lab').set(auth);
+      expect(list.status).toBe(200);
+      expect(list.body.total).toBe(1);
+      expect(list.body.items).toEqual([expect.objectContaining({ id, publishStatus })]);
+      expect((await request(app).get('/api/reading-lab?status=all').set(auth)).body.total).toBe(1);
+      expect((await request(app).get(`/api/reading-lab?status=${publishStatus}`).set(auth)).body.total).toBe(1);
+      const detail = await request(app).get(`/api/reading-lab/${id}`).set(auth);
+      expect(detail.status).toBe(200);
+      expect(detail.body.audioUrl).toMatch(/^\/media\//);
+      const segments = await request(app).get(`/api/reading-lab/${id}/segments`).set(auth);
+      expect(segments.status).toBe(200);
+      expect(segments.body.total).toBe(3);
+      const listening = await request(app).put(`/api/reading-lab/${id}/listening`).set(auth).send({ positionMs: 1500 });
+      expect(listening.status).toBe(200);
+      const resume = await request(app).get('/api/reading-lab/continue-listening').set(auth);
+      expect(resume.status).toBe(200);
+      expect(resume.body.items).toEqual([expect.objectContaining({ id, positionMs: 1500 })]);
+    }
     expect((await request(app).get(`/api/reading-lab/${id}/segments`)).status).toBe(401);
+  });
+
+  it('preserva a privacidade dos livros pessoais ao liberar os status de revisão', async () => {
+    const imported = await importPackage(buildPackage(audio));
+    const id = imported.body.contentId;
+    await prisma.readingContent.update({ where: { id }, data: { isPublic: false, userId } });
+    expect((await request(app).get(`/api/reading-lab/${id}/segments`).set('Authorization', `Bearer ${userToken}`)).status).toBe(200);
+    for (const token of [user2Token, adminToken]) {
+      const auth = { Authorization: `Bearer ${token}` };
+      expect((await request(app).get('/api/reading-lab?status=all').set(auth)).body.total).toBe(0);
+      expect((await request(app).get(`/api/reading-lab/${id}`).set(auth)).status).toBe(404);
+      expect((await request(app).get(`/api/reading-lab/${id}/segments`).set(auth)).status).toBe(404);
+    }
   });
 
   it('não publica sem validação auditiva declarada', async () => {
