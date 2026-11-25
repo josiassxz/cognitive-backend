@@ -575,7 +575,11 @@ readingLabRouter.get(
     const category = typeof req.query.category === 'string' ? req.query.category : undefined;
     const limit = z.coerce.number().int().min(1).max(300).default(20).parse(req.query.limit ?? 20);
     const offset = z.coerce.number().int().min(0).default(0).parse(req.query.offset ?? 0);
-    const where: Record<string, unknown> = { isPublic: true, sourceType: { not: 'custom-deck' } };
+    // Livros públicos + os livros privados do próprio usuário (aparecem misturados, como livros comuns).
+    const where: Record<string, unknown> = {
+      sourceType: { not: 'custom-deck' },
+      OR: req.userId ? [{ isPublic: true }, { isPublic: false, userId: req.userId }] : [{ isPublic: true }],
+    };
     // Publicação separada do processamento: só admin enxerga o que não está publicado.
     const requestedStatus = typeof req.query.status === 'string' ? req.query.status : undefined;
     if (req.userRole === 'admin') {
@@ -706,6 +710,9 @@ readingLabRouter.get(
     if (!content || (content.publishStatus !== 'published' && req.userRole !== 'admin')) {
       throw new HttpError(404, 'Conteúdo não encontrado');
     }
+    if ((!content.isPublic || content.sourceType === 'custom-deck') && content.userId !== req.userId) {
+      throw new HttpError(404, 'Conteúdo não encontrado');
+    }
     res.json({
       ...withReaderPayload(content),
       hasSegments: content.sourceType === 'reconstructed_audio',
@@ -720,11 +727,15 @@ readingLabRouter.get(
 // (src/features/reader/) consumes this instead of the WebView reader.
 readingLabRouter.get(
   '/:id/normalized',
+  optionalAuth,
   asyncHandler(async (req, res) => {
     const id = z.coerce.number().int().positive().parse(req.params.id);
     const content = await prisma.readingContent.findUnique({
       where: { id },
       select: {
+        isPublic: true,
+        userId: true,
+        sourceType: true,
         id: true,
         title: true,
         author: true,
@@ -735,7 +746,9 @@ readingLabRouter.get(
         createdAt: true,
       },
     });
-    if (!content) throw new HttpError(404, 'Conteúdo não encontrado');
+    if (!content || ((!content.isPublic || content.sourceType === 'custom-deck') && content.userId !== req.userId)) {
+      throw new HttpError(404, 'Conteúdo não encontrado');
+    }
     const reader = parseReaderPayload(content.fullText);
     const chapters = reader
       ? reader.documents.map((doc, index) => {

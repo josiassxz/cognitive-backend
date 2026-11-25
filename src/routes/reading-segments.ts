@@ -53,11 +53,16 @@ export async function loadVisibleContent(contentId: number, role: 'user' | 'admi
       id: true, title: true, author: true, description: true, coverUrl: true, audioUrl: true, audioDurationMs: true,
       cefrLevel: true, wordCount: true, sourceType: true, language: true, publishStatus: true, qualityStatus: true,
       translationStatus: true, editVersion: true, contentKey: true, coverPalette: true, libraryMeta: true, userId: true,
+      isPublic: true,
     },
   });
   if (content?.sourceType === CUSTOM_DECK_SOURCE) {
     if (!userId || content.userId !== userId) throw new HttpError(404, 'Conteúdo não encontrado');
     return content;
+  }
+  // Livro privado (isPublic = false): só o dono enxerga, nem admin de outra conta.
+  if (content && !content.isPublic && (!userId || content.userId !== userId)) {
+    throw new HttpError(404, 'Conteúdo não encontrado');
   }
   if (!content || (content.publishStatus !== 'published' && role !== 'admin')) {
     throw new HttpError(404, 'Conteúdo não encontrado');
@@ -83,7 +88,7 @@ readingSegmentsRouter.get(
     const contentId = z.coerce.number().int().positive().parse(req.params.id);
     const offset = z.coerce.number().int().min(0).default(0).parse(req.query.offset ?? 0);
     const limit = z.coerce.number().int().min(1).max(200).default(100).parse(req.query.limit ?? 100);
-    const content = await loadVisibleContent(contentId, req.userRole);
+    const content = await loadVisibleContent(contentId, req.userRole, req.userId);
     const [rows, progress, listening] = await Promise.all([
       prisma.readingSentence.findMany({
         where: { contentId },
@@ -152,7 +157,7 @@ readingSegmentsRouter.put(
     const contentId = z.coerce.number().int().positive().parse(req.params.id);
     const key = z.string().min(1).max(64).parse(req.params.key);
     const { completed } = z.object({ completed: z.boolean() }).parse(req.body);
-    await loadVisibleContent(contentId, req.userRole);
+    await loadVisibleContent(contentId, req.userRole, req.userId);
     const sentence = await prisma.readingSentence.findFirst({
       where: sentenceWhere(contentId, key),
       select: { id: true, sentenceIndex: true },
@@ -219,7 +224,7 @@ readingSegmentsRouter.get(
   asyncHandler(async (req, res) => {
     const contentId = z.coerce.number().int().positive().parse(req.params.id);
     const key = z.string().min(1).max(64).parse(req.params.key);
-    await loadVisibleContent(contentId, req.userRole);
+    await loadVisibleContent(contentId, req.userRole, req.userId);
     const row = await prisma.readingSentence.findFirst({
       where: sentenceWhere(contentId, key),
       include: { wordTimestamps: { orderBy: { wordIndex: 'asc' } } },
@@ -284,7 +289,7 @@ readingSegmentsRouter.put(
         listenedMs: z.number().int().min(0).max(120_000).default(0),
       })
       .parse(req.body);
-    const content = await loadVisibleContent(contentId, req.userRole);
+    const content = await loadVisibleContent(contentId, req.userRole, req.userId);
     const positionMs = Math.min(input.positionMs, content.audioDurationMs || input.positionMs);
     const now = new Date();
     const progress = await prisma.userReadingProgress.upsert({
