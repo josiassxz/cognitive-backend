@@ -42,6 +42,25 @@ contractsRouter.get('/', (_req, res) => {
         response: { success: 'boolean' },
       },
     },
+    study: {
+      decks: {
+        method: 'GET', path: '/api/study/decks', auth: true,
+        description: 'Catálogo de todos os baralhos personalizados e livros que já viraram baralhos. Livros pessoais mantêm sua visibilidade. Contagens e progresso pertencem ao usuário autenticado.',
+        response: { root: '{ contentId, title, counts }', decks: '[{ id, title, custom, canEdit, counts: { new, learning, review } }]' },
+      },
+      playlist: {
+        method: 'GET', path: '/api/study/:deck/playlist', auth: true,
+        description: 'Frases na ordem do baralho, mesmo sem cartões na fila do ouvinte. Não altera progresso. Edição e exclusão de baralhos personalizados continuam exclusivas do dono.',
+        response: { deck: '{ id, title }', cards: '[{ key, index, front, back, hasAudio, audioUrl }]' },
+        errors: ['HTTP_401', 'HTTP_404'],
+      },
+      playlistAudio: {
+        method: 'GET', path: '/api/study/:deck/playlist/:key/audio', auth: true,
+        description: 'Resolve o áudio de uma frase. Use quando hasAudio=true e audioUrl estiver vazio; recortes de livros são gerados e armazenados sob demanda.',
+        response: { audioUrl: 'string — URL assinada de mídia' },
+        errors: ['HTTP_401', 'HTTP_404'],
+      },
+    },
     oxfordWords: {
       list: {
         method: 'GET',

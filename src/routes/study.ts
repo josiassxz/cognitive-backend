@@ -9,6 +9,8 @@
 //   POST   /api/study/presets/from-anki             converte preset do Anki (AnkiConnect) em opções
 // Baralhos e estudo (deck 0 = raiz "Tunely", demais = livro):
 //   GET  /api/study/decks                           árvore com contagens Novos/Aprender/Revisar
+//   GET  /api/study/:deck/playlist                  todas as frases, sem depender da fila pessoal
+//   GET  /api/study/:deck/playlist/:key/audio       áudio próprio ou recorte gerado sob demanda
 //   GET  /api/study/:deck/overview                  contagens do dia (+ estado das frases do livro)
 //   GET  /api/study/:deck/next                      próximo cartão (fila do Anki v3)
 //   POST /api/study/cards/:id/answer                { answer: 1..4, timeMs, deck } → próximo cartão
@@ -365,16 +367,23 @@ studyRouter.get(
   asyncHandler(async (req, res) => {
     const userId = req.userId as string;
     const now = new Date();
-    const books = await listBookDecks(userId);
+    const [books, ownBooks] = await Promise.all([listBookDecks(), listBookDecks(userId)]);
+    const own = new Set(ownBooks);
     const contents = await prisma.readingContent.findMany({
-      where: { id: { in: books } },
-      select: { id: true, title: true, author: true, coverUrl: true, coverPalette: true, sourceType: true },
+      where: { OR: [
+        { sourceType: CUSTOM_DECK_SOURCE },
+        { id: { in: books }, OR: [{ isPublic: true }, { userId }] },
+      ] },
+      select: { id: true, title: true, author: true, coverUrl: true, coverPalette: true, sourceType: true, userId: true },
     });
     const children = await Promise.all(
-      contents.map(async ({ sourceType, ...content }) => ({
+      contents.map(async ({ sourceType, userId: ownerId, ...content }) => ({
         ...content,
         custom: sourceType === CUSTOM_DECK_SOURCE,
-        counts: (await buildQueue(userId, content.id, now, { dryRun: true })).counts,
+        canEdit: sourceType === CUSTOM_DECK_SOURCE && ownerId === userId,
+        counts: own.has(content.id)
+          ? (await buildQueue(userId, content.id, now, { dryRun: true })).counts
+          : { new: 0, learning: 0, review: 0 },
       })),
     );
     children.sort((a, b) => a.title.localeCompare(b.title));
@@ -383,11 +392,44 @@ studyRouter.get(
   }),
 );
 
+/** Catálogo de escuta: não cria cartões nem compartilha o histórico de outra pessoa. */
+studyRouter.get(
+  '/:deck/playlist',
+  asyncHandler(async (req, res) => {
+    const id = z.coerce.number().int().positive().parse(req.params.deck);
+    const content = await loadVisibleContent(id, req.userRole, req.userId, true);
+    const rows = await sentencesByKey(id);
+    res.json({
+      deck: { id, title: content.title },
+      cards: [...rows].map(([key, row]) => ({
+        key, index: row.sentenceIndex, front: row.text, back: row.translation,
+        hasAudio: Boolean(row.audioKey || content.audioUrl),
+        audioUrl: row.audioKey ? signMediaUrl(row.audioKey) : '',
+      })),
+    });
+  }),
+);
+
+studyRouter.get(
+  '/:deck/playlist/:key/audio',
+  asyncHandler(async (req, res) => {
+    const id = z.coerce.number().int().positive().parse(req.params.deck);
+    const key = z.string().min(1).max(64).parse(req.params.key);
+    const content = await loadVisibleContent(id, req.userRole, req.userId, true);
+    const row = (await sentencesByKey(id, [key])).get(key);
+    if (!row) throw new HttpError(404, 'Cartão não encontrado');
+    const audioUrl = await rowAudioUrl({ contentId: id, audioUrl: content.audioUrl }, key, row);
+    if (!audioUrl) throw new HttpError(404, 'Este cartão ainda não tem áudio');
+    res.json({ audioUrl });
+  }),
+);
+
 studyRouter.get(
   '/:deck/overview',
   asyncHandler(async (req, res) => {
     const userId = req.userId as string;
-    const deck = await deckParam(req);
+    const deck = z.coerce.number().int().min(0).parse(req.params.deck);
+    if (deck !== ROOT_DECK) await loadVisibleContent(deck, req.userRole, userId, true);
     const queue = await buildQueue(userId, deck, new Date());
     const where = deck === ROOT_DECK ? { userId } : { userId, contentId: deck };
     const cards = await prisma.userStudyCard.findMany({ where, select: { segmentKey: true, queue: true } });

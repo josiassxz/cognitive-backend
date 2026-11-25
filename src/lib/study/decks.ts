@@ -38,11 +38,11 @@ export async function ensureDefaultPreset(userId: string): Promise<UserStudyPres
   if (existing) return existing;
   // Primeiro preset do usuário: herda opções antigas (versão sem presets), se houver.
   const legacy = await prisma.userStudySettings.findUnique({ where: { userId } });
-  return prisma.userStudyPreset.upsert({
-    where: { userId_name: { userId, name: DEFAULT_PRESET_NAME } },
-    create: { userId, name: DEFAULT_PRESET_NAME, config: resolvePresetConfig(legacy?.config) as unknown as Prisma.InputJsonValue },
-    update: {},
+  await prisma.userStudyPreset.createMany({
+    data: [{ userId, name: DEFAULT_PRESET_NAME, config: resolvePresetConfig(legacy?.config) as unknown as Prisma.InputJsonValue }],
+    skipDuplicates: true,
   });
+  return prisma.userStudyPreset.findUniqueOrThrow({ where: { userId_name: { userId, name: DEFAULT_PRESET_NAME } } });
 }
 
 export async function deckRow(userId: string, contentId: number): Promise<UserStudyDeck | null> {
@@ -76,8 +76,8 @@ export function deckLimits(deck: UserStudyDeck | null, preset: PresetConfig, tod
   };
 }
 
-/** Livros que viraram baralho (têm cartões ou opções próprias). */
-export async function listBookDecks(userId: string): Promise<number[]> {
+/** Livros que viraram baralho. Sem userId, lista o catálogo compartilhado; filas usam o usuário. */
+export async function listBookDecks(userId?: string): Promise<number[]> {
   const [cards, decks] = await Promise.all([
     prisma.userStudyCard.groupBy({ by: ['contentId'], where: { userId } }),
     prisma.userStudyDeck.findMany({ where: { userId, contentId: { gt: 0 } }, select: { contentId: true } }),

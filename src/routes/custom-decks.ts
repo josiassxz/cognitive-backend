@@ -106,7 +106,9 @@ customDecksRouter.get(
   asyncHandler(async (req, res) => {
     const userId = req.userId as string;
     const id = deckId(req);
-    const deck = await loadOwnDeck(userId, id);
+    // O player das versões anteriores do app usa esta lista. O estado de estudo é sempre do ouvinte.
+    const deck = await prisma.readingContent.findFirst({ where: { id, sourceType: CUSTOM_DECK_SOURCE }, select: { id: true, title: true } });
+    if (!deck) throw new HttpError(404, 'Baralho não encontrado');
     const [rows, cards] = await Promise.all([
       prisma.readingSentence.findMany({
         where: { contentId: id },

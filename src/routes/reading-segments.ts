@@ -18,7 +18,7 @@ import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
 import { CUSTOM_DECK_SOURCE } from '../lib/study/custom-decks';
 
-// sourceType dos baralhos criados pelo próprio usuário (privados, fora da biblioteca).
+// Baralhos personalizados ficam fora da biblioteca e são compartilhados para escuta.
 export { CUSTOM_DECK_SOURCE };
 
 export const readingSegmentsRouter = Router();
@@ -43,10 +43,10 @@ type HighlightRow = { wordKeys?: string[]; pt?: { start: number; end: number; te
 
 /**
  * Livros da biblioteca são visíveis em qualquer status de revisão, independentemente do papel.
- * Baralhos criados pelo usuário só são visíveis ao dono, e só quando `userId` é informado
- * (rotas de estudo); nas rotas de leitura eles não existem.
+ * Baralhos personalizados de terceiros só aparecem quando a rota pede acesso para escuta. A edição continua
+ * protegida por loadOwnDeck nas rotas de custom-decks.
  */
-export async function loadVisibleContent(contentId: number, _role: 'user' | 'admin' | undefined, userId?: string) {
+export async function loadVisibleContent(contentId: number, _role: 'user' | 'admin' | undefined, userId?: string, sharedListening = false) {
   const content = await prisma.readingContent.findUnique({
     where: { id: contentId },
     select: {
@@ -57,7 +57,7 @@ export async function loadVisibleContent(contentId: number, _role: 'user' | 'adm
     },
   });
   if (content?.sourceType === CUSTOM_DECK_SOURCE) {
-    if (!userId || content.userId !== userId) throw new HttpError(404, 'Conteúdo não encontrado');
+    if (!userId || (!sharedListening && content.userId !== userId)) throw new HttpError(404, 'Conteúdo não encontrado');
     return content;
   }
   // Livro privado (isPublic = false): só o dono enxerga, nem admin de outra conta.
