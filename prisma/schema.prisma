@@ -796,3 +796,20 @@ model UserStudyDeck {
 
   @@unique([userId, contentId])
 }
+
+// Talk: tentativas de uma história (escuta + pronúncia), para histórico e "Refazer".
+model TalkAttempt {
+  id            Int      @id @default(autoincrement())
+  userId        String
+  storySlug     String
+  // % de decisões certas (compreensão/listening)
+  listening     Float
+  // % médio de palavras reconhecidas ao ler em voz alta (null se respondeu tocando)
+  pronunciation Float?
+  // nota geral exibida ao aluno
+  score         Float
+  details       Json?
+  createdAt     DateTime @default(now())
+
+  @@index([userId, storySlug])
+}
