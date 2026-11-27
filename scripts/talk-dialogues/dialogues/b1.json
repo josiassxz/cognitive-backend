@@ -1,0 +1,166 @@
+[
+{
+ "slug": "at-the-doctor", "title": "At the Doctor's", "level": "B1",
+ "description": "Explique sintomas e entenda a receita.",
+ "intro": "Você não está se sentindo bem e vai à clínica de manhã cedo. Primeiro fala com a recepcionista, depois com a doutora Patel.",
+ "cast": {"r": ["Alice", "Recepcionista", "bf_alice"], "d": ["Dr. Patel", "Médica", "af_nicole"]},
+ "start": "m1",
+ "nodes": {
+  "m1": ["r", "Good morning. Do you have an appointment?", "Bom dia. Você tem horário marcado?", [
+    ["Yes, at nine thirty with Dr. Patel.", "Sim, às nove e meia com a doutora Patel.", "wait"],
+    ["No, but I'm not feeling well. Can a doctor see me today?", "Não, mas não estou me sentindo bem. Algum médico pode me atender hoje?", "walkin"],
+    ["I'm feeling much better than yesterday.", "Estou me sentindo bem melhor que ontem.", null, "Glad to hear it! But do you have an appointment today?", "Que bom! Mas você tem horário marcado hoje?"]]],
+  "wait": ["r", "Thank you. Please take a seat. The doctor will call you shortly.", "Obrigada. Sente-se, por favor. A doutora já vai chamar.", "doc"],
+  "walkin": ["r", "Let me see. Dr. Patel has a cancellation at ten. Please take a seat.", "Deixe-me ver. A doutora Patel teve um cancelamento às dez. Sente-se, por favor.", "doc"],
+  "doc": ["d", "Hello, come in. I'm Dr. Patel. What seems to be the problem?", "Olá, entre. Sou a doutora Patel. Qual parece ser o problema?", [
+    ["I've had a sore throat and a fever for three days.", "Estou com dor de garganta e febre há três dias.", "throat"],
+    ["I've had a terrible headache since yesterday.", "Estou com uma dor de cabeça terrível desde ontem.", "head"],
+    ["I work from Monday to Friday.", "Trabalho de segunda a sexta.", null, "I see. But tell me, how are you feeling? What brings you here?", "Entendo. Mas me conte, como você está se sentindo? O que te traz aqui?"]]],
+  "throat": ["d", "I see. Have you taken any medicine?", "Entendo. Você tomou algum remédio?", [
+    ["Just some paracetamol.", "Só um pouco de paracetamol.", "examine"],
+    ["No, nothing yet.", "Não, nada ainda.", "examine"],
+    ["Yes, I take the bus.", "Sim, eu pego ônibus.", null, "Sorry, I mean medicine. Have you taken anything for the fever?", "Desculpe, falo de remédio. Você tomou algo para a febre?"]]],
+  "examine": ["d", "Okay, let me have a look. Open your mouth and say ah. Yes, your throat is quite red.", "Certo, deixe-me ver. Abra a boca e diga ah. Sim, sua garganta está bem vermelha.", "throat2"],
+  "throat2": ["d", "It looks like an infection. Are you allergic to any antibiotics?", "Parece uma infecção. Você tem alergia a algum antibiótico?", [
+    ["Yes, I'm allergic to penicillin.", "Sim, sou alérgico à penicilina.", "peni"],
+    ["No, not that I know of.", "Não, que eu saiba não.", "presc"],
+    ["I'm allergic to my boss.", "Sou alérgico ao meu chefe.", null, "Ha! I understand. But seriously, any allergies to medicine?", "Rá! Entendo. Mas falando sério, alergia a algum remédio?"]]],
+  "peni": ["d", "Good thing you told me. I'll prescribe a different antibiotic.", "Ainda bem que você falou. Vou receitar outro antibiótico.", "presc"],
+  "presc": ["d", "Take one pill twice a day for seven days, after meals. Is that clear?", "Tome um comprimido duas vezes por dia, por sete dias, depois das refeições. Ficou claro?", [
+    ["Twice a day after meals. Got it.", "Duas vezes por dia depois das refeições. Entendi.", "rest"],
+    ["Can I take it with coffee?", "Posso tomar com café?", "coffee"],
+    ["It's very clear outside today.", "O céu está bem limpo hoje.", null, "Ha, it is. But do you understand how to take the medicine?", "Rá, está mesmo. Mas você entendeu como tomar o remédio?"]]],
+  "coffee": ["d", "It's better with water. And please avoid alcohol while you're taking it.", "É melhor com água. E, por favor, evite bebida alcoólica enquanto estiver tomando.", "rest"],
+  "rest": ["d", "You should also rest and drink plenty of fluids. Do you need a note for work?", "Você também deve descansar e beber bastante líquido. Precisa de um atestado para o trabalho?", [
+    ["Yes, please. I can't work like this.", "Sim, por favor. Não consigo trabalhar assim.", "note"],
+    ["No, I work from home.", "Não, eu trabalho de casa.", "end"],
+    ["I wrote a note to my mother.", "Escrevi um bilhete para minha mãe.", null, "That's sweet. But do you need a medical note for your job?", "Que fofo. Mas você precisa de atestado médico para o trabalho?"]]],
+  "note": ["d", "Here you go. I'm giving you three days off.", "Aqui está. Estou te dando três dias de afastamento.", "end"],
+  "head": ["d", "I'm sorry to hear that. Is it the first time you've had a headache like this?", "Sinto muito. É a primeira vez que você tem uma dor de cabeça assim?", [
+    ["Yes, it's the first time.", "Sim, é a primeira vez.", "head2"],
+    ["No, I get them quite often.", "Não, eu tenho com frequência.", "often"],
+    ["My head is a normal size.", "Minha cabeça tem tamanho normal.", null, "Ha. I mean, have you had headaches like this before?", "Rá. Quero dizer, você já teve dores de cabeça assim antes?"]]],
+  "often": ["d", "Then we should try to find the cause.", "Então devemos tentar descobrir a causa.", "head2"],
+  "head2": ["d", "Have you been sleeping well? And how many hours a day do you spend in front of a screen?", "Você tem dormido bem? E quantas horas por dia passa na frente de uma tela?", [
+    ["Not really. And I spend about ten hours at the computer.", "Não muito. E passo umas dez horas no computador.", "screen"],
+    ["I sleep well, but I work at a computer all day.", "Durmo bem, mas trabalho no computador o dia inteiro.", "screen"],
+    ["I sleep in a very big bed.", "Durmo numa cama muito grande.", null, "Lucky you! But do you sleep well? And how much screen time do you have?", "Que sorte! Mas você dorme bem? E quanto tempo passa na tela?"]]],
+  "screen": ["d", "That could be it. Too much screen time and too little sleep often cause headaches.", "Pode ser isso. Tempo demais na tela e pouco sono costumam causar dor de cabeça.", "head3"],
+  "head3": ["d", "I'd like you to take a break every hour and get your eyes checked. Can you do that?", "Quero que você faça uma pausa a cada hora e faça um exame de vista. Consegue fazer isso?", [
+    ["Sure. Should I take anything for the pain?", "Claro. Devo tomar algo para a dor?", "painkiller"],
+    ["Yes, I'll book an eye test this week.", "Sim, vou marcar um exame de vista esta semana.", "end"],
+    ["I can do ten push-ups.", "Consigo fazer dez flexões.", null, "Impressive! But can you take breaks and check your eyes?", "Impressionante! Mas consegue fazer pausas e examinar a vista?"]]],
+  "painkiller": ["d", "You can take ibuprofen, but no more than three times a day.", "Você pode tomar ibuprofeno, mas no máximo três vezes por dia.", "end"],
+  "end": ["d", "If you don't feel better in a few days, come back and see me. Take care!", "Se não melhorar em alguns dias, volte para me ver. Se cuide!", null]
+ }
+},
+{
+ "slug": "job-interview", "title": "The Job Interview", "level": "B1",
+ "description": "Entrevista com o RH e com o gerente.",
+ "intro": "Hoje é a sua entrevista para uma vaga numa empresa de tecnologia. Primeiro você conversa com a Rachel, do RH. Depois o gerente Tom entra na sala.",
+ "cast": {"r": ["Rachel", "Recrutadora (RH)", "af_sarah"], "t": ["Tom", "Gerente de vendas", "bm_lewis"]},
+ "start": "j1",
+ "nodes": {
+  "j1": ["r", "Hi, thanks for coming in today. I'm Rachel from HR. Please, have a seat.", "Oi, obrigada por vir hoje. Sou a Rachel, do RH. Por favor, sente-se.", "j2"],
+  "j2": ["r", "Did you find our office easily?", "Você achou nosso escritório com facilidade?", [
+    ["Yes, it was easy. I took the subway.", "Sim, foi fácil. Vim de metrô.", "j3"],
+    ["It took a while, but I made it!", "Demorou um pouco, mas cheguei!", "j3"],
+    ["I've worked in sales for five years.", "Trabalho com vendas há cinco anos.", null, "We'll get to that! I just meant, was it easy to get here?", "Já vamos chegar nisso! Eu só quis saber se foi fácil chegar aqui."]]],
+  "j3": ["r", "Great. So, tell me a little about yourself.", "Ótimo. Então, me fale um pouco sobre você.", [
+    ["I'm a marketing analyst with five years of experience.", "Sou analista de marketing com cinco anos de experiência.", "why"],
+    ["I studied business, and I've been working in sales for four years.", "Estudei administração e trabalho com vendas há quatro anos.", "why"],
+    ["I'm fine, thank you.", "Estou bem, obrigado.", null, "Good to hear! But I meant, tell me about your background.", "Que bom! Mas eu quis dizer, me conte sobre a sua trajetória."]]],
+  "why": ["r", "And why do you want to work for our company?", "E por que você quer trabalhar na nossa empresa?", [
+    ["I really like your products and your values.", "Gosto muito dos produtos e dos valores de vocês.", "strength"],
+    ["I'm looking for new challenges and a chance to grow.", "Estou buscando novos desafios e uma chance de crescer.", "strength"],
+    ["Because I don't like Mondays.", "Porque eu não gosto de segunda-feira.", null, "Ha! Nobody does. But what attracts you to our company?", "Rá! Ninguém gosta. Mas o que te atrai na nossa empresa?"]]],
+  "strength": ["r", "What would you say is your greatest strength?", "Qual você diria que é o seu maior ponto forte?", [
+    ["I'm very organized, and I work well under pressure.", "Sou muito organizado e trabalho bem sob pressão.", "weak"],
+    ["I'm a good communicator and a team player.", "Sou bom comunicador e gosto de trabalhar em equipe.", "weak"],
+    ["I was born in Recife.", "Nasci em Recife.", null, "Lovely! But what's your greatest professional strength?", "Que legal! Mas qual é o seu maior ponto forte profissional?"]]],
+  "weak": ["r", "And what about a weakness?", "E um ponto fraco?", [
+    ["Sometimes I'm too much of a perfectionist, but I'm working on it.", "Às vezes sou perfeccionista demais, mas estou trabalhando nisso.", "meet"],
+    ["I find public speaking hard, so I'm taking a course.", "Acho difícil falar em público, então estou fazendo um curso.", "meet"],
+    ["Next Friday is fine.", "Sexta que vem está bom.", null, "Sorry? I asked about a weakness.", "Como? Eu perguntei sobre um ponto fraco."]]],
+  "meet": ["r", "Thank you. Now I'd like you to meet Tom, our sales manager.", "Obrigada. Agora quero que você conheça o Tom, nosso gerente de vendas.", "tom"],
+  "tom": ["t", "Nice to meet you. Rachel tells me you have good experience. Can you give me an example of a problem you solved at work?", "Prazer. A Rachel me disse que você tem boa experiência. Pode me dar um exemplo de um problema que resolveu no trabalho?", [
+    ["Once, a big client wanted to cancel, and I convinced them to stay.", "Uma vez, um cliente grande queria cancelar, e eu convenci ele a ficar.", "client"],
+    ["Our team was missing deadlines, so I created a new schedule.", "Nossa equipe perdia prazos, então criei um novo cronograma.", "deadline"],
+    ["Yes, I solved a crossword yesterday.", "Sim, resolvi uma palavra cruzada ontem.", null, "Ha! I meant a problem at work.", "Rá! Eu quis dizer um problema no trabalho."]]],
+  "client": ["t", "Interesting. How did you do that?", "Interessante. Como você fez isso?", [
+    ["I listened to their complaints and offered them a better plan.", "Ouvi as reclamações e ofereci um plano melhor.", "salary"],
+    ["I visited them in person and fixed the problem quickly.", "Fui pessoalmente até eles e resolvi o problema rápido.", "salary"],
+    ["With a pen and paper.", "Com papel e caneta.", null, "Hmm. Can you explain how you convinced the client?", "Hum. Pode explicar como convenceu o cliente?"]]],
+  "deadline": ["t", "And did it work?", "E funcionou?", [
+    ["Yes, we delivered every project on time after that.", "Sim, entregamos todos os projetos no prazo depois disso.", "salary"],
+    ["It took a few weeks, but now the team is much faster.", "Levou algumas semanas, mas agora a equipe está bem mais rápida.", "salary"],
+    ["I work Monday to Friday.", "Trabalho de segunda a sexta.", null, "Sure, but did the new schedule work?", "Certo, mas o novo cronograma funcionou?"]]],
+  "salary": ["t", "Good. What are your salary expectations?", "Bom. Qual é a sua pretensão salarial?", [
+    ["Something between five and six thousand a month.", "Algo entre cinco e seis mil por mês.", "start"],
+    ["I'd like to know more about the benefits first.", "Gostaria de saber mais sobre os benefícios primeiro.", "benefits"],
+    ["I expect it to rain later.", "Acho que vai chover mais tarde.", null, "Ha. I mean, how much would you like to earn?", "Rá. Quero dizer, quanto você gostaria de ganhar?"]]],
+  "benefits": ["t", "Of course. We offer health insurance, a yearly bonus, and two days a week working from home.", "Claro. Oferecemos plano de saúde, bônus anual e dois dias por semana de home office.", "start"],
+  "start": ["t", "If we offer you the job, when could you start?", "Se oferecermos a vaga, quando você poderia começar?", [
+    ["I could start in two weeks.", "Poderia começar em duas semanas.", "qs"],
+    ["I need to give one month's notice, so next month.", "Preciso cumprir um mês de aviso prévio, então no mês que vem.", "qs"],
+    ["I started at eight o'clock today.", "Comecei às oito horas hoje.", null, "I mean, if you get the job, when would you be available?", "Quero dizer, se conseguir a vaga, quando estaria disponível?"]]],
+  "qs": ["r", "Do you have any questions for us?", "Você tem alguma pergunta para nós?", [
+    ["What does a typical day look like?", "Como é um dia típico?", "day"],
+    ["When will I hear back from you?", "Quando vocês me dão um retorno?", "hear"],
+    ["Yes, I have two sisters.", "Sim, tenho duas irmãs.", null, "Ha! I mean, any questions about the job?", "Rá! Quero dizer, alguma pergunta sobre a vaga?"]]],
+  "day": ["t", "You'd spend the mornings with clients and the afternoons with the team.", "Você passaria as manhãs com clientes e as tardes com a equipe.", "end"],
+  "hear": ["r", "We'll let you know by the end of next week.", "Vamos te avisar até o fim da semana que vem.", "end"],
+  "end": ["r", "Thank you for your time. It was a pleasure to meet you.", "Obrigada pelo seu tempo. Foi um prazer te conhecer.", null]
+ }
+},
+{
+ "slug": "the-witness", "title": "The Witness", "level": "B1",
+ "description": "Você viu um assalto. Ajude o detetive.",
+ "intro": "Hoje de manhã uma joalheria do centro foi assaltada, e você estava lá. Uma policial pede que você espere: o detetive Harris quer fazer algumas perguntas.",
+ "cast": {"o": ["Officer Ruiz", "Policial", "af_jessica"], "h": ["Detective Harris", "Detetive", "am_onyx"]},
+ "start": "p1",
+ "nodes": {
+  "p1": ["o", "Excuse me. I'm Officer Ruiz. Detective Harris would like to ask you a few questions about what happened this morning.", "Com licença. Sou a policial Ruiz. O detetive Harris gostaria de fazer algumas perguntas sobre o que aconteceu hoje de manhã.", "p2"],
+  "p2": ["h", "Thank you for staying. You were at the jewelry store at the time of the robbery, is that right?", "Obrigado por ficar. Você estava na joalheria na hora do assalto, certo?", [
+    ["Yes, I was buying a watch when it happened.", "Sim, eu estava comprando um relógio quando aconteceu.", "what"],
+    ["I was across the street, but I saw everything.", "Eu estava do outro lado da rua, mas vi tudo.", "what"],
+    ["I bought this jacket last year.", "Comprei esta jaqueta ano passado.", null, "I'm asking about this morning. Were you at the store?", "Estou perguntando sobre hoje de manhã. Você estava na loja?"]]],
+  "what": ["h", "Can you tell me what you saw?", "Pode me contar o que você viu?", [
+    ["A man came in with a mask and asked for the money.", "Um homem entrou de máscara e pediu o dinheiro.", "man"],
+    ["Two people ran out of the store and got into a car.", "Duas pessoas saíram correndo da loja e entraram num carro.", "car"],
+    ["I saw a great movie last night.", "Vi um filme ótimo ontem à noite.", null, "Let's focus on this morning, please. What did you see?", "Vamos focar em hoje de manhã, por favor. O que você viu?"]]],
+  "man": ["h", "What did he look like?", "Como ele era?", [
+    ["He was tall, and he was wearing a black hoodie.", "Ele era alto e usava um moletom preto com capuz.", "voice"],
+    ["I couldn't see his face, but he had a tattoo on his hand.", "Não consegui ver o rosto, mas ele tinha uma tatuagem na mão.", "tattoo"],
+    ["He likes football.", "Ele gosta de futebol.", null, "How would you know that? I mean, describe how he looked.", "Como você saberia disso? Quero dizer, descreva a aparência dele."]]],
+  "tattoo": ["h", "A tattoo? That's very useful. What was it?", "Uma tatuagem? Isso ajuda muito. Do que era?", [
+    ["It looked like a snake.", "Parecia uma cobra.", "voice"],
+    ["I'm not sure. Some kind of bird, I think.", "Não tenho certeza. Algum tipo de pássaro, acho.", "voice"],
+    ["It was a Tuesday.", "Era uma terça-feira.", null, "No, the tattoo. What did it look like?", "Não, a tatuagem. Como ela era?"]]],
+  "voice": ["h", "Did he say anything? Did you notice an accent?", "Ele disse alguma coisa? Você notou algum sotaque?", [
+    ["He shouted, hurry up, and he had a British accent.", "Ele gritou, anda logo, e tinha sotaque britânico.", "car"],
+    ["He didn't say much. He just pointed at the cash register.", "Ele não falou muito. Só apontou para o caixa.", "car"],
+    ["I speak English and Portuguese.", "Falo inglês e português.", null, "Good, but I mean, did the robber say anything?", "Ótimo, mas quero dizer, o ladrão falou alguma coisa?"]]],
+  "car": ["h", "And did you see a car?", "E você viu algum carro?", [
+    ["Yes, a white van. I think the plate started with K.", "Sim, uma van branca. Acho que a placa começava com K.", "plate"],
+    ["Yes, a small red car drove away very fast.", "Sim, um carro vermelho pequeno saiu em alta velocidade.", "direction"],
+    ["I don't have a car.", "Eu não tenho carro.", null, "I mean the robbers. Did they leave in a car?", "Falo dos ladrões. Eles fugiram de carro?"]]],
+  "plate": ["o", "Detective, a white van with a plate starting with K was just stopped on the highway.", "Detetive, uma van branca com placa começando com K acabou de ser parada na rodovia.", "identify"],
+  "identify": ["h", "Excellent. Would you be able to recognize the man if you saw him again?", "Excelente. Você conseguiria reconhecer o homem se o visse de novo?", [
+    ["Yes, I think so.", "Sim, acho que sim.", "photos"],
+    ["I'm not sure. It all happened so fast.", "Não tenho certeza. Foi tudo muito rápido.", "photos"],
+    ["I saw him on TV last week.", "Vi ele na TV semana passada.", null, "Really? Hmm, let's stay with this morning. Could you recognize him again?", "Sério? Hum, vamos ficar em hoje de manhã. Você conseguiria reconhecê-lo de novo?"]]],
+  "direction": ["h", "Which way did it go?", "Para que lado ele foi?", [
+    ["It turned left onto Main Street.", "Virou à esquerda na rua principal.", "photos"],
+    ["It went towards the bridge.", "Foi em direção à ponte.", "photos"],
+    ["It went very well, thank you.", "Foi tudo muito bem, obrigado.", null, "I mean the car. Which direction did it go?", "Falo do carro. Para que direção ele foi?"]]],
+  "photos": ["h", "Thank you. Could you come to the station tomorrow to look at some photos?", "Obrigado. Você poderia ir à delegacia amanhã para ver algumas fotos?", [
+    ["Of course. What time should I come?", "Claro. Que horas devo ir?", "time"],
+    ["I work tomorrow. Could I come on Saturday?", "Trabalho amanhã. Posso ir no sábado?", "saturday"],
+    ["I love taking photos.", "Adoro tirar fotos.", null, "Ha. I mean, can you come to the police station to see some photos?", "Rá. Quero dizer, pode ir à delegacia ver algumas fotos?"]]],
+  "time": ["h", "Any time after nine. Ask for me at the front desk.", "A qualquer hora depois das nove. Pergunte por mim na recepção.", "end"],
+  "saturday": ["h", "Saturday is fine. Here's my card. Call me if you remember anything else.", "Sábado está ótimo. Aqui está meu cartão. Me ligue se lembrar de mais alguma coisa.", "end"],
+  "end": ["h", "You've been very helpful. Officer Ruiz will take your contact details. Thank you.", "Você ajudou muito. A policial Ruiz vai anotar seus contatos. Obrigado.", null]
+ }
+}
+]

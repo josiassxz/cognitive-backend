@@ -1,0 +1,115 @@
+[
+{
+ "slug": "ordering-at-a-cafe", "title": "Ordering at a Café", "level": "A1",
+ "description": "Peça bebida e lanche numa cafeteria.",
+ "intro": "Você entra numa cafeteria pequena, numa manhã fria. A atendente Emma sorri atrás do balcão.",
+ "cast": {"w": ["Emma", "Atendente", "af_bella"]},
+ "start": "c1",
+ "nodes": {
+  "c1": ["w", "Hi there! Welcome to Corner Café.", "Oi! Bem-vindo ao Corner Café.", "c2"],
+  "c2": ["w", "What can I get for you today?", "O que vai querer hoje?", [
+    ["A coffee, please.", "Um café, por favor.", "coffee_size"],
+    ["Can I have a cup of tea?", "Pode me ver uma xícara de chá?", "tea"],
+    ["An orange juice, please.", "Um suco de laranja, por favor.", "juice"],
+    ["I'm twenty-five years old.", "Tenho vinte e cinco anos.", null, "Sorry? I mean, what would you like to drink?", "Como? Quer dizer, o que você gostaria de beber?"]]],
+  "coffee_size": ["w", "Sure. What size would you like? Small, medium or large?", "Claro. Qual tamanho você quer? Pequeno, médio ou grande?", [
+    ["Medium, please.", "Médio, por favor.", "coffee_milk"],
+    ["A large one, please.", "Um grande, por favor.", "coffee_milk"],
+    ["Yes, it's very cold today.", "Sim, está muito frio hoje.", null, "It is! But which size? Small, medium or large?", "Está mesmo! Mas qual tamanho? Pequeno, médio ou grande?"]]],
+  "coffee_milk": ["w", "Would you like milk in your coffee?", "Quer leite no seu café?", [
+    ["Yes, a little milk, please.", "Sim, um pouco de leite, por favor.", "coffee_sugar"],
+    ["No milk, thanks. Just black.", "Sem leite, obrigado. Só puro.", "food"],
+    ["It's on the table.", "Está na mesa.", null, "Hmm, I'm asking about milk. Do you want milk in your coffee?", "Hum, estou perguntando do leite. Você quer leite no café?"]]],
+  "coffee_sugar": ["w", "And sugar?", "E açúcar?", [
+    ["One sugar, please.", "Um açúcar, por favor.", "food"],
+    ["No sugar, thank you.", "Sem açúcar, obrigado.", "food"],
+    ["My name is Lucas.", "Meu nome é Lucas.", null, "Nice to meet you, Lucas! But sugar or no sugar?", "Prazer, Lucas! Mas com ou sem açúcar?"]]],
+  "tea": ["w", "Of course. We have black tea, green tea and mint tea. Which one would you like?", "Claro. Temos chá preto, chá verde e chá de hortelã. Qual você quer?", [
+    ["Green tea, please.", "Chá verde, por favor.", "tea_honey"],
+    ["Mint tea, please.", "Chá de hortelã, por favor.", "tea_honey"],
+    ["I live near here.", "Eu moro aqui perto.", null, "Oh, nice! But which tea would you like?", "Ah, que legal! Mas qual chá você quer?"]]],
+  "tea_honey": ["w", "Would you like honey or lemon with your tea?", "Quer mel ou limão no seu chá?", [
+    ["Honey, please.", "Mel, por favor.", "food"],
+    ["A slice of lemon, please.", "Uma rodela de limão, por favor.", "food"],
+    ["Every morning at seven.", "Toda manhã às sete.", null, "Sorry, I mean honey or lemon?", "Desculpe, quis dizer: mel ou limão?"]]],
+  "juice": ["w", "Our orange juice is fresh. With ice or without ice?", "Nosso suco de laranja é natural. Com gelo ou sem gelo?", [
+    ["With ice, please.", "Com gelo, por favor.", "food"],
+    ["No ice, thanks.", "Sem gelo, obrigado.", "food"],
+    ["I don't like the beach.", "Eu não gosto de praia.", null, "Ha! Okay, but ice or no ice in your juice?", "Rá! Tudo bem, mas com ou sem gelo no suco?"]]],
+  "food": ["w", "Great. Would you like something to eat? We have muffins and sandwiches.", "Ótimo. Quer algo para comer? Temos muffins e sanduíches.", [
+    ["A blueberry muffin, please.", "Um muffin de mirtilo, por favor.", "here"],
+    ["What sandwiches do you have?", "Quais sanduíches vocês têm?", "sandwich"],
+    ["No, thanks. That's all.", "Não, obrigado. É só isso.", "here"],
+    ["I'm sorry, I'm late.", "Desculpe, estou atrasado.", null, "No problem! So, anything to eat?", "Sem problema! Então, algo para comer?"]]],
+  "sandwich": ["w", "We have ham and cheese, and chicken salad.", "Temos de presunto e queijo, e de salada de frango.", [
+    ["Ham and cheese, please.", "Presunto e queijo, por favor.", "here"],
+    ["The chicken salad sounds good.", "O de salada de frango parece bom.", "here"],
+    ["It's next Tuesday.", "É na próxima terça.", null, "Sorry? Which sandwich would you like?", "Como? Qual sanduíche você quer?"]]],
+  "here": ["w", "Is that for here or to go?", "É para comer aqui ou para levar?", [
+    ["For here, please.", "Para comer aqui, por favor.", "pay"],
+    ["To go, please.", "Para levar, por favor.", "pay"],
+    ["Yes, I'm from Brazil.", "Sim, sou do Brasil.", null, "Oh, cool! But do you want to eat here, or take it with you?", "Ah, legal! Mas você quer comer aqui ou levar?"]]],
+  "pay": ["w", "That's eight dollars and fifty cents. Cash or card?", "São oito dólares e cinquenta centavos. Dinheiro ou cartão?", [
+    ["Card, please.", "Cartão, por favor.", "card"],
+    ["Cash. Here's ten dollars.", "Dinheiro. Aqui estão dez dólares.", "cash"],
+    ["Blue is my favorite color.", "Azul é minha cor favorita.", null, "Okay! But are you paying with cash or card?", "Certo! Mas vai pagar em dinheiro ou cartão?"]]],
+  "card": ["w", "Perfect. Just tap your card here.", "Perfeito. É só aproximar o cartão aqui.", "name"],
+  "cash": ["w", "Thank you. Here's your change, one dollar and fifty cents.", "Obrigada. Aqui está o seu troco, um dólar e cinquenta centavos.", "name"],
+  "name": ["w", "Can I have your name for the order?", "Pode me dizer seu nome para o pedido?", [
+    ["Sure, it's Lucas.", "Claro, é Lucas.", "end"],
+    ["It's Ana. A, N, A.", "É Ana. A, N, A.", "end"],
+    ["Ten minutes ago.", "Dez minutos atrás.", null, "Sorry, I need your name. What's your name?", "Desculpe, preciso do seu nome. Qual é o seu nome?"]]],
+  "end": ["w", "Thanks! Your order will be ready in a few minutes. Have a great day!", "Obrigada! Seu pedido fica pronto em alguns minutos. Tenha um ótimo dia!", null]
+ }
+},
+{
+ "slug": "asking-for-directions", "title": "Asking for Directions", "level": "A1",
+ "description": "Peça informação na rua em Londres.",
+ "intro": "Primeiro dia em Londres. Você está na rua com o mapa na mão, meio perdido, quando um senhor simpático se aproxima.",
+ "cast": {"m": ["George", "Morador de Londres", "bm_george"]},
+ "start": "d1",
+ "nodes": {
+  "d1": ["m", "Hello there. You look a little lost. Can I help you?", "Olá. Você parece um pouco perdido. Posso ajudar?", [
+    ["Yes, please. Where is the train station?", "Sim, por favor. Onde fica a estação de trem?", "station"],
+    ["Yes! I'm looking for the Science Museum.", "Sim! Estou procurando o Museu de Ciências.", "museum"],
+    ["I had pizza for lunch.", "Comi pizza no almoço.", null, "Lovely! But do you need directions?", "Que ótimo! Mas você precisa de uma informação?"]]],
+  "station": ["m", "The train station? It's not far. Are you walking or taking the bus?", "A estação de trem? Não é longe. Você vai a pé ou de ônibus?", [
+    ["I'm walking.", "Vou a pé.", "walk"],
+    ["Is there a bus?", "Tem ônibus?", "bus"],
+    ["At nine o'clock.", "Às nove horas.", null, "Sorry, I mean, are you going on foot or by bus?", "Desculpe, quero dizer: vai a pé ou de ônibus?"]]],
+  "walk": ["m", "Okay. Go straight down this street and turn left at the bank.", "Certo. Siga reto por esta rua e vire à esquerda no banco.", "walk2"],
+  "walk2": ["m", "Then walk for two blocks. The station is on your right. Got it?", "Depois ande duas quadras. A estação fica à sua direita. Entendeu?", [
+    ["So, left at the bank, then two blocks?", "Então, esquerda no banco, depois duas quadras?", "confirm"],
+    ["Sorry, can you say that again, please?", "Desculpe, pode repetir, por favor?", "repeat"],
+    ["I've got two brothers.", "Eu tenho dois irmãos.", null, "No, I mean, do you understand the directions?", "Não, quero dizer, você entendeu o caminho?"]]],
+  "repeat": ["m", "No problem. Straight on, left at the bank, two blocks, and it's on your right.", "Sem problema. Siga reto, esquerda no banco, duas quadras, e fica à sua direita.", "confirm"],
+  "bus": ["m", "Yes, the number twelve stops right there, across the street. Do you have a travel card?", "Sim, o número doze para logo ali, do outro lado da rua. Você tem cartão de transporte?", [
+    ["Yes, I have one.", "Sim, eu tenho.", "bus_stop"],
+    ["No. Where can I buy one?", "Não. Onde posso comprar um?", "buy"],
+    ["I prefer cats.", "Eu prefiro gatos.", null, "Ha! Okay, but do you have a travel card for the bus?", "Rá! Tudo bem, mas você tem cartão de transporte para o ônibus?"]]],
+  "buy": ["m", "You can buy one at the little shop on the corner, the one with the red door.", "Você pode comprar na lojinha da esquina, aquela com a porta vermelha.", "bus_stop"],
+  "bus_stop": ["m", "Get off at the third stop. The station is right in front of it. Okay?", "Desça na terceira parada. A estação fica bem em frente. Certo?", [
+    ["The third stop. Got it, thanks.", "A terceira parada. Entendi, obrigado.", "confirm"],
+    ["Sorry, which stop?", "Desculpe, qual parada?", "bus_repeat"],
+    ["It's my birthday tomorrow.", "Amanhã é meu aniversário.", null, "Oh, happy birthday! But did you understand where to get off?", "Ah, feliz aniversário! Mas entendeu onde descer?"]]],
+  "bus_repeat": ["m", "The third stop. Just count three stops.", "A terceira parada. É só contar três paradas.", "confirm"],
+  "museum": ["m", "The Science Museum? That's quite far. You should take the underground. Do you know where the underground station is?", "O Museu de Ciências? É bem longe. É melhor pegar o metrô. Você sabe onde fica a estação de metrô?", [
+    ["No, I don't. Where is it?", "Não sei. Onde fica?", "tube"],
+    ["Yes, it's over there, right?", "Sim, é ali, né?", "tube_yes"],
+    ["I like science very much.", "Eu gosto muito de ciência.", null, "Me too! But do you know where the underground station is?", "Eu também! Mas você sabe onde fica a estação de metrô?"]]],
+  "tube": ["m", "It's just around the corner, next to the post office.", "Fica logo virando a esquina, ao lado dos correios.", "tube2"],
+  "tube_yes": ["m", "That's right, next to the post office.", "Isso mesmo, ao lado dos correios.", "tube2"],
+  "tube2": ["m", "Take the blue line and get off at South Kensington. Can you remember that?", "Pegue a linha azul e desça em South Kensington. Consegue lembrar?", [
+    ["Blue line, South Kensington. Thanks!", "Linha azul, South Kensington. Obrigado!", "confirm"],
+    ["Can you write it down for me, please?", "Pode anotar para mim, por favor?", "write"],
+    ["My phone is new.", "Meu celular é novo.", null, "Nice! So, can you remember the station name?", "Legal! Então, consegue lembrar o nome da estação?"]]],
+  "write": ["m", "Sure, here you go. South Kensington, blue line.", "Claro, aqui está. South Kensington, linha azul.", "confirm"],
+  "confirm": ["m", "Exactly. Is there anything else I can help you with?", "Exatamente. Posso ajudar com mais alguma coisa?", [
+    ["Is there a coffee shop near there?", "Tem alguma cafeteria perto de lá?", "coffee"],
+    ["No, that's all. Thank you so much!", "Não, é só isso. Muito obrigado!", "end"],
+    ["Yes, I'm a doctor.", "Sim, eu sou médico.", null, "Oh, how nice! But do you need anything else?", "Ah, que bom! Mas precisa de mais alguma coisa?"]]],
+  "coffee": ["m", "Yes, there's a nice one right next to it. They make great cakes.", "Sim, tem uma ótima bem do lado. Eles fazem bolos deliciosos.", "end"],
+  "end": ["m", "You're welcome. Enjoy your day in London!", "De nada. Aproveite o seu dia em Londres!", null]
+ }
+}
+]

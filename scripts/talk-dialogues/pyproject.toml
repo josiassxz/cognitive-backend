@@ -1,0 +1,19 @@
+[project]
+name = "talk-tts"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Josias Silva Siqueira", email = "josias.siqueira@apoioprodesp.sp.gov.br" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "kokoro-onnx>=0.6.1",
+    "soundfile>=0.14.0",
+]
+
+[project.scripts]
+talk-tts = "talk_tts:main"
+
+[build-system]
+requires = ["uv_build>=0.13.8,<0.14.0"]
+build-backend = "uv_build"

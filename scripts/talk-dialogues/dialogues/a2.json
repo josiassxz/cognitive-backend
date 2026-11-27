@@ -1,0 +1,238 @@
+[
+{
+ "slug": "hotel-check-in", "title": "Hotel Check-in", "level": "A2",
+ "description": "Faça o check-in (com ou sem reserva).",
+ "intro": "Depois de um voo longo, você chega à recepção do hotel à noite. A recepcionista Sophie levanta os olhos do computador.",
+ "cast": {"r": ["Sophie", "Recepcionista", "bf_emma"]},
+ "start": "h1",
+ "nodes": {
+  "h1": ["r", "Good evening, and welcome to the Grand Harbour Hotel.", "Boa noite e bem-vindo ao Grand Harbour Hotel.", "h2"],
+  "h2": ["r", "How can I help you this evening?", "Como posso ajudar esta noite?", [
+    ["Hi, I have a reservation. My name is Silva.", "Oi, tenho uma reserva. Meu nome é Silva.", "res"],
+    ["Hello. Do you have any rooms available tonight?", "Olá. Vocês têm quarto disponível para hoje?", "walkin"],
+    ["The weather was good on the plane.", "O tempo estava bom no avião.", null, "I'm glad to hear that! So, what can I do for you?", "Que bom saber! Então, o que posso fazer por você?"]]],
+  "res": ["r", "Let me check. Yes, here it is. A double room for three nights. Is that correct?", "Deixe-me ver. Sim, aqui está. Um quarto de casal por três noites. Está correto?", [
+    ["Yes, that's correct.", "Sim, está correto.", "passport"],
+    ["Actually, it's for four nights.", "Na verdade, é por quatro noites.", "extra"],
+    ["No, I don't drink coffee.", "Não, eu não tomo café.", null, "Sorry, I mean the reservation. Three nights, correct?", "Desculpe, falo da reserva. Três noites, correto?"]]],
+  "extra": ["r", "Let me see. Good news, we can add one more night. It's one hundred and twenty dollars. Is that okay?", "Deixe-me ver. Boa notícia, podemos acrescentar mais uma noite. São cento e vinte dólares. Tudo bem?", [
+    ["Yes, that's fine.", "Sim, tudo bem.", "passport"],
+    ["Does that include breakfast?", "Inclui café da manhã?", "bf_incl"],
+    ["I'm wearing a jacket.", "Estou de jaqueta.", null, "Sorry? Is the extra night okay for you?", "Como? A noite extra está boa para você?"]]],
+  "bf_incl": ["r", "Yes, breakfast is included in all our rates.", "Sim, o café da manhã está incluído em todas as nossas diárias.", "passport"],
+  "walkin": ["r", "Let me check. We have one double room left. It's one hundred and forty dollars a night. Would you like it?", "Deixe-me ver. Sobrou um quarto de casal. São cento e quarenta dólares a diária. Gostaria de ficar com ele?", [
+    ["Yes, I'll take it.", "Sim, vou ficar com ele.", "walkin_n"],
+    ["Do you have anything cheaper?", "Vocês têm algo mais barato?", "cheaper"],
+    ["I'm reading a good book.", "Estou lendo um bom livro.", null, "How nice! But would you like the room?", "Que bom! Mas você gostaria do quarto?"]]],
+  "cheaper": ["r", "I'm sorry, it's our last room tonight. But breakfast is included.", "Sinto muito, é o nosso último quarto hoje. Mas o café da manhã está incluído.", "walkin2"],
+  "walkin2": ["r", "Would you like to take it?", "Quer ficar com ele?", [
+    ["Okay, I'll take it.", "Tudo bem, vou ficar.", "walkin_n"],
+    ["Alright. Yes, please.", "Está bem. Sim, por favor.", "walkin_n"],
+    ["I have a cat at home.", "Tenho um gato em casa.", null, "Oh, lovely. But do you want the room?", "Ah, que fofo. Mas você quer o quarto?"]]],
+  "walkin_n": ["r", "How many nights will you stay?", "Quantas noites você vai ficar?", [
+    ["Just two nights.", "Só duas noites.", "passport"],
+    ["Only tonight.", "Só esta noite.", "passport"],
+    ["About five kilos.", "Uns cinco quilos.", null, "Sorry? How many nights would you like to stay?", "Como? Quantas noites você quer ficar?"]]],
+  "passport": ["r", "May I see your passport, please?", "Posso ver seu passaporte, por favor?", [
+    ["Of course. Here you are.", "Claro. Aqui está.", "card"],
+    ["Sure, just a second.", "Claro, só um segundo.", "card"],
+    ["I'm sorry, I don't eat meat.", "Desculpe, eu não como carne.", null, "Oh, I just need your passport, please.", "Ah, só preciso do seu passaporte, por favor."]]],
+  "card": ["r", "Thank you. I'll also need a credit card for any extras.", "Obrigada. Também vou precisar de um cartão de crédito para os extras.", [
+    ["Here's my card.", "Aqui está meu cartão.", "breakfast"],
+    ["Can I pay in cash at the end?", "Posso pagar em dinheiro no final?", "cash"],
+    ["I'm thirty-two.", "Tenho trinta e dois anos.", null, "Sorry, I need a credit card, or a cash deposit.", "Desculpe, preciso de um cartão de crédito, ou de um depósito em dinheiro."]]],
+  "cash": ["r", "Of course. Then we just need a small cash deposit of fifty dollars.", "Claro. Então só precisamos de um pequeno depósito de cinquenta dólares em dinheiro.", "breakfast"],
+  "breakfast": ["r", "Perfect. Breakfast is from seven to ten in the restaurant on the first floor. Would you like a wake-up call?", "Perfeito. O café da manhã é das sete às dez, no restaurante do primeiro andar. Gostaria de um serviço de despertador?", [
+    ["Yes, at seven, please.", "Sim, às sete, por favor.", "key"],
+    ["No, thank you.", "Não, obrigado.", "key"],
+    ["It's on the first floor.", "Fica no primeiro andar.", null, "Yes, the restaurant is. But would you like a wake-up call?", "Sim, o restaurante fica. Mas você gostaria de ser acordado por telefone?"]]],
+  "key": ["r", "Here's your key. You're in room five twelve, on the fifth floor. Do you have any questions?", "Aqui está sua chave. Você está no quarto quinhentos e doze, no quinto andar. Tem alguma pergunta?", [
+    ["What's the Wi-Fi password?", "Qual é a senha do Wi-Fi?", "wifi"],
+    ["Where is the elevator?", "Onde fica o elevador?", "elevator"],
+    ["No, that's everything. Thanks.", "Não, é só isso. Obrigado.", "end"],
+    ["Five hundred dollars.", "Quinhentos dólares.", null, "Sorry? Do you have any questions about your stay?", "Como? Tem alguma pergunta sobre a sua estadia?"]]],
+  "wifi": ["r", "It's harbour view, all lowercase, no spaces. It's on your key card too.", "É harbour view, tudo minúsculo e sem espaço. Também está no cartão da chave.", "end"],
+  "elevator": ["r", "The elevators are just behind you, on the left.", "Os elevadores ficam logo atrás de você, à esquerda.", "end"],
+  "end": ["r", "Enjoy your stay, and let us know if you need anything.", "Aproveite a estadia e nos avise se precisar de alguma coisa.", null]
+ }
+},
+{
+ "slug": "dinner-at-a-restaurant", "title": "Dinner at a Restaurant", "level": "A2",
+ "description": "Do pedido da mesa até a conta.",
+ "intro": "Sexta à noite. Você e um amigo chegam a um restaurante italiano movimentado. O garçom Marco vem até a porta.",
+ "cast": {"w": ["Marco", "Garçom", "am_michael"]},
+ "start": "r1",
+ "nodes": {
+  "r1": ["w", "Good evening! Do you have a reservation?", "Boa noite! Vocês têm reserva?", [
+    ["Yes, a table for two under Costa.", "Sim, uma mesa para dois no nome de Costa.", "seat"],
+    ["No, we don't. Do you have a table for two?", "Não temos. Tem mesa para dois?", "wait"],
+    ["It's in my bag.", "Está na minha bolsa.", null, "Sorry? Do you have a reservation with us?", "Como? Vocês têm reserva conosco?"]]],
+  "wait": ["w", "We're very busy tonight. There's a fifteen-minute wait. Is that okay?", "Estamos bem cheios hoje. A espera é de quinze minutos. Tudo bem?", [
+    ["That's fine, we can wait.", "Tudo bem, podemos esperar.", "seat"],
+    ["Can we sit outside instead?", "Podemos sentar lá fora?", "outside"],
+    ["My brother is a teacher.", "Meu irmão é professor.", null, "Oh, nice. But is a fifteen-minute wait okay?", "Ah, legal. Mas quinze minutos de espera estão bons?"]]],
+  "outside": ["w", "Sure, there's a free table on the terrace right now. Follow me.", "Claro, tem uma mesa livre no terraço agora. Me acompanhem.", "drinks"],
+  "seat": ["w", "Right this way, please. Here's your table, and here are the menus.", "Por aqui, por favor. Esta é a mesa de vocês, e aqui estão os cardápios.", "drinks"],
+  "drinks": ["w", "Can I get you something to drink?", "Posso trazer algo para beber?", [
+    ["A bottle of sparkling water, please.", "Uma garrafa de água com gás, por favor.", "special"],
+    ["Could we see the wine list?", "Podemos ver a carta de vinhos?", "wine"],
+    ["I live in São Paulo.", "Eu moro em São Paulo.", null, "Lovely city! And what would you like to drink?", "Cidade linda! E o que vocês querem beber?"]]],
+  "wine": ["w", "Of course. Here you are. Our house red is very popular.", "Claro. Aqui está. Nosso tinto da casa é muito pedido.", "wine2"],
+  "wine2": ["w", "Would you like to try it?", "Gostariam de experimentar?", [
+    ["Yes, two glasses of the house red, please.", "Sim, duas taças do tinto da casa, por favor.", "special"],
+    ["No, just water for now, thanks.", "Não, só água por enquanto, obrigado.", "special"],
+    ["Red is a beautiful color.", "Vermelho é uma cor linda.", null, "It is! So, would you like to try the wine?", "É mesmo! Então, querem experimentar o vinho?"]]],
+  "special": ["w", "Tonight's special is grilled salmon with potatoes. Are you ready to order, or do you need a few minutes?", "O prato do dia é salmão grelhado com batatas. Já querem pedir ou precisam de alguns minutos?", [
+    ["I'll have the salmon, please.", "Vou querer o salmão, por favor.", "side"],
+    ["We need a few more minutes.", "Precisamos de mais alguns minutos.", "minutes"],
+    ["What do you recommend?", "O que você recomenda?", "recommend"],
+    ["Salmon is a fish.", "Salmão é um peixe.", null, "Ha, it is! But are you ready to order?", "Rá, é sim! Mas já querem pedir?"]]],
+  "minutes": ["w", "Sure, take your time. I'll be back in a moment.", "Claro, fiquem à vontade. Já volto.", "back"],
+  "recommend": ["w", "The lasagna is our chef's favorite. It's homemade.", "A lasanha é a favorita do nosso chef. É caseira.", "back"],
+  "back": ["w", "So, have you decided?", "E então, decidiram?", [
+    ["Yes, I'd like the steak, please.", "Sim, eu quero o bife, por favor.", "steak"],
+    ["I'll try the lasagna.", "Vou experimentar a lasanha.", "side"],
+    ["The salmon special, please.", "O salmão do dia, por favor.", "side"],
+    ["Yes, I decided to study English.", "Sim, decidi estudar inglês.", null, "Good for you! But what would you like to eat?", "Que bom! Mas o que você vai querer comer?"]]],
+  "steak": ["w", "How would you like your steak?", "Como você quer o seu bife?", [
+    ["Medium, please.", "Ao ponto, por favor.", "side"],
+    ["Well done, please.", "Bem passado, por favor.", "side"],
+    ["With my friends.", "Com os meus amigos.", null, "Sorry, I mean how do you want it cooked? Rare, medium, or well done?", "Desculpe, quero dizer, como quer o ponto? Mal passado, ao ponto ou bem passado?"]]],
+  "side": ["w", "Excellent choice. Would you like a salad or fries on the side?", "Ótima escolha. Quer salada ou batata frita de acompanhamento?", [
+    ["A salad, please.", "Salada, por favor.", "allergy"],
+    ["Fries, please.", "Batata frita, por favor.", "allergy"],
+    ["On the left side.", "Do lado esquerdo.", null, "Ha, no, I mean, salad or fries with your meal?", "Rá, não, quero dizer, salada ou fritas com o prato?"]]],
+  "allergy": ["w", "Do you have any food allergies I should know about?", "Você tem alguma alergia alimentar que eu deva saber?", [
+    ["No, none.", "Não, nenhuma.", "served"],
+    ["Yes, I'm allergic to nuts.", "Sim, tenho alergia a nozes e castanhas.", "nuts"],
+    ["Yes, I have two kids.", "Sim, tenho dois filhos.", null, "That's nice! But I mean, are you allergic to any food?", "Que bom! Mas quero dizer, você tem alergia a algum alimento?"]]],
+  "nuts": ["w", "Thank you for telling me. I'll let the chef know, and your dish will be nut-free.", "Obrigado por avisar. Vou falar com o chef, e o seu prato virá sem castanhas.", "served"],
+  "served": ["w", "Here you are. Enjoy your meal! ... So, how was everything?", "Aqui está. Bom apetite! ... E então, estava tudo bom?", [
+    ["It was delicious, thank you!", "Estava delicioso, obrigado!", "dessert"],
+    ["It was good, but a little salty.", "Estava bom, mas um pouco salgado.", "salty"],
+    ["At eight o'clock.", "Às oito horas.", null, "Sorry? Did you enjoy the food?", "Como? Você gostou da comida?"]]],
+  "salty": ["w", "I'm sorry about that. I'll tell the chef. Dessert is on us tonight.", "Sinto muito por isso. Vou avisar o chef. A sobremesa hoje é por nossa conta.", "dessert"],
+  "dessert": ["w", "Would you like to see the dessert menu?", "Gostariam de ver o cardápio de sobremesas?", [
+    ["Yes, please. Do you have chocolate cake?", "Sim, por favor. Vocês têm bolo de chocolate?", "cake"],
+    ["No, thanks. Just the check, please.", "Não, obrigado. Só a conta, por favor.", "check"],
+    ["I see my friend every week.", "Vejo meu amigo toda semana.", null, "How nice! But would you like some dessert?", "Que bom! Mas vocês querem sobremesa?"]]],
+  "cake": ["w", "We do! It's very popular. I'll bring it right away. ... And here's your check.", "Temos! É muito pedido. Já trago. ... E aqui está a conta.", "check2"],
+  "check": ["w", "Of course. Here's your check.", "Claro. Aqui está a conta.", "check2"],
+  "check2": ["w", "Would you like to pay together or separately?", "Vocês querem pagar junto ou separado?", [
+    ["Together, please.", "Junto, por favor.", "end"],
+    ["Separately, please.", "Separado, por favor.", "end"],
+    ["Yes, it's chocolate.", "Sim, é de chocolate.", null, "Sorry? Will you pay together or separately?", "Como? Vão pagar junto ou separado?"]]],
+  "end": ["w", "Thank you so much. Have a wonderful evening!", "Muito obrigado. Tenham uma noite maravilhosa!", null]
+ }
+},
+{
+ "slug": "buying-a-jacket", "title": "Buying a Jacket", "level": "A2",
+ "description": "Experimente e compre roupa numa loja.",
+ "intro": "Está esfriando e você precisa de uma jaqueta. Você entra numa loja de roupas e a vendedora Lily vem falar com você.",
+ "cast": {"s": ["Lily", "Vendedora", "bf_lily"]},
+ "start": "s1",
+ "nodes": {
+  "s1": ["s", "Hi! Can I help you find anything?", "Oi! Posso ajudar você a encontrar alguma coisa?", [
+    ["Yes, I'm looking for a jacket.", "Sim, estou procurando uma jaqueta.", "jacket"],
+    ["I'm just looking, thanks.", "Só estou olhando, obrigado.", "look"],
+    ["I found my keys yesterday.", "Achei minhas chaves ontem.", null, "Oh, good! But can I help you find something here?", "Ah, que bom! Mas posso ajudar você a achar algo aqui?"]]],
+  "look": ["s", "No problem. That jacket on the mannequin is new this week, by the way.", "Sem problema. Aliás, aquela jaqueta no manequim chegou esta semana.", "look2"],
+  "look2": ["s", "Would you like to try it on?", "Quer experimentar?", [
+    ["Yes, I'd love to.", "Sim, adoraria.", "size"],
+    ["How much is it?", "Quanto custa?", "price"],
+    ["I'm on vacation.", "Estou de férias.", null, "Lucky you! So, would you like to try the jacket on?", "Que sorte! Então, quer experimentar a jaqueta?"]]],
+  "price": ["s", "It's sixty dollars, but it's twenty percent off today.", "Custa sessenta dólares, mas hoje está com vinte por cento de desconto.", "size"],
+  "jacket": ["s", "Great. We have leather jackets and denim jackets. Which do you prefer?", "Ótimo. Temos jaquetas de couro e jaquetas jeans. Qual você prefere?", [
+    ["A denim jacket, please.", "Uma jaqueta jeans, por favor.", "size"],
+    ["Can I see the leather ones?", "Posso ver as de couro?", "leather"],
+    ["I prefer summer.", "Prefiro o verão.", null, "Me too! But which kind of jacket do you prefer?", "Eu também! Mas que tipo de jaqueta você prefere?"]]],
+  "leather": ["s", "Sure, they're over here. This black one is very popular.", "Claro, ficam aqui. Esta preta vende muito.", "size"],
+  "size": ["s", "What size are you?", "Qual é o seu tamanho?", [
+    ["I'm a medium.", "Uso médio.", "fitting"],
+    ["I think I'm a large.", "Acho que uso grande.", "fitting"],
+    ["I'm a software engineer.", "Sou engenheiro de software.", null, "Oh, interesting! But what size do you wear? Small, medium or large?", "Ah, interessante! Mas que tamanho você usa? Pequeno, médio ou grande?"]]],
+  "fitting": ["s", "Here you go. The fitting rooms are at the back, on the right.", "Aqui está. Os provadores ficam no fundo, à direita.", "fit"],
+  "fit": ["s", "So, how does it fit?", "E aí, como ficou?", [
+    ["It's a bit too tight.", "Está um pouco apertada.", "bigger"],
+    ["It fits perfectly!", "Ficou perfeita!", "color"],
+    ["It's next to the door.", "Fica ao lado da porta.", null, "Sorry? I mean, is the size right for you?", "Como? Quero dizer, o tamanho ficou bom?"]]],
+  "bigger": ["s", "Let me get you a bigger size. Here you go, this one should be better.", "Vou pegar um tamanho maior. Aqui está, esta deve ficar melhor.", "color"],
+  "color": ["s", "It also comes in blue and green. Do you want to see the other colors?", "Também tem em azul e verde. Quer ver as outras cores?", [
+    ["No, I like this one.", "Não, gostei desta.", "more"],
+    ["Yes, can I see the blue one?", "Sim, posso ver a azul?", "blue"],
+    ["My eyes are brown.", "Meus olhos são castanhos.", null, "Nice! But would you like to see the other colors?", "Legal! Mas quer ver as outras cores?"]]],
+  "blue": ["s", "Here it is. The blue looks really good on you!", "Aqui está. A azul ficou muito bem em você!", "blue2"],
+  "blue2": ["s", "Which one will you take?", "Qual você vai levar?", [
+    ["I'll take the blue one.", "Vou levar a azul.", "more"],
+    ["I'll stay with the first one.", "Vou ficar com a primeira.", "more"],
+    ["I take the bus to work.", "Eu pego ônibus para o trabalho.", null, "Ha, no, I mean, which jacket will you buy?", "Rá, não, quero dizer, qual jaqueta você vai comprar?"]]],
+  "more": ["s", "Great choice. Would you like anything else? Our scarves are on sale.", "Ótima escolha. Quer mais alguma coisa? Nossos cachecóis estão em promoção.", [
+    ["No, just the jacket, thanks.", "Não, só a jaqueta, obrigado.", "bag"],
+    ["Sure, I'll take a scarf too.", "Claro, vou levar um cachecol também.", "bag"],
+    ["Twenty-five degrees.", "Vinte e cinco graus.", null, "Sorry? Would you like anything else?", "Como? Quer mais alguma coisa?"]]],
+  "bag": ["s", "Would you like a bag and a gift receipt?", "Quer uma sacola e um recibo de presente?", [
+    ["Just a bag, please.", "Só a sacola, por favor.", "end"],
+    ["Yes, please. It's a gift for my brother.", "Sim, por favor. É um presente para o meu irmão.", "gift"],
+    ["I can't swim.", "Eu não sei nadar.", null, "Oh! But do you want a bag and a gift receipt?", "Ah! Mas você quer sacola e recibo de presente?"]]],
+  "gift": ["s", "How nice! I'll put the receipt in the bag so he can exchange it.", "Que legal! Vou colocar o recibo na sacola para ele poder trocar.", "end"],
+  "end": ["s", "Here you go. You can return or exchange it within thirty days. Have a nice day!", "Aqui está. Você pode devolver ou trocar em até trinta dias. Tenha um bom dia!", null]
+ }
+},
+{
+ "slug": "at-the-airport", "title": "At the Airport", "level": "A2",
+ "description": "Check-in, bagagem e raio-x.",
+ "intro": "Seis da manhã no aeroporto. Você vai fazer o check-in no balcão e depois passar pela segurança.",
+ "cast": {"a": ["Daniel", "Atendente da companhia", "bm_daniel"], "o": ["Officer Sarah", "Agente de segurança", "af_sarah"]},
+ "start": "a1",
+ "nodes": {
+  "a1": ["a", "Good morning. Where are you flying to today?", "Bom dia. Para onde você vai voar hoje?", [
+    ["To New York.", "Para Nova York.", "passport"],
+    ["I'm going to Lisbon.", "Vou para Lisboa.", "passport"],
+    ["Since last Monday.", "Desde segunda passada.", null, "Sorry? Where are you traveling to?", "Como? Para onde você está viajando?"]]],
+  "passport": ["a", "Can I see your passport and ticket, please?", "Posso ver seu passaporte e sua passagem, por favor?", [
+    ["Here you are.", "Aqui estão.", "bags"],
+    ["I have the ticket on my phone. Is that okay?", "Estou com a passagem no celular. Tudo bem?", "phone"],
+    ["I'm a little tired.", "Estou um pouco cansado.", null, "Early flights are tough! May I see your passport, please?", "Voo cedo é difícil! Posso ver seu passaporte, por favor?"]]],
+  "phone": ["a", "That's fine. I just need your passport, then.", "Tudo bem. Então só preciso do seu passaporte.", "bags"],
+  "bags": ["a", "Thank you. Are you checking any bags today?", "Obrigado. Vai despachar alguma mala hoje?", [
+    ["Yes, just this suitcase.", "Sim, só esta mala.", "weight"],
+    ["No, only my carry-on.", "Não, só a de mão.", "seat"],
+    ["I checked my email.", "Eu chequei meu e-mail.", null, "Sorry, I mean luggage. Are you checking any bags?", "Desculpe, falo da bagagem. Vai despachar alguma mala?"]]],
+  "weight": ["a", "Please put it on the scale. Hmm, it's twenty-five kilos. The limit is twenty-three.", "Coloque na balança, por favor. Hum, são vinte e cinco quilos. O limite é vinte e três.", "weight2"],
+  "weight2": ["a", "You can pay a fee, or take something out. What would you like to do?", "Você pode pagar uma taxa ou tirar alguma coisa. O que prefere?", [
+    ["How much is the fee?", "Quanto é a taxa?", "fee"],
+    ["I'll take something out.", "Vou tirar alguma coisa.", "repack"],
+    ["I'm on a diet.", "Estou de dieta.", null, "Ha! No, I mean your suitcase is too heavy. What would you like to do?", "Rá! Não, quero dizer, sua mala está pesada demais. O que prefere fazer?"]]],
+  "fee": ["a", "It's fifty dollars.", "São cinquenta dólares.", "fee2"],
+  "fee2": ["a", "Would you like to pay it?", "Quer pagar?", [
+    ["Okay, I'll pay.", "Tudo bem, eu pago.", "seat"],
+    ["That's too much. I'll take some things out.", "É caro demais. Vou tirar algumas coisas.", "repack"],
+    ["My bag is blue.", "Minha mala é azul.", null, "I can see that! But do you want to pay the fee?", "Estou vendo! Mas quer pagar a taxa?"]]],
+  "repack": ["a", "No problem. Perfect, it's twenty-two kilos now.", "Sem problema. Perfeito, agora são vinte e dois quilos.", "seat"],
+  "seat": ["a", "Would you prefer a window or an aisle seat?", "Prefere assento na janela ou no corredor?", [
+    ["A window seat, please.", "Na janela, por favor.", "window"],
+    ["An aisle seat, please.", "No corredor, por favor.", "boarding"],
+    ["I'd prefer a sandwich.", "Eu preferiria um sanduíche.", null, "Ha! The seat, I mean. Window or aisle?", "Rá! O assento, quero dizer. Janela ou corredor?"]]],
+  "window": ["a", "Seat fourteen A, by the window.", "Assento catorze A, na janela.", "boarding"],
+  "boarding": ["a", "Here's your boarding pass. Boarding starts at ten fifteen, at gate twenty-two. Any questions?", "Aqui está seu cartão de embarque. O embarque começa às dez e quinze, no portão vinte e dois. Alguma pergunta?", [
+    ["Where is gate twenty-two?", "Onde fica o portão vinte e dois?", "gate"],
+    ["Is the flight on time?", "O voo está no horário?", "ontime"],
+    ["No, thank you.", "Não, obrigado.", "security"],
+    ["At my grandmother's house.", "Na casa da minha avó.", null, "Sorry? Do you have any questions about your flight?", "Como? Tem alguma pergunta sobre o voo?"]]],
+  "gate": ["a", "Go through security and turn right. It's about a five-minute walk.", "Passe pela segurança e vire à direita. É uns cinco minutos a pé.", "security"],
+  "ontime": ["a", "Yes, it's on time today. Have a nice flight.", "Sim, hoje está no horário. Faça uma boa viagem.", "security"],
+  "security": ["o", "Next, please! Do you have any liquids or a laptop in your bag?", "Próximo, por favor! Tem líquidos ou notebook na bolsa?", [
+    ["Yes, I have a laptop.", "Sim, tenho um notebook.", "laptop"],
+    ["Just a small bottle of shampoo.", "Só um frasco pequeno de xampu.", "liquid"],
+    ["No, nothing.", "Não, nada.", "beep"],
+    ["I don't like flying.", "Eu não gosto de voar.", null, "Many people don't! But do you have any liquids or a laptop in your bag?", "Muita gente não gosta! Mas tem líquidos ou notebook na bolsa?"]]],
+  "laptop": ["o", "Please take it out and put it in a separate tray.", "Por favor, tire e coloque numa bandeja separada.", "beep"],
+  "liquid": ["o", "That's fine if it's under one hundred milliliters. Put it in this plastic bag, please.", "Tudo bem se for menos de cem mililitros. Coloque neste saquinho plástico, por favor.", "beep"],
+  "beep": ["o", "Now walk through, please. Oh, it's beeping. Do you have anything in your pockets?", "Agora passe, por favor. Ih, apitou. Tem alguma coisa nos bolsos?", [
+    ["Oh, sorry. My phone and keys.", "Ah, desculpe. Meu celular e as chaves.", "end"],
+    ["I think it's my belt.", "Acho que é o meu cinto.", "end"],
+    ["My pockets are blue.", "Meus bolsos são azuis.", null, "Ha. I mean, is there anything metal in your pockets?", "Rá. Quero dizer, tem algo de metal nos bolsos?"]]],
+  "end": ["o", "Put them in the tray and walk through again. Okay, you're all set. Have a good flight!", "Coloque na bandeja e passe de novo. Pronto, está liberado. Boa viagem!", null]
+ }
+}
+]

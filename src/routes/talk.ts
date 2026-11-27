@@ -5,12 +5,16 @@
 //   GET  /api/talk/stories                 lista + melhor nota e última tentativa do aluno
 //   GET  /api/talk/stories/:slug           passos resolvidos (texto, tradução, áudio e tempos)
 //   POST /api/talk/stories/:slug/attempts  { listening, pronunciation?, details? } → salva tentativa
+//   GET  /api/talk/dialogues               diálogos ramificados (cenas) + melhor nota
+//   GET  /api/talk/dialogues/:slug         árvore completa com URLs de áudio assinadas
+//   POST /api/talk/dialogues/:slug/attempts  idem às histórias (slug salvo como "dlg:<slug>")
 import { Router } from 'express';
 import { z } from 'zod';
 import { prisma } from '../lib/prisma';
-import { getPlayableStorageUrl } from '../lib/storage';
+import { getPlayableStorageUrl, signMediaUrl } from '../lib/storage';
+import { TALK_DIALOGUES } from '../talk/dialogues.data';
 import { TALK_STORIES } from '../talk/stories.data';
-import type { TalkRef, TalkStoryDef } from '../talk/types';
+import type { TalkDialogueLine, TalkRef, TalkStoryDef } from '../talk/types';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
 import { loadVisibleContent } from './reading-segments';
@@ -116,21 +120,76 @@ const attemptSchema = z.object({
   details: z.unknown().optional(),
 });
 
-talkRouter.post(
-  '/stories/:slug/attempts',
-  asyncHandler(async (req, res) => {
-    const userId = req.userId as string;
-    const story = bySlug.get(String(req.params.slug));
-    if (!story) throw new HttpError(404, 'História não encontrada');
-    const body = attemptSchema.parse(req.body);
+async function saveAttempt(userId: string, storySlug: string, raw: unknown) {
+  const body = attemptSchema.parse(raw);
     const pron = body.pronunciation ?? null;
     // Nota geral: média de escuta e pronúncia (ou só escuta, se respondeu tocando).
     const score = Math.round((pron === null ? body.listening : (body.listening + pron) / 2) * 10) / 10;
     const details = JSON.parse(JSON.stringify(body.details ?? null).slice(0, 200_000) || 'null');
     const attempt = await prisma.talkAttempt.create({
-      data: { userId, storySlug: story.slug, listening: body.listening, pronunciation: pron, score, details },
+      data: { userId, storySlug, listening: body.listening, pronunciation: pron, score, details },
       select: { id: true, score: true, createdAt: true },
     });
-    res.status(201).json({ attempt });
+  return attempt;
+}
+
+talkRouter.post(
+  '/stories/:slug/attempts',
+  asyncHandler(async (req, res) => {
+    const story = bySlug.get(String(req.params.slug));
+    if (!story) throw new HttpError(404, 'História não encontrada');
+    res.status(201).json({ attempt: await saveAttempt(req.userId as string, story.slug, req.body) });
+  }),
+);
+
+// ---- Diálogos ramificados ----
+const dialogueBySlug = new Map(TALK_DIALOGUES.map((d) => [d.slug, d]));
+const DLG = 'dlg:';
+
+talkRouter.get(
+  '/dialogues',
+  asyncHandler(async (req, res) => {
+    const attempts = await prisma.talkAttempt.findMany({
+      where: { userId: req.userId as string, storySlug: { startsWith: DLG } },
+      select: { storySlug: true, score: true, createdAt: true },
+      orderBy: { createdAt: 'desc' },
+    });
+    res.json({
+      dialogues: TALK_DIALOGUES.map((d) => {
+        const mine = attempts.filter((a) => a.storySlug === DLG + d.slug);
+        return {
+          slug: d.slug, title: d.title, level: d.level, description: d.description,
+          cast: Object.values(d.cast), decisions: d.decisions,
+          best: mine.length ? Math.max(...mine.map((a) => a.score)) : null,
+          last: mine[0] ? { score: mine[0].score, at: mine[0].createdAt } : null,
+          attempts: mine.length,
+        };
+      }),
+    });
+  }),
+);
+
+talkRouter.get(
+  '/dialogues/:slug',
+  asyncHandler(async (req, res) => {
+    const d = dialogueBySlug.get(String(req.params.slug));
+    if (!d) throw new HttpError(404, 'Diálogo não encontrado');
+    const sign = <T extends TalkDialogueLine>(l: T): T => ({ ...l, audio: signMediaUrl(l.audio) });
+    const nodes = Object.fromEntries(
+      Object.entries(d.nodes).map(([id, n]) => [id, {
+        ...sign(n),
+        options: n.options?.map((o) => ({ ...sign(o), react: o.react ? sign(o.react) : undefined })),
+      }]),
+    );
+    res.json({ dialogue: { ...d, nodes } });
+  }),
+);
+
+talkRouter.post(
+  '/dialogues/:slug/attempts',
+  asyncHandler(async (req, res) => {
+    const d = dialogueBySlug.get(String(req.params.slug));
+    if (!d) throw new HttpError(404, 'Diálogo não encontrado');
+    res.status(201).json({ attempt: await saveAttempt(req.userId as string, DLG + d.slug, req.body) });
   }),
 );

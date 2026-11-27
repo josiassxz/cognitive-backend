@@ -1,0 +1,54 @@
+[
+{
+ "slug": "the-team-meeting", "title": "The Team Meeting", "level": "B2",
+ "description": "Reunião sobre um lançamento atrasado.",
+ "intro": "Reunião de segunda-feira. O app novo da empresa precisa ser lançado em breve, mas os testes estão atrasados. Estão na sala a gerente Linda e o colega Kevin.",
+ "cast": {"l": ["Linda", "Gerente de projeto", "af_nova"], "k": ["Kevin", "Colega de equipe", "am_fenrir"]},
+ "start": "w1",
+ "nodes": {
+  "w1": ["l", "Okay, everyone, let's get started. The main topic today is the launch of the new app.", "Bom, pessoal, vamos começar. O assunto principal hoje é o lançamento do app novo.", "w2"],
+  "w2": ["l", "Could you give us a quick update on your part?", "Você pode dar uma atualização rápida da sua parte?", [
+    ["Sure. The design is finished, but testing is behind schedule.", "Claro. O design está pronto, mas os testes estão atrasados.", "behind"],
+    ["Of course. Everything is on track, and we should finish by Friday.", "Claro. Está tudo dentro do prazo e devemos terminar até sexta.", "ontrack"],
+    ["I updated my phone last night.", "Atualizei meu celular ontem à noite.", null, "Ha! I meant an update on the project.", "Rá! Eu quis dizer uma atualização do projeto."]]],
+  "ontrack": ["k", "Actually, I'm not sure that's right. The testing team found a lot of bugs yesterday.", "Na verdade, não sei se é bem assim. A equipe de testes encontrou muitos bugs ontem.", "true"],
+  "true": ["l", "Is that true?", "Isso é verdade?", [
+    ["You're right, Kevin. I hadn't seen that report yet.", "Você tem razão, Kevin. Eu ainda não tinha visto esse relatório.", "behind"],
+    ["Yes, but most of them are minor and easy to fix.", "Sim, mas a maioria é pequena e fácil de corrigir.", "minor"],
+    ["True, it's very sunny today.", "Verdade, está bem ensolarado hoje.", null, "I'm talking about the bugs. Did the testers find problems?", "Estou falando dos bugs. Os testadores acharam problemas?"]]],
+  "minor": ["k", "Some of them are serious, though. The payment screen crashes on older phones.", "Mas alguns são graves. A tela de pagamento trava nos celulares mais antigos.", "behind"],
+  "behind": ["l", "Okay. So how much more time do you need?", "Certo. Então de quanto tempo a mais você precisa?", [
+    ["I think we need two more weeks.", "Acho que precisamos de mais duas semanas.", "delay"],
+    ["If we get one more tester, we can finish in a week.", "Se tivermos mais um testador, terminamos em uma semana.", "tester"],
+    ["Three o'clock is fine.", "Três horas está bom.", null, "Sorry? I'm asking how much more time you need for testing.", "Como? Estou perguntando de quanto tempo a mais você precisa para os testes."]]],
+  "delay": ["l", "Two weeks is a problem. The marketing campaign starts on the first.", "Duas semanas é um problema. A campanha de marketing começa no dia primeiro.", "fewer"],
+  "fewer": ["k", "What if we launch with fewer features and add the rest later?", "E se lançarmos com menos funcionalidades e acrescentarmos o resto depois?", [
+    ["That's a good idea. We could launch a basic version first.", "Boa ideia. Poderíamos lançar uma versão básica primeiro.", "agree"],
+    ["I'm not sure. Users might be disappointed.", "Não sei. Os usuários podem ficar decepcionados.", "disagree"],
+    ["I added sugar to my coffee.", "Coloquei açúcar no meu café.", null, "Okay... but what do you think about launching with fewer features?", "Tá... mas o que você acha de lançar com menos funcionalidades?"]]],
+  "disagree": ["k", "I understand, but a late launch would be even worse for the campaign.", "Eu entendo, mas lançar atrasado seria ainda pior para a campanha.", "middle"],
+  "middle": ["l", "Let's find a middle ground. What's the minimum we need for the launch?", "Vamos achar um meio-termo. Qual é o mínimo de que precisamos para o lançamento?", [
+    ["Login, payments, and the main menu.", "Login, pagamentos e o menu principal.", "agree"],
+    ["The payment screen has to work perfectly. The rest can wait.", "A tela de pagamento tem que funcionar perfeitamente. O resto pode esperar.", "agree"],
+    ["The ground floor is fine.", "O térreo está bom.", null, "Ha. I mean, which features are essential for launch day?", "Rá. Quero dizer, quais funcionalidades são essenciais para o dia do lançamento?"]]],
+  "agree": ["l", "Good. So we launch the basic version on time, and add the extra features in the next update.", "Ótimo. Então lançamos a versão básica no prazo e acrescentamos o resto na próxima atualização.", "summary"],
+  "tester": ["l", "I can ask Kevin's team to lend us someone.", "Posso pedir para a equipe do Kevin emprestar alguém.", "tester2"],
+  "tester2": ["k", "Sure, Maria could help from Monday. Would that work for you?", "Claro, a Maria pode ajudar a partir de segunda. Funciona para você?", [
+    ["That would be perfect, thanks.", "Seria perfeito, obrigado.", "summary"],
+    ["Could she start tomorrow instead?", "Ela poderia começar amanhã?", "tomorrow"],
+    ["I work out three times a week.", "Malho três vezes por semana.", null, "Good for you! But would Maria starting on Monday work?", "Parabéns! Mas a Maria começando na segunda funciona?"]]],
+  "tomorrow": ["k", "Let me check with her after the meeting, but I think so.", "Vou confirmar com ela depois da reunião, mas acho que sim.", "summary"],
+  "summary": ["l", "Who's going to write the summary and send it to the team?", "Quem vai escrever o resumo e mandar para a equipe?", [
+    ["I can do that.", "Eu posso fazer isso.", "thursday"],
+    ["Kevin, could you do it this time?", "Kevin, você pode fazer desta vez?", "kevin"],
+    ["It's sunny outside.", "Está ensolarado lá fora.", null, "I mean, who will write the meeting summary?", "Quero dizer, quem vai escrever o resumo da reunião?"]]],
+  "kevin": ["k", "No problem. I'll send it this afternoon.", "Sem problema. Mando hoje à tarde.", "thursday"],
+  "thursday": ["l", "Great. Let's meet again on Thursday to check progress. Does ten a.m. work for everyone?", "Ótimo. Vamos nos reunir de novo na quinta para ver o andamento. Dez da manhã funciona para todos?", [
+    ["Ten works for me.", "Dez horas funciona para mim.", "end"],
+    ["Could we make it eleven? I have a call at ten.", "Podemos fazer às onze? Tenho uma ligação às dez.", "eleven"],
+    ["I have ten fingers.", "Tenho dez dedos.", null, "Ha! I mean, is Thursday at ten okay for you?", "Rá! Quero dizer, quinta às dez está bom para você?"]]],
+  "eleven": ["l", "Sure, eleven it is.", "Claro, fica às onze então.", "end"],
+  "end": ["l", "Thanks, everyone. Good meeting.", "Obrigada, pessoal. Boa reunião.", null]
+ }
+}
+]
