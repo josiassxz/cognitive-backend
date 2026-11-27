@@ -1,4 +1,4 @@
-// GERADO por talk-tts/gen_dialogues.py a partir de talk-tts/dialogues/*.json. Não editar à mão.
+// GERADO por talk-tts/gen_dialogues.py. Não editar à mão.
 import type { TalkDialogueDef } from './types';
 
 export const TALK_DIALOGUES: TalkDialogueDef[] = [
@@ -37,24 +37,28 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "A coffee, please.",
       "pt": "Um café, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/92f025d50a70.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/3271d6147852.mp3",
       "next": "coffee_size"
      },
      {
       "text": "Can I have a cup of tea?",
       "pt": "Pode me ver uma xícara de chá?",
       "audio": "talk/dialogues/ordering-at-a-cafe/dfd1ea4985dc.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/e24039f7c4ae.mp3",
       "next": "tea"
      },
      {
       "text": "An orange juice, please.",
       "pt": "Um suco de laranja, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/4fde5e5ce04f.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/447d18980769.mp3",
       "next": "juice"
      },
      {
       "text": "I'm twenty-five years old.",
       "pt": "Tenho vinte e cinco anos.",
       "audio": "talk/dialogues/ordering-at-a-cafe/5e5b61a63e5e.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/9c31f12f468d.mp3",
       "next": null,
       "react": {
        "text": "Sorry? I mean, what would you like to drink?",
@@ -74,18 +78,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Medium, please.",
       "pt": "Médio, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/f5652e3a7753.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/ddbf34adfa34.mp3",
       "next": "coffee_milk"
      },
      {
       "text": "A large one, please.",
       "pt": "Um grande, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/69defc2aa019.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/f5dd8b56d2d0.mp3",
       "next": "coffee_milk"
      },
      {
       "text": "Yes, it's very cold today.",
       "pt": "Sim, está muito frio hoje.",
       "audio": "talk/dialogues/ordering-at-a-cafe/6c9fe0c871b4.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/07be67191726.mp3",
       "next": null,
       "react": {
        "text": "It is! But which size? Small, medium or large?",
@@ -105,18 +112,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, a little milk, please.",
       "pt": "Sim, um pouco de leite, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/4dd25964485c.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/d9f5496fd2ea.mp3",
       "next": "coffee_sugar"
      },
      {
       "text": "No milk, thanks. Just black.",
       "pt": "Sem leite, obrigado. Só puro.",
       "audio": "talk/dialogues/ordering-at-a-cafe/7cfae96e9a23.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/f6d34dd9bd92.mp3",
       "next": "food"
      },
      {
       "text": "It's on the table.",
       "pt": "Está na mesa.",
       "audio": "talk/dialogues/ordering-at-a-cafe/8bf37482a37a.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/6df5ce369949.mp3",
       "next": null,
       "react": {
        "text": "Hmm, I'm asking about milk. Do you want milk in your coffee?",
@@ -136,18 +146,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "One sugar, please.",
       "pt": "Um açúcar, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/7b0a22d8c3cc.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/9b83306b1cfe.mp3",
       "next": "food"
      },
      {
       "text": "No sugar, thank you.",
       "pt": "Sem açúcar, obrigado.",
       "audio": "talk/dialogues/ordering-at-a-cafe/ac46e1908871.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/2e9cf887907a.mp3",
       "next": "food"
      },
      {
       "text": "My name is Lucas.",
       "pt": "Meu nome é Lucas.",
       "audio": "talk/dialogues/ordering-at-a-cafe/d7e6b002dc92.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/47a053d81070.mp3",
       "next": null,
       "react": {
        "text": "Nice to meet you, Lucas! But sugar or no sugar?",
@@ -167,18 +180,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Green tea, please.",
       "pt": "Chá verde, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/ee1098b43cda.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/24b07326592f.mp3",
       "next": "tea_honey"
      },
      {
       "text": "Mint tea, please.",
       "pt": "Chá de hortelã, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/4f365a012605.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/363cfdb7b817.mp3",
       "next": "tea_honey"
      },
      {
       "text": "I live near here.",
       "pt": "Eu moro aqui perto.",
       "audio": "talk/dialogues/ordering-at-a-cafe/fe0d5d2e55be.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/493b2cb237e2.mp3",
       "next": null,
       "react": {
        "text": "Oh, nice! But which tea would you like?",
@@ -198,18 +214,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Honey, please.",
       "pt": "Mel, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/f10b81860108.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/49d0278d9686.mp3",
       "next": "food"
      },
      {
       "text": "A slice of lemon, please.",
       "pt": "Uma rodela de limão, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/161f1bf2b0d1.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/6f1c05dcc7ae.mp3",
       "next": "food"
      },
      {
       "text": "Every morning at seven.",
       "pt": "Toda manhã às sete.",
       "audio": "talk/dialogues/ordering-at-a-cafe/e40103443bb7.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/2d5b5fde10d5.mp3",
       "next": null,
       "react": {
        "text": "Sorry, I mean honey or lemon?",
@@ -229,18 +248,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "With ice, please.",
       "pt": "Com gelo, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/1170c4dcc2b0.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/ee0ac712fc21.mp3",
       "next": "food"
      },
      {
       "text": "No ice, thanks.",
       "pt": "Sem gelo, obrigado.",
       "audio": "talk/dialogues/ordering-at-a-cafe/e38820a6cd88.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/254061f596c4.mp3",
       "next": "food"
      },
      {
       "text": "I don't like the beach.",
       "pt": "Eu não gosto de praia.",
       "audio": "talk/dialogues/ordering-at-a-cafe/2cf6dd4b4a0e.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/03df0ee39b62.mp3",
       "next": null,
       "react": {
        "text": "Ha! Okay, but ice or no ice in your juice?",
@@ -260,24 +282,28 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "A blueberry muffin, please.",
       "pt": "Um muffin de mirtilo, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/3a609ca96b33.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/992d87f5070c.mp3",
       "next": "here"
      },
      {
       "text": "What sandwiches do you have?",
       "pt": "Quais sanduíches vocês têm?",
       "audio": "talk/dialogues/ordering-at-a-cafe/3c31b3d88936.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/14bf495dabe3.mp3",
       "next": "sandwich"
      },
      {
       "text": "No, thanks. That's all.",
       "pt": "Não, obrigado. É só isso.",
       "audio": "talk/dialogues/ordering-at-a-cafe/6907b1081053.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/ae608f1ec3b7.mp3",
       "next": "here"
      },
      {
       "text": "I'm sorry, I'm late.",
       "pt": "Desculpe, estou atrasado.",
       "audio": "talk/dialogues/ordering-at-a-cafe/4b2b508a8f72.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/0f1388b1d234.mp3",
       "next": null,
       "react": {
        "text": "No problem! So, anything to eat?",
@@ -297,18 +323,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Ham and cheese, please.",
       "pt": "Presunto e queijo, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/9f4f62bcc13c.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/b6014f8d62e3.mp3",
       "next": "here"
      },
      {
       "text": "The chicken salad sounds good.",
       "pt": "O de salada de frango parece bom.",
       "audio": "talk/dialogues/ordering-at-a-cafe/cc7dbf4d8307.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/ca72d3d3ddc8.mp3",
       "next": "here"
      },
      {
       "text": "It's next Tuesday.",
       "pt": "É na próxima terça.",
       "audio": "talk/dialogues/ordering-at-a-cafe/0e9882349365.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/e4afc1c857ad.mp3",
       "next": null,
       "react": {
        "text": "Sorry? Which sandwich would you like?",
@@ -328,18 +357,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "For here, please.",
       "pt": "Para comer aqui, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/c16f0b1d11de.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/a18e8c7d487f.mp3",
       "next": "pay"
      },
      {
       "text": "To go, please.",
       "pt": "Para levar, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/bcfb5ae9625e.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/90bbf091d3a8.mp3",
       "next": "pay"
      },
      {
       "text": "Yes, I'm from Brazil.",
       "pt": "Sim, sou do Brasil.",
       "audio": "talk/dialogues/ordering-at-a-cafe/37e34c1ae710.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/d83414db0bab.mp3",
       "next": null,
       "react": {
        "text": "Oh, cool! But do you want to eat here, or take it with you?",
@@ -359,18 +391,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Card, please.",
       "pt": "Cartão, por favor.",
       "audio": "talk/dialogues/ordering-at-a-cafe/d2c1ef881039.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/232036b66333.mp3",
       "next": "card"
      },
      {
       "text": "Cash. Here's ten dollars.",
       "pt": "Dinheiro. Aqui estão dez dólares.",
       "audio": "talk/dialogues/ordering-at-a-cafe/da3934873044.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/2c5c3d385273.mp3",
       "next": "cash"
      },
      {
       "text": "Blue is my favorite color.",
       "pt": "Azul é minha cor favorita.",
       "audio": "talk/dialogues/ordering-at-a-cafe/b321bba99364.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/f0cdfb81ff58.mp3",
       "next": null,
       "react": {
        "text": "Okay! But are you paying with cash or card?",
@@ -404,18 +439,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Sure, it's Lucas.",
       "pt": "Claro, é Lucas.",
       "audio": "talk/dialogues/ordering-at-a-cafe/d7b980a32454.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/fdbb425c5644.mp3",
       "next": "end"
      },
      {
       "text": "It's Ana. A, N, A.",
       "pt": "É Ana. A, N, A.",
       "audio": "talk/dialogues/ordering-at-a-cafe/aab62e08ddeb.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/6f9120a210b5.mp3",
       "next": "end"
      },
      {
       "text": "Ten minutes ago.",
       "pt": "Dez minutos atrás.",
       "audio": "talk/dialogues/ordering-at-a-cafe/05e3c3269559.mp3",
+      "audioF": "talk/dialogues/ordering-at-a-cafe/983ac26acc08.mp3",
       "next": null,
       "react": {
        "text": "Sorry, I need your name. What's your name?",
@@ -432,6 +470,20 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "audio": "talk/dialogues/ordering-at-a-cafe/7e6336c5aa4b.mp3",
     "end": true
    }
+  },
+  "nudges": {
+   "w": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/ordering-at-a-cafe/02def2e93f5e.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/ordering-at-a-cafe/b9dcdc8c63f9.mp3"
+    }
+   ]
   }
  },
  {
@@ -462,18 +514,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, please. Where is the train station?",
       "pt": "Sim, por favor. Onde fica a estação de trem?",
       "audio": "talk/dialogues/asking-for-directions/82fb5df3ad5a.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/3e045c326857.mp3",
       "next": "station"
      },
      {
       "text": "Yes! I'm looking for the Science Museum.",
       "pt": "Sim! Estou procurando o Museu de Ciências.",
       "audio": "talk/dialogues/asking-for-directions/3d2f38d4b28c.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/139ada49b5c8.mp3",
       "next": "museum"
      },
      {
       "text": "I had pizza for lunch.",
       "pt": "Comi pizza no almoço.",
       "audio": "talk/dialogues/asking-for-directions/ab1a8c7af4d8.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/0e64de59f11d.mp3",
       "next": null,
       "react": {
        "text": "Lovely! But do you need directions?",
@@ -493,18 +548,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "I'm walking.",
       "pt": "Vou a pé.",
       "audio": "talk/dialogues/asking-for-directions/3e682af91ac7.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/ab9205fafd77.mp3",
       "next": "walk"
      },
      {
       "text": "Is there a bus?",
       "pt": "Tem ônibus?",
       "audio": "talk/dialogues/asking-for-directions/fc08ea0ddffb.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/71ae94a1ab6f.mp3",
       "next": "bus"
      },
      {
       "text": "At nine o'clock.",
       "pt": "Às nove horas.",
       "audio": "talk/dialogues/asking-for-directions/542f0cb8fee4.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/2686b0593ef5.mp3",
       "next": null,
       "react": {
        "text": "Sorry, I mean, are you going on foot or by bus?",
@@ -531,18 +589,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "So, left at the bank, then two blocks?",
       "pt": "Então, esquerda no banco, depois duas quadras?",
       "audio": "talk/dialogues/asking-for-directions/e608a98fa3ea.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/5f1ddcb04d4f.mp3",
       "next": "confirm"
      },
      {
       "text": "Sorry, can you say that again, please?",
       "pt": "Desculpe, pode repetir, por favor?",
       "audio": "talk/dialogues/asking-for-directions/5f710c8bfe00.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/749014eb37e3.mp3",
       "next": "repeat"
      },
      {
       "text": "I've got two brothers.",
       "pt": "Eu tenho dois irmãos.",
       "audio": "talk/dialogues/asking-for-directions/4fd179649ff8.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/8d72a8ec0464.mp3",
       "next": null,
       "react": {
        "text": "No, I mean, do you understand the directions?",
@@ -569,18 +630,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, I have one.",
       "pt": "Sim, eu tenho.",
       "audio": "talk/dialogues/asking-for-directions/ae6e994e6052.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/97e02100d7b1.mp3",
       "next": "bus_stop"
      },
      {
       "text": "No. Where can I buy one?",
       "pt": "Não. Onde posso comprar um?",
       "audio": "talk/dialogues/asking-for-directions/3e394a5decac.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/556d3598d91a.mp3",
       "next": "buy"
      },
      {
       "text": "I prefer cats.",
       "pt": "Eu prefiro gatos.",
       "audio": "talk/dialogues/asking-for-directions/a1fe1c85e863.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/048d8d275ac3.mp3",
       "next": null,
       "react": {
        "text": "Ha! Okay, but do you have a travel card for the bus?",
@@ -607,18 +671,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "The third stop. Got it, thanks.",
       "pt": "A terceira parada. Entendi, obrigado.",
       "audio": "talk/dialogues/asking-for-directions/3acb62456746.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/6ec70d9f569e.mp3",
       "next": "confirm"
      },
      {
       "text": "Sorry, which stop?",
       "pt": "Desculpe, qual parada?",
       "audio": "talk/dialogues/asking-for-directions/f51a7ed043d5.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/1e863ec876e7.mp3",
       "next": "bus_repeat"
      },
      {
       "text": "It's my birthday tomorrow.",
       "pt": "Amanhã é meu aniversário.",
       "audio": "talk/dialogues/asking-for-directions/46baa2c3900f.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/7c180a7849e4.mp3",
       "next": null,
       "react": {
        "text": "Oh, happy birthday! But did you understand where to get off?",
@@ -645,18 +712,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "No, I don't. Where is it?",
       "pt": "Não sei. Onde fica?",
       "audio": "talk/dialogues/asking-for-directions/47e928b81893.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/a1f19cbf2df0.mp3",
       "next": "tube"
      },
      {
       "text": "Yes, it's over there, right?",
       "pt": "Sim, é ali, né?",
       "audio": "talk/dialogues/asking-for-directions/3fd17f9134d5.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/407aca436ecf.mp3",
       "next": "tube_yes"
      },
      {
       "text": "I like science very much.",
       "pt": "Eu gosto muito de ciência.",
       "audio": "talk/dialogues/asking-for-directions/5829e8b3e7d2.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/edde22c09abd.mp3",
       "next": null,
       "react": {
        "text": "Me too! But do you know where the underground station is?",
@@ -690,18 +760,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Blue line, South Kensington. Thanks!",
       "pt": "Linha azul, South Kensington. Obrigado!",
       "audio": "talk/dialogues/asking-for-directions/52336d237066.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/4a97ec21df8c.mp3",
       "next": "confirm"
      },
      {
       "text": "Can you write it down for me, please?",
       "pt": "Pode anotar para mim, por favor?",
       "audio": "talk/dialogues/asking-for-directions/e407f1bfd888.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/ade99bda56fe.mp3",
       "next": "write"
      },
      {
       "text": "My phone is new.",
       "pt": "Meu celular é novo.",
       "audio": "talk/dialogues/asking-for-directions/051b6a120ba1.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/58d4c6471355.mp3",
       "next": null,
       "react": {
        "text": "Nice! So, can you remember the station name?",
@@ -728,18 +801,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Is there a coffee shop near there?",
       "pt": "Tem alguma cafeteria perto de lá?",
       "audio": "talk/dialogues/asking-for-directions/5a1c3ce8f181.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/88f00bdc11af.mp3",
       "next": "coffee"
      },
      {
       "text": "No, that's all. Thank you so much!",
       "pt": "Não, é só isso. Muito obrigado!",
       "audio": "talk/dialogues/asking-for-directions/932202836af1.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/bbc09b5777b2.mp3",
       "next": "end"
      },
      {
       "text": "Yes, I'm a doctor.",
       "pt": "Sim, eu sou médico.",
       "audio": "talk/dialogues/asking-for-directions/364cabe27640.mp3",
+      "audioF": "talk/dialogues/asking-for-directions/db24b2391e3b.mp3",
       "next": null,
       "react": {
        "text": "Oh, how nice! But do you need anything else?",
@@ -763,6 +839,20 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "audio": "talk/dialogues/asking-for-directions/40a77f1cd582.mp3",
     "end": true
    }
+  },
+  "nudges": {
+   "m": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/asking-for-directions/75759147c884.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/asking-for-directions/b37319da9442.mp3"
+    }
+   ]
   }
  },
  {
@@ -800,18 +890,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Hi, I have a reservation. My name is Silva.",
       "pt": "Oi, tenho uma reserva. Meu nome é Silva.",
       "audio": "talk/dialogues/hotel-check-in/5a70c7e9619b.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/270d50f7abef.mp3",
       "next": "res"
      },
      {
       "text": "Hello. Do you have any rooms available tonight?",
       "pt": "Olá. Vocês têm quarto disponível para hoje?",
       "audio": "talk/dialogues/hotel-check-in/b47274d69d99.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/864f54048b08.mp3",
       "next": "walkin"
      },
      {
       "text": "The weather was good on the plane.",
       "pt": "O tempo estava bom no avião.",
       "audio": "talk/dialogues/hotel-check-in/648ec3e48f13.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/a4fe829532e5.mp3",
       "next": null,
       "react": {
        "text": "I'm glad to hear that! So, what can I do for you?",
@@ -831,18 +924,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, that's correct.",
       "pt": "Sim, está correto.",
       "audio": "talk/dialogues/hotel-check-in/4f560839479f.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/ad5f1c434a6a.mp3",
       "next": "passport"
      },
      {
       "text": "Actually, it's for four nights.",
       "pt": "Na verdade, é por quatro noites.",
       "audio": "talk/dialogues/hotel-check-in/1c10b7a772f3.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/60027c15778b.mp3",
       "next": "extra"
      },
      {
       "text": "No, I don't drink coffee.",
       "pt": "Não, eu não tomo café.",
       "audio": "talk/dialogues/hotel-check-in/88ee80b096fd.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/84dde249bc65.mp3",
       "next": null,
       "react": {
        "text": "Sorry, I mean the reservation. Three nights, correct?",
@@ -862,18 +958,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, that's fine.",
       "pt": "Sim, tudo bem.",
       "audio": "talk/dialogues/hotel-check-in/2cdab14b5737.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/803af3eee750.mp3",
       "next": "passport"
      },
      {
       "text": "Does that include breakfast?",
       "pt": "Inclui café da manhã?",
       "audio": "talk/dialogues/hotel-check-in/740c7241bd52.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/2a5a596723a8.mp3",
       "next": "bf_incl"
      },
      {
       "text": "I'm wearing a jacket.",
       "pt": "Estou de jaqueta.",
       "audio": "talk/dialogues/hotel-check-in/fcd3a859b726.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/c22060e6a9b1.mp3",
       "next": null,
       "react": {
        "text": "Sorry? Is the extra night okay for you?",
@@ -900,18 +999,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, I'll take it.",
       "pt": "Sim, vou ficar com ele.",
       "audio": "talk/dialogues/hotel-check-in/0b327bc33921.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/ecb087a44569.mp3",
       "next": "walkin_n"
      },
      {
       "text": "Do you have anything cheaper?",
       "pt": "Vocês têm algo mais barato?",
       "audio": "talk/dialogues/hotel-check-in/cf03566ad235.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/f78a25fe0f04.mp3",
       "next": "cheaper"
      },
      {
       "text": "I'm reading a good book.",
       "pt": "Estou lendo um bom livro.",
       "audio": "talk/dialogues/hotel-check-in/2df21d3547b3.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/f33366a7dc49.mp3",
       "next": null,
       "react": {
        "text": "How nice! But would you like the room?",
@@ -938,18 +1040,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Okay, I'll take it.",
       "pt": "Tudo bem, vou ficar.",
       "audio": "talk/dialogues/hotel-check-in/a5742699edfd.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/e6118f189e13.mp3",
       "next": "walkin_n"
      },
      {
       "text": "Alright. Yes, please.",
       "pt": "Está bem. Sim, por favor.",
       "audio": "talk/dialogues/hotel-check-in/93f145282a01.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/ea44df8efd8f.mp3",
       "next": "walkin_n"
      },
      {
       "text": "I have a cat at home.",
       "pt": "Tenho um gato em casa.",
       "audio": "talk/dialogues/hotel-check-in/9c62d3bb7964.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/2c2efa74f045.mp3",
       "next": null,
       "react": {
        "text": "Oh, lovely. But do you want the room?",
@@ -969,18 +1074,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Just two nights.",
       "pt": "Só duas noites.",
       "audio": "talk/dialogues/hotel-check-in/3fa3e6c7341d.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/c57dedf1d8b0.mp3",
       "next": "passport"
      },
      {
       "text": "Only tonight.",
       "pt": "Só esta noite.",
       "audio": "talk/dialogues/hotel-check-in/818330cecde0.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/be036b849e17.mp3",
       "next": "passport"
      },
      {
       "text": "About five kilos.",
       "pt": "Uns cinco quilos.",
       "audio": "talk/dialogues/hotel-check-in/34231bc0d0f2.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/9fd72c13f546.mp3",
       "next": null,
       "react": {
        "text": "Sorry? How many nights would you like to stay?",
@@ -1000,18 +1108,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Of course. Here you are.",
       "pt": "Claro. Aqui está.",
       "audio": "talk/dialogues/hotel-check-in/5cd33d7f6689.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/a52ac1d4e5df.mp3",
       "next": "card"
      },
      {
       "text": "Sure, just a second.",
       "pt": "Claro, só um segundo.",
       "audio": "talk/dialogues/hotel-check-in/c1c7d784c3ff.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/c79952d33000.mp3",
       "next": "card"
      },
      {
       "text": "I'm sorry, I don't eat meat.",
       "pt": "Desculpe, eu não como carne.",
       "audio": "talk/dialogues/hotel-check-in/4f48b82ccf89.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/5c7b0e7c6b9b.mp3",
       "next": null,
       "react": {
        "text": "Oh, I just need your passport, please.",
@@ -1031,18 +1142,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Here's my card.",
       "pt": "Aqui está meu cartão.",
       "audio": "talk/dialogues/hotel-check-in/0e0b4d4e9557.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/8aa62f3de3d1.mp3",
       "next": "breakfast"
      },
      {
       "text": "Can I pay in cash at the end?",
       "pt": "Posso pagar em dinheiro no final?",
       "audio": "talk/dialogues/hotel-check-in/9c87bfad1644.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/e96cf9ee0fc8.mp3",
       "next": "cash"
      },
      {
       "text": "I'm thirty-two.",
       "pt": "Tenho trinta e dois anos.",
       "audio": "talk/dialogues/hotel-check-in/f150a69a1b77.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/21d33f01ad43.mp3",
       "next": null,
       "react": {
        "text": "Sorry, I need a credit card, or a cash deposit.",
@@ -1069,18 +1183,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, at seven, please.",
       "pt": "Sim, às sete, por favor.",
       "audio": "talk/dialogues/hotel-check-in/d12ce809c81c.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/471d36a06a42.mp3",
       "next": "key"
      },
      {
       "text": "No, thank you.",
       "pt": "Não, obrigado.",
       "audio": "talk/dialogues/hotel-check-in/cfddcb5c9c1f.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/8021654ed30e.mp3",
       "next": "key"
      },
      {
       "text": "It's on the first floor.",
       "pt": "Fica no primeiro andar.",
       "audio": "talk/dialogues/hotel-check-in/fb5a988586f1.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/c2599d0f1691.mp3",
       "next": null,
       "react": {
        "text": "Yes, the restaurant is. But would you like a wake-up call?",
@@ -1100,24 +1217,28 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "What's the Wi-Fi password?",
       "pt": "Qual é a senha do Wi-Fi?",
       "audio": "talk/dialogues/hotel-check-in/33bb710213a0.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/34796ba09a81.mp3",
       "next": "wifi"
      },
      {
       "text": "Where is the elevator?",
       "pt": "Onde fica o elevador?",
       "audio": "talk/dialogues/hotel-check-in/261d40766d2c.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/e86a6751fe09.mp3",
       "next": "elevator"
      },
      {
       "text": "No, that's everything. Thanks.",
       "pt": "Não, é só isso. Obrigado.",
       "audio": "talk/dialogues/hotel-check-in/9fb4658a1520.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/c643264092d1.mp3",
       "next": "end"
      },
      {
       "text": "Five hundred dollars.",
       "pt": "Quinhentos dólares.",
       "audio": "talk/dialogues/hotel-check-in/1820c911e7d4.mp3",
+      "audioF": "talk/dialogues/hotel-check-in/f2e1382b8dba.mp3",
       "next": null,
       "react": {
        "text": "Sorry? Do you have any questions about your stay?",
@@ -1148,6 +1269,20 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "audio": "talk/dialogues/hotel-check-in/c764ba5f0929.mp3",
     "end": true
    }
+  },
+  "nudges": {
+   "r": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/hotel-check-in/df8cf2e09c8c.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/hotel-check-in/be8a71031395.mp3"
+    }
+   ]
   }
  },
  {
@@ -1178,18 +1313,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, a table for two under Costa.",
       "pt": "Sim, uma mesa para dois no nome de Costa.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/fd9a6ee7186d.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/72af5d444171.mp3",
       "next": "seat"
      },
      {
       "text": "No, we don't. Do you have a table for two?",
       "pt": "Não temos. Tem mesa para dois?",
       "audio": "talk/dialogues/dinner-at-a-restaurant/4d42c9fbd3e6.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/f2d52233cecb.mp3",
       "next": "wait"
      },
      {
       "text": "It's in my bag.",
       "pt": "Está na minha bolsa.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/529dfa3f30a3.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/49d2668b37b2.mp3",
       "next": null,
       "react": {
        "text": "Sorry? Do you have a reservation with us?",
@@ -1209,18 +1347,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "That's fine, we can wait.",
       "pt": "Tudo bem, podemos esperar.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/eec2b2d60c03.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/20a68cc87453.mp3",
       "next": "seat"
      },
      {
       "text": "Can we sit outside instead?",
       "pt": "Podemos sentar lá fora?",
       "audio": "talk/dialogues/dinner-at-a-restaurant/757cf0fc0fbe.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/8dbb64475c45.mp3",
       "next": "outside"
      },
      {
       "text": "My brother is a teacher.",
       "pt": "Meu irmão é professor.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/5239ccf9c310.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/a4ddce3e4c4e.mp3",
       "next": null,
       "react": {
        "text": "Oh, nice. But is a fifteen-minute wait okay?",
@@ -1254,18 +1395,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "A bottle of sparkling water, please.",
       "pt": "Uma garrafa de água com gás, por favor.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/e71f5c1cb321.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/9e861212445b.mp3",
       "next": "special"
      },
      {
       "text": "Could we see the wine list?",
       "pt": "Podemos ver a carta de vinhos?",
       "audio": "talk/dialogues/dinner-at-a-restaurant/c44710595a7b.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/6aeb8d3141b6.mp3",
       "next": "wine"
      },
      {
       "text": "I live in São Paulo.",
       "pt": "Eu moro em São Paulo.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/071bc0b43785.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/71b64e2c71e3.mp3",
       "next": null,
       "react": {
        "text": "Lovely city! And what would you like to drink?",
@@ -1292,18 +1436,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, two glasses of the house red, please.",
       "pt": "Sim, duas taças do tinto da casa, por favor.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/e1ab4ad89e03.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/ca9bd79cd3e1.mp3",
       "next": "special"
      },
      {
       "text": "No, just water for now, thanks.",
       "pt": "Não, só água por enquanto, obrigado.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/d77e2abf9282.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/b9537399ec6f.mp3",
       "next": "special"
      },
      {
       "text": "Red is a beautiful color.",
       "pt": "Vermelho é uma cor linda.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/3b07354152b7.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/d70c01faed69.mp3",
       "next": null,
       "react": {
        "text": "It is! So, would you like to try the wine?",
@@ -1323,24 +1470,28 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "I'll have the salmon, please.",
       "pt": "Vou querer o salmão, por favor.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/0441356a56e2.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/e13fa49c27e6.mp3",
       "next": "side"
      },
      {
       "text": "We need a few more minutes.",
       "pt": "Precisamos de mais alguns minutos.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/7d94702ebbdc.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/68e96f42bfb2.mp3",
       "next": "minutes"
      },
      {
       "text": "What do you recommend?",
       "pt": "O que você recomenda?",
       "audio": "talk/dialogues/dinner-at-a-restaurant/d8efdee7a5ac.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/c3379fd67a56.mp3",
       "next": "recommend"
      },
      {
       "text": "Salmon is a fish.",
       "pt": "Salmão é um peixe.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/851567099443.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/fa5543960548.mp3",
       "next": null,
       "react": {
        "text": "Ha, it is! But are you ready to order?",
@@ -1374,24 +1525,28 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, I'd like the steak, please.",
       "pt": "Sim, eu quero o bife, por favor.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/3649ac6d235d.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/9829317c9450.mp3",
       "next": "steak"
      },
      {
       "text": "I'll try the lasagna.",
       "pt": "Vou experimentar a lasanha.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/e039b5b5edf9.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/e3fac8eed4c5.mp3",
       "next": "side"
      },
      {
       "text": "The salmon special, please.",
       "pt": "O salmão do dia, por favor.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/02d48b2a16ad.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/3ccee65d8d1a.mp3",
       "next": "side"
      },
      {
       "text": "Yes, I decided to study English.",
       "pt": "Sim, decidi estudar inglês.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/8724e2cf8f1c.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/84a1841db914.mp3",
       "next": null,
       "react": {
        "text": "Good for you! But what would you like to eat?",
@@ -1411,18 +1566,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Medium, please.",
       "pt": "Ao ponto, por favor.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/f5652e3a7753.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/ddbf34adfa34.mp3",
       "next": "side"
      },
      {
       "text": "Well done, please.",
       "pt": "Bem passado, por favor.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/0528e0f37f90.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/a94f74828a91.mp3",
       "next": "side"
      },
      {
       "text": "With my friends.",
       "pt": "Com os meus amigos.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/9244dbb125e3.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/f94eb3c2b5c6.mp3",
       "next": null,
       "react": {
        "text": "Sorry, I mean how do you want it cooked? Rare, medium, or well done?",
@@ -1442,18 +1600,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "A salad, please.",
       "pt": "Salada, por favor.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/2a1305cf0c02.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/7f2f65115b51.mp3",
       "next": "allergy"
      },
      {
       "text": "Fries, please.",
       "pt": "Batata frita, por favor.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/68181e4a54f2.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/cd0d6146311b.mp3",
       "next": "allergy"
      },
      {
       "text": "On the left side.",
       "pt": "Do lado esquerdo.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/c205410e46bb.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/947d263477b5.mp3",
       "next": null,
       "react": {
        "text": "Ha, no, I mean, salad or fries with your meal?",
@@ -1473,18 +1634,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "No, none.",
       "pt": "Não, nenhuma.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/442afd443773.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/b55d68a0f6e5.mp3",
       "next": "served"
      },
      {
       "text": "Yes, I'm allergic to nuts.",
       "pt": "Sim, tenho alergia a nozes e castanhas.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/aef8c46d0c41.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/090a4b17310f.mp3",
       "next": "nuts"
      },
      {
       "text": "Yes, I have two kids.",
       "pt": "Sim, tenho dois filhos.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/3d04c47e9688.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/0a8a74704731.mp3",
       "next": null,
       "react": {
        "text": "That's nice! But I mean, are you allergic to any food?",
@@ -1511,18 +1675,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "It was delicious, thank you!",
       "pt": "Estava delicioso, obrigado!",
       "audio": "talk/dialogues/dinner-at-a-restaurant/7c2f17781c7b.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/529e5cde1656.mp3",
       "next": "dessert"
      },
      {
       "text": "It was good, but a little salty.",
       "pt": "Estava bom, mas um pouco salgado.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/7fac338d62cd.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/d5f8e64d1590.mp3",
       "next": "salty"
      },
      {
       "text": "At eight o'clock.",
       "pt": "Às oito horas.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/ca4e009977b1.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/1800086feb44.mp3",
       "next": null,
       "react": {
        "text": "Sorry? Did you enjoy the food?",
@@ -1549,18 +1716,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, please. Do you have chocolate cake?",
       "pt": "Sim, por favor. Vocês têm bolo de chocolate?",
       "audio": "talk/dialogues/dinner-at-a-restaurant/34ef5b044d19.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/50fc6c2ae386.mp3",
       "next": "cake"
      },
      {
       "text": "No, thanks. Just the check, please.",
       "pt": "Não, obrigado. Só a conta, por favor.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/ea60d7674e6c.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/3261df4812dc.mp3",
       "next": "check"
      },
      {
       "text": "I see my friend every week.",
       "pt": "Vejo meu amigo toda semana.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/e57a43b2c1ab.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/bd6ec0351314.mp3",
       "next": null,
       "react": {
        "text": "How nice! But would you like some dessert?",
@@ -1594,18 +1764,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Together, please.",
       "pt": "Junto, por favor.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/0b67b976161e.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/47862ebcd5b7.mp3",
       "next": "end"
      },
      {
       "text": "Separately, please.",
       "pt": "Separado, por favor.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/292bf61dca05.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/b35ce4f3f617.mp3",
       "next": "end"
      },
      {
       "text": "Yes, it's chocolate.",
       "pt": "Sim, é de chocolate.",
       "audio": "talk/dialogues/dinner-at-a-restaurant/1b0e1385e7a8.mp3",
+      "audioF": "talk/dialogues/dinner-at-a-restaurant/037a73af4d2e.mp3",
       "next": null,
       "react": {
        "text": "Sorry? Will you pay together or separately?",
@@ -1622,6 +1795,20 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "audio": "talk/dialogues/dinner-at-a-restaurant/8ed22d347d88.mp3",
     "end": true
    }
+  },
+  "nudges": {
+   "w": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/dinner-at-a-restaurant/5dacad02feaa.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/dinner-at-a-restaurant/7b2215ee6d4e.mp3"
+    }
+   ]
   }
  },
  {
@@ -1652,18 +1839,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, I'm looking for a jacket.",
       "pt": "Sim, estou procurando uma jaqueta.",
       "audio": "talk/dialogues/buying-a-jacket/109cad14e108.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/62b19654dd9e.mp3",
       "next": "jacket"
      },
      {
       "text": "I'm just looking, thanks.",
       "pt": "Só estou olhando, obrigado.",
       "audio": "talk/dialogues/buying-a-jacket/52d0070fa01e.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/cfc0f2d08d6d.mp3",
       "next": "look"
      },
      {
       "text": "I found my keys yesterday.",
       "pt": "Achei minhas chaves ontem.",
       "audio": "talk/dialogues/buying-a-jacket/c3e77d31e54b.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/f9baf216a3d5.mp3",
       "next": null,
       "react": {
        "text": "Oh, good! But can I help you find something here?",
@@ -1690,18 +1880,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, I'd love to.",
       "pt": "Sim, adoraria.",
       "audio": "talk/dialogues/buying-a-jacket/15fa80b06b48.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/ac3c9a332edc.mp3",
       "next": "size"
      },
      {
       "text": "How much is it?",
       "pt": "Quanto custa?",
       "audio": "talk/dialogues/buying-a-jacket/227b45786bcd.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/69165d981b5a.mp3",
       "next": "price"
      },
      {
       "text": "I'm on vacation.",
       "pt": "Estou de férias.",
       "audio": "talk/dialogues/buying-a-jacket/7d6b32b210d4.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/8637d09339bb.mp3",
       "next": null,
       "react": {
        "text": "Lucky you! So, would you like to try the jacket on?",
@@ -1728,18 +1921,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "A denim jacket, please.",
       "pt": "Uma jaqueta jeans, por favor.",
       "audio": "talk/dialogues/buying-a-jacket/d5cb7d974988.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/d77fca5e28fe.mp3",
       "next": "size"
      },
      {
       "text": "Can I see the leather ones?",
       "pt": "Posso ver as de couro?",
       "audio": "talk/dialogues/buying-a-jacket/106695d8202a.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/a3048e921b98.mp3",
       "next": "leather"
      },
      {
       "text": "I prefer summer.",
       "pt": "Prefiro o verão.",
       "audio": "talk/dialogues/buying-a-jacket/1c98561f12d8.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/d8961ec73a19.mp3",
       "next": null,
       "react": {
        "text": "Me too! But which kind of jacket do you prefer?",
@@ -1766,18 +1962,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "I'm a medium.",
       "pt": "Uso médio.",
       "audio": "talk/dialogues/buying-a-jacket/447535e17ae1.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/017c58eb9ec5.mp3",
       "next": "fitting"
      },
      {
       "text": "I think I'm a large.",
       "pt": "Acho que uso grande.",
       "audio": "talk/dialogues/buying-a-jacket/2f38db121ea9.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/d2878e663249.mp3",
       "next": "fitting"
      },
      {
       "text": "I'm a software engineer.",
       "pt": "Sou engenheiro de software.",
       "audio": "talk/dialogues/buying-a-jacket/970d4aa392fb.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/83d21c1652be.mp3",
       "next": null,
       "react": {
        "text": "Oh, interesting! But what size do you wear? Small, medium or large?",
@@ -1804,18 +2003,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "It's a bit too tight.",
       "pt": "Está um pouco apertada.",
       "audio": "talk/dialogues/buying-a-jacket/9aea80f7bddd.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/5b222783065d.mp3",
       "next": "bigger"
      },
      {
       "text": "It fits perfectly!",
       "pt": "Ficou perfeita!",
       "audio": "talk/dialogues/buying-a-jacket/ff020628e8f5.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/d8749b043aa6.mp3",
       "next": "color"
      },
      {
       "text": "It's next to the door.",
       "pt": "Fica ao lado da porta.",
       "audio": "talk/dialogues/buying-a-jacket/a0397e325cd4.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/e81284dc6df5.mp3",
       "next": null,
       "react": {
        "text": "Sorry? I mean, is the size right for you?",
@@ -1842,18 +2044,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "No, I like this one.",
       "pt": "Não, gostei desta.",
       "audio": "talk/dialogues/buying-a-jacket/bf89d6e9aad8.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/7c0e0619af80.mp3",
       "next": "more"
      },
      {
       "text": "Yes, can I see the blue one?",
       "pt": "Sim, posso ver a azul?",
       "audio": "talk/dialogues/buying-a-jacket/f5b73ef956c3.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/9a81df68e79b.mp3",
       "next": "blue"
      },
      {
       "text": "My eyes are brown.",
       "pt": "Meus olhos são castanhos.",
       "audio": "talk/dialogues/buying-a-jacket/805391ccaa01.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/5914b3f676a0.mp3",
       "next": null,
       "react": {
        "text": "Nice! But would you like to see the other colors?",
@@ -1880,18 +2085,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "I'll take the blue one.",
       "pt": "Vou levar a azul.",
       "audio": "talk/dialogues/buying-a-jacket/c0f7a1d45b2a.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/4c175403073a.mp3",
       "next": "more"
      },
      {
       "text": "I'll stay with the first one.",
       "pt": "Vou ficar com a primeira.",
       "audio": "talk/dialogues/buying-a-jacket/06dde15eb244.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/73f84424e4cb.mp3",
       "next": "more"
      },
      {
       "text": "I take the bus to work.",
       "pt": "Eu pego ônibus para o trabalho.",
       "audio": "talk/dialogues/buying-a-jacket/e65217a42090.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/772da69094b9.mp3",
       "next": null,
       "react": {
        "text": "Ha, no, I mean, which jacket will you buy?",
@@ -1911,18 +2119,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "No, just the jacket, thanks.",
       "pt": "Não, só a jaqueta, obrigado.",
       "audio": "talk/dialogues/buying-a-jacket/76371e6fc0c5.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/1d9a4aa98a90.mp3",
       "next": "bag"
      },
      {
       "text": "Sure, I'll take a scarf too.",
       "pt": "Claro, vou levar um cachecol também.",
       "audio": "talk/dialogues/buying-a-jacket/5c99833b851e.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/c0f856d136ad.mp3",
       "next": "bag"
      },
      {
       "text": "Twenty-five degrees.",
       "pt": "Vinte e cinco graus.",
       "audio": "talk/dialogues/buying-a-jacket/d1e74d07f5fb.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/98ff92818975.mp3",
       "next": null,
       "react": {
        "text": "Sorry? Would you like anything else?",
@@ -1942,18 +2153,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Just a bag, please.",
       "pt": "Só a sacola, por favor.",
       "audio": "talk/dialogues/buying-a-jacket/b1327a93c27e.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/1f2ee76b24f6.mp3",
       "next": "end"
      },
      {
       "text": "Yes, please. It's a gift for my brother.",
       "pt": "Sim, por favor. É um presente para o meu irmão.",
       "audio": "talk/dialogues/buying-a-jacket/57f105a64737.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/9c348bdca27d.mp3",
       "next": "gift"
      },
      {
       "text": "I can't swim.",
       "pt": "Eu não sei nadar.",
       "audio": "talk/dialogues/buying-a-jacket/78ed0c63f0a5.mp3",
+      "audioF": "talk/dialogues/buying-a-jacket/32112396071d.mp3",
       "next": null,
       "react": {
        "text": "Oh! But do you want a bag and a gift receipt?",
@@ -1977,6 +2191,20 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "audio": "talk/dialogues/buying-a-jacket/bcb3dbcbc64a.mp3",
     "end": true
    }
+  },
+  "nudges": {
+   "s": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/buying-a-jacket/e17f5b6ba424.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/buying-a-jacket/911c9e6b3acb.mp3"
+    }
+   ]
   }
  },
  {
@@ -2011,18 +2239,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "To New York.",
       "pt": "Para Nova York.",
       "audio": "talk/dialogues/at-the-airport/d8e0b401eabd.mp3",
+      "audioF": "talk/dialogues/at-the-airport/7171ee77d7f4.mp3",
       "next": "passport"
      },
      {
       "text": "I'm going to Lisbon.",
       "pt": "Vou para Lisboa.",
       "audio": "talk/dialogues/at-the-airport/cf9d0c15f430.mp3",
+      "audioF": "talk/dialogues/at-the-airport/3c3be62d85a1.mp3",
       "next": "passport"
      },
      {
       "text": "Since last Monday.",
       "pt": "Desde segunda passada.",
       "audio": "talk/dialogues/at-the-airport/d211518c9962.mp3",
+      "audioF": "talk/dialogues/at-the-airport/46814aa4d016.mp3",
       "next": null,
       "react": {
        "text": "Sorry? Where are you traveling to?",
@@ -2042,18 +2273,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Here you are.",
       "pt": "Aqui estão.",
       "audio": "talk/dialogues/at-the-airport/42608d37c43a.mp3",
+      "audioF": "talk/dialogues/at-the-airport/add46a60e5b0.mp3",
       "next": "bags"
      },
      {
       "text": "I have the ticket on my phone. Is that okay?",
       "pt": "Estou com a passagem no celular. Tudo bem?",
       "audio": "talk/dialogues/at-the-airport/520209cbed0c.mp3",
+      "audioF": "talk/dialogues/at-the-airport/4fb4731abb3f.mp3",
       "next": "phone"
      },
      {
       "text": "I'm a little tired.",
       "pt": "Estou um pouco cansado.",
       "audio": "talk/dialogues/at-the-airport/cd9d01f89fa0.mp3",
+      "audioF": "talk/dialogues/at-the-airport/54c73488ea7c.mp3",
       "next": null,
       "react": {
        "text": "Early flights are tough! May I see your passport, please?",
@@ -2080,18 +2314,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, just this suitcase.",
       "pt": "Sim, só esta mala.",
       "audio": "talk/dialogues/at-the-airport/24dcef4cd804.mp3",
+      "audioF": "talk/dialogues/at-the-airport/c61aa21102d5.mp3",
       "next": "weight"
      },
      {
       "text": "No, only my carry-on.",
       "pt": "Não, só a de mão.",
       "audio": "talk/dialogues/at-the-airport/7722cba6af9d.mp3",
+      "audioF": "talk/dialogues/at-the-airport/28b32a8c444d.mp3",
       "next": "seat"
      },
      {
       "text": "I checked my email.",
       "pt": "Eu chequei meu e-mail.",
       "audio": "talk/dialogues/at-the-airport/4ae13ebb2280.mp3",
+      "audioF": "talk/dialogues/at-the-airport/416ebfcfaf13.mp3",
       "next": null,
       "react": {
        "text": "Sorry, I mean luggage. Are you checking any bags?",
@@ -2118,18 +2355,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "How much is the fee?",
       "pt": "Quanto é a taxa?",
       "audio": "talk/dialogues/at-the-airport/d44545d8d34c.mp3",
+      "audioF": "talk/dialogues/at-the-airport/e971f42e34f8.mp3",
       "next": "fee"
      },
      {
       "text": "I'll take something out.",
       "pt": "Vou tirar alguma coisa.",
       "audio": "talk/dialogues/at-the-airport/753116522a1c.mp3",
+      "audioF": "talk/dialogues/at-the-airport/2dc29120dddf.mp3",
       "next": "repack"
      },
      {
       "text": "I'm on a diet.",
       "pt": "Estou de dieta.",
       "audio": "talk/dialogues/at-the-airport/18eafdfc0e71.mp3",
+      "audioF": "talk/dialogues/at-the-airport/8c6c9b059c21.mp3",
       "next": null,
       "react": {
        "text": "Ha! No, I mean your suitcase is too heavy. What would you like to do?",
@@ -2156,18 +2396,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Okay, I'll pay.",
       "pt": "Tudo bem, eu pago.",
       "audio": "talk/dialogues/at-the-airport/30092f5e2366.mp3",
+      "audioF": "talk/dialogues/at-the-airport/0602f245a3bf.mp3",
       "next": "seat"
      },
      {
       "text": "That's too much. I'll take some things out.",
       "pt": "É caro demais. Vou tirar algumas coisas.",
       "audio": "talk/dialogues/at-the-airport/7eca74ba15eb.mp3",
+      "audioF": "talk/dialogues/at-the-airport/14e6c5eff506.mp3",
       "next": "repack"
      },
      {
       "text": "My bag is blue.",
       "pt": "Minha mala é azul.",
       "audio": "talk/dialogues/at-the-airport/11cb12e176a5.mp3",
+      "audioF": "talk/dialogues/at-the-airport/aee8510fd730.mp3",
       "next": null,
       "react": {
        "text": "I can see that! But do you want to pay the fee?",
@@ -2194,18 +2437,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "A window seat, please.",
       "pt": "Na janela, por favor.",
       "audio": "talk/dialogues/at-the-airport/413b6afc1a1e.mp3",
+      "audioF": "talk/dialogues/at-the-airport/a3bf69ae91b2.mp3",
       "next": "window"
      },
      {
       "text": "An aisle seat, please.",
       "pt": "No corredor, por favor.",
       "audio": "talk/dialogues/at-the-airport/e0708ae6141a.mp3",
+      "audioF": "talk/dialogues/at-the-airport/33354acc0574.mp3",
       "next": "boarding"
      },
      {
       "text": "I'd prefer a sandwich.",
       "pt": "Eu preferiria um sanduíche.",
       "audio": "talk/dialogues/at-the-airport/6f2aa63134c3.mp3",
+      "audioF": "talk/dialogues/at-the-airport/51582817721e.mp3",
       "next": null,
       "react": {
        "text": "Ha! The seat, I mean. Window or aisle?",
@@ -2232,24 +2478,28 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Where is gate twenty-two?",
       "pt": "Onde fica o portão vinte e dois?",
       "audio": "talk/dialogues/at-the-airport/ce9731c61da6.mp3",
+      "audioF": "talk/dialogues/at-the-airport/4f9cabffd816.mp3",
       "next": "gate"
      },
      {
       "text": "Is the flight on time?",
       "pt": "O voo está no horário?",
       "audio": "talk/dialogues/at-the-airport/25628e3613dd.mp3",
+      "audioF": "talk/dialogues/at-the-airport/09afd7056b15.mp3",
       "next": "ontime"
      },
      {
       "text": "No, thank you.",
       "pt": "Não, obrigado.",
       "audio": "talk/dialogues/at-the-airport/cfddcb5c9c1f.mp3",
+      "audioF": "talk/dialogues/at-the-airport/8021654ed30e.mp3",
       "next": "security"
      },
      {
       "text": "At my grandmother's house.",
       "pt": "Na casa da minha avó.",
       "audio": "talk/dialogues/at-the-airport/eb28340aaafd.mp3",
+      "audioF": "talk/dialogues/at-the-airport/6aebecaf540a.mp3",
       "next": null,
       "react": {
        "text": "Sorry? Do you have any questions about your flight?",
@@ -2283,24 +2533,28 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, I have a laptop.",
       "pt": "Sim, tenho um notebook.",
       "audio": "talk/dialogues/at-the-airport/ab3aab188e2d.mp3",
+      "audioF": "talk/dialogues/at-the-airport/7e0fd99fc617.mp3",
       "next": "laptop"
      },
      {
       "text": "Just a small bottle of shampoo.",
       "pt": "Só um frasco pequeno de xampu.",
       "audio": "talk/dialogues/at-the-airport/d20dd2b16799.mp3",
+      "audioF": "talk/dialogues/at-the-airport/5ee27a17bed2.mp3",
       "next": "liquid"
      },
      {
       "text": "No, nothing.",
       "pt": "Não, nada.",
       "audio": "talk/dialogues/at-the-airport/651da5982ecc.mp3",
+      "audioF": "talk/dialogues/at-the-airport/b03a361e27d5.mp3",
       "next": "beep"
      },
      {
       "text": "I don't like flying.",
       "pt": "Eu não gosto de voar.",
       "audio": "talk/dialogues/at-the-airport/4cd7beaf7268.mp3",
+      "audioF": "talk/dialogues/at-the-airport/3c54d498d5d0.mp3",
       "next": null,
       "react": {
        "text": "Many people don't! But do you have any liquids or a laptop in your bag?",
@@ -2334,18 +2588,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Oh, sorry. My phone and keys.",
       "pt": "Ah, desculpe. Meu celular e as chaves.",
       "audio": "talk/dialogues/at-the-airport/191b6188a7d1.mp3",
+      "audioF": "talk/dialogues/at-the-airport/eaa948b45e41.mp3",
       "next": "end"
      },
      {
       "text": "I think it's my belt.",
       "pt": "Acho que é o meu cinto.",
       "audio": "talk/dialogues/at-the-airport/f09cc2ac626b.mp3",
+      "audioF": "talk/dialogues/at-the-airport/1ca6d4dc8467.mp3",
       "next": "end"
      },
      {
       "text": "My pockets are blue.",
       "pt": "Meus bolsos são azuis.",
       "audio": "talk/dialogues/at-the-airport/037418e79cb1.mp3",
+      "audioF": "talk/dialogues/at-the-airport/40270c05ea29.mp3",
       "next": null,
       "react": {
        "text": "Ha. I mean, is there anything metal in your pockets?",
@@ -2362,6 +2619,32 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "audio": "talk/dialogues/at-the-airport/2242eb0756f2.mp3",
     "end": true
    }
+  },
+  "nudges": {
+   "a": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/at-the-airport/c1f989508dc3.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/at-the-airport/793aa2ef300d.mp3"
+    }
+   ],
+   "o": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/at-the-airport/6437aeb0ae7c.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/at-the-airport/61ca28873cf6.mp3"
+    }
+   ]
   }
  },
  {
@@ -2396,18 +2679,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, at nine thirty with Dr. Patel.",
       "pt": "Sim, às nove e meia com a doutora Patel.",
       "audio": "talk/dialogues/at-the-doctor/189362676191.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/5ff4b7cc0357.mp3",
       "next": "wait"
      },
      {
       "text": "No, but I'm not feeling well. Can a doctor see me today?",
       "pt": "Não, mas não estou me sentindo bem. Algum médico pode me atender hoje?",
       "audio": "talk/dialogues/at-the-doctor/a33c404196b4.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/239ef40dd486.mp3",
       "next": "walkin"
      },
      {
       "text": "I'm feeling much better than yesterday.",
       "pt": "Estou me sentindo bem melhor que ontem.",
       "audio": "talk/dialogues/at-the-doctor/4793f0d89cdd.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/22fe91df41b2.mp3",
       "next": null,
       "react": {
        "text": "Glad to hear it! But do you have an appointment today?",
@@ -2441,18 +2727,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "I've had a sore throat and a fever for three days.",
       "pt": "Estou com dor de garganta e febre há três dias.",
       "audio": "talk/dialogues/at-the-doctor/1becf0ac2898.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/ffd56a4960cc.mp3",
       "next": "throat"
      },
      {
       "text": "I've had a terrible headache since yesterday.",
       "pt": "Estou com uma dor de cabeça terrível desde ontem.",
       "audio": "talk/dialogues/at-the-doctor/4f6f75a9e156.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/faa3135095f3.mp3",
       "next": "head"
      },
      {
       "text": "I work from Monday to Friday.",
       "pt": "Trabalho de segunda a sexta.",
       "audio": "talk/dialogues/at-the-doctor/8b97093c66a3.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/622081102e66.mp3",
       "next": null,
       "react": {
        "text": "I see. But tell me, how are you feeling? What brings you here?",
@@ -2472,18 +2761,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Just some paracetamol.",
       "pt": "Só um pouco de paracetamol.",
       "audio": "talk/dialogues/at-the-doctor/9dc0c92b65df.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/6432f21e251a.mp3",
       "next": "examine"
      },
      {
       "text": "No, nothing yet.",
       "pt": "Não, nada ainda.",
       "audio": "talk/dialogues/at-the-doctor/e499022077cd.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/941d54de565e.mp3",
       "next": "examine"
      },
      {
       "text": "Yes, I take the bus.",
       "pt": "Sim, eu pego ônibus.",
       "audio": "talk/dialogues/at-the-doctor/9b18b7f6011b.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/be1e8fdc5e9c.mp3",
       "next": null,
       "react": {
        "text": "Sorry, I mean medicine. Have you taken anything for the fever?",
@@ -2510,18 +2802,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, I'm allergic to penicillin.",
       "pt": "Sim, sou alérgico à penicilina.",
       "audio": "talk/dialogues/at-the-doctor/fe34b0ff64e1.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/95451df6e15d.mp3",
       "next": "peni"
      },
      {
       "text": "No, not that I know of.",
       "pt": "Não, que eu saiba não.",
       "audio": "talk/dialogues/at-the-doctor/9ab11a2701d0.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/55bd1373640c.mp3",
       "next": "presc"
      },
      {
       "text": "I'm allergic to my boss.",
       "pt": "Sou alérgico ao meu chefe.",
       "audio": "talk/dialogues/at-the-doctor/4005a0f327d4.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/fe65e722d26d.mp3",
       "next": null,
       "react": {
        "text": "Ha! I understand. But seriously, any allergies to medicine?",
@@ -2548,18 +2843,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Twice a day after meals. Got it.",
       "pt": "Duas vezes por dia depois das refeições. Entendi.",
       "audio": "talk/dialogues/at-the-doctor/85033466c178.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/f3987d5b8ce9.mp3",
       "next": "rest"
      },
      {
       "text": "Can I take it with coffee?",
       "pt": "Posso tomar com café?",
       "audio": "talk/dialogues/at-the-doctor/38184d376a1c.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/c5f4eb1ff7ab.mp3",
       "next": "coffee"
      },
      {
       "text": "It's very clear outside today.",
       "pt": "O céu está bem limpo hoje.",
       "audio": "talk/dialogues/at-the-doctor/e2cf40a58e46.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/6e8a226bc437.mp3",
       "next": null,
       "react": {
        "text": "Ha, it is. But do you understand how to take the medicine?",
@@ -2586,18 +2884,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, please. I can't work like this.",
       "pt": "Sim, por favor. Não consigo trabalhar assim.",
       "audio": "talk/dialogues/at-the-doctor/ade1c6f19143.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/05bbcbe72dd8.mp3",
       "next": "note"
      },
      {
       "text": "No, I work from home.",
       "pt": "Não, eu trabalho de casa.",
       "audio": "talk/dialogues/at-the-doctor/ccfd9be20804.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/08c97493917e.mp3",
       "next": "end"
      },
      {
       "text": "I wrote a note to my mother.",
       "pt": "Escrevi um bilhete para minha mãe.",
       "audio": "talk/dialogues/at-the-doctor/c39580ac46c7.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/38b846db5cc9.mp3",
       "next": null,
       "react": {
        "text": "That's sweet. But do you need a medical note for your job?",
@@ -2624,18 +2925,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, it's the first time.",
       "pt": "Sim, é a primeira vez.",
       "audio": "talk/dialogues/at-the-doctor/c722ce6b36d5.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/69504018afc0.mp3",
       "next": "head2"
      },
      {
       "text": "No, I get them quite often.",
       "pt": "Não, eu tenho com frequência.",
       "audio": "talk/dialogues/at-the-doctor/a03f042132b7.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/66c51d7705e9.mp3",
       "next": "often"
      },
      {
       "text": "My head is a normal size.",
       "pt": "Minha cabeça tem tamanho normal.",
       "audio": "talk/dialogues/at-the-doctor/3c50409d0e95.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/530e40f4aadd.mp3",
       "next": null,
       "react": {
        "text": "Ha. I mean, have you had headaches like this before?",
@@ -2662,18 +2966,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Not really. And I spend about ten hours at the computer.",
       "pt": "Não muito. E passo umas dez horas no computador.",
       "audio": "talk/dialogues/at-the-doctor/383e92ba0171.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/24f4189e4992.mp3",
       "next": "screen"
      },
      {
       "text": "I sleep well, but I work at a computer all day.",
       "pt": "Durmo bem, mas trabalho no computador o dia inteiro.",
       "audio": "talk/dialogues/at-the-doctor/0e63b5a8503c.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/02af3a752588.mp3",
       "next": "screen"
      },
      {
       "text": "I sleep in a very big bed.",
       "pt": "Durmo numa cama muito grande.",
       "audio": "talk/dialogues/at-the-doctor/c77e093a49b4.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/360cf9187329.mp3",
       "next": null,
       "react": {
        "text": "Lucky you! But do you sleep well? And how much screen time do you have?",
@@ -2700,18 +3007,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Sure. Should I take anything for the pain?",
       "pt": "Claro. Devo tomar algo para a dor?",
       "audio": "talk/dialogues/at-the-doctor/034895463e0f.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/f36c612952d0.mp3",
       "next": "painkiller"
      },
      {
       "text": "Yes, I'll book an eye test this week.",
       "pt": "Sim, vou marcar um exame de vista esta semana.",
       "audio": "talk/dialogues/at-the-doctor/ebd354538c1e.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/0e95290694fc.mp3",
       "next": "end"
      },
      {
       "text": "I can do ten push-ups.",
       "pt": "Consigo fazer dez flexões.",
       "audio": "talk/dialogues/at-the-doctor/27887896a08f.mp3",
+      "audioF": "talk/dialogues/at-the-doctor/53047e84dab4.mp3",
       "next": null,
       "react": {
        "text": "Impressive! But can you take breaks and check your eyes?",
@@ -2735,6 +3045,32 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "audio": "talk/dialogues/at-the-doctor/0796e15d7433.mp3",
     "end": true
    }
+  },
+  "nudges": {
+   "r": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/at-the-doctor/b5cbee11502e.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/at-the-doctor/150f3c7297ba.mp3"
+    }
+   ],
+   "d": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/at-the-doctor/15f62577aa1b.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/at-the-doctor/4fb659b8e019.mp3"
+    }
+   ]
   }
  },
  {
@@ -2776,18 +3112,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, it was easy. I took the subway.",
       "pt": "Sim, foi fácil. Vim de metrô.",
       "audio": "talk/dialogues/job-interview/beb96a9eaa7d.mp3",
+      "audioF": "talk/dialogues/job-interview/1e26cd6ba47e.mp3",
       "next": "j3"
      },
      {
       "text": "It took a while, but I made it!",
       "pt": "Demorou um pouco, mas cheguei!",
       "audio": "talk/dialogues/job-interview/2064b3acc952.mp3",
+      "audioF": "talk/dialogues/job-interview/dfc6fc971053.mp3",
       "next": "j3"
      },
      {
       "text": "I've worked in sales for five years.",
       "pt": "Trabalho com vendas há cinco anos.",
       "audio": "talk/dialogues/job-interview/8c92bc01ba77.mp3",
+      "audioF": "talk/dialogues/job-interview/ffc50f724e3d.mp3",
       "next": null,
       "react": {
        "text": "We'll get to that! I just meant, was it easy to get here?",
@@ -2807,18 +3146,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "I'm a marketing analyst with five years of experience.",
       "pt": "Sou analista de marketing com cinco anos de experiência.",
       "audio": "talk/dialogues/job-interview/7afc83b3cad0.mp3",
+      "audioF": "talk/dialogues/job-interview/b57a34233432.mp3",
       "next": "why"
      },
      {
       "text": "I studied business, and I've been working in sales for four years.",
       "pt": "Estudei administração e trabalho com vendas há quatro anos.",
       "audio": "talk/dialogues/job-interview/bf7f0792e8ae.mp3",
+      "audioF": "talk/dialogues/job-interview/74fb8a99baca.mp3",
       "next": "why"
      },
      {
       "text": "I'm fine, thank you.",
       "pt": "Estou bem, obrigado.",
       "audio": "talk/dialogues/job-interview/75dc314ba1f8.mp3",
+      "audioF": "talk/dialogues/job-interview/cd8104eae05d.mp3",
       "next": null,
       "react": {
        "text": "Good to hear! But I meant, tell me about your background.",
@@ -2838,18 +3180,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "I really like your products and your values.",
       "pt": "Gosto muito dos produtos e dos valores de vocês.",
       "audio": "talk/dialogues/job-interview/b510b3992968.mp3",
+      "audioF": "talk/dialogues/job-interview/50f15ab7eff8.mp3",
       "next": "strength"
      },
      {
       "text": "I'm looking for new challenges and a chance to grow.",
       "pt": "Estou buscando novos desafios e uma chance de crescer.",
       "audio": "talk/dialogues/job-interview/41469a668a10.mp3",
+      "audioF": "talk/dialogues/job-interview/5b931415a7b4.mp3",
       "next": "strength"
      },
      {
       "text": "Because I don't like Mondays.",
       "pt": "Porque eu não gosto de segunda-feira.",
       "audio": "talk/dialogues/job-interview/77c3ce25f9ff.mp3",
+      "audioF": "talk/dialogues/job-interview/ea38a005f6de.mp3",
       "next": null,
       "react": {
        "text": "Ha! Nobody does. But what attracts you to our company?",
@@ -2869,18 +3214,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "I'm very organized, and I work well under pressure.",
       "pt": "Sou muito organizado e trabalho bem sob pressão.",
       "audio": "talk/dialogues/job-interview/9c8f14a810a6.mp3",
+      "audioF": "talk/dialogues/job-interview/cb50211c1573.mp3",
       "next": "weak"
      },
      {
       "text": "I'm a good communicator and a team player.",
       "pt": "Sou bom comunicador e gosto de trabalhar em equipe.",
       "audio": "talk/dialogues/job-interview/780766d5751b.mp3",
+      "audioF": "talk/dialogues/job-interview/54043f82e059.mp3",
       "next": "weak"
      },
      {
       "text": "I was born in Recife.",
       "pt": "Nasci em Recife.",
       "audio": "talk/dialogues/job-interview/0bf4ce5e7113.mp3",
+      "audioF": "talk/dialogues/job-interview/78a04e5f8178.mp3",
       "next": null,
       "react": {
        "text": "Lovely! But what's your greatest professional strength?",
@@ -2900,18 +3248,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Sometimes I'm too much of a perfectionist, but I'm working on it.",
       "pt": "Às vezes sou perfeccionista demais, mas estou trabalhando nisso.",
       "audio": "talk/dialogues/job-interview/5c8bb0020f36.mp3",
+      "audioF": "talk/dialogues/job-interview/f6a7fdee5301.mp3",
       "next": "meet"
      },
      {
       "text": "I find public speaking hard, so I'm taking a course.",
       "pt": "Acho difícil falar em público, então estou fazendo um curso.",
       "audio": "talk/dialogues/job-interview/5d3c4a916215.mp3",
+      "audioF": "talk/dialogues/job-interview/9d6085449f00.mp3",
       "next": "meet"
      },
      {
       "text": "Next Friday is fine.",
       "pt": "Sexta que vem está bom.",
       "audio": "talk/dialogues/job-interview/92cdd9a523b8.mp3",
+      "audioF": "talk/dialogues/job-interview/fcb3a278bc08.mp3",
       "next": null,
       "react": {
        "text": "Sorry? I asked about a weakness.",
@@ -2938,18 +3289,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Once, a big client wanted to cancel, and I convinced them to stay.",
       "pt": "Uma vez, um cliente grande queria cancelar, e eu convenci ele a ficar.",
       "audio": "talk/dialogues/job-interview/dd1ab8bca40a.mp3",
+      "audioF": "talk/dialogues/job-interview/cc51b97ea730.mp3",
       "next": "client"
      },
      {
       "text": "Our team was missing deadlines, so I created a new schedule.",
       "pt": "Nossa equipe perdia prazos, então criei um novo cronograma.",
       "audio": "talk/dialogues/job-interview/3d8d002c816b.mp3",
+      "audioF": "talk/dialogues/job-interview/4026bac2f62b.mp3",
       "next": "deadline"
      },
      {
       "text": "Yes, I solved a crossword yesterday.",
       "pt": "Sim, resolvi uma palavra cruzada ontem.",
       "audio": "talk/dialogues/job-interview/c1d37eb4abd5.mp3",
+      "audioF": "talk/dialogues/job-interview/c019876892bc.mp3",
       "next": null,
       "react": {
        "text": "Ha! I meant a problem at work.",
@@ -2969,18 +3323,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "I listened to their complaints and offered them a better plan.",
       "pt": "Ouvi as reclamações e ofereci um plano melhor.",
       "audio": "talk/dialogues/job-interview/35843044f683.mp3",
+      "audioF": "talk/dialogues/job-interview/e4864c12e354.mp3",
       "next": "salary"
      },
      {
       "text": "I visited them in person and fixed the problem quickly.",
       "pt": "Fui pessoalmente até eles e resolvi o problema rápido.",
       "audio": "talk/dialogues/job-interview/96b76142277d.mp3",
+      "audioF": "talk/dialogues/job-interview/fd2de20cd67c.mp3",
       "next": "salary"
      },
      {
       "text": "With a pen and paper.",
       "pt": "Com papel e caneta.",
       "audio": "talk/dialogues/job-interview/ec04bdc90e05.mp3",
+      "audioF": "talk/dialogues/job-interview/25c98733673f.mp3",
       "next": null,
       "react": {
        "text": "Hmm. Can you explain how you convinced the client?",
@@ -3000,18 +3357,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, we delivered every project on time after that.",
       "pt": "Sim, entregamos todos os projetos no prazo depois disso.",
       "audio": "talk/dialogues/job-interview/b7beec4186c7.mp3",
+      "audioF": "talk/dialogues/job-interview/5f0359e4e625.mp3",
       "next": "salary"
      },
      {
       "text": "It took a few weeks, but now the team is much faster.",
       "pt": "Levou algumas semanas, mas agora a equipe está bem mais rápida.",
       "audio": "talk/dialogues/job-interview/9512669cc15a.mp3",
+      "audioF": "talk/dialogues/job-interview/b91bd43cad93.mp3",
       "next": "salary"
      },
      {
       "text": "I work Monday to Friday.",
       "pt": "Trabalho de segunda a sexta.",
       "audio": "talk/dialogues/job-interview/463f2a1ae569.mp3",
+      "audioF": "talk/dialogues/job-interview/fbb7d4af44cc.mp3",
       "next": null,
       "react": {
        "text": "Sure, but did the new schedule work?",
@@ -3031,18 +3391,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Something between five and six thousand a month.",
       "pt": "Algo entre cinco e seis mil por mês.",
       "audio": "talk/dialogues/job-interview/bf47f3e19850.mp3",
+      "audioF": "talk/dialogues/job-interview/031dcb0216b5.mp3",
       "next": "start"
      },
      {
       "text": "I'd like to know more about the benefits first.",
       "pt": "Gostaria de saber mais sobre os benefícios primeiro.",
       "audio": "talk/dialogues/job-interview/852b60bc5f0c.mp3",
+      "audioF": "talk/dialogues/job-interview/2087e5f0259f.mp3",
       "next": "benefits"
      },
      {
       "text": "I expect it to rain later.",
       "pt": "Acho que vai chover mais tarde.",
       "audio": "talk/dialogues/job-interview/d6ee5a288d3b.mp3",
+      "audioF": "talk/dialogues/job-interview/6ad1dca00828.mp3",
       "next": null,
       "react": {
        "text": "Ha. I mean, how much would you like to earn?",
@@ -3069,18 +3432,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "I could start in two weeks.",
       "pt": "Poderia começar em duas semanas.",
       "audio": "talk/dialogues/job-interview/7f4b784e0d17.mp3",
+      "audioF": "talk/dialogues/job-interview/91b4afcf64a7.mp3",
       "next": "qs"
      },
      {
       "text": "I need to give one month's notice, so next month.",
       "pt": "Preciso cumprir um mês de aviso prévio, então no mês que vem.",
       "audio": "talk/dialogues/job-interview/221addd65296.mp3",
+      "audioF": "talk/dialogues/job-interview/719f93b310bf.mp3",
       "next": "qs"
      },
      {
       "text": "I started at eight o'clock today.",
       "pt": "Comecei às oito horas hoje.",
       "audio": "talk/dialogues/job-interview/ea03dad1c64a.mp3",
+      "audioF": "talk/dialogues/job-interview/27765d52bd74.mp3",
       "next": null,
       "react": {
        "text": "I mean, if you get the job, when would you be available?",
@@ -3100,18 +3466,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "What does a typical day look like?",
       "pt": "Como é um dia típico?",
       "audio": "talk/dialogues/job-interview/28de30fef65f.mp3",
+      "audioF": "talk/dialogues/job-interview/97816e39005b.mp3",
       "next": "day"
      },
      {
       "text": "When will I hear back from you?",
       "pt": "Quando vocês me dão um retorno?",
       "audio": "talk/dialogues/job-interview/73b4aed89d45.mp3",
+      "audioF": "talk/dialogues/job-interview/5ce390c46cbf.mp3",
       "next": "hear"
      },
      {
       "text": "Yes, I have two sisters.",
       "pt": "Sim, tenho duas irmãs.",
       "audio": "talk/dialogues/job-interview/8b029f1b3888.mp3",
+      "audioF": "talk/dialogues/job-interview/f4c7a70fee5f.mp3",
       "next": null,
       "react": {
        "text": "Ha! I mean, any questions about the job?",
@@ -3142,6 +3511,32 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "audio": "talk/dialogues/job-interview/361d0e74b311.mp3",
     "end": true
    }
+  },
+  "nudges": {
+   "r": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/job-interview/6437aeb0ae7c.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/job-interview/61ca28873cf6.mp3"
+    }
+   ],
+   "t": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/job-interview/be37187b8392.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/job-interview/b1e29ed6346b.mp3"
+    }
+   ]
   }
  },
  {
@@ -3183,18 +3578,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, I was buying a watch when it happened.",
       "pt": "Sim, eu estava comprando um relógio quando aconteceu.",
       "audio": "talk/dialogues/the-witness/20aabffafab5.mp3",
+      "audioF": "talk/dialogues/the-witness/5015affd6125.mp3",
       "next": "what"
      },
      {
       "text": "I was across the street, but I saw everything.",
       "pt": "Eu estava do outro lado da rua, mas vi tudo.",
       "audio": "talk/dialogues/the-witness/8d7da380226f.mp3",
+      "audioF": "talk/dialogues/the-witness/1acf4f20e9c9.mp3",
       "next": "what"
      },
      {
       "text": "I bought this jacket last year.",
       "pt": "Comprei esta jaqueta ano passado.",
       "audio": "talk/dialogues/the-witness/5491a4ee892f.mp3",
+      "audioF": "talk/dialogues/the-witness/3c75765bb389.mp3",
       "next": null,
       "react": {
        "text": "I'm asking about this morning. Were you at the store?",
@@ -3214,18 +3612,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "A man came in with a mask and asked for the money.",
       "pt": "Um homem entrou de máscara e pediu o dinheiro.",
       "audio": "talk/dialogues/the-witness/d2f081ebcb5d.mp3",
+      "audioF": "talk/dialogues/the-witness/bf8d16ef6961.mp3",
       "next": "man"
      },
      {
       "text": "Two people ran out of the store and got into a car.",
       "pt": "Duas pessoas saíram correndo da loja e entraram num carro.",
       "audio": "talk/dialogues/the-witness/d697ba55a04b.mp3",
+      "audioF": "talk/dialogues/the-witness/2ce290dc42cf.mp3",
       "next": "car"
      },
      {
       "text": "I saw a great movie last night.",
       "pt": "Vi um filme ótimo ontem à noite.",
       "audio": "talk/dialogues/the-witness/bdd1142f2808.mp3",
+      "audioF": "talk/dialogues/the-witness/2bc203059d0e.mp3",
       "next": null,
       "react": {
        "text": "Let's focus on this morning, please. What did you see?",
@@ -3245,18 +3646,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "He was tall, and he was wearing a black hoodie.",
       "pt": "Ele era alto e usava um moletom preto com capuz.",
       "audio": "talk/dialogues/the-witness/d708062d8f6b.mp3",
+      "audioF": "talk/dialogues/the-witness/adbbe0b84f79.mp3",
       "next": "voice"
      },
      {
       "text": "I couldn't see his face, but he had a tattoo on his hand.",
       "pt": "Não consegui ver o rosto, mas ele tinha uma tatuagem na mão.",
       "audio": "talk/dialogues/the-witness/dd47ea5ea602.mp3",
+      "audioF": "talk/dialogues/the-witness/5744a20c8c9f.mp3",
       "next": "tattoo"
      },
      {
       "text": "He likes football.",
       "pt": "Ele gosta de futebol.",
       "audio": "talk/dialogues/the-witness/30a87cfc7721.mp3",
+      "audioF": "talk/dialogues/the-witness/b4e18734affd.mp3",
       "next": null,
       "react": {
        "text": "How would you know that? I mean, describe how he looked.",
@@ -3276,18 +3680,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "It looked like a snake.",
       "pt": "Parecia uma cobra.",
       "audio": "talk/dialogues/the-witness/e6d69849f90f.mp3",
+      "audioF": "talk/dialogues/the-witness/0f53a44b38b9.mp3",
       "next": "voice"
      },
      {
       "text": "I'm not sure. Some kind of bird, I think.",
       "pt": "Não tenho certeza. Algum tipo de pássaro, acho.",
       "audio": "talk/dialogues/the-witness/b2a3a70cd5da.mp3",
+      "audioF": "talk/dialogues/the-witness/d856b47be996.mp3",
       "next": "voice"
      },
      {
       "text": "It was a Tuesday.",
       "pt": "Era uma terça-feira.",
       "audio": "talk/dialogues/the-witness/3a374d55590b.mp3",
+      "audioF": "talk/dialogues/the-witness/570a40c74caa.mp3",
       "next": null,
       "react": {
        "text": "No, the tattoo. What did it look like?",
@@ -3307,18 +3714,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "He shouted, hurry up, and he had a British accent.",
       "pt": "Ele gritou, anda logo, e tinha sotaque britânico.",
       "audio": "talk/dialogues/the-witness/84e5612063c2.mp3",
+      "audioF": "talk/dialogues/the-witness/2a1ba398389c.mp3",
       "next": "car"
      },
      {
       "text": "He didn't say much. He just pointed at the cash register.",
       "pt": "Ele não falou muito. Só apontou para o caixa.",
       "audio": "talk/dialogues/the-witness/4f26a16cc10e.mp3",
+      "audioF": "talk/dialogues/the-witness/a50b2d677436.mp3",
       "next": "car"
      },
      {
       "text": "I speak English and Portuguese.",
       "pt": "Falo inglês e português.",
       "audio": "talk/dialogues/the-witness/586fe09c9d68.mp3",
+      "audioF": "talk/dialogues/the-witness/8af8e03679cf.mp3",
       "next": null,
       "react": {
        "text": "Good, but I mean, did the robber say anything?",
@@ -3338,18 +3748,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, a white van. I think the plate started with K.",
       "pt": "Sim, uma van branca. Acho que a placa começava com K.",
       "audio": "talk/dialogues/the-witness/a87fe63db787.mp3",
+      "audioF": "talk/dialogues/the-witness/4d5a97ef98c7.mp3",
       "next": "plate"
      },
      {
       "text": "Yes, a small red car drove away very fast.",
       "pt": "Sim, um carro vermelho pequeno saiu em alta velocidade.",
       "audio": "talk/dialogues/the-witness/e5233bed78cf.mp3",
+      "audioF": "talk/dialogues/the-witness/a9f0405a916b.mp3",
       "next": "direction"
      },
      {
       "text": "I don't have a car.",
       "pt": "Eu não tenho carro.",
       "audio": "talk/dialogues/the-witness/1e8e23e986e5.mp3",
+      "audioF": "talk/dialogues/the-witness/0949d2a00498.mp3",
       "next": null,
       "react": {
        "text": "I mean the robbers. Did they leave in a car?",
@@ -3376,18 +3789,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Yes, I think so.",
       "pt": "Sim, acho que sim.",
       "audio": "talk/dialogues/the-witness/bcc812016f16.mp3",
+      "audioF": "talk/dialogues/the-witness/006736099bfa.mp3",
       "next": "photos"
      },
      {
       "text": "I'm not sure. It all happened so fast.",
       "pt": "Não tenho certeza. Foi tudo muito rápido.",
       "audio": "talk/dialogues/the-witness/6a140e79e0a7.mp3",
+      "audioF": "talk/dialogues/the-witness/4b95a7510d21.mp3",
       "next": "photos"
      },
      {
       "text": "I saw him on TV last week.",
       "pt": "Vi ele na TV semana passada.",
       "audio": "talk/dialogues/the-witness/8c272b3be057.mp3",
+      "audioF": "talk/dialogues/the-witness/50eddaf4b509.mp3",
       "next": null,
       "react": {
        "text": "Really? Hmm, let's stay with this morning. Could you recognize him again?",
@@ -3407,18 +3823,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "It turned left onto Main Street.",
       "pt": "Virou à esquerda na rua principal.",
       "audio": "talk/dialogues/the-witness/60ae7e8c945c.mp3",
+      "audioF": "talk/dialogues/the-witness/06d82901618d.mp3",
       "next": "photos"
      },
      {
       "text": "It went towards the bridge.",
       "pt": "Foi em direção à ponte.",
       "audio": "talk/dialogues/the-witness/74a127562bc2.mp3",
+      "audioF": "talk/dialogues/the-witness/3617b0268699.mp3",
       "next": "photos"
      },
      {
       "text": "It went very well, thank you.",
       "pt": "Foi tudo muito bem, obrigado.",
       "audio": "talk/dialogues/the-witness/b874c46b2ce1.mp3",
+      "audioF": "talk/dialogues/the-witness/c6e3b1d999db.mp3",
       "next": null,
       "react": {
        "text": "I mean the car. Which direction did it go?",
@@ -3438,18 +3857,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Of course. What time should I come?",
       "pt": "Claro. Que horas devo ir?",
       "audio": "talk/dialogues/the-witness/2c6b86d89d17.mp3",
+      "audioF": "talk/dialogues/the-witness/235ddba97163.mp3",
       "next": "time"
      },
      {
       "text": "I work tomorrow. Could I come on Saturday?",
       "pt": "Trabalho amanhã. Posso ir no sábado?",
       "audio": "talk/dialogues/the-witness/1dbc331961a6.mp3",
+      "audioF": "talk/dialogues/the-witness/62e24bc6e444.mp3",
       "next": "saturday"
      },
      {
       "text": "I love taking photos.",
       "pt": "Adoro tirar fotos.",
       "audio": "talk/dialogues/the-witness/a0ef57eafece.mp3",
+      "audioF": "talk/dialogues/the-witness/97f5b57ffbc0.mp3",
       "next": null,
       "react": {
        "text": "Ha. I mean, can you come to the police station to see some photos?",
@@ -3480,6 +3902,32 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "audio": "talk/dialogues/the-witness/8f04b69c5d02.mp3",
     "end": true
    }
+  },
+  "nudges": {
+   "o": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/the-witness/7b3d34bbfd83.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/the-witness/1c0a116df90a.mp3"
+    }
+   ],
+   "h": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/the-witness/d79ea23576f1.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/the-witness/ac4b1049a248.mp3"
+    }
+   ]
   }
  },
  {
@@ -3521,18 +3969,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Sure. The design is finished, but testing is behind schedule.",
       "pt": "Claro. O design está pronto, mas os testes estão atrasados.",
       "audio": "talk/dialogues/the-team-meeting/82b379daabab.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/e6b3d665ef6c.mp3",
       "next": "behind"
      },
      {
       "text": "Of course. Everything is on track, and we should finish by Friday.",
       "pt": "Claro. Está tudo dentro do prazo e devemos terminar até sexta.",
       "audio": "talk/dialogues/the-team-meeting/4c1b6d6b6dad.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/9f958d9e0833.mp3",
       "next": "ontrack"
      },
      {
       "text": "I updated my phone last night.",
       "pt": "Atualizei meu celular ontem à noite.",
       "audio": "talk/dialogues/the-team-meeting/6a802c90570e.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/b6e0ecddf9c4.mp3",
       "next": null,
       "react": {
        "text": "Ha! I meant an update on the project.",
@@ -3559,18 +4010,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "You're right, Kevin. I hadn't seen that report yet.",
       "pt": "Você tem razão, Kevin. Eu ainda não tinha visto esse relatório.",
       "audio": "talk/dialogues/the-team-meeting/cdada66dde27.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/8de780c0d432.mp3",
       "next": "behind"
      },
      {
       "text": "Yes, but most of them are minor and easy to fix.",
       "pt": "Sim, mas a maioria é pequena e fácil de corrigir.",
       "audio": "talk/dialogues/the-team-meeting/31c7d2e8e47f.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/fe6f3519ac82.mp3",
       "next": "minor"
      },
      {
       "text": "True, it's very sunny today.",
       "pt": "Verdade, está bem ensolarado hoje.",
       "audio": "talk/dialogues/the-team-meeting/2d16a4405921.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/819f5e30f802.mp3",
       "next": null,
       "react": {
        "text": "I'm talking about the bugs. Did the testers find problems?",
@@ -3597,18 +4051,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "I think we need two more weeks.",
       "pt": "Acho que precisamos de mais duas semanas.",
       "audio": "talk/dialogues/the-team-meeting/739375b1739f.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/3e6d65500f0d.mp3",
       "next": "delay"
      },
      {
       "text": "If we get one more tester, we can finish in a week.",
       "pt": "Se tivermos mais um testador, terminamos em uma semana.",
       "audio": "talk/dialogues/the-team-meeting/c05689d613d7.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/5e23e87fc190.mp3",
       "next": "tester"
      },
      {
       "text": "Three o'clock is fine.",
       "pt": "Três horas está bom.",
       "audio": "talk/dialogues/the-team-meeting/c4a4e45dd591.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/d189f6bca742.mp3",
       "next": null,
       "react": {
        "text": "Sorry? I'm asking how much more time you need for testing.",
@@ -3635,18 +4092,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "That's a good idea. We could launch a basic version first.",
       "pt": "Boa ideia. Poderíamos lançar uma versão básica primeiro.",
       "audio": "talk/dialogues/the-team-meeting/beb6bec136b1.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/383bc0bb2993.mp3",
       "next": "agree"
      },
      {
       "text": "I'm not sure. Users might be disappointed.",
       "pt": "Não sei. Os usuários podem ficar decepcionados.",
       "audio": "talk/dialogues/the-team-meeting/5e05f0e6ff87.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/d7a15dc1dc69.mp3",
       "next": "disagree"
      },
      {
       "text": "I added sugar to my coffee.",
       "pt": "Coloquei açúcar no meu café.",
       "audio": "talk/dialogues/the-team-meeting/a493dc739622.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/1a582985d781.mp3",
       "next": null,
       "react": {
        "text": "Okay... but what do you think about launching with fewer features?",
@@ -3673,18 +4133,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Login, payments, and the main menu.",
       "pt": "Login, pagamentos e o menu principal.",
       "audio": "talk/dialogues/the-team-meeting/766068bef20a.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/9ea92fcd141d.mp3",
       "next": "agree"
      },
      {
       "text": "The payment screen has to work perfectly. The rest can wait.",
       "pt": "A tela de pagamento tem que funcionar perfeitamente. O resto pode esperar.",
       "audio": "talk/dialogues/the-team-meeting/e971ec931e00.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/1bf2a9831a24.mp3",
       "next": "agree"
      },
      {
       "text": "The ground floor is fine.",
       "pt": "O térreo está bom.",
       "audio": "talk/dialogues/the-team-meeting/2cf20cc38a8e.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/3de32ee67294.mp3",
       "next": null,
       "react": {
        "text": "Ha. I mean, which features are essential for launch day?",
@@ -3718,18 +4181,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "That would be perfect, thanks.",
       "pt": "Seria perfeito, obrigado.",
       "audio": "talk/dialogues/the-team-meeting/6f90fc2fb709.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/fefdd15f134b.mp3",
       "next": "summary"
      },
      {
       "text": "Could she start tomorrow instead?",
       "pt": "Ela poderia começar amanhã?",
       "audio": "talk/dialogues/the-team-meeting/35d4c8ee19cd.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/54b5dbe9e264.mp3",
       "next": "tomorrow"
      },
      {
       "text": "I work out three times a week.",
       "pt": "Malho três vezes por semana.",
       "audio": "talk/dialogues/the-team-meeting/92d028c95616.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/327afc0528f9.mp3",
       "next": null,
       "react": {
        "text": "Good for you! But would Maria starting on Monday work?",
@@ -3756,18 +4222,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "I can do that.",
       "pt": "Eu posso fazer isso.",
       "audio": "talk/dialogues/the-team-meeting/e2fb0d87f292.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/61823506adae.mp3",
       "next": "thursday"
      },
      {
       "text": "Kevin, could you do it this time?",
       "pt": "Kevin, você pode fazer desta vez?",
       "audio": "talk/dialogues/the-team-meeting/fbf39ad29826.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/108ca0213eac.mp3",
       "next": "kevin"
      },
      {
       "text": "It's sunny outside.",
       "pt": "Está ensolarado lá fora.",
       "audio": "talk/dialogues/the-team-meeting/5bee3c33c721.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/9187ee71ea42.mp3",
       "next": null,
       "react": {
        "text": "I mean, who will write the meeting summary?",
@@ -3794,18 +4263,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "text": "Ten works for me.",
       "pt": "Dez horas funciona para mim.",
       "audio": "talk/dialogues/the-team-meeting/12092b0cbc28.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/649b28ece4ef.mp3",
       "next": "end"
      },
      {
       "text": "Could we make it eleven? I have a call at ten.",
       "pt": "Podemos fazer às onze? Tenho uma ligação às dez.",
       "audio": "talk/dialogues/the-team-meeting/84be9bc61863.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/5650b1419e29.mp3",
       "next": "eleven"
      },
      {
       "text": "I have ten fingers.",
       "pt": "Tenho dez dedos.",
       "audio": "talk/dialogues/the-team-meeting/4db9892af80f.mp3",
+      "audioF": "talk/dialogues/the-team-meeting/9cceb8c2bc72.mp3",
       "next": null,
       "react": {
        "text": "Ha! I mean, is Thursday at ten okay for you?",
@@ -3829,6 +4301,2416 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "audio": "talk/dialogues/the-team-meeting/e9773adc0170.mp3",
     "end": true
    }
+  },
+  "nudges": {
+   "l": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/the-team-meeting/813b1388a6e6.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/the-team-meeting/a4e28fe395a3.mp3"
+    }
+   ],
+   "k": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/the-team-meeting/723b4e03956c.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/the-team-meeting/02f14f91271d.mp3"
+    }
+   ]
+  }
+ },
+ {
+  "slug": "at-the-pharmacy",
+  "title": "At the Pharmacy",
+  "level": "A2",
+  "description": "Compre um remédio para gripe ou dor de cabeça.",
+  "intro": "Você acordou resfriado e com dor de cabeça. Passa na farmácia do bairro, e a farmacêutica Grace sorri do balcão.",
+  "cast": {
+   "p": {
+    "name": "Grace",
+    "role": "Farmacêutica"
+   }
+  },
+  "start": "p1",
+  "decisions": [
+   7,
+   8
+  ],
+  "nodes": {
+   "p1": {
+    "speaker": "p",
+    "text": "Hi there. What can I get for you today?",
+    "pt": "Olá. O que posso fazer por você hoje?",
+    "audio": "talk/dialogues/at-the-pharmacy/fc383694caad.mp3",
+    "options": [
+     {
+      "text": "I have a bad cold. Do you have anything for it?",
+      "pt": "Estou com um resfriado forte. Vocês têm alguma coisa para isso?",
+      "audio": "talk/dialogues/at-the-pharmacy/29771cec4e34.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/2183a68a2746.mp3",
+      "next": "cold"
+     },
+     {
+      "text": "I need something for a headache, please.",
+      "pt": "Preciso de algo para dor de cabeça, por favor.",
+      "audio": "talk/dialogues/at-the-pharmacy/39814f418ae4.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/8537fd5da159.mp3",
+      "next": "head"
+     },
+     {
+      "text": "A coffee with milk, please.",
+      "pt": "Um café com leite, por favor.",
+      "audio": "talk/dialogues/at-the-pharmacy/3c5491f60146.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/4ba6613f9851.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, this is a pharmacy! What can I help you with?",
+       "pt": "Rá, aqui é uma farmácia! Em que posso ajudar?",
+       "audio": "talk/dialogues/at-the-pharmacy/3b330aa6173b.mp3"
+      }
+     }
+    ]
+   },
+   "cold": {
+    "speaker": "p",
+    "text": "Oh dear. What are your symptoms?",
+    "pt": "Ah, que chato. Quais são os seus sintomas?",
+    "audio": "talk/dialogues/at-the-pharmacy/8f872a2da854.mp3",
+    "options": [
+     {
+      "text": "A runny nose and a sore throat.",
+      "pt": "Nariz escorrendo e dor de garganta.",
+      "audio": "talk/dialogues/at-the-pharmacy/403cb92472ec.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/915f8318d2bd.mp3",
+      "next": "throat"
+     },
+     {
+      "text": "I'm coughing a lot, especially at night.",
+      "pt": "Estou tossindo muito, principalmente à noite.",
+      "audio": "talk/dialogues/at-the-pharmacy/5a4cf4583a40.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/a66e85ceb3e0.mp3",
+      "next": "cough"
+     },
+     {
+      "text": "My symptoms are in my bag.",
+      "pt": "Meus sintomas estão na minha bolsa.",
+      "audio": "talk/dialogues/at-the-pharmacy/d1acfa0e5016.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/fd072e1d8a6b.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! I mean, how do you feel? A sore throat? A cough?",
+       "pt": "Rá! Quero dizer, como você está se sentindo? Dor de garganta? Tosse?",
+       "audio": "talk/dialogues/at-the-pharmacy/4b884d2ce9f8.mp3"
+      }
+     }
+    ]
+   },
+   "throat": {
+    "speaker": "p",
+    "text": "Do you have a temperature as well?",
+    "pt": "Você está com febre também?",
+    "audio": "talk/dialogues/at-the-pharmacy/9912cff6e4b9.mp3",
+    "options": [
+     {
+      "text": "No, I don't think so.",
+      "pt": "Não, acho que não.",
+      "audio": "talk/dialogues/at-the-pharmacy/b3ae737ddad1.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/f650374a2f19.mp3",
+      "next": "fever_no"
+     },
+     {
+      "text": "Yes, a little. I feel hot and tired.",
+      "pt": "Sim, um pouco. Estou com calor e cansaço.",
+      "audio": "talk/dialogues/at-the-pharmacy/7e15f2cacd27.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/bc287e3791f3.mp3",
+      "next": "fever_yes"
+     },
+     {
+      "text": "It's about twenty degrees outside.",
+      "pt": "Está uns vinte graus lá fora.",
+      "audio": "talk/dialogues/at-the-pharmacy/37334926af9d.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/01abf8b2ca5c.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, not the weather! I mean, do you have a fever?",
+       "pt": "Rá, não o tempo! Quero dizer, você está com febre?",
+       "audio": "talk/dialogues/at-the-pharmacy/6294ea7de090.mp3"
+      }
+     }
+    ]
+   },
+   "fever_no": {
+    "speaker": "p",
+    "text": "Okay. These lozenges are good for a sore throat, and this spray helps with a blocked nose.",
+    "pt": "Certo. Estas pastilhas são boas para dor de garganta, e este spray ajuda com o nariz entupido.",
+    "audio": "talk/dialogues/at-the-pharmacy/701774eafdbd.mp3",
+    "next": "allergy"
+   },
+   "fever_yes": {
+    "speaker": "p",
+    "text": "Then I'd recommend paracetamol. It helps with the fever and the pain.",
+    "pt": "Então eu recomendo paracetamol. Ajuda com a febre e com a dor.",
+    "audio": "talk/dialogues/at-the-pharmacy/d81b39bb2008.mp3",
+    "next": "allergy"
+   },
+   "cough": {
+    "speaker": "p",
+    "text": "Is it a dry cough, or a chesty cough?",
+    "pt": "É uma tosse seca ou com catarro?",
+    "audio": "talk/dialogues/at-the-pharmacy/543af3e8569a.mp3",
+    "options": [
+     {
+      "text": "It's dry. It just tickles my throat.",
+      "pt": "É seca. Só fica coçando a garganta.",
+      "audio": "talk/dialogues/at-the-pharmacy/d3165a0da153.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/374b31d90e05.mp3",
+      "next": "dry"
+     },
+     {
+      "text": "Chesty, I think. I can feel it in my chest.",
+      "pt": "Com catarro, acho. Sinto no peito.",
+      "audio": "talk/dialogues/at-the-pharmacy/f2a191ba6e3c.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/bfae6936afbd.mp3",
+      "next": "chesty"
+     },
+     {
+      "text": "I play chess on Sundays.",
+      "pt": "Eu jogo xadrez aos domingos.",
+      "audio": "talk/dialogues/at-the-pharmacy/32d3e0c9a65a.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/6e17ea0ae357.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! Not chess. Is your cough dry, or do you feel it in your chest?",
+       "pt": "Rá! Não é xadrez. Sua tosse é seca ou você sente no peito?",
+       "audio": "talk/dialogues/at-the-pharmacy/9c12aea4400f.mp3"
+      }
+     }
+    ]
+   },
+   "dry": {
+    "speaker": "p",
+    "text": "This syrup is good for dry coughs. It can make you a bit sleepy, though.",
+    "pt": "Este xarope é bom para tosse seca. Mas pode dar um pouco de sono.",
+    "audio": "talk/dialogues/at-the-pharmacy/e0e85d09851e.mp3",
+    "next": "sleepy"
+   },
+   "sleepy": {
+    "speaker": "p",
+    "text": "Is that a problem? Do you need to drive or work today?",
+    "pt": "Isso é um problema? Você precisa dirigir ou trabalhar hoje?",
+    "audio": "talk/dialogues/at-the-pharmacy/9926bbe8add5.mp3",
+    "options": [
+     {
+      "text": "Yes, I have to drive later.",
+      "pt": "Sim, tenho que dirigir mais tarde.",
+      "audio": "talk/dialogues/at-the-pharmacy/0cd174270db1.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/2f9f28bd7160.mp3",
+      "next": "nondrowsy"
+     },
+     {
+      "text": "No, that's fine. I'm staying at home today.",
+      "pt": "Não, tudo bem. Vou ficar em casa hoje.",
+      "audio": "talk/dialogues/at-the-pharmacy/79d05e44f178.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/2184b4323a51.mp3",
+      "next": "allergy"
+     },
+     {
+      "text": "I usually sleep about seven hours.",
+      "pt": "Normalmente durmo umas sete horas.",
+      "audio": "talk/dialogues/at-the-pharmacy/bf4333426aa5.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/1b19bfd2a99a.mp3",
+      "next": null,
+      "react": {
+       "text": "Good for you! But will you drive today? The syrup can make you sleepy.",
+       "pt": "Que bom! Mas você vai dirigir hoje? O xarope pode dar sono.",
+       "audio": "talk/dialogues/at-the-pharmacy/30dc1f22290d.mp3"
+      }
+     }
+    ]
+   },
+   "nondrowsy": {
+    "speaker": "p",
+    "text": "No problem. This one won't make you sleepy.",
+    "pt": "Sem problema. Este aqui não dá sono.",
+    "audio": "talk/dialogues/at-the-pharmacy/c6a0cb919b01.mp3",
+    "next": "allergy"
+   },
+   "chesty": {
+    "speaker": "p",
+    "text": "Then try this syrup. It helps to clear your chest.",
+    "pt": "Então experimente este xarope. Ele ajuda a limpar o peito.",
+    "audio": "talk/dialogues/at-the-pharmacy/47bf8dc4b7d6.mp3",
+    "next": "allergy"
+   },
+   "head": {
+    "speaker": "p",
+    "text": "Oh, I'm sorry. How long have you had it?",
+    "pt": "Ah, que pena. Há quanto tempo você está com ela?",
+    "audio": "talk/dialogues/at-the-pharmacy/e523444d608f.mp3",
+    "options": [
+     {
+      "text": "Since this morning.",
+      "pt": "Desde hoje de manhã.",
+      "audio": "talk/dialogues/at-the-pharmacy/d69b5bd52de3.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/4c40dcb0a850.mp3",
+      "next": "head_short"
+     },
+     {
+      "text": "For about three days now.",
+      "pt": "Já faz uns três dias.",
+      "audio": "talk/dialogues/at-the-pharmacy/b448f0cc715f.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/6ca60c9bc1ad.mp3",
+      "next": "head_long"
+     },
+     {
+      "text": "I have long hair, yes.",
+      "pt": "Tenho cabelo comprido, sim.",
+      "audio": "talk/dialogues/at-the-pharmacy/0cb2ab58c2bc.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/c11ade6dd26a.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! I mean, when did the headache start?",
+       "pt": "Rá! Quero dizer, quando a dor de cabeça começou?",
+       "audio": "talk/dialogues/at-the-pharmacy/d204d72b1711.mp3"
+      }
+     }
+    ]
+   },
+   "head_long": {
+    "speaker": "p",
+    "text": "Three days is quite a long time. Are you sleeping well? Drinking enough water?",
+    "pt": "Três dias é bastante tempo. Você está dormindo bem? Bebendo água suficiente?",
+    "audio": "talk/dialogues/at-the-pharmacy/2e73ac060f67.mp3",
+    "options": [
+     {
+      "text": "Not really. I've been working late.",
+      "pt": "Não muito. Tenho trabalhado até tarde.",
+      "audio": "talk/dialogues/at-the-pharmacy/c55fa24c14d7.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/2c9bacfa63f1.mp3",
+      "next": "water"
+     },
+     {
+      "text": "Actually, I probably don't drink enough water.",
+      "pt": "Na verdade, acho que não bebo água suficiente.",
+      "audio": "talk/dialogues/at-the-pharmacy/5dfa6c833e0a.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/5312693ecde0.mp3",
+      "next": "water"
+     },
+     {
+      "text": "I sleep in a very big bed.",
+      "pt": "Durmo numa cama bem grande.",
+      "audio": "talk/dialogues/at-the-pharmacy/c77e093a49b4.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/360cf9187329.mp3",
+      "next": null,
+      "react": {
+       "text": "Lucky you! But are you getting enough sleep?",
+       "pt": "Que sorte! Mas você está dormindo o suficiente?",
+       "audio": "talk/dialogues/at-the-pharmacy/31f259b08614.mp3"
+      }
+     }
+    ]
+   },
+   "water": {
+    "speaker": "p",
+    "text": "That can cause headaches. Drink more water, and see a doctor if it doesn't stop.",
+    "pt": "Isso pode causar dor de cabeça. Beba mais água e procure um médico se não passar.",
+    "audio": "talk/dialogues/at-the-pharmacy/da34c47c4119.mp3",
+    "next": "head_short"
+   },
+   "head_short": {
+    "speaker": "p",
+    "text": "I'd suggest ibuprofen or paracetamol. Which one do you usually take?",
+    "pt": "Eu sugiro ibuprofeno ou paracetamol. Qual você costuma tomar?",
+    "audio": "talk/dialogues/at-the-pharmacy/a4237b4f56ab.mp3",
+    "options": [
+     {
+      "text": "Ibuprofen usually works for me.",
+      "pt": "Ibuprofeno costuma funcionar para mim.",
+      "audio": "talk/dialogues/at-the-pharmacy/03307fa3c049.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/d3ba2da9895b.mp3",
+      "next": "allergy"
+     },
+     {
+      "text": "Paracetamol, please. Ibuprofen hurts my stomach.",
+      "pt": "Paracetamol, por favor. Ibuprofeno me faz mal ao estômago.",
+      "audio": "talk/dialogues/at-the-pharmacy/e71ba20c0dad.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/aaef1ff4c855.mp3",
+      "next": "stomach"
+     },
+     {
+      "text": "I usually take the bus.",
+      "pt": "Normalmente pego o ônibus.",
+      "audio": "talk/dialogues/at-the-pharmacy/3be201cd64fc.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/0999a5a171e6.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! I mean the medicine. Ibuprofen or paracetamol?",
+       "pt": "Rá! Falo do remédio. Ibuprofeno ou paracetamol?",
+       "audio": "talk/dialogues/at-the-pharmacy/ef50df708c3c.mp3"
+      }
+     }
+    ]
+   },
+   "stomach": {
+    "speaker": "p",
+    "text": "Good to know. Paracetamol is gentler on the stomach.",
+    "pt": "Bom saber. O paracetamol é mais leve para o estômago.",
+    "audio": "talk/dialogues/at-the-pharmacy/e3b4c7da005a.mp3",
+    "next": "allergy"
+   },
+   "allergy": {
+    "speaker": "p",
+    "text": "Before I give you this, are you allergic to any medicines?",
+    "pt": "Antes de te dar isto, você tem alergia a algum remédio?",
+    "audio": "talk/dialogues/at-the-pharmacy/788418a162ab.mp3",
+    "options": [
+     {
+      "text": "No, not that I know of.",
+      "pt": "Não, que eu saiba, não.",
+      "audio": "talk/dialogues/at-the-pharmacy/9ab11a2701d0.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/55bd1373640c.mp3",
+      "next": "other_meds"
+     },
+     {
+      "text": "Yes, I'm allergic to penicillin.",
+      "pt": "Sim, tenho alergia a penicilina.",
+      "audio": "talk/dialogues/at-the-pharmacy/fe34b0ff64e1.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/95451df6e15d.mp3",
+      "next": "penicillin"
+     },
+     {
+      "text": "I'm allergic to Mondays.",
+      "pt": "Tenho alergia a segunda-feira.",
+      "audio": "talk/dialogues/at-the-pharmacy/c32f0b018dab.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/fb08030d1a2a.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! Me too. But are you allergic to any medicines?",
+       "pt": "Rá! Eu também. Mas você tem alergia a algum remédio?",
+       "audio": "talk/dialogues/at-the-pharmacy/9631c644df79.mp3"
+      }
+     }
+    ]
+   },
+   "penicillin": {
+    "speaker": "p",
+    "text": "Thanks for telling me. There's no penicillin in this, so it's safe for you.",
+    "pt": "Obrigada por avisar. Isto não tem penicilina, então é seguro para você.",
+    "audio": "talk/dialogues/at-the-pharmacy/74a59d3ab7de.mp3",
+    "next": "other_meds"
+   },
+   "other_meds": {
+    "speaker": "p",
+    "text": "And are you taking any other medicine at the moment?",
+    "pt": "E você está tomando algum outro remédio no momento?",
+    "audio": "talk/dialogues/at-the-pharmacy/7ff94b3fcee2.mp3",
+    "options": [
+     {
+      "text": "No, nothing else.",
+      "pt": "Não, mais nada.",
+      "audio": "talk/dialogues/at-the-pharmacy/f7b6f930afe9.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/a27bebd830b5.mp3",
+      "next": "dose"
+     },
+     {
+      "text": "Just some vitamins.",
+      "pt": "Só umas vitaminas.",
+      "audio": "talk/dialogues/at-the-pharmacy/51a7efffb3f8.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/7e60f2ff57af.mp3",
+      "next": "dose"
+     },
+     {
+      "text": "Yes, I'm taking an English course.",
+      "pt": "Sim, estou fazendo um curso de inglês.",
+      "audio": "talk/dialogues/at-the-pharmacy/a8b77f194ed6.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/28a098dddc7e.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, good for you! But I meant pills or medicine. Anything?",
+       "pt": "Rá, que ótimo! Mas eu quis dizer comprimidos ou remédios. Algum?",
+       "audio": "talk/dialogues/at-the-pharmacy/921f83f739fe.mp3"
+      }
+     }
+    ]
+   },
+   "dose": {
+    "speaker": "p",
+    "text": "Okay. Take it three times a day, after meals. Not more than that, please.",
+    "pt": "Certo. Tome três vezes ao dia, depois das refeições. Não mais do que isso, por favor.",
+    "audio": "talk/dialogues/at-the-pharmacy/7eb52f2c0c81.mp3",
+    "next": "dose_q"
+   },
+   "dose_q": {
+    "speaker": "p",
+    "text": "Do you have any questions about how to take it?",
+    "pt": "Tem alguma dúvida sobre como tomar?",
+    "audio": "talk/dialogues/at-the-pharmacy/2fdbbe88cd02.mp3",
+    "options": [
+     {
+      "text": "Can I take it on an empty stomach?",
+      "pt": "Posso tomar em jejum?",
+      "audio": "talk/dialogues/at-the-pharmacy/513a5d2398f8.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/188011627bd4.mp3",
+      "next": "empty"
+     },
+     {
+      "text": "How long should I take it for?",
+      "pt": "Por quanto tempo devo tomar?",
+      "audio": "talk/dialogues/at-the-pharmacy/37e63a868871.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/6b314da9eb0f.mp3",
+      "next": "howlong"
+     },
+     {
+      "text": "No, that's clear. Thank you.",
+      "pt": "Não, está claro. Obrigado.",
+      "audio": "talk/dialogues/at-the-pharmacy/9171d30c6f99.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/bc6f04f58c02.mp3",
+      "next": "pay"
+     },
+     {
+      "text": "Can I take it to the beach?",
+      "pt": "Posso levar para a praia?",
+      "audio": "talk/dialogues/at-the-pharmacy/cf33a15faf8d.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/ae40809570a8.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, you can take it anywhere! But any questions about the dose?",
+       "pt": "Rá, pode levar para onde quiser! Mas alguma dúvida sobre a dose?",
+       "audio": "talk/dialogues/at-the-pharmacy/4f9bdb282cee.mp3"
+      }
+     }
+    ]
+   },
+   "empty": {
+    "speaker": "p",
+    "text": "Better not. Take it with food, or it might upset your stomach.",
+    "pt": "Melhor não. Tome com comida, senão pode fazer mal ao estômago.",
+    "audio": "talk/dialogues/at-the-pharmacy/ac4465a8e334.mp3",
+    "next": "pay"
+   },
+   "howlong": {
+    "speaker": "p",
+    "text": "Up to five days. If you don't feel better by then, please see a doctor.",
+    "pt": "Até cinco dias. Se não melhorar até lá, procure um médico, por favor.",
+    "audio": "talk/dialogues/at-the-pharmacy/c6b5b34530c0.mp3",
+    "next": "pay"
+   },
+   "pay": {
+    "speaker": "p",
+    "text": "That's six pounds fifty. Would you like a bag?",
+    "pt": "São seis libras e cinquenta. Quer uma sacola?",
+    "audio": "talk/dialogues/at-the-pharmacy/134ae0d326a8.mp3",
+    "options": [
+     {
+      "text": "No, thanks. I'll put it in my pocket.",
+      "pt": "Não, obrigado. Vou pôr no bolso.",
+      "audio": "talk/dialogues/at-the-pharmacy/ebf307efda50.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/a4dc75535aae.mp3",
+      "next": "end"
+     },
+     {
+      "text": "Yes, please. Can I pay by card?",
+      "pt": "Sim, por favor. Posso pagar com cartão?",
+      "audio": "talk/dialogues/at-the-pharmacy/f2644fa1f9b5.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/be0c7aba59f7.mp3",
+      "next": "card"
+     },
+     {
+      "text": "Yes, a big bag of sweets, please.",
+      "pt": "Sim, um saco grande de balas, por favor.",
+      "audio": "talk/dialogues/at-the-pharmacy/012ede3a06d6.mp3",
+      "audioF": "talk/dialogues/at-the-pharmacy/c80a9c2fedda.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, no sweets here, sorry! Do you need a bag for your medicine?",
+       "pt": "Rá, aqui não tem bala, desculpe! Precisa de uma sacola para o remédio?",
+       "audio": "talk/dialogues/at-the-pharmacy/2c3be985c9c0.mp3"
+      }
+     }
+    ]
+   },
+   "card": {
+    "speaker": "p",
+    "text": "Of course. Just tap it here.",
+    "pt": "Claro. É só encostar aqui.",
+    "audio": "talk/dialogues/at-the-pharmacy/0450e718eb8f.mp3",
+    "next": "end"
+   },
+   "end": {
+    "speaker": "p",
+    "text": "There you go. Get some rest, drink lots of water, and get well soon!",
+    "pt": "Aqui está. Descanse, beba bastante água e melhoras!",
+    "audio": "talk/dialogues/at-the-pharmacy/8a27b280698e.mp3",
+    "end": true
+   }
+  },
+  "nudges": {
+   "p": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/at-the-pharmacy/b6e85f66b62f.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/at-the-pharmacy/c833c117ca8b.mp3"
+    }
+   ]
+  }
+ },
+ {
+  "slug": "a-phone-call-booking",
+  "title": "Booking by Phone",
+  "level": "A2",
+  "description": "Reserve ou mude uma mesa por telefone.",
+  "intro": "Você liga para o Rosa's Kitchen, um restaurante bem movimentado. Do outro lado da linha, com muito barulho ao fundo, atende o Jake.",
+  "cast": {
+   "h": {
+    "name": "Jake",
+    "role": "Atendente do restaurante"
+   }
+  },
+  "start": "b1",
+  "decisions": [
+   4,
+   9
+  ],
+  "nodes": {
+   "b1": {
+    "speaker": "h",
+    "text": "Good evening, Rosa's Kitchen, Jake speaking. How can I help?",
+    "pt": "Boa noite, Rosa's Kitchen, Jake falando. Como posso ajudar?",
+    "audio": "talk/dialogues/a-phone-call-booking/9fd8f59a84d6.mp3",
+    "options": [
+     {
+      "text": "Hi. I'd like to book a table, please.",
+      "pt": "Oi. Eu gostaria de reservar uma mesa, por favor.",
+      "audio": "talk/dialogues/a-phone-call-booking/11056a4aac98.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/9587ae1e84a0.mp3",
+      "next": "book"
+     },
+     {
+      "text": "Hi. I have a booking, but I need to change it.",
+      "pt": "Oi. Tenho uma reserva, mas preciso mudar.",
+      "audio": "talk/dialogues/a-phone-call-booking/6999f2a140dd.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/c7c7f0eddfec.mp3",
+      "next": "change"
+     },
+     {
+      "text": "Hi. I'd like to book a flight to Paris.",
+      "pt": "Oi. Eu gostaria de reservar um voo para Paris.",
+      "audio": "talk/dialogues/a-phone-call-booking/6d16f942675b.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/3185161baee4.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, this is a restaurant, not an airline! Would you like a table?",
+       "pt": "Rá, aqui é um restaurante, não uma companhia aérea! Quer uma mesa?",
+       "audio": "talk/dialogues/a-phone-call-booking/ae738d295d59.mp3"
+      }
+     }
+    ]
+   },
+   "book": {
+    "speaker": "h",
+    "text": "Sure. Which day would you like?",
+    "pt": "Claro. Para que dia?",
+    "audio": "talk/dialogues/a-phone-call-booking/9b169dc87e2b.mp3",
+    "options": [
+     {
+      "text": "This Friday, if possible.",
+      "pt": "Esta sexta, se possível.",
+      "audio": "talk/dialogues/a-phone-call-booking/4168c59ce3d4.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/8177a10e0fb2.mp3",
+      "next": "friday"
+     },
+     {
+      "text": "Tomorrow night, please.",
+      "pt": "Amanhã à noite, por favor.",
+      "audio": "talk/dialogues/a-phone-call-booking/2966a6711a1a.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/76a417211c68.mp3",
+      "next": "tomorrow"
+     },
+     {
+      "text": "Turn left after the bank.",
+      "pt": "Vire à esquerda depois do banco.",
+      "audio": "talk/dialogues/a-phone-call-booking/76b9ceef8bc1.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/b2bafae598c9.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, I know where we are! I mean, what day is the booking for?",
+       "pt": "Rá, eu sei onde a gente fica! Quero dizer, a reserva é para que dia?",
+       "audio": "talk/dialogues/a-phone-call-booking/15119bb33b9f.mp3"
+      }
+     }
+    ]
+   },
+   "friday": {
+    "speaker": "h",
+    "text": "Sorry, it's really noisy here! Friday's busy, but I have seven o'clock or half past nine.",
+    "pt": "Desculpe, está muito barulhento aqui! Sexta está cheio, mas tenho às sete ou às nove e meia.",
+    "audio": "talk/dialogues/a-phone-call-booking/e1fd7a3c7b0c.mp3",
+    "options": [
+     {
+      "text": "Seven o'clock is perfect.",
+      "pt": "Às sete está perfeito.",
+      "audio": "talk/dialogues/a-phone-call-booking/a5cb9289beca.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/2dc0e498c3a1.mp3",
+      "next": "people"
+     },
+     {
+      "text": "Half past nine is fine.",
+      "pt": "Às nove e meia está bom.",
+      "audio": "talk/dialogues/a-phone-call-booking/9d0f3a562be4.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/b06c49b4e59d.mp3",
+      "next": "people"
+     },
+     {
+      "text": "Sorry, did you say nine or five?",
+      "pt": "Desculpe, você disse nove ou cinco?",
+      "audio": "talk/dialogues/a-phone-call-booking/10fea18af291.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/ffff381e9c23.mp3",
+      "next": "repeat"
+     },
+     {
+      "text": "Yes, my house is noisy too.",
+      "pt": "Sim, minha casa também é barulhenta.",
+      "audio": "talk/dialogues/a-phone-call-booking/8ce09a981851.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/a4df5927cace.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! So, seven, or half past nine?",
+       "pt": "Rá! Então, às sete ou às nove e meia?",
+       "audio": "talk/dialogues/a-phone-call-booking/f2f3274594fe.mp3"
+      }
+     }
+    ]
+   },
+   "repeat": {
+    "speaker": "h",
+    "text": "Nine. Half past nine. Nine thirty.",
+    "pt": "Nove. Nove e meia. Nove e trinta.",
+    "audio": "talk/dialogues/a-phone-call-booking/2b2d151a6dc3.mp3",
+    "next": "repeat_q"
+   },
+   "repeat_q": {
+    "speaker": "h",
+    "text": "So, seven or nine thirty?",
+    "pt": "Então, sete ou nove e meia?",
+    "audio": "talk/dialogues/a-phone-call-booking/30c3d75a6d54.mp3",
+    "options": [
+     {
+      "text": "Seven, please.",
+      "pt": "Às sete, por favor.",
+      "audio": "talk/dialogues/a-phone-call-booking/ed8065bde2d0.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/a5d6250a8199.mp3",
+      "next": "people"
+     },
+     {
+      "text": "Nine thirty is better for us.",
+      "pt": "Nove e meia é melhor para nós.",
+      "audio": "talk/dialogues/a-phone-call-booking/c0bd5057db0d.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/31e3f7463115.mp3",
+      "next": "people"
+     },
+     {
+      "text": "Nineteen, please.",
+      "pt": "Dezenove, por favor.",
+      "audio": "talk/dialogues/a-phone-call-booking/44f4bc3dd6d9.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/dd4ec2dab512.mp3",
+      "next": null,
+      "react": {
+       "text": "Nineteen? We close at eleven! Seven, or nine thirty?",
+       "pt": "Dezenove? A gente fecha às onze! Sete ou nove e meia?",
+       "audio": "talk/dialogues/a-phone-call-booking/3e480208732f.mp3"
+      }
+     }
+    ]
+   },
+   "tomorrow": {
+    "speaker": "h",
+    "text": "Tomorrow, let me see. I have a table at eight. Does that work?",
+    "pt": "Amanhã, deixa eu ver. Tenho uma mesa às oito. Pode ser?",
+    "audio": "talk/dialogues/a-phone-call-booking/514afc8372e7.mp3",
+    "options": [
+     {
+      "text": "Yes, eight is great.",
+      "pt": "Sim, às oito está ótimo.",
+      "audio": "talk/dialogues/a-phone-call-booking/01c5e68e3339.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/e0cbdc9dfa6a.mp3",
+      "next": "people"
+     },
+     {
+      "text": "Do you have anything earlier?",
+      "pt": "Vocês têm algo mais cedo?",
+      "audio": "talk/dialogues/a-phone-call-booking/be85c255668d.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/d7111e91b694.mp3",
+      "next": "earlier"
+     },
+     {
+      "text": "Yes, I ate already, thanks.",
+      "pt": "Sim, já comi, obrigado.",
+      "audio": "talk/dialogues/a-phone-call-booking/d5b21b3dbf3a.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/7cb70b7745dd.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! No, eight o'clock, the time. Is a table at eight okay?",
+       "pt": "Rá! Não, oito horas, o horário. Uma mesa às oito está bom?",
+       "audio": "talk/dialogues/a-phone-call-booking/8694ac391e33.mp3"
+      }
+     }
+    ]
+   },
+   "earlier": {
+    "speaker": "h",
+    "text": "Only at quarter past six, I'm afraid. Is that too early?",
+    "pt": "Só às seis e quinze, infelizmente. É cedo demais?",
+    "audio": "talk/dialogues/a-phone-call-booking/be7705f9d225.mp3",
+    "options": [
+     {
+      "text": "No, quarter past six is fine.",
+      "pt": "Não, seis e quinze está bom.",
+      "audio": "talk/dialogues/a-phone-call-booking/5034bb1c9b59.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/1acafa65f22f.mp3",
+      "next": "people"
+     },
+     {
+      "text": "That's a bit early. Let's keep eight.",
+      "pt": "É um pouco cedo. Vamos manter às oito.",
+      "audio": "talk/dialogues/a-phone-call-booking/b4f4b15aa98f.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/38a823223caa.mp3",
+      "next": "people"
+     },
+     {
+      "text": "Six bottles of water, please.",
+      "pt": "Seis garrafas de água, por favor.",
+      "audio": "talk/dialogues/a-phone-call-booking/35590b10e66e.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/cbe44a1a5ebc.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, I'm just booking tables! Quarter past six, or eight?",
+       "pt": "Rá, eu só faço reservas! Seis e quinze ou oito?",
+       "audio": "talk/dialogues/a-phone-call-booking/b08c2aabff4b.mp3"
+      }
+     }
+    ]
+   },
+   "people": {
+    "speaker": "h",
+    "text": "And how many people is it for?",
+    "pt": "E é para quantas pessoas?",
+    "audio": "talk/dialogues/a-phone-call-booking/ae5412c214a1.mp3",
+    "options": [
+     {
+      "text": "Just two of us.",
+      "pt": "Só duas pessoas.",
+      "audio": "talk/dialogues/a-phone-call-booking/7f6ee352a418.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/29b28c1ae5f6.mp3",
+      "next": "name"
+     },
+     {
+      "text": "Six people. Is that okay?",
+      "pt": "Seis pessoas. Tudo bem?",
+      "audio": "talk/dialogues/a-phone-call-booking/a5f7275b53dd.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/74b7e14aae6e.mp3",
+      "next": "big"
+     },
+     {
+      "text": "About two hours.",
+      "pt": "Umas duas horas.",
+      "audio": "talk/dialogues/a-phone-call-booking/fb4c1153b8b3.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/2ed4c89e8a62.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, take your time! But how many people are coming?",
+       "pt": "Rá, fique à vontade! Mas quantas pessoas vêm?",
+       "audio": "talk/dialogues/a-phone-call-booking/c589079a3efa.mp3"
+      }
+     }
+    ]
+   },
+   "big": {
+    "speaker": "h",
+    "text": "For six, I'll put two tables together. No problem.",
+    "pt": "Para seis, eu junto duas mesas. Sem problema.",
+    "audio": "talk/dialogues/a-phone-call-booking/41d3bf89f16b.mp3",
+    "next": "name"
+   },
+   "name": {
+    "speaker": "h",
+    "text": "Great. Can I take a name for the booking?",
+    "pt": "Ótimo. Pode me dar um nome para a reserva?",
+    "audio": "talk/dialogues/a-phone-call-booking/ded25e15f04f.mp3",
+    "options": [
+     {
+      "text": "Sure, it's Silva.",
+      "pt": "Claro, é Silva.",
+      "audio": "talk/dialogues/a-phone-call-booking/477a7e3952e7.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/0778e839223a.mp3",
+      "next": "spell"
+     },
+     {
+      "text": "It's Silva. S, I, L, V, A.",
+      "pt": "É Silva. S, I, L, V, A.",
+      "audio": "talk/dialogues/a-phone-call-booking/71d70704afc8.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/0f4003749b5f.mp3",
+      "next": "phone"
+     },
+     {
+      "text": "Yes, you can take my coat.",
+      "pt": "Sim, pode pegar meu casaco.",
+      "audio": "talk/dialogues/a-phone-call-booking/8e9e11160588.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/07365595fa5a.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! Just your name, please. Who's the booking for?",
+       "pt": "Rá! Só o seu nome, por favor. A reserva é em nome de quem?",
+       "audio": "talk/dialogues/a-phone-call-booking/605f2dc1fd01.mp3"
+      }
+     }
+    ]
+   },
+   "spell": {
+    "speaker": "h",
+    "text": "Sorry, was that Silva with a V or a B?",
+    "pt": "Desculpe, é Silva com V ou com B?",
+    "audio": "talk/dialogues/a-phone-call-booking/d2ff53fd695b.mp3",
+    "options": [
+     {
+      "text": "With a V. S, I, L, V, A.",
+      "pt": "Com V. S, I, L, V, A.",
+      "audio": "talk/dialogues/a-phone-call-booking/275ae7733f07.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/6384bfee7bb3.mp3",
+      "next": "phone"
+     },
+     {
+      "text": "V, like Victor.",
+      "pt": "V, de Victor.",
+      "audio": "talk/dialogues/a-phone-call-booking/9cd780413644.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/7ca69b8bde5c.mp3",
+      "next": "phone"
+     },
+     {
+      "text": "With a fork and knife.",
+      "pt": "Com garfo e faca.",
+      "audio": "talk/dialogues/a-phone-call-booking/49c00e4c2f7e.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/c8171239dca2.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! I mean the letter. Is it V, or B?",
+       "pt": "Rá! Falo da letra. É V ou B?",
+       "audio": "talk/dialogues/a-phone-call-booking/6c1acb2bf893.mp3"
+      }
+     }
+    ]
+   },
+   "phone": {
+    "speaker": "h",
+    "text": "And a phone number, in case we need to call you?",
+    "pt": "E um telefone, caso a gente precise ligar?",
+    "audio": "talk/dialogues/a-phone-call-booking/43fc90c3048b.mp3",
+    "options": [
+     {
+      "text": "Sure, it's the number I'm calling from.",
+      "pt": "Claro, é o número de onde estou ligando.",
+      "audio": "talk/dialogues/a-phone-call-booking/4e78c24c1551.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/63ae867ce3ed.mp3",
+      "next": "phone_ok"
+     },
+     {
+      "text": "I don't have a local number yet. Is that a problem?",
+      "pt": "Ainda não tenho um número daqui. Tem problema?",
+      "audio": "talk/dialogues/a-phone-call-booking/2709f7644608.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/c6938121a9b8.mp3",
+      "next": "nolocal"
+     },
+     {
+      "text": "No, thanks. I already have a phone.",
+      "pt": "Não, obrigado. Já tenho um celular.",
+      "audio": "talk/dialogues/a-phone-call-booking/b6359900ff36.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/05af0b0683e4.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! I mean your number. Can we call you if we need to?",
+       "pt": "Rá! Falo do seu número. Podemos te ligar se precisar?",
+       "audio": "talk/dialogues/a-phone-call-booking/73ec7bf810a0.mp3"
+      }
+     }
+    ]
+   },
+   "phone_ok": {
+    "speaker": "h",
+    "text": "Perfect, I can see it here.",
+    "pt": "Perfeito, estou vendo aqui.",
+    "audio": "talk/dialogues/a-phone-call-booking/3ba2cda60775.mp3",
+    "next": "confirm"
+   },
+   "nolocal": {
+    "speaker": "h",
+    "text": "No problem. Any number is fine. We only call if something changes.",
+    "pt": "Sem problema. Qualquer número serve. Só ligamos se algo mudar.",
+    "audio": "talk/dialogues/a-phone-call-booking/2997429ff83d.mp3",
+    "next": "confirm"
+   },
+   "confirm": {
+    "speaker": "h",
+    "text": "Great, you're all booked under Silva. Anything else?",
+    "pt": "Ótimo, está tudo reservado em nome de Silva. Mais alguma coisa?",
+    "audio": "talk/dialogues/a-phone-call-booking/fa56dc03e86a.mp3",
+    "options": [
+     {
+      "text": "Do you have vegetarian options?",
+      "pt": "Vocês têm opções vegetarianas?",
+      "audio": "talk/dialogues/a-phone-call-booking/22cafbc70d1e.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/f9e3d9e1f99d.mp3",
+      "next": "veg"
+     },
+     {
+      "text": "Is there parking near the restaurant?",
+      "pt": "Tem estacionamento perto do restaurante?",
+      "audio": "talk/dialogues/a-phone-call-booking/43bda0d086e3.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/e061c532b68b.mp3",
+      "next": "parking"
+     },
+     {
+      "text": "No, that's everything. Thanks!",
+      "pt": "Não, é só isso. Obrigado!",
+      "audio": "talk/dialogues/a-phone-call-booking/a5b349b87f60.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/af7e8a1857ee.mp3",
+      "next": "end"
+     },
+     {
+      "text": "Yes, under my bed, please.",
+      "pt": "Sim, debaixo da minha cama, por favor.",
+      "audio": "talk/dialogues/a-phone-call-booking/0dabd4aaec95.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/1f4ff37d70f0.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! Under the name Silva, I mean. Can I help with anything else?",
+       "pt": "Rá! Em nome de Silva, eu quis dizer. Posso ajudar em mais alguma coisa?",
+       "audio": "talk/dialogues/a-phone-call-booking/9d59029a59e4.mp3"
+      }
+     }
+    ]
+   },
+   "veg": {
+    "speaker": "h",
+    "text": "Yes, we have a few vegetarian dishes. The mushroom risotto is amazing.",
+    "pt": "Sim, temos alguns pratos vegetarianos. O risoto de cogumelos é incrível.",
+    "audio": "talk/dialogues/a-phone-call-booking/b28d389cca46.mp3",
+    "next": "end"
+   },
+   "parking": {
+    "speaker": "h",
+    "text": "There's a car park behind the building. It's free after six.",
+    "pt": "Tem um estacionamento atrás do prédio. É grátis depois das seis.",
+    "audio": "talk/dialogues/a-phone-call-booking/bfa59f14b06f.mp3",
+    "next": "end"
+   },
+   "end": {
+    "speaker": "h",
+    "text": "Lovely. See you then. Bye for now!",
+    "pt": "Ótimo. Até lá. Tchau!",
+    "audio": "talk/dialogues/a-phone-call-booking/1475f5b38c8a.mp3",
+    "end": true
+   },
+   "change": {
+    "speaker": "h",
+    "text": "No problem. What's the name on the booking?",
+    "pt": "Sem problema. Em nome de quem está a reserva?",
+    "audio": "talk/dialogues/a-phone-call-booking/956521d736f6.mp3",
+    "options": [
+     {
+      "text": "It's Silva, for Saturday.",
+      "pt": "É Silva, para sábado.",
+      "audio": "talk/dialogues/a-phone-call-booking/f2743563eb4a.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/6ec70c7a3302.mp3",
+      "next": "change_found"
+     },
+     {
+      "text": "Silva. S, I, L, V, A.",
+      "pt": "Silva. S, I, L, V, A.",
+      "audio": "talk/dialogues/a-phone-call-booking/c5805c8c4834.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/d4c153db9fa3.mp3",
+      "next": "change_found"
+     },
+     {
+      "text": "The restaurant is called Rosa's.",
+      "pt": "O restaurante se chama Rosa's.",
+      "audio": "talk/dialogues/a-phone-call-booking/99b1afe7f11d.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/c2880ead01e5.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, yes, I know! But whose name is the booking under?",
+       "pt": "Rá, sim, eu sei! Mas a reserva está em nome de quem?",
+       "audio": "talk/dialogues/a-phone-call-booking/cc2d939c1e17.mp3"
+      }
+     }
+    ]
+   },
+   "change_found": {
+    "speaker": "h",
+    "text": "Got it. Saturday at eight, four people. What would you like to change?",
+    "pt": "Achei. Sábado às oito, quatro pessoas. O que você quer mudar?",
+    "audio": "talk/dialogues/a-phone-call-booking/24b8ca94a1c6.mp3",
+    "options": [
+     {
+      "text": "Could we come at nine instead?",
+      "pt": "Podemos ir às nove?",
+      "audio": "talk/dialogues/a-phone-call-booking/8d11be459742.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/2ac7dc4da8ce.mp3",
+      "next": "nine"
+     },
+     {
+      "text": "We're actually six now, not four.",
+      "pt": "Na verdade agora somos seis, não quatro.",
+      "audio": "talk/dialogues/a-phone-call-booking/3d81e2645457.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/2d775dc30059.mp3",
+      "next": "six"
+     },
+     {
+      "text": "I need to cancel it, I'm afraid.",
+      "pt": "Infelizmente, preciso cancelar.",
+      "audio": "talk/dialogues/a-phone-call-booking/244858524db3.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/ebd49c5d4343.mp3",
+      "next": "cancel"
+     },
+     {
+      "text": "I'd like to change my shirt.",
+      "pt": "Eu gostaria de trocar de camisa.",
+      "audio": "talk/dialogues/a-phone-call-booking/b06f64770ea6.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/fd3cb4ced6c2.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! I mean the booking. The time, or the number of people?",
+       "pt": "Rá! Falo da reserva. O horário ou o número de pessoas?",
+       "audio": "talk/dialogues/a-phone-call-booking/fe1733228e28.mp3"
+      }
+     }
+    ]
+   },
+   "nine": {
+    "speaker": "h",
+    "text": "Sorry, nine is fully booked. I can do half past eight.",
+    "pt": "Desculpe, às nove está lotado. Consigo às oito e meia.",
+    "audio": "talk/dialogues/a-phone-call-booking/b68ba53b1c3b.mp3",
+    "options": [
+     {
+      "text": "Half past eight is fine.",
+      "pt": "Oito e meia está bom.",
+      "audio": "talk/dialogues/a-phone-call-booking/a11afc089be3.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/e40da4fad561.mp3",
+      "next": "change_ok"
+     },
+     {
+      "text": "Then let's keep eight o'clock.",
+      "pt": "Então vamos manter às oito.",
+      "audio": "talk/dialogues/a-phone-call-booking/d16b3c3d4662.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/17190fbc8472.mp3",
+      "next": "change_ok"
+     },
+     {
+      "text": "Eight and a half people?",
+      "pt": "Oito pessoas e meia?",
+      "audio": "talk/dialogues/a-phone-call-booking/d2ccacfdf3c1.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/cecb0cec14be.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! No, half past eight, the time. Is that okay?",
+       "pt": "Rá! Não, oito e meia, o horário. Tudo bem?",
+       "audio": "talk/dialogues/a-phone-call-booking/196917a816ee.mp3"
+      }
+     }
+    ]
+   },
+   "six": {
+    "speaker": "h",
+    "text": "Six, okay. Let me check. Yes, I can give you a bigger table.",
+    "pt": "Seis, certo. Deixa eu ver. Sim, consigo uma mesa maior.",
+    "audio": "talk/dialogues/a-phone-call-booking/80e4f206f545.mp3",
+    "next": "change_ok"
+   },
+   "cancel": {
+    "speaker": "h",
+    "text": "Oh, that's a shame. Would you like to book another day instead?",
+    "pt": "Ah, que pena. Quer reservar para outro dia?",
+    "audio": "talk/dialogues/a-phone-call-booking/d2e6e1c66abd.mp3",
+    "options": [
+     {
+      "text": "Yes, how about next Saturday?",
+      "pt": "Sim, que tal no outro sábado?",
+      "audio": "talk/dialogues/a-phone-call-booking/2deef9e0d7d0.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/ecec630a9c7f.mp3",
+      "next": "nextsat"
+     },
+     {
+      "text": "No, thanks. Maybe next time.",
+      "pt": "Não, obrigado. Quem sabe numa próxima.",
+      "audio": "talk/dialogues/a-phone-call-booking/bdf0adb4c3b2.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/faa6d8e081b9.mp3",
+      "next": "end_cancel"
+     },
+     {
+      "text": "Yes, another drink, please.",
+      "pt": "Sim, mais uma bebida, por favor.",
+      "audio": "talk/dialogues/a-phone-call-booking/d1882b159710.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/856202549929.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, we're on the phone! Do you want to book another day?",
+       "pt": "Rá, a gente está no telefone! Quer reservar outro dia?",
+       "audio": "talk/dialogues/a-phone-call-booking/caaed070f9d1.mp3"
+      }
+     }
+    ]
+   },
+   "nextsat": {
+    "speaker": "h",
+    "text": "Next Saturday at eight is free. I'll move it for you.",
+    "pt": "No outro sábado às oito está livre. Vou mudar para você.",
+    "audio": "talk/dialogues/a-phone-call-booking/385e2587a015.mp3",
+    "next": "change_ok"
+   },
+   "end_cancel": {
+    "speaker": "h",
+    "text": "No problem, your booking is cancelled. Hope to see you soon!",
+    "pt": "Sem problema, sua reserva está cancelada. Esperamos ver você em breve!",
+    "audio": "talk/dialogues/a-phone-call-booking/ec3507343385.mp3",
+    "end": true
+   },
+   "change_ok": {
+    "speaker": "h",
+    "text": "Done, I've updated your booking. Anything else I can help with?",
+    "pt": "Pronto, atualizei sua reserva. Posso ajudar em mais alguma coisa?",
+    "audio": "talk/dialogues/a-phone-call-booking/6007696bafdb.mp3",
+    "options": [
+     {
+      "text": "No, that's all. Thank you!",
+      "pt": "Não, é só isso. Obrigado!",
+      "audio": "talk/dialogues/a-phone-call-booking/bbbe4317fe6f.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/e8aa040fe29d.mp3",
+      "next": "end"
+     },
+     {
+      "text": "Can you send me a confirmation?",
+      "pt": "Você pode me mandar uma confirmação?",
+      "audio": "talk/dialogues/a-phone-call-booking/ee4f30d6b7af.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/a2e4a4e9f9fd.mp3",
+      "next": "text"
+     },
+     {
+      "text": "Yes, can you help me with my homework?",
+      "pt": "Sim, você pode me ajudar com a lição de casa?",
+      "audio": "talk/dialogues/a-phone-call-booking/ed7ed3aefcea.mp3",
+      "audioF": "talk/dialogues/a-phone-call-booking/9a308f955952.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, I'm not a teacher! Anything else about the booking?",
+       "pt": "Rá, eu não sou professor! Mais alguma coisa sobre a reserva?",
+       "audio": "talk/dialogues/a-phone-call-booking/bed39b45698f.mp3"
+      }
+     }
+    ]
+   },
+   "text": {
+    "speaker": "h",
+    "text": "Sure. We'll send you a text message in a few minutes.",
+    "pt": "Claro. Vamos mandar uma mensagem de texto em alguns minutos.",
+    "audio": "talk/dialogues/a-phone-call-booking/157e1858f872.mp3",
+    "next": "end"
+   }
+  },
+  "nudges": {
+   "h": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/a-phone-call-booking/5721c30a5077.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/a-phone-call-booking/047af034c6c2.mp3"
+    }
+   ]
+  }
+ },
+ {
+  "slug": "returning-a-faulty-item",
+  "title": "Returning Faulty Headphones",
+  "level": "B1",
+  "description": "Devolva um fone com defeito e negocie uma solução.",
+  "intro": "Seus fones de ouvido novos pararam de funcionar depois de uma semana. Você volta à loja SoundZone, onde a atendente Megan está no balcão.",
+  "cast": {
+   "e": {
+    "name": "Megan",
+    "role": "Atendente da loja"
+   },
+   "m": {
+    "name": "Oliver",
+    "role": "Gerente da loja"
+   }
+  },
+  "start": "r1",
+  "decisions": [
+   5,
+   10
+  ],
+  "nodes": {
+   "r1": {
+    "speaker": "e",
+    "text": "Hi, welcome to SoundZone. How can I help?",
+    "pt": "Oi, boas-vindas à SoundZone. Como posso ajudar?",
+    "audio": "talk/dialogues/returning-a-faulty-item/c3841bc71712.mp3",
+    "options": [
+     {
+      "text": "Hi. I bought these headphones last week, and they've stopped working.",
+      "pt": "Oi. Comprei estes fones semana passada e eles pararam de funcionar.",
+      "audio": "talk/dialogues/returning-a-faulty-item/48860c364771.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/8b6f663c888a.mp3",
+      "next": "what"
+     },
+     {
+      "text": "Hello. I'd like to return these headphones, please. They're faulty.",
+      "pt": "Olá. Eu gostaria de devolver estes fones, por favor. Estão com defeito.",
+      "audio": "talk/dialogues/returning-a-faulty-item/1e3e6a5fc7ba.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/6f6d8611d36f.mp3",
+      "next": "what"
+     },
+     {
+      "text": "Hi. Could you turn the music up, please?",
+      "pt": "Oi. Você pode aumentar a música, por favor?",
+      "audio": "talk/dialogues/returning-a-faulty-item/6acfa69c2567.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/6aa20a7b87d5.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, it's loud enough in here! What can I do for you?",
+       "pt": "Rá, já está alto o suficiente aqui! O que posso fazer por você?",
+       "audio": "talk/dialogues/returning-a-faulty-item/41cdf3ded78a.mp3"
+      }
+     }
+    ]
+   },
+   "what": {
+    "speaker": "e",
+    "text": "Oh no, I'm sorry to hear that. What exactly is the problem?",
+    "pt": "Ah, não, sinto muito. Qual é exatamente o problema?",
+    "audio": "talk/dialogues/returning-a-faulty-item/01d564b9b0e7.mp3",
+    "options": [
+     {
+      "text": "The left side doesn't make any sound.",
+      "pt": "O lado esquerdo não sai som nenhum.",
+      "audio": "talk/dialogues/returning-a-faulty-item/a107cc5c9ff8.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/99eb01d88e04.mp3",
+      "next": "left"
+     },
+     {
+      "text": "They won't charge anymore. The light doesn't come on.",
+      "pt": "Não carregam mais. A luz não acende.",
+      "audio": "talk/dialogues/returning-a-faulty-item/efd85e8f3e92.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/bed06b54083b.mp3",
+      "next": "charge"
+     },
+     {
+      "text": "The problem is that I love them.",
+      "pt": "O problema é que eu amo eles.",
+      "audio": "talk/dialogues/returning-a-faulty-item/6cae4ba141cc.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/ce8f485ed2af.mp3",
+      "next": null,
+      "react": {
+       "text": "Aw! But what's wrong with them, exactly?",
+       "pt": "Own! Mas o que eles têm, exatamente?",
+       "audio": "talk/dialogues/returning-a-faulty-item/28b26600756a.mp3"
+      }
+     }
+    ]
+   },
+   "left": {
+    "speaker": "e",
+    "text": "Let me try them. Hmm, you're right. Nothing on the left.",
+    "pt": "Deixa eu testar. Hum, você tem razão. Nada no lado esquerdo.",
+    "audio": "talk/dialogues/returning-a-faulty-item/a867680bbeed.mp3",
+    "next": "receipt"
+   },
+   "charge": {
+    "speaker": "e",
+    "text": "Let me plug them in. Yeah, nothing at all. That's definitely not normal.",
+    "pt": "Deixa eu ligar na tomada. É, nada. Isso com certeza não é normal.",
+    "audio": "talk/dialogues/returning-a-faulty-item/6cecbb11416f.mp3",
+    "next": "receipt"
+   },
+   "receipt": {
+    "speaker": "e",
+    "text": "Do you have the receipt with you?",
+    "pt": "Você está com o recibo?",
+    "audio": "talk/dialogues/returning-a-faulty-item/71d7db93e7fa.mp3",
+    "options": [
+     {
+      "text": "Yes, here it is.",
+      "pt": "Sim, aqui está.",
+      "audio": "talk/dialogues/returning-a-faulty-item/3127f85d15a0.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/5184ca85ddb9.mp3",
+      "next": "receipt_ok"
+     },
+     {
+      "text": "I think it's in my email. Can I show you on my phone?",
+      "pt": "Acho que está no meu e-mail. Posso te mostrar no celular?",
+      "audio": "talk/dialogues/returning-a-faulty-item/084b57a27f59.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/4ffe20b7e2f2.mp3",
+      "next": "email"
+     },
+     {
+      "text": "Sorry, I've lost it.",
+      "pt": "Desculpe, eu perdi.",
+      "audio": "talk/dialogues/returning-a-faulty-item/c5868cc0a6a0.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/2d0acc98a1ff.mp3",
+      "next": "noreceipt"
+     },
+     {
+      "text": "No, I don't have a recipe. I don't cook.",
+      "pt": "Não, não tenho receita. Eu não cozinho.",
+      "audio": "talk/dialogues/returning-a-faulty-item/7faf6e483f35.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/df474f3bf448.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! Not a recipe, a receipt. Proof that you bought them?",
+       "pt": "Rá! Não receita, recibo. Um comprovante de que você comprou?",
+       "audio": "talk/dialogues/returning-a-faulty-item/f9ac2c95b337.mp3"
+      }
+     }
+    ]
+   },
+   "email": {
+    "speaker": "e",
+    "text": "Sure, a digital receipt is fine.",
+    "pt": "Claro, um recibo digital serve.",
+    "audio": "talk/dialogues/returning-a-faulty-item/f65797fa0acd.mp3",
+    "next": "receipt_ok"
+   },
+   "receipt_ok": {
+    "speaker": "e",
+    "text": "Great, you bought them eight days ago. So you can have a refund, an exchange, or store credit.",
+    "pt": "Ótimo, você comprou há oito dias. Então pode escolher reembolso, troca ou crédito na loja.",
+    "audio": "talk/dialogues/returning-a-faulty-item/c43e29b185d5.mp3",
+    "options": [
+     {
+      "text": "I'd prefer a refund, please.",
+      "pt": "Prefiro o reembolso, por favor.",
+      "audio": "talk/dialogues/returning-a-faulty-item/075b6d97335f.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/f8aca5644028.mp3",
+      "next": "refund"
+     },
+     {
+      "text": "Could I just exchange them for a new pair?",
+      "pt": "Posso só trocar por um par novo?",
+      "audio": "talk/dialogues/returning-a-faulty-item/b0af7714b59d.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/f036763d1d3b.mp3",
+      "next": "exchange"
+     },
+     {
+      "text": "What can I get with store credit?",
+      "pt": "O que posso fazer com crédito na loja?",
+      "audio": "talk/dialogues/returning-a-faulty-item/c5d345301c8d.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/92fb9ce09de5.mp3",
+      "next": "credit"
+     },
+     {
+      "text": "Can I have a refund and keep the headphones?",
+      "pt": "Posso ter o reembolso e ficar com os fones?",
+      "audio": "talk/dialogues/returning-a-faulty-item/dfcfd0fcc17d.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/14e6bf397138.mp3",
+      "next": null,
+      "react": {
+       "text": "Nice try! It's one or the other. A refund, an exchange, or credit?",
+       "pt": "Boa tentativa! É um ou outro. Reembolso, troca ou crédito?",
+       "audio": "talk/dialogues/returning-a-faulty-item/27190a491db1.mp3"
+      }
+     }
+    ]
+   },
+   "refund": {
+    "speaker": "e",
+    "text": "Of course. The money goes back on your card. It can take up to five days. Is that okay?",
+    "pt": "Claro. O dinheiro volta para o seu cartão. Pode levar até cinco dias. Tudo bem?",
+    "audio": "talk/dialogues/returning-a-faulty-item/0d40197af898.mp3",
+    "options": [
+     {
+      "text": "That's fine, thanks.",
+      "pt": "Tudo bem, obrigado.",
+      "audio": "talk/dialogues/returning-a-faulty-item/abf0ef34eb58.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/dc7593496588.mp3",
+      "next": "end_good"
+     },
+     {
+      "text": "Actually, I paid in cash.",
+      "pt": "Na verdade, paguei em dinheiro.",
+      "audio": "talk/dialogues/returning-a-faulty-item/488370c6a4dd.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/dba8ffe0f9cb.mp3",
+      "next": "cash"
+     },
+     {
+      "text": "I'm free on Tuesday.",
+      "pt": "Estou livre na terça.",
+      "audio": "talk/dialogues/returning-a-faulty-item/86d2b77264ac.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/4abd25120d3a.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! I mean, is it okay to wait up to five days for the money?",
+       "pt": "Rá! Quero dizer, tudo bem esperar até cinco dias pelo dinheiro?",
+       "audio": "talk/dialogues/returning-a-faulty-item/25e65ec6b52e.mp3"
+      }
+     }
+    ]
+   },
+   "cash": {
+    "speaker": "e",
+    "text": "Oh, then I can give you the cash right now.",
+    "pt": "Ah, então posso te dar o dinheiro agora mesmo.",
+    "audio": "talk/dialogues/returning-a-faulty-item/d2213f6a2692.mp3",
+    "next": "end_good"
+   },
+   "exchange": {
+    "speaker": "e",
+    "text": "Let me check. Sorry, we're out of that model. The newer one is twenty pounds more.",
+    "pt": "Deixa eu ver. Desculpe, esse modelo acabou. O mais novo custa vinte libras a mais.",
+    "audio": "talk/dialogues/returning-a-faulty-item/9b34838aaecb.mp3",
+    "options": [
+     {
+      "text": "Could I have the new one for the same price?",
+      "pt": "Eu poderia levar o novo pelo mesmo preço?",
+      "audio": "talk/dialogues/returning-a-faulty-item/949fe821ca82.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/58f8ddd03457.mp3",
+      "next": "manager_ask"
+     },
+     {
+      "text": "That's okay, I'll pay the difference.",
+      "pt": "Tudo bem, eu pago a diferença.",
+      "audio": "talk/dialogues/returning-a-faulty-item/f2f11ee63995.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/5f86624094b6.mp3",
+      "next": "pay_diff"
+     },
+     {
+      "text": "Then I'll just take a refund.",
+      "pt": "Então vou ficar com o reembolso.",
+      "audio": "talk/dialogues/returning-a-faulty-item/9c02d39b4e13.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/eae408c6fdee.mp3",
+      "next": "refund"
+     },
+     {
+      "text": "Twenty pounds? That's too heavy to carry!",
+      "pt": "Vinte libras? É pesado demais para carregar!",
+      "audio": "talk/dialogues/returning-a-faulty-item/7b24eccc05fa.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/2ab3a7dedb24.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! Pounds in money, not weight. Would you like the newer model?",
+       "pt": "Rá! Libras em dinheiro, não em peso. Você quer o modelo mais novo?",
+       "audio": "talk/dialogues/returning-a-faulty-item/5d9084674551.mp3"
+      }
+     }
+    ]
+   },
+   "pay_diff": {
+    "speaker": "e",
+    "text": "Great choice. The sound is much better on these.",
+    "pt": "Ótima escolha. O som destes é muito melhor.",
+    "audio": "talk/dialogues/returning-a-faulty-item/4a14dc3f8761.mp3",
+    "next": "end_good"
+   },
+   "manager_ask": {
+    "speaker": "e",
+    "text": "I'm afraid I can't change prices myself. Let me call my manager.",
+    "pt": "Infelizmente eu não posso mudar preços. Vou chamar meu gerente.",
+    "audio": "talk/dialogues/returning-a-faulty-item/a886512a4af7.mp3",
+    "next": "mgr1"
+   },
+   "credit": {
+    "speaker": "e",
+    "text": "You can spend it on anything here, and it never expires. Would you like that?",
+    "pt": "Você pode usar em qualquer coisa aqui, e nunca vence. Você quer?",
+    "audio": "talk/dialogues/returning-a-faulty-item/09fd15887cc0.mp3",
+    "options": [
+     {
+      "text": "Yes, that works for me.",
+      "pt": "Sim, para mim funciona.",
+      "audio": "talk/dialogues/returning-a-faulty-item/a9d5d0788304.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/64b7dd7e2244.mp3",
+      "next": "end_good"
+     },
+     {
+      "text": "Hmm, I'd rather have my money back.",
+      "pt": "Hum, prefiro meu dinheiro de volta.",
+      "audio": "talk/dialogues/returning-a-faulty-item/3f04826cffa5.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/4a0c604a0f76.mp3",
+      "next": "refund"
+     },
+     {
+      "text": "Can I spend it on pizza?",
+      "pt": "Posso gastar com pizza?",
+      "audio": "talk/dialogues/returning-a-faulty-item/81744438e588.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/72b6320b88b4.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, only if we start selling pizza! So, store credit or not?",
+       "pt": "Rá, só se a gente começar a vender pizza! Então, crédito na loja ou não?",
+       "audio": "talk/dialogues/returning-a-faulty-item/72dafc137a0f.mp3"
+      }
+     }
+    ]
+   },
+   "noreceipt": {
+    "speaker": "e",
+    "text": "Hmm. Without a receipt, I can only offer store credit, I'm afraid.",
+    "pt": "Hum. Sem recibo, infelizmente só posso oferecer crédito na loja.",
+    "audio": "talk/dialogues/returning-a-faulty-item/b3d2c4345521.mp3",
+    "options": [
+     {
+      "text": "I paid by card. Can't you find it on your system?",
+      "pt": "Paguei com cartão. Você não consegue achar no sistema?",
+      "audio": "talk/dialogues/returning-a-faulty-item/ceb063a6232b.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/f16af90a30db.mp3",
+      "next": "system"
+     },
+     {
+      "text": "That doesn't seem fair. Could I speak to the manager?",
+      "pt": "Isso não me parece justo. Posso falar com o gerente?",
+      "audio": "talk/dialogues/returning-a-faulty-item/1a6d2a49b51d.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/3c94d8358f8a.mp3",
+      "next": "mgr1"
+     },
+     {
+      "text": "Okay, store credit is fine.",
+      "pt": "Tudo bem, crédito na loja serve.",
+      "audio": "talk/dialogues/returning-a-faulty-item/a1c233c5f8cd.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/6fee32ae0975.mp3",
+      "next": "end_good"
+     },
+     {
+      "text": "That's okay, I'm not afraid.",
+      "pt": "Tudo bem, eu não tenho medo.",
+      "audio": "talk/dialogues/returning-a-faulty-item/bbb95f508765.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/e3cc55eee546.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, good! But is store credit okay for you?",
+       "pt": "Rá, que bom! Mas crédito na loja está bom para você?",
+       "audio": "talk/dialogues/returning-a-faulty-item/63d99b763ca5.mp3"
+      }
+     }
+    ]
+   },
+   "system": {
+    "speaker": "e",
+    "text": "Let me try. Do you remember which day you bought them?",
+    "pt": "Vou tentar. Você lembra em que dia comprou?",
+    "audio": "talk/dialogues/returning-a-faulty-item/93be58688ad3.mp3",
+    "options": [
+     {
+      "text": "Last Saturday, in the afternoon.",
+      "pt": "Sábado passado, à tarde.",
+      "audio": "talk/dialogues/returning-a-faulty-item/656f5b2343fb.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/11b8296fa79b.mp3",
+      "next": "found"
+     },
+     {
+      "text": "I think it was Friday, around lunchtime.",
+      "pt": "Acho que foi na sexta, por volta da hora do almoço.",
+      "audio": "talk/dialogues/returning-a-faulty-item/f11cf62ef96e.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/9a7004d7a8e9.mp3",
+      "next": "found"
+     },
+     {
+      "text": "Yes, I remember the song that was playing.",
+      "pt": "Sim, lembro da música que estava tocando.",
+      "audio": "talk/dialogues/returning-a-faulty-item/1de27f788de3.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/cc740181a2bf.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, nice! But what day did you buy them?",
+       "pt": "Rá, legal! Mas em que dia você comprou?",
+       "audio": "talk/dialogues/returning-a-faulty-item/2313e680b0ac.mp3"
+      }
+     }
+    ]
+   },
+   "found": {
+    "speaker": "e",
+    "text": "Found it! Okay, so you can choose a refund or an exchange.",
+    "pt": "Achei! Certo, então você pode escolher reembolso ou troca.",
+    "audio": "talk/dialogues/returning-a-faulty-item/f2a969ce35c1.mp3",
+    "options": [
+     {
+      "text": "A refund, please.",
+      "pt": "Reembolso, por favor.",
+      "audio": "talk/dialogues/returning-a-faulty-item/688f9802410e.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/48da2df217b7.mp3",
+      "next": "refund"
+     },
+     {
+      "text": "An exchange, please.",
+      "pt": "Troca, por favor.",
+      "audio": "talk/dialogues/returning-a-faulty-item/3956f21f1477.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/3fb87bf248cf.mp3",
+      "next": "exchange"
+     },
+     {
+      "text": "I'll choose the blue ones.",
+      "pt": "Vou escolher os azuis.",
+      "audio": "talk/dialogues/returning-a-faulty-item/6d6be9ec9085.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/bc8ed49b3f9f.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! First things first. A refund, or an exchange?",
+       "pt": "Rá! Uma coisa de cada vez. Reembolso ou troca?",
+       "audio": "talk/dialogues/returning-a-faulty-item/520b81bada7b.mp3"
+      }
+     }
+    ]
+   },
+   "mgr1": {
+    "speaker": "m",
+    "text": "Hello, I'm Oliver, the manager. What seems to be the problem?",
+    "pt": "Olá, sou o Oliver, o gerente. Qual parece ser o problema?",
+    "audio": "talk/dialogues/returning-a-faulty-item/603a935483e6.mp3",
+    "options": [
+     {
+      "text": "These stopped working after a week, and I'd like a fair solution.",
+      "pt": "Estes pararam de funcionar depois de uma semana, e eu gostaria de uma solução justa.",
+      "audio": "talk/dialogues/returning-a-faulty-item/5d7b967a3e48.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/800cf7c0ed56.mp3",
+      "next": "mgr2"
+     },
+     {
+      "text": "I'd just like working headphones, without paying extra.",
+      "pt": "Eu só queria fones que funcionem, sem pagar a mais.",
+      "audio": "talk/dialogues/returning-a-faulty-item/6d3c4a1b4247.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/b6760d7652d4.mp3",
+      "next": "mgr2"
+     },
+     {
+      "text": "The problem is my neighbour's dog.",
+      "pt": "O problema é o cachorro do meu vizinho.",
+      "audio": "talk/dialogues/returning-a-faulty-item/df3a2ef5ed42.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/106f45a243a2.mp3",
+      "next": null,
+      "react": {
+       "text": "Oh dear. But what's the problem with the headphones?",
+       "pt": "Puxa. Mas qual é o problema com os fones?",
+       "audio": "talk/dialogues/returning-a-faulty-item/7a6ff5625d3d.mp3"
+      }
+     }
+    ]
+   },
+   "mgr2": {
+    "speaker": "m",
+    "text": "I understand. A week is far too soon for them to break.",
+    "pt": "Entendo. Uma semana é cedo demais para quebrarem.",
+    "audio": "talk/dialogues/returning-a-faulty-item/bf656ca7eb63.mp3",
+    "next": "mgr3"
+   },
+   "mgr3": {
+    "speaker": "m",
+    "text": "Here's what I can do. The newer model at the same price. How does that sound?",
+    "pt": "Olha o que posso fazer. O modelo mais novo pelo mesmo preço. O que acha?",
+    "audio": "talk/dialogues/returning-a-faulty-item/c475b26d3888.mp3",
+    "options": [
+     {
+      "text": "That sounds great. Thank you.",
+      "pt": "Parece ótimo. Obrigado.",
+      "audio": "talk/dialogues/returning-a-faulty-item/98edda08155b.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/8d6b5f3f8618.mp3",
+      "next": "mgr_end"
+     },
+     {
+      "text": "That's kind, but could I have a refund instead?",
+      "pt": "É gentil, mas eu poderia ter o reembolso?",
+      "audio": "talk/dialogues/returning-a-faulty-item/feeff370770c.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/d1e891461601.mp3",
+      "next": "mgr_refund"
+     },
+     {
+      "text": "It sounds like jazz.",
+      "pt": "Parece jazz.",
+      "audio": "talk/dialogues/returning-a-faulty-item/3a52c3ee7788.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/f438f17bf97d.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! I mean, are you happy with that offer?",
+       "pt": "Rá! Quero dizer, essa oferta te agrada?",
+       "audio": "talk/dialogues/returning-a-faulty-item/8496c9a3ad19.mp3"
+      }
+     }
+    ]
+   },
+   "mgr_refund": {
+    "speaker": "m",
+    "text": "Of course. Just this once, Megan will give you a full refund.",
+    "pt": "Claro. Só desta vez, a Megan vai te dar o reembolso total.",
+    "audio": "talk/dialogues/returning-a-faulty-item/49b8b8814252.mp3",
+    "next": "end_good"
+   },
+   "mgr_end": {
+    "speaker": "m",
+    "text": "My pleasure. And sorry again for the trouble.",
+    "pt": "O prazer é meu. E desculpe de novo pelo transtorno.",
+    "audio": "talk/dialogues/returning-a-faulty-item/424688e1eefc.mp3",
+    "next": "end_good"
+   },
+   "end_good": {
+    "speaker": "e",
+    "text": "All done. Is there anything else I can help you with?",
+    "pt": "Tudo certo. Posso ajudar em mais alguma coisa?",
+    "audio": "talk/dialogues/returning-a-faulty-item/ba0b5a0af0dd.mp3",
+    "options": [
+     {
+      "text": "No, that's all. Thanks for your help.",
+      "pt": "Não, é só isso. Obrigado pela ajuda.",
+      "audio": "talk/dialogues/returning-a-faulty-item/882779a7ce6e.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/98ca4a99f30a.mp3",
+      "next": "bye"
+     },
+     {
+      "text": "Actually, do you sell cases for these?",
+      "pt": "Aliás, vocês vendem estojo para estes?",
+      "audio": "talk/dialogues/returning-a-faulty-item/5bca4b45e3e4.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/2708c4123dcb.mp3",
+      "next": "case"
+     },
+     {
+      "text": "Yes, can you fix my car too?",
+      "pt": "Sim, você conserta meu carro também?",
+      "audio": "talk/dialogues/returning-a-faulty-item/162c4bf7cef0.mp3",
+      "audioF": "talk/dialogues/returning-a-faulty-item/ac172f218792.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, we only do headphones! Anything else today?",
+       "pt": "Rá, a gente só mexe com fones! Mais alguma coisa hoje?",
+       "audio": "talk/dialogues/returning-a-faulty-item/ee16a216d2d7.mp3"
+      }
+     }
+    ]
+   },
+   "case": {
+    "speaker": "e",
+    "text": "Yes, right by the till. They're ten percent off this week.",
+    "pt": "Sim, bem ao lado do caixa. Estão com dez por cento de desconto esta semana.",
+    "audio": "talk/dialogues/returning-a-faulty-item/fd2b7a7650a7.mp3",
+    "next": "bye"
+   },
+   "bye": {
+    "speaker": "e",
+    "text": "Have a great day, and enjoy your music!",
+    "pt": "Tenha um ótimo dia e aproveite sua música!",
+    "audio": "talk/dialogues/returning-a-faulty-item/a24a5697cea6.mp3",
+    "end": true
+   }
+  },
+  "nudges": {
+   "e": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/returning-a-faulty-item/e317a75aeae6.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/returning-a-faulty-item/f56b8f4d015c.mp3"
+    }
+   ],
+   "m": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/returning-a-faulty-item/6785e2cb69b1.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/returning-a-faulty-item/dd92f36bd6c2.mp3"
+    }
+   ]
+  }
+ },
+ {
+  "slug": "renting-a-flat",
+  "title": "Renting a Flat",
+  "level": "B2",
+  "description": "Visite um apartamento e negocie o aluguel.",
+  "intro": "Você está procurando apartamento em Londres e marcou uma visita. O corretor James abre a porta, e a inquilina atual, Chloe, ainda está em casa.",
+  "cast": {
+   "a": {
+    "name": "James",
+    "role": "Corretor de imóveis"
+   },
+   "t": {
+    "name": "Chloe",
+    "role": "Inquilina atual"
+   }
+  },
+  "start": "f1",
+  "decisions": [
+   8,
+   10
+  ],
+  "nodes": {
+   "f1": {
+    "speaker": "a",
+    "text": "You must be here for the viewing. I'm James, from Harbour Lettings. Come on in.",
+    "pt": "Você deve ter vindo para a visita. Sou o James, da Harbour Lettings. Pode entrar.",
+    "audio": "talk/dialogues/renting-a-flat/95505a581fbb.mp3",
+    "next": "f2"
+   },
+   "f2": {
+    "speaker": "a",
+    "text": "So, this is the living room. Loads of natural light, as you can see. What do you think so far?",
+    "pt": "Então, esta é a sala. Bastante luz natural, como você pode ver. O que está achando até agora?",
+    "audio": "talk/dialogues/renting-a-flat/668be59f27ea.mp3",
+    "options": [
+     {
+      "text": "It's lovely and bright. Is it furnished?",
+      "pt": "É linda e bem clara. É mobiliado?",
+      "audio": "talk/dialogues/renting-a-flat/3f79ce94b3a1.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/6d6d697197c5.mp3",
+      "next": "furnished"
+     },
+     {
+      "text": "It's nice, but it's smaller than it looked in the photos.",
+      "pt": "É legal, mas é menor do que parecia nas fotos.",
+      "audio": "talk/dialogues/renting-a-flat/a4deac6ccff1.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/3bbbb4f060a7.mp3",
+      "next": "photos"
+     },
+     {
+      "text": "I think it's about half past two.",
+      "pt": "Acho que são umas duas e meia.",
+      "audio": "talk/dialogues/renting-a-flat/8a4f4d666641.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/1f4c0ca9cfd9.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, it is! But what do you think of the flat?",
+       "pt": "Rá, são mesmo! Mas o que você acha do apartamento?",
+       "audio": "talk/dialogues/renting-a-flat/4e4152e031c9.mp3"
+      }
+     }
+    ]
+   },
+   "furnished": {
+    "speaker": "a",
+    "text": "Fully furnished, yes, but the landlord can remove anything you don't need.",
+    "pt": "Totalmente mobiliado, sim, mas o proprietário pode tirar o que você não precisar.",
+    "audio": "talk/dialogues/renting-a-flat/c2273cb41469.mp3",
+    "next": "rent"
+   },
+   "photos": {
+    "speaker": "a",
+    "text": "Ah, the wide-angle lens strikes again. But the bedroom's a good size, honestly.",
+    "pt": "Ah, a lente grande-angular ataca de novo. Mas o quarto é de bom tamanho, sério.",
+    "audio": "talk/dialogues/renting-a-flat/18d6a086b703.mp3",
+    "next": "rent"
+   },
+   "rent": {
+    "speaker": "a",
+    "text": "The rent is twelve hundred a month. Did you have a budget in mind?",
+    "pt": "O aluguel é mil e duzentos por mês. Você tinha um orçamento em mente?",
+    "audio": "talk/dialogues/renting-a-flat/96b98aba9ca8.mp3",
+    "options": [
+     {
+      "text": "That's within my budget, but what does it include?",
+      "pt": "Está dentro do meu orçamento, mas o que está incluído?",
+      "audio": "talk/dialogues/renting-a-flat/6c1677279337.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/35e452c01afb.mp3",
+      "next": "bills"
+     },
+     {
+      "text": "To be honest, that's a bit over my budget.",
+      "pt": "Sinceramente, está um pouco acima do meu orçamento.",
+      "audio": "talk/dialogues/renting-a-flat/97cbef20a026.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/1fc248412a13.mp3",
+      "next": "over"
+     },
+     {
+      "text": "Yes, I have a budgie. He's called Kiwi.",
+      "pt": "Sim, tenho um periquito. O nome dele é Kiwi.",
+      "audio": "talk/dialogues/renting-a-flat/cff1fc0aa4ff.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/5014e3414445.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! Lovely, but I meant budget. How much can you afford each month?",
+       "pt": "Rá! Que fofo, mas eu disse orçamento. Quanto você pode pagar por mês?",
+       "audio": "talk/dialogues/renting-a-flat/da19e75c264c.mp3"
+      }
+     }
+    ]
+   },
+   "over": {
+    "speaker": "a",
+    "text": "I see. The landlord might be flexible for the right tenant. What were you hoping to pay?",
+    "pt": "Entendi. O proprietário pode ser flexível com o inquilino certo. Quanto você esperava pagar?",
+    "audio": "talk/dialogues/renting-a-flat/92c01a78c1e5.mp3",
+    "options": [
+     {
+      "text": "Would the landlord accept eleven hundred for a longer contract?",
+      "pt": "O proprietário aceitaria mil e cem por um contrato mais longo?",
+      "audio": "talk/dialogues/renting-a-flat/a05772b64c0e.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/368ae4335450.mp3",
+      "next": "offer"
+     },
+     {
+      "text": "I could go up to eleven fifty, but that's my limit.",
+      "pt": "Eu chegaria a mil cento e cinquenta, mas esse é meu limite.",
+      "audio": "talk/dialogues/renting-a-flat/ae9ead3a95a0.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/20535a8d5db0.mp3",
+      "next": "offer"
+     },
+     {
+      "text": "I was hoping to pay with a smile.",
+      "pt": "Eu esperava pagar com um sorriso.",
+      "audio": "talk/dialogues/renting-a-flat/9824f74682c6.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/b680c5ab6f1f.mp3",
+      "next": null,
+      "react": {
+       "text": "If only! But seriously, what figure did you have in mind?",
+       "pt": "Quem dera! Mas falando sério, que valor você tinha em mente?",
+       "audio": "talk/dialogues/renting-a-flat/c355b6cd42c3.mp3"
+      }
+     }
+    ]
+   },
+   "offer": {
+    "speaker": "a",
+    "text": "I can't promise anything, but I'll put that to the landlord today.",
+    "pt": "Não posso prometer nada, mas vou levar isso ao proprietário hoje.",
+    "audio": "talk/dialogues/renting-a-flat/379ed4f84640.mp3",
+    "next": "bills"
+   },
+   "bills": {
+    "speaker": "a",
+    "text": "Water's included, but electricity, gas and internet are on top. Any questions about that?",
+    "pt": "A água está incluída, mas luz, gás e internet são à parte. Alguma pergunta sobre isso?",
+    "audio": "talk/dialogues/renting-a-flat/9ee7f1b9ba27.mp3",
+    "options": [
+     {
+      "text": "Roughly how much are the bills each month?",
+      "pt": "Mais ou menos quanto dão as contas por mês?",
+      "audio": "talk/dialogues/renting-a-flat/f240d233cf44.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/82d0279ff2d5.mp3",
+      "next": "ask_tenant"
+     },
+     {
+      "text": "Is the heating gas or electric? Older flats can be expensive to heat.",
+      "pt": "O aquecimento é a gás ou elétrico? Apartamentos antigos podem sair caros para aquecer.",
+      "audio": "talk/dialogues/renting-a-flat/57d2453f1671.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/35fd5429afd0.mp3",
+      "next": "heating"
+     },
+     {
+      "text": "On top of the wardrobe?",
+      "pt": "Em cima do guarda-roupa?",
+      "audio": "talk/dialogues/renting-a-flat/07c13d0786ac.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/c3a924bb061c.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! No, I mean you pay them separately. Any questions about the bills?",
+       "pt": "Rá! Não, quero dizer que você paga à parte. Alguma pergunta sobre as contas?",
+       "audio": "talk/dialogues/renting-a-flat/52264f41c062.mp3"
+      }
+     }
+    ]
+   },
+   "ask_tenant": {
+    "speaker": "a",
+    "text": "Good question. Actually, Chloe, the current tenant, would know better than me.",
+    "pt": "Boa pergunta. Na verdade, a Chloe, a inquilina atual, sabe melhor do que eu.",
+    "audio": "talk/dialogues/renting-a-flat/72e590c6f118.mp3",
+    "next": "chloe1"
+   },
+   "chloe1": {
+    "speaker": "t",
+    "text": "Hi! In winter it's about a hundred and fifty a month. Much less in summer.",
+    "pt": "Oi! No inverno dá uns cento e cinquenta por mês. Bem menos no verão.",
+    "audio": "talk/dialogues/renting-a-flat/da710ecea672.mp3",
+    "next": "deposit"
+   },
+   "heating": {
+    "speaker": "a",
+    "text": "It's gas central heating, and the windows were replaced last year, so it stays warm.",
+    "pt": "É aquecimento central a gás, e as janelas foram trocadas ano passado, então fica quentinho.",
+    "audio": "talk/dialogues/renting-a-flat/ccf2ceed977f.mp3",
+    "next": "deposit"
+   },
+   "deposit": {
+    "speaker": "a",
+    "text": "There's also a deposit of five weeks' rent, protected in a government scheme.",
+    "pt": "Também tem um depósito de cinco semanas de aluguel, protegido num programa do governo.",
+    "audio": "talk/dialogues/renting-a-flat/aef440862f09.mp3",
+    "options": [
+     {
+      "text": "When would I get the deposit back?",
+      "pt": "Quando eu receberia o depósito de volta?",
+      "audio": "talk/dialogues/renting-a-flat/99443e231fd5.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/28ef68c5a87e.mp3",
+      "next": "deposit_back"
+     },
+     {
+      "text": "Is there any way to pay it in instalments?",
+      "pt": "Tem como pagar parcelado?",
+      "audio": "talk/dialogues/renting-a-flat/0619d62f1f87.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/d122b97e9618.mp3",
+      "next": "instal"
+     },
+     {
+      "text": "Five weeks? I'll be on holiday then.",
+      "pt": "Cinco semanas? Vou estar de férias nessa época.",
+      "audio": "talk/dialogues/renting-a-flat/49b34c7993b0.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/c14dc3bf0494.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! No, five weeks' rent, paid as a deposit. Is that okay?",
+       "pt": "Rá! Não, o valor de cinco semanas de aluguel, pago como depósito. Tudo bem?",
+       "audio": "talk/dialogues/renting-a-flat/d57ff7404348.mp3"
+      }
+     }
+    ]
+   },
+   "deposit_back": {
+    "speaker": "a",
+    "text": "At the end of the tenancy, minus any damage beyond normal wear and tear.",
+    "pt": "No fim do contrato, descontando qualquer dano além do desgaste normal.",
+    "audio": "talk/dialogues/renting-a-flat/af265bddef3f.mp3",
+    "next": "contract"
+   },
+   "instal": {
+    "speaker": "a",
+    "text": "Not usually, but I can ask. Some landlords accept two payments.",
+    "pt": "Normalmente não, mas posso perguntar. Alguns proprietários aceitam em duas vezes.",
+    "audio": "talk/dialogues/renting-a-flat/77b7a6b222a3.mp3",
+    "next": "contract"
+   },
+   "contract": {
+    "speaker": "a",
+    "text": "The minimum contract is twelve months. Does that suit you?",
+    "pt": "O contrato mínimo é de doze meses. Isso te serve?",
+    "audio": "talk/dialogues/renting-a-flat/c8870fe06107.mp3",
+    "options": [
+     {
+      "text": "Twelve months is fine. Is there a break clause?",
+      "pt": "Doze meses está bom. Tem cláusula de rescisão?",
+      "audio": "talk/dialogues/renting-a-flat/cfafc0bc7cd7.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/e7d6473866fb.mp3",
+      "next": "break"
+     },
+     {
+      "text": "I was hoping for six months, actually. My job might move me.",
+      "pt": "Na verdade, eu esperava seis meses. Meu trabalho pode me transferir.",
+      "audio": "talk/dialogues/renting-a-flat/bf54fddb1015.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/d9da7b615ad1.mp3",
+      "next": "six"
+     },
+     {
+      "text": "Yes, my suit is in the car.",
+      "pt": "Sim, meu terno está no carro.",
+      "audio": "talk/dialogues/renting-a-flat/e5f4572efb98.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/71cf995cc29b.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! I mean, does a one-year contract work for you?",
+       "pt": "Rá! Quero dizer, um contrato de um ano funciona para você?",
+       "audio": "talk/dialogues/renting-a-flat/5b4770be3fce.mp3"
+      }
+     }
+    ]
+   },
+   "break": {
+    "speaker": "a",
+    "text": "Yes. Either side can end it after six months, with two months' notice.",
+    "pt": "Sim. Qualquer uma das partes pode encerrar depois de seis meses, com dois meses de aviso.",
+    "audio": "talk/dialogues/renting-a-flat/e3cb35b998f7.mp3",
+    "next": "nb"
+   },
+   "six": {
+    "speaker": "a",
+    "text": "Six is tricky. But a year with a break clause after six months might work.",
+    "pt": "Seis é complicado. Mas um ano com cláusula de rescisão após seis meses pode funcionar.",
+    "audio": "talk/dialogues/renting-a-flat/97f4464c623d.mp3",
+    "next": "nb"
+   },
+   "nb": {
+    "speaker": "a",
+    "text": "Anything else you'd like to know before we look at the bedroom?",
+    "pt": "Mais alguma coisa que você queira saber antes de vermos o quarto?",
+    "audio": "talk/dialogues/renting-a-flat/0d5a375d258b.mp3",
+    "options": [
+     {
+      "text": "What are the neighbours like?",
+      "pt": "Como são os vizinhos?",
+      "audio": "talk/dialogues/renting-a-flat/cf020615ad10.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/2536d8bd7d26.mp3",
+      "next": "chloe_nb"
+     },
+     {
+      "text": "Is the area safe at night?",
+      "pt": "O bairro é seguro à noite?",
+      "audio": "talk/dialogues/renting-a-flat/b2c641772783.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/b442ca8baec9.mp3",
+      "next": "area"
+     },
+     {
+      "text": "Can I put up pictures or paint the walls?",
+      "pt": "Posso pendurar quadros ou pintar as paredes?",
+      "audio": "talk/dialogues/renting-a-flat/c36d995aa828.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/554cc5ea60c2.mp3",
+      "next": "walls"
+     },
+     {
+      "text": "Is breakfast included, or is it extra per night?",
+      "pt": "O café da manhã está incluído ou é à parte por noite?",
+      "audio": "talk/dialogues/renting-a-flat/b8c443702c31.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/b5f1347f3d8a.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha, it's not a hotel! Any other questions about the flat?",
+       "pt": "Rá, não é um hotel! Mais alguma pergunta sobre o apartamento?",
+       "audio": "talk/dialogues/renting-a-flat/57dd9c048be4.mp3"
+      }
+     }
+    ]
+   },
+   "chloe_nb": {
+    "speaker": "t",
+    "text": "Honestly? Lovely, apart from the man upstairs who practises the drums on Sundays.",
+    "pt": "Sinceramente? Ótimos, tirando o homem lá de cima que treina bateria aos domingos.",
+    "audio": "talk/dialogues/renting-a-flat/0beeed45bb24.mp3",
+    "next": "chloe_q"
+   },
+   "chloe_q": {
+    "speaker": "t",
+    "text": "Do you play any instruments yourself?",
+    "pt": "E você, toca algum instrumento?",
+    "audio": "talk/dialogues/renting-a-flat/dc093bd40dab.mp3",
+    "options": [
+     {
+      "text": "No, but I work from home, so noise really matters to me.",
+      "pt": "Não, mas trabalho de casa, então barulho importa muito para mim.",
+      "audio": "talk/dialogues/renting-a-flat/ed3891bb8698.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/3af32c167f20.mp3",
+      "next": "drums"
+     },
+     {
+      "text": "Only the guitar, and very quietly, I promise.",
+      "pt": "Só violão, e bem baixinho, prometo.",
+      "audio": "talk/dialogues/renting-a-flat/29e1f564253c.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/52b697c4badc.mp3",
+      "next": "drums"
+     },
+     {
+      "text": "Yes, I'm brilliant at the dishwasher.",
+      "pt": "Sim, mando muito bem na lava-louças.",
+      "audio": "talk/dialogues/renting-a-flat/36d8d82f66f0.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/8ed8445c9472.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! I meant music. Do you play anything?",
+       "pt": "Rá! Eu quis dizer música. Você toca alguma coisa?",
+       "audio": "talk/dialogues/renting-a-flat/79bc80206f80.mp3"
+      }
+     }
+    ]
+   },
+   "drums": {
+    "speaker": "t",
+    "text": "Don't worry, he only plays for a couple of hours. The rest of the week it's dead quiet.",
+    "pt": "Não se preocupe, ele só toca umas duas horas. No resto da semana é um silêncio total.",
+    "audio": "talk/dialogues/renting-a-flat/eb7723bb6b2d.mp3",
+    "next": "negotiate"
+   },
+   "area": {
+    "speaker": "a",
+    "text": "Very safe. There's a police station round the corner, and the high street is busy until late.",
+    "pt": "Muito seguro. Tem uma delegacia na esquina, e a rua principal fica movimentada até tarde.",
+    "audio": "talk/dialogues/renting-a-flat/0ed248c0b816.mp3",
+    "next": "negotiate"
+   },
+   "walls": {
+    "speaker": "a",
+    "text": "Pictures, yes, with small nails. Painting needs the landlord's written permission.",
+    "pt": "Quadros, sim, com pregos pequenos. Para pintar, precisa de autorização por escrito do proprietário.",
+    "audio": "talk/dialogues/renting-a-flat/de0ddd111e2a.mp3",
+    "next": "negotiate"
+   },
+   "negotiate": {
+    "speaker": "a",
+    "text": "So, the flat's had a lot of interest. Would you like to make an offer today?",
+    "pt": "Então, o apartamento teve muita procura. Você gostaria de fazer uma proposta hoje?",
+    "audio": "talk/dialogues/renting-a-flat/90d25e4f1681.mp3",
+    "options": [
+     {
+      "text": "Yes. I'd like to go ahead, subject to contract.",
+      "pt": "Sim. Quero seguir em frente, dependendo do contrato.",
+      "audio": "talk/dialogues/renting-a-flat/e4d9f69c2b38.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/4655a21e38d9.mp3",
+      "next": "yes"
+     },
+     {
+      "text": "Could I have until tomorrow to think it over?",
+      "pt": "Posso ter até amanhã para pensar?",
+      "audio": "talk/dialogues/renting-a-flat/f27479582306.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/823dea750566.mp3",
+      "next": "think"
+     },
+     {
+      "text": "I'll offer the asking price if the landlord repaints the bedroom.",
+      "pt": "Ofereço o valor pedido se o proprietário pintar o quarto de novo.",
+      "audio": "talk/dialogues/renting-a-flat/8e0850ed0c04.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/35ff4668fa89.mp3",
+      "next": "repaint"
+     },
+     {
+      "text": "I'd like to make an omelette, actually.",
+      "pt": "Na verdade, eu gostaria de fazer uma omelete.",
+      "audio": "talk/dialogues/renting-a-flat/f84d8793b478.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/54601fed4472.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! Not until you move in! Would you like to make an offer?",
+       "pt": "Rá! Só depois da mudança! Você gostaria de fazer uma proposta?",
+       "audio": "talk/dialogues/renting-a-flat/4b68b3e54924.mp3"
+      }
+     }
+    ]
+   },
+   "repaint": {
+    "speaker": "a",
+    "text": "That's a fair request. I'll pass it on, and I'm fairly confident they'll agree.",
+    "pt": "É um pedido justo. Vou repassar, e tenho quase certeza de que vão aceitar.",
+    "audio": "talk/dialogues/renting-a-flat/c62e86605240.mp3",
+    "next": "yes"
+   },
+   "yes": {
+    "speaker": "a",
+    "text": "Brilliant. I'll need some ID and a reference from your employer.",
+    "pt": "Excelente. Vou precisar de um documento e de uma carta de referência do seu empregador.",
+    "audio": "talk/dialogues/renting-a-flat/51551a586b0a.mp3",
+    "options": [
+     {
+      "text": "No problem. I can email those tonight.",
+      "pt": "Sem problema. Posso mandar por e-mail hoje à noite.",
+      "audio": "talk/dialogues/renting-a-flat/4648152ca2a5.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/80466846e4fe.mp3",
+      "next": "end_yes"
+     },
+     {
+      "text": "My employer is abroad. Would a bank statement do?",
+      "pt": "Meu empregador fica no exterior. Um extrato bancário serve?",
+      "audio": "talk/dialogues/renting-a-flat/98153a699198.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/9bf97c8d68fa.mp3",
+      "next": "abroad"
+     },
+     {
+      "text": "Sure, I can reference my favourite film.",
+      "pt": "Claro, posso citar meu filme favorito.",
+      "audio": "talk/dialogues/renting-a-flat/da0d05596ea9.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/2448f544913d.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! I mean a letter from your employer. Can you get one?",
+       "pt": "Rá! Quero dizer uma carta do seu empregador. Você consegue uma?",
+       "audio": "talk/dialogues/renting-a-flat/62dbb0e3d0c9.mp3"
+      }
+     }
+    ]
+   },
+   "abroad": {
+    "speaker": "a",
+    "text": "That should be fine, maybe with a couple of months' rent upfront.",
+    "pt": "Deve servir, talvez com uns dois meses de aluguel adiantados.",
+    "audio": "talk/dialogues/renting-a-flat/46efc8ee13ba.mp3",
+    "next": "end_yes"
+   },
+   "think": {
+    "speaker": "a",
+    "text": "Of course, but I can't hold it for long. There are two more viewings this afternoon.",
+    "pt": "Claro, mas não consigo segurar por muito tempo. Tem mais duas visitas hoje à tarde.",
+    "audio": "talk/dialogues/renting-a-flat/9464dea6e750.mp3",
+    "options": [
+     {
+      "text": "Understood. I'll call you by ten tomorrow morning.",
+      "pt": "Entendido. Te ligo até as dez amanhã de manhã.",
+      "audio": "talk/dialogues/renting-a-flat/22e7ea23a2e3.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/db5c66b9c066.mp3",
+      "next": "end_think"
+     },
+     {
+      "text": "Fair enough. Could you call me if someone makes an offer?",
+      "pt": "Justo. Você pode me ligar se alguém fizer uma proposta?",
+      "audio": "talk/dialogues/renting-a-flat/510b75155e8b.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/1ce436d0079d.mp3",
+      "next": "end_think"
+     },
+     {
+      "text": "Two viewings? I'm watching two series as well.",
+      "pt": "Duas visitas? Também estou assistindo duas séries.",
+      "audio": "talk/dialogues/renting-a-flat/06ee2d572421.mp3",
+      "audioF": "talk/dialogues/renting-a-flat/f09b2e1683e9.mp3",
+      "next": null,
+      "react": {
+       "text": "Ha! I mean other people are coming to see the flat. Will you decide soon?",
+       "pt": "Rá! Quero dizer que outras pessoas vêm ver o apartamento. Você decide logo?",
+       "audio": "talk/dialogues/renting-a-flat/92fe9fdd11a3.mp3"
+      }
+     }
+    ]
+   },
+   "end_yes": {
+    "speaker": "a",
+    "text": "Great. I'll draw up the paperwork. Welcome to the neighbourhood, hopefully!",
+    "pt": "Ótimo. Vou preparar a papelada. Boas-vindas ao bairro, tomara!",
+    "audio": "talk/dialogues/renting-a-flat/96645dd780da.mp3",
+    "end": true
+   },
+   "end_think": {
+    "speaker": "a",
+    "text": "Perfect. Here's my card. Speak tomorrow.",
+    "pt": "Perfeito. Aqui está meu cartão. Nos falamos amanhã.",
+    "audio": "talk/dialogues/renting-a-flat/1491c97a9b9b.mp3",
+    "end": true
+   }
+  },
+  "nudges": {
+   "a": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/renting-a-flat/be37187b8392.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/renting-a-flat/b1e29ed6346b.mp3"
+    }
+   ],
+   "t": [
+    {
+     "text": "Take your time.",
+     "pt": "Pode pensar com calma.",
+     "audio": "talk/dialogues/renting-a-flat/405f517c19c1.mp3"
+    },
+    {
+     "text": "Sorry, did you hear me?",
+     "pt": "Desculpe, você me ouviu?",
+     "audio": "talk/dialogues/renting-a-flat/f88af66c993e.mp3"
+    }
+   ]
   }
  }
 ];

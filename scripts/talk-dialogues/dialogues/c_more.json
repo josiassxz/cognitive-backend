@@ -1,0 +1,310 @@
+[
+{
+ "slug": "at-the-pharmacy", "title": "At the Pharmacy", "level": "A2",
+ "description": "Compre um remédio para gripe ou dor de cabeça.",
+ "intro": "Você acordou resfriado e com dor de cabeça. Passa na farmácia do bairro, e a farmacêutica Grace sorri do balcão.",
+ "cast": {"p": ["Grace", "Farmacêutica", "af_kore"]},
+ "start": "p1",
+ "nodes": {
+  "p1": ["p", "Hi there. What can I get for you today?", "Olá. O que posso fazer por você hoje?", [
+    ["I have a bad cold. Do you have anything for it?", "Estou com um resfriado forte. Vocês têm alguma coisa para isso?", "cold"],
+    ["I need something for a headache, please.", "Preciso de algo para dor de cabeça, por favor.", "head"],
+    ["A coffee with milk, please.", "Um café com leite, por favor.", null, "Ha, this is a pharmacy! What can I help you with?", "Rá, aqui é uma farmácia! Em que posso ajudar?"]]],
+  "cold": ["p", "Oh dear. What are your symptoms?", "Ah, que chato. Quais são os seus sintomas?", [
+    ["A runny nose and a sore throat.", "Nariz escorrendo e dor de garganta.", "throat"],
+    ["I'm coughing a lot, especially at night.", "Estou tossindo muito, principalmente à noite.", "cough"],
+    ["My symptoms are in my bag.", "Meus sintomas estão na minha bolsa.", null, "Ha! I mean, how do you feel? A sore throat? A cough?", "Rá! Quero dizer, como você está se sentindo? Dor de garganta? Tosse?"]]],
+  "throat": ["p", "Do you have a temperature as well?", "Você está com febre também?", [
+    ["No, I don't think so.", "Não, acho que não.", "fever_no"],
+    ["Yes, a little. I feel hot and tired.", "Sim, um pouco. Estou com calor e cansaço.", "fever_yes"],
+    ["It's about twenty degrees outside.", "Está uns vinte graus lá fora.", null, "Ha, not the weather! I mean, do you have a fever?", "Rá, não o tempo! Quero dizer, você está com febre?"]]],
+  "fever_no": ["p", "Okay. These lozenges are good for a sore throat, and this spray helps with a blocked nose.", "Certo. Estas pastilhas são boas para dor de garganta, e este spray ajuda com o nariz entupido.", "allergy"],
+  "fever_yes": ["p", "Then I'd recommend paracetamol. It helps with the fever and the pain.", "Então eu recomendo paracetamol. Ajuda com a febre e com a dor.", "allergy"],
+  "cough": ["p", "Is it a dry cough, or a chesty cough?", "É uma tosse seca ou com catarro?", [
+    ["It's dry. It just tickles my throat.", "É seca. Só fica coçando a garganta.", "dry"],
+    ["Chesty, I think. I can feel it in my chest.", "Com catarro, acho. Sinto no peito.", "chesty"],
+    ["I play chess on Sundays.", "Eu jogo xadrez aos domingos.", null, "Ha! Not chess. Is your cough dry, or do you feel it in your chest?", "Rá! Não é xadrez. Sua tosse é seca ou você sente no peito?"]]],
+  "dry": ["p", "This syrup is good for dry coughs. It can make you a bit sleepy, though.", "Este xarope é bom para tosse seca. Mas pode dar um pouco de sono.", "sleepy"],
+  "sleepy": ["p", "Is that a problem? Do you need to drive or work today?", "Isso é um problema? Você precisa dirigir ou trabalhar hoje?", [
+    ["Yes, I have to drive later.", "Sim, tenho que dirigir mais tarde.", "nondrowsy"],
+    ["No, that's fine. I'm staying at home today.", "Não, tudo bem. Vou ficar em casa hoje.", "allergy"],
+    ["I usually sleep about seven hours.", "Normalmente durmo umas sete horas.", null, "Good for you! But will you drive today? The syrup can make you sleepy.", "Que bom! Mas você vai dirigir hoje? O xarope pode dar sono."]]],
+  "nondrowsy": ["p", "No problem. This one won't make you sleepy.", "Sem problema. Este aqui não dá sono.", "allergy"],
+  "chesty": ["p", "Then try this syrup. It helps to clear your chest.", "Então experimente este xarope. Ele ajuda a limpar o peito.", "allergy"],
+  "head": ["p", "Oh, I'm sorry. How long have you had it?", "Ah, que pena. Há quanto tempo você está com ela?", [
+    ["Since this morning.", "Desde hoje de manhã.", "head_short"],
+    ["For about three days now.", "Já faz uns três dias.", "head_long"],
+    ["I have long hair, yes.", "Tenho cabelo comprido, sim.", null, "Ha! I mean, when did the headache start?", "Rá! Quero dizer, quando a dor de cabeça começou?"]]],
+  "head_long": ["p", "Three days is quite a long time. Are you sleeping well? Drinking enough water?", "Três dias é bastante tempo. Você está dormindo bem? Bebendo água suficiente?", [
+    ["Not really. I've been working late.", "Não muito. Tenho trabalhado até tarde.", "water"],
+    ["Actually, I probably don't drink enough water.", "Na verdade, acho que não bebo água suficiente.", "water"],
+    ["I sleep in a very big bed.", "Durmo numa cama bem grande.", null, "Lucky you! But are you getting enough sleep?", "Que sorte! Mas você está dormindo o suficiente?"]]],
+  "water": ["p", "That can cause headaches. Drink more water, and see a doctor if it doesn't stop.", "Isso pode causar dor de cabeça. Beba mais água e procure um médico se não passar.", "head_short"],
+  "head_short": ["p", "I'd suggest ibuprofen or paracetamol. Which one do you usually take?", "Eu sugiro ibuprofeno ou paracetamol. Qual você costuma tomar?", [
+    ["Ibuprofen usually works for me.", "Ibuprofeno costuma funcionar para mim.", "allergy"],
+    ["Paracetamol, please. Ibuprofen hurts my stomach.", "Paracetamol, por favor. Ibuprofeno me faz mal ao estômago.", "stomach"],
+    ["I usually take the bus.", "Normalmente pego o ônibus.", null, "Ha! I mean the medicine. Ibuprofen or paracetamol?", "Rá! Falo do remédio. Ibuprofeno ou paracetamol?"]]],
+  "stomach": ["p", "Good to know. Paracetamol is gentler on the stomach.", "Bom saber. O paracetamol é mais leve para o estômago.", "allergy"],
+  "allergy": ["p", "Before I give you this, are you allergic to any medicines?", "Antes de te dar isto, você tem alergia a algum remédio?", [
+    ["No, not that I know of.", "Não, que eu saiba, não.", "other_meds"],
+    ["Yes, I'm allergic to penicillin.", "Sim, tenho alergia a penicilina.", "penicillin"],
+    ["I'm allergic to Mondays.", "Tenho alergia a segunda-feira.", null, "Ha! Me too. But are you allergic to any medicines?", "Rá! Eu também. Mas você tem alergia a algum remédio?"]]],
+  "penicillin": ["p", "Thanks for telling me. There's no penicillin in this, so it's safe for you.", "Obrigada por avisar. Isto não tem penicilina, então é seguro para você.", "other_meds"],
+  "other_meds": ["p", "And are you taking any other medicine at the moment?", "E você está tomando algum outro remédio no momento?", [
+    ["No, nothing else.", "Não, mais nada.", "dose"],
+    ["Just some vitamins.", "Só umas vitaminas.", "dose"],
+    ["Yes, I'm taking an English course.", "Sim, estou fazendo um curso de inglês.", null, "Ha, good for you! But I meant pills or medicine. Anything?", "Rá, que ótimo! Mas eu quis dizer comprimidos ou remédios. Algum?"]]],
+  "dose": ["p", "Okay. Take it three times a day, after meals. Not more than that, please.", "Certo. Tome três vezes ao dia, depois das refeições. Não mais do que isso, por favor.", "dose_q"],
+  "dose_q": ["p", "Do you have any questions about how to take it?", "Tem alguma dúvida sobre como tomar?", [
+    ["Can I take it on an empty stomach?", "Posso tomar em jejum?", "empty"],
+    ["How long should I take it for?", "Por quanto tempo devo tomar?", "howlong"],
+    ["No, that's clear. Thank you.", "Não, está claro. Obrigado.", "pay"],
+    ["Can I take it to the beach?", "Posso levar para a praia?", null, "Ha, you can take it anywhere! But any questions about the dose?", "Rá, pode levar para onde quiser! Mas alguma dúvida sobre a dose?"]]],
+  "empty": ["p", "Better not. Take it with food, or it might upset your stomach.", "Melhor não. Tome com comida, senão pode fazer mal ao estômago.", "pay"],
+  "howlong": ["p", "Up to five days. If you don't feel better by then, please see a doctor.", "Até cinco dias. Se não melhorar até lá, procure um médico, por favor.", "pay"],
+  "pay": ["p", "That's six pounds fifty. Would you like a bag?", "São seis libras e cinquenta. Quer uma sacola?", [
+    ["No, thanks. I'll put it in my pocket.", "Não, obrigado. Vou pôr no bolso.", "end"],
+    ["Yes, please. Can I pay by card?", "Sim, por favor. Posso pagar com cartão?", "card"],
+    ["Yes, a big bag of sweets, please.", "Sim, um saco grande de balas, por favor.", null, "Ha, no sweets here, sorry! Do you need a bag for your medicine?", "Rá, aqui não tem bala, desculpe! Precisa de uma sacola para o remédio?"]]],
+  "card": ["p", "Of course. Just tap it here.", "Claro. É só encostar aqui.", "end"],
+  "end": ["p", "There you go. Get some rest, drink lots of water, and get well soon!", "Aqui está. Descanse, beba bastante água e melhoras!", null]
+ }
+},
+{
+ "slug": "a-phone-call-booking", "title": "Booking by Phone", "level": "A2",
+ "description": "Reserve ou mude uma mesa por telefone.",
+ "intro": "Você liga para o Rosa's Kitchen, um restaurante bem movimentado. Do outro lado da linha, com muito barulho ao fundo, atende o Jake.",
+ "cast": {"h": ["Jake", "Atendente do restaurante", "am_eric"]},
+ "start": "b1",
+ "nodes": {
+  "b1": ["h", "Good evening, Rosa's Kitchen, Jake speaking. How can I help?", "Boa noite, Rosa's Kitchen, Jake falando. Como posso ajudar?", [
+    ["Hi. I'd like to book a table, please.", "Oi. Eu gostaria de reservar uma mesa, por favor.", "book"],
+    ["Hi. I have a booking, but I need to change it.", "Oi. Tenho uma reserva, mas preciso mudar.", "change"],
+    ["Hi. I'd like to book a flight to Paris.", "Oi. Eu gostaria de reservar um voo para Paris.", null, "Ha, this is a restaurant, not an airline! Would you like a table?", "Rá, aqui é um restaurante, não uma companhia aérea! Quer uma mesa?"]]],
+  "book": ["h", "Sure. Which day would you like?", "Claro. Para que dia?", [
+    ["This Friday, if possible.", "Esta sexta, se possível.", "friday"],
+    ["Tomorrow night, please.", "Amanhã à noite, por favor.", "tomorrow"],
+    ["Turn left after the bank.", "Vire à esquerda depois do banco.", null, "Ha, I know where we are! I mean, what day is the booking for?", "Rá, eu sei onde a gente fica! Quero dizer, a reserva é para que dia?"]]],
+  "friday": ["h", "Sorry, it's really noisy here! Friday's busy, but I have seven o'clock or half past nine.", "Desculpe, está muito barulhento aqui! Sexta está cheio, mas tenho às sete ou às nove e meia.", [
+    ["Seven o'clock is perfect.", "Às sete está perfeito.", "people"],
+    ["Half past nine is fine.", "Às nove e meia está bom.", "people"],
+    ["Sorry, did you say nine or five?", "Desculpe, você disse nove ou cinco?", "repeat"],
+    ["Yes, my house is noisy too.", "Sim, minha casa também é barulhenta.", null, "Ha! So, seven, or half past nine?", "Rá! Então, às sete ou às nove e meia?"]]],
+  "repeat": ["h", "Nine. Half past nine. Nine thirty.", "Nove. Nove e meia. Nove e trinta.", "repeat_q"],
+  "repeat_q": ["h", "So, seven or nine thirty?", "Então, sete ou nove e meia?", [
+    ["Seven, please.", "Às sete, por favor.", "people"],
+    ["Nine thirty is better for us.", "Nove e meia é melhor para nós.", "people"],
+    ["Nineteen, please.", "Dezenove, por favor.", null, "Nineteen? We close at eleven! Seven, or nine thirty?", "Dezenove? A gente fecha às onze! Sete ou nove e meia?"]]],
+  "tomorrow": ["h", "Tomorrow, let me see. I have a table at eight. Does that work?", "Amanhã, deixa eu ver. Tenho uma mesa às oito. Pode ser?", [
+    ["Yes, eight is great.", "Sim, às oito está ótimo.", "people"],
+    ["Do you have anything earlier?", "Vocês têm algo mais cedo?", "earlier"],
+    ["Yes, I ate already, thanks.", "Sim, já comi, obrigado.", null, "Ha! No, eight o'clock, the time. Is a table at eight okay?", "Rá! Não, oito horas, o horário. Uma mesa às oito está bom?"]]],
+  "earlier": ["h", "Only at quarter past six, I'm afraid. Is that too early?", "Só às seis e quinze, infelizmente. É cedo demais?", [
+    ["No, quarter past six is fine.", "Não, seis e quinze está bom.", "people"],
+    ["That's a bit early. Let's keep eight.", "É um pouco cedo. Vamos manter às oito.", "people"],
+    ["Six bottles of water, please.", "Seis garrafas de água, por favor.", null, "Ha, I'm just booking tables! Quarter past six, or eight?", "Rá, eu só faço reservas! Seis e quinze ou oito?"]]],
+  "people": ["h", "And how many people is it for?", "E é para quantas pessoas?", [
+    ["Just two of us.", "Só duas pessoas.", "name"],
+    ["Six people. Is that okay?", "Seis pessoas. Tudo bem?", "big"],
+    ["About two hours.", "Umas duas horas.", null, "Ha, take your time! But how many people are coming?", "Rá, fique à vontade! Mas quantas pessoas vêm?"]]],
+  "big": ["h", "For six, I'll put two tables together. No problem.", "Para seis, eu junto duas mesas. Sem problema.", "name"],
+  "name": ["h", "Great. Can I take a name for the booking?", "Ótimo. Pode me dar um nome para a reserva?", [
+    ["Sure, it's Silva.", "Claro, é Silva.", "spell"],
+    ["It's Silva. S, I, L, V, A.", "É Silva. S, I, L, V, A.", "phone"],
+    ["Yes, you can take my coat.", "Sim, pode pegar meu casaco.", null, "Ha! Just your name, please. Who's the booking for?", "Rá! Só o seu nome, por favor. A reserva é em nome de quem?"]]],
+  "spell": ["h", "Sorry, was that Silva with a V or a B?", "Desculpe, é Silva com V ou com B?", [
+    ["With a V. S, I, L, V, A.", "Com V. S, I, L, V, A.", "phone"],
+    ["V, like Victor.", "V, de Victor.", "phone"],
+    ["With a fork and knife.", "Com garfo e faca.", null, "Ha! I mean the letter. Is it V, or B?", "Rá! Falo da letra. É V ou B?"]]],
+  "phone": ["h", "And a phone number, in case we need to call you?", "E um telefone, caso a gente precise ligar?", [
+    ["Sure, it's the number I'm calling from.", "Claro, é o número de onde estou ligando.", "phone_ok"],
+    ["I don't have a local number yet. Is that a problem?", "Ainda não tenho um número daqui. Tem problema?", "nolocal"],
+    ["No, thanks. I already have a phone.", "Não, obrigado. Já tenho um celular.", null, "Ha! I mean your number. Can we call you if we need to?", "Rá! Falo do seu número. Podemos te ligar se precisar?"]]],
+  "phone_ok": ["h", "Perfect, I can see it here.", "Perfeito, estou vendo aqui.", "confirm"],
+  "nolocal": ["h", "No problem. Any number is fine. We only call if something changes.", "Sem problema. Qualquer número serve. Só ligamos se algo mudar.", "confirm"],
+  "confirm": ["h", "Great, you're all booked under Silva. Anything else?", "Ótimo, está tudo reservado em nome de Silva. Mais alguma coisa?", [
+    ["Do you have vegetarian options?", "Vocês têm opções vegetarianas?", "veg"],
+    ["Is there parking near the restaurant?", "Tem estacionamento perto do restaurante?", "parking"],
+    ["No, that's everything. Thanks!", "Não, é só isso. Obrigado!", "end"],
+    ["Yes, under my bed, please.", "Sim, debaixo da minha cama, por favor.", null, "Ha! Under the name Silva, I mean. Can I help with anything else?", "Rá! Em nome de Silva, eu quis dizer. Posso ajudar em mais alguma coisa?"]]],
+  "veg": ["h", "Yes, we have a few vegetarian dishes. The mushroom risotto is amazing.", "Sim, temos alguns pratos vegetarianos. O risoto de cogumelos é incrível.", "end"],
+  "parking": ["h", "There's a car park behind the building. It's free after six.", "Tem um estacionamento atrás do prédio. É grátis depois das seis.", "end"],
+  "end": ["h", "Lovely. See you then. Bye for now!", "Ótimo. Até lá. Tchau!", null],
+  "change": ["h", "No problem. What's the name on the booking?", "Sem problema. Em nome de quem está a reserva?", [
+    ["It's Silva, for Saturday.", "É Silva, para sábado.", "change_found"],
+    ["Silva. S, I, L, V, A.", "Silva. S, I, L, V, A.", "change_found"],
+    ["The restaurant is called Rosa's.", "O restaurante se chama Rosa's.", null, "Ha, yes, I know! But whose name is the booking under?", "Rá, sim, eu sei! Mas a reserva está em nome de quem?"]]],
+  "change_found": ["h", "Got it. Saturday at eight, four people. What would you like to change?", "Achei. Sábado às oito, quatro pessoas. O que você quer mudar?", [
+    ["Could we come at nine instead?", "Podemos ir às nove?", "nine"],
+    ["We're actually six now, not four.", "Na verdade agora somos seis, não quatro.", "six"],
+    ["I need to cancel it, I'm afraid.", "Infelizmente, preciso cancelar.", "cancel"],
+    ["I'd like to change my shirt.", "Eu gostaria de trocar de camisa.", null, "Ha! I mean the booking. The time, or the number of people?", "Rá! Falo da reserva. O horário ou o número de pessoas?"]]],
+  "nine": ["h", "Sorry, nine is fully booked. I can do half past eight.", "Desculpe, às nove está lotado. Consigo às oito e meia.", [
+    ["Half past eight is fine.", "Oito e meia está bom.", "change_ok"],
+    ["Then let's keep eight o'clock.", "Então vamos manter às oito.", "change_ok"],
+    ["Eight and a half people?", "Oito pessoas e meia?", null, "Ha! No, half past eight, the time. Is that okay?", "Rá! Não, oito e meia, o horário. Tudo bem?"]]],
+  "six": ["h", "Six, okay. Let me check. Yes, I can give you a bigger table.", "Seis, certo. Deixa eu ver. Sim, consigo uma mesa maior.", "change_ok"],
+  "cancel": ["h", "Oh, that's a shame. Would you like to book another day instead?", "Ah, que pena. Quer reservar para outro dia?", [
+    ["Yes, how about next Saturday?", "Sim, que tal no outro sábado?", "nextsat"],
+    ["No, thanks. Maybe next time.", "Não, obrigado. Quem sabe numa próxima.", "end_cancel"],
+    ["Yes, another drink, please.", "Sim, mais uma bebida, por favor.", null, "Ha, we're on the phone! Do you want to book another day?", "Rá, a gente está no telefone! Quer reservar outro dia?"]]],
+  "nextsat": ["h", "Next Saturday at eight is free. I'll move it for you.", "No outro sábado às oito está livre. Vou mudar para você.", "change_ok"],
+  "end_cancel": ["h", "No problem, your booking is cancelled. Hope to see you soon!", "Sem problema, sua reserva está cancelada. Esperamos ver você em breve!", null],
+  "change_ok": ["h", "Done, I've updated your booking. Anything else I can help with?", "Pronto, atualizei sua reserva. Posso ajudar em mais alguma coisa?", [
+    ["No, that's all. Thank you!", "Não, é só isso. Obrigado!", "end"],
+    ["Can you send me a confirmation?", "Você pode me mandar uma confirmação?", "text"],
+    ["Yes, can you help me with my homework?", "Sim, você pode me ajudar com a lição de casa?", null, "Ha, I'm not a teacher! Anything else about the booking?", "Rá, eu não sou professor! Mais alguma coisa sobre a reserva?"]]],
+  "text": ["h", "Sure. We'll send you a text message in a few minutes.", "Claro. Vamos mandar uma mensagem de texto em alguns minutos.", "end"]
+ }
+},
+{
+ "slug": "returning-a-faulty-item", "title": "Returning Faulty Headphones", "level": "B1",
+ "description": "Devolva um fone com defeito e negocie uma solução.",
+ "intro": "Seus fones de ouvido novos pararam de funcionar depois de uma semana. Você volta à loja SoundZone, onde a atendente Megan está no balcão.",
+ "cast": {"e": ["Megan", "Atendente da loja", "af_river"], "m": ["Oliver", "Gerente da loja", "bm_fable"]},
+ "start": "r1",
+ "nodes": {
+  "r1": ["e", "Hi, welcome to SoundZone. How can I help?", "Oi, boas-vindas à SoundZone. Como posso ajudar?", [
+    ["Hi. I bought these headphones last week, and they've stopped working.", "Oi. Comprei estes fones semana passada e eles pararam de funcionar.", "what"],
+    ["Hello. I'd like to return these headphones, please. They're faulty.", "Olá. Eu gostaria de devolver estes fones, por favor. Estão com defeito.", "what"],
+    ["Hi. Could you turn the music up, please?", "Oi. Você pode aumentar a música, por favor?", null, "Ha, it's loud enough in here! What can I do for you?", "Rá, já está alto o suficiente aqui! O que posso fazer por você?"]]],
+  "what": ["e", "Oh no, I'm sorry to hear that. What exactly is the problem?", "Ah, não, sinto muito. Qual é exatamente o problema?", [
+    ["The left side doesn't make any sound.", "O lado esquerdo não sai som nenhum.", "left"],
+    ["They won't charge anymore. The light doesn't come on.", "Não carregam mais. A luz não acende.", "charge"],
+    ["The problem is that I love them.", "O problema é que eu amo eles.", null, "Aw! But what's wrong with them, exactly?", "Own! Mas o que eles têm, exatamente?"]]],
+  "left": ["e", "Let me try them. Hmm, you're right. Nothing on the left.", "Deixa eu testar. Hum, você tem razão. Nada no lado esquerdo.", "receipt"],
+  "charge": ["e", "Let me plug them in. Yeah, nothing at all. That's definitely not normal.", "Deixa eu ligar na tomada. É, nada. Isso com certeza não é normal.", "receipt"],
+  "receipt": ["e", "Do you have the receipt with you?", "Você está com o recibo?", [
+    ["Yes, here it is.", "Sim, aqui está.", "receipt_ok"],
+    ["I think it's in my email. Can I show you on my phone?", "Acho que está no meu e-mail. Posso te mostrar no celular?", "email"],
+    ["Sorry, I've lost it.", "Desculpe, eu perdi.", "noreceipt"],
+    ["No, I don't have a recipe. I don't cook.", "Não, não tenho receita. Eu não cozinho.", null, "Ha! Not a recipe, a receipt. Proof that you bought them?", "Rá! Não receita, recibo. Um comprovante de que você comprou?"]]],
+  "email": ["e", "Sure, a digital receipt is fine.", "Claro, um recibo digital serve.", "receipt_ok"],
+  "receipt_ok": ["e", "Great, you bought them eight days ago. So you can have a refund, an exchange, or store credit.", "Ótimo, você comprou há oito dias. Então pode escolher reembolso, troca ou crédito na loja.", [
+    ["I'd prefer a refund, please.", "Prefiro o reembolso, por favor.", "refund"],
+    ["Could I just exchange them for a new pair?", "Posso só trocar por um par novo?", "exchange"],
+    ["What can I get with store credit?", "O que posso fazer com crédito na loja?", "credit"],
+    ["Can I have a refund and keep the headphones?", "Posso ter o reembolso e ficar com os fones?", null, "Nice try! It's one or the other. A refund, an exchange, or credit?", "Boa tentativa! É um ou outro. Reembolso, troca ou crédito?"]]],
+  "refund": ["e", "Of course. The money goes back on your card. It can take up to five days. Is that okay?", "Claro. O dinheiro volta para o seu cartão. Pode levar até cinco dias. Tudo bem?", [
+    ["That's fine, thanks.", "Tudo bem, obrigado.", "end_good"],
+    ["Actually, I paid in cash.", "Na verdade, paguei em dinheiro.", "cash"],
+    ["I'm free on Tuesday.", "Estou livre na terça.", null, "Ha! I mean, is it okay to wait up to five days for the money?", "Rá! Quero dizer, tudo bem esperar até cinco dias pelo dinheiro?"]]],
+  "cash": ["e", "Oh, then I can give you the cash right now.", "Ah, então posso te dar o dinheiro agora mesmo.", "end_good"],
+  "exchange": ["e", "Let me check. Sorry, we're out of that model. The newer one is twenty pounds more.", "Deixa eu ver. Desculpe, esse modelo acabou. O mais novo custa vinte libras a mais.", [
+    ["Could I have the new one for the same price?", "Eu poderia levar o novo pelo mesmo preço?", "manager_ask"],
+    ["That's okay, I'll pay the difference.", "Tudo bem, eu pago a diferença.", "pay_diff"],
+    ["Then I'll just take a refund.", "Então vou ficar com o reembolso.", "refund"],
+    ["Twenty pounds? That's too heavy to carry!", "Vinte libras? É pesado demais para carregar!", null, "Ha! Pounds in money, not weight. Would you like the newer model?", "Rá! Libras em dinheiro, não em peso. Você quer o modelo mais novo?"]]],
+  "pay_diff": ["e", "Great choice. The sound is much better on these.", "Ótima escolha. O som destes é muito melhor.", "end_good"],
+  "manager_ask": ["e", "I'm afraid I can't change prices myself. Let me call my manager.", "Infelizmente eu não posso mudar preços. Vou chamar meu gerente.", "mgr1"],
+  "credit": ["e", "You can spend it on anything here, and it never expires. Would you like that?", "Você pode usar em qualquer coisa aqui, e nunca vence. Você quer?", [
+    ["Yes, that works for me.", "Sim, para mim funciona.", "end_good"],
+    ["Hmm, I'd rather have my money back.", "Hum, prefiro meu dinheiro de volta.", "refund"],
+    ["Can I spend it on pizza?", "Posso gastar com pizza?", null, "Ha, only if we start selling pizza! So, store credit or not?", "Rá, só se a gente começar a vender pizza! Então, crédito na loja ou não?"]]],
+  "noreceipt": ["e", "Hmm. Without a receipt, I can only offer store credit, I'm afraid.", "Hum. Sem recibo, infelizmente só posso oferecer crédito na loja.", [
+    ["I paid by card. Can't you find it on your system?", "Paguei com cartão. Você não consegue achar no sistema?", "system"],
+    ["That doesn't seem fair. Could I speak to the manager?", "Isso não me parece justo. Posso falar com o gerente?", "mgr1"],
+    ["Okay, store credit is fine.", "Tudo bem, crédito na loja serve.", "end_good"],
+    ["That's okay, I'm not afraid.", "Tudo bem, eu não tenho medo.", null, "Ha, good! But is store credit okay for you?", "Rá, que bom! Mas crédito na loja está bom para você?"]]],
+  "system": ["e", "Let me try. Do you remember which day you bought them?", "Vou tentar. Você lembra em que dia comprou?", [
+    ["Last Saturday, in the afternoon.", "Sábado passado, à tarde.", "found"],
+    ["I think it was Friday, around lunchtime.", "Acho que foi na sexta, por volta da hora do almoço.", "found"],
+    ["Yes, I remember the song that was playing.", "Sim, lembro da música que estava tocando.", null, "Ha, nice! But what day did you buy them?", "Rá, legal! Mas em que dia você comprou?"]]],
+  "found": ["e", "Found it! Okay, so you can choose a refund or an exchange.", "Achei! Certo, então você pode escolher reembolso ou troca.", [
+    ["A refund, please.", "Reembolso, por favor.", "refund"],
+    ["An exchange, please.", "Troca, por favor.", "exchange"],
+    ["I'll choose the blue ones.", "Vou escolher os azuis.", null, "Ha! First things first. A refund, or an exchange?", "Rá! Uma coisa de cada vez. Reembolso ou troca?"]]],
+  "mgr1": ["m", "Hello, I'm Oliver, the manager. What seems to be the problem?", "Olá, sou o Oliver, o gerente. Qual parece ser o problema?", [
+    ["These stopped working after a week, and I'd like a fair solution.", "Estes pararam de funcionar depois de uma semana, e eu gostaria de uma solução justa.", "mgr2"],
+    ["I'd just like working headphones, without paying extra.", "Eu só queria fones que funcionem, sem pagar a mais.", "mgr2"],
+    ["The problem is my neighbour's dog.", "O problema é o cachorro do meu vizinho.", null, "Oh dear. But what's the problem with the headphones?", "Puxa. Mas qual é o problema com os fones?"]]],
+  "mgr2": ["m", "I understand. A week is far too soon for them to break.", "Entendo. Uma semana é cedo demais para quebrarem.", "mgr3"],
+  "mgr3": ["m", "Here's what I can do. The newer model at the same price. How does that sound?", "Olha o que posso fazer. O modelo mais novo pelo mesmo preço. O que acha?", [
+    ["That sounds great. Thank you.", "Parece ótimo. Obrigado.", "mgr_end"],
+    ["That's kind, but could I have a refund instead?", "É gentil, mas eu poderia ter o reembolso?", "mgr_refund"],
+    ["It sounds like jazz.", "Parece jazz.", null, "Ha! I mean, are you happy with that offer?", "Rá! Quero dizer, essa oferta te agrada?"]]],
+  "mgr_refund": ["m", "Of course. Just this once, Megan will give you a full refund.", "Claro. Só desta vez, a Megan vai te dar o reembolso total.", "end_good"],
+  "mgr_end": ["m", "My pleasure. And sorry again for the trouble.", "O prazer é meu. E desculpe de novo pelo transtorno.", "end_good"],
+  "end_good": ["e", "All done. Is there anything else I can help you with?", "Tudo certo. Posso ajudar em mais alguma coisa?", [
+    ["No, that's all. Thanks for your help.", "Não, é só isso. Obrigado pela ajuda.", "bye"],
+    ["Actually, do you sell cases for these?", "Aliás, vocês vendem estojo para estes?", "case"],
+    ["Yes, can you fix my car too?", "Sim, você conserta meu carro também?", null, "Ha, we only do headphones! Anything else today?", "Rá, a gente só mexe com fones! Mais alguma coisa hoje?"]]],
+  "case": ["e", "Yes, right by the till. They're ten percent off this week.", "Sim, bem ao lado do caixa. Estão com dez por cento de desconto esta semana.", "bye"],
+  "bye": ["e", "Have a great day, and enjoy your music!", "Tenha um ótimo dia e aproveite sua música!", null]
+ }
+},
+{
+ "slug": "renting-a-flat", "title": "Renting a Flat", "level": "B2",
+ "description": "Visite um apartamento e negocie o aluguel.",
+ "intro": "Você está procurando apartamento em Londres e marcou uma visita. O corretor James abre a porta, e a inquilina atual, Chloe, ainda está em casa.",
+ "cast": {"a": ["James", "Corretor de imóveis", "bm_lewis"], "t": ["Chloe", "Inquilina atual", "af_aoede"]},
+ "start": "f1",
+ "nodes": {
+  "f1": ["a", "You must be here for the viewing. I'm James, from Harbour Lettings. Come on in.", "Você deve ter vindo para a visita. Sou o James, da Harbour Lettings. Pode entrar.", "f2"],
+  "f2": ["a", "So, this is the living room. Loads of natural light, as you can see. What do you think so far?", "Então, esta é a sala. Bastante luz natural, como você pode ver. O que está achando até agora?", [
+    ["It's lovely and bright. Is it furnished?", "É linda e bem clara. É mobiliado?", "furnished"],
+    ["It's nice, but it's smaller than it looked in the photos.", "É legal, mas é menor do que parecia nas fotos.", "photos"],
+    ["I think it's about half past two.", "Acho que são umas duas e meia.", null, "Ha, it is! But what do you think of the flat?", "Rá, são mesmo! Mas o que você acha do apartamento?"]]],
+  "furnished": ["a", "Fully furnished, yes, but the landlord can remove anything you don't need.", "Totalmente mobiliado, sim, mas o proprietário pode tirar o que você não precisar.", "rent"],
+  "photos": ["a", "Ah, the wide-angle lens strikes again. But the bedroom's a good size, honestly.", "Ah, a lente grande-angular ataca de novo. Mas o quarto é de bom tamanho, sério.", "rent"],
+  "rent": ["a", "The rent is twelve hundred a month. Did you have a budget in mind?", "O aluguel é mil e duzentos por mês. Você tinha um orçamento em mente?", [
+    ["That's within my budget, but what does it include?", "Está dentro do meu orçamento, mas o que está incluído?", "bills"],
+    ["To be honest, that's a bit over my budget.", "Sinceramente, está um pouco acima do meu orçamento.", "over"],
+    ["Yes, I have a budgie. He's called Kiwi.", "Sim, tenho um periquito. O nome dele é Kiwi.", null, "Ha! Lovely, but I meant budget. How much can you afford each month?", "Rá! Que fofo, mas eu disse orçamento. Quanto você pode pagar por mês?"]]],
+  "over": ["a", "I see. The landlord might be flexible for the right tenant. What were you hoping to pay?", "Entendi. O proprietário pode ser flexível com o inquilino certo. Quanto você esperava pagar?", [
+    ["Would the landlord accept eleven hundred for a longer contract?", "O proprietário aceitaria mil e cem por um contrato mais longo?", "offer"],
+    ["I could go up to eleven fifty, but that's my limit.", "Eu chegaria a mil cento e cinquenta, mas esse é meu limite.", "offer"],
+    ["I was hoping to pay with a smile.", "Eu esperava pagar com um sorriso.", null, "If only! But seriously, what figure did you have in mind?", "Quem dera! Mas falando sério, que valor você tinha em mente?"]]],
+  "offer": ["a", "I can't promise anything, but I'll put that to the landlord today.", "Não posso prometer nada, mas vou levar isso ao proprietário hoje.", "bills"],
+  "bills": ["a", "Water's included, but electricity, gas and internet are on top. Any questions about that?", "A água está incluída, mas luz, gás e internet são à parte. Alguma pergunta sobre isso?", [
+    ["Roughly how much are the bills each month?", "Mais ou menos quanto dão as contas por mês?", "ask_tenant"],
+    ["Is the heating gas or electric? Older flats can be expensive to heat.", "O aquecimento é a gás ou elétrico? Apartamentos antigos podem sair caros para aquecer.", "heating"],
+    ["On top of the wardrobe?", "Em cima do guarda-roupa?", null, "Ha! No, I mean you pay them separately. Any questions about the bills?", "Rá! Não, quero dizer que você paga à parte. Alguma pergunta sobre as contas?"]]],
+  "ask_tenant": ["a", "Good question. Actually, Chloe, the current tenant, would know better than me.", "Boa pergunta. Na verdade, a Chloe, a inquilina atual, sabe melhor do que eu.", "chloe1"],
+  "chloe1": ["t", "Hi! In winter it's about a hundred and fifty a month. Much less in summer.", "Oi! No inverno dá uns cento e cinquenta por mês. Bem menos no verão.", "deposit"],
+  "heating": ["a", "It's gas central heating, and the windows were replaced last year, so it stays warm.", "É aquecimento central a gás, e as janelas foram trocadas ano passado, então fica quentinho.", "deposit"],
+  "deposit": ["a", "There's also a deposit of five weeks' rent, protected in a government scheme.", "Também tem um depósito de cinco semanas de aluguel, protegido num programa do governo.", [
+    ["When would I get the deposit back?", "Quando eu receberia o depósito de volta?", "deposit_back"],
+    ["Is there any way to pay it in instalments?", "Tem como pagar parcelado?", "instal"],
+    ["Five weeks? I'll be on holiday then.", "Cinco semanas? Vou estar de férias nessa época.", null, "Ha! No, five weeks' rent, paid as a deposit. Is that okay?", "Rá! Não, o valor de cinco semanas de aluguel, pago como depósito. Tudo bem?"]]],
+  "deposit_back": ["a", "At the end of the tenancy, minus any damage beyond normal wear and tear.", "No fim do contrato, descontando qualquer dano além do desgaste normal.", "contract"],
+  "instal": ["a", "Not usually, but I can ask. Some landlords accept two payments.", "Normalmente não, mas posso perguntar. Alguns proprietários aceitam em duas vezes.", "contract"],
+  "contract": ["a", "The minimum contract is twelve months. Does that suit you?", "O contrato mínimo é de doze meses. Isso te serve?", [
+    ["Twelve months is fine. Is there a break clause?", "Doze meses está bom. Tem cláusula de rescisão?", "break"],
+    ["I was hoping for six months, actually. My job might move me.", "Na verdade, eu esperava seis meses. Meu trabalho pode me transferir.", "six"],
+    ["Yes, my suit is in the car.", "Sim, meu terno está no carro.", null, "Ha! I mean, does a one-year contract work for you?", "Rá! Quero dizer, um contrato de um ano funciona para você?"]]],
+  "break": ["a", "Yes. Either side can end it after six months, with two months' notice.", "Sim. Qualquer uma das partes pode encerrar depois de seis meses, com dois meses de aviso.", "nb"],
+  "six": ["a", "Six is tricky. But a year with a break clause after six months might work.", "Seis é complicado. Mas um ano com cláusula de rescisão após seis meses pode funcionar.", "nb"],
+  "nb": ["a", "Anything else you'd like to know before we look at the bedroom?", "Mais alguma coisa que você queira saber antes de vermos o quarto?", [
+    ["What are the neighbours like?", "Como são os vizinhos?", "chloe_nb"],
+    ["Is the area safe at night?", "O bairro é seguro à noite?", "area"],
+    ["Can I put up pictures or paint the walls?", "Posso pendurar quadros ou pintar as paredes?", "walls"],
+    ["Is breakfast included, or is it extra per night?", "O café da manhã está incluído ou é à parte por noite?", null, "Ha, it's not a hotel! Any other questions about the flat?", "Rá, não é um hotel! Mais alguma pergunta sobre o apartamento?"]]],
+  "chloe_nb": ["t", "Honestly? Lovely, apart from the man upstairs who practises the drums on Sundays.", "Sinceramente? Ótimos, tirando o homem lá de cima que treina bateria aos domingos.", "chloe_q"],
+  "chloe_q": ["t", "Do you play any instruments yourself?", "E você, toca algum instrumento?", [
+    ["No, but I work from home, so noise really matters to me.", "Não, mas trabalho de casa, então barulho importa muito para mim.", "drums"],
+    ["Only the guitar, and very quietly, I promise.", "Só violão, e bem baixinho, prometo.", "drums"],
+    ["Yes, I'm brilliant at the dishwasher.", "Sim, mando muito bem na lava-louças.", null, "Ha! I meant music. Do you play anything?", "Rá! Eu quis dizer música. Você toca alguma coisa?"]]],
+  "drums": ["t", "Don't worry, he only plays for a couple of hours. The rest of the week it's dead quiet.", "Não se preocupe, ele só toca umas duas horas. No resto da semana é um silêncio total.", "negotiate"],
+  "area": ["a", "Very safe. There's a police station round the corner, and the high street is busy until late.", "Muito seguro. Tem uma delegacia na esquina, e a rua principal fica movimentada até tarde.", "negotiate"],
+  "walls": ["a", "Pictures, yes, with small nails. Painting needs the landlord's written permission.", "Quadros, sim, com pregos pequenos. Para pintar, precisa de autorização por escrito do proprietário.", "negotiate"],
+  "negotiate": ["a", "So, the flat's had a lot of interest. Would you like to make an offer today?", "Então, o apartamento teve muita procura. Você gostaria de fazer uma proposta hoje?", [
+    ["Yes. I'd like to go ahead, subject to contract.", "Sim. Quero seguir em frente, dependendo do contrato.", "yes"],
+    ["Could I have until tomorrow to think it over?", "Posso ter até amanhã para pensar?", "think"],
+    ["I'll offer the asking price if the landlord repaints the bedroom.", "Ofereço o valor pedido se o proprietário pintar o quarto de novo.", "repaint"],
+    ["I'd like to make an omelette, actually.", "Na verdade, eu gostaria de fazer uma omelete.", null, "Ha! Not until you move in! Would you like to make an offer?", "Rá! Só depois da mudança! Você gostaria de fazer uma proposta?"]]],
+  "repaint": ["a", "That's a fair request. I'll pass it on, and I'm fairly confident they'll agree.", "É um pedido justo. Vou repassar, e tenho quase certeza de que vão aceitar.", "yes"],
+  "yes": ["a", "Brilliant. I'll need some ID and a reference from your employer.", "Excelente. Vou precisar de um documento e de uma carta de referência do seu empregador.", [
+    ["No problem. I can email those tonight.", "Sem problema. Posso mandar por e-mail hoje à noite.", "end_yes"],
+    ["My employer is abroad. Would a bank statement do?", "Meu empregador fica no exterior. Um extrato bancário serve?", "abroad"],
+    ["Sure, I can reference my favourite film.", "Claro, posso citar meu filme favorito.", null, "Ha! I mean a letter from your employer. Can you get one?", "Rá! Quero dizer uma carta do seu empregador. Você consegue uma?"]]],
+  "abroad": ["a", "That should be fine, maybe with a couple of months' rent upfront.", "Deve servir, talvez com uns dois meses de aluguel adiantados.", "end_yes"],
+  "think": ["a", "Of course, but I can't hold it for long. There are two more viewings this afternoon.", "Claro, mas não consigo segurar por muito tempo. Tem mais duas visitas hoje à tarde.", [
+    ["Understood. I'll call you by ten tomorrow morning.", "Entendido. Te ligo até as dez amanhã de manhã.", "end_think"],
+    ["Fair enough. Could you call me if someone makes an offer?", "Justo. Você pode me ligar se alguém fizer uma proposta?", "end_think"],
+    ["Two viewings? I'm watching two series as well.", "Duas visitas? Também estou assistindo duas séries.", null, "Ha! I mean other people are coming to see the flat. Will you decide soon?", "Rá! Quero dizer que outras pessoas vêm ver o apartamento. Você decide logo?"]]],
+  "end_yes": ["a", "Great. I'll draw up the paperwork. Welcome to the neighbourhood, hopefully!", "Ótimo. Vou preparar a papelada. Boas-vindas ao bairro, tomara!", null],
+  "end_think": ["a", "Perfect. Here's my card. Speak tomorrow.", "Perfeito. Aqui está meu cartão. Nos falamos amanhã.", null]
+ }
+}
+]

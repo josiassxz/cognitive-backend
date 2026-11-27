@@ -1,0 +1,86 @@
+{
+ "slug": "town-02-rose-street", "episode": 2, "title": "Rose Street", "level": "A1",
+ "place": "street", "time": "Segunda · 11h", "ambience": "street",
+ "description": "Ache sua casa nova e conheça o vizinho rabugento.",
+ "intro": "O pote de doações do café sumiu, e alguém de jaqueta vermelha saiu com pressa. Agora você procura sua casa nova: Rose Street, número 12.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "h": ["Mr. Hughes", "Vizinho do nº 14", "bm_george", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "It's eleven o'clock. You walk down Rose Street with your big suitcase.", "São onze horas. Você desce a Rose Street com sua mala grande.", "n2"],
+  "n2": ["n", "Number eight, number ten. Where is number twelve?", "Número oito, número dez. Cadê o número doze?", "h1"],
+  "h1": ["h", "Biscuit! Biscuit! Where are you, you silly dog?", "Biscuit! Biscuit! Cadê você, cachorro bobo?", "n3"],
+  "n3": ["n", "An old man stands at a garden gate. He looks angry. And worried.", "Um senhor está parado no portão de um jardim. Ele parece bravo. E preocupado.", "h2"],
+  "h2": ["h", "You there! Have you seen a little brown dog?", "Você aí! Viu um cachorrinho marrom?", [
+   ["No, sorry. I just arrived.", "Não, desculpe. Acabei de chegar.", "h_arrived"],
+   ["A brown dog? What's his name?", "Um cachorro marrom? Qual o nome dele?", "h_name"],
+   ["Yes, I'd like a biscuit, please.", "Sim, eu queria um biscoito, por favor.", null, "Not a biscuit to eat! Biscuit is my dog. Have you seen him?", "Não é biscoito de comer! Biscuit é meu cachorro. Você viu ele?"]
+  ]],
+  "h_name": ["h", "Biscuit. He's small, brown and very naughty. Like all dogs.", "Biscuit. Ele é pequeno, marrom e muito levado. Como todo cachorro.", "h_who"],
+  "h_arrived": ["h", "Just arrived? Hmph. With a suitcase. Yes, I can see that.", "Acabou de chegar? Hunf. Com uma mala. É, estou vendo.", "h_who"],
+  "h_who": ["h", "And who are you, then?", "E quem é você, afinal?", [
+   ["I'm your new neighbour. I live at number twelve.", "Vou morar aqui do lado. No número doze.", "h_neighbour"],
+   ["I'm looking for number twelve.", "Estou procurando o número doze.", "h_twelve"],
+   ["I'm twelve years old.", "Tenho doze anos.", null, "Twelve? You look older than twelve! Who are you?", "Doze? Você parece ter mais de doze! Quem é você?"]
+  ]],
+  "h_neighbour": ["h", "Number twelve? So you're the new one. I'm Arthur Hughes. Number fourteen.", "Número doze? Então é você a pessoa nova. Sou Arthur Hughes. Número catorze.", "h_leg"],
+  "h_twelve": ["h", "It's right there. The blue door, next to mine. I'm Arthur Hughes. Number fourteen.", "É bem ali. A porta azul, do lado da minha. Sou Arthur Hughes. Número catorze.", "h_leg"],
+  "h_leg": ["h", "Biscuit ran away this morning. And I can't walk fast. My leg, you see.", "O Biscuit fugiu hoje de manhã. E eu não ando rápido. Minha perna, sabe.", [
+   ["I can help you look for him.", "Posso te ajudar a procurar.", "h_help", {"set": {"helped_hughes": "yes"}}],
+   ["Sorry, I need to take my bags inside.", "Desculpe, preciso levar minhas malas pra dentro.", "h_nohelp", {"set": {"helped_hughes": "no"}}],
+   ["Oh no! Is your dog's leg okay?", "Ah, não! A perna do seu cachorro está bem?", null, "Not the dog's leg! MY leg. His legs are fine. That's the problem! He runs everywhere.", "Não é a perna do cachorro! A MINHA perna. As dele estão ótimas. Esse é o problema! Ele corre pra todo lado."]
+  ]],
+  "h_help": ["h", "You'd help? Well. Thank you. He likes the park at the end of the street.", "Você ajudaria? Bom. Obrigado. Ele gosta do parque no fim da rua.", "n_park"],
+  "n_park": ["n", "You leave your suitcase by the blue door. You walk to the park together.", "Você deixa a mala na porta azul. Vocês vão juntos até o parque.", "h_park"],
+  "h_park": ["h", "Where is that dog? Where do we look first?", "Cadê esse cachorro? Onde procuramos primeiro?", [
+   ["Let's look under the trees.", "Vamos olhar embaixo das árvores.", "n_trees"],
+   ["Let's call his name together.", "Vamos chamar o nome dele juntos.", "n_call"],
+   ["Let's look in the bank.", "Vamos procurar no banco.", null, "The bank? Biscuit hasn't got any money! Where do we look?", "No banco? O Biscuit não tem dinheiro nenhum! Onde procuramos?"]
+  ]],
+  "n_trees": ["n", "You look under the trees. No dog. Just a lot of leaves.", "Você olha embaixo das árvores. Nada de cachorro. Só um monte de folhas.", "h_busy"],
+  "n_call": ["n", "You shout together: Biscuit! Biscuit! A woman with a baby laughs. But no dog.", "Vocês gritam juntos: Biscuit! Biscuit! Uma mulher com um bebê ri. Mas nada do cachorro.", "h_busy"],
+  "h_busy": ["h", "Hmph. This town is too busy today. This morning a boy ran past my house like a train.", "Hunf. Esta cidade está agitada demais hoje. De manhã, um rapaz passou pela minha casa feito um trem.", [
+   ["A boy? What did he look like?", "Um rapaz? Como ele era?", "h_look"],
+   ["Where was he going?", "Para onde ele ia?", "h_where"],
+   ["Was it a fast train?", "Era um trem rápido?", null, "Not a real train! A boy. Running. Are you listening?", "Não um trem de verdade! Um rapaz. Correndo. Você está prestando atenção?"]
+  ]],
+  "h_look": ["h", "Young. Fast. I didn't see his face. But he had a heavy bag. It went clink, clink, clink.", "Jovem. Rápido. Não vi o rosto. Mas ele tinha uma sacola pesada. Fazia tlim, tlim, tlim.", "h_coins", {"clue": "heavy_bag"}],
+  "h_where": ["h", "To the High Street. With a big, heavy bag. Clink, clink, clink. Like coins.", "Pra High Street. Com uma sacola grande e pesada. Tlim, tlim, tlim. Tipo moedas.", "h_when", {"clue": "heavy_bag"}],
+  "h_coins": ["h", "Like a bag of coins. Strange, isn't it?", "Feito uma sacola de moedas. Estranho, não?", [
+   ["Very strange. A jar of coins disappeared this morning.", "Muito estranho. Um pote de moedas sumiu hoje de manhã.", "h_jar"],
+   ["What time was that?", "Que horas foi isso?", "h_when"],
+   ["Yes, I like strange dogs.", "Sim, eu gosto de cachorros estranhos.", null, "My dog is not strange! The bag was strange. Don't you think?", "Meu cachorro não é estranho! A sacola é que era estranha. Não acha?"]
+  ]],
+  "h_when": ["h", "After nine. I was eating my breakfast. Toast and marmalade. Every day.", "Depois das nove. Eu estava tomando café. Torrada com geleia de laranja. Todo dia.", "n_bark"],
+  "h_jar": ["h", "A jar? From the café? Hmph. Not my business. I want my dog.", "Um pote? Do café? Hunf. Não é da minha conta. Eu quero meu cachorro.", "n_bark"],
+  "n_bark": ["n", "Suddenly you hear a happy bark. A little brown dog runs out of a bush.", "De repente você ouve um latido feliz. Um cachorrinho marrom sai correndo de um arbusto.", "h_found"],
+  "h_found": ["h", "Biscuit! You bad, bad dog. Oh, I missed you.", "Biscuit! Seu cachorro levado. Ai, que saudade.", "h_thanks"],
+  "h_thanks": ["h", "Thank you, number twelve. You're not bad. For a new person.", "Obrigado, número doze. Você não é de todo mal. Pra quem acabou de chegar.", [
+   ["You're welcome, Mr. Hughes.", "De nada, Sr. Hughes.", "h_tea"],
+   ["Call me if he runs away again!", "Me chama se ele fugir de novo!", "h_again"],
+   ["Yes, I'm not bad at tennis.", "Sim, não sou ruim no tênis.", null, "Tennis? I said YOU are not bad. It's a compliment. Take it.", "Tênis? Eu disse que VOCÊ não é de todo mal. É um elogio. Aceite."]
+  ]],
+  "h_again": ["h", "Oh, he will. He always does. Hmph.", "Ah, ele vai fugir. Sempre foge. Hunf.", "h_tea"],
+  "h_tea": ["h", "Come for tea one day. Not today. Biscuit needs a bath.", "Venha tomar um chá um dia. Hoje não. O Biscuit precisa de um banho.", "n_end"],
+  "h_nohelp": ["h", "Fine. Everybody's in a hurry today. Like that boy this morning.", "Tudo bem. Todo mundo está com pressa hoje. Igual àquele rapaz hoje de manhã.", [
+   ["What boy?", "Que rapaz?", "h_boy"],
+   ["Sorry. I hope you find Biscuit.", "Desculpe. Espero que você ache o Biscuit.", "h_bye"],
+   ["Yes, it's a lovely morning.", "Sim, que manhã linda.", null, "Lovely? My dog is lost! Didn't you hear me? That boy, this morning!", "Linda? Meu cachorro sumiu! Não me ouviu? Aquele rapaz, hoje de manhã!"]
+  ]],
+  "h_boy": ["h", "He ran past my house to the High Street. With a heavy bag. Clink, clink, clink.", "Ele passou correndo pela minha casa, rumo à High Street. Com uma sacola pesada. Tlim, tlim, tlim.", "h_bye2", {"clue": "heavy_bag"}],
+  "h_bye": ["h", "Hmph. Go on, then. Run, like that boy this morning. With his noisy bag of coins.", "Hunf. Pode ir, então. Corra, igual àquele rapaz hoje cedo. Com a sacola barulhenta de moedas.", "n_door", {"clue": "heavy_bag"}],
+  "h_bye2": ["h", "Very strange. Now go on. Take your bags inside.", "Muito estranho. Agora vá. Leve suas malas pra dentro.", "n_door"],
+  "n_door": ["n", "You walk to the blue door. A little brown dog is asleep on your doormat!", "Você vai até a porta azul. Um cachorrinho marrom está dormindo no seu capacho!", "n_door2"],
+  "n_door2": ["n", "What do you do?", "O que você faz?", [
+   ["Mr. Hughes! Is this Biscuit?", "Sr. Hughes! Este é o Biscuit?", "h_found2", {"set": {"helped_hughes": "yes"}}],
+   ["Shh, little dog. Go home.", "Psiu, cachorrinho. Vai pra casa.", "n_gohome"],
+   ["Hello, doormat. Nice to meet you.", "Olá, capacho. Prazer em te conhecer.", null, "The doormat can't talk. But the dog is waking up. What do you do?", "O capacho não fala. Mas o cachorro está acordando. O que você faz?"]
+  ]],
+  "h_found2": ["h", "Biscuit! There you are! Hmph. Thank you, number twelve. Maybe you're not so bad.", "Biscuit! Aí está você! Hunf. Obrigado, número doze. Talvez você não seja tão mal assim.", "n_end"],
+  "n_gohome": ["n", "The dog runs down the street. You go inside. Through the wall, you hear: Biscuit!", "O cachorro sai correndo pela rua. Você entra. Pela parede, você ouve: Biscuit!", "n_end"],
+  "n_end": ["n", "Your new home is small and cold. And you keep thinking: clink, clink. A bag of coins.", "Sua casa nova é pequena e fria. E você não para de pensar: tlim, tlim. Uma sacola de moedas.", "n_end2"],
+  "n_end2": ["n", "Your fridge is empty. Later, you need to visit the shop on the corner.", "Sua geladeira está vazia. Mais tarde, você precisa ir à lojinha da esquina.", null]
+ }
+}

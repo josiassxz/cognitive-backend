@@ -1,0 +1,92 @@
+{
+ "slug": "town-04-the-gazette", "episode": 4, "title": "The Gazette", "level": "A2",
+ "place": "office", "time": "Terça · 9h", "ambience": "office",
+ "description": "Primeiro dia no jornal: a chefe, o colega piadista e a sua primeira pauta.",
+ "intro": "O Ravi contou que segunda era feriado bancário e que um rapaz de boné trocou muitas moedas na loja dele. Hoje é seu primeiro dia no The Millbrook Gazette.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Maggie", "Editora-chefe do Gazette", "bf_isabella", "left"],
+  "k": ["Kevin", "Fotógrafo do Gazette", "am_fenrir", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Tuesday morning, nine o'clock. The Gazette office is small, busy and full of paper.", "Terça de manhã, nove horas. A redação do Gazette é pequena, agitada e cheia de papel.", "m1"],
+  "m1": ["m", "Ah. You must be our new reporter. I'm Maggie Brennan, the editor.", "Ah. Você deve ser a pessoa nova da reportagem. Sou Maggie Brennan, a editora.", "m1b"],
+  "m1b": ["m", "And you're on time. That's already better than half the office.", "E chegou na hora. Isso já é melhor que metade da redação.", [
+   ["Nice to meet you, Maggie. Where do I sit?", "Prazer, Maggie. Onde eu sento?", "m_desk"],
+   ["Good morning! I'm really excited to start.", "Bom dia! Estou com muita vontade de começar.", "m_excited"],
+   ["Thanks. Is the other half on holiday?", "Valeu. A outra metade está de férias?", "m_half"],
+   ["Yes, I ate half a cake.", "Sim, comi meio bolo.", null, "Lovely. Not relevant, but lovely. Shall we start again? Good morning.", "Que lindo. Nada a ver, mas lindo. Vamos recomeçar? Bom dia."]
+  ]],
+  "m_desk": ["m", "Over there. Next to Kevin, our photographer. Try not to encourage him.", "Ali. Do lado do Kevin, nosso fotógrafo. Tente não dar corda pra ele.", "m_kevin"],
+  "m_excited": ["m", "Excited. Lovely. That usually lasts about a week. Your desk is over there.", "Empolgação. Que lindo. Isso costuma durar uma semana. Sua mesa é ali.", "m_kevin"],
+  "m_half": ["m", "Ha! I like that. No, the other half is Kevin. He's always late. Except today, strangely.", "Rá! Gostei. Não, a outra metade é o Kevin. Sempre se atrasa. Menos hoje, estranhamente.", "m_kevin"],
+  "m_kevin": ["m", "Kevin! Come and say hello. And no jokes.", "Kevin! Vem dar oi. E nada de piadas.", "k1"],
+  "k1": ["k", "Hey! Welcome to the Gazette! I'm Kevin. Want to hear a joke?", "E aí! Boas-vindas ao Gazette! Sou o Kevin. Quer ouvir uma piada?", [
+   ["Sure, go on!", "Claro, manda!", "k_joke"],
+   ["Maybe later. I want to start work.", "Talvez depois. Quero começar a trabalhar.", "k_later", {"set": {"kevin_friend": "no"}}],
+   ["Yes, a Coke, please.", "Sim, uma Coca, por favor.", null, "A Coke? Ha! No, a JOKE. Something funny. Do you want one?", "Uma Coca? Rá! Não, uma PIADA. Algo engraçado. Quer ouvir uma?"]
+  ]],
+  "k_joke": ["k", "Why did the newspaper go to the doctor? It had too many issues!", "Por que o jornal foi ao médico? Tinha 'issues' demais! (issues = edições e também problemas)", [
+   ["Ha! That's a good one!", "Rá! Essa foi boa!", "k_happy", {"set": {"kevin_friend": "yes"}}],
+   ["Oh no, that's terrible. Tell me another one!", "Ai, não, que horrível. Conta outra!", "k_another", {"set": {"kevin_friend": "yes"}}],
+   ["Please, no more jokes.", "Por favor, chega de piadas.", "k_later", {"set": {"kevin_friend": "no"}}],
+   ["Oh, I'm sorry. Is the newspaper okay now?", "Ah, que pena. O jornal está bem agora?", null, "Ha! It's a joke! The newspaper isn't sick! Issues! Get it?", "Rá! É piada! O jornal não está doente! Issues! Entendeu?"]
+  ]],
+  "k_happy": ["k", "See, Maggie? Somebody likes my jokes! We're going to be great friends.", "Viu, Maggie? Alguém gosta das minhas piadas! A gente vai se dar muito bem.", "n_jacket"],
+  "k_another": ["k", "A fan! Okay. What's black and white and read all over? A newspaper!", "Tenho público! Lá vai. O que é preto e branco e 'red' por todo lado? Um jornal! (read, lido, soa como red, vermelho)", "n_jacket"],
+  "k_later": ["k", "Oh. Okay. A serious one. Got it. I'll save my jokes for Maggie.", "Ah. Tá. Pessoa séria. Entendi. Guardo minhas piadas pra Maggie.", "n_jacket"],
+  "n_jacket": ["n", "Kevin sits down. He's wearing a bright red jacket.", "O Kevin se senta. Ele está usando uma jaqueta vermelha bem chamativa.", "jacket_br"],
+  "jacket_br": {"branch": [["clue_red_jacket", "n_jacket_red"], [null, "m_meeting"]]},
+  "n_jacket_red": ["n", "A red jacket. Just like yesterday, at the café. What do you say?", "Uma jaqueta vermelha. Igualzinho a ontem, no café. O que você diz?", [
+   ["Nice jacket, Kevin. Where were you yesterday at nine?", "Bela jaqueta, Kevin. Onde você estava ontem às nove?", "k_where", {"set": {"asked_kevin": "yes"}}],
+   ["Hey, Kevin. Nice jacket!", "Ei, Kevin. Bela jaqueta!", "k_nice"],
+   ["My jacket is at the dentist.", "Minha jaqueta está no dentista.", null, "Kevin looks at you strangely. Try again. What do you say?", "O Kevin te olha com estranheza. Tente de novo. O que você diz?"]
+  ]],
+  "k_where": ["k", "Whoa! Is this an interview? I was busy. Very busy. Ha.", "Opa! Isso é uma entrevista? Eu estava ocupado. Muito ocupado. Rá.", "m_sus"],
+  "m_sus": ["m", "Kevin, you've gone red. That's never happened before.", "Kevin, você ficou vermelho. Isso nunca aconteceu antes.", "m_meeting"],
+  "k_nice": ["k", "Thanks! It's my lucky jacket. Well, not very lucky this week.", "Valeu! É minha jaqueta da sorte. Bom, não muito sortuda essa semana.", "m_meeting"],
+  "m_meeting": ["m", "Right. Story meeting. Thursday is the harbour festival, and I want a special edition.", "Certo. Reunião de pauta. Quinta é o festival do porto, e quero uma edição especial.", "m_jar"],
+  "m_jar": ["m", "And the big story is the missing jar from the Corner Café.", "E a grande matéria é o pote que sumiu do Corner Café.", [
+   ["I know! I was there when it disappeared.", "Eu sei! Eu estava lá quando ele sumiu.", "m_there"],
+   ["Why is a jar a big story?", "Por que um pote é uma grande matéria?", "m_why"],
+   ["Kevin should write it. He's got the red jacket.", "O Kevin devia escrever. Ele tem a jaqueta vermelha.", "k_hey"],
+   ["The car? I didn't see a car.", "O carro? Não vi carro nenhum.", null, "Not a car. A JAR. Glass. Full of coins. Do keep up.", "Não é carro. É POTE. De vidro. Cheio de moedas. Acompanhe, por favor."]
+  ]],
+  "m_there": ["m", "You were there? A witness, on your second day. Brilliant. Poor Emma.", "Você estava lá? Testemunha, já no segundo dia. Brilhante. Coitada da Emma.", "m_why2"],
+  "m_why": ["m", "Because in Millbrook, nothing happens. A missing jar is our crime of the century.", "Porque em Millbrook nada acontece. Um pote sumido é nosso crime do século.", "m_why2"],
+  "k_hey": ["k", "Hey! I'm a photographer, not a thief! And not a writer, either.", "Ei! Sou fotógrafo, não ladrão! E também não sou escritor.", "m_hey"],
+  "m_hey": ["m", "True. Kevin can't write a shopping list. The story is yours.", "Verdade. O Kevin não sabe escrever nem lista de compras. A matéria é sua.", "m_why2"],
+  "m_why2": ["m", "And it's not just money, you know. That jar was a little dream.", "E não é só dinheiro, sabe. Aquele pote era um pequeno sonho.", "m_notebook"],
+  "m_notebook": ["m", "Now. First rule of the Gazette: always carry a notebook. Have you got one?", "Agora. Primeira regra do Gazette: sempre ande com um caderninho. Você tem um?", [
+   ["Yes, right here.", "Tenho, está aqui.", "m_idea_q"],
+   ["No. Can I borrow one?", "Não. Posso pegar um emprestado?", "k_notebook"],
+   ["Yes, I've got a note. Ten pounds.", "Sim, tenho uma nota. De dez libras.", null, "Not a banknote. A NOTEBOOK. For writing. Have you got one?", "Nota de dinheiro, não. Um CADERNO. Pra escrever. Você tem?"]
+  ]],
+  "k_notebook": ["k", "Take mine! Careful, the last pages are full of jokes.", "Pega o meu! Cuidado, as últimas páginas estão cheias de piadas.", "m_idea_q"],
+  "m_idea_q": ["m", "Good. Write this down. Do you know whose idea the jar was?", "Ótimo. Anote isso. Sabe de quem foi a ideia do pote?", [
+   ["Emma's, I think?", "Da Emma, acho?", "m_notemma"],
+   ["No. Whose idea was it?", "Não. De quem foi?", "m_idea"],
+   ["Does it matter? I just want to find the jar.", "Isso importa? Eu só quero achar o pote.", "m_matter"],
+   ["It was a glass idea.", "Foi uma ideia de vidro.", null, "A glass idea. Goodness. No. Whose idea was it? Which person?", "Uma ideia de vidro. Minha nossa. Não. De quem foi a ideia? Que pessoa?"]
+  ]],
+  "m_notemma": ["m", "Good guess. Wrong, but good. It was Sam's idea. Emma's little brother.", "Bom palpite. Errado, mas bom. Foi ideia do Sam. O irmão mais novo da Emma.", "k_sam", {"clue": "jar_idea"}],
+  "m_idea": ["m", "Sam's. Emma's brother. He's seventeen. He made the jar, the sign, everything.", "Do Sam. O irmão da Emma. Ele tem dezessete. Fez o pote, a placa, tudo.", "k_sam", {"clue": "jar_idea"}],
+  "k_sam": ["k", "Sam's a good kid. He plays guitar at the market with Leo. Not as funny as me.", "O Sam é um bom garoto. Toca violão na feira com o Leo. Não é tão engraçado quanto eu.", "m_plan"],
+  "m_matter": ["m", "Everything matters. That's journalism. But fine. Go and find your jar.", "Tudo importa. Isso é jornalismo. Mas tudo bem. Vá achar seu pote.", "m_plan"],
+  "m_plan": ["m", "So. How do you want to start?", "Então. Como você quer começar?", [
+   ["I'd like to talk to the police.", "Eu queria falar com a polícia.", "m_police"],
+   ["I'll talk to people in town first.", "Vou falar com o pessoal da cidade primeiro.", "m_town"],
+   ["Can Kevin come with me? For photos.", "O Kevin pode ir comigo? Pras fotos.", "k_photos"],
+   ["On Tuesday, at nine.", "Na terça, às nove.", null, "It IS Tuesday at nine. I mean, who do you talk to first?", "Já É terça, nove horas. Quero dizer, com quem você fala primeiro?"]
+  ]],
+  "m_police": ["m", "Good. Officer Ruiz will see you at two. She's very precise. Don't waste her time.", "Ótimo. A policial Ruiz te recebe às duas. Ela é muito precisa. Não desperdice o tempo dela.", "k_bye"],
+  "m_town": ["m", "Talk to everyone. But start with the police. Officer Ruiz, at two o'clock.", "Fale com todo mundo. Mas comece pela polícia. Policial Ruiz, às duas.", "k_bye"],
+  "k_photos": ["k", "Me? Today? Er, sorry. I've got a thing. A dentist thing. Again.", "Eu? Hoje? Hã, desculpa. Tenho uma coisa. Coisa de dentista. De novo.", "m_teeth"],
+  "m_teeth": ["m", "Kevin and his teeth. Go on your own. Officer Ruiz will see you at two.", "O Kevin e seus dentes. Vá sem ele. A policial Ruiz te recebe às duas.", "k_bye"],
+  "k_bye": {"branch": [["kevin_friend=yes", "k_bye_friend"], [null, "k_bye_cold"]]},
+  "k_bye_friend": ["k", "Good luck, detective! And stop looking at my jacket. Ha!", "Boa sorte, detetive! E pare de olhar pra minha jaqueta. Rá!", "n_end"],
+  "k_bye_cold": ["k", "Bye, then. Good luck with the jar.", "Tchau, então. Boa sorte com o pote.", "n_end"],
+  "n_end": ["n", "Your first story. At two o'clock, you walk to the police station.", "Sua primeira matéria. Às duas, você vai até a delegacia.", null]
+ }
+}

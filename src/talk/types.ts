@@ -16,22 +16,50 @@ export type TalkStoryDef = {
 
 // Diálogos ramificados (cenas fechadas, vozes geradas com Kokoro). "audio" é uma chave de mídia.
 export type TalkDialogueLine = { text: string; pt: string; audio: string };
-export type TalkDialogueOption = TalkDialogueLine & { next: string | null; react?: TalkDialogueLine };
-export type TalkDialogueNode = TalkDialogueLine & {
+export type TalkFlags = Record<string, string>;
+export type TalkDialogueOption = TalkDialogueLine & {
+  /** a mesma fala na voz feminina do aluno */
+  audioF?: string;
+  next: string | null;
+  react?: TalkDialogueLine;
+  /** memória: o que esta resposta registra (ex.: { drink: "tea" }) */
+  set?: TalkFlags;
+};
+export type TalkSpeechNode = TalkDialogueLine & {
   speaker: string;
   next?: string;
   options?: TalkDialogueOption[];
   end?: boolean;
+  /** pista revelada por esta fala (id em TalkTownSeason.clues) */
+  clue?: string;
+  set?: TalkFlags;
 };
+/** Desvio pela memória, sem fala: segue o primeiro `if` verdadeiro ("flag", "!flag", "flag=valor"; null = padrão). */
+export type TalkBranchNode = { branch: { if: string | null; next: string }[] };
+export type TalkDialogueNode = TalkSpeechNode | TalkBranchNode;
 export type TalkDialogueDef = {
   slug: string;
   title: string;
   level: string;
   description: string;
   intro: string;
-  cast: Record<string, { name: string; role: string }>;
+  cast: Record<string, { name: string; role: string; side?: string }>;
   start: string;
   /** Mínimo e máximo de perguntas num caminho do início ao fim. */
   decisions: [number, number];
   nodes: Record<string, TalkDialogueNode>;
+  /** Falas de "impaciência" de cada personagem quando o aluno demora a responder. */
+  nudges?: Record<string, TalkDialogueLine[]>;
+  ambience?: string;
+  place?: string;
+  time?: string;
+  episode?: number;
+};
+/** Tunely Town: temporada contínua, com memória entre episódios e pistas. */
+export type TalkTownSeason = {
+  season: number;
+  title: string;
+  subtitle: string;
+  clues: Record<string, { title: string; note: string }>;
+  episodes: TalkDialogueDef[];
 };

@@ -1,0 +1,119 @@
+{
+ "slug": "town-01-a-new-start", "episode": 1, "title": "A New Start", "level": "A1",
+ "place": "cafe", "time": "Segunda · 9h", "ambience": "cafe",
+ "description": "Seu primeiro café em Millbrook. E um pote de doações some.",
+ "intro": "Você acabou de se mudar para Millbrook, uma cidadezinha inglesa à beira-mar, para trabalhar no jornal local. É sua primeira manhã, e você entra no Corner Café.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "e": ["Emma", "Dona do Corner Café", "af_bella", "left"],
+  "s": ["Sam", "Irmão da Emma", "am_eric", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "It's Monday morning. You are new in Millbrook, a little town by the sea.", "É segunda de manhã. Você acabou de chegar a Millbrook, uma cidadezinha à beira-mar.", "n2"],
+  "n2": ["n", "You open the door of the Corner Café. It smells of fresh bread.", "Você abre a porta do Corner Café. Tem cheiro de pão fresquinho.", "e1"],
+  "e1": ["e", "Hi there! Welcome to the Corner Café. I'm Emma.", "Oi! Boas-vindas ao Corner Café. Eu sou a Emma.", [
+   ["Hi, Emma. I'm new in town.", "Oi, Emma. Acabei de chegar na cidade.", "e_new"],
+   ["Good morning! Nice to meet you.", "Bom dia! Prazer em te conhecer.", "e_nice"],
+   ["Thanks, I'm Emma too.", "Valeu, eu também me chamo Emma.", null, "Really? Two Emmas? I don't think so! Let's try again. Hi, I'm Emma!", "Sério? Duas Emmas? Acho que não! Vamos de novo. Oi, eu sou a Emma!"]
+  ]],
+  "e_new": ["e", "New in town? Welcome to Millbrook! Where are you from?", "Chegou agora? Boas-vindas a Millbrook! De onde você é?", [
+   ["I'm from Brazil.", "Sou do Brasil.", "e_brazil"],
+   ["Guess!", "Adivinha!", "e_guess"],
+   ["I'm from nine o'clock.", "Sou das nove horas.", null, "From nine o'clock? Ha! No, which country are you from?", "Das nove horas? Rá! Não, de que país você é?"]
+  ]],
+  "e_nice": ["e", "Nice to meet you too! I don't know your face. Are you visiting?", "Prazer também! Não conheço seu rosto. Está de visita?", [
+   ["No, I live here now. I'm from Brazil.", "Não, agora moro aqui. Sou do Brasil.", "e_brazil"],
+   ["No, I have a new job here. At the newspaper.", "Não, tenho um emprego novo aqui. No jornal.", "e_job"],
+   ["Yes, I'm visiting the toilet.", "Sim, estou visitando o banheiro.", null, "Ha! It's over there. But really, are you visiting Millbrook?", "Rá! É ali. Mas sério, você está visitando Millbrook?"]
+  ]],
+  "e_guess": ["e", "Hmm. Spain? No? Italy? Brazil! I knew it!", "Hum. Espanha? Não? Itália? Brasil! Eu sabia!", "e_brazil"],
+  "e_brazil": ["e", "Brazil! Wow. I'm from America. So, what brings you to Millbrook?", "Brasil! Uau. Eu sou dos Estados Unidos. E o que te traz a Millbrook?", [
+   ["I have a new job at the newspaper.", "Tenho um emprego novo no jornal.", "e_job"],
+   ["I love the sea.", "Eu amo o mar.", "e_sea"],
+   ["I'm bringing my suitcase.", "Estou trazendo minha mala.", null, "I can see that! Ha. But why Millbrook? Work? Holiday?", "Dá pra ver! Rá. Mas por que Millbrook? Trabalho? Férias?"]
+  ]],
+  "e_sea": ["e", "Me too. Wait. Are you the new reporter? Maggie from the Gazette told me about you!", "Eu também. Espera. Você é a pessoa nova do jornal? A Maggie, do Gazette, me falou de você!", "e_maggie"],
+  "e_job": ["e", "The newspaper? The Millbrook Gazette! My friend Maggie is the boss there.", "O jornal? O Millbrook Gazette! Minha amiga Maggie é a chefe lá.", "e_maggie"],
+  "e_maggie": ["e", "She's funny, but she's tough. Okay! What can I get for you?", "Ela é engraçada, mas é durona. Bom! O que vai querer?", [
+   ["A coffee, please.", "Um café, por favor.", "e_coffee", {"set": {"drink": "coffee"}}],
+   ["A cup of tea, please.", "Uma xícara de chá, por favor.", "e_tea", {"set": {"drink": "tea"}}],
+   ["A hot chocolate, please.", "Um chocolate quente, por favor.", "e_choc", {"set": {"drink": "hot_chocolate"}}],
+   ["I can get the bus.", "Eu posso pegar o ônibus.", null, "Ha, the bus stop is outside! But what would you like to drink?", "Rá, o ponto de ônibus é ali fora! Mas o que você quer beber?"]
+  ]],
+  "e_coffee": ["e", "Coffee. Good choice. With milk?", "Café. Boa escolha. Com leite?", [
+   ["Yes, a little milk, please.", "Sim, um pouco de leite, por favor.", "e_food"],
+   ["No, black, please.", "Não, puro, por favor.", "e_food"],
+   ["Yes, with my cat.", "Sim, com o meu gato.", null, "Your cat? Ha! No, I mean milk. Milk in your coffee?", "Seu gato? Rá! Não, digo leite. Leite no café?"]
+  ]],
+  "e_tea": ["e", "Tea! You're very British already. Milk or lemon?", "Chá! Você já tem alma britânica. Leite ou limão?", [
+   ["Milk, please.", "Com leite, por favor.", "e_food"],
+   ["Lemon, please.", "Com limão, por favor.", "e_food"],
+   ["Melon, please.", "Melão, por favor.", null, "Melon? In tea? Ha! No. Milk or lemon?", "Melão? No chá? Rá! Não. Leite ou limão?"]
+  ]],
+  "e_choc": ["e", "Hot chocolate! My favorite. With cream on top?", "Chocolate quente! Meu preferido. Com chantili em cima?", [
+   ["Yes, lots of cream!", "Sim, bastante chantili!", "e_food"],
+   ["No cream, thanks.", "Sem chantili, valeu.", "e_food"],
+   ["Yes, it's on top of the hill.", "Sim, fica no alto do morro.", null, "Ha! No, I mean cream. Do you want cream on your hot chocolate?", "Rá! Não, digo chantili. Quer chantili no chocolate quente?"]
+  ]],
+  "e_food": ["e", "Anything to eat? Our scones are famous.", "Algo pra comer? Nossos scones são famosos.", [
+   ["A scone, please.", "Um scone, por favor.", "e_scone"],
+   ["What's a scone?", "O que é um scone?", "e_whatscone"],
+   ["No, thanks. Just the drink.", "Não, valeu. Só a bebida.", "e_sam"],
+   ["Yes, I'm famous in Brazil.", "Sim, sou uma celebridade no Brasil.", null, "Oh, really? Ha! But do you want a scone?", "Ah, é? Rá! Mas você quer um scone?"]
+  ]],
+  "e_whatscone": ["e", "It's like a little bread cake. With jam and cream. You'll love it.", "É tipo um bolinho de pão. Com geleia e creme. Você vai amar.", "e_scone"],
+  "e_scone": ["e", "One scone, coming up! Sam! Can you help me, please?", "Um scone saindo! Sam! Pode me ajudar, por favor?", "n_sam"],
+  "e_sam": ["e", "No problem. Sam! Can you take this to the table, please?", "Sem problema. Sam! Pode levar isso pra mesa, por favor?", "n_sam"],
+  "n_sam": ["n", "A teenage boy comes out of the kitchen. He has a guitar on his back.", "Um garoto adolescente sai da cozinha. Ele tem um violão nas costas.", "drink_br"],
+  "drink_br": {"branch": [["drink=coffee", "s_coffee"], ["drink=tea", "s_tea"], [null, "s_choc"]]},
+  "s_coffee": ["s", "Here's your coffee. Er, sorry. I'm in a hurry today.", "Aqui está seu café. Hã, desculpa. Estou com pressa hoje.", "s_q"],
+  "s_tea": ["s", "Here's your tea. Er, sorry. I'm in a hurry today.", "Aqui está seu chá. Hã, desculpa. Estou com pressa hoje.", "s_q"],
+  "s_choc": ["s", "Here's your hot chocolate. Er, sorry. I'm in a hurry today.", "Aqui está seu chocolate quente. Hã, desculpa. Estou com pressa hoje.", "s_q"],
+  "s_q": ["s", "I'm Sam. Emma's brother. Er, enjoy!", "Sou o Sam. Irmão da Emma. Hã, aproveite!", [
+   ["Thanks, Sam. Are you okay?", "Valeu, Sam. Tudo bem com você?", "s_ok"],
+   ["Thank you. Is that your guitar?", "Valeu. Esse violão é seu?", "s_guitar"],
+   ["No, I don't want a brother.", "Não, eu não quero um irmão.", null, "Ha, no! I'M Emma's brother. I said: enjoy your drink!", "Rá, não! EU sou o irmão da Emma. Eu disse: aproveite a bebida!"]
+  ]],
+  "s_ok": ["s", "Me? Yes! Fine! Totally fine. I just have to go somewhere.", "Eu? Sim! Tô bem! Superbem. Só preciso ir num lugar.", "s_go"],
+  "s_guitar": ["s", "Yeah. I play a bit, with my friend Leo. Sorry, I really have to go.", "É. Toco um pouco, com meu amigo Leo. Desculpa, preciso mesmo ir.", "s_go"],
+  "s_go": ["s", "Bye, Emma! See you later!", "Tchau, Emma! Até mais!", "e_jar"],
+  "e_jar": ["e", "Teenagers! Hey, do you see that big jar on the counter? It's for the new playground.", "Adolescentes! Ei, tá vendo aquele pote grande no balcão? É pro parquinho novo.", [
+   ["Can I put in a pound?", "Posso colocar uma libra?", "e_donate", {"set": {"donated": "yes"}}],
+   ["A playground? That's a lovely idea.", "Um parquinho? Que ideia linda.", "e_idea"],
+   ["Yes, I love jam.", "Sim, eu amo geleia.", null, "Jam? Ha! Not jam, the jar! The glass jar, with the money in it.", "Geleia? Rá! Não é geleia, é o pote! O pote de vidro, com o dinheiro dentro."]
+  ]],
+  "e_donate": ["e", "Aw, thank you! It's almost full. Lots of coins. It's so heavy now!", "Ah, obrigada! Tá quase cheio. Um monte de moedas. Tá pesadíssimo!", "n_phone"],
+  "e_idea": ["e", "Isn't it? The whole town gives a little. It's full of coins now. So heavy!", "Né? A cidade toda dá um pouquinho. Agora tá cheio de moedas. Pesadíssimo!", "n_phone"],
+  "n_phone": ["n", "The phone rings in the kitchen. Emma runs to answer it.", "O telefone toca na cozinha. A Emma corre pra atender.", "n_quiet"],
+  "n_quiet": ["n", "You sit by the window with your drink. The café is quiet.", "Você senta perto da janela com sua bebida. O café está tranquilo.", "n_red"],
+  "n_red": ["n", "Suddenly, someone in a red jacket walks past your table, fast, and out of the door.", "De repente, alguém de jaqueta vermelha passa rápido pela sua mesa e sai pela porta.", "e_back"],
+  "e_back": ["e", "Sorry, sorry! That was the bread man. So, is everything okay?", "Desculpa, desculpa! Era o moço do pão. E aí, tudo certo?", [
+   ["It's delicious, thanks!", "Está uma delícia, valeu!", "e_gone"],
+   ["It's great. This café is really nice.", "Ótimo. Este café é muito bacana.", "e_thanks"],
+   ["Everything is in my suitcase.", "Tudo está na minha mala.", null, "Ha! I mean your drink. Is it good?", "Rá! Digo a bebida. Tá boa?"]
+  ]],
+  "e_gone": ["e", "Good! Wait. Where's the jar? The jar is gone!", "Que bom! Espera. Cadê o pote? O pote sumiu!", "e_saw"],
+  "e_thanks": ["e", "Thank you! I love this little place. Wait. Where's the jar?", "Obrigada! Eu amo este lugarzinho. Espera. Cadê o pote?", "e_saw"],
+  "e_saw": ["e", "It was right here on the counter! Did you see anybody?", "Ele estava bem aqui no balcão! Você viu alguém?", [
+   ["Yes! Someone in a red jacket left fast.", "Sim! Alguém de jaqueta vermelha saiu rápido.", "e_red"],
+   ["No, sorry. I didn't see anything.", "Não, desculpa. Não vi nada.", "e_think"],
+   ["Maybe Sam put it in the kitchen?", "Será que o Sam colocou na cozinha?", "e_kitchen"],
+   ["Yes, the jar is very pretty.", "Sim, o pote é muito bonito.", null, "It WAS pretty! Now it's gone! Did you see anyone near the counter?", "ERA bonito! Agora sumiu! Você viu alguém perto do balcão?"]
+  ]],
+  "e_kitchen": ["e", "Let me look. No. It's not in the kitchen. Think! Did anybody walk past you?", "Deixa eu ver. Não. Não tá na cozinha. Pensa! Alguém passou por você?", [
+   ["Yes, someone in a red jacket.", "Sim, alguém de jaqueta vermelha.", "e_red"],
+   ["I don't remember, sorry.", "Não lembro, desculpa.", "e_nothing"],
+   ["Yes, I walk every day.", "Sim, eu caminho todo dia.", null, "Good for you! But did anybody walk past your table just now?", "Que bom! Mas alguém passou pela sua mesa agora há pouco?"]
+  ]],
+  "e_think": ["e", "Are you sure? Somebody walked past your table. I heard the door.", "Tem certeza? Alguém passou pela sua mesa. Eu ouvi a porta.", [
+   ["Oh, yes! Someone in a red jacket.", "Ah, é! Alguém de jaqueta vermelha.", "e_red"],
+   ["Sorry, I was looking at my phone.", "Desculpa, eu estava olhando o celular.", "e_nothing"],
+   ["Yes, the door is blue.", "Sim, a porta é azul.", null, "The door? I mean the person! Who walked out of the door?", "A porta? Digo a pessoa! Quem saiu pela porta?"]
+  ]],
+  "e_red": ["e", "A red jacket. Okay. I'll tell the police. Thank you!", "Uma jaqueta vermelha. Certo. Vou contar pra polícia. Obrigada!", "e_police", {"clue": "red_jacket"}],
+  "e_nothing": ["e", "Oh, it's okay. It's not your fault. I'll call the police.", "Ah, tudo bem. Não é culpa sua. Vou chamar a polícia.", "e_police"],
+  "e_police": ["e", "Wait. You work for the newspaper, right? Maybe this is your first story!", "Espera. Você trabalha no jornal, né? Talvez essa seja sua primeira matéria!", "n_end"],
+  "n_end": ["n", "Your first morning in Millbrook. And already, there's a mystery.", "Sua primeira manhã em Millbrook. E já tem um mistério.", null]
+ }
+}

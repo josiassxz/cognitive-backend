@@ -1,0 +1,92 @@
+{
+ "slug": "town-06-market-day", "episode": 6, "title": "Market Day", "level": "B1",
+ "place": "market", "time": "Quarta · 11h", "ambience": "market",
+ "description": "Na feira, um músico de rua conta algo estranho sobre o Sam.",
+ "intro": "A policial Ruiz confirmou: o pote sumiu entre 9h10 e 9h20, e a câmera só mostra uma manga vermelha. Hoje é dia de feira na praça do mercado.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "l": ["Leo", "Músico de rua, amigo do Sam", "am_puck", "right"],
+  "h": ["Mr. Hughes", "Vizinho do nº 14", "bm_george", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Wednesday is market day. The square is full of colour, noise and the smell of fresh bread.", "Quarta é dia de feira. A praça está cheia de cor, barulho e cheiro de pão fresco.", "n2"],
+  "n2": ["n", "Next to the fountain, a young man with long hair is playing the guitar.", "Ao lado da fonte, um rapaz de cabelo comprido está tocando violão.", "l1"],
+  "l1": ["l", "Cheers for stopping! Any requests? I know three songs. Well, two and a half.", "Valeu por parar! Algum pedido? Sei três músicas. Bom, duas e meia.", [
+   ["Play your favourite one!", "Toca a sua favorita!", "n_play"],
+   ["Actually, I'm from the Gazette. Can I ask you a few questions?", "Na verdade, sou do Gazette. Posso te fazer umas perguntas?", "l_gazette"],
+   ["Two and a half kilos, please.", "Dois quilos e meio, por favor.", null, "Ha! This isn't the fruit stall! I mean, do you want a song?", "Rá! Aqui não é a barraca de frutas! Quer dizer, quer uma música?"]
+  ]],
+  "n_play": ["n", "Leo plays a happy, fast song. A few people stop and clap.", "O Leo toca uma música alegre e rápida. Algumas pessoas param e batem palmas.", "l_intro"],
+  "l_intro": ["l", "Thank you, thank you! I'm Leo. You're the new reporter, right? Everyone's talking about you.", "Obrigado, obrigado! Sou o Leo. Você é a pessoa nova do jornal, né? Todo mundo está falando de você.", "l_ask"],
+  "l_gazette": ["l", "The Gazette! Am I going to be famous? I'm Leo. Ask away.", "O Gazette! Vou ficar famoso? Sou o Leo. Pode perguntar.", "l_ask"],
+  "l_ask": ["l", "So, what do you want to know?", "Então, o que você quer saber?", [
+   ["Do you know Sam from the Corner Café?", "Você conhece o Sam do Corner Café?", "l_sam"],
+   ["Have you heard about the missing jar?", "Ficou sabendo do pote que sumiu?", "l_jar"],
+   ["How long have you been playing here?", "Há quanto tempo você toca aqui?", "l_long"],
+   ["I want to know three songs too.", "Eu também quero saber três músicas.", null, "Ha! I can teach you. Later. But what did you want to ask me?", "Rá! Posso te ensinar. Depois. Mas o que você queria me perguntar?"]
+  ]],
+  "l_long": ["l", "Every Wednesday for two years. Usually with Sam, from the café. But not this week.", "Toda quarta, há dois anos. Normalmente com o Sam, do café. Mas essa semana não.", "l_sam2"],
+  "l_sam": ["l", "Sam? He's my best mate. We've played together since we were kids. He's better than me.", "O Sam? É meu melhor amigo. A gente toca junto desde criança. Ele é melhor que eu.", "l_sam2"],
+  "l_jar": ["l", "Everyone has. Poor Emma. And poor Sam. He was so proud of that jar.", "Todo mundo ficou. Coitada da Emma. E coitado do Sam. Ele tinha tanto orgulho daquele pote.", "l_proud_q"],
+  "l_proud_q": ["l", "Did you know the jar was his idea?", "Você sabia que o pote foi ideia dele?", [
+   ["Yes, Maggie told me.", "Sim, a Maggie me contou.", "l_sam2"],
+   ["Really? I thought it was Emma's.", "Sério? Achei que fosse da Emma.", "l_idea"],
+   ["Yes, he's a jar.", "Sim, ele é um pote.", null, "Ha! No, the jar was his IDEA. Sam's idea. Did you know that?", "Rá! Não, o pote foi IDEIA dele. Ideia do Sam. Você sabia?"]
+  ]],
+  "l_idea": ["l", "No, it was Sam's idea. He even painted the sign himself. For the new playground.", "Não, foi ideia do Sam. Ele mesmo pintou a placa. Pro parquinho novo.", "l_sam2", {"clue": "jar_idea"}],
+  "l_sam2": ["l", "But he's been acting weird since Monday. Really quiet. Not like him.", "Mas ele está agindo estranho desde segunda. Bem calado. Não é do feitio dele.", "l_monday_q"],
+  "l_monday_q": ["l", "Oh, wait. Something strange happened on Monday morning. Want to hear it?", "Ah, peraí. Aconteceu uma coisa estranha na segunda de manhã. Quer ouvir?", [
+   ["Yes. What happened on Monday?", "Quero. O que aconteceu na segunda?", "l_bank"],
+   ["Is it about the jar?", "É sobre o pote?", "l_notsure"],
+   ["Did Sam leave the café in a hurry?", "O Sam saiu do café com pressa?", "l_hurry"],
+   ["Yes, Monday is a strange day.", "Sim, segunda é um dia estranho.", null, "Ha, true! But listen. Something strange happened on Monday. Want to hear?", "Rá, verdade! Mas escuta. Aconteceu algo estranho na segunda. Quer ouvir?"]
+  ]],
+  "l_bank": ["l", "Sam phoned me in the morning. He asked me: is the bank open today?", "O Sam me ligou de manhã. Perguntou: o banco está aberto hoje?", "l_bank2"],
+  "l_notsure": ["l", "Maybe. I don't know. But that morning he phoned me. He asked if the bank was open.", "Talvez. Não sei. Mas naquela manhã ele me ligou. Perguntou se o banco estava aberto.", "l_bank2"],
+  "l_bank2": ["l", "On a bank holiday! I said, mate, it's Monday. Bank holiday. Everything's shut.", "Num feriado bancário! Eu disse: cara, é segunda. Feriado bancário. Tá tudo fechado.", "l_bank_q", {"clue": "bank_question"}],
+  "l_hurry": ["l", "Yeah! He ran into the square at about twenty past nine. Totally out of breath.", "Sim! Ele chegou correndo na praça lá pelas nove e vinte. Totalmente sem fôlego.", "l_hurry2"],
+  "l_hurry2": ["l", "And he asked me if the bank was open. On a bank holiday! I said, it's shut, mate.", "E me perguntou se o banco estava aberto. Num feriado bancário! Eu disse: tá fechado, cara.", "l_bank_q", {"clue": "bank_question"}],
+  "l_bank_q": ["l", "Why would Sam need the bank? He's seventeen. He hasn't got any money.", "Pra que o Sam precisaria do banco? Ele tem dezessete. Não tem dinheiro nenhum.", [
+   ["Maybe he had a lot of coins to change.", "Talvez ele tivesse muitas moedas pra trocar.", "l_coins"],
+   ["I don't know. That's a good question.", "Não sei. Boa pergunta.", "l_defend"],
+   ["Do you think Sam took the jar?", "Você acha que o Sam pegou o pote?", "l_angry"],
+   ["He can sit on a bench in the park.", "Ele pode sentar num banco da praça.", null, "Ha! Not that kind of bank! The money bank. Why would Sam need it?", "Rá! Não esse tipo de banco! O banco de dinheiro. Pra que o Sam precisaria dele?"]
+  ]],
+  "l_coins": ["l", "Coins? Sam? Hmm. He did have a really heavy backpack. Oh no. You don't think he took it?", "Moedas? O Sam? Hum. Ele estava mesmo com uma mochila bem pesada. Ai, não. Você não acha que ele pegou, acha?", "l_defend"],
+  "l_angry": ["l", "Sam? No way. He's the most honest person I know. He'd never steal anything.", "O Sam? De jeito nenhum. É a pessoa mais honesta que eu conheço. Nunca roubaria nada.", "l_defend_q"],
+  "l_defend": ["l", "Look, Sam's a good guy. If he did something, there's a good reason.", "Olha, o Sam é gente boa. Se ele fez alguma coisa, tem um bom motivo.", "l_defend_q"],
+  "l_defend_q": ["l", "Promise me you'll talk to him before you write anything.", "Promete que vai falar com ele antes de escrever qualquer coisa?", [
+   ["I promise. I want the truth, not gossip.", "Prometo. Quero a verdade, não fofoca.", "l_thanks", {"set": {"promised_leo": "yes"}}],
+   ["I can't promise. But I'll be fair.", "Não posso prometer. Mas vou agir com justiça.", "l_fair", {"set": {"promised_leo": "no"}}],
+   ["I promise to buy a guitar.", "Prometo comprar um violão.", null, "Ha! Buy two. But promise me: talk to Sam first. Okay?", "Rá! Compra dois. Mas promete: fala com o Sam primeiro. Pode ser?"]
+  ]],
+  "l_thanks": ["l", "Thanks. He'll be at the quiz tonight, at The Anchor. Come along!", "Valeu. Ele vai estar no quiz hoje à noite, no The Anchor. Aparece lá!", "n_dog"],
+  "l_fair": ["l", "Fair enough. He'll be at the quiz tonight, at The Anchor. Ask him yourself.", "Justo. Ele vai estar no quiz hoje à noite, no The Anchor. Pergunta pra ele.", "n_dog"],
+  "n_dog": ["n", "Suddenly, a small brown dog runs across the square, barking.", "De repente, um cachorrinho marrom atravessa a praça latindo.", "hughes_br"],
+  "hughes_br": {"branch": [["helped_hughes=yes", "h_warm"], [null, "h_cold"]]},
+  "h_warm": ["h", "Biscuit! Slow down! Oh, it's you, number twelve. Look, he remembers you. He's wagging his tail.", "Biscuit! Mais devagar! Ah, é você, número doze. Olha, ele lembra de você. Está abanando o rabo.", "h_warm2"],
+  "h_warm2": ["h", "Thank you again for Monday. I don't say that often. Ask Ravi.", "Obrigado de novo pela segunda. Não digo isso com frequência. Pergunte ao Ravi.", [
+   ["It was a pleasure. How is Biscuit?", "Foi um prazer. Como está o Biscuit?", "h_biscuit"],
+   ["Mr. Hughes, can I ask you about the boy with the bag?", "Sr. Hughes, posso perguntar sobre o rapaz da sacola?", "h_boy"],
+   ["Monday? No, today is Wednesday.", "Segunda? Não, hoje é quarta.", null, "I know what day it is! I'm old, not silly. I said thank you. For Monday.", "Eu sei que dia é hoje! Sou velho, não bobo. Eu disse obrigado. Pela segunda."]
+  ]],
+  "h_biscuit": ["h", "Naughty as ever. He ate my newspaper this morning. Your newspaper, actually.", "Levado como sempre. Comeu meu jornal hoje de manhã. O seu jornal, na verdade.", "h_boy"],
+  "h_boy": ["h", "I've been thinking about that boy with the bag. I think I know who it was.", "Andei pensando naquele rapaz da sacola. Acho que sei quem era.", [
+   ["Who? Please tell me.", "Quem? Por favor, me conta.", "h_notsure"],
+   ["You don't have to tell me. Only if you're sure.", "Não precisa me contar. Só se tiver certeza.", "h_respect", {"set": {"hughes_trust": "yes"}}],
+   ["Was it Biscuit?", "Era o Biscuit?", null, "Biscuit can't carry a bag! He can barely carry himself. No, a boy. I think I know him.", "O Biscuit não carrega sacola! Mal carrega a si mesmo. Não, um rapaz. Acho que conheço."]
+  ]],
+  "h_notsure": ["h", "No. Not until I'm sure. I won't put a young man's name in the newspaper without proof.", "Não. Não antes de ter certeza. Não vou pôr o nome de um rapaz no jornal sem prova.", "h_festival"],
+  "h_respect": ["h", "Hmph. Good answer. You're a sensible one. Most reporters aren't.", "Hunf. Boa resposta. Você tem juízo. A maioria dos repórteres não tem.", "h_festival"],
+  "h_festival": ["h", "Find me at the festival tomorrow. Maybe I'll be sure by then. Come on, Biscuit.", "Me procure no festival amanhã. Talvez até lá eu tenha certeza. Vamos, Biscuit.", "n_end"],
+  "h_cold": ["h", "Biscuit! Come here! Oh. It's you. Number twelve.", "Biscuit! Vem cá! Ah. É você. Número doze.", [
+   ["Hello, Mr. Hughes. I'm sorry I didn't help you on Monday.", "Olá, Sr. Hughes. Desculpe não ter te ajudado na segunda.", "h_sorry", {"set": {"helped_hughes": "yes"}}],
+   ["Hello. So you found Biscuit on Monday?", "Olá. Então você achou o Biscuit na segunda?", "h_found"],
+   ["Yes, it's twelve o'clock.", "Sim, é meio-dia.", null, "It's eleven, actually. And I said number twelve. Your house. Well? Anything to say?", "São onze, na verdade. E eu disse número doze. Sua casa. E então? Algo a dizer?"]
+  ]],
+  "h_sorry": ["h", "Hmph. An apology. That's rare these days. Biscuit forgives you. I'm still thinking about it.", "Hunf. Um pedido de desculpas. Coisa rara hoje em dia. O Biscuit te perdoa. Eu ainda estou pensando.", "n_end"],
+  "h_found": ["h", "Obviously. He's right here, isn't he? Good day.", "Obviamente. Ele está bem aqui, não está? Passar bem.", "n_end"],
+  "n_end": ["n", "Sam asked if the bank was open. On a bank holiday. Tonight, Sam will be at the quiz.", "O Sam perguntou se o banco estava aberto. Num feriado bancário. Hoje à noite, o Sam vai estar no quiz.", null]
+ }
+}

@@ -1,0 +1,104 @@
+{
+ "slug": "town-05-police-station", "episode": 5, "title": "The Police Station", "level": "B1",
+ "place": "police", "time": "Terça · 14h", "ambience": "police",
+ "description": "Entreviste a policial Ruiz: só fatos, nada de palpites.",
+ "intro": "A Maggie te deu sua primeira pauta: o pote sumido, para a edição do festival. E contou que o pote foi ideia do Sam. Agora você entrevista a policial Ruiz.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "o": ["Officer Ruiz", "Policial da cidade", "af_jessica", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "The police station is small and very quiet. A clock ticks on the wall.", "A delegacia é pequena e bem silenciosa. Um relógio faz tique-taque na parede.", "n2"],
+  "n2": ["n", "At exactly two o'clock, a woman in uniform comes out of her office.", "Às duas em ponto, uma mulher de uniforme sai da sala dela.", "o1"],
+  "o1": ["o", "Good afternoon. I'm Officer Lucy Ruiz. Maggie told me you'd be coming. Have a seat.", "Boa tarde. Sou a policial Lucy Ruiz. A Maggie avisou que você vinha. Sente-se.", [
+   ["Thanks for seeing me. I'm writing about the missing jar.", "Agradeço por me receber. Estou escrevendo sobre o pote sumido.", "o_story"],
+   ["Thank you. Is this still a good time?", "Agradeço. Ainda é uma boa hora?", "o_time"],
+   ["Thanks, I'll take the seat home.", "Valeu, vou levar a cadeira pra casa.", null, "Please don't take the furniture. Just sit down. What can I do for you?", "Por favor, não leve os móveis. Só sente. Em que posso ajudar?"]
+  ]],
+  "o_story": ["o", "The jar. Of course. Half of Millbrook has phoned me about it.", "O pote. Claro. Metade de Millbrook já me ligou por causa dele.", "o_record"],
+  "o_time": ["o", "For the Gazette, I have ten minutes. Exactly ten. It's about the jar, I suppose?", "Pro Gazette, eu tenho dez minutos. Exatamente dez. É sobre o pote, imagino?", "o_record"],
+  "o_record": ["o", "Before we start. You can quote me, but only on facts. No guesses. Agreed?", "Antes de começar. Pode me citar, mas só em fatos. Nada de palpites. Combinado?", [
+   ["Agreed. Only facts.", "Combinado. Só fatos.", "o_ask"],
+   ["Can I record our conversation?", "Posso gravar nossa conversa?", "o_rec"],
+   ["Okay, no geese in the story.", "Tá, nada de gansos na matéria.", null, "Geese? Guesses! No guessing. Only facts. Agreed?", "Gansos? Palpites! Nada de chutes. Só fatos. Combinado?"]
+  ]],
+  "o_rec": ["o", "Yes, that's fine. I prefer it, actually. Fewer mistakes.", "Sim, pode. Prefiro, na verdade. Menos erros.", "o_ask"],
+  "o_ask": ["o", "Go ahead. What would you like to know?", "Pode perguntar. O que você gostaria de saber?", [
+   ["What do you know so far?", "O que vocês sabem até agora?", "o_window"],
+   ["Was there a camera in the café?", "Tinha câmera no café?", "o_camera"],
+   ["Do you have any suspects?", "Vocês têm algum suspeito?", "o_suspects"],
+   ["I'd like to know English, please.", "Eu queria saber inglês, por favor.", null, "You're doing fine. Ask me about the case. What do you want to know?", "Você está indo bem. Me pergunte sobre o caso. O que quer saber?"]
+  ]],
+  "o_window": ["o", "The jar disappeared between ten past nine and twenty past nine. Emma is sure about that.", "O pote sumiu entre nove e dez e nove e vinte. A Emma tem certeza disso.", "o_window2", {"clue": "time_window"}],
+  "o_window2": ["o", "At ten past, she put a coin in it herself. At twenty past, it was gone.", "Às nove e dez, ela mesma pôs uma moeda nele. Às nove e vinte, tinha sumido.", "o_camera_q"],
+  "o_camera_q": ["o", "There's also the café camera. Would you like to hear about that?", "Tem também a câmera do café. Quer saber sobre ela?", [
+   ["Yes, please. What does it show?", "Sim, por favor. O que ela mostra?", "o_camera2"],
+   ["First, can I tell you what I saw?", "Antes, posso te contar o que eu vi?", "o_saw_first"],
+   ["No, thanks. I've got a camera on my phone.", "Não, valeu. Tenho câmera no celular.", null, "I'm sure it's lovely. I mean the café's camera. Do you want to hear?", "Imagino que seja ótima. Falo da câmera do café. Quer ouvir?"]
+  ]],
+  "o_suspects": ["o", "I can't name suspects. But a lot of people have called about one person.", "Não posso citar suspeitos. Mas muita gente ligou falando de uma pessoa.", "o_kevin"],
+  "o_kevin": ["o", "Kevin Moore, your photographer. Because of his red jacket. Half the town has one, though.", "Kevin Moore, o fotógrafo de vocês. Por causa da jaqueta vermelha. Mas metade da cidade tem uma.", [
+   ["Why a red jacket? What did people see?", "Por que jaqueta vermelha? O que as pessoas viram?", "o_camera"],
+   ["Kevin? He tells bad jokes, but he's not a thief.", "O Kevin? Ele conta piadas ruins, mas não é ladrão.", "o_kevin2"],
+   ["Half the town has a Kevin?", "Metade da cidade tem um Kevin?", null, "No. Half the town has a red jacket. One Kevin is enough. Any questions about that?", "Não. Metade da cidade tem uma jaqueta vermelha. Um Kevin já basta. Alguma pergunta sobre isso?"]
+  ]],
+  "o_kevin2": ["o", "Bad jokes aren't a crime. Not yet, anyway. Let me tell you what we know.", "Piada ruim não é crime. Pelo menos ainda não. Deixe-me contar o que sabemos.", "o_window"],
+  "o_camera": ["o", "There's one camera, above the café door. It's old. The picture is terrible.", "Tem uma câmera em cima da porta do café. É velha. A imagem é horrível.", "o_camera2"],
+  "o_camera2": ["o", "It only shows a red sleeve. An arm in a red jacket, near the counter. That's all.", "Só mostra uma manga vermelha. Um braço de jaqueta vermelha, perto do balcão. Só isso.", "o_cam_after"],
+  "o_cam_after": {"branch": [["clue_time_window", "o_saw"], [null, "o_window_late"]]},
+  "o_window_late": ["o", "And one more fact. The jar disappeared between ten past nine and twenty past nine.", "E mais um fato. O pote sumiu entre nove e dez e nove e vinte.", "o_saw", {"clue": "time_window"}],
+  "o_saw": ["o", "Emma says you were sitting by the window. Did you see anything?", "A Emma disse que você estava perto da janela. Viu alguma coisa?", "o_saw_br"],
+  "o_saw_first": ["o", "Please, go ahead. Emma says you were by the window.", "Por favor, pode falar. A Emma disse que você estava perto da janela.", "o_saw_br"],
+  "o_saw_br": {"branch": [["clue_red_jacket", "o_saw_yes"], [null, "o_saw_no"]]},
+  "o_saw_yes": ["o", "Take your time. Anything at all can help.", "Com calma. Qualquer detalhe pode ajudar.", [
+   ["Yes. Someone in a red jacket walked out in a hurry.", "Sim. Alguém de jaqueta vermelha saiu com pressa.", "o_witness", {"set": {"told_ruiz": "yes"}}],
+   ["Not much, sorry. I was looking at my phone.", "Pouca coisa, desculpe. Eu estava olhando o celular.", "o_nothing", {"set": {"told_ruiz": "no"}}],
+   ["Yes, the window was very clean.", "Sim, a janela estava bem limpa.", null, "Good to know. But did you see a person? Anyone near the counter?", "Bom saber. Mas você viu alguma pessoa? Alguém perto do balcão?"]
+  ]],
+  "o_saw_no": ["o", "Take your time. Anything at all can help.", "Com calma. Qualquer detalhe pode ajudar.", [
+   ["Not really. Someone left, but I didn't look.", "Na verdade, não. Alguém saiu, mas eu não olhei.", "o_nothing", {"set": {"told_ruiz": "no"}}],
+   ["No. But I heard some interesting things in town.", "Não. Mas ouvi umas coisas interessantes pela cidade.", "o_extra_br", {"set": {"told_ruiz": "no"}}],
+   ["Yes, the window was very clean.", "Sim, a janela estava bem limpa.", null, "Good to know. But did you see a person? Anyone near the counter?", "Bom saber. Mas você viu alguma pessoa? Alguém perto do balcão?"]
+  ]],
+  "o_witness": ["o", "A red jacket, leaving fast. That matches the camera. Thank you. That's very useful.", "Uma jaqueta vermelha, saindo rápido. Bate com a câmera. Obrigada. Isso é muito útil.", "o_face"],
+  "o_face": ["o", "Did you see the face? Or how tall the person was?", "Você viu o rosto? Ou a altura da pessoa?", [
+   ["No face. But I think the person was young. And very quick.", "Rosto, não. Mas acho que a pessoa era jovem. E bem ágil.", "o_young"],
+   ["No, sorry. It all happened so fast.", "Não, desculpe. Foi tudo muito rápido.", "o_extra_intro"],
+   ["Tall? No, I ordered a medium.", "Tall? Não, eu pedi um médio.", null, "This isn't a coffee shop. How tall was the person? Did you see the face?", "Aqui não é cafeteria. Qual era a altura da pessoa? Viu o rosto?"]
+  ]],
+  "o_young": ["o", "Young and quick. That's helpful. Kevin Moore is thirty-eight, by the way.", "Jovem e ágil. Isso ajuda. O Kevin Moore tem trinta e oito, aliás.", "o_extra_intro"],
+  "o_nothing": ["o", "That's fine. An honest witness is better than an imaginative one.", "Tudo bem. Testemunha honesta é melhor que testemunha criativa.", "o_extra_intro"],
+  "o_extra_intro": ["o", "Have you heard anything else around town? Gossip counts. I'll check it.", "Ouviu mais alguma coisa pela cidade? Fofoca vale. Eu confiro.", "o_extra_br"],
+  "o_extra_br": {"branch": [["clue_coins", "o_ex_coins"], ["clue_heavy_bag", "o_ex_bag"], [null, "o_ex_none"]]},
+  "o_ex_coins": ["o", "Go on. What did you hear?", "Pode falar. O que você ouviu?", [
+   ["Ravi says a young man changed lots of coins for notes.", "O Ravi disse que um rapaz trocou muitas moedas por notas.", "o_coins"],
+   ["Ravi says lots of things. Mostly about Biscuit.", "O Ravi fala de tudo. Principalmente do Biscuit.", "o_ravi"],
+   ["I heard a song on the radio.", "Ouvi uma música no rádio.", null, "Lovely. But about the jar? Did you hear anything useful?", "Que bom. Mas sobre o pote? Ouviu algo útil?"]
+  ]],
+  "o_coins": ["o", "Coins for notes. On a bank holiday, when the bank is shut. Interesting.", "Moedas por notas. Num feriado bancário, com o banco fechado. Interessante.", "o_coins_br"],
+  "o_coins_br": {"branch": [["clue_heavy_bag", "o_more"], [null, "o_tip"]]},
+  "o_more": ["o", "Anything else?", "Mais alguma coisa?", [
+   ["Mr. Hughes saw a boy running with a heavy bag. It sounded like coins.", "O Sr. Hughes viu um rapaz correndo com uma sacola pesada. Parecia moeda.", "o_link"],
+   ["No, I think that's everything.", "Não, acho que é tudo.", "o_tip"],
+   ["Yes, I'd like a glass of water.", "Sim, eu queria um copo d'água.", null, "There's a machine in the corridor. But anything else about the case?", "Tem uma máquina no corredor. Mas mais alguma coisa sobre o caso?"]
+  ]],
+  "o_link": ["o", "A heavy bag, and coins changed at the shop. Now that's starting to look like a pattern.", "Uma sacola pesada, e moedas trocadas na loja. Isso já começa a parecer um padrão.", "o_tip"],
+  "o_ex_bag": ["o", "Go on. What did you hear?", "Pode falar. O que você ouviu?", [
+   ["Mr. Hughes saw a boy running with a heavy bag. It went clink.", "O Sr. Hughes viu um rapaz correndo com uma sacola pesada. Fazia tlim.", "o_bag"],
+   ["Not much. Mr. Hughes mostly talked about his dog.", "Pouca coisa. O Sr. Hughes falou mais do cachorro.", "o_tip"],
+   ["I heard a song on the radio.", "Ouvi uma música no rádio.", null, "Lovely. But about the jar? Did you hear anything useful?", "Que bom. Mas sobre o pote? Ouviu algo útil?"]
+  ]],
+  "o_bag": ["o", "A bag that went clink. Coins are heavy. A whole jar of coins, even heavier.", "Uma sacola que tilintava. Moeda pesa. Um pote inteiro de moedas, mais ainda.", "o_tip"],
+  "o_ex_none": ["o", "Nothing? That's fine. Keep your ears open. This town talks a lot.", "Nada? Tudo bem. Fique de ouvidos abertos. Esta cidade fala muito.", "o_tip"],
+  "o_ravi": ["o", "Yes. Ravi is lovely, but he's not what I'd call a reliable source.", "É. O Ravi é um amor, mas não é o que eu chamaria de fonte confiável.", "o_tip"],
+  "o_tip": ["o", "One piece of advice. Write the facts. Not the gossip. And not Kevin's name.", "Um conselho. Escreva os fatos. Não a fofoca. E não o nome do Kevin.", [
+   ["Don't worry. I'll only write the facts.", "Pode deixar. Só vou escrever os fatos.", "o_bye"],
+   ["So you don't think Kevin did it?", "Então você não acha que foi o Kevin?", "o_nocomment"],
+   ["Kevin's name is Kevin.", "O nome do Kevin é Kevin.", null, "Yes. Thank you. I mean, don't put him in the story without facts. Clear?", "Sim. Obrigada. Quero dizer: não ponha ele na matéria sem fatos. Entendido?"]
+  ]],
+  "o_nocomment": ["o", "No comment. That's a fact too. You can quote it.", "Sem comentários. Isso também é um fato. Pode citar.", "o_bye"],
+  "o_bye": ["o", "My ten minutes are up. If you hear anything, call me. Not Ravi. Me.", "Meus dez minutos acabaram. Se souber de algo, me ligue. Não o Ravi. Eu.", "n_end"],
+  "n_end": ["n", "Between ten past and twenty past nine. A red sleeve. Tomorrow is market day.", "Entre nove e dez e nove e vinte. Uma manga vermelha. Amanhã é dia de feira.", null]
+ }
+}
