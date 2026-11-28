@@ -31,7 +31,7 @@
    ["We open at eleven. We need the cheese by nine.", "A gente abre às onze. Precisamos do queijo até as nove.", "d_nine"],
    ["A bear? Where?", "Um urso? Onde?", null, "No bears, friend. I said I'll be there. Soon. Is that okay?", "Urso nenhum, gente boa. Eu disse que chego aí. Logo. Pode ser?"]
   ]],
-  "d_time": ["d", "Exactly? Wow. Okay. Twenty minutes. Thirty, maximum.", "Exatamente? Nossa. Tá. Vinte minutos. Trinta, no máximo.", "n_arrive"],
+  "d_time": ["d", "Exactly? Wow. Okay. Twenty minutes. Thirty, tops.", "Exatamente? Nossa. Tá. Vinte minutos. Trinta, no máximo.", "n_arrive"],
   "d_nine": ["d", "By nine. Got it. I can do nine. Easy.", "Até as nove. Entendi. Nove eu consigo. Tranquilo.", "n_arrive"],
   "n_arrive": ["n", "At ten to nine, a white van stops next to the truck. Dale gets out, smiling.", "Às dez para as nove, uma van branca para do lado do truck. O Dale desce, sorrindo.", "d_hi"],
   "d_hi": ["d", "Morning! Nice bird on the truck. Is it a parrot?", "Bom dia! Bonito o pássaro do truck. É um papagaio?", [
@@ -81,7 +81,7 @@
   "d_judge": ["d", "Nobody knows who it is. But I know one thing, from the order list.", "Ninguém sabe quem é. Mas eu sei de uma coisa, pela lista de pedidos.", "d_judge2"],
   "d_judge2": ["d", "Every year, they order one thing for the judge's table. A pot of black coffee. No sugar.", "Todo ano, eles encomendam uma coisa só pra mesa do jurado. Uma garrafa de café preto. Sem açúcar.", "d_judge3", {"clue": "black_coffee"}],
   "d_judge3": ["d", "That's all I know. Okay, cheese time. Back soon!", "É tudo que eu sei. Bom, hora do queijo. Já volto!", "b_end"],
-  "b_end": ["b", "You were great! Nice, but firm. I only stood here and made angry faces.", "Você mandou muito bem! Educação com firmeza. Eu só fiquei aqui fazendo cara feia.", "n_end"],
-  "n_end": ["n", "At ten twenty, the van is back with the cheese. Behind it, a young man with a big camera is taking photos.", "Às dez e vinte, a van volta com o queijo. Atrás dela, um rapaz com uma câmera enorme tira fotos.", null]
+  "b_end": ["b", "You were great! Nice, but firm. I just stood here making angry faces.", "Você mandou muito bem! Educação com firmeza. Eu só fiquei aqui fazendo cara feia.", "n_end"],
+  "n_end": ["n", "At ten forty, the cheese finally arrives. Behind the van, a young man with a big camera takes photos.", "Às dez e quarenta, o queijo finalmente chega. Atrás da van, um rapaz com uma câmera enorme tira fotos.", null]
  }
 }

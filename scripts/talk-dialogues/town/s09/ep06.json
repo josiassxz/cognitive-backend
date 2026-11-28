@@ -30,7 +30,7 @@
   "c_safe": ["c", "Thank you. I mean that. You're all right, Brazil.", "Obrigado. De verdade. Você é gente boa, Brasil.", "c_alibi"],
   "c_sweet": ["c", "Sweet. I've spent twenty years trying not to be sweet. I'll think about it.", "Fofo. Passei vinte anos tentando não ser fofo. Vou pensar no assunto.", "c_alibi"],
   "c_deal": ["c", "That's blackmail. Polite blackmail. Fine. I've already checked the bottom shelves. No honey.", "Isso é chantagem. Chantagem educada. Tá bom. Já olhei as prateleiras de baixo. Nada de mel.", "c_alibi"],
-  "c_alibi": ["c", "For the record, I was out here on the phone when those cards were printed. Do you believe me?", "Só pra constar, eu estava aqui ao telefone quando imprimiram aqueles cartões. Você acredita em mim?", [
+  "c_alibi": ["c", "For the record, I was in here on the phone when those cards were printed. Do you believe me?", "Só pra constar, eu estava aqui ao telefone quando imprimiram aqueles cartões. Você acredita em mim?", [
    ["I do. Nobody would invent a story like that.", "Acredito. Ninguém inventaria uma história dessas.", "c_believe"],
    ["I'd like to. Can you prove it?", "Eu queria acreditar. Você tem como provar?", "c_prove"],
    ["A record? I didn't know you could sing.", "Um disco? Eu não sabia que você cantava.", null, "Not a music record! I'm telling you where I was this morning. Do you believe me?", "Não é disco de música! Estou te dizendo onde eu estava hoje de manhã. Você acredita em mim?"]
@@ -80,7 +80,7 @@
   "t_closed": ["t", "Look, I can't talk about it. I really need this job. You won't tell anyone, will you?", "Olha, não posso falar disso. Eu preciso muito deste emprego. Você não vai contar pra ninguém, vai?", [
    ["Not tonight. But if something's wrong, talk to Dee.", "Hoje, não. Mas se tem algo errado, fala com a Dee.", "t_tell"],
    ["I won't. But you look like you need some sleep.", "Não vou. Mas você está com cara de quem precisa dormir.", "t_sleep"],
-   ["I can't see you. It's too dark.", "Não estou te vendo. Está escuro demais.", null, "You can see me fine. I'm asking: will you keep this between us?", "Você está me vendo muito bem. Estou perguntando: isso fica entre a gente?"]
+   ["A jog? No, thanks. I never jog at night.", "Correr? Não, valeu. Eu nunca corro à noite.", null, "Job, not jog! I can't lose this job. Will you keep this between us?", "Emprego, não corrida! Não posso perder este emprego. Isso fica entre a gente?"]
   ]],
   "t_tell": ["t", "Tell Dee? She'd sack me before I finished the sentence. But maybe you're right.", "Contar pra Dee? Ela me demite antes de eu terminar a frase. Mas talvez você tenha razão.", "n_radio"],
   "t_sleep": ["t", "Sleep. Yes. After the final. I'll sleep for a week after the final.", "Dormir. Sim. Depois da final. Vou dormir uma semana depois da final.", "n_radio"],

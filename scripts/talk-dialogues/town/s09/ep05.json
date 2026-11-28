@@ -2,7 +2,7 @@
  "slug": "s09-05-canteen-gossip", "episode": 5, "title": "Canteen Gossip", "level": "B1",
  "place": "cafe", "placeLabel": "Cantina do estúdio", "time": "Terça · 13h", "ambience": "cafe",
  "description": "Na hora do almoço, todo mundo tem uma teoria. E a Nina viu coisas.",
- "intro": "Seu cartão de receita era o do ano passado: alguém imprimiu o arquivo errado. O Rupert diz que não acredita em acidentes. No almoço, não se fala de outra coisa.",
+ "intro": "Seu cartão de receita era o do ano passado: alguém imprimiu o arquivo errado. O Rupert acha que nada disso é acidente. No almoço, não se fala de outra coisa.",
  "cast": {
   "n": ["Narrator", "Narrador", "bf_emma", "center"],
   "g": ["Morag", "Participante, avó escocesa", "bf_alice", "left"],
@@ -32,7 +32,7 @@
   "g_ordinary": ["g", "Ordinary honey? My late husband kept those bees. It isn't just a jar, dear. It's home.", "Mel comum? Meu falecido marido criava aquelas abelhas. Não é só um pote, meu bem. É a minha casa.", "g_last"],
   "g_last": ["g", "I saw it last night at six. This morning, gone. Who goes in that pantry, do you think?", "Eu vi ontem às seis da tarde. Hoje de manhã, sumiu. Quem entra naquela despensa, na sua opinião?", [
    ["Only us and the crew. Toby's in and out all day.", "Só a gente e a equipe. O Toby entra e sai o dia todo.", "g_toby"],
-   ["Rupert was hanging around it yesterday. I'm just saying.", "O Rupert estava rondando por lá ontem. Só estou comentando.", "g_rup1"],
+   ["Rupert, maybe. He seems very sure it's no accident.", "O Rupert, talvez. Ele parece ter muita certeza de que não é acidente.", "g_rup1"],
    ["I think the pantry is next to the toilets.", "Acho que a despensa fica ao lado do banheiro.", null, "I know where it is, dear. I asked who. Who goes in and out of that pantry?", "Eu sei onde fica, meu bem. Perguntei quem. Quem entra e sai daquela despensa?"]
   ]],
   "g_toby": ["g", "That poor lad? He can barely carry a box. I can't see him stealing honey.", "Aquele pobre rapaz? Ele mal consegue carregar uma caixa. Não imagino ele roubando mel.", "n_nina"],
@@ -50,11 +50,11 @@
    ["Start with what you heard.", "Começa pelo que você ouviu.", "p_heard"],
    ["A mattress? No, I sleep on a normal bed.", "Um colchão? Não, eu durmo numa cama normal.", null, "Not a mattress. Sorry. I mean, which one is important. Do you want to hear about it?", "Não é colchão. Desculpa. Quero dizer, qual das duas é importante. Você quer que eu conte?"]
   ]],
-  "p_sofa": ["p", "I got here at six to practise. Somebody was asleep on the green room sofa. Under a coat.", "Cheguei às seis pra treinar. Tinha alguém dormindo no sofá do camarim. Debaixo de um casaco.", "p_sofa2", {"clue": "sofa"}],
-  "p_sofa2": ["p", "I only saw white trainers sticking out. There's the other thing, too. Do you want it?", "Só vi um par de tênis brancos aparecendo. E tem a outra coisa. Quer saber?", [
+  "p_sofa": ["p", "I got here at six to practice. Somebody was asleep on the green room sofa. Under a coat.", "Cheguei às seis pra treinar. Tinha alguém dormindo no sofá do camarim. Debaixo de um casaco.", "p_sofa2", {"clue": "sofa"}],
+  "p_sofa2": ["p", "I only saw white sneakers sticking out. There's the other thing, too. Do you want to hear it?", "Só vi um par de tênis brancos aparecendo. E tem a outra coisa. Quer saber?", [
    ["Yes. Tell me everything.", "Quero. Conta tudo.", "p_heard"],
    ["One thing at a time. Who was on the sofa?", "Uma coisa de cada vez. Quem estava no sofá?", "p_dunno"],
-   ["No, thanks. I don't need new trainers.", "Não, valeu. Não preciso de tênis novos.", null, "I'm not selling trainers. Sorry. I heard something as well. Shall I tell you?", "Não estou vendendo tênis. Desculpa. É que eu também ouvi uma coisa. Posso contar?"]
+   ["No, thanks. I don't need new sneakers.", "Não, valeu. Não preciso de tênis novos.", null, "I'm not selling sneakers. Sorry. I heard something as well. Should I tell you?", "Não estou vendendo tênis. Desculpa. É que eu também ouvi uma coisa. Posso contar?"]
   ]],
   "p_dunno": ["p", "I don't know. I never saw a face. Sorry. I'm not a very good spy.", "Não sei. Não cheguei a ver o rosto. Desculpa. Não sou uma espiã muito boa.", "n_rup"],
   "p_heard": ["p", "Last night, outside the office. The producer was talking to somebody. She sounded worn out.", "Ontem à noite, na porta do escritório. A produtora estava falando com alguém. Parecia esgotada.", "p_heard2"],
@@ -82,7 +82,7 @@
    ["I think it's hot in here, yes.", "Acho que está quente aqui, sim.", null, "Not the weather! Me. The missing things. Do you think I did it, or not?", "Não é o clima! Eu. As coisas que sumiram. Você acha que fui eu ou não?"]
   ]],
   "c_thanks": ["c", "Thank you. Finally, someone with a brain. I shall remember that.", "Obrigado. Até que enfim, alguém com cérebro. Vou me lembrar disso.", "g_plan"],
-  "c_never": ["c", "Never. A chef has his secrets. Believe whatever you like.", "Jamais. Um chef tem seus segredos. Acredite no que quiser.", "g_plan"],
+  "c_never": ["c", "Believe whatever you like. Who I call is my own business.", "Acredite no que quiser. Pra quem eu ligo é problema meu.", "g_plan"],
   "g_plan": ["g", "Enough. I want my honey, not a fight. That pantry is empty after seven tonight.", "Chega. Eu quero meu mel, não uma briga. Aquela despensa fica vazia depois das sete.", [
    ["I'll go and look. Nobody will notice me.", "Eu vou lá procurar. Ninguém vai reparar em mim.", "g_go"],
    ["Shouldn't we just tell the producer?", "Não era melhor contar pra produtora?", "g_dee"],

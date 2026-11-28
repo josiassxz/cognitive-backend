@@ -25,7 +25,7 @@
   "c_apol": ["c", "Oh. Well. Apology accepted. I'm no good at being angry anyway.", "Ah. Bom. Desculpas aceitas. Eu nem sei ficar bravo mesmo.", "c_gig"],
   "c_again": ["c", "Hmm. Okay. I can't stay angry with a sandwich in my hand.", "Hum. Tá. Não consigo ficar bravo com um sanduíche na mão.", "c_gig"],
   "c_room": ["c", "It's a cupboard with a piano. But nobody complains about noise here.", "É um armário com um piano. Mas aqui ninguém reclama de barulho.", "c_gig"],
-  "c_gig": ["c", "I've got a gig tomorrow night. My band is playing at a little pub. Do you play anything?", "Tenho um show amanhã à noite. Minha banda vai tocar num pub pequeno. Você toca alguma coisa?", [
+  "c_gig": ["c", "I'm practising for a gig tomorrow night, at a little pub. Do you play anything?", "Tô ensaiando pra um show amanhã à noite, num pub pequeno. Você toca alguma coisa?", [
    ["A little guitar. Very badly.", "Um pouco de violão. Muito mal.", "c_guitar"],
    ["No. But I sing in the shower.", "Não. Mas eu canto no chuveiro.", "c_shower"],
    ["Yes, I play outside when it's sunny.", "Sim, eu brinco lá fora quando tem sol.", null, "Ha! Not that kind of play. Music! Do you play an instrument?", "Rá! Não esse play. Música! Você toca algum instrumento?"]
@@ -48,7 +48,7 @@
   "c_deal": ["c", "After Priya wakes up, before Mei's evening calls. That could work! Let's tell them tonight.", "Depois que a Priya acorda, antes das chamadas da Mei à noite. Pode dar certo! Vamos falar com elas hoje.", "c_flat"],
   "c_here": ["c", "It's two pounds an hour. But okay. Peace at home is worth two pounds.", "São duas libras por hora. Mas tá. Paz em casa vale duas libras.", "c_flat"],
   "c_flat": ["c", "Anyway. Enough about me. How are you finding the flat?", "Enfim. Chega de falar de mim. O que você está achando do apartamento?", [
-   ["I like it. But are you okay? You sneeze a lot at home.", "Tô gostando. Mas você tá bem? Você espirra muito em casa.", "c_sneeze1"],
+   ["I like it. But are you okay? You sneeze a lot.", "Tô gostando. Mas você tá bem? Você espirra muito.", "c_sneeze1"],
    ["It's fun! But I still want to catch the ghost.", "É divertido! Mas eu ainda quero pegar o fantasma.", "c_alibi"],
    ["I found it on the internet.", "Eu achei na internet.", null, "Ha! Not how you found it. Do you like living there?", "Rá! Não é como você achou. Você tá gostando de morar lá?"]
   ]],
@@ -83,9 +83,9 @@
   "c_run": ["c", "Ten to two! Where's my bag? Where's my other shoe?", "Dez pras duas! Cadê minha mochila? Cadê meu outro sapato?", "n_shoe"],
   "c_relax": ["c", "Ten minutes! That's like an hour for me. Wait. Where's my other shoe?", "Dez minutos! Pra mim isso é quase uma hora. Espera. Cadê meu outro sapato?", "n_shoe"],
   "n_shoe": ["n", "You find his shoe behind the piano. He runs out. Then he runs back in.", "Você acha o sapato atrás do piano. Ele sai correndo. Depois volta correndo.", "c_last"],
-  "c_last": ["c", "I forgot! House meeting tonight at eight. Mei wants to read the contract. All of it.", "Esqueci! Reunião do apartamento hoje às oito. A Mei quer ler o contrato. Inteiro.", "end_br"],
+  "c_last": ["c", "I forgot! House meeting tonight at seven. Mei wants to read the contract. All of it.", "Esqueci! Reunião do apartamento hoje às sete. A Mei quer ler o contrato. Inteiro.", "end_br"],
   "end_br": {"branch": [["clue_sneezing", "n_end_cat"], [null, "n_end"]]},
-  "n_end_cat": ["n", "You walk home in the rain. Callum only sneezes at home. Cats and Monday mornings. Hmm.", "Você volta pra casa na chuva. O Callum só espirra em casa. Gato e segunda de manhã. Hum.", null],
+  "n_end_cat": ["n", "You walk home in the rain. Callum only sneezes at home. Never here, never at the pub. Hmm.", "Você volta pra casa na chuva. O Callum só espirra em casa. Aqui nunca, no pub nunca. Hum.", null],
   "n_end": ["n", "You walk home in the rain. A ghost who is home at night. And tonight, the contract.", "Você volta pra casa na chuva. Um fantasma que fica em casa à noite. E hoje, o contrato.", null]
  }
 }

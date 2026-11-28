@@ -12,13 +12,13 @@
  "start": "n1",
  "nodes": {
   "n1": ["n", "Santa Monica. The road ends at a wooden pier, a Ferris wheel and the whole Pacific Ocean.", "Santa Monica. A estrada acaba num píer de madeira, numa roda-gigante e no Oceano Pacífico inteiro.", "n_pier"],
-  "n_pier": ["n", "At the very end of the pier, there's a tiny shop. Inside, a woman with silver hair is counting fishing hooks.", "Bem no fim do píer, tem uma lojinha. Lá dentro, uma mulher de cabelo prateado conta anzóis.", "s1"],
+  "n_pier": ["n", "At the very end of the pier, there's a tiny shop. Inside, a woman with silver hair counts fishing hooks.", "Bem no fim do píer, tem uma lojinha. Lá dentro, uma mulher de cabelo prateado conta anzóis.", "s1"],
   "s1": ["s", "We close in ten minutes. Worms are two dollars. The sunset is free. What'll it be?", "A gente fecha em dez minutos. Minhoca é dois dólares. O pôr do sol é de graça. O que vai ser?", [
    ["Are you Sal? We're Frank Almeida's grandchildren.", "Você é a Sal? Somos netos do Frank Almeida.", "s_wait"],
    ["We're looking for Sal. Is he here?", "A gente está procurando o Sal. Ele está?", "s_man"],
    ["No worms, thanks. I've already eaten.", "Minhoca, não, valeu. Eu já comi.", null, "Ha! They're for the fish, honey, not for you. So what can I do for you?", "Rá! São pros peixes, meu bem, não pra você. Então, em que posso ajudar?"]
   ]],
-  "s_man": ["s", "He? Everybody says he. I'm Sal. Salvadora. Wait. That yellow van out there. You're Frank's family!", "Ele? Todo mundo fala ele. Eu sou a Sal. Salvadora. Espera. Aquela van amarela lá fora. Vocês são da família do Frank!", "s_wait"],
+  "s_man": ["s", "He? Everybody says he. I'm Sal. Salvadora. Wait. Two kids asking for Sal by name? You're Frank's family!", "Ele? Todo mundo fala ele. Eu sou a Sal. Salvadora. Espera. Dois jovens procurando por Sal pelo nome? Vocês são da família do Frank!", "s_wait"],
   "s_wait": ["s", "Frank's grandkids. I was nineteen when he walked in here. I've kept something for him for fifty years.", "Os netos do Frank. Eu tinha dezenove anos quando ele entrou aqui. Faz cinquenta anos que eu guardo uma coisa pra ele.", [
    ["What is it? What did he leave?", "O que é? O que ele deixou?", "s_env"],
    ["Is it money? How much did he leave us?", "É dinheiro? Quanto ele deixou pra gente?", "s_money"],
@@ -74,7 +74,7 @@
   "end3": {"branch": [["f_why=yes", "end_best"], [null, "end_good"]]},
   "end_best": ["s", "Three out of three! He wrote: then they talked to everybody. Give them my harmonica, too.", "Três de três! Ele escreveu: então eles conversaram com todo mundo. Dê a minha gaita pra eles também.", "open_br", {"set": {"ending": "best"}}],
   "end_good": ["s", "Close. For the record: Rosie, The Long Way Home, and a baby. But he wrote: open it anyway.", "Quase. Pra constar: Rosie, The Long Way Home e um bebê. Mas ele escreveu: abram mesmo assim.", "open_br"],
-  "end_basic": ["s", "Oh, dear. Not one! You two drove too fast. But he wrote: they're family. Open it anyway.", "Ai, ai. Nenhuma! Vocês dois dirigiram rápido demais. Mas ele escreveu: são da família. Abram mesmo assim.", "open_br"],
+  "end_basic": ["s", "Not one! You drove too fast. Rosie, The Long Way Home, and a baby. He wrote: open it anyway.", "Nenhuma! Vocês dirigiram rápido demais. Rosie, The Long Way Home e um bebê. Ele escreveu: abram mesmo assim.", "open_br"],
   "open_br": {"branch": [["clue_key", "n_open_k"], [null, "n_open_s"]]},
   "n_open_k": ["n", "You try the little key from the glove box. Click. Inside the box: one cassette tape and one blank postcard.", "Você testa a chavinha do porta-luvas. Clique. Dentro da caixa: uma fita cassete e um cartão-postal em branco.", "radio_br"],
   "n_open_s": ["n", "There's no key, so Sal attacks the lock with a screwdriver. Inside: one cassette tape and one blank postcard.", "Não tem chave, então a Sal ataca o cadeado com uma chave de fenda. Dentro: uma fita cassete e um cartão-postal em branco.", "radio_br"],
@@ -85,13 +85,13 @@
   "c2": ["c", "I am at the end of the road. Today, a man offered me a job on a fishing boat.", "Estou no fim da estrada. Hoje, um homem me ofereceu um emprego num barco de pesca.", "c3"],
   "c3": ["c", "Good money. But eight months at sea, every year. So I said no. Rosa, I am coming home.", "Paga bem. Mas são oito meses no mar, todo ano. Então eu disse não. Rosa, estou voltando pra casa.", "c4"],
   "c4": ["c", "To my family, one day: I have no money to leave you. Only this road, and the people on it.", "Pra minha família, um dia: não tenho dinheiro pra deixar pra vocês. Só esta estrada, e as pessoas que estão nela.", "c5"],
-  "c5": ["c", "They gave me food, a bed and a song. Go and thank them for me. Then keep driving.", "Elas me deram comida, cama e uma canção. Vão lá e agradeçam por mim. Depois, sigam viagem.", "n_quiet"],
+  "c5": ["c", "They gave me food, a bed and a tank of gas. Go and thank them for me. Then keep driving.", "Elas me deram comida, cama e um tanque de gasolina. Vão lá e agradeçam por mim. Depois, sigam viagem.", "n_quiet"],
   "n_quiet": ["n", "The tape clicks off. Nobody speaks. Rafa wipes his eyes and blames the salt air.", "A fita para com um clique. Ninguém fala. O Rafa enxuga os olhos e põe a culpa na maresia.", "s_letter"],
-  "s_letter": ["s", "His letter ends: my grandkids barely know each other. Put them in that van. That should fix it.", "A carta dele termina assim: meus netos mal se conhecem. Ponha os dois naquela van. Isso deve resolver.", "van_br"],
+  "s_letter": ["s", "His letter ends: my grandkids barely know each other. Two thousand miles in that van should fix it.", "A carta dele termina assim: meus netos mal se conhecem. Três mil quilômetros naquela van devem resolver.", "van_br"],
   "van_br": {"branch": [["van_plan=keep", "r_van_k"], [null, "r_van_s"]]},
-  "r_van_k": ["r", "He tricked us into being a family. And you were right all along. We're keeping Rosie.", "Ele enganou a gente pra virarmos uma família. E você tinha razão desde o começo. A Rosie fica com a gente.", "s_card"],
+  "r_van_k": ["r", "He tricked us into being a family. And you were right. We're keeping Rosie.", "Ele enganou a gente pra virarmos uma família. E você tinha razão. A Rosie fica com a gente.", "s_card"],
   "r_van_s": ["r", "He tricked us into being a family. Forget the collector. I can't sell Rosie now.", "Ele enganou a gente pra virarmos uma família. Esquece o colecionador. Não consigo mais vender a Rosie.", "s_card"],
-  "s_card": ["s", "And the blank postcard is for Rosa. He got home before he could mail it. What will you write?", "E o cartão em branco é pra Rosa. Ele chegou em casa antes de conseguir mandar. O que vocês vão escrever?", [
+  "s_card": ["s", "The blank postcard is for Rosa. Frank left the last one for you to write. What will you write?", "O cartão em branco é pra Rosa. O Frank deixou o último pra vocês escreverem. O que vocês vão escrever?", [
    ["Grandma, now we know why he came home.", "Vó, agora a gente sabe por que ele voltou pra casa.", "r_w1"],
    ["We made it, Grandma. Now we're taking the long way home.", "A gente chegou, vó. Agora vamos voltar pelo caminho mais longo.", "r_w2"],
    ["I can't ride. I don't have a horse.", "Não sei cavalgar. Não tenho cavalo.", null, "Write, not ride! With a pen, honey. What do you want to say to Rosa?", "Escrever, não cavalgar! Com caneta, meu bem. O que vocês querem dizer pra Rosa?"]

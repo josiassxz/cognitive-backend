@@ -45,7 +45,7 @@
    ["I'm sweating a lot, yes. It's the lights.", "Estou suando muito, sim. São as luzes.", null, "Aren't we all, darling! But the viewers want to know: what are you cooking right now?", "E quem não está, meu bem! Mas o público quer saber: o que você está cozinhando agora?"]
   ]],
   "s_sweet": ["s", "Soft and sweet. Just like me, before my first coffee. Lovely.", "Macia e docinha. Igualzinha a mim, antes do primeiro café. Que beleza.", "s_time"],
-  "s_missing": ["s", "Missing cream? Ooh, drama in round one. The viewers will love that.", "Creme sumido? Uh, drama já na primeira prova. O público vai adorar.", "s_time"],
+  "s_missing": ["s", "Missing cream? Ooh, drama in round one. The viewers will love that.", "Creme sumido? Opa, drama já na primeira prova. O público vai adorar.", "s_time"],
   "s_time": ["s", "You've got forty minutes left. What's next?", "Faltam quarenta minutos. Qual é o próximo passo?", [
    ["I'll add the corn and the stock, then let it simmer.", "Vou juntar o milho e o caldo, e deixar cozinhar em fogo baixo.", "s_simmer"],
    ["I need to chop the potatoes into small cubes, so they cook quickly.", "Preciso picar as batatas em cubinhos, pra cozinharem rápido.", "s_chop"],
@@ -76,7 +76,7 @@
   "t_ask": ["t", "Please don't mention it to Dee. She's the producer, and she's had a morning already.", "Por favor, não comenta com a Dee. Ela é a produtora, e a manhã dela já foi difícil.", [
    ["Don't worry. These things happen.", "Relaxa. Essas coisas acontecem.", "t_thanks"],
    ["Toby, this could have cost me the round.", "Toby, isso podia ter me custado a prova.", "t_sorry"],
-   ["Who's Dee? Is it short for dinner?", "Quem é Dee? É apelido de jantar?", null, "Dinner? No. Dee's my boss. Never mind. Can we just keep this between us?", "Jantar? Não. A Dee é minha chefe. Deixa pra lá. Pode ficar só entre a gente?"]
+   ["Tea? No, thanks. I've just had a coffee.", "Chá? Não, valeu. Acabei de tomar um café.", null, "Not tea. Dee! She's my boss. Never mind. Can we just keep this between us?", "Não é chá. É a Dee! Minha chefe. Deixa pra lá. Pode ficar só entre a gente?"]
   ]],
   "t_thanks": ["t", "Thanks. Really. I'll make it up to you, I promise.", "Obrigado. De verdade. Eu vou te compensar, prometo.", "n_last"],
   "t_sorry": ["t", "I know. You're right. It won't happen again. It can't.", "Eu sei. Você tem razão. Não vai acontecer de novo. Não pode.", "n_last"],

@@ -33,7 +33,7 @@
    ["Sure. Just put it on the table.", "Claro. Pode pôr em cima da mesa.", "o_check"],
    ["Three tears? Why is the cake crying?", "Três lágrimas? Por que o bolo está chorando?", null, "Tiers, not tears! Three floors of cake. Nobody's crying. Yet. Will you sign?", "É tiers, não tears! Três andares de bolo. Ninguém está chorando. Ainda. Você assina?"]
   ]],
-  "k_look": ["k", "Look away! Sure, it's only gorgeous. Go on, lift the lid.", "Fiquem à vontade! Está uma lindeza. Vai, levanta a tampa.", "n_open"],
+  "k_look": ["k", "Go ahead! Sure, it's only gorgeous. Go on, lift the lid.", "Fiquem à vontade! Está uma lindeza. Vai, levanta a tampa.", "n_open"],
   "o_check": ["o", "Nobody signs anything in my kitchen without looking. Open the box, Mick.", "Na minha cozinha ninguém assina nada sem olhar. Abre a caixa, Mick.", "n_open"],
   "n_open": ["n", "Orla lifts the lid. The cake is bright green. On top, a tiny sugar man is playing golf.", "A Orla levanta a tampa. O bolo é verde berrante. No topo, um homenzinho de açúcar joga golfe.", "n_read"],
   "n_read": ["n", "In gold letters, it says: Happy Retirement, Brendan.", "Em letras douradas, está escrito: Feliz Aposentadoria, Brendan.", "k2"],
@@ -59,7 +59,7 @@
   "n_drive": ["n", "Ten minutes later, you're in the van. Mick drives like a man late for his own wedding.", "Dez minutos depois, você está na van. O Mick dirige como quem está atrasado pro próprio casamento.", "k_club"],
   "k_club": ["k", "There's Brendan, in the green blazer. He's taking photos of your cake. How do we do this?", "Olha o Brendan ali, de blazer verde. Está tirando foto do bolo de vocês. Como a gente faz?", [
    ["Politely. Excuse me, I'm afraid there's been a mix-up.", "Com educação. Com licença, acho que houve uma troca.", "n_swap_a"],
-   ["Quickly. You talk to him, I'll carry the cake out.", "Rápido. Você distrai, eu saio com o bolo.", "k_no"],
+   ["Quickly. I'll keep him talking, you carry the cake out.", "Rápido. Eu distraio, você sai com o bolo.", "k_no"],
    ["A green laser? Is that safe?", "Um laser verde? Isso é seguro?", null, "Blazer! The jacket! That's Brendan. Now, how do we get your cake back?", "Blazer! O paletó! Aquele é o Brendan. E agora, como a gente recupera o bolo?"]
   ]],
   "n_swap_a": ["n", "Brendan laughs for a full minute. He says he did wonder why he was getting married.", "O Brendan ri por um minuto inteiro. Diz que bem que estranhou estar se casando.", "k_back"],

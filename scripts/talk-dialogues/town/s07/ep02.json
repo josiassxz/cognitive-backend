@@ -67,12 +67,12 @@
   "n_hands": ["n", "She says it too quickly. Her hands are shaking a little around her cup. Then she catches your eye.", "Ela responde rápido demais. As mãos tremem um pouco em volta da xícara. Então ela nota o seu olhar.", "c4"],
   "c4": ["c", "You're staring. Go on, then. Ask me whatever it is everyone asks.", "Você está me encarando. Vai, pergunta. Aquilo que todo mundo pergunta.", [
    ["Sorry. I only wondered if you were all right.", "Desculpa. Só fiquei pensando se você estava bem.", "c_kind"],
-   ["Are you looking forward to the concert tomorrow?", "Está com vontade de que chegue logo o concerto de amanhã?", "c_concert"],
+   ["Are you looking forward to the concert tomorrow?", "Está na expectativa pelo concerto de amanhã?", "c_concert"],
    ["Where's the Nightingale right now?", "Onde está o Nightingale agora?", "c_where"],
    ["Stairs? No, I usually take the lift.", "Escadas? Não, eu costumo ir de elevador.", null, "Not stairs. Staring. You were looking at me. So, what do you want to ask?", "Não é \"stairs\". É \"staring\", encarar. Você estava olhando pra mim. E então, o que quer perguntar?"]
   ]],
   "c_kind": ["c", "That's not what everyone asks. I'm fine. Thank you. It's been a long week.", "Isso não é o que todo mundo pergunta. Estou bem. Obrigada. Foi uma semana longa.", "n_leave"],
-  "c_concert": ["c", "Looking forward. Yes. Of course. Two thousand people. Who wouldn't be?", "Com vontade. Sim. Claro. Duas mil pessoas. Quem não estaria?", "n_leave"],
+  "c_concert": ["c", "Looking forward. Yes. Of course. Two thousand people. Who wouldn't be?", "Na expectativa. Sim. Claro. Duas mil pessoas. Quem não estaria?", "n_leave"],
   "c_where": ["c", "Locked in its case, in my compartment. Oliver guards it better than I do.", "Trancado no estojo, na minha cabine. O Oliver cuida dele melhor do que eu.", "n_leave"],
   "n_leave": ["n", "She pulls the green shawl around her shoulders and leaves. It's quarter past midnight.", "Ela ajeita o xale verde nos ombros e sai. É meia-noite e quinze.", "d4"],
   "d4": ["d", "Poor thing. She looks like my Margaret before her driving test. Now, do you play cards, dear?", "Coitadinha. Está igual à minha Margaret antes da prova de direção. E então, você joga cartas, meu bem?", [

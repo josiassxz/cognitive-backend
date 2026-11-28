@@ -877,14 +877,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "r",
     "text": "Good evening, and welcome to the Grand Harbour Hotel.",
     "pt": "Boa noite e bem-vindo ao Grand Harbour Hotel.",
-    "audio": "talk/dialogues/hotel-check-in/0251db25410f.mp3",
+    "audio": "talk/dialogues/hotel-check-in/65f1e2e6ec13.mp3",
     "next": "h2"
    },
    "h2": {
     "speaker": "r",
     "text": "How can I help you this evening?",
     "pt": "Como posso ajudar esta noite?",
-    "audio": "talk/dialogues/hotel-check-in/e639b1158466.mp3",
+    "audio": "talk/dialogues/hotel-check-in/bf31199213ba.mp3",
     "options": [
      {
       "text": "Hi, I have a reservation. My name is Silva.",
@@ -909,7 +909,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "I'm glad to hear that! So, what can I do for you?",
        "pt": "Que bom saber! Então, o que posso fazer por você?",
-       "audio": "talk/dialogues/hotel-check-in/3897f04c2a8a.mp3"
+       "audio": "talk/dialogues/hotel-check-in/3f554712c2da.mp3"
       }
      }
     ]
@@ -918,7 +918,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "r",
     "text": "Let me check. Yes, here it is. A double room for three nights. Is that correct?",
     "pt": "Deixe-me ver. Sim, aqui está. Um quarto de casal por três noites. Está correto?",
-    "audio": "talk/dialogues/hotel-check-in/ebe5a18907ec.mp3",
+    "audio": "talk/dialogues/hotel-check-in/ac30a8141ac8.mp3",
     "options": [
      {
       "text": "Yes, that's correct.",
@@ -943,7 +943,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Sorry, I mean the reservation. Three nights, correct?",
        "pt": "Desculpe, falo da reserva. Três noites, correto?",
-       "audio": "talk/dialogues/hotel-check-in/aeecbbc8db64.mp3"
+       "audio": "talk/dialogues/hotel-check-in/e2d5f1a90783.mp3"
       }
      }
     ]
@@ -952,7 +952,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "r",
     "text": "Let me see. Good news, we can add one more night. It's one hundred and twenty dollars. Is that okay?",
     "pt": "Deixe-me ver. Boa notícia, podemos acrescentar mais uma noite. São cento e vinte dólares. Tudo bem?",
-    "audio": "talk/dialogues/hotel-check-in/e69525d1fa93.mp3",
+    "audio": "talk/dialogues/hotel-check-in/66401f4c0030.mp3",
     "options": [
      {
       "text": "Yes, that's fine.",
@@ -977,7 +977,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Sorry? Is the extra night okay for you?",
        "pt": "Como? A noite extra está boa para você?",
-       "audio": "talk/dialogues/hotel-check-in/9a00828ab17f.mp3"
+       "audio": "talk/dialogues/hotel-check-in/3de124c1d70f.mp3"
       }
      }
     ]
@@ -986,14 +986,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "r",
     "text": "Yes, breakfast is included in all our rates.",
     "pt": "Sim, o café da manhã está incluído em todas as nossas diárias.",
-    "audio": "talk/dialogues/hotel-check-in/55b3f532d4ec.mp3",
+    "audio": "talk/dialogues/hotel-check-in/0b02d44d0c4e.mp3",
     "next": "passport"
    },
    "walkin": {
     "speaker": "r",
     "text": "Let me check. We have one double room left. It's one hundred and forty dollars a night. Would you like it?",
     "pt": "Deixe-me ver. Sobrou um quarto de casal. São cento e quarenta dólares a diária. Gostaria de ficar com ele?",
-    "audio": "talk/dialogues/hotel-check-in/b09a62b8d3fb.mp3",
+    "audio": "talk/dialogues/hotel-check-in/9419183fdee9.mp3",
     "options": [
      {
       "text": "Yes, I'll take it.",
@@ -1018,7 +1018,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "How nice! But would you like the room?",
        "pt": "Que bom! Mas você gostaria do quarto?",
-       "audio": "talk/dialogues/hotel-check-in/06b8ce7a6cd6.mp3"
+       "audio": "talk/dialogues/hotel-check-in/07f45477fb2e.mp3"
       }
      }
     ]
@@ -1027,14 +1027,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "r",
     "text": "I'm sorry, it's our last room tonight. But breakfast is included.",
     "pt": "Sinto muito, é o nosso último quarto hoje. Mas o café da manhã está incluído.",
-    "audio": "talk/dialogues/hotel-check-in/ab7a14531a03.mp3",
+    "audio": "talk/dialogues/hotel-check-in/83c703e0b2b6.mp3",
     "next": "walkin2"
    },
    "walkin2": {
     "speaker": "r",
     "text": "Would you like to take it?",
     "pt": "Quer ficar com ele?",
-    "audio": "talk/dialogues/hotel-check-in/0f637ee09b8b.mp3",
+    "audio": "talk/dialogues/hotel-check-in/aef6a509caf2.mp3",
     "options": [
      {
       "text": "Okay, I'll take it.",
@@ -1059,7 +1059,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Oh, lovely. But do you want the room?",
        "pt": "Ah, que fofo. Mas você quer o quarto?",
-       "audio": "talk/dialogues/hotel-check-in/948fb129c979.mp3"
+       "audio": "talk/dialogues/hotel-check-in/3d07d99a41c4.mp3"
       }
      }
     ]
@@ -1068,7 +1068,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "r",
     "text": "How many nights will you stay?",
     "pt": "Quantas noites você vai ficar?",
-    "audio": "talk/dialogues/hotel-check-in/554e4761e8de.mp3",
+    "audio": "talk/dialogues/hotel-check-in/ec89857e2139.mp3",
     "options": [
      {
       "text": "Just two nights.",
@@ -1093,7 +1093,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Sorry? How many nights would you like to stay?",
        "pt": "Como? Quantas noites você quer ficar?",
-       "audio": "talk/dialogues/hotel-check-in/c99186942723.mp3"
+       "audio": "talk/dialogues/hotel-check-in/fa869434db3e.mp3"
       }
      }
     ]
@@ -1102,7 +1102,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "r",
     "text": "May I see your passport, please?",
     "pt": "Posso ver seu passaporte, por favor?",
-    "audio": "talk/dialogues/hotel-check-in/668569a059a1.mp3",
+    "audio": "talk/dialogues/hotel-check-in/f62f558dfd8f.mp3",
     "options": [
      {
       "text": "Of course. Here you are.",
@@ -1127,7 +1127,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Oh, I just need your passport, please.",
        "pt": "Ah, só preciso do seu passaporte, por favor.",
-       "audio": "talk/dialogues/hotel-check-in/84749992e5be.mp3"
+       "audio": "talk/dialogues/hotel-check-in/a7740d714709.mp3"
       }
      }
     ]
@@ -1136,7 +1136,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "r",
     "text": "Thank you. I'll also need a credit card for any extras.",
     "pt": "Obrigada. Também vou precisar de um cartão de crédito para os extras.",
-    "audio": "talk/dialogues/hotel-check-in/dc7d08782c5b.mp3",
+    "audio": "talk/dialogues/hotel-check-in/477b8eb1f954.mp3",
     "options": [
      {
       "text": "Here's my card.",
@@ -1161,7 +1161,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Sorry, I need a credit card, or a cash deposit.",
        "pt": "Desculpe, preciso de um cartão de crédito, ou de um depósito em dinheiro.",
-       "audio": "talk/dialogues/hotel-check-in/8df690e37937.mp3"
+       "audio": "talk/dialogues/hotel-check-in/a7cda83a0379.mp3"
       }
      }
     ]
@@ -1170,14 +1170,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "r",
     "text": "Of course. Then we just need a small cash deposit of fifty dollars.",
     "pt": "Claro. Então só precisamos de um pequeno depósito de cinquenta dólares em dinheiro.",
-    "audio": "talk/dialogues/hotel-check-in/505004187d43.mp3",
+    "audio": "talk/dialogues/hotel-check-in/63a3c53c9563.mp3",
     "next": "breakfast"
    },
    "breakfast": {
     "speaker": "r",
     "text": "Perfect. Breakfast is from seven to ten in the restaurant on the first floor. Would you like a wake-up call?",
     "pt": "Perfeito. O café da manhã é das sete às dez, no restaurante do primeiro andar. Gostaria de um serviço de despertador?",
-    "audio": "talk/dialogues/hotel-check-in/2d6291c3c770.mp3",
+    "audio": "talk/dialogues/hotel-check-in/d1e845af7fcc.mp3",
     "options": [
      {
       "text": "Yes, at seven, please.",
@@ -1202,7 +1202,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Yes, the restaurant is. But would you like a wake-up call?",
        "pt": "Sim, o restaurante fica. Mas você gostaria de ser acordado por telefone?",
-       "audio": "talk/dialogues/hotel-check-in/5b8fd83b8383.mp3"
+       "audio": "talk/dialogues/hotel-check-in/4af3ea5cffb8.mp3"
       }
      }
     ]
@@ -1211,7 +1211,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "r",
     "text": "Here's your key. You're in room five twelve, on the fifth floor. Do you have any questions?",
     "pt": "Aqui está sua chave. Você está no quarto quinhentos e doze, no quinto andar. Tem alguma pergunta?",
-    "audio": "talk/dialogues/hotel-check-in/baff65c3b736.mp3",
+    "audio": "talk/dialogues/hotel-check-in/fbd962c34f6c.mp3",
     "options": [
      {
       "text": "What's the Wi-Fi password?",
@@ -1243,7 +1243,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Sorry? Do you have any questions about your stay?",
        "pt": "Como? Tem alguma pergunta sobre a sua estadia?",
-       "audio": "talk/dialogues/hotel-check-in/cdbd9724978f.mp3"
+       "audio": "talk/dialogues/hotel-check-in/35f22069ba7c.mp3"
       }
      }
     ]
@@ -1252,21 +1252,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "r",
     "text": "It's harbour view, all lowercase, no spaces. It's on your key card too.",
     "pt": "É harbour view, tudo minúsculo e sem espaço. Também está no cartão da chave.",
-    "audio": "talk/dialogues/hotel-check-in/1b25aa2ac6a8.mp3",
+    "audio": "talk/dialogues/hotel-check-in/294f8f0d967d.mp3",
     "next": "end"
    },
    "elevator": {
     "speaker": "r",
     "text": "The elevators are just behind you, on the left.",
     "pt": "Os elevadores ficam logo atrás de você, à esquerda.",
-    "audio": "talk/dialogues/hotel-check-in/8fec6f4762b5.mp3",
+    "audio": "talk/dialogues/hotel-check-in/31937adfdb50.mp3",
     "next": "end"
    },
    "end": {
     "speaker": "r",
     "text": "Enjoy your stay, and let us know if you need anything.",
     "pt": "Aproveite a estadia e nos avise se precisar de alguma coisa.",
-    "audio": "talk/dialogues/hotel-check-in/c764ba5f0929.mp3",
+    "audio": "talk/dialogues/hotel-check-in/7feb3f96925b.mp3",
     "end": true
    }
   },
@@ -1275,12 +1275,12 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     {
      "text": "Take your time.",
      "pt": "Pode pensar com calma.",
-     "audio": "talk/dialogues/hotel-check-in/df8cf2e09c8c.mp3"
+     "audio": "talk/dialogues/hotel-check-in/ad61bfed008d.mp3"
     },
     {
      "text": "Sorry, did you hear me?",
      "pt": "Desculpe, você me ouviu?",
-     "audio": "talk/dialogues/hotel-check-in/be8a71031395.mp3"
+     "audio": "talk/dialogues/hotel-check-in/4c7bf3507ea3.mp3"
     }
    ]
   }
@@ -1833,7 +1833,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "s",
     "text": "Hi! Can I help you find anything?",
     "pt": "Oi! Posso ajudar você a encontrar alguma coisa?",
-    "audio": "talk/dialogues/buying-a-jacket/ec5281db4a83.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/a769b6dccb1e.mp3",
     "options": [
      {
       "text": "Yes, I'm looking for a jacket.",
@@ -1858,7 +1858,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Oh, good! But can I help you find something here?",
        "pt": "Ah, que bom! Mas posso ajudar você a achar algo aqui?",
-       "audio": "talk/dialogues/buying-a-jacket/20efcfc9cfb3.mp3"
+       "audio": "talk/dialogues/buying-a-jacket/ac3b68ffe2c7.mp3"
       }
      }
     ]
@@ -1867,14 +1867,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "s",
     "text": "No problem. That jacket on the mannequin is new this week, by the way.",
     "pt": "Sem problema. Aliás, aquela jaqueta no manequim chegou esta semana.",
-    "audio": "talk/dialogues/buying-a-jacket/194f149d6d2b.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/2ae0ef340fc9.mp3",
     "next": "look2"
    },
    "look2": {
     "speaker": "s",
     "text": "Would you like to try it on?",
     "pt": "Quer experimentar?",
-    "audio": "talk/dialogues/buying-a-jacket/f82aef3f5dbc.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/1bc30dd05d0b.mp3",
     "options": [
      {
       "text": "Yes, I'd love to.",
@@ -1899,7 +1899,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Lucky you! So, would you like to try the jacket on?",
        "pt": "Que sorte! Então, quer experimentar a jaqueta?",
-       "audio": "talk/dialogues/buying-a-jacket/c3d36e9bbe12.mp3"
+       "audio": "talk/dialogues/buying-a-jacket/2296f6963ec4.mp3"
       }
      }
     ]
@@ -1908,14 +1908,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "s",
     "text": "It's sixty dollars, but it's twenty percent off today.",
     "pt": "Custa sessenta dólares, mas hoje está com vinte por cento de desconto.",
-    "audio": "talk/dialogues/buying-a-jacket/f88d807687bb.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/9a8784355075.mp3",
     "next": "size"
    },
    "jacket": {
     "speaker": "s",
     "text": "Great. We have leather jackets and denim jackets. Which do you prefer?",
     "pt": "Ótimo. Temos jaquetas de couro e jaquetas jeans. Qual você prefere?",
-    "audio": "talk/dialogues/buying-a-jacket/d5a560560fdb.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/2d7a964f8ff3.mp3",
     "options": [
      {
       "text": "A denim jacket, please.",
@@ -1940,7 +1940,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Me too! But which kind of jacket do you prefer?",
        "pt": "Eu também! Mas que tipo de jaqueta você prefere?",
-       "audio": "talk/dialogues/buying-a-jacket/3fa3df7a641a.mp3"
+       "audio": "talk/dialogues/buying-a-jacket/726a5a8388bc.mp3"
       }
      }
     ]
@@ -1949,14 +1949,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "s",
     "text": "Sure, they're over here. This black one is very popular.",
     "pt": "Claro, ficam aqui. Esta preta vende muito.",
-    "audio": "talk/dialogues/buying-a-jacket/514ff650f8e7.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/1855faccae0e.mp3",
     "next": "size"
    },
    "size": {
     "speaker": "s",
     "text": "What size are you?",
     "pt": "Qual é o seu tamanho?",
-    "audio": "talk/dialogues/buying-a-jacket/0eaa399c231a.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/977ea4edf0c9.mp3",
     "options": [
      {
       "text": "I'm a medium.",
@@ -1981,7 +1981,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Oh, interesting! But what size do you wear? Small, medium or large?",
        "pt": "Ah, interessante! Mas que tamanho você usa? Pequeno, médio ou grande?",
-       "audio": "talk/dialogues/buying-a-jacket/8b51eb8b35eb.mp3"
+       "audio": "talk/dialogues/buying-a-jacket/279301f43f4b.mp3"
       }
      }
     ]
@@ -1990,14 +1990,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "s",
     "text": "Here you go. The fitting rooms are at the back, on the right.",
     "pt": "Aqui está. Os provadores ficam no fundo, à direita.",
-    "audio": "talk/dialogues/buying-a-jacket/7d4522d15cc1.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/60b6e2bb4582.mp3",
     "next": "fit"
    },
    "fit": {
     "speaker": "s",
     "text": "So, how does it fit?",
     "pt": "E aí, como ficou?",
-    "audio": "talk/dialogues/buying-a-jacket/27d85b6e2236.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/7d4daf4bc6e1.mp3",
     "options": [
      {
       "text": "It's a bit too tight.",
@@ -2022,7 +2022,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Sorry? I mean, is the size right for you?",
        "pt": "Como? Quero dizer, o tamanho ficou bom?",
-       "audio": "talk/dialogues/buying-a-jacket/81beeb1a913e.mp3"
+       "audio": "talk/dialogues/buying-a-jacket/2f243601ae10.mp3"
       }
      }
     ]
@@ -2031,14 +2031,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "s",
     "text": "Let me get you a bigger size. Here you go, this one should be better.",
     "pt": "Vou pegar um tamanho maior. Aqui está, esta deve ficar melhor.",
-    "audio": "talk/dialogues/buying-a-jacket/d44896acf022.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/15fde3792244.mp3",
     "next": "color"
    },
    "color": {
     "speaker": "s",
     "text": "It also comes in blue and green. Do you want to see the other colors?",
     "pt": "Também tem em azul e verde. Quer ver as outras cores?",
-    "audio": "talk/dialogues/buying-a-jacket/34a83c00f077.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/12fc08c4efba.mp3",
     "options": [
      {
       "text": "No, I like this one.",
@@ -2063,7 +2063,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Nice! But would you like to see the other colors?",
        "pt": "Legal! Mas quer ver as outras cores?",
-       "audio": "talk/dialogues/buying-a-jacket/8dbe4f4eea48.mp3"
+       "audio": "talk/dialogues/buying-a-jacket/24ebf97a15eb.mp3"
       }
      }
     ]
@@ -2072,14 +2072,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "s",
     "text": "Here it is. The blue looks really good on you!",
     "pt": "Aqui está. A azul ficou muito bem em você!",
-    "audio": "talk/dialogues/buying-a-jacket/d14f4f143174.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/a296d50665ef.mp3",
     "next": "blue2"
    },
    "blue2": {
     "speaker": "s",
     "text": "Which one will you take?",
     "pt": "Qual você vai levar?",
-    "audio": "talk/dialogues/buying-a-jacket/4a566b0ee0a5.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/9f40f4446875.mp3",
     "options": [
      {
       "text": "I'll take the blue one.",
@@ -2104,7 +2104,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha, no, I mean, which jacket will you buy?",
        "pt": "Rá, não, quero dizer, qual jaqueta você vai comprar?",
-       "audio": "talk/dialogues/buying-a-jacket/11c7fd450a68.mp3"
+       "audio": "talk/dialogues/buying-a-jacket/07e3c71318f5.mp3"
       }
      }
     ]
@@ -2113,7 +2113,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "s",
     "text": "Great choice. Would you like anything else? Our scarves are on sale.",
     "pt": "Ótima escolha. Quer mais alguma coisa? Nossos cachecóis estão em promoção.",
-    "audio": "talk/dialogues/buying-a-jacket/1b7863267b21.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/9522a47d2ba8.mp3",
     "options": [
      {
       "text": "No, just the jacket, thanks.",
@@ -2138,7 +2138,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Sorry? Would you like anything else?",
        "pt": "Como? Quer mais alguma coisa?",
-       "audio": "talk/dialogues/buying-a-jacket/3277930493ff.mp3"
+       "audio": "talk/dialogues/buying-a-jacket/ce57ef594760.mp3"
       }
      }
     ]
@@ -2147,7 +2147,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "s",
     "text": "Would you like a bag and a gift receipt?",
     "pt": "Quer uma sacola e um recibo de presente?",
-    "audio": "talk/dialogues/buying-a-jacket/a53ebae1453e.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/31a131ce4ca6.mp3",
     "options": [
      {
       "text": "Just a bag, please.",
@@ -2172,7 +2172,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Oh! But do you want a bag and a gift receipt?",
        "pt": "Ah! Mas você quer sacola e recibo de presente?",
-       "audio": "talk/dialogues/buying-a-jacket/e597f0d2a103.mp3"
+       "audio": "talk/dialogues/buying-a-jacket/480ecb15678e.mp3"
       }
      }
     ]
@@ -2181,14 +2181,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "s",
     "text": "How nice! I'll put the receipt in the bag so he can exchange it.",
     "pt": "Que legal! Vou colocar o recibo na sacola para ele poder trocar.",
-    "audio": "talk/dialogues/buying-a-jacket/ef23992fc074.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/26aafe5fa6fa.mp3",
     "next": "end"
    },
    "end": {
     "speaker": "s",
     "text": "Here you go. You can return or exchange it within thirty days. Have a nice day!",
     "pt": "Aqui está. Você pode devolver ou trocar em até trinta dias. Tenha um bom dia!",
-    "audio": "talk/dialogues/buying-a-jacket/bcb3dbcbc64a.mp3",
+    "audio": "talk/dialogues/buying-a-jacket/fd42dcc2c3a9.mp3",
     "end": true
    }
   },
@@ -2197,12 +2197,12 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     {
      "text": "Take your time.",
      "pt": "Pode pensar com calma.",
-     "audio": "talk/dialogues/buying-a-jacket/e17f5b6ba424.mp3"
+     "audio": "talk/dialogues/buying-a-jacket/a32af78d0431.mp3"
     },
     {
      "text": "Sorry, did you hear me?",
      "pt": "Desculpe, você me ouviu?",
-     "audio": "talk/dialogues/buying-a-jacket/911c9e6b3acb.mp3"
+     "audio": "talk/dialogues/buying-a-jacket/f3b4bac0f2f9.mp3"
     }
    ]
   }
@@ -2233,7 +2233,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "Good morning. Where are you flying to today?",
     "pt": "Bom dia. Para onde você vai voar hoje?",
-    "audio": "talk/dialogues/at-the-airport/958be1c1be2f.mp3",
+    "audio": "talk/dialogues/at-the-airport/6f5d9ba9d644.mp3",
     "options": [
      {
       "text": "To New York.",
@@ -2258,7 +2258,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Sorry? Where are you traveling to?",
        "pt": "Como? Para onde você está viajando?",
-       "audio": "talk/dialogues/at-the-airport/11abc2f81a34.mp3"
+       "audio": "talk/dialogues/at-the-airport/1da480218e52.mp3"
       }
      }
     ]
@@ -2267,7 +2267,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "Can I see your passport and ticket, please?",
     "pt": "Posso ver seu passaporte e sua passagem, por favor?",
-    "audio": "talk/dialogues/at-the-airport/ab0f5a02fc8d.mp3",
+    "audio": "talk/dialogues/at-the-airport/cdad0303c387.mp3",
     "options": [
      {
       "text": "Here you are.",
@@ -2292,7 +2292,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Early flights are tough! May I see your passport, please?",
        "pt": "Voo cedo é difícil! Posso ver seu passaporte, por favor?",
-       "audio": "talk/dialogues/at-the-airport/69dadb04e929.mp3"
+       "audio": "talk/dialogues/at-the-airport/828e184c4a59.mp3"
       }
      }
     ]
@@ -2301,14 +2301,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "That's fine. I just need your passport, then.",
     "pt": "Tudo bem. Então só preciso do seu passaporte.",
-    "audio": "talk/dialogues/at-the-airport/2b8848017319.mp3",
+    "audio": "talk/dialogues/at-the-airport/bda00e86bfac.mp3",
     "next": "bags"
    },
    "bags": {
     "speaker": "a",
     "text": "Thank you. Are you checking any bags today?",
     "pt": "Obrigado. Vai despachar alguma mala hoje?",
-    "audio": "talk/dialogues/at-the-airport/fed1a41d318e.mp3",
+    "audio": "talk/dialogues/at-the-airport/5984c5b6feb6.mp3",
     "options": [
      {
       "text": "Yes, just this suitcase.",
@@ -2333,7 +2333,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Sorry, I mean luggage. Are you checking any bags?",
        "pt": "Desculpe, falo da bagagem. Vai despachar alguma mala?",
-       "audio": "talk/dialogues/at-the-airport/bd9937f04c69.mp3"
+       "audio": "talk/dialogues/at-the-airport/a6d2830701c1.mp3"
       }
      }
     ]
@@ -2342,14 +2342,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "Please put it on the scale. Hmm, it's twenty-five kilos. The limit is twenty-three.",
     "pt": "Coloque na balança, por favor. Hum, são vinte e cinco quilos. O limite é vinte e três.",
-    "audio": "talk/dialogues/at-the-airport/03c9b3a67465.mp3",
+    "audio": "talk/dialogues/at-the-airport/e2e0fb6fd76e.mp3",
     "next": "weight2"
    },
    "weight2": {
     "speaker": "a",
     "text": "You can pay a fee, or take something out. What would you like to do?",
     "pt": "Você pode pagar uma taxa ou tirar alguma coisa. O que prefere?",
-    "audio": "talk/dialogues/at-the-airport/33675cbaf03d.mp3",
+    "audio": "talk/dialogues/at-the-airport/e2d88fa9d4fa.mp3",
     "options": [
      {
       "text": "How much is the fee?",
@@ -2374,7 +2374,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! No, I mean your suitcase is too heavy. What would you like to do?",
        "pt": "Rá! Não, quero dizer, sua mala está pesada demais. O que prefere fazer?",
-       "audio": "talk/dialogues/at-the-airport/4b6c895c9d84.mp3"
+       "audio": "talk/dialogues/at-the-airport/e77b8ddd4978.mp3"
       }
      }
     ]
@@ -2383,14 +2383,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "It's fifty dollars.",
     "pt": "São cinquenta dólares.",
-    "audio": "talk/dialogues/at-the-airport/f7a1ffd44671.mp3",
+    "audio": "talk/dialogues/at-the-airport/ee3202ef905d.mp3",
     "next": "fee2"
    },
    "fee2": {
     "speaker": "a",
     "text": "Would you like to pay it?",
     "pt": "Quer pagar?",
-    "audio": "talk/dialogues/at-the-airport/86b048e48eb3.mp3",
+    "audio": "talk/dialogues/at-the-airport/0f2fd5893913.mp3",
     "options": [
      {
       "text": "Okay, I'll pay.",
@@ -2415,7 +2415,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "I can see that! But do you want to pay the fee?",
        "pt": "Estou vendo! Mas quer pagar a taxa?",
-       "audio": "talk/dialogues/at-the-airport/79afa0f6afa0.mp3"
+       "audio": "talk/dialogues/at-the-airport/35a700e8d34b.mp3"
       }
      }
     ]
@@ -2424,14 +2424,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "No problem. Perfect, it's twenty-two kilos now.",
     "pt": "Sem problema. Perfeito, agora são vinte e dois quilos.",
-    "audio": "talk/dialogues/at-the-airport/b51bb707fd1a.mp3",
+    "audio": "talk/dialogues/at-the-airport/ccd1aca5ac2c.mp3",
     "next": "seat"
    },
    "seat": {
     "speaker": "a",
     "text": "Would you prefer a window or an aisle seat?",
     "pt": "Prefere assento na janela ou no corredor?",
-    "audio": "talk/dialogues/at-the-airport/1c3cf6649164.mp3",
+    "audio": "talk/dialogues/at-the-airport/46b49fd9140e.mp3",
     "options": [
      {
       "text": "A window seat, please.",
@@ -2456,7 +2456,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! The seat, I mean. Window or aisle?",
        "pt": "Rá! O assento, quero dizer. Janela ou corredor?",
-       "audio": "talk/dialogues/at-the-airport/5273e16deb3d.mp3"
+       "audio": "talk/dialogues/at-the-airport/56cd032f70e3.mp3"
       }
      }
     ]
@@ -2465,14 +2465,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "Seat fourteen A, by the window.",
     "pt": "Assento catorze A, na janela.",
-    "audio": "talk/dialogues/at-the-airport/1a607367b5a6.mp3",
+    "audio": "talk/dialogues/at-the-airport/91c639f0b7ae.mp3",
     "next": "boarding"
    },
    "boarding": {
     "speaker": "a",
     "text": "Here's your boarding pass. Boarding starts at ten fifteen, at gate twenty-two. Any questions?",
     "pt": "Aqui está seu cartão de embarque. O embarque começa às dez e quinze, no portão vinte e dois. Alguma pergunta?",
-    "audio": "talk/dialogues/at-the-airport/9d5b13221b58.mp3",
+    "audio": "talk/dialogues/at-the-airport/d2f7673201bf.mp3",
     "options": [
      {
       "text": "Where is gate twenty-two?",
@@ -2504,7 +2504,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Sorry? Do you have any questions about your flight?",
        "pt": "Como? Tem alguma pergunta sobre o voo?",
-       "audio": "talk/dialogues/at-the-airport/3f8f19a46425.mp3"
+       "audio": "talk/dialogues/at-the-airport/e8300820452f.mp3"
       }
      }
     ]
@@ -2513,14 +2513,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "Go through security and turn right. It's about a five-minute walk.",
     "pt": "Passe pela segurança e vire à direita. É uns cinco minutos a pé.",
-    "audio": "talk/dialogues/at-the-airport/3a44399c0736.mp3",
+    "audio": "talk/dialogues/at-the-airport/99b3e7b93703.mp3",
     "next": "security"
    },
    "ontime": {
     "speaker": "a",
     "text": "Yes, it's on time today. Have a nice flight.",
     "pt": "Sim, hoje está no horário. Faça uma boa viagem.",
-    "audio": "talk/dialogues/at-the-airport/047f89d16ac0.mp3",
+    "audio": "talk/dialogues/at-the-airport/fe745bf80fef.mp3",
     "next": "security"
    },
    "security": {
@@ -2625,12 +2625,12 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     {
      "text": "Take your time.",
      "pt": "Pode pensar com calma.",
-     "audio": "talk/dialogues/at-the-airport/c1f989508dc3.mp3"
+     "audio": "talk/dialogues/at-the-airport/14d04648e6a7.mp3"
     },
     {
      "text": "Sorry, did you hear me?",
      "pt": "Desculpe, você me ouviu?",
-     "audio": "talk/dialogues/at-the-airport/793aa2ef300d.mp3"
+     "audio": "talk/dialogues/at-the-airport/595dbe8149bc.mp3"
     }
    ],
    "o": [
@@ -2673,7 +2673,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "r",
     "text": "Good morning. Do you have an appointment?",
     "pt": "Bom dia. Você tem horário marcado?",
-    "audio": "talk/dialogues/at-the-doctor/9691663d2b9b.mp3",
+    "audio": "talk/dialogues/at-the-doctor/ddb4c9a266b2.mp3",
     "options": [
      {
       "text": "Yes, at nine thirty with Dr. Patel.",
@@ -2698,7 +2698,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Glad to hear it! But do you have an appointment today?",
        "pt": "Que bom! Mas você tem horário marcado hoje?",
-       "audio": "talk/dialogues/at-the-doctor/9f56c81a0c8d.mp3"
+       "audio": "talk/dialogues/at-the-doctor/bee51a19478c.mp3"
       }
      }
     ]
@@ -2707,21 +2707,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "r",
     "text": "Thank you. Please take a seat. The doctor will call you shortly.",
     "pt": "Obrigada. Sente-se, por favor. A doutora já vai chamar.",
-    "audio": "talk/dialogues/at-the-doctor/bf3657b49199.mp3",
+    "audio": "talk/dialogues/at-the-doctor/4b60b4ca00cc.mp3",
     "next": "doc"
    },
    "walkin": {
     "speaker": "r",
     "text": "Let me see. Dr. Patel has a cancellation at ten. Please take a seat.",
     "pt": "Deixe-me ver. A doutora Patel teve um cancelamento às dez. Sente-se, por favor.",
-    "audio": "talk/dialogues/at-the-doctor/2bb02bc5e904.mp3",
+    "audio": "talk/dialogues/at-the-doctor/c9a8096812be.mp3",
     "next": "doc"
    },
    "doc": {
     "speaker": "d",
     "text": "Hello, come in. I'm Dr. Patel. What seems to be the problem?",
     "pt": "Olá, entre. Sou a doutora Patel. Qual parece ser o problema?",
-    "audio": "talk/dialogues/at-the-doctor/17c8f18e526b.mp3",
+    "audio": "talk/dialogues/at-the-doctor/1ea4e40f68b0.mp3",
     "options": [
      {
       "text": "I've had a sore throat and a fever for three days.",
@@ -2746,7 +2746,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "I see. But tell me, how are you feeling? What brings you here?",
        "pt": "Entendo. Mas me conte, como você está se sentindo? O que te traz aqui?",
-       "audio": "talk/dialogues/at-the-doctor/fec3d1d63213.mp3"
+       "audio": "talk/dialogues/at-the-doctor/8d8e3185175b.mp3"
       }
      }
     ]
@@ -2755,7 +2755,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "d",
     "text": "I see. Have you taken any medicine?",
     "pt": "Entendo. Você tomou algum remédio?",
-    "audio": "talk/dialogues/at-the-doctor/7f6182097a88.mp3",
+    "audio": "talk/dialogues/at-the-doctor/f788423a27e9.mp3",
     "options": [
      {
       "text": "Just some paracetamol.",
@@ -2780,7 +2780,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Sorry, I mean medicine. Have you taken anything for the fever?",
        "pt": "Desculpe, falo de remédio. Você tomou algo para a febre?",
-       "audio": "talk/dialogues/at-the-doctor/5461ba77ebbd.mp3"
+       "audio": "talk/dialogues/at-the-doctor/172e5317e989.mp3"
       }
      }
     ]
@@ -2789,14 +2789,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "d",
     "text": "Okay, let me have a look. Open your mouth and say ah. Yes, your throat is quite red.",
     "pt": "Certo, deixe-me ver. Abra a boca e diga ah. Sim, sua garganta está bem vermelha.",
-    "audio": "talk/dialogues/at-the-doctor/90026119ccc7.mp3",
+    "audio": "talk/dialogues/at-the-doctor/a8452b9e2722.mp3",
     "next": "throat2"
    },
    "throat2": {
     "speaker": "d",
     "text": "It looks like an infection. Are you allergic to any antibiotics?",
     "pt": "Parece uma infecção. Você tem alergia a algum antibiótico?",
-    "audio": "talk/dialogues/at-the-doctor/75826d523a80.mp3",
+    "audio": "talk/dialogues/at-the-doctor/7a0b8801b975.mp3",
     "options": [
      {
       "text": "Yes, I'm allergic to penicillin.",
@@ -2821,7 +2821,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! I understand. But seriously, any allergies to medicine?",
        "pt": "Rá! Entendo. Mas falando sério, alergia a algum remédio?",
-       "audio": "talk/dialogues/at-the-doctor/293112434a65.mp3"
+       "audio": "talk/dialogues/at-the-doctor/65f8039304bf.mp3"
       }
      }
     ]
@@ -2830,14 +2830,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "d",
     "text": "Good thing you told me. I'll prescribe a different antibiotic.",
     "pt": "Ainda bem que você falou. Vou receitar outro antibiótico.",
-    "audio": "talk/dialogues/at-the-doctor/ff9b8ea86285.mp3",
+    "audio": "talk/dialogues/at-the-doctor/80a4d2ec400e.mp3",
     "next": "presc"
    },
    "presc": {
     "speaker": "d",
     "text": "Take one pill twice a day for seven days, after meals. Is that clear?",
     "pt": "Tome um comprimido duas vezes por dia, por sete dias, depois das refeições. Ficou claro?",
-    "audio": "talk/dialogues/at-the-doctor/a3f51c4ca5e0.mp3",
+    "audio": "talk/dialogues/at-the-doctor/626e1858fee2.mp3",
     "options": [
      {
       "text": "Twice a day after meals. Got it.",
@@ -2862,7 +2862,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha, it is. But do you understand how to take the medicine?",
        "pt": "Rá, está mesmo. Mas você entendeu como tomar o remédio?",
-       "audio": "talk/dialogues/at-the-doctor/b50ae7c036eb.mp3"
+       "audio": "talk/dialogues/at-the-doctor/d3b80393f7ad.mp3"
       }
      }
     ]
@@ -2871,14 +2871,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "d",
     "text": "It's better with water. And please avoid alcohol while you're taking it.",
     "pt": "É melhor com água. E, por favor, evite bebida alcoólica enquanto estiver tomando.",
-    "audio": "talk/dialogues/at-the-doctor/0b5c180cdeff.mp3",
+    "audio": "talk/dialogues/at-the-doctor/43e4f0d5111e.mp3",
     "next": "rest"
    },
    "rest": {
     "speaker": "d",
     "text": "You should also rest and drink plenty of fluids. Do you need a note for work?",
     "pt": "Você também deve descansar e beber bastante líquido. Precisa de um atestado para o trabalho?",
-    "audio": "talk/dialogues/at-the-doctor/d491857a0ce1.mp3",
+    "audio": "talk/dialogues/at-the-doctor/63f28d272481.mp3",
     "options": [
      {
       "text": "Yes, please. I can't work like this.",
@@ -2903,7 +2903,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "That's sweet. But do you need a medical note for your job?",
        "pt": "Que fofo. Mas você precisa de atestado médico para o trabalho?",
-       "audio": "talk/dialogues/at-the-doctor/3e487a78c84d.mp3"
+       "audio": "talk/dialogues/at-the-doctor/386026b3d33c.mp3"
       }
      }
     ]
@@ -2912,14 +2912,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "d",
     "text": "Here you go. I'm giving you three days off.",
     "pt": "Aqui está. Estou te dando três dias de afastamento.",
-    "audio": "talk/dialogues/at-the-doctor/f371064ab8b7.mp3",
+    "audio": "talk/dialogues/at-the-doctor/d6ae39ad72ee.mp3",
     "next": "end"
    },
    "head": {
     "speaker": "d",
     "text": "I'm sorry to hear that. Is it the first time you've had a headache like this?",
     "pt": "Sinto muito. É a primeira vez que você tem uma dor de cabeça assim?",
-    "audio": "talk/dialogues/at-the-doctor/feb023b06b03.mp3",
+    "audio": "talk/dialogues/at-the-doctor/c2fa4ffdc80b.mp3",
     "options": [
      {
       "text": "Yes, it's the first time.",
@@ -2944,7 +2944,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha. I mean, have you had headaches like this before?",
        "pt": "Rá. Quero dizer, você já teve dores de cabeça assim antes?",
-       "audio": "talk/dialogues/at-the-doctor/9f12c8a58d17.mp3"
+       "audio": "talk/dialogues/at-the-doctor/527f761dbe96.mp3"
       }
      }
     ]
@@ -2953,14 +2953,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "d",
     "text": "Then we should try to find the cause.",
     "pt": "Então devemos tentar descobrir a causa.",
-    "audio": "talk/dialogues/at-the-doctor/0c8d72305fd4.mp3",
+    "audio": "talk/dialogues/at-the-doctor/e1bf80934bf8.mp3",
     "next": "head2"
    },
    "head2": {
     "speaker": "d",
     "text": "Have you been sleeping well? And how many hours a day do you spend in front of a screen?",
     "pt": "Você tem dormido bem? E quantas horas por dia passa na frente de uma tela?",
-    "audio": "talk/dialogues/at-the-doctor/f065b54c3951.mp3",
+    "audio": "talk/dialogues/at-the-doctor/8a57b6caf323.mp3",
     "options": [
      {
       "text": "Not really. And I spend about ten hours at the computer.",
@@ -2985,7 +2985,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Lucky you! But do you sleep well? And how much screen time do you have?",
        "pt": "Que sorte! Mas você dorme bem? E quanto tempo passa na tela?",
-       "audio": "talk/dialogues/at-the-doctor/a9c9b49eb776.mp3"
+       "audio": "talk/dialogues/at-the-doctor/00767cb279c2.mp3"
       }
      }
     ]
@@ -2994,14 +2994,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "d",
     "text": "That could be it. Too much screen time and too little sleep often cause headaches.",
     "pt": "Pode ser isso. Tempo demais na tela e pouco sono costumam causar dor de cabeça.",
-    "audio": "talk/dialogues/at-the-doctor/d5b528b0f131.mp3",
+    "audio": "talk/dialogues/at-the-doctor/f508892b3dee.mp3",
     "next": "head3"
    },
    "head3": {
     "speaker": "d",
     "text": "I'd like you to take a break every hour and get your eyes checked. Can you do that?",
     "pt": "Quero que você faça uma pausa a cada hora e faça um exame de vista. Consegue fazer isso?",
-    "audio": "talk/dialogues/at-the-doctor/8376bd60606c.mp3",
+    "audio": "talk/dialogues/at-the-doctor/72ff27ee8092.mp3",
     "options": [
      {
       "text": "Sure. Should I take anything for the pain?",
@@ -3026,7 +3026,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Impressive! But can you take breaks and check your eyes?",
        "pt": "Impressionante! Mas consegue fazer pausas e examinar a vista?",
-       "audio": "talk/dialogues/at-the-doctor/2de42f427b78.mp3"
+       "audio": "talk/dialogues/at-the-doctor/174ec5613d71.mp3"
       }
      }
     ]
@@ -3035,14 +3035,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "d",
     "text": "You can take ibuprofen, but no more than three times a day.",
     "pt": "Você pode tomar ibuprofeno, mas no máximo três vezes por dia.",
-    "audio": "talk/dialogues/at-the-doctor/f87cc77e658c.mp3",
+    "audio": "talk/dialogues/at-the-doctor/761cb441b122.mp3",
     "next": "end"
    },
    "end": {
     "speaker": "d",
     "text": "If you don't feel better in a few days, come back and see me. Take care!",
     "pt": "Se não melhorar em alguns dias, volte para me ver. Se cuide!",
-    "audio": "talk/dialogues/at-the-doctor/0796e15d7433.mp3",
+    "audio": "talk/dialogues/at-the-doctor/15480aa3574f.mp3",
     "end": true
    }
   },
@@ -3051,24 +3051,24 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     {
      "text": "Take your time.",
      "pt": "Pode pensar com calma.",
-     "audio": "talk/dialogues/at-the-doctor/b5cbee11502e.mp3"
+     "audio": "talk/dialogues/at-the-doctor/4834c39117ec.mp3"
     },
     {
      "text": "Sorry, did you hear me?",
      "pt": "Desculpe, você me ouviu?",
-     "audio": "talk/dialogues/at-the-doctor/150f3c7297ba.mp3"
+     "audio": "talk/dialogues/at-the-doctor/8c4ea7d762d3.mp3"
     }
    ],
    "d": [
     {
      "text": "Take your time.",
      "pt": "Pode pensar com calma.",
-     "audio": "talk/dialogues/at-the-doctor/15f62577aa1b.mp3"
+     "audio": "talk/dialogues/at-the-doctor/d1b9f1fcf51e.mp3"
     },
     {
      "text": "Sorry, did you hear me?",
      "pt": "Desculpe, você me ouviu?",
-     "audio": "talk/dialogues/at-the-doctor/4fb659b8e019.mp3"
+     "audio": "talk/dialogues/at-the-doctor/2d26998d4c8f.mp3"
     }
    ]
   }
@@ -3283,7 +3283,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "t",
     "text": "Nice to meet you. Rachel tells me you have good experience. Can you give me an example of a problem you solved at work?",
     "pt": "Prazer. A Rachel me disse que você tem boa experiência. Pode me dar um exemplo de um problema que resolveu no trabalho?",
-    "audio": "talk/dialogues/job-interview/265b5ec1b6bc.mp3",
+    "audio": "talk/dialogues/job-interview/bca27330d40d.mp3",
     "options": [
      {
       "text": "Once, a big client wanted to cancel, and I convinced them to stay.",
@@ -3308,7 +3308,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! I meant a problem at work.",
        "pt": "Rá! Eu quis dizer um problema no trabalho.",
-       "audio": "talk/dialogues/job-interview/4a752f1946fc.mp3"
+       "audio": "talk/dialogues/job-interview/4687925d6573.mp3"
       }
      }
     ]
@@ -3317,7 +3317,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "t",
     "text": "Interesting. How did you do that?",
     "pt": "Interessante. Como você fez isso?",
-    "audio": "talk/dialogues/job-interview/a31b2265909f.mp3",
+    "audio": "talk/dialogues/job-interview/b19b00515315.mp3",
     "options": [
      {
       "text": "I listened to their complaints and offered them a better plan.",
@@ -3342,7 +3342,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Hmm. Can you explain how you convinced the client?",
        "pt": "Hum. Pode explicar como convenceu o cliente?",
-       "audio": "talk/dialogues/job-interview/9b1402d884cc.mp3"
+       "audio": "talk/dialogues/job-interview/78c70682c603.mp3"
       }
      }
     ]
@@ -3351,7 +3351,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "t",
     "text": "And did it work?",
     "pt": "E funcionou?",
-    "audio": "talk/dialogues/job-interview/00dccda58a3c.mp3",
+    "audio": "talk/dialogues/job-interview/c3a4ada28965.mp3",
     "options": [
      {
       "text": "Yes, we delivered every project on time after that.",
@@ -3376,7 +3376,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Sure, but did the new schedule work?",
        "pt": "Certo, mas o novo cronograma funcionou?",
-       "audio": "talk/dialogues/job-interview/db283e918480.mp3"
+       "audio": "talk/dialogues/job-interview/794bbdc402b0.mp3"
       }
      }
     ]
@@ -3385,7 +3385,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "t",
     "text": "Good. What are your salary expectations?",
     "pt": "Bom. Qual é a sua pretensão salarial?",
-    "audio": "talk/dialogues/job-interview/819c80136c2b.mp3",
+    "audio": "talk/dialogues/job-interview/65510c40fb08.mp3",
     "options": [
      {
       "text": "Something between five and six thousand a month.",
@@ -3410,7 +3410,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha. I mean, how much would you like to earn?",
        "pt": "Rá. Quero dizer, quanto você gostaria de ganhar?",
-       "audio": "talk/dialogues/job-interview/5b6c81867d7b.mp3"
+       "audio": "talk/dialogues/job-interview/d112b7fec4cb.mp3"
       }
      }
     ]
@@ -3419,14 +3419,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "t",
     "text": "Of course. We offer health insurance, a yearly bonus, and two days a week working from home.",
     "pt": "Claro. Oferecemos plano de saúde, bônus anual e dois dias por semana de home office.",
-    "audio": "talk/dialogues/job-interview/26c3dc64aa78.mp3",
+    "audio": "talk/dialogues/job-interview/9dc87b95427c.mp3",
     "next": "start"
    },
    "start": {
     "speaker": "t",
     "text": "If we offer you the job, when could you start?",
     "pt": "Se oferecermos a vaga, quando você poderia começar?",
-    "audio": "talk/dialogues/job-interview/30241f6ede1e.mp3",
+    "audio": "talk/dialogues/job-interview/13d3030021ae.mp3",
     "options": [
      {
       "text": "I could start in two weeks.",
@@ -3451,7 +3451,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "I mean, if you get the job, when would you be available?",
        "pt": "Quero dizer, se conseguir a vaga, quando estaria disponível?",
-       "audio": "talk/dialogues/job-interview/99372d81b6d1.mp3"
+       "audio": "talk/dialogues/job-interview/73e852e83fc0.mp3"
       }
      }
     ]
@@ -3494,7 +3494,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "t",
     "text": "You'd spend the mornings with clients and the afternoons with the team.",
     "pt": "Você passaria as manhãs com clientes e as tardes com a equipe.",
-    "audio": "talk/dialogues/job-interview/9737c9eb18bb.mp3",
+    "audio": "talk/dialogues/job-interview/6eddcc96a04e.mp3",
     "next": "end"
    },
    "hear": {
@@ -3529,12 +3529,12 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     {
      "text": "Take your time.",
      "pt": "Pode pensar com calma.",
-     "audio": "talk/dialogues/job-interview/be37187b8392.mp3"
+     "audio": "talk/dialogues/job-interview/c08d73e8e69c.mp3"
     },
     {
      "text": "Sorry, did you hear me?",
      "pt": "Desculpe, você me ouviu?",
-     "audio": "talk/dialogues/job-interview/b1e29ed6346b.mp3"
+     "audio": "talk/dialogues/job-interview/a07d40a67f3e.mp3"
     }
    ]
   }
@@ -3565,14 +3565,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "o",
     "text": "Excuse me. I'm Officer Ruiz. Detective Harris would like to ask you a few questions about what happened this morning.",
     "pt": "Com licença. Sou a policial Ruiz. O detetive Harris gostaria de fazer algumas perguntas sobre o que aconteceu hoje de manhã.",
-    "audio": "talk/dialogues/the-witness/2d24f324b6ef.mp3",
+    "audio": "talk/dialogues/the-witness/65e53561cadf.mp3",
     "next": "p2"
    },
    "p2": {
     "speaker": "h",
     "text": "Thank you for staying. You were at the jewelry store at the time of the robbery, is that right?",
     "pt": "Obrigado por ficar. Você estava na joalheria na hora do assalto, certo?",
-    "audio": "talk/dialogues/the-witness/bfdb11467959.mp3",
+    "audio": "talk/dialogues/the-witness/d693156844b1.mp3",
     "options": [
      {
       "text": "Yes, I was buying a watch when it happened.",
@@ -3597,7 +3597,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "I'm asking about this morning. Were you at the store?",
        "pt": "Estou perguntando sobre hoje de manhã. Você estava na loja?",
-       "audio": "talk/dialogues/the-witness/54e0c28dcb0a.mp3"
+       "audio": "talk/dialogues/the-witness/2dfbc8c69909.mp3"
       }
      }
     ]
@@ -3606,7 +3606,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "h",
     "text": "Can you tell me what you saw?",
     "pt": "Pode me contar o que você viu?",
-    "audio": "talk/dialogues/the-witness/0b2163bbcca2.mp3",
+    "audio": "talk/dialogues/the-witness/e5b4a7800faf.mp3",
     "options": [
      {
       "text": "A man came in with a mask and asked for the money.",
@@ -3631,7 +3631,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Let's focus on this morning, please. What did you see?",
        "pt": "Vamos focar em hoje de manhã, por favor. O que você viu?",
-       "audio": "talk/dialogues/the-witness/d76102a56692.mp3"
+       "audio": "talk/dialogues/the-witness/6fea35ec63a6.mp3"
       }
      }
     ]
@@ -3640,7 +3640,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "h",
     "text": "What did he look like?",
     "pt": "Como ele era?",
-    "audio": "talk/dialogues/the-witness/53e96cc2644d.mp3",
+    "audio": "talk/dialogues/the-witness/939b48eb3138.mp3",
     "options": [
      {
       "text": "He was tall, and he was wearing a black hoodie.",
@@ -3665,7 +3665,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "How would you know that? I mean, describe how he looked.",
        "pt": "Como você saberia disso? Quero dizer, descreva a aparência dele.",
-       "audio": "talk/dialogues/the-witness/0b5433d0b4db.mp3"
+       "audio": "talk/dialogues/the-witness/1151bcdda535.mp3"
       }
      }
     ]
@@ -3674,7 +3674,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "h",
     "text": "A tattoo? That's very useful. What was it?",
     "pt": "Uma tatuagem? Isso ajuda muito. Do que era?",
-    "audio": "talk/dialogues/the-witness/1f142c8ef83c.mp3",
+    "audio": "talk/dialogues/the-witness/6b65bda7cf82.mp3",
     "options": [
      {
       "text": "It looked like a snake.",
@@ -3699,7 +3699,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "No, the tattoo. What did it look like?",
        "pt": "Não, a tatuagem. Como ela era?",
-       "audio": "talk/dialogues/the-witness/1b1a6282a887.mp3"
+       "audio": "talk/dialogues/the-witness/66070dcef0c0.mp3"
       }
      }
     ]
@@ -3708,7 +3708,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "h",
     "text": "Did he say anything? Did you notice an accent?",
     "pt": "Ele disse alguma coisa? Você notou algum sotaque?",
-    "audio": "talk/dialogues/the-witness/4c50c3fd24d0.mp3",
+    "audio": "talk/dialogues/the-witness/2bea569f9261.mp3",
     "options": [
      {
       "text": "He shouted, hurry up, and he had a British accent.",
@@ -3733,7 +3733,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Good, but I mean, did the robber say anything?",
        "pt": "Ótimo, mas quero dizer, o ladrão falou alguma coisa?",
-       "audio": "talk/dialogues/the-witness/580736b9b791.mp3"
+       "audio": "talk/dialogues/the-witness/f98d6c97d090.mp3"
       }
      }
     ]
@@ -3742,7 +3742,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "h",
     "text": "And did you see a car?",
     "pt": "E você viu algum carro?",
-    "audio": "talk/dialogues/the-witness/1a8e27a47693.mp3",
+    "audio": "talk/dialogues/the-witness/80770c46b0da.mp3",
     "options": [
      {
       "text": "Yes, a white van. I think the plate started with K.",
@@ -3767,7 +3767,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "I mean the robbers. Did they leave in a car?",
        "pt": "Falo dos ladrões. Eles fugiram de carro?",
-       "audio": "talk/dialogues/the-witness/1285d29802e2.mp3"
+       "audio": "talk/dialogues/the-witness/fcdea76affa1.mp3"
       }
      }
     ]
@@ -3776,14 +3776,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "o",
     "text": "Detective, a white van with a plate starting with K was just stopped on the highway.",
     "pt": "Detetive, uma van branca com placa começando com K acabou de ser parada na rodovia.",
-    "audio": "talk/dialogues/the-witness/3a863707e0ec.mp3",
+    "audio": "talk/dialogues/the-witness/7a1d2ba31032.mp3",
     "next": "identify"
    },
    "identify": {
     "speaker": "h",
     "text": "Excellent. Would you be able to recognize the man if you saw him again?",
     "pt": "Excelente. Você conseguiria reconhecer o homem se o visse de novo?",
-    "audio": "talk/dialogues/the-witness/4daf723be900.mp3",
+    "audio": "talk/dialogues/the-witness/0963f3d050ba.mp3",
     "options": [
      {
       "text": "Yes, I think so.",
@@ -3808,7 +3808,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Really? Hmm, let's stay with this morning. Could you recognize him again?",
        "pt": "Sério? Hum, vamos ficar em hoje de manhã. Você conseguiria reconhecê-lo de novo?",
-       "audio": "talk/dialogues/the-witness/d7828b404ae2.mp3"
+       "audio": "talk/dialogues/the-witness/2e9d5cd4e717.mp3"
       }
      }
     ]
@@ -3817,7 +3817,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "h",
     "text": "Which way did it go?",
     "pt": "Para que lado ele foi?",
-    "audio": "talk/dialogues/the-witness/859c5016f337.mp3",
+    "audio": "talk/dialogues/the-witness/8f9ba30b0e81.mp3",
     "options": [
      {
       "text": "It turned left onto Main Street.",
@@ -3842,7 +3842,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "I mean the car. Which direction did it go?",
        "pt": "Falo do carro. Para que direção ele foi?",
-       "audio": "talk/dialogues/the-witness/ecfccb27e38c.mp3"
+       "audio": "talk/dialogues/the-witness/61870baf75df.mp3"
       }
      }
     ]
@@ -3851,7 +3851,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "h",
     "text": "Thank you. Could you come to the station tomorrow to look at some photos?",
     "pt": "Obrigado. Você poderia ir à delegacia amanhã para ver algumas fotos?",
-    "audio": "talk/dialogues/the-witness/29668bb9f2fd.mp3",
+    "audio": "talk/dialogues/the-witness/a071b6a91d01.mp3",
     "options": [
      {
       "text": "Of course. What time should I come?",
@@ -3876,7 +3876,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha. I mean, can you come to the police station to see some photos?",
        "pt": "Rá. Quero dizer, pode ir à delegacia ver algumas fotos?",
-       "audio": "talk/dialogues/the-witness/29ad532d3bd9.mp3"
+       "audio": "talk/dialogues/the-witness/6642fbcb35cf.mp3"
       }
      }
     ]
@@ -3885,21 +3885,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "h",
     "text": "Any time after nine. Ask for me at the front desk.",
     "pt": "A qualquer hora depois das nove. Pergunte por mim na recepção.",
-    "audio": "talk/dialogues/the-witness/36ca66ac77c2.mp3",
+    "audio": "talk/dialogues/the-witness/61766de993ae.mp3",
     "next": "end"
    },
    "saturday": {
     "speaker": "h",
     "text": "Saturday is fine. Here's my card. Call me if you remember anything else.",
     "pt": "Sábado está ótimo. Aqui está meu cartão. Me ligue se lembrar de mais alguma coisa.",
-    "audio": "talk/dialogues/the-witness/d7b654d0cb0e.mp3",
+    "audio": "talk/dialogues/the-witness/d17bacc309cd.mp3",
     "next": "end"
    },
    "end": {
     "speaker": "h",
     "text": "You've been very helpful. Officer Ruiz will take your contact details. Thank you.",
     "pt": "Você ajudou muito. A policial Ruiz vai anotar seus contatos. Obrigado.",
-    "audio": "talk/dialogues/the-witness/8f04b69c5d02.mp3",
+    "audio": "talk/dialogues/the-witness/9f9a788480fc.mp3",
     "end": true
    }
   },
@@ -3908,24 +3908,24 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     {
      "text": "Take your time.",
      "pt": "Pode pensar com calma.",
-     "audio": "talk/dialogues/the-witness/7b3d34bbfd83.mp3"
+     "audio": "talk/dialogues/the-witness/16a6027ab079.mp3"
     },
     {
      "text": "Sorry, did you hear me?",
      "pt": "Desculpe, você me ouviu?",
-     "audio": "talk/dialogues/the-witness/1c0a116df90a.mp3"
+     "audio": "talk/dialogues/the-witness/650340083360.mp3"
     }
    ],
    "h": [
     {
      "text": "Take your time.",
      "pt": "Pode pensar com calma.",
-     "audio": "talk/dialogues/the-witness/d79ea23576f1.mp3"
+     "audio": "talk/dialogues/the-witness/c76dcdfe46c4.mp3"
     },
     {
      "text": "Sorry, did you hear me?",
      "pt": "Desculpe, você me ouviu?",
-     "audio": "talk/dialogues/the-witness/ac4b1049a248.mp3"
+     "audio": "talk/dialogues/the-witness/0502f93d572d.mp3"
     }
    ]
   }
@@ -5571,7 +5571,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "e",
     "text": "Hi, welcome to SoundZone. How can I help?",
     "pt": "Oi, boas-vindas à SoundZone. Como posso ajudar?",
-    "audio": "talk/dialogues/returning-a-faulty-item/c3841bc71712.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/d26a6fb81fd8.mp3",
     "options": [
      {
       "text": "Hi. I bought these headphones last week, and they've stopped working.",
@@ -5596,7 +5596,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha, it's loud enough in here! What can I do for you?",
        "pt": "Rá, já está alto o suficiente aqui! O que posso fazer por você?",
-       "audio": "talk/dialogues/returning-a-faulty-item/41cdf3ded78a.mp3"
+       "audio": "talk/dialogues/returning-a-faulty-item/02a9bd20d8dd.mp3"
       }
      }
     ]
@@ -5605,7 +5605,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "e",
     "text": "Oh no, I'm sorry to hear that. What exactly is the problem?",
     "pt": "Ah, não, sinto muito. Qual é exatamente o problema?",
-    "audio": "talk/dialogues/returning-a-faulty-item/01d564b9b0e7.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/f057dbf63aa6.mp3",
     "options": [
      {
       "text": "The left side doesn't make any sound.",
@@ -5630,7 +5630,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Aw! But what's wrong with them, exactly?",
        "pt": "Own! Mas o que eles têm, exatamente?",
-       "audio": "talk/dialogues/returning-a-faulty-item/28b26600756a.mp3"
+       "audio": "talk/dialogues/returning-a-faulty-item/7bfef8298e8d.mp3"
       }
      }
     ]
@@ -5639,21 +5639,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "e",
     "text": "Let me try them. Hmm, you're right. Nothing on the left.",
     "pt": "Deixa eu testar. Hum, você tem razão. Nada no lado esquerdo.",
-    "audio": "talk/dialogues/returning-a-faulty-item/a867680bbeed.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/42d4b7d19150.mp3",
     "next": "receipt"
    },
    "charge": {
     "speaker": "e",
     "text": "Let me plug them in. Yeah, nothing at all. That's definitely not normal.",
     "pt": "Deixa eu ligar na tomada. É, nada. Isso com certeza não é normal.",
-    "audio": "talk/dialogues/returning-a-faulty-item/6cecbb11416f.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/ba1e718cd41b.mp3",
     "next": "receipt"
    },
    "receipt": {
     "speaker": "e",
     "text": "Do you have the receipt with you?",
     "pt": "Você está com o recibo?",
-    "audio": "talk/dialogues/returning-a-faulty-item/71d7db93e7fa.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/fe56db3ee6d6.mp3",
     "options": [
      {
       "text": "Yes, here it is.",
@@ -5685,7 +5685,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! Not a recipe, a receipt. Proof that you bought them?",
        "pt": "Rá! Não receita, recibo. Um comprovante de que você comprou?",
-       "audio": "talk/dialogues/returning-a-faulty-item/f9ac2c95b337.mp3"
+       "audio": "talk/dialogues/returning-a-faulty-item/64d0e6be7dfd.mp3"
       }
      }
     ]
@@ -5694,14 +5694,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "e",
     "text": "Sure, a digital receipt is fine.",
     "pt": "Claro, um recibo digital serve.",
-    "audio": "talk/dialogues/returning-a-faulty-item/f65797fa0acd.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/1ab902dd4710.mp3",
     "next": "receipt_ok"
    },
    "receipt_ok": {
     "speaker": "e",
     "text": "Great, you bought them eight days ago. So you can have a refund, an exchange, or store credit.",
     "pt": "Ótimo, você comprou há oito dias. Então pode escolher reembolso, troca ou crédito na loja.",
-    "audio": "talk/dialogues/returning-a-faulty-item/c43e29b185d5.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/440e22f1ee50.mp3",
     "options": [
      {
       "text": "I'd prefer a refund, please.",
@@ -5733,7 +5733,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Nice try! It's one or the other. A refund, an exchange, or credit?",
        "pt": "Boa tentativa! É um ou outro. Reembolso, troca ou crédito?",
-       "audio": "talk/dialogues/returning-a-faulty-item/27190a491db1.mp3"
+       "audio": "talk/dialogues/returning-a-faulty-item/bfce025d3799.mp3"
       }
      }
     ]
@@ -5742,7 +5742,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "e",
     "text": "Of course. The money goes back on your card. It can take up to five days. Is that okay?",
     "pt": "Claro. O dinheiro volta para o seu cartão. Pode levar até cinco dias. Tudo bem?",
-    "audio": "talk/dialogues/returning-a-faulty-item/0d40197af898.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/f58d00f78733.mp3",
     "options": [
      {
       "text": "That's fine, thanks.",
@@ -5767,7 +5767,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! I mean, is it okay to wait up to five days for the money?",
        "pt": "Rá! Quero dizer, tudo bem esperar até cinco dias pelo dinheiro?",
-       "audio": "talk/dialogues/returning-a-faulty-item/25e65ec6b52e.mp3"
+       "audio": "talk/dialogues/returning-a-faulty-item/7494f59968d4.mp3"
       }
      }
     ]
@@ -5776,14 +5776,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "e",
     "text": "Oh, then I can give you the cash right now.",
     "pt": "Ah, então posso te dar o dinheiro agora mesmo.",
-    "audio": "talk/dialogues/returning-a-faulty-item/d2213f6a2692.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/66a957644674.mp3",
     "next": "end_good"
    },
    "exchange": {
     "speaker": "e",
     "text": "Let me check. Sorry, we're out of that model. The newer one is twenty pounds more.",
     "pt": "Deixa eu ver. Desculpe, esse modelo acabou. O mais novo custa vinte libras a mais.",
-    "audio": "talk/dialogues/returning-a-faulty-item/9b34838aaecb.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/1715dc3d59b9.mp3",
     "options": [
      {
       "text": "Could I have the new one for the same price?",
@@ -5815,7 +5815,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! Pounds in money, not weight. Would you like the newer model?",
        "pt": "Rá! Libras em dinheiro, não em peso. Você quer o modelo mais novo?",
-       "audio": "talk/dialogues/returning-a-faulty-item/5d9084674551.mp3"
+       "audio": "talk/dialogues/returning-a-faulty-item/e07fbc1fdc1c.mp3"
       }
      }
     ]
@@ -5824,21 +5824,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "e",
     "text": "Great choice. The sound is much better on these.",
     "pt": "Ótima escolha. O som destes é muito melhor.",
-    "audio": "talk/dialogues/returning-a-faulty-item/4a14dc3f8761.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/6d207f77c559.mp3",
     "next": "end_good"
    },
    "manager_ask": {
     "speaker": "e",
     "text": "I'm afraid I can't change prices myself. Let me call my manager.",
     "pt": "Infelizmente eu não posso mudar preços. Vou chamar meu gerente.",
-    "audio": "talk/dialogues/returning-a-faulty-item/a886512a4af7.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/2a9df062bf16.mp3",
     "next": "mgr1"
    },
    "credit": {
     "speaker": "e",
     "text": "You can spend it on anything here, and it never expires. Would you like that?",
     "pt": "Você pode usar em qualquer coisa aqui, e nunca vence. Você quer?",
-    "audio": "talk/dialogues/returning-a-faulty-item/09fd15887cc0.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/2f42552a8a6b.mp3",
     "options": [
      {
       "text": "Yes, that works for me.",
@@ -5863,7 +5863,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha, only if we start selling pizza! So, store credit or not?",
        "pt": "Rá, só se a gente começar a vender pizza! Então, crédito na loja ou não?",
-       "audio": "talk/dialogues/returning-a-faulty-item/72dafc137a0f.mp3"
+       "audio": "talk/dialogues/returning-a-faulty-item/c182d46c4f6f.mp3"
       }
      }
     ]
@@ -5872,7 +5872,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "e",
     "text": "Hmm. Without a receipt, I can only offer store credit, I'm afraid.",
     "pt": "Hum. Sem recibo, infelizmente só posso oferecer crédito na loja.",
-    "audio": "talk/dialogues/returning-a-faulty-item/b3d2c4345521.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/a9d9b2e275a5.mp3",
     "options": [
      {
       "text": "I paid by card. Can't you find it on your system?",
@@ -5904,7 +5904,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha, good! But is store credit okay for you?",
        "pt": "Rá, que bom! Mas crédito na loja está bom para você?",
-       "audio": "talk/dialogues/returning-a-faulty-item/63d99b763ca5.mp3"
+       "audio": "talk/dialogues/returning-a-faulty-item/84661c647617.mp3"
       }
      }
     ]
@@ -5913,7 +5913,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "e",
     "text": "Let me try. Do you remember which day you bought them?",
     "pt": "Vou tentar. Você lembra em que dia comprou?",
-    "audio": "talk/dialogues/returning-a-faulty-item/93be58688ad3.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/bcbc2ec4ddb3.mp3",
     "options": [
      {
       "text": "Last Saturday, in the afternoon.",
@@ -5938,7 +5938,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha, nice! But what day did you buy them?",
        "pt": "Rá, legal! Mas em que dia você comprou?",
-       "audio": "talk/dialogues/returning-a-faulty-item/2313e680b0ac.mp3"
+       "audio": "talk/dialogues/returning-a-faulty-item/a4983c7077f8.mp3"
       }
      }
     ]
@@ -5947,7 +5947,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "e",
     "text": "Found it! Okay, so you can choose a refund or an exchange.",
     "pt": "Achei! Certo, então você pode escolher reembolso ou troca.",
-    "audio": "talk/dialogues/returning-a-faulty-item/f2a969ce35c1.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/379034da4cec.mp3",
     "options": [
      {
       "text": "A refund, please.",
@@ -5972,7 +5972,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! First things first. A refund, or an exchange?",
        "pt": "Rá! Uma coisa de cada vez. Reembolso ou troca?",
-       "audio": "talk/dialogues/returning-a-faulty-item/520b81bada7b.mp3"
+       "audio": "talk/dialogues/returning-a-faulty-item/37e8b15d5410.mp3"
       }
      }
     ]
@@ -6070,7 +6070,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "e",
     "text": "All done. Is there anything else I can help you with?",
     "pt": "Tudo certo. Posso ajudar em mais alguma coisa?",
-    "audio": "talk/dialogues/returning-a-faulty-item/ba0b5a0af0dd.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/c1cde78f2f6f.mp3",
     "options": [
      {
       "text": "No, that's all. Thanks for your help.",
@@ -6095,7 +6095,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha, we only do headphones! Anything else today?",
        "pt": "Rá, a gente só mexe com fones! Mais alguma coisa hoje?",
-       "audio": "talk/dialogues/returning-a-faulty-item/ee16a216d2d7.mp3"
+       "audio": "talk/dialogues/returning-a-faulty-item/ef6cf86f32a0.mp3"
       }
      }
     ]
@@ -6104,14 +6104,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "e",
     "text": "Yes, right by the till. They're ten percent off this week.",
     "pt": "Sim, bem ao lado do caixa. Estão com dez por cento de desconto esta semana.",
-    "audio": "talk/dialogues/returning-a-faulty-item/fd2b7a7650a7.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/c982b6fdfb02.mp3",
     "next": "bye"
    },
    "bye": {
     "speaker": "e",
     "text": "Have a great day, and enjoy your music!",
     "pt": "Tenha um ótimo dia e aproveite sua música!",
-    "audio": "talk/dialogues/returning-a-faulty-item/a24a5697cea6.mp3",
+    "audio": "talk/dialogues/returning-a-faulty-item/12942f1b0b85.mp3",
     "end": true
    }
   },
@@ -6120,12 +6120,12 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     {
      "text": "Take your time.",
      "pt": "Pode pensar com calma.",
-     "audio": "talk/dialogues/returning-a-faulty-item/e317a75aeae6.mp3"
+     "audio": "talk/dialogues/returning-a-faulty-item/9d7ca313afce.mp3"
     },
     {
      "text": "Sorry, did you hear me?",
      "pt": "Desculpe, você me ouviu?",
-     "audio": "talk/dialogues/returning-a-faulty-item/f56b8f4d015c.mp3"
+     "audio": "talk/dialogues/returning-a-faulty-item/7ea7d9d86c7b.mp3"
     }
    ],
    "m": [
@@ -6168,14 +6168,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "You must be here for the viewing. I'm James, from Harbour Lettings. Come on in.",
     "pt": "Você deve ter vindo para a visita. Sou o James, da Harbour Lettings. Pode entrar.",
-    "audio": "talk/dialogues/renting-a-flat/95505a581fbb.mp3",
+    "audio": "talk/dialogues/renting-a-flat/57da2e9ff713.mp3",
     "next": "f2"
    },
    "f2": {
     "speaker": "a",
     "text": "So, this is the living room. Loads of natural light, as you can see. What do you think so far?",
     "pt": "Então, esta é a sala. Bastante luz natural, como você pode ver. O que está achando até agora?",
-    "audio": "talk/dialogues/renting-a-flat/668be59f27ea.mp3",
+    "audio": "talk/dialogues/renting-a-flat/514d196337c1.mp3",
     "options": [
      {
       "text": "It's lovely and bright. Is it furnished?",
@@ -6200,7 +6200,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha, it is! But what do you think of the flat?",
        "pt": "Rá, são mesmo! Mas o que você acha do apartamento?",
-       "audio": "talk/dialogues/renting-a-flat/4e4152e031c9.mp3"
+       "audio": "talk/dialogues/renting-a-flat/b2ece9074db2.mp3"
       }
      }
     ]
@@ -6209,21 +6209,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "Fully furnished, yes, but the landlord can remove anything you don't need.",
     "pt": "Totalmente mobiliado, sim, mas o proprietário pode tirar o que você não precisar.",
-    "audio": "talk/dialogues/renting-a-flat/c2273cb41469.mp3",
+    "audio": "talk/dialogues/renting-a-flat/b797385be049.mp3",
     "next": "rent"
    },
    "photos": {
     "speaker": "a",
     "text": "Ah, the wide-angle lens strikes again. But the bedroom's a good size, honestly.",
     "pt": "Ah, a lente grande-angular ataca de novo. Mas o quarto é de bom tamanho, sério.",
-    "audio": "talk/dialogues/renting-a-flat/18d6a086b703.mp3",
+    "audio": "talk/dialogues/renting-a-flat/0dff771d0eea.mp3",
     "next": "rent"
    },
    "rent": {
     "speaker": "a",
     "text": "The rent is twelve hundred a month. Did you have a budget in mind?",
     "pt": "O aluguel é mil e duzentos por mês. Você tinha um orçamento em mente?",
-    "audio": "talk/dialogues/renting-a-flat/96b98aba9ca8.mp3",
+    "audio": "talk/dialogues/renting-a-flat/6c0f2f2c90fe.mp3",
     "options": [
      {
       "text": "That's within my budget, but what does it include?",
@@ -6248,7 +6248,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! Lovely, but I meant budget. How much can you afford each month?",
        "pt": "Rá! Que fofo, mas eu disse orçamento. Quanto você pode pagar por mês?",
-       "audio": "talk/dialogues/renting-a-flat/da19e75c264c.mp3"
+       "audio": "talk/dialogues/renting-a-flat/498f30165171.mp3"
       }
      }
     ]
@@ -6257,7 +6257,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "I see. The landlord might be flexible for the right tenant. What were you hoping to pay?",
     "pt": "Entendi. O proprietário pode ser flexível com o inquilino certo. Quanto você esperava pagar?",
-    "audio": "talk/dialogues/renting-a-flat/92c01a78c1e5.mp3",
+    "audio": "talk/dialogues/renting-a-flat/cadb40ef9a0a.mp3",
     "options": [
      {
       "text": "Would the landlord accept eleven hundred for a longer contract?",
@@ -6282,7 +6282,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "If only! But seriously, what figure did you have in mind?",
        "pt": "Quem dera! Mas falando sério, que valor você tinha em mente?",
-       "audio": "talk/dialogues/renting-a-flat/c355b6cd42c3.mp3"
+       "audio": "talk/dialogues/renting-a-flat/56022d36c4ff.mp3"
       }
      }
     ]
@@ -6291,14 +6291,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "I can't promise anything, but I'll put that to the landlord today.",
     "pt": "Não posso prometer nada, mas vou levar isso ao proprietário hoje.",
-    "audio": "talk/dialogues/renting-a-flat/379ed4f84640.mp3",
+    "audio": "talk/dialogues/renting-a-flat/65e5d0ede595.mp3",
     "next": "bills"
    },
    "bills": {
     "speaker": "a",
     "text": "Water's included, but electricity, gas and internet are on top. Any questions about that?",
     "pt": "A água está incluída, mas luz, gás e internet são à parte. Alguma pergunta sobre isso?",
-    "audio": "talk/dialogues/renting-a-flat/9ee7f1b9ba27.mp3",
+    "audio": "talk/dialogues/renting-a-flat/44f594c93b0e.mp3",
     "options": [
      {
       "text": "Roughly how much are the bills each month?",
@@ -6323,7 +6323,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! No, I mean you pay them separately. Any questions about the bills?",
        "pt": "Rá! Não, quero dizer que você paga à parte. Alguma pergunta sobre as contas?",
-       "audio": "talk/dialogues/renting-a-flat/52264f41c062.mp3"
+       "audio": "talk/dialogues/renting-a-flat/3af1554211f1.mp3"
       }
      }
     ]
@@ -6332,7 +6332,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "Good question. Actually, Chloe, the current tenant, would know better than me.",
     "pt": "Boa pergunta. Na verdade, a Chloe, a inquilina atual, sabe melhor do que eu.",
-    "audio": "talk/dialogues/renting-a-flat/72e590c6f118.mp3",
+    "audio": "talk/dialogues/renting-a-flat/93bea3fac72e.mp3",
     "next": "chloe1"
    },
    "chloe1": {
@@ -6346,14 +6346,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "It's gas central heating, and the windows were replaced last year, so it stays warm.",
     "pt": "É aquecimento central a gás, e as janelas foram trocadas ano passado, então fica quentinho.",
-    "audio": "talk/dialogues/renting-a-flat/ccf2ceed977f.mp3",
+    "audio": "talk/dialogues/renting-a-flat/76823f53081d.mp3",
     "next": "deposit"
    },
    "deposit": {
     "speaker": "a",
     "text": "There's also a deposit of five weeks' rent, protected in a government scheme.",
     "pt": "Também tem um depósito de cinco semanas de aluguel, protegido num programa do governo.",
-    "audio": "talk/dialogues/renting-a-flat/aef440862f09.mp3",
+    "audio": "talk/dialogues/renting-a-flat/aca5dd8a7434.mp3",
     "options": [
      {
       "text": "When would I get the deposit back?",
@@ -6378,7 +6378,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! No, five weeks' rent, paid as a deposit. Is that okay?",
        "pt": "Rá! Não, o valor de cinco semanas de aluguel, pago como depósito. Tudo bem?",
-       "audio": "talk/dialogues/renting-a-flat/d57ff7404348.mp3"
+       "audio": "talk/dialogues/renting-a-flat/2567bacae199.mp3"
       }
      }
     ]
@@ -6387,21 +6387,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "At the end of the tenancy, minus any damage beyond normal wear and tear.",
     "pt": "No fim do contrato, descontando qualquer dano além do desgaste normal.",
-    "audio": "talk/dialogues/renting-a-flat/af265bddef3f.mp3",
+    "audio": "talk/dialogues/renting-a-flat/5955a2810511.mp3",
     "next": "contract"
    },
    "instal": {
     "speaker": "a",
     "text": "Not usually, but I can ask. Some landlords accept two payments.",
     "pt": "Normalmente não, mas posso perguntar. Alguns proprietários aceitam em duas vezes.",
-    "audio": "talk/dialogues/renting-a-flat/77b7a6b222a3.mp3",
+    "audio": "talk/dialogues/renting-a-flat/036a068f055a.mp3",
     "next": "contract"
    },
    "contract": {
     "speaker": "a",
     "text": "The minimum contract is twelve months. Does that suit you?",
     "pt": "O contrato mínimo é de doze meses. Isso te serve?",
-    "audio": "talk/dialogues/renting-a-flat/c8870fe06107.mp3",
+    "audio": "talk/dialogues/renting-a-flat/da2b9fb717f5.mp3",
     "options": [
      {
       "text": "Twelve months is fine. Is there a break clause?",
@@ -6426,7 +6426,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! I mean, does a one-year contract work for you?",
        "pt": "Rá! Quero dizer, um contrato de um ano funciona para você?",
-       "audio": "talk/dialogues/renting-a-flat/5b4770be3fce.mp3"
+       "audio": "talk/dialogues/renting-a-flat/98574278a336.mp3"
       }
      }
     ]
@@ -6435,21 +6435,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "Yes. Either side can end it after six months, with two months' notice.",
     "pt": "Sim. Qualquer uma das partes pode encerrar depois de seis meses, com dois meses de aviso.",
-    "audio": "talk/dialogues/renting-a-flat/e3cb35b998f7.mp3",
+    "audio": "talk/dialogues/renting-a-flat/dd8f1af55e86.mp3",
     "next": "nb"
    },
    "six": {
     "speaker": "a",
     "text": "Six is tricky. But a year with a break clause after six months might work.",
     "pt": "Seis é complicado. Mas um ano com cláusula de rescisão após seis meses pode funcionar.",
-    "audio": "talk/dialogues/renting-a-flat/97f4464c623d.mp3",
+    "audio": "talk/dialogues/renting-a-flat/37e15983e449.mp3",
     "next": "nb"
    },
    "nb": {
     "speaker": "a",
     "text": "Anything else you'd like to know before we look at the bedroom?",
     "pt": "Mais alguma coisa que você queira saber antes de vermos o quarto?",
-    "audio": "talk/dialogues/renting-a-flat/0d5a375d258b.mp3",
+    "audio": "talk/dialogues/renting-a-flat/52e83f0966c5.mp3",
     "options": [
      {
       "text": "What are the neighbours like?",
@@ -6481,7 +6481,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha, it's not a hotel! Any other questions about the flat?",
        "pt": "Rá, não é um hotel! Mais alguma pergunta sobre o apartamento?",
-       "audio": "talk/dialogues/renting-a-flat/57dd9c048be4.mp3"
+       "audio": "talk/dialogues/renting-a-flat/f8e4ed00e32e.mp3"
       }
      }
     ]
@@ -6538,21 +6538,21 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "Very safe. There's a police station round the corner, and the high street is busy until late.",
     "pt": "Muito seguro. Tem uma delegacia na esquina, e a rua principal fica movimentada até tarde.",
-    "audio": "talk/dialogues/renting-a-flat/0ed248c0b816.mp3",
+    "audio": "talk/dialogues/renting-a-flat/7d85e37581b4.mp3",
     "next": "negotiate"
    },
    "walls": {
     "speaker": "a",
     "text": "Pictures, yes, with small nails. Painting needs the landlord's written permission.",
     "pt": "Quadros, sim, com pregos pequenos. Para pintar, precisa de autorização por escrito do proprietário.",
-    "audio": "talk/dialogues/renting-a-flat/de0ddd111e2a.mp3",
+    "audio": "talk/dialogues/renting-a-flat/0d42cfde1915.mp3",
     "next": "negotiate"
    },
    "negotiate": {
     "speaker": "a",
     "text": "So, the flat's had a lot of interest. Would you like to make an offer today?",
     "pt": "Então, o apartamento teve muita procura. Você gostaria de fazer uma proposta hoje?",
-    "audio": "talk/dialogues/renting-a-flat/90d25e4f1681.mp3",
+    "audio": "talk/dialogues/renting-a-flat/19148dac06a4.mp3",
     "options": [
      {
       "text": "Yes. I'd like to go ahead, subject to contract.",
@@ -6584,7 +6584,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! Not until you move in! Would you like to make an offer?",
        "pt": "Rá! Só depois da mudança! Você gostaria de fazer uma proposta?",
-       "audio": "talk/dialogues/renting-a-flat/4b68b3e54924.mp3"
+       "audio": "talk/dialogues/renting-a-flat/8f37c6384d71.mp3"
       }
      }
     ]
@@ -6593,14 +6593,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "That's a fair request. I'll pass it on, and I'm fairly confident they'll agree.",
     "pt": "É um pedido justo. Vou repassar, e tenho quase certeza de que vão aceitar.",
-    "audio": "talk/dialogues/renting-a-flat/c62e86605240.mp3",
+    "audio": "talk/dialogues/renting-a-flat/f0b5288a9f3d.mp3",
     "next": "yes"
    },
    "yes": {
     "speaker": "a",
     "text": "Brilliant. I'll need some ID and a reference from your employer.",
     "pt": "Excelente. Vou precisar de um documento e de uma carta de referência do seu empregador.",
-    "audio": "talk/dialogues/renting-a-flat/51551a586b0a.mp3",
+    "audio": "talk/dialogues/renting-a-flat/614c52a3cfd3.mp3",
     "options": [
      {
       "text": "No problem. I can email those tonight.",
@@ -6625,7 +6625,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! I mean a letter from your employer. Can you get one?",
        "pt": "Rá! Quero dizer uma carta do seu empregador. Você consegue uma?",
-       "audio": "talk/dialogues/renting-a-flat/62dbb0e3d0c9.mp3"
+       "audio": "talk/dialogues/renting-a-flat/72e785b9a75a.mp3"
       }
      }
     ]
@@ -6634,14 +6634,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "That should be fine, maybe with a couple of months' rent upfront.",
     "pt": "Deve servir, talvez com uns dois meses de aluguel adiantados.",
-    "audio": "talk/dialogues/renting-a-flat/46efc8ee13ba.mp3",
+    "audio": "talk/dialogues/renting-a-flat/0dd063a3f3eb.mp3",
     "next": "end_yes"
    },
    "think": {
     "speaker": "a",
     "text": "Of course, but I can't hold it for long. There are two more viewings this afternoon.",
     "pt": "Claro, mas não consigo segurar por muito tempo. Tem mais duas visitas hoje à tarde.",
-    "audio": "talk/dialogues/renting-a-flat/9464dea6e750.mp3",
+    "audio": "talk/dialogues/renting-a-flat/89f1d86abce8.mp3",
     "options": [
      {
       "text": "Understood. I'll call you by ten tomorrow morning.",
@@ -6666,7 +6666,7 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
       "react": {
        "text": "Ha! I mean other people are coming to see the flat. Will you decide soon?",
        "pt": "Rá! Quero dizer que outras pessoas vêm ver o apartamento. Você decide logo?",
-       "audio": "talk/dialogues/renting-a-flat/92fe9fdd11a3.mp3"
+       "audio": "talk/dialogues/renting-a-flat/bc51bae2b2de.mp3"
       }
      }
     ]
@@ -6675,14 +6675,14 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     "speaker": "a",
     "text": "Great. I'll draw up the paperwork. Welcome to the neighbourhood, hopefully!",
     "pt": "Ótimo. Vou preparar a papelada. Boas-vindas ao bairro, tomara!",
-    "audio": "talk/dialogues/renting-a-flat/96645dd780da.mp3",
+    "audio": "talk/dialogues/renting-a-flat/7c9cfd8c154a.mp3",
     "end": true
    },
    "end_think": {
     "speaker": "a",
     "text": "Perfect. Here's my card. Speak tomorrow.",
     "pt": "Perfeito. Aqui está meu cartão. Nos falamos amanhã.",
-    "audio": "talk/dialogues/renting-a-flat/1491c97a9b9b.mp3",
+    "audio": "talk/dialogues/renting-a-flat/936c091ac5ea.mp3",
     "end": true
    }
   },
@@ -6691,12 +6691,12 @@ export const TALK_DIALOGUES: TalkDialogueDef[] = [
     {
      "text": "Take your time.",
      "pt": "Pode pensar com calma.",
-     "audio": "talk/dialogues/renting-a-flat/be37187b8392.mp3"
+     "audio": "talk/dialogues/renting-a-flat/c08d73e8e69c.mp3"
     },
     {
      "text": "Sorry, did you hear me?",
      "pt": "Desculpe, você me ouviu?",
-     "audio": "talk/dialogues/renting-a-flat/b1e29ed6346b.mp3"
+     "audio": "talk/dialogues/renting-a-flat/a07d40a67f3e.mp3"
     }
    ],
    "t": [

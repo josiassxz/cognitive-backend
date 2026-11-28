@@ -13,7 +13,7 @@
   "n1": ["n", "New Mexico. The sky turns orange, then purple. The van hums along without a single complaint.", "Novo México. O céu fica laranja, depois roxo. A van segue ronronando, sem nenhuma reclamação.", "radio_br"],
   "radio_br": {"branch": [["radio=fixed", "r_music5"], [null, "r_quiet5"]]},
   "r_music5": ["r", "That's the ninth time we've played Grandpa's samba tape. And I'm still not tired of it.", "É a nona vez que a gente toca a fita de samba do vovô. E eu ainda não enjoei.", "r_plan5"],
-  "r_quiet5": ["r", "Two hundred miles with no music. I've started singing to myself. Have you noticed?", "Trezentos quilômetros sem música. Comecei a cantar sozinho. Deu pra notar?", "r_plan5"],
+  "r_quiet5": ["r", "A hundred miles with no music. I've started singing to myself. Have you noticed?", "Cento e sessenta quilômetros sem música. Comecei a cantar sozinho. Deu pra notar?", "r_plan5"],
   "r_plan5": ["r", "So what's the plan? We just walk in and say: hi, did you know our grandpa?", "E qual é o plano? A gente entra e fala: oi, você conheceu nosso avô?", [
    ["Pretty much. It worked with Dot.", "Basicamente. Com a Dot funcionou.", "r_ok5"],
    ["Let's sit down and listen to him play first.", "Vamos sentar e ouvir ele tocar primeiro.", "r_listen"],
@@ -21,7 +21,7 @@
   ]],
   "r_ok5": ["r", "True. Our whole strategy is being related to Grandpa. So far, so good.", "Verdade. Nossa estratégia inteira é ser parente do vovô. Até agora, deu certo.", "n_bar"],
   "r_listen": ["r", "Good call. Never interrupt a man with a guitar.", "Boa. Nunca interrompa um homem com um violão.", "n_bar"],
-  "n_bar": ["n", "The Rusty Spur is a low wooden bar by the highway. On a tiny stage, an old man is tuning a guitar.", "O Rusty Spur é um bar baixo de madeira à beira da estrada. Num palquinho, um senhor afina um violão.", "h1"],
+  "n_bar": ["n", "The Rusty Spur is a low wooden bar by the highway. On a tiny stage, an old man tunes a guitar.", "O Rusty Spur é um bar baixo de madeira à beira da estrada. Num palquinho, um senhor afina um violão.", "h1"],
   "h1": ["h", "Evening, travelers. You look like you've been on the road a while. Where are you headed?", "Boa noite, viajantes. Vocês estão com cara de quem já rodou bastante. Pra onde estão indo?", [
    ["California. We're driving the whole of Route Sixty-Six.", "Califórnia. A gente está fazendo a Rota Sessenta e Seis inteira.", "h_road"],
    ["Actually, we came to find you. Are you Hank?", "Na verdade, a gente veio te procurar. Você é o Hank?", "h_me"],
@@ -53,7 +53,7 @@
   "h_words": ["h", "You only need one line. Repeat after me: the long way home is the only way I know.", "Você só precisa de um verso. Repete comigo: the long way home is the only way I know. O caminho longo pra casa é o único que eu conheço.", [
    ["The long way home is the only way I know.", "O caminho longo pra casa é o único que eu conheço.", "n_sing"],
    ["Could you say that more slowly, please?", "Pode falar mais devagar, por favor?", "h_slow"],
-   ["The wrong way home is the only way I go.", "O caminho errado pra casa é o único que eu pego.", null, "Ha! That's a different song, and a much worse trip. Again: the long way home is the only way I know.", "Rá! Essa é outra música, e uma viagem bem pior. De novo: o caminho longo pra casa é o único que eu conheço."]
+   ["The wrong way home is the only way I go.", "O caminho errado pra casa é o único que eu pego.", null, "Ha! Different song, and a much worse trip. Again: the long way home is the only way I know.", "Rá! Essa é outra música, e uma viagem bem pior. De novo: o caminho longo pra casa é o único que eu conheço."]
   ]],
   "h_slow": ["h", "Sure. The long way home. Is the only way. I know. There. You've got it.", "Claro. The long way home. Is the only way. I know. Pronto. Você pegou.", "n_sing"],
   "n_sing": ["n", "You sing. Your voice shakes at first. Then the whole bar joins in, and Rafa films everything.", "Você canta. No começo, a voz treme. Depois o bar inteiro canta junto, e o Rafa filma tudo.", "h_after"],
@@ -80,7 +80,7 @@
    ["Maybe he got the job after all.", "Vai ver ele conseguiu o emprego, no fim das contas.", "r_job5"],
    ["Hoppy? Like a rabbit?", "Saltitante? Tipo um coelho?", null, "Happy, not hoppy! Why was Grandpa so happy to drive home with no job?", "Feliz, não saltitante! Por que o vovô estava tão feliz de voltar pra casa sem emprego?"]
   ]],
-  "r_baby5": ["r", "The baby. Right. But then why drive all the way to the ocean first? I don't get it.", "O bebê. É. Mas então por que ir até o mar primeiro? Não entendo.", "h_gift"],
+  "r_baby5": ["r", "The baby. Right. But he already knew in Tulsa, and he still kept going west. I don't get it.", "O bebê. É. Mas em Tulsa ele já sabia, e mesmo assim seguiu pro oeste. Não entendo.", "h_gift"],
   "r_job5": ["r", "Then why did he drive a school bus in Chicago for thirty years? It doesn't add up.", "Então por que ele dirigiu ônibus escolar em Chicago por trinta anos? A conta não fecha.", "h_gift"],
   "r_miss5": ["r", "Maybe. But you don't drive two thousand miles just to feel homesick. There's something else.", "Pode ser. Mas ninguém dirige três mil quilômetros só pra sentir saudade. Tem mais coisa aí.", "h_gift"],
   "h_gift": ["h", "All he told me was this: the answer is at the end of the road. I left it there.", "Ele só me disse isto: a resposta está no fim da estrada. Eu deixei lá.", "r_card"],

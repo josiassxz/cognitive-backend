@@ -56,7 +56,7 @@
    ["No, I don't want to change. I like me.", "Não, eu não quero mudar. Eu gosto de mim.", null, "Not you. The money. I give you twenty, the food is ten. Can you give me ten back?", "Você, não. O dinheiro. Eu te dou vinte, a comida é dez. Pode me devolver dez?"]
   ]],
   "w_change": ["w", "Ten. Correct.", "Dez. Correto.", "n_sits"],
-  "b_ones": ["b", "No tens! Only ones! Give him ten one dollar bills, and say sorry!", "Nenhuma de dez! Só de um! Dá dez notas de um dólar pra ele, e pede desculpa!", "w_ones"],
+  "b_ones": ["b", "No tens! Only ones! Give him ten one-dollar bills, and say sorry!", "Nenhuma de dez! Só de um! Dá dez notas de um dólar pra ele, e pede desculpa!", "w_ones"],
   "w_ones": ["w", "Ten ones. Hm. My pocket is heavy now.", "Dez notas de um. Hum. Meu bolso ficou pesado.", "n_sits"],
   "n_sits": ["n", "Mr. Boone sits at the same table as yesterday. Then you hear Chuck shouting next door.", "O Sr. Boone senta na mesma mesa de ontem. Aí você ouve o Chuck gritando ao lado.", "c_help"],
   "c_help": ["c", "Toucan! Emergency! I have no napkins, and my ribs are very messy. Can I borrow some?", "Tucano! Emergência! Fiquei sem guardanapo, e minhas costelas fazem a maior sujeira. Me empresta alguns?", [
@@ -74,7 +74,7 @@
    ["Winning? No, it's not windy today.", "Ventando? Não, hoje não está ventando.", null, "Not windy! Winning! The festival, the big prize. Are you two going?", "Ventando, não! Ganhando! O festival, o prêmio grande. Vocês vão?"]
   ]],
   "c_win": ["c", "Ha! With beans? Good luck. See you at the festival, Toucan.", "Rá! Com feijão? Boa sorte. A gente se vê no festival, Tucano.", "n_back"],
-  "c_last": ["c", "Last year? I lost to a grilled cheese sandwich. A grilled cheese!", "Ano passado? Perdi pra um misto quente. Um misto quente!", "c_last2"],
+  "c_last": ["c", "Last year, I lost to a grilled cheese sandwich. A grilled cheese!", "Ano passado, perdi pra um misto quente. Um misto quente!", "c_last2"],
   "c_last2": ["c", "The judge wrote one line about my ribs: too much sauce. That judge likes simple food, done right.", "O jurado escreveu uma linha sobre as minhas costelas: molho demais. Esse jurado gosta de comida simples e bem feita.", "c_last3", {"clue": "simple_food"}],
   "c_last3": ["c", "But this year I have a new sauce. Even more sauce! See you, Toucan.", "Mas este ano eu tenho um molho novo. Mais molho ainda! Até mais, Tucano.", "n_back"],
   "n_back": ["n", "Mr. Boone is leaving. He puts two dollars in the tip jar, and he says nothing.", "O Sr. Boone está indo embora. Ele põe dois dólares no pote de gorjeta e não diz nada.", "b_tip"],

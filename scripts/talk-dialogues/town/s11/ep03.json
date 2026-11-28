@@ -34,7 +34,7 @@
   ]],
   "d_disagree": ["d", "My grandfather fished here before there was any ferry. We managed then. We'd manage again.", "Meu avô pescava aqui antes de existir balsa. A gente se virava. E se viraria de novo.", "d_proud"],
   "d_view": ["d", "Diplomatic. Fine. My grandfather fished here before any ferry. We managed. We'd manage again.", "Diplomacia. Tá bom. Meu avô pescava aqui antes de qualquer balsa. A gente se virava. E se viraria de novo.", "d_proud"],
-  "d_proud": ["d", "Folk talk as if that boat from the mainland were our mother. It's a boat. Well?", "O povo fala como se um barco do continente fosse a nossa mãe. É um barco. E aí?", [
+  "d_proud": ["d", "Folk talk as if that boat from the mainland were our mother. It's a boat. Well?", "O povo fala como se aquele barco do continente fosse a nossa mãe. É um barco. E aí?", [
    ["It's a strong view. Does anyone here share it?", "É uma opinião forte. Alguém aqui pensa igual?", "d_agree"],
    ["Granted, the island managed before. But wasn't life far harder then?", "Tudo bem, a ilha se virava antes. Mas a vida não era bem mais dura?", "d_harder"],
    ["A goat from the mainland? I haven't seen any goats.", "Uma cabra do continente? Não vi cabra nenhuma.", null, "Boat! Not goat. The ferry. I'm saying we don't need it like a mother. What do you make of that?", "Barco! Não cabra. A balsa. Estou dizendo que ela não é nossa mãe. O que você acha disso?"]
@@ -58,7 +58,7 @@
    ["To Mark? Who's Mark?", "Pro Marco? Quem é Marco?", null, "Market! Not Mark. The fish market, on the mainland. Have you anything else to ask?", "Mercado! Não Marco. O mercado de peixe, no continente. Tem mais alguma pergunta?"]
   ]],
   "d_freight1": ["d", "Hm. You noticed. Aye. They go on the Kittiwake. Every box, twice a week.", "Hum. Você reparou. Pois é. Vão na Kittiwake. Todas as caixas, duas vezes por semana.", "d_freight2"],
-  "d_freight2": ["d", "So does the post, the medicine and half the shop. Nobody counts cargo. Only tickets.", "E o correio, os remédios e metade da mercearia também. Carga ninguém conta. Só bilhete.", "d_freight3", {"clue": "freight"}],
+  "d_freight2": ["d", "So do the post, the medicine and half the shop. Nobody counts cargo. Only tickets.", "E o correio, os remédios e metade da mercearia também. Carga ninguém conta. Só bilhete.", "d_freight3", {"clue": "freight"}],
   "d_freight3": ["d", "Don't look so pleased. I said we'd manage. I never said it would be cheap.", "Não faz essa cara de vitória. Eu disse que a gente se virava. Nunca disse que saía barato.", "d_isla"],
   "d_dayafter": ["d", "Fish. Same as the day before. The sea doesn't read letters from the office.", "Pescar. Igual ao dia anterior. O mar não lê carta de repartição.", "d_isla"],
   "d_isla": ["d", "Anyway. My girl Isla takes over this boat when I'm done. That's the future sorted.", "Enfim. Minha filha Isla assume este barco quando eu parar. O futuro está resolvido.", [

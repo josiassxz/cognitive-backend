@@ -25,7 +25,7 @@
    ["Not enough yet, to be honest. Could you walk me through it?", "Ainda não o bastante, pra falar a verdade. Pode me explicar por alto?", "h_explain"],
    ["You make kettles. I love a nice cup of tea.", "Vocês fazem chaleiras. Eu adoro um bom chá.", null, "Ha! No kettles, sadly. It's just a name. So, what does our app do?", "Rá! Nada de chaleiras, infelizmente. É só o nome. Então, o que o nosso aplicativo faz?"]
   ]],
-  "h_know": ["h", "Word for word! Somebody's done their homework. I like that.", "Palavra por palavra! Alguém fez a lição de casa. Gostei.", "h_dylan"],
+  "h_know": ["h", "That's our pitch, almost word for word! Somebody's done their homework.", "É o nosso pitch, quase palavra por palavra! Alguém fez a lição de casa.", "h_dylan"],
   "h_explain": ["h", "Thirty seconds, then. Small cafés, one app. Customers order ahead, pay by phone, skip the queue.", "Trinta segundos, então. Cafés pequenos, um aplicativo. O cliente pede antes, paga pelo celular e não pega fila.", "h_dylan"],
   "h_dylan": ["h", "Dylan! Look after our new colleague, will you? I've got an investor on the phone.", "Dylan! Cuida de quem acabou de chegar, pode ser? Estou com uma investidora no telefone.", "n3"],
   "n3": ["n", "A man in a bright yellow jumper rolls across the floor on his office chair.", "Um homem de suéter amarelo berrante atravessa a sala rolando na cadeira de escritório.", "d1"],
@@ -48,7 +48,7 @@
   "d_team": ["d", "Right, the team. Tom builds the app. Helen runs the show. And that's Priya, by the window.", "Bom, o time. O Tom constrói o aplicativo. A Helen comanda o espetáculo. E aquela é a Priya, perto da janela.", [
    ["What does Priya do?", "O que a Priya faz?", "d_priya"],
    ["And what will I be doing this week?", "E o que eu vou fazer esta semana?", "d_task"],
-   ["Who runs the shower?", "Quem comanda o chuveiro?", null, "The show, not the shower! We haven't got one. So, what do you want to know?", "O espetáculo, não o chuveiro! A gente nem tem um. E aí, o que você quer saber?"]
+   ["Who runs the shower?", "Quem comanda o chuveiro?", null, "The show, not the shower! We don't have one. So, what do you want to know?", "O espetáculo, não o chuveiro! A gente nem tem um. E aí, o que você quer saber?"]
   ]],
   "d_priya": ["d", "Design. And customer support. And the client newsletter. Since Omar left in March, she does three jobs.", "Design. E suporte ao cliente. E a newsletter dos clientes. Desde que o Omar saiu, em março, ela faz três funções.", "d_task", {"clue": "three_jobs"}],
   "d_task": ["d", "As for you: testing. Order coffee on the demo app, all day. Break it before the investors do.", "Quanto a você: testes. Peça café no aplicativo de demonstração o dia todo. Quebre antes que os investidores quebrem.", "n4"],

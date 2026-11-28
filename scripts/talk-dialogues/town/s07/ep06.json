@@ -34,7 +34,7 @@
   "trust_br": {"branch": [["helped_jamie=yes", "j_heard_intro"], [null, "j_hes"]]},
   "j_hes": ["j", "I heard something through the door. But it's private. And you weren't exactly friendly on the platform.", "Eu ouvi uma coisa pela porta. Mas é particular. E você não foi lá muito legal comigo na plataforma.", [
    ["You're right. I snapped at you, and I'm sorry.", "Você tem razão. Eu perdi a paciência com você, desculpa.", "j_heard_intro"],
-   ["Fine. Keep it to yourself. Just tell me who you saw.", "Tudo bem. Guarda pra você. Só me diz quem você viu.", "j_skip"],
+   ["Fine. Keep it to yourself. Just tell me what happened next.", "Tudo bem. Guarda pra você. Só me conta o que aconteceu depois.", "j_skip"],
    ["Private? Like a soldier?", "\"Private\"? Tipo um soldado?", null, "No. Private. Personal. A secret! Why should I tell you what I heard?", "Não. \"Private\", particular. Pessoal. Um segredo! Por que eu te contaria o que ouvi?"]
   ]],
   "j_heard_intro": ["j", "There were two voices. Hers, and the assistant's. She was crying. I'm sure she was crying.", "Eram duas vozes. A dela e a do assistente. Ela estava chorando. Tenho certeza de que estava.", "j_heard"],
@@ -54,7 +54,7 @@
    ["He stood on his phone? He must have broken it.", "Ele ficou em cima do celular? Deve ter quebrado.", null, "Not on top of it! He was talking on it, out on the platform. Do you see why that matters?", "Não em cima dele! Ele estava falando no celular, lá na plataforma. Percebe por que isso importa?"]
   ]],
   "j_phone": ["j", "Not much. Something like, she needs you, please call back. Then the whistle went.", "Pouca coisa. Algo tipo: ela precisa de você, por favor me liga de volta. Aí veio o apito.", "j_sure"],
-  "j_sure": ["j", "Positive. The station clock said five to one when he got off, and ten past when he got back on.", "Certeza absoluta. O relógio da estação marcava cinco para a uma quando ele desceu, e uma e dez quando subiu de novo.", "n_moira"],
+  "j_sure": ["j", "I'm sure of the times. By the station clock, he got off at five to one and back on at ten past.", "Tenho certeza dos horários. Pelo relógio da estação, ele desceu às cinco para a uma e subiu de novo à uma e dez.", "n_moira"],
   "n_moira": ["n", "A shadow falls across the seats. Moira has a way of appearing at exactly the right moment.", "Uma sombra cai sobre as poltronas. A Moira tem o dom de aparecer exatamente na hora certa.", "m1"],
   "m1": ["m", "Mr. Okafor. A seat ticket, and yet somebody saw you in my sleeping car tonight.", "Sr. Okafor. Passagem de poltrona, e mesmo assim alguém viu o senhor no meu vagão-leito esta noite.", "m2"],
   "m2": ["m", "Well, berth nine? You've had a chat. Is this young man my thief?", "E então, cabine nove? Vocês conversaram. Esse rapaz é o meu ladrão?", [

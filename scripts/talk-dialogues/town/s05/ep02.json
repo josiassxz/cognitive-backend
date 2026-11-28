@@ -15,7 +15,7 @@
   "g1": ["g", "Morning! Welcome to the line. I've been here since last year, I think.", "Bom dia! Boas-vindas à fila. Acho que eu tô aqui desde o ano passado.", [
    ["Ha! Is it always this slow?", "Rá! É sempre devagar assim?", "g_slow"],
    ["Hi. Is this the line for student IDs?", "Oi. Esta é a fila da carteirinha de estudante?", "g_id"],
-   ["Good morning. One bagel, please.", "Bom dia. Um bagel, por favor.", null, "Ha! This one's mine. This is a line, not a bakery. A very, very slow line.", "Rá! Este é meu. Isto é fila, não padaria. Uma fila muito, muito lenta."]
+   ["Good morning. One bagel, please.", "Bom dia. Um bagel, por favor.", null, "Ha! This one's mine. This is a line, not a bakery. Are you waiting for Mr. Doyle too?", "Rá! Este é meu. Isto é fila, não padaria. Você também veio falar com o Sr. Doyle?"]
   ]],
   "g_slow": ["g", "Always. Mr. Doyle reads every form twice. Then he reads it again.", "Sempre. O Sr. Doyle lê cada formulário duas vezes. Depois lê de novo.", "g2"],
   "g_id": ["g", "IDs, classes, everything. One window, one man, a hundred forms.", "Carteirinha, matrícula, tudo. Um guichê, um homem, cem formulários.", "g2"],
@@ -42,7 +42,7 @@
    ["Three, two, one, happy new year!", "Três, dois, um, feliz ano novo!", null, "It is September. Please look at the camera. Are you ready for the photo?", "Estamos em setembro. Por favor, olhe para a câmera. Posso tirar a foto?"]
   ]],
   "d_smile": ["d", "A smile. How unusual. Most students look like criminals in these.", "Um sorriso. Que raro. A maioria dos estudantes sai com cara de criminoso.", "d_sched"],
-  "d_serious": ["d", "Very serious. You look like a young professor. Or a spy.", "Bem sério. Parece foto de docente jovem. Ou de agente secreto.", "d_sched"],
+  "d_serious": ["d", "Very serious. You look like a young professor. Or a spy.", "Quanta seriedade. Parece foto de docente jovem. Ou de agente secreto.", "d_sched"],
   "d_blink": ["d", "Too late. Your eyes are closed. The system allows one photo. Only one.", "Tarde demais. Seus olhos saíram fechados. O sistema permite uma foto. Só uma.", "d_sched"],
   "d_sched": ["d", "Now, your classes. I have you in English Writing, Statistics, and Advanced Swimming.", "Agora, suas matérias. Aqui consta Redação em Inglês, Estatística e Natação Avançada.", [
    ["Swimming? That's a mistake. I didn't choose swimming.", "Natação? Isso é um engano. Eu não escolhi natação.", "d_mistake"],
@@ -64,8 +64,8 @@
    ["Sorry, I only have a black pen.", "Desculpa, só tenho caneta preta.", "d_pen"],
    ["Sing here? Okay. La, la, la.", "Cantar aqui? Tá. Lá, lá, lá.", null, "Please do not sing. Sign. Write your name. Here, with the blue pen.", "Por favor, não cante. Assine. Escreva seu nome. Aqui, com a caneta azul."]
   ]],
-  "d_deadline": ["d", "A sensible question at last. Deadlines here are serious. Late means zero.", "Até que enfim uma pergunta sensata. Prazo aqui é coisa séria. Atrasou, é zero.", "d_late"],
-  "d_late": ["d", "But one rule nobody uses: a group can move its presentation to the last slot of the day.", "Mas tem uma regra que ninguém usa: um grupo pode passar a apresentação para o último horário do dia.", "d_late2", {"clue": "late_slot"}],
+  "d_deadline": ["d", "A sensible question at last. Late means zero. But there is one rule nobody uses.", "Até que enfim uma pergunta sensata. Atrasou, é zero. Mas existe uma regra que ninguém usa.", "d_late"],
+  "d_late": ["d", "A group can move its presentation to the last slot of the day.", "Um grupo pode passar a apresentação para o último horário do dia.", "d_late2", {"clue": "late_slot"}],
   "d_late2": ["d", "Once a semester. You must ask the professor before the class starts. Not after. Before.", "Uma vez por semestre. Tem que pedir à professora antes de a aula começar. Depois, não. Antes.", "d_card_br"],
   "d_pen": ["d", "Black. Of course. Take mine. I want it back. I count them every evening.", "Preta. Claro. Use a minha. Quero de volta. Eu conto todas no fim do dia.", "d_card_br"],
   "d_card_br": {"branch": [["id_photo=smile", "d_card_smile"], ["id_photo=serious", "d_card_serious"], [null, "d_card_blink"]]},
@@ -79,6 +79,6 @@
   ]],
   "d_thanks": ["d", "You said thank you. That is the first one today. Good luck, Brazil.", "Você agradeceu. É o primeiro agradecimento do dia. Boa sorte, Brasil.", "n_end"],
   "d_room": ["d", "Harper Building, room two oh four. Tuesday at two. Do not be late. She locks the door.", "Prédio Harper, sala dois zero quatro. Terça às duas. Não se atrase. Ela tranca a porta.", "n_end"],
-  "n_end": ["n", "You have an ID, four classes and no swimming. Tomorrow at two: Professor Okafor.", "Você tem carteirinha, quatro matérias e nada de natação. Amanhã às duas: professora Okafor.", null]
+  "n_end": ["n", "You have an ID, three classes and no swimming. Tomorrow at two: Professor Okafor.", "Você tem carteirinha, três matérias e nada de natação. Amanhã às duas: professora Okafor.", null]
  }
 }

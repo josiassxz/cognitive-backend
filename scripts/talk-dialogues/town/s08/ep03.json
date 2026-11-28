@@ -32,11 +32,11 @@
   "m_ah": ["m", "Any news? Then why doesn't he say: any news? I studied English for six months for this!", "Novidades? Então por que ele não diz: novidades? Eu estudei inglês seis meses pra isso!", "m_truth"],
   "m_likes": ["m", "He likes us? He talks like a radio in the rain. I catch one word in ten.", "Ele gosta da gente? Ele fala igual rádio na chuva. Eu pego uma palavra em cada dez.", "m_truth"],
   "m_truth": ["m", "Tell me the truth. Do these people like us? The grandmother looked at my dress for a long time.", "Me fala a verdade. Essa gente gosta de nós? A avó ficou um tempão olhando pro meu vestido.", [
-   ["They do. They're nervous. Same as you.", "Gostam. Estão com vergonha. Igual a vocês.", "m_nerv"],
+   ["They do. They're nervous. Same as you.", "Gostam. Estão nervosos. Igual a vocês.", "m_nerv"],
    ["Fergus does. Nora is a project. I'm working on it.", "O Fergus gosta. A Nora é um projeto. Estou trabalhando nisso.", "m_proj"],
    ["Lettuce? No, I ordered the stew.", "Alface? Não, eu pedi o ensopado.", null, "Not lettuce! Like us! Do the Doyles like my family? Be honest with me.", "Não é lettuce! É like us! Os Doyle gostam da minha família? Fala a verdade."]
   ]],
-  "m_nerv": ["m", "Nervous? They don't look nervous. They look like they know a joke about me.", "Com vergonha? Não parecem. Parecem que sabem uma piada sobre mim.", "m_deadly1"],
+  "m_nerv": ["m", "Nervous? They don't look nervous. They look like they know a joke about me.", "Nervosos? Não parecem nervosos. Parece que sabem uma piada sobre mim.", "m_deadly1"],
   "m_proj": ["m", "A project! Good. In Brazil, I would win her with food. So I brought food.", "Um projeto! Ótimo. No Brasil eu ganhava essa mulher pela comida. Então eu trouxe comida.", "m_deadly1"],
   "m_deadly1": ["m", "I made two hundred chocolate sweets for these people. Fergus ate one and said: deadly.", "Eu fiz duzentos docinhos de chocolate pra essa gente. O Fergus comeu um e disse: deadly.", "m_deadly"],
   "m_deadly": ["m", "Deadly! Like dead! My sweets kill people? Why did he say that?", "Deadly! De morte! Meus docinhos matam gente? Por que ele falou isso?", [
@@ -56,7 +56,7 @@
   "p_fun": ["p", "Music. I play the guitar. Old sambas, forty years of family parties. Do you like samba?", "Música. Eu toco violão. Sambas antigos, quarenta anos de festa de família. Você gosta de samba?", [
    ["I love it. Did you bring your guitar to Ireland?", "Adoro. O senhor trouxe o violão pra Irlanda?", "p_guitar"],
    ["I prefer to listen. I've got two left feet.", "Prefiro ouvir. Tenho dois pés esquerdos.", "p_feet"],
-   ["No, thanks. I've already got a number.", "Não, valeu. Eu já tenho um número.", null, "A number? No! Samba! The music of Brazil. Do you like it or not?", "Um número? Não! Samba! A música do Brasil. Você gosta ou não gosta?"]
+   ["Zumba? No, thanks. I never go to the gym.", "Zumba? Não, valeu. Eu nunca vou à academia.", null, "Zumba? No! Samba! The music of Brazil. Do you like it or not?", "Zumba? Não! Samba! A música do Brasil. Você gosta ou não gosta?"]
   ]],
   "p_guitar": ["p", "Of course. My guitar is in my room at the house. It travels everywhere with me.", "Claro. Meu violão está no meu quarto, lá na casa. Ele viaja comigo pra todo lado.", "m_guitar", {"clue": "paulo_guitar"}],
   "m_guitar": ["m", "It's true. Forty years married, and the guitar always gets the window seat.", "É verdade. Quarenta anos de casados, e o violão sempre fica com a janela.", "n_fergus"],

@@ -66,10 +66,10 @@
   "w_judge": ["w", "A judge. Hm. And you? Are you nice to him because he's a judge?", "Um jurado. Hum. E você? Trata ele bem porque ele é jurado?", [
    ["A little, yes. We really want to win.", "Um pouco, sim. A gente quer muito ganhar.", "w_honest"],
    ["No. We're nice to everybody. You know that.", "Não. A gente trata todo mundo bem. O senhor sabe disso.", "w_every", {"set": {"boone_talk": "yes"}}],
-   ["Yes, the juice is nice.", "Sim, o suco é gostoso.", null, "Not the juice. The judge. Are you nice to that boy only because of the prize?", "O suco, não. O jurado. Você trata aquele rapaz bem só por causa do prêmio?"]
+   ["Rice? Yes, we have rice.", "Arroz? Sim, a gente tem arroz.", null, "Not rice. Nice. Are you nice to that boy only because of the prize?", "Arroz, não. Tratar bem. Você trata aquele rapaz bem só por causa do prêmio?"]
   ]],
   "w_honest": ["w", "Honest. Good. But cook for the customer, kid. Not for the prize.", "Resposta honesta. Bom. Mas cozinhe pro cliente, jovem. Não pro prêmio.", "w_bye"],
-  "w_every": ["w", "Hm. That's true. I've watched you. So. You have a question on your face.", "Hum. É verdade. Eu tenho observado. Então. Você está com cara de quem quer perguntar algo.", "w_ask"],
+  "w_every": ["w", "Hm. That's true. I've watched you. So. You look like you have a question.", "Hum. É verdade. Eu tenho observado. Então. Você está com cara de quem quer perguntar algo.", "w_ask"],
   "w_ask": ["w", "Ask.", "Pergunte.", [
    ["Why do you never say anything about the food?", "Por que o senhor nunca fala nada sobre a comida?", "w_why"],
    ["Why do you come here every day?", "Por que o senhor vem aqui todo dia?", "w_come"],

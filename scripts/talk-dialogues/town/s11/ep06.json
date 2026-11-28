@@ -39,7 +39,7 @@
   ]],
   "d_pint": ["d", "Well now. Precious Hands has manners after all. Sit down.", "Ora, ora. Mãos Delicadas tem educação, afinal. Senta aí.", "m_topic"],
   "d_own": ["d", "Ha. Got a tongue, at least. Sit down before Morag adopts you.", "Rá. Língua, pelo menos, tem. Senta antes que a Morag te adote.", "m_topic"],
-  "m_topic": ["m", "We were on the ferry, naturally. I say save her. He says let her go. Tell him he's wrong.", "A gente falava da balsa, claro. Eu digo pra salvar. Ele diz pra deixar ir. Fala pra ele que ele está errado.", [
+  "m_topic": ["m", "We were on about the ferry, naturally. I say save her. He says let her go. Tell him he's wrong.", "A gente falava da balsa, claro. Eu digo pra salvar. Ele diz pra deixar ir. Fala pra ele que ele está errado.", [
    ["I can't. To be fair, you both have a point.", "Não posso. Pra fazer justiça aos dois, cada um tem sua razão.", "mod_fair"],
    ["Let me check I've understood you both first.", "Antes, deixa eu conferir se entendi bem vocês dois.", "mod_sum"],
    ["Save her? Why, is somebody drowning?", "Salvar quem? Tem alguém se afogando?", null, "Nobody's drowning, dear. Her, the Kittiwake. The ferry. Now, which of us is right?", "Ninguém está se afogando, meu bem. Ela, a Kittiwake. A balsa. E então, quem de nós tem razão?"]
@@ -60,7 +60,7 @@
    ["I won't push. Morag, why does this boat matter so much to you?", "Não vou insistir. Morag, por que esse barco importa tanto pra você?", "m_why"],
    ["How much is the rice? I didn't order any.", "Quanto custa o arroz? Eu não pedi arroz.", null, "Price, not rice. What I'd lose without the ferry. Are you going to ask me or not?", "Preço, não arroz. O que eu perderia sem a balsa. Você vai me perguntar ou não?"]
   ]],
-  "d_fr1": ["d", "Fine. My catch goes on the Kittiwake. Every box. So does the post, and the medicine.", "Tá bom. A minha pesca vai na Kittiwake. Todas as caixas. E o correio, e os remédios também.", "d_fr2", {"clue": "freight"}],
+  "d_fr1": ["d", "Fine. My catch goes on the Kittiwake. Every box. So do the post, the medicine and half the shop.", "Tá bom. A minha pesca vai na Kittiwake. Todas as caixas. E o correio, os remédios e metade da mercearia também.", "d_fr2", {"clue": "freight"}],
   "d_fr2": ["d", "Nobody counts cargo. Only tickets. There. Happy, Morag?", "Carga ninguém conta. Só bilhete. Pronto. Satisfeita, Morag?", "letter_br"],
   "letter_br": {"branch": [["clue_old_letter", "m_letter_known"], [null, "m_letter_ask"]]},
   "m_letter_known": ["m", "Thrilled. And this one's read my mother's letter, so that's twice I've won tonight.", "Radiante. E essa figura aqui já leu a carta da minha mãe, então hoje eu ganhei duas vezes.", "n_bar"],

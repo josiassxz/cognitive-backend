@@ -16,6 +16,21 @@ import glob, hashlib, json, re, subprocess, sys
 # Vozes do aluno: misturas (média dos estilos) das vozes mais naturais do Kokoro.
 YOU_VOICES = {"m": "am_eric+am_michael", "f": "af_heart+af_bella"}
 NARRATOR = "bf_emma"
+# Voz que o Kokoro realmente usa para cada voz do roteiro. Algumas vozes do Kokoro soam robóticas
+# (melodia achatada, sussurradas ou de qualidade baixa); misturá-las com uma voz de alta qualidade
+# deixa a fala natural sem perder a identidade do personagem. O narrador (bf_emma) era a mais "reta".
+TTS_VOICE = {
+    "bf_emma": "bf_emma+af_heart",                  # narrador
+    "bf_isabella": "bf_isabella*0.65+af_heart*0.35",
+    "bf_alice": "bf_alice*0.65+af_heart*0.35",
+    "bf_lily": "bf_lily*0.65+af_heart*0.35",
+    "af_river": "af_river*0.6+af_heart*0.4",
+    "af_nicole": "af_nicole*0.6+af_heart*0.4",
+    "af_jessica": "af_jessica*0.65+af_heart*0.35",
+    "am_onyx": "am_onyx*0.6+am_michael*0.4",
+    "bm_lewis": "bm_lewis*0.6+bm_fable*0.4",
+    "bm_daniel": "bm_daniel*0.65+bm_fable*0.35",
+}
 AMBIENCES = {"cafe", "street", "shop", "office", "police", "market", "pub", "festival", "airport", "station", "train",
              "restaurant", "hotel", "park", "beach", "home", "car", "clinic", "campus", "party", "nature", "kitchen", "gym", "studio"}
 PLACE_ICONS = {"cafe", "street", "shop", "office", "police", "market", "pub", "festival", "airport", "station", "train",
@@ -61,6 +76,7 @@ def build(d, prefix, known_flags=None, clues=None):
     set_here, used_here = set(), set()
 
     def line(voice, text):
+        voice = TTS_VOICE.get(voice, voice)
         k = key(prefix, voice, text)
         fix = FIXES.get(text, {})
         say = fix.get("say") or tts_text(text)

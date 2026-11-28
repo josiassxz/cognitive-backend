@@ -46,7 +46,7 @@
   ]],
   "h_sure": ["h", "That's exactly why. You've got no history here, and no favourites. So, will you?", "É justamente por isso. Você não tem passado aqui, nem preferidos. E então, topa?", [
    ["All right. I'll stick to the facts.", "Tudo bem. Vou ficar só nos fatos.", "h_facts", {"set": {"approach": "facts"}}],
-   ["All right. But I'll do it gently.", "Tudo bem. Mas vou fazer isso com delicadeza.", "h_kind", {"set": {"approach": "kind"}}],
+   ["All right. But gently. They're colleagues, not suspects.", "Tudo bem. Mas com delicadeza. São colegas, não suspeitos.", "h_kind", {"set": {"approach": "kind"}}],
    ["No history? I studied history at school.", "Sem passado? Eu estudei história na escola.", null, "Lovely. I mean no history with us. You're neutral. Will you look into it?", "Que bom. Eu quis dizer sem passado com a gente. Você é imparcial. Você investiga?"]
   ]],
   "h_facts": ["h", "Facts. Good. Report to me on Friday morning, before the investors arrive.", "Fatos. Ótimo. Me traga o relatório na sexta de manhã, antes de os investidores chegarem.", "n3"],

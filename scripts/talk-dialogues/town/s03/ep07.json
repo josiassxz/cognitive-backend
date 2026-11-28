@@ -18,7 +18,7 @@
    ["Yes, we sold a lot today.", "Sim, a gente vendeu bastante hoje.", null, "Not sold! Salt! Taste it. Do the beans need more salt?", "Vendeu, não! Sal! Prova. O feijão precisa de mais sal?"]
   ]],
   "b0a": ["b", "Perfect? Really? Okay. I won't touch them. I'm not touching them.", "Perfeito? Sério? Tá. Não vou mexer. Não estou mexendo.", "fr_br"],
-  "b0b": ["b", "I knew it! Grandma always said: taste three times, salt one time.", "Eu sabia! A vó sempre dizia: prove três vezes, ponha sal uma vez.", "fr_br"],
+  "b0b": ["b", "I knew it! Grandma always said: taste three times, salt once.", "Eu sabia! A vó sempre dizia: prove três vezes, ponha sal uma vez só.", "fr_br"],
   "fr_br": {"branch": [["fridge=old_part", "n_old"], [null, "n_new"]]},
   "n_old": ["n", "Then you hear it. The fridge with the used part is making a new noise. Clack. Clack. Clack.", "Aí você escuta. A geladeira com a peça usada está fazendo um barulho novo. Claque. Claque. Claque.", "b_old"],
   "b_old": ["b", "No. Not tonight. Please, not tonight! The fridge is dying again!", "Não. Hoje não. Por favor, hoje não! A geladeira está morrendo de novo!", [
@@ -49,7 +49,7 @@
    ["We need ice. I can pay for it.", "A gente precisa de gelo. Eu posso pagar.", "c_payice"],
    ["The napkins? They're in the truck.", "Os guardanapos? Estão no truck.", null, "Too late for napkins! Why are you here tonight? What do you need?", "Tarde demais pros guardanapos! Por que você está aqui hoje? Do que você precisa?"]
   ]],
-  "c_sorry": ["c", "Hm. An apology. Chuck Dawson accepts. You need ice, right? Take four bags. No charge.", "Hum. Um pedido de desculpas. Chuck Dawson aceita. Vocês precisam de gelo, né? Leva quatro sacos. Não é nada.", "c_tyler"],
+  "c_sorry": ["c", "Hm. An apology. Chuck Dawson accepts. I heard Bia shouting. You need ice. Take four bags. No charge.", "Hum. Um pedido de desculpas. Chuck Dawson aceita. Ouvi a Bia gritando. Vocês precisam de gelo. Leva quatro sacos. É por minha conta.", "c_tyler"],
   "c_payice": ["c", "Pay? Twenty dollars a bag. Ha! I'm joking. Five. How many bags?", "Pagar? Vinte dólares o saco. Rá! Brincadeira. Cinco. Quantos sacos?", [
    ["Four bags, please. Here's twenty.", "Quatro sacos, por favor. Toma vinte.", "c_p1"],
    ["Six. And Chuck, good luck tomorrow.", "Seis. E Chuck, boa sorte amanhã.", "c_p2"],
@@ -58,12 +58,12 @@
   "c_p1": ["c", "Twenty. Thank you. Good night, Toucan. May the best truck win. That's me.", "Vinte. Obrigado. Boa noite, Tucano. Que vença o melhor truck. No caso, eu.", "n_back"],
   "c_p2": ["c", "Hm. Good luck to you too. Thirty dollars. Good night, Toucan.", "Hum. Boa sorte pra vocês também. Trinta dólares. Boa noite, Tucano.", "n_back"],
   "c_tyler": ["c", "Wait. Before you go. I have to tell you something about that Tyler kid.", "Espera. Antes de ir. Preciso te contar uma coisa sobre aquele menino, o Tyler.", "c_tyler2"],
-  "c_tyler2": ["c", "I gave him free ribs all week. Then I found his blog. He has twelve followers. Twelve!", "Dei costela de graça pra ele a semana toda. Aí achei o blog dele. Ele tem doze seguidores. Doze!", "c_tyler3"],
-  "c_tyler3": ["c", "And he bought a visitor ticket for tomorrow. Judges don't buy tickets. He's not the judge.", "E ele comprou ingresso de visitante pra amanhã. Jurado não compra ingresso. Ele não é o jurado.", "c_q", {"clue": "tyler_blog"}],
+  "c_tyler2": ["c", "I gave him free ribs all week. Then I found his blog. Guess how many followers. Twelve!", "Dei costela de graça pra ele a semana toda. Aí achei o blog dele. Adivinha quantos seguidores. Doze!", "c_tyler3"],
+  "c_tyler3": ["c", "Twelve followers, and he bought a visitor ticket for tomorrow. Judges don't buy tickets. He's not the judge.", "Doze seguidores, e ele comprou ingresso de visitante pra amanhã. Jurado não compra ingresso. Ele não é o jurado.", "c_q", {"clue": "tyler_blog"}],
   "c_q": ["c", "So the real judge is somebody else. Somebody quiet. Any idea who?", "Então o jurado de verdade é outra pessoa. Alguém quieto. Alguma ideia de quem?", [
    ["No idea. What did the judge say about your food last year?", "Nenhuma. O que o jurado falou da sua comida no ano passado?", "c_last"],
    ["Maybe. There's a quiet man who comes to us every day.", "Talvez. Tem um senhor quieto que vem no nosso truck todo dia.", "c_quiet"],
-   ["Yes, I have my ID here.", "Sim, meu documento está aqui.", null, "Not your ID! An idea! Who do you think the judge is?", "Documento, não! Uma ideia! Quem você acha que é o jurado?"]
+   ["Quiet? Sorry, I'll speak lower.", "Quieto? Desculpa, vou falar mais baixo.", null, "Not you! The judge! Somebody quiet. Who do you think it is?", "Você, não! O jurado! Alguém quieto. Quem você acha que é?"]
   ]],
   "c_last": ["c", "One line: too much sauce. The judge likes simple food, done right. So tomorrow, a little less sauce.", "Uma linha: molho demais. O jurado gosta de comida simples e bem feita. Então amanhã, um pouco menos de molho.", "c_bye", {"clue": "simple_food"}],
   "c_quiet": ["c", "The old man in the gray hat? He came to my truck once. Two ribs. Never came back!", "O senhor de chapéu cinza? Ele foi no meu truck uma vez. Duas costelas. Nunca mais voltou!", "c_bye"],

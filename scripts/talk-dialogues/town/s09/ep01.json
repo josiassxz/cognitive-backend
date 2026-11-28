@@ -16,7 +16,7 @@
   "t1": ["t", "Morning! You must be, uh, hang on. Contestant three? No. Four. Sorry, I'm Toby, the runner.", "Bom dia! Você deve ser, hã, peraí. Participante três? Não. Quatro. Desculpa, sou o Toby, assistente de produção.", [
    ["That's me, station four. Nice to meet you, Toby.", "Isso, bancada quatro. Prazer, Toby.", "t_mic"],
    ["Four, I think. Are you all right? You look shattered.", "Quatro, eu acho. Tudo bem com você? Você parece um caco.", "t_tired"],
-   ["Yes, I'm four years old.", "Sim, eu tenho quatro anos.", null, "Four years old? You're very tall for it. No, I mean your number. Which contestant are you?", "Quatro anos? Que altura pra essa idade. Não, digo o seu número. Qual participante é você?"]
+   ["Yes, I'm four years old.", "Sim, eu tenho quatro anos.", null, "Four years old? You're very tall for four. No, I mean your number. Which contestant are you?", "Quatro anos? Que altura pra essa idade. Não, digo o seu número. Qual participante é você?"]
   ]],
   "t_tired": ["t", "Shattered is the word. I've been here since four, and I locked up at midnight.", "Um caco, é isso mesmo. Estou aqui desde as quatro, e tranquei tudo à meia-noite.", "t_tired2", {"clue": "double_shift"}],
   "t_tired2": ["t", "The other runner quit on Friday, so I'm doing both shifts. Please don't tell anyone I yawned.", "O outro assistente pediu demissão na sexta, então estou fazendo os dois turnos. Por favor, não conta pra ninguém que eu bocejei.", "t_mic"],

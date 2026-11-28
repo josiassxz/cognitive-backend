@@ -16,12 +16,12 @@
   "n1": ["n", "Friday, seven o'clock. The village hall is packed. Every chair, every windowsill, and two dogs.", "Sexta, sete da noite. O salão comunitário está lotado. Cada cadeira, cada parapeito, e dois cachorros.", "n2"],
   "n2": ["n", "Your film is loaded. Your hands aren't entirely steady. At the door, Isla catches your sleeve.", "O filme está carregado. Suas mãos não estão lá muito firmes. Na porta, a Isla te puxa pela manga.", "isla_br"],
   "isla_br": {"branch": [["isla_secret=told", "i_told"], [null, "i_kept"]]},
-  "i_told": ["i", "You told him. We shouted for an hour. Then, weirdly, we talked. You're half forgiven. Half.", "Você contou pra ele. A gente gritou por uma hora. Depois, por incrível que pareça, conversou. Você tem meio perdão. Meio.", "i_q"],
+  "i_told": ["i", "You told him. We shouted for an hour, and I never got to say why. You're half forgiven. Half.", "Você contou pra ele. A gente gritou por uma hora, e eu nem cheguei a dizer o motivo. Você tem meio perdão. Meio.", "i_q"],
   "i_kept": ["i", "You kept my secret when Dad asked. Cheers. I'm telling him tonight. Kick my chair if I bottle it.", "Você guardou meu segredo quando o meu pai perguntou. Valeu. Eu conto pra ele hoje. Chuta a minha cadeira se eu amarelar.", "i_q"],
   "i_q": ["i", "Anyway. Forty minutes of us, on a big screen. Be honest. Am I awful in it?", "Enfim. Quarenta minutos da gente num telão. Fala a verdade. Eu estou horrível no filme?", [
    ["You're the most honest voice in it.", "Você é a voz mais sincera do filme.", "n_film"],
    ["No spoilers. Sit down and find out with everyone else.", "Sem spoiler. Senta e descobre junto com todo mundo.", "n_film"],
-   ["Awful? No, I had waffles for breakfast, thanks.", "Waffle? Não, eu já comi waffle no café, valeu.", null, "Awful, not waffle! Terrible. Bad. Do I come across badly in your film?", "Horrível, não waffle! Péssima. Ruim. Eu saio mal no seu filme?"]
+   ["Waffles? No, thanks. I've just had dinner.", "Waffle? Não, valeu. Acabei de jantar.", null, "Awful, not waffle! Terrible. Bad. Do I come across badly in your film?", "Horrível, não waffle! Péssima. Ruim. Eu saio mal no seu filme?"]
   ]],
   "n_film": ["n", "Morag kills the lights. Forty minutes of gulls, engines, soup, lobsters and a grey coat on a wet deck.", "A Morag apaga as luzes. Quarenta minutos de gaivotas, motores, sopa, lagostas e um casaco cinza num convés molhado.", "n_film2"],
   "n_film2": ["n", "The lights come up. Nobody claps. Nobody moves. Then Morag turns round to face you.", "As luzes se acendem. Ninguém aplaude. Ninguém se mexe. Então a Morag se vira para você.", "m_ask"],
@@ -31,10 +31,10 @@
    ["That the office lied to you about the numbers.", "Que a repartição mentiu pra vocês sobre os números.", "acc", {"set": {"accused": "yes"}}],
    ["I'm fine, thanks. And how are you?", "Eu vou bem, valeu. E você, como vai?", null, "Not 'how are you', dear! What did you find out? What has your week taught you?", "Não é 'como vai', meu bem! O que você descobriu? O que a sua semana te ensinou?"]
   ]],
-  "acc": ["p", "I didn't lie. The count was honest, and I told you myself exactly when it was done.", "Eu não menti. A contagem foi honesta, e eu mesma lhe disse exatamente quando foi feita.", [
-   ["You did. That was unfair, and I take it back. I'm sorry.", "Disse. Foi uma injustiça minha, e eu retiro o que falei. Sinto muito.", "acc_ok"],
+  "acc": ["p", "I didn't lie. The count was honest. It is a small number, not a false one.", "Eu não menti. A contagem foi honesta. É um número pequeno, não um número falso.", [
+   ["You're right. That was unfair, and I take it back. I'm sorry.", "Tem razão. Foi uma injustiça minha, e eu retiro o que falei. Sinto muito.", "acc_ok"],
    ["Let me put it properly. The number is true, but it isn't the whole truth.", "Deixa eu dizer direito. O número é verdadeiro, mas não é a verdade inteira.", "acc_fix"],
-   ["When it was done? Like a cake?", "Quando ficou pronta? Tipo um bolo?", null, "Not a cake. The count. I told you the dates. Would you care to correct what you said?", "Não um bolo. A contagem. Eu lhe disse as datas. Você gostaria de corrigir o que falou?"]
+   ["Lie down? Good idea. It's been a long week.", "Deitar? Boa ideia. Foi uma semana comprida.", null, "Not lie down. Lie, as in say something untrue. Would you care to correct what you said?", "Deitar, não. Mentir, dizer algo que não é verdade. Você gostaria de corrigir o que falou?"]
   ]],
   "acc_ok": ["p", "Thank you. That's a brave thing to say in a full hall. Shall we try the facts?", "Obrigada. É preciso coragem para dizer isso num salão cheio. Vamos tentar os fatos?", "q1_br"],
   "acc_fix": ["p", "That, I can accept. Word for word. Go on, then. The facts.", "Isso eu aceito. Palavra por palavra. Prossiga, então. Os fatos.", "q1_br"],
@@ -76,7 +76,7 @@
   "end_br3": {"branch": [["f_plan=yes", "end_best"], [null, "end_good"]]},
   "end_best": ["p", "A daily boat, requested by the island itself. That, I can put back on the table by Monday.", "Um barco diário, solicitado pela própria ilha. Isso eu consigo recolocar na mesa até segunda.", "m_react", {"set": {"ending": "best"}}],
   "end_good": ["p", "You've found most of it. The missing pieces belong to the captain and to me.", "Você encontrou quase tudo. As peças que faltam pertencem ao capitão e a mim.", "c_rev1", {"set": {"ending": "good"}}],
-  "end_basic": ["c", "That's not the whole story. So I'll finish it myself. I'm thirty-one years late.", "Essa não é a história toda. Então eu mesmo termino. Estou trinta e um anos atrasado.", "c_rev1", {"set": {"ending": "basic"}}],
+  "end_basic": ["c", "That's not the whole story. So I'll finish it myself. I've kept quiet long enough.", "Essa não é a história toda. Então eu mesmo termino. Já fiquei calado tempo demais.", "c_rev1", {"set": {"ending": "basic"}}],
   "c_rev1": ["c", "My log says thirty-four a crossing, not eleven. Every soul counted. I should have spoken sooner.", "O meu diário diz trinta e quatro por travessia, não onze. Cada alma contada. Eu devia ter falado antes.", "p_rev"],
   "p_rev": ["p", "And there is a third option. A small boat, every day, at half the cost. Nobody ever asked for it.", "E existe uma terceira opção. Um barco pequeno, todo dia, pela metade do custo. Ninguém nunca pediu.", "m_react"],
   "m_react": ["m", "A daily crossing, however small. My mother asked for exactly that, fifty years ago.", "Uma travessia diária, por menor que seja. Minha mãe pediu exatamente isso, cinquenta anos atrás.", "d_br"],
@@ -86,13 +86,13 @@
   "i_bottle": ["i", "This is it, isn't it? My moment. I can't. Not in front of everyone. Can I?", "É agora, né? A minha hora. Não consigo. Não na frente de todo mundo. Consigo?", [
    ["You can. You've already said the hard part once, to me.", "Consegue. A parte difícil você já disse uma vez, pra mim.", "i_stand"],
    ["Forget the hall. Say it to him, and only him.", "Esquece o salão. Fala pra ele, só pra ele.", "i_stand"],
-   ["A can? I think there's lemonade at the back.", "Uma lata? Acho que tem limonada lá no fundo.", null, "Not a can of anything! I'm asking if I can do it. Tell Dad. Now. Can I?", "Não é lata de nada! Estou perguntando se eu consigo. Contar pro meu pai. Agora. Consigo?"]
+   ["A can? I think there's lemonade at the back.", "Uma lata? Acho que tem limonada lá no fundo.", null, "Not a can of anything! I'm asking if I can do it. Tell Dad everything. Now. Can I?", "Não é lata de nada! Estou perguntando se eu consigo. Contar tudo pro meu pai. Agora. Consigo?"]
   ]],
   "i_stand": ["i", "Dad. With a boat every day, I could study engines in Glasgow and be home each Friday.", "Pai. Com barco todo dia, eu poderia estudar motores em Glasgow e estar em casa toda sexta.", "d_isla"],
   "d_isla": ["d", "Engines, is it? Good. Somebody has to fix mine. Every Friday, mind. I'll be counting.", "Motores, é? Ótimo. Alguém tem que consertar o meu. Toda sexta, hein. Eu vou contar.", "c_crew"],
   "c_crew": ["c", "The old girl has two winters left. A new boat needs a new skipper. I could teach one.", "A velhinha tem mais dois invernos. Barco novo precisa de capitã nova. Eu poderia ensinar uma.", "vote_br"],
   "vote_br": {"branch": [["ending=best", "v_best"], ["ending=good", "v_good"], [null, "v_basic"]]},
-  "v_best": ["m", "Hands up, who's asking? Every hand, even the dog. The letter sails on Monday, with Callum's log.", "Mãos pra cima, quem pede? Todas as mãos, até o cachorro. A carta embarca na segunda, com o diário do Callum.", "m_you"],
+  "v_best": ["m", "Hands up, who's for it? Every hand, even the dog. The letter sails on Monday, with Callum's log.", "Mãos pra cima, quem é a favor? Todas as mãos, até o cachorro. A carta embarca na segunda, com o diário do Callum.", "m_you"],
   "v_good": ["m", "Nearly every hand. Duncan and I will write the letter this week. Together, heaven help us.", "Quase todas as mãos. O Duncan e eu escrevemos a carta esta semana. Juntos, que os céus nos ajudem.", "m_you"],
   "v_basic": ["m", "That's a lot for one night. Same hall, next Friday. Ms Nair has given us a month.", "É muita coisa pra uma noite só. Mesmo salão, sexta que vem. A senhora Nair nos deu um mês.", "m_you"],
   "m_you": ["m", "And you. Our film still has no name. What shall we call it?", "E você. O nosso filme ainda não tem nome. Como a gente vai chamar?", [

@@ -75,7 +75,7 @@
   "d_more_c": ["d", "I've got time for one more story before the lunch rush. What'll it be?", "Dá tempo de mais uma história antes do movimento do almoço. Qual vai ser?", [
    ["How did you two meet?", "Como vocês se conheceram?", "d_met2"],
    ["Did he tell you about the van?", "Ele te falou da van?", "d_rosie2"],
-   ["I already had one, thanks. With fries.", "Já comi um, valeu. Com batata frita.", null, "Not a burger, hon. A story! About Frank. Which one do you want?", "Não é hambúrguer, meu bem. Uma história! Do Frank. Qual você quer?"]
+   ["One more? No, thanks. I can't eat another bite.", "Mais um? Não, valeu. Não cabe mais nada.", null, "Not more food, hon. A story! About Frank. Which one do you want?", "Comida, não, meu bem. Uma história! Do Frank. Qual você quer?"]
   ]],
   "d_met2": ["d", "He ordered cherry pie, then found his pockets empty. He washed my dishes for a week to pay.", "Ele pediu torta de cereja e depois viu que os bolsos estavam vazios. Lavou meus pratos por uma semana pra pagar.", "n_rush", {"clue": "dishes"}],
   "d_rosie2": ["d", "He talked to that van like a person. He called her Rosie, after his wife back home.", "Ele conversava com aquela van como se fosse gente. Chamava de Rosie, por causa da esposa que ficou em casa.", "n_rush", {"clue": "rosie"}],

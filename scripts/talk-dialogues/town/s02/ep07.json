@@ -19,13 +19,13 @@
   ]],
   "p_finch": ["p", "Mr. Finch? Our Mr. Finch? Sorry. I can't call the actors before a show.", "O Sr. Finch? O nosso Sr. Finch? Desculpa. Não posso chamar os atores antes da peça.", "p_who"],
   "p_ticket": ["p", "Let me see. Ooh. 'Guest of the company.' That's a free ticket. Only the actors can give those.", "Deixa eu ver. Uau. 'Convidado da companhia.' É um ingresso de cortesia. Só os atores podem dar.", "p_who"],
-  "p_who": ["p", "Sorry, who are you, exactly? A friend? Family? A fan?", "Desculpa, quem é você, exatamente? Tem amizade com ele? É da família? Fã?", [
+  "p_who": ["p", "Sorry, who are you, exactly? A friend? Family? A fan?", "Desculpa, quem é você, exatamente? Tem amizade com alguém daqui? É da família? Fã?", [
    ["None of those. I have Mr. Finch's suitcase.", "Nada disso. Eu estou com a mala do Sr. Finch.", "p_suit"],
    ["A fan. A very new one.", "Fã. Desde hoje.", "p_fan"],
-   ["Yes, I have a fan in my room.", "Sim, tenho um ventilador no meu quarto.", null, "Not that kind of fan! Do you know Mr. Finch? Are you a friend of his?", "Não é esse tipo de fan! Você conhece o Sr. Finch? Tem amizade com ele?"]
+   ["Yes, I have a fan in my room.", "Sim, tenho um ventilador no meu quarto.", null, "Not that kind of fan! Do you know one of our actors? Are you a friend?", "Não é esse tipo de fan! Você conhece algum dos nossos atores? Tem amizade com alguém?"]
   ]],
   "p_suit": ["p", "His suitcase? Ha! Good one. That's the story of the play!", "A mala dele? Rá! Boa. Essa é a história da peça!", "p_rule"],
-  "p_fan": ["p", "Aw. Then buy a ticket! He signs programmes after the show.", "Ah. Então compra um ingresso! Ele autografa os programas depois da peça.", "p_rule"],
+  "p_fan": ["p", "Aw. Then come tonight! Mr. Finch signs programmes after the show.", "Ah. Então vem hoje à noite! O Sr. Finch autografa os programas depois da peça.", "p_rule"],
   "p_rule": ["p", "Anyway. The doors open at seven. Before that, nobody goes in. Theatre rules.", "Enfim. As portas abrem às sete. Antes disso, ninguém entra. Regras do teatro.", [
    ["But I need to see him before seven. It's important.", "Mas eu preciso falar com ele antes das sete. É importante.", "p_important"],
    ["I see. What's the play about?", "Entendi. Sobre o que é a peça?", "p_play"],
@@ -33,7 +33,7 @@
   ]],
   "p_important": ["p", "Everyone says that. Last week, a man said he was Mr. Finch's dentist. He wasn't.", "Todo mundo fala isso. Semana passada, um homem disse que era o dentista do Sr. Finch. Não era.", "n_gloria"],
   "p_play": ["p", "A man loses his suitcase at a train station. He looks for it all night. It's very funny.", "Um homem perde a mala numa estação de trem. Ele passa a noite procurando. É muito engraçada.", "p_poster"],
-  "p_poster": ["p", "See the poster? That's Mr. Finch, with the blue suitcase and the red scarf. They're in every scene.", "Está vendo o cartaz? É o Sr. Finch, com a mala azul e o cachecol vermelho. Estão em todas as cenas.", "n_gloria", {"clue": "prop"}],
+  "p_poster": ["p", "See the poster? Mr. Finch, the blue suitcase, the red and white scarf. They're in every scene.", "Está vendo o cartaz? O Sr. Finch, a mala azul, o cachecol vermelho e branco. Os dois estão em todas as cenas.", "n_gloria", {"clue": "prop"}],
   "n_gloria": ["n", "Someone taps you on the shoulder. It's the woman from the train, with her big bag.", "Alguém cutuca seu ombro. É a senhora do metrô, com a sacola grande.", "seat_br"],
   "seat_br": {"branch": [["gave_seat=yes", "g_warm"], [null, "g_cold"]]},
   "g_warm": ["g", "It's my detective from the train! Did you find the owner of the suitcase?", "Olha quem é: detetive do metrô! Você achou o dono da mala?", [
@@ -49,22 +49,22 @@
    ["Yes. Can I have your seat tonight?", "Sim. Posso ficar com a sua poltrona hoje?", null, "My seat? Ha! The cheek! No. I mean, do you need help with something?", "A minha poltrona? Rá! Que atrevimento! Não. Quer dizer, precisa de ajuda com alguma coisa?"]
   ]],
   "g_sorry": ["g", "An apology! That's rare in this city. All right, dear. You want to get inside, don't you?", "Um pedido de desculpas! Coisa rara nesta cidade. Tudo bem, meu bem. Você quer entrar, não quer?", "g_tip"],
-  "g_fine": ["g", "Suit yourself. Enjoy the show.", "Você que sabe. Boa peça.", "n_back"],
+  "g_fine": ["g", "Suit yourself. Enjoy your evening.", "Você que sabe. Boa noite pra você.", "n_back"],
   "g_tip": ["g", "Listen. Actors never use this door. They use the stage door, in Lamp Lane, behind the theatre.", "Escuta. Ator nunca usa esta porta. Eles usam a porta dos artistas, na Lamp Lane, atrás do teatro.", "g_tip2", {"set": {"door": "yes"}}],
   "g_tip2": ["g", "Ask for Stan. He looks angry, but he's soft as butter. What time is it, dear?", "Procure o Stan. Ele tem cara de bravo, mas é uma manteiga. Que horas são, meu bem?", [
    ["It's quarter to six.", "São quinze pras seis.", "g_run"],
    ["Almost six. Do I have time?", "Quase seis. Dá tempo?", "g_just"],
-   ["I watch films at home too.", "Eu também vejo filme em casa.", null, "Not films, dear! The time! On your phone. What time is it?", "Não é filme, meu bem! A hora! No celular. Que horas são?"]
+   ["No, thanks. I don't like butter.", "Não, valeu. Eu não gosto de manteiga.", null, "Not real butter, dear! I mean Stan is kind. Now, what time is it?", "Não é manteiga de verdade, meu bem! É que o Stan é bonzinho. E então, que horas são?"]
   ]],
   "g_run": ["g", "Quarter to six! The actors arrive by six. Buy your programme and run!", "Quinze pras seis! Os atores chegam até as seis. Compre seu programa e corra!", "n_back"],
-  "g_just": ["g", "Just. Lamp Lane is two minutes away. Left, then left again.", "Em cima da hora. A Lamp Lane fica a dois minutos. Esquerda, depois esquerda de novo.", "n_back"],
-  "n_back": ["n", "Gloria goes to find her seat. The woman at the box office waves at you.", "A Gloria vai procurar a poltrona dela. A moça da bilheteria acena pra você.", "p2"],
+  "g_just": ["g", "Just about. Lamp Lane is two minutes away. Left, then left again.", "Em cima da hora. A Lamp Lane fica a dois minutos. Esquerda, depois esquerda de novo.", "n_back"],
+  "n_back": ["n", "Gloria goes off to find a cup of tea. The woman at the box office waves at you.", "A Gloria sai atrás de uma xícara de chá. A moça da bilheteria acena pra você.", "p2"],
   "p2": ["p", "Still here? Would you like a programme? Two pounds.", "Ainda aqui? Quer um programa? Duas libras.", [
    ["Yes, please. One programme.", "Sim, por favor. Um programa.", "p_prog"],
    ["No, thanks. I'm saving my money.", "Não, valeu. Estou economizando.", "p_noprog"],
    ["No, I don't watch TV programmes.", "Não, eu não vejo programa de TV.", null, "Not TV! A programme. A little book about the play. Two pounds. Would you like one?", "Não é de TV! Um programa. Um livrinho sobre a peça. Duas libras. Quer um?"]
   ]],
-  "p_prog": ["p", "Look at the cover: Mr. Finch, with the blue suitcase and the scarf. They're in every scene.", "Olha a capa: o Sr. Finch, com a mala azul e o cachecol. Estão em todas as cenas.", "p3", {"clue": "prop"}],
+  "p_prog": ["p", "Look at the cover: Mr. Finch, with the blue suitcase and the scarf. They're in every scene.", "Olha a capa: o Sr. Finch, com a mala azul e o cachecol. Os dois estão em todas as cenas.", "p3", {"clue": "prop"}],
   "p_noprog": ["p", "Fair enough. London eats money.", "Justo. Londres come dinheiro.", "p3"],
   "p3": ["p", "So, are you watching the show tonight?", "E aí, você vai assistir à peça hoje?", [
    ["I can't. I have a dinner at eight.", "Não posso. Tenho um jantar às oito.", "p_cant"],

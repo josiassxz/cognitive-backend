@@ -35,11 +35,11 @@
   "n_walk": ["n", "Past the hats, left at the bridge. There it is: a green stall, full of apples.", "Você passa pelos chapéus e vira à esquerda na ponte. Lá está: uma barraca verde, cheia de maçãs.", "r1"],
   "r1": ["r", "Hello, love! Lovely apples today. Sweet ones, sour ones. What would you like?", "Oi, meu bem! Maçãs lindas hoje. Tem doce, tem azedinha. O que vai querer?", [
    ["Are you Rosie? I'm looking for one of your customers.", "Você é a Rosie? Estou procurando um freguês seu.", "r_cust"],
-   ["One apple for now, please. And I have a question.", "Uma maçã por enquanto, por favor. E eu tenho uma pergunta.", "r_bag"],
+   ["One apple for now, please. And I'm looking for someone.", "Uma maçã por enquanto, por favor. E eu estou procurando uma pessoa.", "r_bag"],
    ["I like you too, Rosie.", "Eu também gosto de você, Rosie.", null, "Aw, bless you, love! But the apples. What would you like to buy?", "Ah, que amor, meu bem! Mas as maçãs. O que você quer comprar?"]
   ]],
   "r_cust": ["r", "I'm Rosie! A customer? I've got hundreds, love.", "Sou a Rosie! Um freguês? Eu tenho centenas, meu bem.", "r_which"],
-  "r_bag": ["r", "Fifty pence. There you go. Best apple in Camden. Now, the question.", "Cinquenta centavos. Prontinho. A melhor maçã de Camden. Agora, a pergunta.", "r_which"],
+  "r_bag": ["r", "Fifty pence. There you go. Best apple in Camden. Now, about this person.", "Cinquenta centavos. Prontinho. A melhor maçã de Camden. Agora, essa pessoa.", "r_which"],
   "r_which": ["r", "Go on, then. Who are you looking for?", "Vai, fala. Quem você está procurando?", [
    ["I don't know the name. But look at this recipe.", "Não sei o nome. Mas olha esta receita.", "r_recipe"],
    ["Someone with a red and white scarf. Camden Rovers.", "Alguém de cachecol vermelho e branco. Camden Rovers.", "r_scarf"],
@@ -78,7 +78,7 @@
   "r_time": ["r", "Now hurry! The bookshop closes at five. What time is it?", "Agora corre! A livraria fecha às cinco. Que horas são?", [
    ["It's two o'clock. I have three hours.", "São duas horas. Tenho três horas.", "r_go"],
    ["Two o'clock. How do I get to Cecil Court?", "Duas horas. Como eu chego em Cecil Court?", "r_bus"],
-   ["Sorry, I don't have any thyme. Only apples.", "Desculpa, eu não tenho tomilho. Só maçã.", null, "Ha! Not the herb, love! The time! On your phone. What time is it?", "Rá! Não é o tempero, meu bem! A hora! No celular. Que horas são?"]
+   ["Sorry, I don't have any thyme. Try the herb stall.", "Desculpa, eu não tenho tomilho. Tenta a barraca de temperos.", null, "Ha! Not the herb, love! The time! On your phone. What time is it?", "Rá! Não é o tempero, meu bem! A hora! No celular. Que horas são?"]
   ]],
   "r_go": ["r", "Three hours is nothing in London! Take the number twenty-four bus to Trafalgar Square. Go!", "Três horas não é nada em Londres! Pegue o ônibus vinte e quatro até a Trafalgar Square. Vai!", "n_end"],
   "r_bus": ["r", "Take the number twenty-four bus, on the main road. Get off at Trafalgar Square. Then ask someone.", "Pegue o ônibus vinte e quatro, na avenida. Desça na Trafalgar Square. Depois pergunte pra alguém.", "n_end"],

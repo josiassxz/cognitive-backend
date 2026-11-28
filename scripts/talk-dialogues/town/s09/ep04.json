@@ -61,7 +61,8 @@
    ["There's something written on the back. In green ink.", "Tem uma coisa escrita atrás. Em tinta verde.", "s_green"],
    ["I can't print. I only cook.", "Eu não sei imprimir. Só cozinhar.", null, "Nobody's asking you to print, darling. I'm saying it's odd. Don't you think so?", "Ninguém está pedindo pra você imprimir, meu bem. Estou dizendo que é esquisito. Você não acha?"]
   ]],
-  "s_toby": ["s", "Whoever's on the early shift, I suppose. I never ask. I just read what they hand me.", "Quem estiver no turno da manhã, imagino. Eu nunca pergunto. Só leio o que me entregam.", "s_fix"],
+  "s_toby": ["s", "Whoever's on the early shift, I suppose. I never ask. I just read what they hand me.", "Quem estiver no turno da manhã, imagino. Eu nunca pergunto. Só leio o que me entregam.", "s_toby2"],
+  "s_toby2": ["s", "Hang on, there's something on the back. Station four, in green ink. How odd.", "Peraí, tem uma coisa escrita atrás. Bancada quatro, em tinta verde. Que esquisito.", "s_fix"],
   "s_green": ["s", "Station four, in green pen. So somebody meant this card for you. How very odd.", "Bancada quatro, em caneta verde. Então alguém separou este cartão pra você. Que coisa esquisita.", "s_fix"],
   "s_fix": ["s", "Toby! A new card for station four, please. Quick as you can!", "Toby! Um cartão novo pra bancada quatro, por favor. O mais rápido que der!", "n_toby"],
   "n_toby": ["n", "Toby runs in with a fresh card. There is flour on his sleeve and a pillow mark on his cheek.", "O Toby chega correndo com um cartão novo. Tem farinha na manga e marca de travesseiro na bochecha dele.", "t1"],
@@ -75,7 +76,7 @@
   "s_clock": ["s", "You've lost twenty minutes, station four. Fifty left. Can you still do it?", "Você perdeu vinte minutos, bancada quatro. Faltam cinquenta. Ainda dá?", [
    ["Yes. Scones are quick. Cold butter, hot oven, light hands.", "Dá. Scone é rápido. Manteiga gelada, forno quente, mão leve.", "s_spirit"],
    ["It's hardly fair. Can I have the time back?", "Não é muito justo. Posso ter esse tempo de volta?", "s_fair"],
-   ["I didn't lose them. They're in my pocket.", "Eu não perdi. Estão no meu bolso.", null, "Ha! I mean time, darling. You're behind. Can you finish in fifty minutes?", "Rá! Estou falando de tempo, meu bem. Você está em atraso. Consegue terminar em cinquenta minutos?"]
+   ["I didn't lose them. They're in my pocket.", "Eu não perdi. Estão no meu bolso.", null, "Ha! I mean time, darling. You're behind. Can you finish in fifty minutes?", "Rá! Estou falando de tempo, meu bem. Você ficou pra trás. Consegue terminar em cinquenta minutos?"]
   ]],
   "s_spirit": ["s", "Listen to that! Somebody's read the right card now. Go, go, go!", "Olha só! Alguém leu o cartão certo agora. Vai, vai, vai!", "n_bake"],
   "s_fair": ["s", "I'll ask the producer. No promises. Until then, cook like the wind!", "Vou perguntar à produtora. Sem promessas. Até lá, cozinha voando!", "n_bake"],

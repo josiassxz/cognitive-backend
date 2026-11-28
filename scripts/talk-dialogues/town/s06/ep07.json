@@ -2,7 +2,7 @@
  "slug": "s06-07-the-landlord-calls", "episode": 7, "title": "The Landlord Calls", "level": "B1",
  "place": "phone", "placeLabel": "Flat 4B · telefone", "time": "Sexta · 18h", "ambience": "home",
  "description": "Atenda o senhorio, negocie o horário e sobreviva à faxina.",
- "intro": "A Sra. Okafor ouve pezinhos correndo às três da manhã, bem em cima da cama dela, desde a tempestade de duas semanas atrás. Ela deu um prazo até sábado. Agora é sexta, a vistoria é amanhã, e o Sr. Whitaker vai telefonar.",
+ "intro": "A Sra. Okafor ouve pezinhos correndo às três da manhã, bem em cima da cama dela, desde a tempestade de duas semanas atrás. Ela não vai reclamar com o senhorio, mas precisa dormir. Agora é sexta, a vistoria é amanhã, e o Sr. Whitaker vai telefonar.",
  "cast": {
   "n": ["Narrator", "Narrador", "bf_emma", "center"],
   "w": ["Mr. Whitaker", "Senhorio, dono do apartamento", "bm_george", "right"],
@@ -16,7 +16,7 @@
   "w1": ["w", "Good evening. Gerald Whitaker speaking. Is that Flat Four B? Who am I speaking to?", "Boa noite. Aqui é Gerald Whitaker. É do Flat Quatro B? Com quem eu falo?", [
    ["Good evening, Mr. Whitaker. I'm the new tenant.", "Boa noite, Sr. Whitaker. Sou a pessoa que acabou de se mudar.", "w_new"],
    ["Hello! Yes, this is Four B. How can I help?", "Alô! Sim, é do Quatro B. Em que posso ajudar?", "w_help"],
-   ["You're speaking to the phone.", "O senhor está falando com o telefone.", null, "Yes, I'm aware of that. I mean, who are you? Which tenant am I speaking to?", "Sim, disso eu sei. Quero dizer: quem é você? Com qual inquilino eu falo?"]
+   ["You're speaking to the phone.", "O senhor está falando com o telefone.", null, "Yes, I'm aware of that. I mean, who are you? Which tenant am I speaking to?", "Sim, disso eu sei. Quero dizer: quem é você? Com quem do apartamento eu falo?"]
   ]],
   "w_new": ["w", "Ah, from Brazil, yes. Welcome. I trust the heating works? It never did for the last lot.", "Ah, do Brasil, sim. Boas-vindas. O aquecimento funciona, espero? Com os últimos nunca funcionou.", "w_confirm"],
   "w_help": ["w", "Polite. Good. You must be the new one, from Brazil. I'm ringing about tomorrow.", "Que educação. Ótimo. Você deve ser quem chegou do Brasil. Estou ligando por causa de amanhã.", "w_confirm"],
@@ -47,14 +47,14 @@
   "w_reason": ["w", "The last tenants kept a dog in secret. It chewed three doors. It cost me eight hundred pounds.", "Os últimos inquilinos esconderam um cachorro. Ele roeu três portas. Me custou oitocentas libras.", "w_reason2"],
   "w_reason2": ["w", "If people ask first, and offer a deposit and a proper clean, I'll listen. I'm not a monster.", "Se pedirem antes, e oferecerem um depósito e uma limpeza de verdade, eu escuto. Não sou um monstro.", "w_pickle", {"clue": "landlord_reason"}],
   "w_pickle": ["w", "I had a dog myself, you know. Pickle. Best friend I ever had. Anyway.", "Eu mesmo tive um cachorro, sabe. O Pickle. O melhor amigo que eu já tive. Enfim.", "w_bye"],
-  "w_bye": ["w", "Ten o'clock sharp, then. Say hello to Miss Chen. She's the only one who pays on time.", "Dez em ponto, então. Mande um abraço pra senhorita Chen. É a única que paga em dia.", "n_hang"],
+  "w_bye": ["w", "Ten o'clock sharp, then. And please, no surprises. Say hello to Miss Chen. She pays on time.", "Dez em ponto, então. E, por favor, nada de surpresas. Mande um abraço pra senhorita Chen. Ela paga em dia.", "n_hang"],
   "n_hang": ["n", "You put the phone down. Callum and Priya are staring at you.", "Você desliga o telefone. O Callum e a Priya estão te encarando.", "ten_br"],
   "ten_br": {"branch": [["asked_ten=yes", "p_ten_yes"], [null, "p_ten_no"]]},
   "p_ten_yes": ["p", "Ten? You got me an extra hour of sleep. I won't forget that.", "Às dez? Você me arranjou uma hora a mais de sono. Não vou esquecer.", "p_q"],
   "p_ten_no": ["p", "You said nine was fine! Lucky for you, I've got a loud voice.", "Você disse que às nove estava ótimo! Sorte sua que eu tenho voz forte.", "p_q"],
   "p_q": ["p", "So? What else did he say?", "E aí? O que mais ele disse?", [
    ["He'll check the oven, the windows and the smoke alarm.", "Ele vai olhar o forno, as janelas e o alarme de fumaça.", "chore_br"],
-   ["He said: no surprises. He can't bear them.", "Ele disse: nada de surpresas. Ele não suporta.", "c_surprise"],
+   ["He said: no surprises. And he really means it.", "Ele disse: nada de surpresas. E falou bem sério.", "c_surprise"],
    ["He's bringing something sharp at ten.", "Ele vai trazer uma coisa afiada às dez.", null, "No. 'Ten sharp' means exactly ten. What else did he say about the inspection?", "Não. 'Ten sharp' quer dizer dez em ponto. O que mais ele disse sobre a vistoria?"]
   ]],
   "chore_br": {"branch": [["chore=kitchen", "c_kit"], ["chore=bathroom", "c_bath"], [null, "c_bins"]]},
@@ -66,7 +66,7 @@
   "helped_br": {"branch": [["helped_callum=yes", "c_gig_yes"], [null, "c_gig_no"]]},
   "c_gig_yes": ["c", "By the way, thanks for carrying the amp last night. Tomorrow, whatever happens, I'm on your side.", "Aliás, valeu por carregar o amplificador ontem. Amanhã, aconteça o que acontecer, eu tô do seu lado.", "c_where"],
   "c_gig_no": ["c", "You missed a good gig last night. I dropped the amp on my foot. Only once.", "Você perdeu um show bom ontem. Derrubei o amplificador no meu pé. Só uma vez.", "c_where"],
-  "c_where": ["c", "Where's Mei, anyway? She never goes out on a Friday.", "Aliás, cadê a Mei? Ela nunca sai na sexta.", "p_ruck"],
+  "c_where": ["c", "Where's Mei, anyway? She never goes out on a Friday.", "E a Mei, cadê? Ela nunca sai na sexta.", "p_ruck"],
   "p_ruck": ["p", "She went to buy something. With the big rucksack. You've gone quiet. What are you thinking?", "Foi comprar alguma coisa. Com a mochila grande. Você ficou em silêncio. No que está pensando?", [
    ["I think Mei is hiding something. But I want to talk to her first.", "Acho que a Mei está escondendo alguma coisa. Mas quero falar com ela antes.", "p_fair"],
    ["Nothing. Let's finish the cleaning.", "Nada. Vamos terminar a limpeza.", "p_nothing"],

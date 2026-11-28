@@ -84,12 +84,12 @@
   "l_nofix": ["l", "Your choice. But it's a long road with no music.", "Você que sabe. Mas é muita estrada sem música.", "r_card4"],
   "r_card4": ["r", "Okay, I'm awake. The van sleeps here tonight. So: card number four.", "Pronto, acordei. A van dorme aqui hoje. Então: cartão número quatro.", "r_riddle"],
   "r_riddle": ["r", "Tonight I paid for my dinner with my mouth. But I did not say one word.", "Hoje eu paguei o jantar com a boca. Mas não disse uma palavra.", "r_riddle2"],
-  "r_riddle2": ["r", "My new friend has six strings. We play where the spur is rusty, in Tucumcari. How did he pay?", "Meu novo amigo tem seis cordas. A gente toca onde a espora está enferrujada, em Tucumcari. Como ele pagou?", [
+  "r_riddle2": ["r", "My new friend has six strings. We play where the spur is rusty, in New Mexico. So, how did Grandpa pay?", "Meu novo amigo tem seis cordas. A gente toca onde a espora está enferrujada, no Novo México. E aí, como o vovô pagou?", [
    ["With music! He played the harmonica.", "Com música! Ele tocou gaita.", "l_harm"],
    ["Six strings is a guitar. Was his friend a guitar player?", "Seis cordas é um violão. O amigo dele tocava violão?", "l_guitar"],
    ["He ate with his mouth closed?", "Ele comeu de boca fechada?", null, "Good manners, but no. He paid for dinner with his mouth, without talking. How?", "Muito educado, mas não. Ele pagou o jantar com a boca, sem falar. Como?"]
   ]],
-  "l_harm": ["l", "Right. And the Rusty Spur is a bar in Tucumcari. Old Hank still plays guitar there.", "Isso. E o Rusty Spur, a Espora Enferrujada, é um bar em Tucumcari. O velho Hank ainda toca violão lá.", "l_bye"],
+  "l_harm": ["l", "Right. And the Rusty Spur is a bar just over the state line. Old Hank still plays guitar there.", "Isso. E o Rusty Spur, a Espora Enferrujada, é um bar logo depois da divisa. O velho Hank ainda toca violão lá.", "l_bye"],
   "l_guitar": ["l", "That's Hank. He still plays at the Rusty Spur. Frank played harmonica with him for his dinner.", "É o Hank. Ele ainda toca no Rusty Spur, a Espora Enferrujada. O Frank tocava gaita com ele em troca do jantar.", "l_bye"],
   "l_bye": ["l", "Tell Hank that Lupe says hello. And that he still owes me ten dollars.", "Diz pro Hank que a Lupe mandou um oi. E que ele ainda me deve dez dólares.", "n_end"],
   "n_end": ["n", "Tomorrow at noon, the van will be ready. New Mexico is waiting. So is a man with six strings.", "Amanhã ao meio-dia, a van vai estar pronta. O Novo México está esperando. E um homem de seis cordas também.", null]

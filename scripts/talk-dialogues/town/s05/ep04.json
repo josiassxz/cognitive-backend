@@ -13,7 +13,7 @@
  "nodes": {
   "n1": ["n", "Wednesday, noon. The dining hall is loud and smells of pizza and soup.", "Quarta, meio-dia. O refeitório está barulhento e cheira a pizza e sopa.", "n2"],
   "n2": ["n", "You take a tray and get in line. The woman serving the food has a huge smile.", "Você pega uma bandeja e entra na fila. A mulher que serve a comida tem um sorriso enorme.", "r1"],
-  "r1": ["r", "Hello, my dear! Card first, food after. Let me see that ID.", "Olá, meu bem! Primeiro a carteirinha, depois a comida. Deixa eu ver.", "r_br"],
+  "r1": ["r", "Hello, my dear! I'm Rosa. Card first, food after. Let me see that ID.", "Olá, meu bem! Eu sou a Rosa. Primeiro a carteirinha, depois a comida. Deixa eu ver.", "r_br"],
   "r_br": {"branch": [["id_photo=smile", "r_smile"], ["id_photo=serious", "r_serious"], [null, "r_blink"]]},
   "r_smile": ["r", "Look at that smile! Finally, a happy photo. I see sad ones all day.", "Olha esse sorriso! Até que enfim uma foto feliz. Eu vejo foto triste o dia inteiro.", "r_order"],
   "r_serious": ["r", "So serious! You look much friendlier in real life, my dear.", "Que seriedade! Ao vivo você tem uma cara bem mais simpática, meu bem.", "r_order"],
@@ -24,7 +24,7 @@
    ["Pizza, please. Two slices.", "Pizza, por favor. Duas fatias.", "r_pizza"],
    ["Chicken and ice, please.", "Frango com gelo, por favor.", null, "Ice? On chicken? No, no. Rice! Chicken and rice, pasta, or pizza?", "Gelo? No frango? Não, não. Arroz! Frango com arroz, macarrão ou pizza?"]
   ]],
-  "r_chicken": ["r", "Good choice. I'm from Cape Verde. We love our rice too, just like you.", "Boa escolha. Eu sou de Cabo Verde. A gente também ama arroz, igual a vocês.", "r_fries"],
+  "r_chicken": ["r", "Good choice. I'm from Cape Verde. Back home, we eat rice with everything.", "Boa escolha. Eu sou de Cabo Verde. Lá na minha terra, a gente come arroz com tudo.", "r_fries"],
   "r_pasta": ["r", "The pasta, good. I made that sauce myself this morning. At six.", "O macarrão, ótimo. Esse molho fui eu que fiz hoje cedo. Às seis.", "r_fries"],
   "r_pizza": ["r", "Two slices. A real student lunch. At least it has tomato.", "Duas fatias. Almoço típico de estudante. Pelo menos tem tomate.", "r_fries"],
   "r_fries": ["r", "And take some fries. They're fresh. You students are all too thin.", "E leva umas fritas. Acabaram de sair. Vocês estudantes são magros demais.", "r_q"],

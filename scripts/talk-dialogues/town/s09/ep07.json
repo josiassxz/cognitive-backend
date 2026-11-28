@@ -31,7 +31,7 @@
    ["Fine, you're the professional. Just tell me what you need.", "Tá bom, o profissional é você. É só dizer do que precisa.", "c_boss"],
    ["I can't rest. I'm not even tired.", "Não posso descansar. Nem senti cansaço ainda.", null, "Not that kind of rest! The other jobs. The sauce and the sides. Will you do them?", "Não esse tipo de resto! As outras tarefas. O molho e os acompanhamentos. Você faz?"]
   ]],
-  "c_split": ["c", "Fairly. Hm. All right. Sauce and potatoes are yours. I'll do the chicken and the greens.", "Direito. Hum. Tudo bem. Molho e batatas são seus. Eu faço o frango e as verduras.", "n_go"],
+  "c_split": ["c", "Fairly. Hmm. All right. Sauce and potatoes are yours. I'll do the chicken and the greens.", "Direito. Hum. Tudo bem. Molho e batatas são seus. Eu faço o frango e as verduras.", "n_go"],
   "c_boss": ["c", "Excellent attitude. Potatoes first, then the sauce. I'll take the chicken and the greens.", "Ótima atitude. Primeiro as batatas, depois o molho. Eu fico com o frango e as verduras.", "n_go"],
   "n_go": ["n", "The clock starts. Rupert works fast and talks faster. Twenty minutes in, he is shouting.", "O relógio dispara. O Rupert trabalha rápido e fala mais rápido ainda. Com vinte minutos, ele já está gritando.", "c3"],
   "c3": ["c", "Where's my thyme? Who moved my thyme? I can't work like this!", "Cadê meu tomilho? Quem mexeu no meu tomilho? Assim não dá pra trabalhar!", [
@@ -49,7 +49,7 @@
   ]],
   "c_two": ["c", "Two minutes. I'm counting. And stir it, don't just stare at it.", "Dois minutos. Estou contando. E mexe, não fica só olhando.", "n_salt"],
   "c_swap": ["c", "Good. That's teamwork. Mind the greens, they only need a minute.", "Ótimo. Isso é trabalho em equipe. Cuidado com as verduras, é só um minuto.", "n_salt"],
-  "c_taste": ["c", "Fine. Hm. The flavour's good, actually. Just reduce it a little. I take it back.", "Tá bom. Hum. O sabor está bom, na verdade. Só reduz um pouco. Retiro o que disse.", "n_salt"],
+  "c_taste": ["c", "Fine. Hmm. The flavour's good, actually. Just reduce it a little. I take it back.", "Tá bom. Hum. O sabor está bom, na verdade. Só reduz um pouco. Retiro o que disse.", "n_salt"],
   "n_salt": ["n", "The sauce thickens. You reach for the salt. Then you remember Toby's words: check your salt.", "O molho engrossa. Você estende a mão pro sal. Aí lembra do que o Toby disse: confere o seu sal.", "c4"],
   "c4": ["c", "What are you waiting for? Season it! We've got ten minutes.", "Está esperando o quê? Tempera! Faltam dez minutos.", [
    ["Wait. I want to taste what's in this jar first.", "Espera. Quero provar o que tem neste pote antes.", "n_sugar"],
@@ -66,7 +66,7 @@
    ["Fries? No, we made roast potatoes.", "Fritas? Não, a gente fez batata assada.", null, "Friends, not fries! You and Rupert. Are you two getting along?", "Amizade, não fritas! Você e o Rupert. Vocês estão se entendendo?"]
   ]],
   "s_plate": ["s", "Almost! I'll take it. Plates up, everybody. Time's up!", "Quase! Já serve. Pratos na mesa, pessoal. Acabou o tempo!", "n_judge"],
-  "s_plate2": ["s", "Ooh, diplomatic. Plates up, everybody. Time's up!", "Uh, que diplomacia. Pratos na mesa, pessoal. Acabou o tempo!", "n_judge"],
+  "s_plate2": ["s", "Ooh, diplomatic. Plates up, everybody. Time's up!", "Nossa, que diplomacia. Pratos na mesa, pessoal. Acabou o tempo!", "n_judge"],
   "n_judge": ["n", "Victor cuts the chicken, tries the sauce, and puts down his fork. He looks at you both.", "O Victor corta o frango, prova o molho e pousa o garfo. Ele olha pra sua dupla e pra você.", "crit_br"],
   "crit_br": {"branch": [["took_crit=argued", "v_arg"], [null, "v_well"]]},
   "v_arg": ["v", "Station four. You argued with me on Monday. Today I've no argument. The sauce is good.", "Bancada quatro. Você discutiu comigo na segunda. Hoje não tenho o que discutir. O molho está bom.", "v_q"],
@@ -86,7 +86,7 @@
   ]],
   "v_past": ["v", "My first week as a kitchen boy, I dropped a wedding cake. Three tiers of it.", "Na minha primeira semana como ajudante de cozinha, derrubei um bolo de casamento. Três andares.", "v_past2"],
   "v_past2": ["v", "The chef didn't sack me. He handed me a mop and a second chance. I never forgot it.", "O chef não me demitiu. Ele me deu um esfregão e uma segunda chance. Nunca esqueci.", "s_end", {"clue": "victor_past"}],
-  "v_adv": ["v", "Cook what you promised on Monday. Keep the plate simple. Flavour wins, not decoration.", "Cozinhe o que você prometeu na segunda. Mantenha o prato simples. Quem vence é o sabor, não o enfeite.", "s_end", {"clue": "victor_taste"}],
+  "v_adv": ["v", "Cook what you promised on Monday. No towers, no flowers. A simple plate, properly seasoned, wins.", "Cozinhe o que você prometeu na segunda. Nada de torres, nada de flores. Um prato simples e bem temperado vence.", "s_end", {"clue": "victor_taste"}],
   "s_end": ["s", "One more thing. Dee, our producer, wants everyone on set at two tomorrow. Before the final.", "Mais uma coisa. A Dee, nossa produtora, quer todo mundo no estúdio amanhã às duas. Antes da final.", "s_end2"],
   "s_end2": ["s", "She says somebody has been sabotaging her show. And tomorrow, on camera, she'll name them.", "Ela diz que alguém anda sabotando o programa. E amanhã, diante das câmeras, ela vai dizer quem é.", "n_end"],
   "n_end": ["n", "Rupert goes pale. Morag frowns. And at the back of the studio, a box hits the floor.", "O Rupert fica pálido. A Morag fecha a cara. E no fundo do estúdio, uma caixa cai no chão.", null]

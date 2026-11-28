@@ -23,7 +23,7 @@
   "w_brazil": ["w", "Brazil. Excellent. You'll see this campus with fresh eyes. We need that.", "Brasil. Excelente. Você vai ver este campus com olhos novos. A gente precisa disso.", "w3"],
   "w_city": ["w", "Good. Then you know a city is not its buildings. It's its people.", "Ótimo. Então você sabe que uma cidade não são os prédios. São as pessoas.", "w3"],
   "w3": ["w", "Now. Your grade is one group project, with one presentation in week ten.", "Bom. A nota de vocês é um trabalho em grupo, com uma apresentação na semana dez.", "w4"],
-  "w4": ["w", "This year's theme is invisible work. The people who keep this campus running, and nobody sees.", "O tema deste ano é trabalho invisível. As pessoas que fazem este campus funcionar, e ninguém vê.", "w5"],
+  "w4": ["w", "This year's theme is invisible work. The people who keep this campus running while nobody notices.", "O tema deste ano é trabalho invisível. As pessoas que fazem este campus funcionar sem ninguém notar.", "w5"],
   "w5": ["w", "Any questions before I make the groups?", "Alguma pergunta antes de eu montar os grupos?", [
    ["Yes. What matters most for the grade?", "Sim. O que mais conta para a nota?", "w_grade"],
    ["Can we choose our own groups?", "A gente pode escolher o próprio grupo?", "w_choose"],

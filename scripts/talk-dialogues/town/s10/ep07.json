@@ -75,7 +75,7 @@
   "p_kind1": ["p", "That's the nicest thing anyone's said to me since March.", "Essa é a coisa mais gentil que alguém me diz desde março.", "p_c3"],
   "p_kind2": ["p", "A blunder. Yes. I like that word. It sounds almost forgivable.", "Um deslize. É. Gostei dessa palavra. Parece quase perdoável.", "p_c3"],
   "p_c3": ["p", "Helen's going to hate me. The day before the demo! What do I do?", "A Helen vai me odiar. Na véspera da demonstração! O que eu faço?", [
-   ["Tell her first thing tomorrow. I'll go in before you and soften the ground.", "Conta pra ela amanhã bem cedo. Eu entro antes e preparo o terreno.", "p_tog"],
+   ["Tell her first thing tomorrow. I'll go in first and prepare the ground.", "Conta pra ela amanhã bem cedo. Eu entro antes e preparo o terreno.", "p_tog"],
    ["Tell her yourself, in your own words. It'll mean more.", "Conta você mesma, com as suas palavras. Vai valer mais.", "p_alone"],
    ["Wait until after the demo. The team needs calm tomorrow.", "Espera passar a demonstração. O time precisa de calma amanhã.", "p_wait"],
    ["Hate you? Then wear a hat.", "Te odiar? Então usa um chapéu.", null, "A hat won't save me! Seriously. What do I do about Helen?", "Chapéu não vai me salvar! Sério. O que eu faço com a Helen?"]

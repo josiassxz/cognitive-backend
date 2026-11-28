@@ -32,10 +32,10 @@
   "l_c2": ["l", "Well. Thank you. That's all I wanted to hear. A steak sandwich, please. No onions.", "Ora. Obrigada. Era só isso que eu queria ouvir. Um sanduíche de carne, por favor. Sem cebola.", "p1"],
   "p1": ["p", "Attention, trucks! This is Priya, from the festival. The secret judge is in the park right now.", "Atenção, trucks! Aqui é a Priya, do festival. O jurado secreto está no parque neste exato momento.", "p2"],
   "p2": ["p", "At five o'clock, every truck brings one plate and one drink to the stage. Good luck!", "Às cinco horas, cada truck leva um prato e uma bebida até o palco. Boa sorte!", "n_line"],
-  "n_line": ["n", "You look at your line. Tyler is at the front, with his camera. Behind him, Mr. Boone waits in his gray hat.", "Você olha a sua fila. O Tyler está na frente, com a câmera. Atrás dele, o Sr. Boone espera de chapéu cinza.", "who_br"],
+  "n_line": ["n", "Tyler is at the front of your line, with his camera. Behind him, Mr. Boone waits in his gray hat.", "O Tyler está na frente da sua fila, com a câmera. Atrás dele, o Sr. Boone espera de chapéu cinza.", "who_br"],
   "who_br": {"branch": [["clue_old_diner", "who_yes"], ["clue_homemade", "who_yes"], ["clue_tyler_blog", "who_yes"], [null, "who_no"]]},
   "who_yes": ["b", "The judge is here, right now! Who is it? Who gets the royal treatment?", "O jurado está aqui, agora! Quem é? Quem ganha tratamento de rei?", [
-   ["Nobody. I think it's Mr. Boone. And he hates a show.", "Ninguém. Acho que é o Sr. Boone. E ele detesta paparico.", "b_boone", {"set": {"f_who": "yes"}}],
+   ["Nobody. I think it's Mr. Boone. And he hates a fuss.", "Ninguém. Acho que é o Sr. Boone. E ele detesta paparico.", "b_boone", {"set": {"f_who": "yes"}}],
    ["Tyler! Camera, notebook. Front of the line, free everything!", "O Tyler! Câmera, caderninho. Frente da fila, tudo de graça!", "j_gaffe"],
    ["I don't know. Everybody waits in line, like always.", "Não sei. Todo mundo espera na fila, como sempre.", "b_every"],
    ["Me! Thanks, I'm hungry.", "Eu! Valeu, estou com fome.", null, "Not you! The judge! Tyler or Mr. Boone? Who gets the special treatment?", "Você, não! O jurado! O Tyler ou o Sr. Boone? Quem ganha o tratamento especial?"]
@@ -45,7 +45,7 @@
    ["No. Everybody waits in line, like always.", "Não. Todo mundo espera na fila, como sempre.", "b_every"],
    ["Me! Thanks, I'm hungry.", "Eu! Valeu, estou com fome.", null, "Not you! The judge! Do we give Tyler the special treatment, or not?", "Você, não! O jurado! A gente dá o tratamento especial pro Tyler, ou não?"]
   ]],
-  "b_boone": ["b", "Mr. Boone? Beans and black coffee Mr. Boone? Okay. No show. Just the usual, done right.", "O Sr. Boone? O Sr. Boone do feijão com café preto? Tá. Sem paparico. Só o de sempre, bem feito.", "w1"],
+  "b_boone": ["b", "Mr. Boone? Beans and black coffee Mr. Boone? Okay. No fuss. Just the usual, done right.", "O Sr. Boone? O Sr. Boone do feijão com café preto? Tá. Sem paparico. Só o de sempre, bem feito.", "w1"],
   "b_every": ["b", "Like always. Okay. A big smile for everyone. Next, please!", "Como sempre. Tá. Um sorrisão pra todo mundo. Próximo, por favor!", "w1"],
   "j_gaffe": ["j", "A chair? Free food? And why are you bowing? Wait. Do you two think I'm the judge?", "Uma cadeira? Comida de graça? E por que você está fazendo reverência? Espera. Vocês acham que eu sou o jurado?", [
    ["You're not? Oh no. Sorry, Tyler. And sorry, everyone in line.", "Não é? Ai, não. Desculpa, Tyler. E desculpa, pessoal da fila.", "j_g"],
@@ -72,7 +72,7 @@
    ["A blue one. Blue plates are pretty.", "Um azul. Prato azul é bonito.", null, "Not the color! The food! What do we cook for the judge?", "A cor, não! A comida! O que a gente cozinha pro jurado?"]
   ]],
   "b_simple": ["b", "Simple. Like home. No tower, no three sauces. Okay. I trust you.", "Simples. Gosto de casa. Sem torre, sem três molhos. Tá. Confio em você.", "how_br"],
-  "b_big": ["b", "Three sauces! Big and loud, like Chuck's ribs! Okay. I hope this works.", "Três molhos! Grande e exagerado, que nem as costelas do Chuck! Tá. Tomara que dê certo.", "how_br"],
+  "b_big": ["b", "Then we go big! Three sauces, like Chuck's ribs! Okay. I hope this works.", "Então vamos com tudo! Três molhos, que nem as costelas do Chuck! Tá. Tomara que dê certo.", "how_br"],
   "how_br": {"branch": [["clue_black_coffee", "how_yes"], ["f_who=yes", "how_yes"], [null, "how_no"]]},
   "how_yes": ["b", "And the drink? And do I stand next to the judge and ask about every bite?", "E a bebida? E eu fico do lado do jurado perguntando de cada garfada?", [
    ["Black coffee, no sugar. And no questions. Let the plate talk.", "Café preto, sem açúcar. E nada de perguntas. Deixa o prato falar.", "p3", {"set": {"f_how": "yes"}}],
@@ -92,7 +92,7 @@
   "end_best": ["p", "Second place: Smoke King! And the Golden Fork goes to our newest truck: The Little Toucan!", "Segundo lugar: Smoke King! E o Garfo de Ouro vai para o nosso truck mais novo: The Little Toucan!", "c_best"],
   "end_good": ["p", "The Golden Fork goes to Smoke King! And the prize for Best New Truck: The Little Toucan!", "O Garfo de Ouro vai para o Smoke King! E o prêmio de Melhor Truck Estreante: The Little Toucan!", "c_won"],
   "end_basic": ["p", "The Golden Fork goes to Smoke King! The judge's note says: less sauce this year. Finally.", "O Garfo de Ouro vai para o Smoke King! A nota do jurado diz: menos molho este ano. Finalmente.", "c_won"],
-  "c_best": ["c", "Second place! To a toucan! Ha! Come here, Toucan. Tell me. What's your secret?", "Segundo lugar! Perdi pra um tucano! Rá! Vem cá, Tucano. Me conta. Qual é o seu segredo?", [
+  "c_best": ["c", "Second place! I lost to a toucan! Ha! Come here, Toucan. Tell me. What's your secret?", "Segundo lugar! Perdi pra um tucano! Rá! Vem cá, Tucano. Me conta. Qual é o seu segredo?", [
    ["No secret. Simple food, like home.", "Segredo nenhum. Comida simples, com gosto de casa.", "s_br"],
    ["Good neighbors. Thanks for the ice, Chuck.", "Bons vizinhos. Valeu pelo gelo, Chuck.", "s_br"],
    ["Yes, I have a secretary.", "Sim, eu tenho uma secretária.", null, "Not a secretary! A secret! How did you win? What did you do?", "Secretária, não! Segredo! Como vocês ganharam? O que vocês fizeram?"]
@@ -109,11 +109,11 @@
   "w_final": ["w", "I don't talk about food. But today, you can ask me one thing. Go on.", "Eu não falo de comida. Mas hoje, você pode me perguntar uma coisa. Vai.", [
    ["Was our food good? Please. Just once, say it.", "A nossa comida estava boa? Por favor. Só uma vez, diga.", "w_a1"],
    ["Will you still come on Monday?", "O senhor ainda vem na segunda?", "w_a2"],
-   ["Gone? No, I'm still here.", "Fui embora? Não, ainda estou aqui.", null, "Hm. Stay, then. And ask. One question, about the food. Go on.", "Hum. Então fique. E pergunte. Uma pergunta, sobre a comida. Vai."]
+   ["Gone? No, I'm still here.", "Fui embora? Não, ainda estou aqui.", null, "Hm. Stay, then. And ask. One question. Anything you want. Go on.", "Hum. Então fique. E pergunte. Uma pergunta. O que você quiser. Vai."]
   ]],
-  "w_a1": ["w", "Hm. It tastes like home. Like my Helena's Sunday table. That's the best thing I can say.", "Hum. Tem gosto de casa. Da mesa de domingo da minha Helena. É o melhor que eu sei dizer.", "b_final"],
+  "w_a1": ["w", "Hm. It tastes like home. Like my wife Helena's Sunday table. That's the best thing I can say.", "Hum. Tem gosto de casa. Da mesa de domingo da Helena, minha esposa. É o melhor que eu sei dizer.", "b_final"],
   "w_a2": ["w", "Monday. Eleven. The usual. Your beans taste like home, kid. Don't change them.", "Segunda. Onze. O de sempre. O seu feijão tem gosto de casa, jovem. Não mude.", "b_final"],
   "b_final": ["b", "I'm crying into the beans! Okay. Monday, eleven o'clock. We have a regular to feed.", "Estou chorando em cima do feijão! Tá. Segunda, onze horas. Temos um cliente fiel pra alimentar.", "n_end"],
-  "n_end": ["n", "You came to Austin with a recipe and a cousin. Now you have a truck, and a place that feels like home.", "Você veio para Austin com uma receita e uma prima. Agora tem um truck e um lugar com gosto de casa.", null]
+  "n_end": ["n", "You came to Austin with a recipe and a cousin. Now you have a place that feels like home.", "Você veio para Austin com uma receita e uma prima. Agora tem um lugar com gosto de casa.", null]
  }
 }

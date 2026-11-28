@@ -20,8 +20,8 @@
   "d1": ["d", "Boss! Twenty minutes to go, and still no rings. Tell me you've had an idea.", "Chefia! Faltam vinte minutos, e nada de alianças. Me diz que você teve uma ideia.", [
    ["I think I know where they are.", "Acho que eu sei onde elas estão.", "ring_br"],
    ["Has anyone searched Nora's room? She doesn't want this wedding.", "Alguém já revistou o quarto da Nora? Ela não quer esse casamento.", "g_acc", {"set": {"accused_granny": "yes"}}],
-   ["Not yet. We need a plan B, fast.", "Ainda não. A gente precisa de um plano B, rápido.", "ring_br"],
-   ["An ID? Sure. Here's my passport.", "Um documento? Claro. Toma meu passaporte.", null, "Not ID! An idea! A plan! Twenty minutes, Boss. What have you got?", "Não é ID! É idea! Um plano! Vinte minutos, Chefia. O que você tem?"]
+   ["Not yet. But let's search one more time, fast.", "Ainda não. Mas vamos procurar mais uma vez, rápido.", "ring_br"],
+   ["A deer? No, I've only seen sheep so far.", "Um cervo? Não, até agora eu só vi ovelha.", null, "Not a deer! An idea! A plan! Twenty minutes, Boss. What have you got?", "Não é a deer! É idea! Um plano! Vinte minutos, Chefia. O que você tem?"]
   ]],
   "g_acc": ["g", "I heard that. I'm old, child, not deaf. You think I took the rings?", "Eu ouvi. Eu sou velha, criança, não surda. Você acha que eu peguei as alianças?", [
    ["I'm so sorry, Nora. That was unfair of me.", "Me desculpa, Nora. Foi injusto da minha parte.", "g_f1"],
@@ -32,7 +32,7 @@
   "g_f2": ["g", "A terrible theory. I'd have hidden the groom, not the rings. Think again.", "Uma teoria péssima. Eu teria escondido o noivo, não as alianças. Pensa de novo.", "ring_br"],
   "ring_br": {"branch": [["clue_wrong_jacket", "r_yes"], [null, "r_no"]]},
   "r_yes": ["d", "Right. Quick. Where do we look?", "Certo. Rápido. Onde a gente procura?", [
-   ["Paulo's jacket. The shop mixed up the grey bags. He's wearing yours.", "No paletó do Paulo. A loja trocou as capas cinza. Ele está com o seu.", "p_box", {"set": {"f_rings": "yes"}}],
+   ["Paulo's jacket. The shop mixed up the grey bags. Check his inside pocket!", "No paletó do Paulo. A loja trocou as capas cinza. Olha o bolso interno dele!", "p_box", {"set": {"f_rings": "yes"}}],
    ["Your car. One more time.", "No seu carro. Mais uma vez.", "r_car"],
    ["In a book? Which book?", "Num livro? Qual livro?", null, "Not a book! Look! Search! Where should we search for the rings?", "Não é book! É look! Procurar! Onde a gente procura as alianças?"]
   ]],
@@ -74,7 +74,7 @@
   "g_hmm": ["g", "Need. That's not asking, that's ordering. Hmm. Fetch my case anyway. I'll forgive you by Tuesday.", "Precisa. Isso não é pedir, é mandar. Hum. Busca meu estojo mesmo assim. Até terça eu te perdoo.", "duo_br"],
   "duo_br": {"branch": [["clue_paulo_guitar", "duo_q"], [null, "cer_br"]]},
   "duo_q": ["g", "One accordion in a barn this size will sound thin. Any ideas?", "Um acordeão sozinho num celeiro deste tamanho vai soar magrinho. Alguma ideia?", [
-   ["Paulo plays the guitar. It's in his room. Shall I get him?", "O Paulo toca violão. Está no quarto dele. Quer que eu chame?", "g_duo"],
+   ["Paulo plays the guitar. It's in his room. Shall I get him?", "O Paulo toca violão. Está no quarto dele. Quer que eu chame?", "g_duo", {"set": {"f_duo": "yes"}}],
    ["You'll be wonderful on your own.", "A senhora vai brilhar sem ajuda de ninguém.", "cer_br"],
    ["Thin? No, I've eaten too much this week.", "Magrinho? Não, eu comi demais esta semana.", null, "Not you, the music! One accordion is too quiet for this barn. What can we do about it?", "Não é você, é a música! Um acordeão só é pouco som pra este celeiro. O que dá pra fazer?"]
   ]],
@@ -84,7 +84,7 @@
   "cer_late": ["n", "Julia lifts a keyring to Conor's finger. Then Paulo reaches for a tissue and pulls out a small blue box.", "A Julia leva uma argola de chaveiro ao dedo do Conor. Aí o Paulo procura um lenço no bolso e tira de lá uma caixinha azul.", "sp_br"],
   "sp_br": {"branch": [["speech=funny", "t_funny"], [null, "t_sweet"]]},
   "t_funny": ["j", "And now, a toast from the person who saved this wedding. You promised to make us laugh!", "E agora, um brinde da pessoa que salvou este casamento. Você prometeu fazer a gente rir!", [
-   ["To Conor, who drank thirty coffees for Julia. He doesn't even like coffee!", "Ao Conor, que tomou trinta cafés pela Julia. E ele nem gosta de café!", "marta_br"],
+   ["To Declan, who had one job. And to Paulo's pocket, which did it better!", "Ao Declan, que só tinha uma tarefa. E ao bolso do Paulo, que fez melhor!", "marta_br"],
    ["To the Doyles, who taught me that grand means fine, and deadly means delicious!", "Aos Doyle, que me ensinaram que grand é tudo bem, e deadly é uma delícia!", "marta_br"],
    ["Sorry, I didn't bring any bread.", "Desculpa, eu não trouxe pão.", null, "Not that toast! Again! Glass up, a few words. Go on, we're all waiting!", "Não é esse toast! De novo! Taça pra cima, umas palavras. Vai, está todo mundo esperando!"]
   ]],
@@ -103,8 +103,10 @@
   "end_br1": {"branch": [["f_music=yes", "end_br2"], [null, "end_br3"]]},
   "end_br2": {"branch": [["f_rings=yes", "end_best"], [null, "end_good_m"]]},
   "end_br3": {"branch": [["f_rings=yes", "end_good_r"], [null, "end_basic"]]},
-  "end_best": ["n", "Nora plays the first notes of Paddy's waltz. Soon, half of Brazil and half of Ireland are dancing together.", "A Nora toca as primeiras notas da valsa do Paddy. Logo, metade do Brasil e metade da Irlanda dançam juntas.", "g_best"],
-  "end_good_m": ["n", "The keyring is already a family legend. But Nora's waltz is perfect, and the whole barn dances.", "A argola do chaveiro já virou lenda de família. Mas a valsa da Nora sai perfeita, e o celeiro inteiro dança.", "g_best"],
+  "end_best": ["n", "Nora plays the first notes of Paddy's waltz. Soon, half of Brazil and half of Ireland are dancing together.", "A Nora toca as primeiras notas da valsa do Paddy. Logo, metade do Brasil e metade da Irlanda dançam juntas.", "duo_br2"],
+  "end_good_m": ["n", "The keyring is already a family legend. But Nora's waltz is perfect, and the whole barn dances.", "A argola do chaveiro já virou lenda de família. Mas a valsa da Nora sai perfeita, e o celeiro inteiro dança.", "duo_br2"],
+  "duo_br2": {"branch": [["f_duo=yes", "n_duo"], [null, "g_best"]]},
+  "n_duo": ["n", "Beside her, Paulo joins in on his guitar. They sound like they've played together for years.", "Ao lado dela, o Paulo entra com o violão. Parece que os dois tocam juntos há anos.", "g_best"],
   "end_good_r": ["n", "The first dance begins with a football song, from a phone in a bucket. Then Nora stands up.", "A primeira dança começa com uma música de futebol, saindo de um celular num balde. Aí a Nora se levanta.", "g_late"],
   "end_basic": ["n", "A keyring, a football song, a phone in a bucket. Everybody laughs. Then Nora stands up.", "Uma argola de chaveiro, uma música de futebol, um celular num balde. Todo mundo ri. Aí a Nora se levanta.", "g_late"],
   "g_best": ["g", "You asked, child. That was all I ever wanted. Now go and dance.", "Você pediu, criança. Era só isso que eu queria. Agora vai dançar.", "j_end"],

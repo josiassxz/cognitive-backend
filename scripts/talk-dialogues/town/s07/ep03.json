@@ -22,18 +22,18 @@
   "o_breath": ["o", "A breath. Right. I came back, I opened the case, and there was nothing in it. Nothing!", "Respirar. Certo. Eu voltei, abri o estojo, e não tinha nada dentro. Nada!", "n_moira"],
   "n_moira": ["n", "Moira is already there. She arrives the way she does everything: quietly, and exactly on time.", "A Moira já está ali. Ela chega do jeito que faz tudo: em silêncio e na hora exata.", "cond_br"],
   "cond_br": {"branch": [["called_conductor", "m_cond"], [null, "m_in"]]},
-  "m_cond": ["m", "Before you ask, berth nine: still not the conductor. Mr. Finch, sit down before you fall down.", "Antes que pergunte, cabine nove: continuo não sendo maestrina. Sr. Finch, sente antes que caia.", "m2"],
+  "m_cond": ["m", "Before you ask, berth nine: still not the conductor. Mr. Finch, sit down before you fall down.", "Antes que pergunte, cabine nove: continuo não regendo orquestra nenhuma. Sr. Finch, sente antes que caia.", "m2"],
   "m_in": ["m", "Nobody touch anything. Mr. Finch, sit down before you fall down.", "Ninguém encosta em nada. Sr. Finch, sente antes que caia.", "m2"],
   "m2": ["m", "Now. Oliver Finch, Miss Whitmore's assistant, yes? When did you last see the violin?", "Muito bem. Oliver Finch, assistente da Srta. Whitmore, certo? Quando viu o violino pela última vez?", "o2"],
   "o2": ["o", "At one o'clock. Exactly one. I opened the case, it was there, and I locked it again.", "À uma hora. Uma em ponto. Abri o estojo, ele estava lá, e tranquei de novo.", "o3"],
   "o3": ["o", "Then I went for a cup of tea. Fifteen minutes at most. And now this.", "Depois fui tomar um chá. Quinze minutos, no máximo. E agora isso.", "m3"],
-  "m3": ["m", "You're next door, berth nine. Thin walls. Did you hear anything in the last hour?", "Você está aqui ao lado, cabine nove. Parede fina. Ouviu alguma coisa na última hora?", [
+  "m3": ["m", "You're only a few doors down, berth nine. Thin walls. Did you hear anything in the last hour?", "Você está a poucas portas daqui, cabine nove. Parede fina. Ouviu alguma coisa na última hora?", [
    ["The train stopped somewhere. Later, a door banged.", "O trem parou em algum lugar. Depois, uma porta bateu.", "m_stop"],
    ["Nothing until the shouting, I'm afraid.", "Nada até a gritaria, infelizmente.", "m_nothing"],
    ["Yes, I'm here. I hear very well.", "Sim, estou aqui. Eu escuto muito bem.", null, "I can see you're here. I mean earlier. Did any noise wake you up tonight?", "Estou vendo que está aqui. Eu digo mais cedo. Algum barulho te acordou esta noite?"]
   ]],
-  "m_stop": ["m", "That was Crewe. Five to one until ten past. Nobody got on, nobody got off. I counted.", "Era Crewe. Das cinco para a uma até a uma e dez. Ninguém subiu, ninguém desceu. Eu contei.", "n_case"],
-  "m_nothing": ["m", "Pity. Well. We stopped at Crewe, five to one until ten past. Nobody got on or off.", "Pena. Bem. Paramos em Crewe, das cinco para a uma até a uma e dez. Ninguém subiu nem desceu.", "n_case"],
+  "m_stop": ["m", "That was Crewe. Five to one until ten past. Nobody got on, and nobody stayed behind. I counted.", "Era Crewe. Das cinco para a uma até a uma e dez. Ninguém subiu, e ninguém ficou pra trás. Eu contei.", "n_case"],
+  "m_nothing": ["m", "Pity. Well. We stopped at Crewe, five to one until ten past. Nobody got on, nobody stayed behind.", "Pena. Bem. Paramos em Crewe, das cinco para a uma até a uma e dez. Ninguém subiu, ninguém ficou pra trás.", "n_case"],
   "n_case": ["n", "Moira puts on her glasses and bends over the case. She studies the lock for a long time.", "A Moira põe os óculos e se debruça sobre o estojo. Examina a fechadura por um bom tempo.", "m4"],
   "m4": ["m", "Mr. Finch. When you came back just now, was this case locked?", "Sr. Finch. Quando o senhor voltou agora há pouco, este estojo estava trancado?", "o4"],
   "o4": ["o", "Locked. I opened it with my key, like always. There are only two. Mine and Miss Whitmore's.", "Trancado. Abri com a minha chave, como sempre. Só existem duas. A minha e a da Srta. Whitmore.", "m5"],

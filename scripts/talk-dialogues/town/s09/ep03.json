@@ -25,7 +25,7 @@
   "tasted_br": {"branch": [["tasted=yes", "v_yes"], [null, "v_no"]]},
   "v_yes": ["v", "The seasoning is right. You tasted this as you cooked, didn't you? It shows.", "O tempero está certo. Você foi provando enquanto cozinhava, não foi? Dá pra notar.", "v_crit"],
   "v_no": ["v", "It's flat. It needs salt. You didn't taste this once, did you?", "Está sem graça. Falta sal. Você não provou isto nem uma vez, provou?", "v_crit"],
-  "v_crit": ["v", "The texture, though. It's thin. A soup like this should coat the spoon.", "Agora, a textura. Está rala. Uma sopa dessas tem que cobrir a colher.", [
+  "v_crit": ["v", "Now, the texture. It's thin. A soup like this should coat the spoon.", "Agora, a textura. Está rala. Uma sopa dessas tem que cobrir a colher.", [
    ["You're right. I'd cook it down for longer next time.", "Você tem razão. Da próxima vez, eu deixaria reduzir mais.", "v_good", {"set": {"took_crit": "well"}}],
    ["With respect, I think it's meant to be light.", "Com todo o respeito, acho que ela é pra ser leve mesmo.", "v_argue", {"set": {"took_crit": "argued"}}],
    ["What would you have done differently?", "O que você teria feito diferente?", "v_ask", {"set": {"took_crit": "well"}}],
@@ -60,7 +60,7 @@
   ]],
   "c_friend": ["c", "It did, didn't it? You've got a good eye. I may have misjudged you.", "Estava, não estava? Você tem bom olho. Talvez eu tenha te julgado mal.", "n_nina"],
   "c_cold": ["c", "Ouch. Fine. Remember that when I'm holding the trophy on Thursday.", "Ui. Tudo bem. Lembre-se disso quando eu estiver segurando o troféu na quinta.", "n_nina"],
-  "c_friend2": ["c", "Hm. I suppose he was. Decent of you to say so, actually.", "Hum. É, pegou mesmo. Bacana da sua parte dizer isso, aliás.", "n_nina"],
+  "c_friend2": ["c", "Hmm. I suppose he was. Decent of you to say so, actually.", "Hum. É, pegou mesmo. Bacana da sua parte dizer isso, aliás.", "n_nina"],
   "n_nina": ["n", "The last bowl belongs to station two. The young woman behind it is staring at her shoes.", "A última tigela é da bancada dois. A moça atrás dela está olhando pros próprios sapatos.", "v_nina"],
   "v_nina": ["v", "Mushroom and thyme. Clean, balanced, confident. Who made this?", "Cogumelo e tomilho. Limpa, equilibrada, segura. Quem fez isto?", "p1"],
   "p1": ["p", "Me. Sorry. I mean, me. Nina.", "Eu. Desculpa. Quer dizer, eu. Nina.", "v_nina2"],

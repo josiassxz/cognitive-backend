@@ -29,7 +29,7 @@
    ["And you? Do you think the ferry should stay?", "E você? Acha que a balsa deve continuar?", "i_think"],
    ["Yes, I can count to a hundred.", "Sim, eu sei contar até cem.", null, "Clever you! I mean counting passengers. It depends on the season, doesn't it?", "Que talento! Eu falo de contar passageiros. Depende da época do ano, né?"]
   ]],
-  "i_why": ["i", "Habit. The office counted us once, you see. Three weeks, last February.", "Mania. É que a repartição contou a gente uma vez. Três semanas, em fevereiro passado.", "i_feb"],
+  "i_why": ["i", "The office counted us once, you see. Three weeks, last February.", "É que a repartição contou a gente uma vez. Três semanas, em fevereiro passado.", "i_feb"],
   "i_feb": ["i", "Eleven passengers a crossing, they said. In February! Even the seagulls stay home in February.", "Onze passageiros por travessia, disseram. Em fevereiro! Em fevereiro nem gaivota sai de casa.", "i_feb2", {"clue": "winter_count"}],
   "i_feb2": ["i", "So now I count every single day. Just in case anybody ever asks.", "Então agora eu conto todo santo dia. Vai que um dia alguém pergunta.", "i_capt"],
   "i_think": ["i", "Me? Ask me when I'm off duty. It's a long answer, and I've got ropes to sort.", "Eu? Pergunta quando eu estiver de folga. A resposta é comprida, e eu tenho corda pra arrumar.", "i_capt"],
@@ -66,7 +66,7 @@
    ["A course? Is it a three-course meal?", "Um prato? É uma refeição com três pratos?", null, "It's a ferry, not a restaurant. A course is a direction. Now, ask me your question.", "Isto é uma balsa, não um restaurante. Rumo é direção. Agora faça a sua pergunta."]
   ]],
   "c_island": ["c", "The shop empties in a week. The school closes in a year. After that, it's just birds.", "A mercearia esvazia em uma semana. A escola fecha em um ano. Depois disso, só sobram os pássaros.", "c_but"],
-  "c_again": ["c", "Every morning of it. Though I wouldn't mind a few less Februaries.", "Cada manhã. Se bem que eu dispensaria alguns fevereiros.", "c_but"],
+  "c_again": ["c", "Every morning of it. Though I could do with fewer Februaries.", "Cada manhã. Se bem que eu dispensaria alguns fevereiros.", "c_but"],
   "c_cancel": ["c", "The office decides this month. There's a meeting in the village hall on Friday. Everyone's coming.", "A repartição decide este mês. Tem reunião no salão comunitário na sexta. Vai todo mundo.", "c_but"],
   "c_but": ["c", "Mind you, I'm not the one to ask. Half the island thinks I'm part of the problem.", "Se bem que eu não sou a pessoa certa pra responder. Metade da ilha acha que eu sou parte do problema.", [
    ["Part of the problem? Why would they think that?", "Parte do problema? Por que achariam isso?", "c_problem"],
@@ -82,8 +82,8 @@
    ["My number is Brazilian. It doesn't work over here.", "Meu número é brasileiro. Aqui ele não funciona.", null, "Not phone numbers. Passenger numbers. How many people use this boat. What will you do about those?", "Não é número de telefone. É número de passageiros. Quanta gente usa este barco. O que você vai fazer com esses?"]
   ]],
   "c_end_num": ["c", "Good luck. You'll need a bigger notebook.", "Boa sorte. Você vai precisar de um caderno maior.", "n_end1"],
-  "c_end_story": ["c", "Stories. Aye. We've plenty of those. Mind which ones you believe.", "Histórias. É. Disso a gente tem de sobra. Cuidado com as que você acredita.", "n_end1"],
+  "c_end_story": ["c", "Stories. Aye. We've plenty of those. Mind which ones you believe.", "Histórias. É. Disso a gente tem de sobra. Cuidado com as histórias em que você acredita.", "n_end1"],
   "n_end1": ["n", "Through the rain, an island appears. Grey rock, green hills, a line of white houses.", "No meio da chuva, surge uma ilha. Rocha cinzenta, morros verdes, uma fileira de casas brancas.", "n_end2"],
-  "n_end2": ["n", "Skerra. Four days until the meeting. And already, two people have given you two different numbers.", "Skerra. Faltam quatro dias para a reunião. E duas pessoas já te deram dois números diferentes.", null]
+  "n_end2": ["n", "Skerra. On Friday, the whole island meets about the ferry. You have four days to listen.", "Skerra. Na sexta, a ilha inteira se reúne para falar da balsa. Você tem quatro dias para escutar.", null]
  }
 }

@@ -68,7 +68,7 @@
    ["The island's. That's why I came all this way.", "Do lado da ilha. Foi por isso que eu vim de tão longe.", "m_island", {"set": {"side": "island"}}],
    ["The left side. It's my good side.", "Do lado esquerdo. É o meu lado bom.", null, "Very funny. I mean in the argument, dear. Whose side are you on?", "Muito engraçado. Eu falo da discussão, meu bem. De que lado você está?"]
   ]],
-  "m_fair": ["m", "Hm. Fair is harder than it sounds. But I respect it. I think.", "Hum. Ser justo é mais difícil do que parece. Mas eu respeito. Acho.", "n_shout"],
+  "m_fair": ["m", "Hm. Fair is harder than it sounds. But I respect it. I think.", "Hum. Justiça é mais difícil do que parece. Mas eu respeito. Acho.", "n_shout"],
   "m_island": ["m", "Good. Though mind you, the island has more than one side itself.", "Ótimo. Se bem que a própria ilha tem mais de um lado.", "n_shout"],
   "n_shout": ["n", "Down at the harbour, somebody starts shouting. A man's voice, cheerful and furious at once.", "Lá embaixo, no porto, alguém começa a gritar. Uma voz de homem, alegre e furiosa ao mesmo tempo.", "m_shout"],
   "m_shout": ["m", "That'll be Duncan, arguing with a seagull or the weather. He lands his catch at six.", "Deve ser o Duncan, discutindo com uma gaivota ou com o tempo. Ele descarrega a pesca às seis.", "m_last"],

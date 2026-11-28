@@ -83,7 +83,7 @@
    ["Can we help? I can ask around for someone who repairs laptops.", "Dá pra gente ajudar? Posso procurar alguém que conserte notebook.", "m_nohelp"],
    ["Dead? Should we call a doctor?", "Morreu? Será que a gente chama um médico?", null, "Ha. No. It's a computer. Dead means broken. It's just broken. Okay?", "Rá. Não. É um computador. Morreu quer dizer quebrou. Só quebrou. Tá?"]
   ], {"clue": "dead_laptop"}],
-  "m_slides": ["m", "I can fix it. I always fix things. Just don't tell Priya. Please.", "Eu conserto. Eu sempre conserto as coisas. Só não conta pra Priya. Por favor.", "n8"],
+  "m_slides": ["m", "Yeah. But I can fix it. I always fix things. Just don't tell Priya. Please.", "Só. Mas eu conserto. Eu sempre conserto as coisas. Só não conta pra Priya. Por favor.", "n8"],
   "m_nohelp": ["m", "No. Thanks. I've got it. I just need a screwdriver and some time.", "Não. Valeu. Deixa comigo. Só preciso de uma chave de fenda e de um tempo.", "n8"],
   "n8": ["n", "Miles puts the laptop in his backpack and leaves. He forgets his jacket.", "O Miles guarda o notebook na mochila e vai embora. Esquece a jaqueta.", "t10"],
   "t10": ["t", "He left his jacket. In November. That is not somebody who's fine.", "Ele largou a jaqueta. Em novembro. Isso não é alguém que está bem.", [
@@ -92,7 +92,7 @@
    ["In November? Where is November?", "Em novembro? Onde fica novembro?", null, "November is now! It's freezing outside! What are we going to do about Miles?", "Novembro é agora! Tá congelando lá fora! O que a gente faz com o Miles?"]
   ]],
   "t_take": ["t", "Try. But he pretends he's not home when he's upset. I'll keep the jacket safe.", "Tenta. Mas ele finge que não está quando fica chateado. Eu guardo a jaqueta.", "n_end"],
-  "t_priya": ["t", "He asked you not to. Give him a day or two. If he's still hiding, we talk.", "Ele pediu pra não contar. Dá um ou dois dias pra ele. Se continuar se escondendo, a gente fala.", "n_end"],
+  "t_priya": ["t", "Not yet. He'd hate that. Give him a day or two. If he's still hiding, we talk.", "Ainda não. Ele ia odiar. Dá um ou dois dias pra ele. Se continuar se escondendo, a gente fala.", "n_end"],
   "n_end": ["n", "That night, you knock on his door. No answer. Monday, no answer. The presentation is on Friday.", "Naquela noite, você bate na porta dele. Nada. Segunda, nada. A apresentação é na sexta.", null]
  }
 }

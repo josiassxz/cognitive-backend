@@ -13,7 +13,7 @@
   "n1": ["n", "The Mojave Desert. Sand, heat and one straight road. The fuel needle is almost on empty.", "O deserto de Mojave. Areia, calor e uma estrada reta. O ponteiro do combustível está quase no vazio.", "rock_br"],
   "rock_br": {"branch": [["rock=asked", "r_luck_r"], [null, "r_luck"]]},
   "r_luck_r": ["r", "Almost out of gas, in a desert. It's the rock curse! You asked about taking one!", "Quase sem gasolina, num deserto. É a maldição das pedras! Você perguntou se podia levar uma!", "n2"],
-  "r_luck": ["r", "Almost out of gas, in a desert. And we didn't even take a cursed rock!", "Quase sem gasolina, num deserto. E a gente nem pegou pedra amaldiçoada!", "n2"],
+  "r_luck": ["r", "Almost out of gas, in a desert. And we were so good! We didn't even take a rock!", "Quase sem gasolina, num deserto. E a gente se comportou tão bem! Nem pedra a gente pegou!", "n2"],
   "n2": ["n", "Then a shape appears in the heat: an old gas station with a rocket on its roof.", "Então uma forma aparece no meio do calor: um posto de gasolina antigo com um foguete no telhado.", "r_stop"],
   "r_stop": ["r", "Last Chance Gas. It looks like nobody's been here since Grandpa. Do we stop?", "Last Chance Gas. Parece que ninguém passa aqui desde o vovô. A gente para?", [
    ["We don't have a choice. Look at the needle.", "A gente não tem escolha. Olha o ponteiro.", "r_choice"],
@@ -49,7 +49,7 @@
   "o_dent": ["o", "I know this dent. I made this dent. Nineteen seventy-four, with pump one.", "Eu conheço este amassado. Fui eu que fiz. Mil novecentos e setenta e quatro, com a bomba um.", [
    ["You hit our grandfather's van?", "Você bateu na van do nosso avô?", "o_hit"],
    ["Then you must have known Frank Almeida.", "Então você deve ter conhecido o Frank Almeida.", "o_knew"],
-   ["I went to the dentist in March.", "Eu fui ao dentista em março.", null, "Not a dentist. A dent! This one, right here in the metal. Don't you want to know how I made it?", "Dentista, não. Amassado! Este aqui, na lataria. Não quer saber como eu fiz?"]
+   ["I went to the dentist in March.", "Eu fui ao dentista em março.", null, "Not a dentist. A dent! This one, right here in the metal. Don't you want to know how it got there?", "Dentista, não. Amassado! Este aqui, na lataria. Não quer saber como eu fiz?"]
   ]],
   "o_hit": ["o", "The pump hit it. I was only holding the pump. It's a technical difference.", "Quem bateu foi a bomba. Eu só estava segurando a bomba. É uma diferença técnica.", "o_credit"],
   "o_knew": ["o", "Frank. Skinny, loud and broke. Sure, I knew him.", "Frank. Magro, barulhento e sem um tostão. Claro que conheci.", "o_credit"],
@@ -95,9 +95,9 @@
   "o_ferris": ["o", "The Ferris wheel on the Santa Monica pier. That's where the road ends. There's even a sign.", "A roda-gigante do píer de Santa Monica. É lá que a estrada acaba. Tem até placa.", "water_br"],
   "o_worms": ["o", "Bait, kid. For fishing. There's a bait shop at the end of the Santa Monica pier, past the big wheel.", "Isca, criatura. De pescar. Tem uma loja de iscas no fim do píer de Santa Monica, depois da roda-gigante.", "water_br"],
   "water_br": {"branch": [["water=yes", "o_bye_w"], [null, "o_bye_n"]]},
-  "o_bye_w": ["o", "You've got gas, water and good tires. Four hours to the ocean. Go on, get out of here.", "Vocês têm gasolina, água e pneus bons. Quatro horas até o mar. Vão, sumam daqui.", "o_last"],
-  "o_bye_n": ["o", "Wait. Take these two gallons of water. No charge. Don't argue, I'm old.", "Espera. Levem estes dois galões de água. Não é nada. Não discutam, eu sou velho.", "o_last"],
+  "o_bye_w": ["o", "You've got gas, water and one last riddle. Four hours to the ocean. Go on, get out of here.", "Vocês têm gasolina, água e um último enigma. Quatro horas até o mar. Vão, sumam daqui.", "o_last"],
+  "o_bye_n": ["o", "Wait. Take these two gallons of water. No charge. Don't argue, I'm old.", "Espera. Levem estes dois galões de água. É por conta da casa. Não discutam, eu sou velho.", "o_last"],
   "o_last": ["o", "And say hello to the ocean for me. Sixty years out here, and I've never gone to see it.", "E deem um oi pro mar por mim. Sessenta anos aqui, e eu nunca fui ver.", "n_end"],
-  "n_end": ["n", "Four hours to go. Rafa drives, and for once he doesn't say a word. The last card is in your hand.", "Faltam quatro horas. O Rafa dirige e, pela primeira vez, não diz uma palavra. O último cartão está na sua mão.", null]
+  "n_end": ["n", "Four hours to go. Rafa drives, and for once he says nothing. The last card is in your hand.", "Faltam quatro horas. O Rafa dirige e, pela primeira vez, não diz uma palavra. O último cartão está na sua mão.", null]
  }
 }

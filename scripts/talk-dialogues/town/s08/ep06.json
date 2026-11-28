@@ -46,7 +46,7 @@
    ["She's shy about her English. That's all.", "Ela tem vergonha do inglês dela. Só isso.", "g_shy"],
    ["No, I don't think she has a bike.", "Não, acho que ela não tem bicicleta.", null, "A bike? Bite! With teeth! The woman is afraid of me. Why is that?", "Bicicleta? Morder! Com os dentes! A mulher tem medo de mim. Por quê?"]
   ]],
-  "g_like": ["g", "Not like them? She brought two hundred sweets. I've eaten nine. I like her fine.", "Não gostar deles? Ela trouxe duzentos docinhos. Eu já comi nove. Gosto dela, sim.", "waltz_br"],
+  "g_like": ["g", "Not like them? She brought two hundred sweets. I've eaten twelve. I like her fine.", "Não gostar deles? Ela trouxe duzentos docinhos. Eu já comi doze. Gosto dela, sim.", "waltz_br"],
   "g_shy": ["g", "Her English? My son speaks English all day, and nobody understands him either.", "O inglês dela? Meu filho fala inglês o dia inteiro, e ninguém entende ele também.", "waltz_br"],
   "waltz_br": {"branch": [["clue_family_waltz", "g_why_w"], [null, "g_why"]]},
   "g_why_w": ["g", "You fix everything, they tell me. So fix this. Why am I cross about Saturday?", "Dizem que você resolve tudo. Então resolve esta. Por que eu estou zangada com o sábado?", [
@@ -73,10 +73,10 @@
   "g_sixty": ["g", "For sixty years, I played the first dance at every Doyle wedding. Paddy's waltz.", "Por sessenta anos, eu toquei a primeira dança em todo casamento dos Doyle. A valsa do Paddy.", "g_wish"],
   "g_fuss": ["g", "I love a fuss. I'm eighty-four. Fuss is all I have left. Never mind, child.", "Eu adoro um alvoroço. Tenho oitenta e quatro anos. Alvoroço é o que me resta. Deixa pra lá, criança.", "n_bang"],
   "g_wish": ["g", "I'm not against this wedding, child. I only wanted to be asked to play. Nobody asked.", "Eu não sou contra esse casamento, criança. Eu só queria que pedissem pra eu tocar. Ninguém pediu.", "g_wish2", {"clue": "granny_wish"}],
-  "g_wish2": ["g", "And I won't offer. A person has her pride. So, now you know. What will you do?", "E eu não vou me oferecer. A gente tem orgulho. Pronto, agora você sabe. O que vai fazer?", [
+  "g_wish2": ["g", "And I won't offer. A woman has her pride. So, now you know. What will you do?", "E eu não vou me oferecer. A gente tem orgulho. Pronto, agora você sabe. O que vai fazer?", [
    ["I'll keep it to myself. For now.", "Vou guardar comigo. Por enquanto.", "g_q_a"],
    ["I'll make sure you're asked. Properly.", "Vou garantir que peçam. Do jeito certo.", "g_q_b"],
-   ["Pride? No, I'm not a lion.", "Orgulho? Não, eu não sou um leão.", null, "Not that kind of pride! I mean my dignity. Now you know my secret. What will you do with it?", "Não é esse pride! Estou falando da minha dignidade. Agora você sabe meu segredo. O que vai fazer com ele?"]
+   ["Pride? No, I'm not a lion.", "Orgulho? Não, eu não sou um leão.", null, "Not that kind of pride! I mean my dignity. Now you know my secret. What will you do?", "Não é esse pride! Estou falando da minha dignidade. Agora você sabe meu segredo. O que vai fazer?"]
   ]],
   "g_q_a": ["g", "Good. A secret is like tea. It needs time.", "Ótimo. Segredo é igual chá. Precisa de tempo.", "n_bang"],
   "g_q_b": ["g", "We'll see. I'm not an easy woman to ask. Bring manners.", "Veremos. Eu não sou fácil de convencer. Traga educação.", "n_bang"],

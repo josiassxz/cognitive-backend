@@ -47,11 +47,11 @@
   "n_two": ["n", "Two lines form. They work fast. Then Marta crosses the barn and hands Fergus a broom. He takes it.", "Formam-se duas filas. O trabalho anda rápido. Aí a Marta atravessa o celeiro e entrega uma vassoura pro Fergus. Ele aceita.", "p1"],
   "p1": ["p", "Excuse me. Can I say something? This is a very good floor.", "Com licença. Posso falar uma coisa? Este piso é muito bom.", [
    ["Good for dancing, you mean? Do you dance, Paulo?", "Bom pra dançar, o senhor quer dizer? O senhor dança, Paulo?", "p_play"],
-   ["It is. Paulo, how's that jacket of yours, by the way?", "É mesmo. Paulo, e aquele seu paletó, aliás, como está?", "p_jacket"],
+   ["It is. And is your suit all right for tomorrow, Paulo?", "É mesmo. E o seu terno, Paulo, está em ordem pra amanhã?", "p_jacket"],
    ["Flour? Marta has the flour, for the cake.", "Farinha? A farinha está com a Marta, pro bolo.", null, "No, not for cake. The floor! Under your feet. It is a fine floor, no?", "Não, não é de bolo. O piso! Debaixo dos seus pés. É um belo piso, não é?"]
   ]],
   "p_play": ["p", "Me, no. I play. My guitar is in my room. On this floor, the sound would be beautiful.", "Eu, não. Eu toco. Meu violão está no meu quarto. Neste piso, o som ia ficar lindo.", "n_julia", {"clue": "paulo_guitar"}],
-  "p_jacket": ["p", "Terrible. I'm sure it's another man's. The shop put every suit in the same grey bag.", "Péssimo. Tenho certeza de que é de outro homem. A loja pôs todos os ternos em capas cinza iguais.", "p_lining", {"clue": "wrong_jacket"}],
+  "p_jacket": ["p", "The jacket is terrible. I'm sure it's another man's. The shop put every suit in the same grey bag.", "O paletó está péssimo. Tenho certeza de que é de outro homem. A loja pôs todos os ternos em capas cinza iguais.", "p_lining", {"clue": "wrong_jacket"}],
   "p_lining": ["p", "And one side is heavy. Maybe the other man forgot his keys. Not my business.", "E um lado é pesado. Vai ver o outro homem esqueceu as chaves. Não é da minha conta.", "n_julia"],
   "n_julia": ["n", "Near the door, Julia is sitting on an upturned bucket, staring at the rain.", "Perto da porta, a Julia está sentada num balde virado, olhando a chuva.", "knows_br"],
   "knows_br": {"branch": [["julia_knows=yes", "j_k"], [null, "j_nk"]]},

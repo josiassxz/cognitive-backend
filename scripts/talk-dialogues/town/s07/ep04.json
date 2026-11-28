@@ -73,9 +73,9 @@
   "l_who": ["l", "Took it? I'm not convinced anybody did. Thieves break locks. They don't tidy up afterwards.", "Pegou? Não estou convencido de que alguém pegou. Ladrão arromba fechadura. Não deixa tudo arrumadinho depois.", "l_end"],
   "vienna_br": {"branch": [["lang_friend=yes", "l_vienna"], [null, "l_vienna_q"]]},
   "l_vienna_q": ["l", "Why should I share what I know? In the lounge car, you practically told me to go away.", "Por que eu dividiria o que sei? No vagão-lounge, você praticamente me mandou embora.", [
-   ["I misjudged you, and I'm sorry. I'd value your opinion.", "Eu te julguei mal, desculpa. Sua opinião vale muito pra mim.", "l_vienna"],
+   ["I misjudged you, and I'm sorry. I'd value your opinion.", "Eu julguei mal o senhor, me desculpe. A sua opinião vale muito pra mim.", "l_vienna"],
    ["Fair enough. I won't push.", "Justo. Não vou insistir.", "l_end"],
-   ["Share? No thanks, I've eaten.", "Dividir? Não, valeu, já comi.", null, "Not food. Information. Why should I tell you what I know about her?", "Não é comida. É informação. Por que eu te contaria o que sei sobre ela?"]
+   ["Share? No thanks, I've eaten.", "Dividir? Não, valeu, já comi.", null, "Not food. Information. Why should I tell you what I know about her?", "Não é comida. É informação. Por que eu contaria a você o que sei sobre ela?"]
   ]],
   "l_vienna": ["l", "I was in Vienna last month. She walked on stage, lifted her bow, and froze. Then she walked off.", "Eu estava em Viena no mês passado. Ela entrou no palco, ergueu o arco e travou. Depois saiu.", "l_vienna2", {"clue": "vienna"}],
   "l_vienna2": ["l", "The papers said a sudden illness. I was in the third row. That wasn't illness. That was fear.", "Os jornais falaram em mal súbito. Eu estava na terceira fila. Aquilo não era doença. Era medo.", "l_end"],

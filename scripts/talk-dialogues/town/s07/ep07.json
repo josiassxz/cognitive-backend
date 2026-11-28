@@ -43,7 +43,7 @@
    ["That's your business. I'd rather know why you lied.", "Isso é assunto seu. Prefiro saber por que você mentiu.", "o_why"],
    ["I never ask who. I'm not an owl.", "Eu nunca pergunto \"who\". Não sou coruja.", null, "An owl. Very good. I'm too tired for jokes. Don't you want to know who I phoned?", "Uma coruja. Muito bom. Estou cansado demais pra piada. Você não quer saber pra quem eu liguei?"]
   ]],
-  "o_call": ["o", "Her old teacher, in New York. It's evening there. She's the only person Clara ever listens to.", "Pra antiga professora dela, em Nova York. Lá ainda é noite. É a única pessoa que a Clara escuta.", "o_call2"],
+  "o_call": ["o", "Her old teacher, in New York. It's evening there. She's the only person Clara ever listens to.", "Pra antiga professora dela, em Nova York. Lá a noite ainda está começando. É a única pessoa que a Clara escuta.", "o_call2"],
   "o_call2": ["o", "She didn't pick up. I left three messages. Then I got back on the train.", "Ela não atendeu. Deixei três recados. Depois voltei pro trem.", "o_why"],
   "o_why": ["o", "I said one o'clock because it sounded tidy. Because I needed it to be a thief.", "Eu disse uma hora porque soava redondo. Porque eu precisava que fosse um ladrão.", [
    ["You're protecting someone, aren't you?", "Você está protegendo alguém, não está?", "o_protect"],

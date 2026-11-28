@@ -22,7 +22,7 @@
   "n_cat": ["n", "On the bed, in the middle of the knitting bag, sits an enormous ginger cat. He looks unimpressed.", "Na cama, bem no meio da sacola de tricô, está um gato laranja enorme. Ele não parece nada impressionado.", "held_br"],
   "held_br": {"branch": [["held_bag=yes", "d_carried"], [null, "d_meet"]]},
   "d_carried": ["d", "This is Marmalade. You've met. You carried him on board yourself, dear. So you're in this too.", "Este é o Marmalade. Vocês já se conhecem. Foi você quem trouxe ele pra dentro do trem, meu bem. Então está nessa comigo.", "d_hello"],
-  "d_meet": ["d", "This is Marmalade. He's the reason I couldn't let anyone else carry my knitting.", "Este é o Marmalade. É por causa dele que eu não podia deixar qualquer um carregar o meu tricô.", "d_hello"],
+  "d_meet": ["d", "This is Marmalade. He was in my knitting bag all along. No wonder it was so heavy.", "Este é o Marmalade. Estava na minha sacola de tricô o tempo todo. Por isso pesava tanto.", "d_hello"],
   "d_hello": ["d", "Isn't he handsome? Go on, say hello. He doesn't bite. Much.", "Não é lindo? Vai, cumprimenta ele. Ele não morde. Muito.", [
    ["Hello, Marmalade. Aren't you beautiful?", "Oi, Marmalade. Mas que belezura você é.", "d_purr"],
    ["I'm more of a dog person, to be honest.", "Sinceramente, eu me dou melhor com cachorro.", "d_dog"],
@@ -38,7 +38,7 @@
   "d_kept": ["d", "Bless you. Marmalade, say thank you. He says thank you.", "Deus te abençoe. Marmalade, agradece. Ele agradeceu.", "d4"],
   "d_honest": ["d", "Tell her? Oh dear. Perhaps at breakfast. People are kinder after porridge.", "Contar pra ela? Ai, ai. Talvez no café da manhã. As pessoas ficam mais boazinhas depois do mingau.", "d4"],
   "d4": ["d", "That noise you heard was him. He cries when the train goes over a bridge. Like a little violin.", "Aquele barulho que você ouviu era ele. Ele chora quando o trem passa numa ponte. Feito um violininho.", "d5", {"clue": "marmalade"}],
-  "d5": ["d", "He escaped earlier, you know. I spent half the night in the corridor looking for him.", "Ele fugiu mais cedo, sabia? Passei metade da noite no corredor atrás dele.", [
+  "d5": ["d", "He escaped earlier, you know. I popped back to check on him, and had to search the whole corridor.", "Ele fugiu mais cedo, sabia? Dei um pulo aqui pra ver como ele estava e tive que procurar pelo corredor inteiro.", [
    ["What time was that, exactly?", "Que horas foi isso, exatamente?", "d_time"],
    ["Did you see anyone while you were out there?", "A senhora viu alguém enquanto estava lá fora?", "d_saw"],
    ["A cape? I thought he was a cat.", "Uma capa? Achei que ele fosse um gato.", null, "No, dear. Escaped. He ran away! I was out in that corridor for ages. Aren't you curious?", "Não, meu bem. \"Escaped\", fugiu. Ele escapou! Fiquei um tempão naquele corredor. Não ficou com curiosidade?"]
@@ -49,7 +49,7 @@
    ["You were in Edinburgh.", "A senhora estava em Edimburgo.", null, "Not yet, dear! Earlier tonight. Where had I got to in my story?", "Ainda não, meu bem! Mais cedo, esta noite. Em que parte da história eu parei?"]
   ]],
   "d_harold": ["d", "Forty years married. He hated trains and loved cheese. Anyway. The corridor, yes.", "Quarenta anos de casados. Odiava trem e amava queijo. Enfim. O corredor, isso.", "d_saw"],
-  "d_saw": ["d", "I was on my knees by the luggage van, calling puss, puss. And somebody walked right past me.", "Eu estava de joelhos perto do bagageiro, chamando pss, pss. E alguém passou bem do meu lado.", "d6"],
+  "d_saw": ["d", "At quarter to one I was on my knees by the luggage van, calling puss, puss. Somebody walked right past me.", "Às quinze para a uma eu estava de joelhos perto do bagageiro, chamando pss, pss. Alguém passou bem do meu lado.", "d6"],
   "d6": ["d", "Didn't even see me. People never look down, dear. Shall I describe them?", "Nem me viu. As pessoas nunca olham pra baixo, meu bem. Quer que eu descreva?", [
    ["Please. Take your time. Every detail.", "Por favor. Sem pressa. Cada detalhe.", "d_shawl"],
    ["Was it a man or a woman?", "Era homem ou mulher?", "d_who"],
@@ -73,7 +73,7 @@
   "j2": ["j", "Because I'm allergic. I've been sneezing since London. Please. I need to talk to someone.", "Porque eu tenho alergia. Estou espirrando desde Londres. Por favor. Preciso falar com alguém.", "helped_br"],
   "helped_br": {"branch": [["helped_jamie=yes", "j_trust"], [null, "j_wary"]]},
   "j_trust": ["j", "You. You helped me with my music on the platform. Can I talk to you?", "Você. Você me ajudou com as partituras na plataforma. Posso falar com você?", "j3"],
-  "j_wary": ["j", "Not you. You were cross with me on the platform. But, well, nobody else is awake.", "Você não. Você ficou uma fera comigo na plataforma. Mas, bom, não tem mais ninguém acordado.", "j3"],
+  "j_wary": ["j", "Not you. You were annoyed with me on the platform. But, well, nobody else is awake.", "Você não. Você ficou uma fera comigo na plataforma. Mas, bom, não tem mais ninguém acordado.", "j3"],
   "j3": ["j", "It's about tonight. About compartment five. I think I'm in trouble.", "É sobre hoje à noite. Sobre a cabine cinco. Acho que estou encrencado.", [
    ["Come on. Let's find somewhere quiet to talk.", "Vem. Vamos achar um canto tranquilo pra conversar.", "j_ok"],
    ["Were you near the violin, Jamie?", "Você chegou perto do violino, Jamie?", "j_near"],

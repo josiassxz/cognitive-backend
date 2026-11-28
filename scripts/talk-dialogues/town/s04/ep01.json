@@ -31,11 +31,11 @@
    ["Me! I want to drive.", "Eu! Quero dirigir.", "r_youdrive", {"set": {"driver": "you"}}],
    ["No drinks for me, thanks. It's too early.", "Bebida pra mim, não, valeu. Tá muito cedo.", null, "Not drinks. Drives! Who drives the van first, you or me?", "Beber, não. Dirigir! Quem dirige a van primeiro, você ou eu?"]
   ]],
-  "r_map": ["r", "Perfect. I drive, you read. Here's the key. Please start. Please, please start.", "Perfeito. Eu dirijo, você lê. Aqui está a chave. Pega, por favor. Por favor, por favor, pega.", "n_start"],
+  "r_map": ["r", "Perfect. I drive, you read. Okay, old girl. Please start. Please, please start.", "Perfeito. Eu dirijo, você lê. Vamos lá, velhinha. Pega, por favor. Por favor, por favor, pega.", "n_start"],
   "r_youdrive": ["r", "Brave! Okay, be nice to her. Here's the key. Turn it slowly.", "Que coragem! Tá, trata ela com carinho. Aqui está a chave. Gira devagar.", "n_start"],
   "n_start": ["n", "The engine coughs twice. Then it starts, and the whole van shakes.", "O motor tosse duas vezes. Aí ele pega, e a van inteira treme.", "r_grandpa"],
   "r_grandpa": ["r", "Yes! You know, Grandpa drove this road in nineteen seventy-four. All the way to California.", "Isso! Sabe, o vovô fez essa estrada em mil novecentos e setenta e quatro. Até a Califórnia.", "r_why"],
-  "r_why": ["r", "He went there to find a job. Three weeks later, he was back. He never told us why.", "Ele foi pra lá atrás de emprego. Três semanas depois, estava de volta. Nunca contou o motivo.", [
+  "r_why": ["r", "He went there to find a job. A month later, he was back. He never told us why.", "Ele foi pra lá atrás de emprego. Um mês depois, estava de volta. Nunca contou o motivo.", [
    ["Did you ask Grandma Rosa?", "Você perguntou pra vó Rosa?", "r_grandma"],
    ["Maybe he didn't like California.", "Vai ver ele não gostou da Califórnia.", "r_maybe"],
    ["No, I didn't find a job there either.", "Não, eu também não achei emprego lá.", null, "Not you! Grandpa. He came back and never said why. Strange, right?", "Você, não! O vovô. Ele voltou e nunca disse por quê. Estranho, né?"]

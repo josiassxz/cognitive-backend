@@ -12,7 +12,7 @@
  "start": "n1",
  "nodes": {
   "n1": ["n", "Thursday. Five in the morning. It's dark, and somebody is knocking on your bedroom door.", "Quinta. Cinco da manhã. Está escuro, e alguém bate na porta do seu quarto.", "t0"],
-  "t0": ["t", "Psst! Are you awake? Say something!", "Psiu! Já acordou? Fala alguma coisa!", [
+  "t0": ["t", "Hey! Are you awake? Say something!", "Ei! Já acordou? Fala alguma coisa!", [
    ["Tasha? What time is it?", "Tasha? Que horas são?", "t0_time"],
    ["I am now. What's wrong?", "Agora estou. O que foi?", "t0_wrong"],
    ["No, I'm a cake.", "Não, eu sou um bolo.", null, "A cake? You're dreaming. Wake up! Are you awake now?", "Um bolo? Você está sonhando. Acorda! Já acordou agora?"]
@@ -35,12 +35,12 @@
    ["I don't know any Persians.", "Não conheço nenhum persa.", null, "Person, not Persian! Miles! Where could Miles be at this hour? Think!", "Person é pessoa, não persa! O Miles! Onde o Miles pode estar a esta hora? Pensa!"]
   ]],
   "t_know": ["t", "He what? Every morning? And the radio at night? When does that boy sleep? Let's go.", "Ele o quê? Toda manhã? E a rádio à noite? Quando esse menino dorme? Vamos.", "n2"],
-  "t_bed": ["t", "Ha. No. Listen. He once swapped a radio shift because of work at five. The dining hall kitchen!", "Rá. Não. Escuta. Uma vez ele trocou um turno na rádio por causa de trabalho às cinco. A cozinha do refeitório!", "n2"],
-  "t_guess": ["t", "Both closed. But he once swapped a radio shift because of work at five. The dining hall kitchen!", "As duas fechadas. Mas uma vez ele trocou um turno na rádio por causa de trabalho às cinco. A cozinha do refeitório!", "n2"],
+  "t_bed": ["t", "No, listen. He once mentioned work at five. Only the dining hall kitchen is open that early!", "Não, escuta. Uma vez ele falou de um trabalho às cinco. Só a cozinha do refeitório abre tão cedo!", "n2"],
+  "t_guess": ["t", "Both closed. But he once mentioned work at five. Only the dining hall kitchen is open that early!", "As duas fechadas. Mas uma vez ele falou de um trabalho às cinco. Só a cozinha do refeitório abre tão cedo!", "n2"],
   "n2": ["n", "Ten minutes later, you're behind the dining hall. The kitchen door is open. It smells of bread.", "Dez minutos depois, vocês estão nos fundos do refeitório. A porta da cozinha está aberta. Cheira a pão.", "r1"],
   "r1": ["r", "My dear! And a friend. At this hour? Breakfast isn't until seven.", "Meu bem! E com uma amiga. A esta hora? O café da manhã é só às sete.", [
    ["We're looking for Miles. Is he working today?", "A gente está procurando o Miles. Ele trabalha hoje?", "r_here"],
-   ["Sorry to bother you so early, Rosa. We're worried about a friend.", "Desculpa incomodar tão cedo, Rosa. A gente está com medo por um amigo.", "r_worried"],
+   ["Sorry to bother you so early, Rosa. We're worried about a friend.", "Desculpa incomodar tão cedo, Rosa. A gente está numa preocupação só com um amigo.", "r_worried"],
    ["Great. Two breakfasts, please.", "Ótimo. Dois cafés da manhã, por favor.", null, "Not yet, my dear! The eggs are still cold. Why are you really here so early?", "Ainda não, meu bem! Os ovos ainda estão gelados. Por que vocês vieram tão cedo, de verdade?"]
   ]],
   "r_worried": ["r", "Worried? Then you're in the right kitchen. You mean Miles, don't you?", "Preocupação? Então vieram à cozinha certa. É o Miles, não é?", "r_here"],
@@ -50,8 +50,8 @@
    ["No. He won't talk to us. Did he tell you anything?", "Não. Ele não fala com a gente. Ele contou alguma coisa pra senhora?", "r_one"],
    ["Yes. It's five in the morning. That's what happened.", "Sim. São cinco da manhã. Foi isso que aconteceu.", null, "Ha! True. But I mean Miles. Do you know why he's so sad?", "Rá! Verdade. Mas eu digo o Miles. Vocês sabem por que ele anda tão triste?"]
   ]],
-  "r_money": ["r", "So that's it. He asked me for every extra shift. A repair costs four hundred dollars.", "Então é isso. Ele me pediu todo turno extra que tivesse. O conserto custa quatrocentos dólares.", "r3"],
-  "r_one": ["r", "A little. He heard someone in your group say it. 'He has one job. One.'", "Um pouco. Ele ouviu alguém do grupo de vocês dizer. 'Ele tem uma tarefa só. Uma.'", "r_one2", {"clue": "one_thing"}],
+  "r_money": ["r", "So that's why. He asked me for every extra shift. He said he needs four hundred dollars.", "Então é por isso. Ele me pediu todo turno extra que tivesse. Disse que precisa de quatrocentos dólares.", "r3"],
+  "r_one": ["r", "A little. He heard someone in your group say, 'He has one job. One.'", "Um pouco. Ele ouviu alguém do grupo de vocês dizer. 'Ele tem uma tarefa só. Uma.'", "r_one2", {"clue": "one_thing"}],
   "r_one2": ["r", "Now he won't go back until the slides are perfect. He's ashamed, my dear.", "Agora ele não volta enquanto os slides não estiverem perfeitos. Ele está com vergonha, meu bem.", "r3"],
   "r3": ["r", "I'll get him. But be gentle. He's like bread dough. Push too hard and he goes flat.", "Vou chamar. Mas com jeito. Ele é feito massa de pão. Se apertar demais, murcha.", "n3"],
   "n3": ["n", "Rosa goes to the back. Miles comes out in a wet apron. He sees you and stops.", "A Rosa vai até o fundo. O Miles aparece de avental molhado. Ele te vê e para.", "m1"],

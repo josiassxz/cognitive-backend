@@ -72,7 +72,7 @@ perguntar da tempestade) · `landlord_reason` ep7 (só se você perguntar por qu
    LÊ `tone` (pedir desculpas ou não). Opinião sincera sobre a música, negociar o horário do trombone
    (DEFINE `practice`). Se você pergunta dos espirros: só em casa, alergia a gato (`sneezing`); se fala do
    fantasma: álibi em Leeds. Favor do show (DEFINE `helped_callum`). Gancho: reunião e contrato à noite.
-5. `ep05.json` `s06-05-house-meeting` B1 · home · Quarta 20h · n, m, p, c, o
+5. `ep05.json` `s06-05-house-meeting` B1 · home · Quarta 19h · n, m, p, c, o
    Reunião: plano de limpeza (LÊ `chore`, `helped_callum`), barulho (LÊ `quiet_promise`, `practice`),
    contrato: cláusula nove, "sem permissão por escrito" (`written_permission`). A Mei diz que senhorio
    sempre nega. Gancho: a Sra. Okafor bate na porta por causa do barulho de madrugada.

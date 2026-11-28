@@ -45,7 +45,7 @@
    ["Yes, we parked a lot today.", "Sim, a gente estacionou muito hoje.", null, "I'm sure you did! But the yellow van. Where did it come from?", "Imagino que sim! Mas a van amarela. De onde ela veio?"]
   ]],
   "k_noprob": ["k", "No, no problem at all! It's just that I've seen that van before. A very long time ago.", "Não, problema nenhum! É que eu já vi essa van antes. Há muito, muito tempo.", "k_frank"],
-  "k_frank": ["k", "I knew it! I was nine. A yellow van got stuck in the sand, right behind our house.", "Eu sabia! Eu tinha nove anos. Uma van amarela atolou na areia, bem atrás da nossa casa.", "k_frank2"],
+  "k_frank": ["k", "I remember it so well! I was nine. A yellow van got stuck in the sand, right behind our house.", "Eu lembro direitinho! Eu tinha nove anos. Uma van amarela atolou na areia, bem atrás da nossa casa.", "k_frank2"],
   "k_frank2": ["k", "My dad pulled it out with the park truck. The driver stayed for dinner and told riddles all night.", "Meu pai puxou a van com a caminhonete do parque. O motorista ficou pro jantar e contou charadas a noite toda.", [
    ["That's him! Do you remember any of his riddles?", "É ele! Você lembra de alguma charada dele?", "k_riddle"],
    ["Did he leave anything behind? He loved leaving messages.", "Ele deixou alguma coisa? Ele adorava deixar recados.", "k_book"],

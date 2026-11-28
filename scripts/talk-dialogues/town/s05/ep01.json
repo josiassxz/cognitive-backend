@@ -39,7 +39,7 @@
   "n3": ["n", "You open your suitcase. On top of your clothes, there is a small box from home.", "Você abre a mala. Em cima das roupas, tem uma caixinha que veio de casa.", "t_gift"],
   "t_gift": ["t", "Wait. What's in the box? Is that a present? For me?", "Espera. O que tem na caixa? É um presente? Pra mim?", [
    ["Yes! It's coffee from Brazil. The best in the world.", "É! Café do Brasil. O melhor do mundo.", "t_g_coffee", {"set": {"gift": "coffee"}}],
-   ["Yes. Chocolate sweets. My grandmother made them.", "É. Docinhos de chocolate. Minha avó que fez.", "t_g_candy", {"set": {"gift": "candy"}}],
+   ["Yes. Homemade chocolates. My grandmother made them.", "É. Docinhos de chocolate. Minha avó que fez.", "t_g_candy", {"set": {"gift": "candy"}}],
    ["Yes. Flip-flops! Everybody in Brazil wears them.", "É. Chinelos! No Brasil todo mundo usa.", "t_g_flip", {"set": {"gift": "flipflops"}}],
    ["Yes, I'm present!", "Sim, presente!", null, "Ha! Not that kind of present. A gift! Is that little box for me?", "Rá! Não é esse tipo de presente. Presente de dar! Essa caixinha é pra mim?"]
   ]],

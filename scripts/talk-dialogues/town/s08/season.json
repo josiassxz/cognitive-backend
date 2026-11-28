@@ -7,7 +7,7 @@
  "clues": {
   "barn": {
    "title": "O celeiro velho",
-   "note": "O celeiro atrás da casa tem uma pista de dança de verdade, escondida debaixo de anos de tralha."
+   "note": "O celeiro velho de Glenbeg tem uma pista de dança de verdade, escondida debaixo de anos de tralha."
   },
   "suit_pocket": {
    "title": "Bolso do paletó",
@@ -15,7 +15,7 @@
   },
   "accordion": {
    "title": "A banda da Nora",
-   "note": "A avó Nora tocou acordeão numa banda de baile por vinte anos. Faz seis que o acordeão não sai do estojo."
+   "note": "A avó Nora tocou acordeão numa banda de baile por vinte anos."
   },
   "wrong_jacket": {
    "title": "Paletó trocado",
@@ -23,7 +23,7 @@
   },
   "paulo_guitar": {
    "title": "O violão do Paulo",
-   "note": "O Paulo, pai da Julia, toca violão há quarenta anos e trouxe o violão para a Irlanda."
+   "note": "O Paulo, pai da Julia, toca violão e trouxe o violão para a Irlanda."
   },
   "family_waltz": {
    "title": "A valsa da família",

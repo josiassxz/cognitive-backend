@@ -18,7 +18,7 @@
    ["Banned? Why, what did they do?", "Proibidos? Por quê, o que eles fizeram?", null, "Not banned! The band! The musicians! They can't get here. What are we going to do?", "Não é banned! É band! Os músicos! Eles não conseguem chegar. O que a gente vai fazer?"]
   ]],
   "c_storm": ["c", "Have you seen the sky? It arrives tonight. Wind, rain, the lot. The band just met it first.", "Você viu o céu? Chega hoje à noite. Vento, chuva, o pacote todo. A banda só encontrou com ela antes.", "c_calls"],
-  "c_calls": ["c", "I've rung six bands. It's a Saturday in June. Every musician in Ireland is at a wedding.", "Já liguei pra seis bandas. É um sábado de junho. Todo músico da Irlanda está num casamento.", "c_calm"],
+  "c_calls": ["c", "I've rung six bands. Tomorrow's a Saturday in June. Every musician in Ireland has a wedding.", "Já liguei pra seis bandas. Amanhã é sábado de junho. Todo músico da Irlanda tem um casamento.", "c_calm"],
   "c_calm": ["c", "I'm a calm man. I once slept through a fire alarm. But look at my hands.", "Eu sou um cara calmo. Já dormi com o alarme de incêndio tocando. Mas olha as minhas mãos.", "c_tony"],
   "c_tony": ["c", "There's one number left. A wedding singer called Tony. I can't face it. Will you ring him?", "Sobrou um número. Um cantor de casamento chamado Tony. Eu não tenho coragem. Você liga pra ele?", [
    ["Give me the phone. I'll call him now.", "Me dá o telefone. Eu ligo agora.", "n_call"],
@@ -58,7 +58,7 @@
    ["Right? No, the house is on the left.", "Direita? Não, a casa fica à esquerda.", null, "Not that kind of right! I mean: the rings are safe. Aren't they?", "Não é esse right! Eu quero dizer: as alianças estão seguras. Não estão?"]
   ]],
   "c_declan": ["c", "Declan? Under control? Are we talking about my brother?", "O Declan? Sob controle? A gente está falando do meu irmão?", "n_f"],
-  "j_told": ["j", "He lost them? I knew it! Never give Declan anything smaller than a chair!", "Ele perdeu? Eu sabia! Nunca dê ao Declan nada menor que uma cadeira!", "j_told2"],
+  "j_told": ["j", "Declan lost the rings? I knew it! Never give that man anything smaller than a chair!", "O Declan perdeu as alianças? Eu sabia! Nunca dê pra esse homem nada menor que uma cadeira!", "j_told2"],
   "j_told2": ["j", "Thank you for telling me. I'd rather know. Conor, close your mouth.", "Obrigada por me contar. Prefiro saber. Conor, fecha a boca.", "n_f"],
   "n_f": ["n", "Fergus strolls over, hands in his pockets, studying the sky.", "O Fergus chega passeando, mãos nos bolsos, estudando o céu.", "f_in"],
   "f_in": ["f", "No band, I hear. Do you know, part of me isn't sorry.", "Sem banda, pelo que ouvi. Sabe que uma parte de mim nem lamenta?", [
@@ -66,8 +66,8 @@
    ["That's not helping. Do you know any musicians?", "Isso não ajuda. Você conhece algum músico?", "f_mus"],
    ["Part of you? Which part? Your knee?", "Uma parte de você? Qual? O joelho?", null, "My knee is fine! I mean: I'm a little bit glad. Do you want to know why?", "Meu joelho vai bem! Eu quis dizer: fiquei um pouquinho contente. Quer saber por quê?"]
   ]],
-  "f_waltz": ["f", "For sixty years, every Doyle wedding began with the same waltz. My father wrote it for my mother.", "Por sessenta anos, todo casamento dos Doyle começou com a mesma valsa. Meu pai escreveu pra minha mãe.", "f_waltz2", {"clue": "family_waltz"}],
-  "f_waltz2": ["f", "This time, Conor booked a band, and nobody said a word to her.", "Desta vez, o Conor contratou uma banda, e ninguém falou uma palavra com ela.", "c_what"],
+  "f_waltz": ["f", "For sixty years, every Doyle wedding began with the same waltz. My father wrote it for my mother.", "Por sessenta anos, todo casamento dos Doyle começou com a mesma valsa. Meu pai escreveu pra minha mãe.", "f_waltz2"],
+  "f_waltz2": ["f", "This time, Conor booked a band, and nobody said a word to her.", "Desta vez, o Conor contratou uma banda, e ninguém falou uma palavra com ela.", "c_what", {"clue": "family_waltz"}],
   "c_what": ["c", "Is that why Granny's barely spoken to me since March? I thought it was my haircut. What do I do?", "É por isso que a vovó mal fala comigo desde março? Achei que era o meu corte de cabelo. O que eu faço?", [
    ["Go and say sorry. Today.", "Vai lá pedir desculpa. Hoje.", "c_sorry"],
    ["Leave it with me. I'll talk to her first.", "Deixa comigo. Eu falo com ela antes.", "c_leave"],
@@ -77,7 +77,7 @@
   "c_leave": ["c", "Would you? She likes people who drink her tea. I spilled mine in March.", "Você faria isso? Ela gosta de quem toma o chá dela. Eu derramei o meu em março.", "j_plan"],
   "f_mus": ["f", "Musicians? In this family? Ask your granny, Conor. Not that she's speaking to you.", "Músico? Nesta família? Pergunta pra sua avó, Conor. Se bem que ela não está falando com você.", "c_why"],
   "c_why": ["c", "She's barely spoken to me since March. No idea why. I think it's my haircut.", "Ela mal fala comigo desde março. Não faço ideia do motivo. Acho que é o meu corte de cabelo.", "j_plan"],
-  "j_plan": ["j", "Okay. We need music by tomorrow night. What do I write on the list?", "Tá. A gente precisa de música até amanhã à noite. O que eu escrevo na lista?", [
+  "j_plan": ["j", "Okay. We need music by tomorrow afternoon. What do I write on the list?", "Tá. A gente precisa de música até amanhã à tarde. O que eu escrevo na lista?", [
    ["Write: playlist, as plan B. I'll look for live music.", "Escreve: playlist, como plano B. Eu vou atrás de música ao vivo.", "j_pl"],
    ["Write: talk to Granny Nora. I'll do it today.", "Escreve: falar com a avó Nora. Eu faço isso hoje.", "j_gn"],
    ["Mist? Yes, it's getting foggy.", "Névoa? Sim, está ficando nublado.", null, "Not mist! The list! Our to-do list! What's the plan for the music?", "Não é mist! É list! A nossa lista de tarefas! Qual é o plano pra música?"]

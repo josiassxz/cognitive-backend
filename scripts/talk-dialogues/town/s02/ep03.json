@@ -17,8 +17,8 @@
    ["Yes. I booked a bed for three nights.", "Sim. Reservei uma cama por três noites.", "j_three"],
    ["Yes, I'm checking my phone.", "Sim, estou checando meu celular.", null, "Ha! Me too, all day. But are you checking in? Do you have a bed here?", "Rá! Eu também, o dia todo. Mas você vai fazer check-in? Tem uma cama reservada aqui?"]
   ]],
-  "j_res": ["j", "A reservation! Cool. From Brazil, right? Here you are. Three nights.", "Uma reserva! Legal. Do Brasil, né? Achei você aqui. Três noites.", "j_room"],
-  "j_three": ["j", "Three nights. Yes! The guest from Brazil. Here you are.", "Três noites. Isso! Hóspede do Brasil. Achei você aqui.", "j_room"],
+  "j_res": ["j", "A reservation! Cool. From Brazil, right? Found you. Three nights.", "Uma reserva! Legal. Do Brasil, né? Achei você aqui. Três noites.", "j_room"],
+  "j_three": ["j", "Three nights. Yes! The guest from Brazil. Found you.", "Três noites. Isso! Hóspede do Brasil. Achei você aqui.", "j_room"],
   "j_room": ["j", "You're in room five, on the second floor. It's a room for four people. Is that okay?", "Você fica no quarto cinco, no segundo andar. É um quarto para quatro pessoas. Tudo bem?", [
    ["That's fine. Is there a lift?", "Tudo bem. Tem elevador?", "j_lift"],
    ["Four people? Okay. Is it quiet?", "Quatro pessoas? Tá. É silencioso?", "j_quiet"],
@@ -52,7 +52,7 @@
    ["No. Did he leave a name or a number?", "Não. Ele deixou nome ou telefone?", "j_noname"],
    ["No, my nose is fine.", "Não, meu nariz está ótimo.", null, "Your nose? Ha! No! The man with the suitcase. Do you know him?", "Seu nariz? Rá! Não! O homem da mala. Você conhece ele?"]
   ], {"clue": "looking_for_you"}],
-  "j_where": ["j", "I don't know! He said: 'I can't wait. I work tonight.' Then he ran.", "Não sei! Ele disse: 'Não posso esperar. Eu trabalho hoje à noite.' E saiu correndo.", "j_think"],
+  "j_where": ["j", "I don't know! He said: 'I can't wait. I work tonight.' Then he hurried out.", "Não sei! Ele disse: 'Não posso esperar. Eu trabalho hoje à noite.' E saiu apressado.", "j_think"],
   "j_noname": ["j", "No name. No number. He was in a hurry. He said: 'I work tonight.'", "Sem nome. Sem telefone. Ele estava com pressa. Disse: 'Eu trabalho hoje à noite.'", "j_think"],
   "j_think": ["j", "Grey hair, long coat, a very big voice. He said 'good day' like a king.", "Cabelo grisalho, casaco comprido, um vozeirão. Ele disse 'bom dia' como um rei.", "j_note"],
   "j_note": ["j", "Maybe he'll come back. Do you want to leave a note for him?", "Talvez ele volte. Quer deixar um bilhete pra ele?", [

@@ -61,10 +61,10 @@
    ["That depends. Have you come to count properly this time?", "Depende. Desta vez você veio contar direito?", "p_frost"],
    ["Karma? I don't really believe in it.", "Carma? Eu não acredito muito nisso.", null, "Calmer. More peaceful. I'm asking whether we can speak politely today.", "Mais calma. Mais tranquila. Estou perguntando se hoje podemos conversar com educação."]
   ]],
-  "p_thaw": ["p", "Thank you. That can't have been easy before breakfast. Let's begin again.", "Obrigada. Não deve ter sido fácil antes do café da manhã. Vamos recomeçar.", "p_accept"],
+  "p_thaw": ["p", "Thank you. That can't have been easy before breakfast. Let's begin again.", "Obrigada. Não deve ter sido fácil antes do café da manhã. Vamos recomeçar.", "p_warm"],
   "p_frost": ["p", "I count as properly as I'm permitted to. Excuse me. I have life jackets to check.", "Eu conto tão direito quanto me permitem. Com licença. Tenho coletes salva-vidas para conferir.", "c_frost"],
   "c_frost": ["c", "That went well. You catch more with tea than with harpoons, you know. What now?", "Foi uma beleza. Com chá se pega mais do que com arpão, sabia? E agora?", [
-   ["You're right. I'll find her before we dock and apologise.", "Você tem razão. Vou atrás dela antes de atracar e peço desculpas.", "c_fr1", {"set": {"priya_trust": "yes"}}],
+   ["You're right. I'll find her before you sail and apologise.", "Você tem razão. Vou atrás dela antes de o barco sair e peço desculpas.", "c_fr1", {"set": {"priya_trust": "yes"}}],
    ["She knows something, Callum. I can tell.", "Ela sabe de alguma coisa, Callum. Dá pra ver.", "c_fr2"],
    ["Harpoons? I only brought a tripod.", "Arpões? Eu só trouxe um tripé.", null, "It's a saying. Be kind and people talk. So what will you do about Ms Nair?", "É um ditado. Com gentileza, as pessoas falam. Então, o que você vai fazer a respeito da senhora Nair?"]
   ]],

@@ -24,7 +24,7 @@
    ["Weak? No, my week was great.", "Fraca? Não, minha semana foi ótima.", null, "Not weak! All week! You've been investigating. Now tell Dee what you found out!", "Não é fraca! A semana toda! Você andou investigando. Agora conta pra Dee o que você descobriu!"]
   ]],
   "c_phone": ["c", "Me? Look at my phone! Seven calls this week. Every single one to my mother!", "Eu? Olha o meu celular! Sete ligações esta semana. Todas, sem exceção, pra minha mãe!", "d_rup2"],
-  "d_rup2": ["d", "He rings his mother for cooking tips. So it wasn't Rupert. Want to try again?", "Ele liga pra mãe pedindo dicas de cozinha. Então não foi o Rupert. Quer tentar de novo?", [
+  "d_rup2": ["d", "Seven calls to his mother. So it wasn't Rupert. Do you want to try again?", "Sete ligações pra mãe. Então não foi o Rupert. Quer tentar de novo?", [
    ["Sorry, Rupert. I got that badly wrong.", "Desculpa, Rupert. Eu errei feio.", "c_forgive"],
    ["Yes. Forget that. It isn't sabotage at all.", "Quero. Esquece isso. Não é sabotagem nenhuma.", "d_notsab"],
    ["Yes, I'll try it with more salt.", "Sim, vou provar com mais sal.", null, "This isn't a tasting. You accused the wrong man. Do you want to start again?", "Isto não é degustação. Você acusou o homem errado. Quer começar de novo?"]
@@ -34,7 +34,7 @@
   "d_who": ["d", "Facts, please. One at a time. Who moved the cream, the card and the honey?", "Fatos, por favor. Um de cada vez. Quem mexeu no creme, no cartão e no mel?", [
    ["Toby. The label and the card were both in his green pen.", "O Toby. A etiqueta e o cartão estavam com a caneta verde dele.", "d_why", {"set": {"f_who": "yes"}}],
    ["Somebody on the crew. I can't say who.", "Alguém da equipe. Não sei dizer quem.", "d_why"],
-   ["My name? You already know my name.", "Meu nome? Você já sabe o meu nome.", null, "Not your name. The name of the person behind all this. Who was it?", "Não o seu nome. O nome de quem está por trás disso tudo. Quem foi?"]
+   ["Fax? Nobody uses fax machines any more.", "Fax? Ninguém mais usa fax.", null, "Facts, not fax! Tell me what you know. Who moved the cream, the card and the honey?", "Fatos, não fax! Me diga o que você sabe. Quem mexeu no creme, no cartão e no mel?"]
   ]],
   "d_why": ["d", "Next. Why would anyone put cream in the wrong fridge, and honey in with the bleach?", "Próxima. Por que alguém poria creme na geladeira errada, e mel junto com a água sanitária?", [
    ["Out of exhaustion. He works day and night, and sleeps at the studio.", "Por exaustão. Ele trabalha dia e noite, e dorme no estúdio.", "d_hide", {"set": {"f_why": "yes"}}],
@@ -61,7 +61,7 @@
   "past_br": {"branch": [["clue_victor_past", "v_cake"], [null, "g_speak"]]},
   "v_cake": ["v", "Dee. I once dropped a wedding cake. A good chef gave me a mop, not the sack.", "Dee. Eu já derrubei um bolo de casamento. Um bom chef me deu um esfregão, não a demissão.", "d_res"],
   "g_speak": ["g", "Dee, the lad hasn't slept in a week. Whose mistake is that, his or the office's?", "Dee, o rapaz não dorme há uma semana. De quem é o erro, dele ou do escritório?", "d_res"],
-  "d_res": ["d", "Both shifts? Nobody told me he'd left. Toby, that isn't your mistake. It's mine.", "Os dois turnos? Ninguém me avisou que ele tinha saído. Toby, esse erro não é seu. É meu.", "d_res2"],
+  "d_res": ["d", "Both shifts? Nobody told me the other runner had left. Toby, that isn't your mistake. It's mine.", "Os dois turnos? Ninguém me avisou que o outro assistente tinha saído. Toby, esse erro não é seu. É meu.", "d_res2"],
   "d_res2": ["d", "You're keeping your job. I'm hiring a second runner. And tonight you sleep in a real bed.", "Você continua no emprego. Vou contratar um segundo assistente. E hoje você dorme numa cama de verdade.", "t_q"],
   "t_q": ["t", "I don't know what to say. Number four, you could have just blamed me. Why didn't you?", "Nem sei o que dizer. Número quatro, era só jogar a culpa em mim. Por que você não fez isso?", [
    ["Because everybody deserves a second chance.", "Porque todo mundo merece uma segunda chance.", "t_a"],
@@ -92,7 +92,7 @@
    ["Ask me after I've slept for a week, like Toby.", "Me pergunta depois que eu dormir uma semana, igual ao Toby.", "g_b"],
    ["No, I didn't bother the judge.", "Não, eu não incomodei o jurado.", null, "Nobody says you did, dear! I'm asking: are you glad you came?", "Ninguém disse isso, meu bem! Estou perguntando: você está feliz por ter vindo?"]
   ]],
-  "g_a": ["g", "That cream! You still owe the world a creamy soup. Come to Inverness and make it.", "Aquele creme! Você ainda deve ao mundo uma sopa cremosa. Vem a Inverness fazer.", "n_end"],
+  "g_a": ["g", "That cream! Come to Inverness, dear. There's always plenty in my fridge.", "Aquele creme! Vem a Inverness, meu bem. Na minha geladeira nunca falta.", "n_end"],
   "g_b": ["g", "Ha! Sleep, then. And afterwards, come to Inverness. I'll teach you my shortbread.", "Rá! Então dorme. E depois, vem a Inverness. Eu te ensino o meu shortbread.", "n_end"],
   "n_end": ["n", "The lights go down on Studio Four. You came to win a trophy. You're leaving with friends.", "As luzes do Estúdio Quatro se apagam. Você veio atrás de um troféu. Vai embora com amigos.", null]
  }

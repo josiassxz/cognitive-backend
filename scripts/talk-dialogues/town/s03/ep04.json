@@ -66,7 +66,7 @@
   "l_argue2": ["l", "Then two people need to work faster. I'm writing a review. One star.", "Então duas pessoas precisam trabalhar mais rápido. Vou escrever uma avaliação. Uma estrela.", "b_runs"],
   "b_runs": ["b", "Wait, wait! I'm so sorry! Here's your steak sandwich. It's hot, and it's free!", "Espera, espera! Mil desculpas! Aqui está o seu sanduíche de carne. Está quente, e é de graça!", "l_argue3"],
   "l_argue3": ["l", "Thank you. I'm Linda. You, I like. Your partner needs a lesson.", "Obrigada. Sou a Linda. De você, eu gostei. Já quem trabalha com você precisa de uma aula.", "n_boone"],
-  "n_boone": ["n", "Linda leaves. Mr. Boone is at his table. He saw everything.", "A Linda vai embora. O Sr. Boone está na mesa dele. Ele viu tudo.", "w_q"],
+  "n_boone": ["n", "A few minutes later, Linda leaves. Mr. Boone is at his table. He saw everything.", "Alguns minutos depois, a Linda vai embora. O Sr. Boone está na mesa dele. Ele viu tudo.", "w_q"],
   "w_q": ["w", "Kid. Come here. A customer like that. What did you learn?", "Jovem. Vem cá. Uma cliente dessas. O que você aprendeu?", [
    ["Listen first. Then say sorry. Then fix it.", "Primeiro ouvir. Depois pedir desculpa. Depois resolver.", "w_learn1"],
    ["That I need to check every order twice.", "Que eu preciso conferir cada pedido duas vezes.", "w_learn2"],
@@ -81,14 +81,14 @@
   "w_bye": ["w", "Tomorrow. The usual.", "Amanhã. O de sempre.", "b_plate"],
   "b_plate": ["b", "Did he say the food was good? No? He never says the food is good!", "Ele disse que a comida estava boa? Não? Ele nunca diz que a comida está boa!", "b_plate2"],
   "b_plate2": ["b", "But look at his plate. Empty. Every day, it's empty. Not one bean!", "Mas olha o prato dele. Vazio. Todo dia, vazio. Nem um feijãozinho!", "b_q", {"clue": "clean_plate"}],
-  "b_q": ["b", "So what do you think? Is that his way to say he likes it?", "E aí, o que você acha? Esse é o jeito dele de dizer que gosta?", [
+  "b_q": ["b", "So what do you think? Is that his way of saying he likes it?", "E aí, o que você acha? Esse é o jeito dele de dizer que gosta?", [
    ["Yes. An empty plate is a compliment.", "Sim. Prato vazio é elogio.", "b_c1"],
    ["Maybe he's just very hungry.", "Talvez ele só tenha muita fome.", "b_c2"],
    ["Yes, he likes to play.", "Sim, ele gosta de brincar.", null, "Play? No! His plate! It's empty. Does that mean he likes the food?", "Brincar? Não! O prato! Está vazio. Isso quer dizer que ele gosta da comida?"]
   ]],
   "b_c1": ["b", "An empty plate is a compliment. I'm putting that on a T-shirt.", "Prato vazio é elogio. Vou estampar isso numa camiseta.", "b_dale"],
   "b_c2": ["b", "Every day at eleven? Nobody is that hungry.", "Todo dia às onze? Ninguém tem tanta fome assim.", "b_dale"],
-  "b_dale": ["b", "Now, one problem. Dale didn't bring the cheese today. He says tomorrow at seven. Do we trust him?", "Agora, um problema. O Dale não trouxe o queijo hoje. Disse que vem amanhã às sete. A gente confia?", [
+  "b_dale": ["b", "Now, one problem. Dale, our supplier, didn't bring the cheese today. He says tomorrow at seven. Do we trust him?", "Agora, um problema. O Dale, nosso fornecedor, não trouxe o queijo hoje. Disse que vem amanhã às sete. A gente confia?", [
    ["Let's call him tonight, to be sure.", "Vamos ligar pra ele hoje à noite, pra garantir.", "b_d1"],
    ["We have no choice. No cheese, no cheese bread.", "A gente não tem escolha. Sem queijo, sem pão de queijo.", "b_d2"],
    ["Yes, I trust the cheese.", "Sim, eu confio no queijo.", null, "Not the cheese! Dale, the supplier! Do you think he'll come at seven?", "No queijo, não! No Dale, o fornecedor! Você acha que ele vem às sete?"]

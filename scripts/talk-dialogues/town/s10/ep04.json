@@ -12,15 +12,15 @@
  "nodes": {
   "n1": ["n", "Tuesday, four o'clock. Dylan has booked you for 'an urgent meeting'. It's in the café downstairs.", "Terça, quatro da tarde. O Dylan marcou com você 'uma reunião urgente'. É no café do térreo.", "n2"],
   "n2": ["n", "The café is called Bean There. On the counter, a little sign says: Order ahead with Kettle.", "O café se chama Bean There. No balcão, uma plaquinha diz: Peça antes com a Kettle.", "b1"],
-  "b1": ["b", "Hiya! You're from upstairs, aren't you? Don't know your face. What can I get you?", "Oi! Você é lá de cima, né? Não conheço seu rosto. O que vai querer?", [
+  "b1": ["b", "Hi there! You're from upstairs, right? I don't know your face. What can I get you?", "Oi! Você é lá de cima, né? Não conheço seu rosto. O que vai querer?", [
    ["A flat white, please. How do you find the Kettle app?", "Um flat white, por favor. O que você acha do aplicativo da Kettle?", "b_app"],
    ["Just a tea, thanks. Is Dylan here yet?", "Só um chá, valeu. O Dylan já chegou?", "b_dylan"],
-   ["Can you get me upstairs?", "Você pode me levar lá pra cima?", null, "There's a lift for that, my love! I mean a drink. What can I get you?", "Pra isso tem elevador, meu bem! Eu tô falando de bebida. O que vai querer?"]
+   ["Can you get me upstairs?", "Você pode me levar lá pra cima?", null, "Try the stairs for that, hon! I mean a drink. What can I get you?", "Pra isso tem a escada, meu bem! Eu tô falando de bebida. O que vai querer?"]
   ]],
   "b_app": ["b", "Love it. Mostly. Last week it charged a regular twice. He's still going on about it.", "Adoro. Quase sempre. Semana passada ele cobrou um freguês duas vezes. O homem ainda está reclamando.", "n3"],
-  "b_dylan": ["b", "Yellow jumper? Back table. He's been talking to the sugar bowl for twenty minutes.", "Suéter amarelo? Mesa do fundo. Faz vinte minutos que ele conversa com o açucareiro.", "n3"],
+  "b_dylan": ["b", "Yellow sweater? Back table. He's been talking to the sugar bowl for twenty minutes.", "Suéter amarelo? Mesa do fundo. Faz vinte minutos que ele conversa com o açucareiro.", "n3"],
   "n3": ["n", "At the back table, Dylan is indeed presenting to a sugar bowl. He looks up, relieved.", "Na mesa do fundo, o Dylan está mesmo fazendo uma apresentação para um açucareiro. Ele levanta os olhos, aliviado.", "d1"],
-  "d1": ["d", "There you are! I need a favour. Listen to my opening for Friday. And be honest. Brutally honest.", "Aí está você! Preciso de um favor. Escuta a minha abertura de sexta. E fala a verdade. Sem dó.", [
+  "d1": ["d", "There you are! I need a favor. Listen to my opening for Friday. And be honest. Brutally honest.", "Aí está você! Preciso de um favor. Escuta a minha abertura de sexta. E fala a verdade. Sem dó.", [
    ["Happy to. Go for it.", "Com prazer. Manda ver.", "d_pitch"],
    ["All right. But afterwards, I've got some questions for you too.", "Tudo bem. Mas depois eu também tenho umas perguntas pra você.", "d_deal"],
    ["Sure. Which door are you opening?", "Claro. Que porta você vai abrir?", null, "Not a door! My opening. The start of my pitch. Will you listen to it?", "Não é porta! Minha abertura. O começo da minha apresentação. Você escuta?"]
@@ -59,7 +59,7 @@
   "d4b": ["d", "Right, your turn. Ask me anything. I've got nothing to hide. Well, almost nothing.", "Bom, sua vez. Pergunta o que quiser. Não tenho nada a esconder. Bom, quase nada.", [
    ["Almost nothing? What might look bad for you?", "Quase nada? O que poderia pegar mal pra você?", "d_lunch_new"],
    ["Where exactly were you on Monday night?", "Onde exatamente você estava na noite de segunda?", "d_alibi"],
-   ["Can I ask you for ten pounds?", "Posso te pedir dez libras?", null, "Ha! Ask Helen for a raise. I mean about the leak. What do you want to know?", "Rá! Pede um aumento pra Helen. Eu tô falando do vazamento. O que você quer saber?"]
+   ["Can I ask you for ten pounds?", "Posso te pedir dez libras?", null, "Ha! Ask Helen for more money. I mean about the leak. What do you want to know?", "Rá! Pede um aumento pra Helen. Eu tô falando do vazamento. O que você quer saber?"]
   ]],
   "d_lunch_new": ["d", "Okay. Last Thursday I had lunch with someone from Brewly. Our biggest rival. Tom saw us.", "Tá. Na quinta passada eu almocei com alguém da Brewly. Nossa maior concorrente. O Tom viu a gente.", "d_lunch", {"clue": "rival_lunch"}],
   "d_lunch": ["d", "They offered me a job. More money, bigger title. I said no. I like it here.", "Eles me ofereceram um emprego. Mais dinheiro, cargo maior. Eu disse não. Eu gosto daqui.", "d_lq"],
@@ -70,7 +70,7 @@
   ]],
   "d_careful": ["d", "A careful promise. I can live with that.", "Uma promessa cautelosa. Dá pra conviver com isso.", "d_alibi"],
   "d_loyal": ["d", "Tell her I turned down more money? Actually, that's not a bad pitch.", "Contar que eu recusei mais dinheiro? Olha, até que não é um pitch ruim.", "d_alibi"],
-  "d_alibi": ["d", "And Monday night, I was in the sky. Look: boarding pass. Edinburgh to London, landed at twenty past midnight.", "E na noite de segunda eu estava no céu. Olha: cartão de embarque. Edimburgo para Londres, pousou à meia-noite e vinte.", "d5", {"clue": "dylan_alibi"}],
+  "d_alibi": ["d", "Monday night? I was in the sky. Look: boarding pass. Edinburgh to London, landed at twenty past midnight.", "Noite de segunda? Eu estava no céu. Olha: cartão de embarque. Edimburgo para Londres, pousou à meia-noite e vinte.", "d5", {"clue": "dylan_alibi"}],
   "d5": ["d", "My phone woke up on the runway. Emails everywhere. So. Am I off your list?", "Meu celular acordou na pista. E-mail pra todo lado. E aí. Saí da sua lista?", [
    ["You're off the list. One more thing: what's the investor like?", "Você saiu da lista. Só mais uma coisa: como é a investidora?", "d_inv"],
    ["For now. Thanks for being straight with me.", "Por enquanto. Valeu por jogar limpo comigo.", "d_straight"],

@@ -19,7 +19,7 @@
    ["I think it's Callum. He's always in the kitchen at night.", "Acho que é o Callum. Ele vive na cozinha de madrugada.", "c_me"],
    ["Yes. Our guest is Mr. Whitaker.", "Sim. Nosso convidado é o Sr. Whitaker.", null, "Not the guest. The ghost! The thing that eats our food. Do you know what it is?", "Não o convidado. O fantasma! O negócio que come a nossa comida. Você sabe o que é?"]
   ]],
-  "c_me": ["c", "Me? I slept in Leeds when the chicken vanished! And I've been sneezing for two weeks!", "Eu? Eu dormi em Leeds quando o frango sumiu! E tô espirrando faz duas semanas!", [
+  "c_me": ["c", "Me? I slept in Leeds last week when the chicken vanished! And I've been sneezing for two weeks!", "Eu? Eu dormi em Leeds semana passada, quando o frango sumiu! E tô espirrando faz duas semanas!", [
    ["You're right. I'm sorry, Callum. That was unfair.", "Você tem razão. Desculpa, Callum. Isso foi injusto.", "c_forgive"],
    ["Okay, not you. Let me go through the facts instead.", "Tá, você não. Deixa eu repassar os fatos, então.", "p_go"],
    ["Two weeks of freezing? Put a jumper on.", "Duas semanas congelando? Veste um casaco.", null, "Sneezing! Not freezing! It isn't me, okay? Do you believe me now?", "Sneezing, espirrando! Não freezing! Não sou eu, tá? Agora você acredita em mim?"]
@@ -36,7 +36,7 @@
    ["I'd rather that person told us themselves.", "Prefiro que essa pessoa conte por conta própria.", "m_confess"],
    ["Behind it? The fridge is behind it.", "Atrás? Atrás fica a geladeira.", null, "Not behind the fridge. Who's responsible? Which one of us?", "Não atrás da geladeira. Quem é responsável? Qual de nós?"]
   ]],
-  "m_confess": ["m", "Stop. It's me. The food, the noise, the tuna. It was always me. I'm so sorry.", "Para. Sou eu. A comida, o barulho, o atum. Sempre fui eu. Me desculpem.", "m_story"],
+  "m_confess": ["m", "Stop. It's me. The food, the noise, the tins of tuna. It was always me. I'm so sorry.", "Para. Sou eu. A comida, o barulho, as latas de atum. Sempre fui eu. Me desculpem.", "m_story"],
   "m_story": ["m", "Two weeks ago, in the storm, I found a kitten behind the bins. Soaking wet. I couldn't leave him.", "Há duas semanas, na tempestade, achei um filhote de gato atrás das lixeiras. Encharcado. Não consegui deixar ele lá.", "n_bug"],
   "n_bug": ["n", "Mei opens her door. A small grey cat walks out, tail up, as if he owns the flat.", "A Mei abre a porta do quarto. Um gatinho cinza sai, de rabo erguido, como se fosse o dono do apartamento.", "m_name"],
   "m_name": ["m", "This is Bug. He ate your dinner on Monday. I ran out of cat food, and I panicked.", "Este é o Bug. Ele comeu o seu jantar na segunda. A ração acabou, e eu entrei em pânico.", "c_sneeze"],
@@ -56,7 +56,7 @@
    ["A cap? Yes, Callum has a cap.", "Um boné? Sim, o Callum tem um boné.", null, "Not a cap. A cat. With whiskers. Is there one behind that door?", "Boné, não. Gato. Com bigodes. Tem um atrás daquela porta?"]
   ]],
   "w_honest": ["w", "Hm. A bad idea, but an honest answer. I respect that. Open the door, please.", "Hum. Uma ideia ruim, mas uma resposta honesta. Isso eu respeito. Abram a porta, por favor.", "n_shoe"],
-  "w_lie": ["w", "A ringtone. Young man, your ears are as red as a postbox. Open that door.", "Um toque de celular. Rapaz, suas orelhas estão vermelhas feito caixa de correio. Abram essa porta.", "n_shoe"],
+  "w_lie": ["w", "A ringtone. Callum, your ears are as red as a postbox. Open that door.", "Um toque de celular. Callum, suas orelhas estão vermelhas feito caixa de correio. Abram essa porta.", "n_shoe"],
   "m_tell": ["m", "Mr. Whitaker, before you start. I have to tell you something. This is Bug. He's mine.", "Sr. Whitaker, antes de começar. Preciso lhe contar uma coisa. Este é o Bug. Ele é meu.", "n_shoe"],
   "n_shoe": ["n", "Bug walks straight up to Mr. Whitaker and sits down on his left shoe.", "O Bug vai direto até o Sr. Whitaker e senta no sapato esquerdo dele.", "w_rule"],
   "w_rule": ["w", "Miss Chen. My most reliable tenant. Clause nine says no pets. You know that.", "Senhorita Chen. Minha inquilina mais confiável. A cláusula nove proíbe animais. A senhorita sabe.", "perm_br"],
@@ -89,14 +89,14 @@
   "end_br3": {"branch": [["f_offer=yes", "end_good"], [null, "end_basic"]]},
   "end_best": ["w", "Asked properly. A deposit. A clean. Very well. I'll put it in writing: the cat stays.", "Pedido feito direito. Um depósito. Uma limpeza. Muito bem. Vou pôr por escrito: o gato fica.", "helped_br"],
   "end_good": ["w", "Half an argument, but a polite half. One month's trial. One scratched door, and he goes.", "Meio argumento, mas a metade educada. Um mês de teste. Uma porta arranhada, e ele vai embora.", "helped_br"],
-  "end_basic": ["w", "I'm sorry. Sweet isn't enough, and a rule is a rule. He can't live in this flat.", "Sinto muito. Fofo não basta, e regra é regra. Ele não pode morar neste apartamento.", "o_basic"],
+  "end_basic": ["w", "I'm sorry. A sweet face isn't enough, and a rule is a rule. He can't live in this flat.", "Sinto muito. Carinha fofa não basta, e regra é regra. Ele não pode morar neste apartamento.", "o_basic"],
   "o_basic": ["o", "Then he'll live in mine, Gerald. I own Three B. No clause nine for me.", "Então ele mora no meu, Gerald. O Três B é meu. Pra mim não tem cláusula nove.", "m_basic"],
   "m_basic": ["m", "One floor down. I can visit him every day. Thank you, Mrs. Okafor. Thank you.", "Um andar abaixo. Posso visitar todo dia. Obrigada, Sra. Okafor. Obrigada.", "helped_br"],
   "helped_br": {"branch": [["helped_okafor=yes", "o_h_yes"], [null, "o_h_no"]]},
   "o_h_yes": ["o", "And you, love. You carried my bottles. There's always tea for you at Three B.", "E você, meu bem. Você levou minhas garrafas. No Três B sempre tem chá pra você.", "w_pickle"],
   "o_h_no": ["o", "And you, love. You still owe me a trip to the recycling. I don't forget.", "E você, meu bem. Ainda me deve uma ida à reciclagem. Eu não esqueço.", "w_pickle"],
   "w_pickle": ["w", "He's still on my shoe. I had a dog once. Pickle. Nobody's done that since.", "Ele continua no meu sapato. Eu tive um cachorro. O Pickle. Ninguém fazia isso desde então.", "c_tablets"],
-  "c_tablets": ["c", "I'll take allergy tablets every day. He's worth it. Achoo!", "Eu tomo antialérgico todo dia. Ele vale a pena. Atchim!", "m_final"],
+  "c_tablets": ["c", "I'll buy allergy tablets. Lots of them. He's worth it. Achoo!", "Eu compro antialérgico. Um monte. Ele vale a pena. Atchim!", "m_final"],
   "m_final": ["m", "One week here, and you've sorted us all out. Is there anything you want to say?", "Uma semana aqui, e você deu um jeito em todos nós. Quer dizer alguma coisa?", [
    ["That's what flatmates are for.", "É pra isso que serve dividir apartamento.", "m_rule15"],
    ["Just one thing. Can I be Bug's favourite?", "Só uma coisa. Posso ser a pessoa preferida do Bug?", "m_fav"],

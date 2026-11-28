@@ -2,7 +2,7 @@
  "slug": "s02-05-the-number-twenty-four", "episode": 5, "title": "The Number Twenty-Four", "level": "A2",
  "place": "street", "placeLabel": "Ruas de Londres", "time": "Sexta · 15h", "ambience": "street",
  "description": "Você pegou o ônibus no sentido errado. Hora de pedir informação e achar o caminho.",
- "intro": "A Rosie reconheceu a receita: o dono da mala é o Eddie, freguês dela, que foi buscar um livro na Owl and Quill Books, em Cecil Court. A livraria fecha às cinco. Você pegou o ônibus vinte e quatro, mas no sentido errado.",
+ "intro": "A Rosie conhece o dono da mala: é o Eddie, freguês dela, que foi buscar um livro na Owl and Quill Books, em Cecil Court. A livraria fecha às cinco. Você pegou o ônibus vinte e quatro, mas no sentido errado.",
  "cast": {
   "n": ["Narrator", "Narrador", "bf_emma", "center"],
   "z": ["Zoe", "Passeadora de cães", "af_sarah", "left"],
@@ -26,7 +26,7 @@
    ["I prefer cats, actually.", "Na verdade, eu prefiro gatos.", null, "Shh! Not in front of the dogs! I mean transport. Bus or Tube?", "Psiu! Na frente dos cachorros, não! Estou falando de transporte. Ônibus ou metrô?"]
   ]],
   "z_busdir": ["z", "Good choice. Cross the road. Same bus, other side. Get off at Trafalgar Square.", "Boa escolha. Atravesse a rua. Mesmo ônibus, do outro lado. Desça na Trafalgar Square.", "z_then"],
-  "z_tube": ["z", "The Tube is a fifteen-minute walk. The bus stop is right there. Cross the road, same bus, other side.", "O metrô fica a quinze minutos a pé. O ponto de ônibus é logo ali. Atravesse a rua, mesmo ônibus, do outro lado.", "z_then"],
+  "z_tube": ["z", "The Tube is a long walk. The bus is faster. Cross the road: same bus, other side.", "O metrô fica longe a pé. O ônibus é mais rápido. Atravesse a rua: mesmo ônibus, do outro lado.", "z_then"],
   "z_then": ["z", "From Trafalgar Square, walk up past the big church. Cecil Court is the second street on the right. Okay?", "Da Trafalgar Square, suba passando a igreja grande. Cecil Court é a segunda rua à direita. Beleza?", [
    ["Past the church, then second on the right. Thanks!", "Passo a igreja, depois segunda à direita. Valeu!", "z_yes"],
    ["Could you write that down for me, please?", "Você pode anotar isso pra mim, por favor?", "z_write"],
@@ -41,7 +41,7 @@
    ["Sorry, I don't have a mango.", "Desculpa, eu não tenho manga.", null, "No, no. Mango is the dog! He wants an apple. Can he have one?", "Não, não. Mango é o cachorro! Ele quer uma maçã. Pode dar uma?"]
   ]],
   "z_a_yes": ["z", "Say thank you, Mango! Look at that tail. You have a friend for life.", "Agradece, Mango! Olha esse rabo. Você ganhou um amigo pra vida toda.", "n_bus"],
-  "z_a_no": ["z", "Quite right. Mango, no. You had breakfast. Twice.", "Está certo. Mango, não. Você já tomou café da manhã. Duas vezes.", "n_bus"],
+  "z_a_no": ["z", "Good call. Mango, no. You had breakfast. Twice.", "Fez bem. Mango, não. Você já tomou café da manhã. Duas vezes.", "n_bus"],
   "z_sniff_b": ["z", "Mango, stop it! Sorry. He thinks every suitcase is full of sausages. What's in there?", "Mango, para com isso! Desculpa. Ele acha que toda mala está cheia de salsicha. O que tem aí?", [
    ["An old hat, shoes and a scarf. It's not mine.", "Um chapéu velho, sapatos e um cachecol. Não é minha.", "z_b_hat"],
    ["I'm not sure. It's a long story.", "Não sei direito. É uma longa história.", "z_b_story"],
@@ -79,7 +79,7 @@
    ["Um, something very nice! See you at eight!", "Hã, uma roupa bem bonita! Até as oito!", "b_hmm"],
    ["Yes, I'm wearing the hostel.", "Sim, eu estou vestindo o hostel.", null, "Wearing the hostel? Ha! No! Your clothes! What are you wearing tonight?", "Vestindo o hostel? Rá! Não! A roupa! O que você vai vestir hoje à noite?"]
   ]],
-  "b_late": ["b", "What? This morning? And you didn't tell me? Oh, you! Okay. Don't worry about clothes.", "O quê? Hoje de manhã? E você não me contou? Ai, você! Tá. Esquece a roupa.", "b_rest"],
+  "b_late": ["b", "What? At the airport? And you didn't tell me? Oh, you! Okay. Forget the clothes.", "O quê? No aeroporto? E você não me contou? Ai, você! Tá. Esquece a roupa.", "b_rest"],
   "b_hmm": ["b", "Okay. You sound strange again. Is that a bus? Never mind.", "Tá. Sua voz está estranha de novo. Isso é um ônibus? Deixa pra lá.", "b_rest"],
   "b_rest": ["b", "Listen. The restaurant is called Luigi's, in Soho. Eight o'clock. Don't be late!", "Escuta. O restaurante chama Luigi's, no Soho. Oito horas. Não vai se atrasar!", [
    ["Luigi's, Soho, eight o'clock. I promise.", "Luigi's, Soho, oito horas. Prometo.", "b_promise"],
@@ -90,6 +90,6 @@
   "b_near": ["b", "Cecil Court? Ten minutes on foot. Why? No, don't tell me. Tell me at dinner!", "Cecil Court? Dez minutos a pé. Por quê? Não, não conta. Conta no jantar!", "n_arrive"],
   "n_arrive": ["n", "The bus stops at Trafalgar Square. Lions, fountains, pigeons. You have no time for photos.", "O ônibus para na Trafalgar Square. Leões, fontes, pombos. Não dá tempo de tirar foto.", "x_bye"],
   "x_bye": ["x", "Trafalgar Square. Good luck with that suitcase.", "Trafalgar Square. Boa sorte com essa mala.", "n_end"],
-  "n_end": ["n", "Past the church, second street on the right. One bookshop has a green door and an owl in the window.", "Depois da igreja, segunda rua à direita. Uma livraria tem porta verde e uma coruja na vitrine.", null]
+  "n_end": ["n", "Past the church, second street on the right. One bookshop has an owl in the window.", "Depois da igreja, segunda rua à direita. Uma das livrarias tem uma coruja na vitrine.", null]
  }
 }

@@ -79,7 +79,7 @@
    ["I'll take the bins.", "Eu fico com o lixo.", "m_bins", {"set": {"chore": "bins"}}],
    ["The bathroom. I don't mind.", "O banheiro. Não ligo.", "m_bath", {"set": {"chore": "bathroom"}}],
    ["The kitchen, please.", "A cozinha, por favor.", "m_kit", {"set": {"chore": "kitchen"}}],
-   ["Beans, please. I love beans.", "Feijão, por favor. Eu amo feijão.", null, "Not beans. Bins. The rubbish. Which job do you want: bins, bathroom or kitchen?", "Beans, não. Bins. O lixo. Qual tarefa você quer: lixo, banheiro ou cozinha?"]
+   ["Beans, please. I love beans.", "Feijão, por favor. Eu amo feijão.", null, "Not beans. Bins. The garbage. Which job do you want: bins, bathroom or kitchen?", "Beans, não. Bins. O lixo. Qual tarefa você quer: lixo, banheiro ou cozinha?"]
   ]],
   "m_bins": ["m", "Good. Bins go out on Thursday night. I'll put you in the spreadsheet.", "Ótimo. O lixo sai na quinta à noite. Vou te pôr na planilha.", "c_sheet"],
   "m_bath": ["m", "Brave. Once a week, on Saturdays. I'll put you in the spreadsheet.", "Que coragem. Uma vez por semana, aos sábados. Vou te pôr na planilha.", "c_sheet"],

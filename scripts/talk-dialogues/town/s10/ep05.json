@@ -23,7 +23,7 @@
   ]],
   "t_why": ["t", "Because I say things correctly, and you say them politely. Helen prefers politely.", "Porque eu falo as coisas do jeito certo, e você fala com educação. A Helen prefere com educação.", "t_num"],
   "t_num": ["t", "Bug, with testing: twelve hours. Stamps: twenty. I've got sixteen left. Do the maths.", "Bug, com testes: doze horas. Selos: vinte. Me sobram dezesseis. Faz a conta.", "t3"],
-  "t3": ["t", "One more thing. You asked who could open the deck. Come and look at this folder.", "Mais uma coisa. Você perguntou quem podia abrir a apresentação. Vem olhar esta pasta.", [
+  "t3": ["t", "One more thing. It's about the deck that leaked. Come and look at this folder.", "Mais uma coisa. É sobre a apresentação que vazou. Vem olhar esta pasta.", [
    ["Go on, show me. What am I looking at?", "Vai, me mostra. O que eu tô vendo aqui?", "t_folder"],
    ["Later, Tom. Let me deal with Helen first.", "Depois, Tom. Deixa eu resolver com a Helen primeiro.", "t_later"],
    ["The deck? Are we on a boat?", "O convés? A gente está num barco?", null, "Not that kind of deck. The pitch deck. The slides. Do you want to see the folder?", "Não esse tipo de deck. O deck do pitch. Os slides. Você quer ver a pasta?"]
@@ -44,7 +44,7 @@
   "side_br": {"branch": [["sided=tom", "h2t"], ["sided=helen", "h2h"], [null, "h2m"]]},
   "h2t": ["h", "On Monday you told me to fix the bug first. I haven't forgotten.", "Na segunda você me disse pra consertar o bug primeiro. Eu não esqueci.", "h2q"],
   "h2h": ["h", "On Monday you backed my stamps. So I'm hoping this is good news.", "Na segunda você apoiou os meus selos. Então espero que seja notícia boa.", "h2q"],
-  "h2m": ["h", "On Monday you wanted a bit of both. Very diplomatic.", "Na segunda você queria um pouco de cada. Muito diplomático da sua parte.", "h2q"],
+  "h2m": ["h", "On Monday you wanted a bit of both. Very diplomatic.", "Na segunda você queria um pouco de cada. Quanta diplomacia.", "h2q"],
   "h2q": ["h", "So. What's the verdict from Tom?", "E então. Qual é o veredito do Tom?", [
    ["I'm afraid it's not what you were hoping for. Can I walk you through it?", "Infelizmente não é o que você esperava. Posso te explicar passo a passo?", "h_walk"],
    ["Tom can't do both. That's the short version.", "O Tom não consegue fazer os dois. Essa é a versão curta.", "h_blunt"],
@@ -83,7 +83,7 @@
   "h_pri": ["h", "Priya? Design. And support. And the client newsletter, since Omar left in March. Oh. That's three.", "A Priya? Design. E suporte. E a newsletter dos clientes, desde que o Omar saiu em março. Ah. São três.", "n4", {"clue": "three_jobs"}],
   "n4": ["n", "You step out of the glass box and give Tom the news.", "Você sai da caixa de vidro e dá a notícia ao Tom.", "plan_br"],
   "plan_br": {"branch": [["plan=safe", "t_safe"], [null, "t_risky"]]},
-  "t_safe": ["t", "No stamps, and a proper fix. I could almost smile. Almost.", "Sem selos, e um conserto bem-feito. Eu quase consigo sorrir. Quase.", "p1"],
+  "t_safe": ["t", "Mock-up stamps, and a proper fix. I could almost smile. Almost.", "Selos só no desenho, e um conserto bem-feito. Eu quase consigo sorrir. Quase.", "p1"],
   "t_risky": ["t", "A patch and real stamps. In two days. I'm going to need more tea.", "Um remendo e selos de verdade. Em dois dias. Vou precisar de mais chá.", "p1"],
   "p1": ["p", "So I'm drawing stamp screens by tomorrow. On top of everything. It's fine. I'll do it tonight.", "Então eu desenho as telas dos selos até amanhã. Além de todo o resto. Tudo bem. Eu faço hoje à noite.", [
    ["Priya, that's too much. Shall I ask Helen to move something?", "Priya, isso é demais. Quer que eu peça pra Helen adiar alguma coisa?", "p_no"],

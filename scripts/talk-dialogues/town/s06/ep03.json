@@ -55,7 +55,7 @@
    ["The food came by bus?", "A comida veio de ônibus?", null, "By bus? No. It came back. To the fridge. So everything is fine, isn't it?", "De ônibus? Não. Ela voltou. Pra geladeira. Então está tudo certo, não está?"]
   ]],
   "m_know": ["m", "Does it matter? Nothing is missing now. Let's move on.", "Faz diferença? Agora não falta nada. Vamos em frente.", "c_ask"],
-  "m_tins": ["m", "Tuna. It was on offer. Tuna is good for the brain. Why is everyone looking at me?", "Atum. Estava em promoção. Atum faz bem pro cérebro. Por que todo mundo tá me olhando?", "c_ask"],
+  "m_tins": ["m", "Tuna. It was on sale. Tuna is good for the brain. Why is everyone looking at me?", "Atum. Estava em promoção. Atum faz bem pro cérebro. Por que todo mundo tá me olhando?", "c_ask"],
   "c_ask": ["c", "Well, I want to know! Everyone thinks it's me. Do you think it's me?", "Pois eu quero saber! Todo mundo acha que sou eu. Você acha que sou eu?", [
    ["Can I ask you something, Callum? Did you take it by mistake?", "Posso te perguntar uma coisa, Callum? Você pegou sem querer?", "c_polite", {"set": {"tone": "polite"}}],
    ["Honestly? Yes. You were in the kitchen at three.", "Sinceramente? Acho. Você estava na cozinha às três.", "c_blunt", {"set": {"tone": "blunt"}}],
@@ -77,7 +77,7 @@
    ["Rule forty? You have forty rules?", "Regra quarenta? Vocês têm quarenta regras?", null, "Fourteen. One, four. Not forty. So, a list on the fridge. Do you agree?", "Catorze. Um, quatro. Não quarenta. Então, uma lista na geladeira. Você concorda?"]
   ]],
   "m_data": ["m", "Yes. Data. Good. I like how you think.", "Isso. Dados. Ótimo. Gosto do seu jeito de pensar.", "n_parcel"],
-  "m_camera": ["m", "No! No cameras. I mean, that's not legal. Probably. A list is enough.", "Não! Nada de câmera. Quer dizer, isso não é legal. Provavelmente. Uma lista basta.", "c_wow"],
+  "m_camera": ["m", "No! No cameras. I mean, that's not legal. Probably. A list is enough.", "Não! Nada de câmera. Quer dizer, isso é contra a lei. Provavelmente. Uma lista basta.", "c_wow"],
   "c_wow": ["c", "Wow. Mei said no to a gadget. That's a first.", "Nossa. A Mei recusou um aparelho. Essa é inédita.", "n_parcel"],
   "n_parcel": ["n", "The doorbell rings. Mei runs to the door. She comes back with a big, heavy box.", "A campainha toca. A Mei corre até a porta. Volta com uma caixa grande e pesada.", "m_box"],
   "m_box": ["m", "It's nothing. It's, uh, computer things. For work. Can I get past, please?", "Não é nada. São, hã, coisas de computador. Do trabalho. Posso passar, por favor?", [

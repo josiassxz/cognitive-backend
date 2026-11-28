@@ -17,7 +17,7 @@
    ["Let's call someone to fix it. Right now.", "Vamos chamar alguém pra consertar. Agora mesmo.", "b_call"],
    ["Don't worry, the bridge is fine.", "Relaxa, a ponte está ótima.", null, "Not the bridge! The fridge! It's broken! What do we do first?", "A ponte, não! A geladeira! Quebrou! O que a gente faz primeiro?"]
   ]],
-  "b_ice": ["b", "Ice! Yes! The gas station sells big bags. I'll run. And you call the repair person!", "Gelo! Isso! O posto vende sacos grandes. Eu vou correndo. E você liga pro conserto!", "b_card"],
+  "b_ice": ["b", "Ice! Yes! The gas station sells big bags. I'll run. You call Tasha, the repair woman!", "Gelo! Isso! O posto vende sacos grandes. Eu vou correndo. Você liga pra Tasha, a técnica!", "b_card"],
   "b_call": ["b", "Yes! There's a card on the wall. Tasha's Repairs. And I'll run and buy ice.", "Isso! Tem um cartão na parede. Tasha's Repairs. E eu vou correndo comprar gelo.", "b_card"],
   "b_card": ["b", "Here's the number. My hands are shaking. Tell her it's an emergency!", "Toma o número. Minhas mãos estão tremendo. Fala pra ela que é uma emergência!", "n_phone"],
   "n_phone": ["n", "Bia runs out. You call the number. It rings three times.", "A Bia sai correndo. Você liga para o número. Chama três vezes.", "t1"],
@@ -67,7 +67,7 @@
   ]],
   "t_fest": ["t", "The festival! Good luck. I hear the judge is very hard to please.", "O festival! Boa sorte. Dizem que o jurado é bem difícil de agradar.", "pay_br"],
   "t_boone": ["t", "Boone? Walter Boone? Gray hat, never smiles?", "Boone? Walter Boone? Chapéu cinza, nunca sorri?", "t_boone2"],
-  "t_boone2": ["t", "He had Boone's Diner for thirty years. I fixed his fridges. Nobody knows food like that man.", "Ele teve o Boone's Diner por trinta anos. Eu consertava as geladeiras dele. Ninguém entende de comida como aquele homem.", "t_boone3", {"clue": "old_diner"}],
+  "t_boone2": ["t", "He ran Boone's Diner for thirty years. I fixed his fridges. Nobody knows food like that man.", "Ele foi dono do Boone's Diner por trinta anos. Eu consertava as geladeiras dele. Ninguém entende de comida como aquele homem.", "t_boone3", {"clue": "old_diner"}],
   "t_boone3": ["t", "He closed it five years ago. So. Does Walter like your food?", "Ele fechou faz cinco anos. E aí. O Walter gosta da comida de vocês?", [
    ["I don't know. He never says anything.", "Não sei. Ele nunca fala nada.", "t_never"],
    ["I hope so. He eats everything.", "Espero que sim. Ele come tudo.", "t_eats"],
@@ -89,7 +89,7 @@
   "t_card": ["t", "Card is fine. Here's your receipt. Keep it.", "Cartão, beleza. Aqui está o recibo. Guarde.", "t_bye"],
   "t_receipt": ["t", "Sure. Here. Keep it with the papers for the truck.", "Claro. Toma. Guarde junto com os papéis do truck.", "t_bye"],
   "t_bye": ["t", "One free tip. Don't put hot food in there. And call me if it clicks again.", "Uma dica de graça. Não ponha comida quente aí dentro. E me liga se ela fizer clique de novo.", "b_end"],
-  "b_end": ["b", "We lost one morning. But we still have the cheese! Tomorrow is going to be a great day.", "Perdemos uma manhã. Mas o queijo está salvo! Amanhã vai ser um dia ótimo.", "n_end"],
+  "b_end": ["b", "We lost a morning. But we still have the cheese! Tomorrow is going to be a great day.", "Perdemos uma manhã. Mas o queijo está salvo! Amanhã vai ser um dia ótimo.", "n_end"],
   "n_end": ["n", "The fridge hums quietly. Outside, a woman in big sunglasses is reading your menu. She is not smiling.", "A geladeira ronrona baixinho. Lá fora, uma mulher de óculos escuros enormes lê o seu cardápio. Ela não está sorrindo.", null]
  }
 }

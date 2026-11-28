@@ -7,7 +7,7 @@
  "clues": {
   "rosa_cards": {
    "title": "Cartões para a Rosa",
-   "note": "Os cartões-postais são do verão de 1974: o vovô escreveu todos para a vó Rosa, cada um com um enigma."
+   "note": "Os cartões-postais são do verão de 1974: o vovô escreveu todos para a vó Rosa."
   },
   "dishes": {
    "title": "Torta paga com trabalho",
@@ -39,12 +39,12 @@
   },
   "sal": {
    "title": "Sal vende minhocas",
-   "note": "A estrada acaba no píer de Santa Monica: passe debaixo da roda-gigante, vá até o fim e procure por Sal."
+   "note": "O último enigma: ache a roda que gira e não vai a lugar nenhum, passe por baixo dela até o fim e procure por Sal, que vende minhocas."
   }
  },
  "memories": {
   "van_plan=keep": "O Rafa sabe que você não quer vender a van do vovô.",
-  "van_plan=sell": "O Rafa lembra que você topou vender a van na Califórnia.",
+  "van_plan=sell": "Por enquanto, o plano é vender a van na Califórnia.",
   "helped_dot=yes": "A Dot conta pra todo mundo que você lavou os pratos dela.",
   "helped_dot=no": "A Dot lembra que vocês saíram com pressa.",
   "slept=badly": "Você escolheu o quarto ao lado da máquina de gelo.",

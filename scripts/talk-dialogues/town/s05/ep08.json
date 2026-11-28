@@ -14,7 +14,7 @@
  "start": "n1",
  "nodes": {
   "n1": ["n", "Friday, twenty to ten. Room two oh four is filling up. In your group, one chair is empty.", "Sexta, vinte para as dez. A sala dois zero quatro vai enchendo. No seu grupo, uma cadeira está vazia.", "p1"],
-  "p1": ["p", "Twenty minutes. No Miles. Okafor will ask questions, and I need facts. What do you know?", "Vinte minutos. Nada do Miles. A Okafor vai fazer perguntas, e eu preciso de fatos. O que você sabe?", [
+  "p1": ["p", "Twenty minutes. No Miles, and plan B looks awful. Okafor wants answers. I need facts. What do you know?", "Vinte minutos. Nada do Miles, e o plano B ficou horrível. A Okafor vai querer respostas. Eu preciso de fatos. O que você sabe?", [
    ["Miles didn't run away. I've got facts. Ask me anything.", "O Miles não fugiu. Eu tenho fatos. Pode perguntar.", "q1"],
    ["Honestly? I think he took the slides and ran.", "Sinceramente? Acho que ele pegou os slides e fugiu.", "w_behind", {"set": {"accused": "yes"}}],
    ["I don't have a fax. Nobody has a fax.", "Não tenho fax. Ninguém mais tem fax.", null, "Facts! Not a fax! True things! What do you actually know about Miles?", "Fatos! Não fax! Coisas verdadeiras! O que você sabe de verdade sobre o Miles?"]
@@ -59,7 +59,7 @@
   "end_best": ["n", "Priya goes quiet. Then the door opens. Miles, out of breath, snow on his hoodie.", "A Priya fica em silêncio. Aí a porta se abre. O Miles, sem fôlego, com neve no moletom.", "p_sorry", {"set": {"ending": "best"}}],
   "p_sorry": ["p", "Miles. Sit down. We know. And I said some awful things about you. I'm sorry.", "Miles. Senta. A gente já sabe. E eu falei coisas horríveis de você. Desculpa.", "s_reveal"],
   "end_good": ["p", "That's half a story. Half isn't enough for Okafor. Oh. Look who just walked in.", "Isso é meia história. Meia não basta pra Okafor. Ah. Olha quem acabou de entrar.", "s_reveal", {"set": {"ending": "good"}}],
-  "end_basic": ["p", "So we have no slides and no reasons. Great. Wait. Is that him at the door?", "Então a gente não tem slide nem explicação. Ótimo. Espera. É ele ali na porta?", "s_reveal", {"set": {"ending": "basic"}}],
+  "end_basic": ["p", "So we have bad slides and no reasons. Great. Wait. Is that him at the door?", "Então a gente tem slide ruim e nenhuma explicação. Ótimo. Espera. É ele ali na porta?", "s_reveal", {"set": {"ending": "basic"}}],
   "s_reveal": ["m", "I need to say this out loud. My laptop died on Sunday. The only copy was on it.", "Eu preciso dizer isto em voz alta. Meu notebook morreu no domingo. A única cópia estava nele.", "s_reveal2"],
   "s_reveal2": ["m", "I work breakfast at five. So I rebuilt them at night, in the library. I only finished seven.", "Eu trabalho no café da manhã, às cinco. Então refiz tudo à noite, na biblioteca. Só terminei sete.", "s_reveal3"],
   "s_reveal3": ["m", "I should have told you on Monday. I was ashamed. I've never asked for help in my life.", "Eu devia ter contado na segunda. Fiquei com vergonha. Nunca pedi ajuda na vida.", "copy_br"],
@@ -71,7 +71,7 @@
    ["Seven slides in ten minutes. That's seventy.", "Sete slides em dez minutos. Dá setenta.", null, "This is not a math problem! We present in ten minutes. What do we do?", "Isto não é problema de matemática! A gente apresenta em dez minutos. O que a gente faz?"]
   ]],
   "m_ask": ["m", "Next time. Yeah. I'll try. It's harder than carrying a fridge.", "Da próxima vez. É. Vou tentar. É mais difícil que carregar geladeira.", "w2_br"],
-  "p_seven": ["p", "Seven slides and four voices. Okafor did say everybody speaks. Okay. That could work.", "Sete slides e quatro vozes. A Okafor disse mesmo que todo mundo fala. Tá. Pode dar certo.", "w2_br"],
+  "p_seven": ["p", "Seven good slides and four voices. Okafor wants everybody to speak anyway. Okay. That could work.", "Sete slides bons e quatro vozes. A Okafor quer mesmo que todo mundo fale. Tá. Pode dar certo.", "w2_br"],
   "w2_br": {"branch": [["clue_late_slot", "w2a"], [null, "w2b"]]},
   "w2a": ["w", "Group four, and all four of you. Good. You're first on my list. Ready?", "Grupo quatro, e os quatro presentes. Ótimo. Vocês são os primeiros da lista. Tudo pronto?", [
    ["Professor, could we take the last slot today? It's our one change this semester.", "Professora, dá pra gente ficar com o último horário hoje? É a nossa única troca do semestre.", "w_slot"],
@@ -102,7 +102,7 @@
   "w_basic": ["w", "You pass. Just. Next time, talk to each other in week six, not in the last ten minutes.", "Passaram. Raspando. Da próxima vez, conversem na semana seis, não nos últimos dez minutos.", "acc_br"],
   "acc_br": {"branch": [["accused", "g_joke"], [null, "r_final"]]},
   "g_joke": ["g", "And next time, look behind you before you say somebody ran away.", "E da próxima vez, olha pra trás antes de dizer que alguém fugiu.", "r_final"],
-  "r_final": ["r", "I told you I'd come! Look at my boy up there. I'm not crying. It's the onions.", "Eu disse que vinha! Olha o meu menino lá na frente. Eu não estou chorando. É a cebola.", "m_final"],
+  "r_final": ["r", "I came, my dear! Look at my boy up there. I'm not crying. It's the onions.", "Eu vim, meu bem! Olha o meu menino lá na frente. Eu não estou chorando. É a cebola.", "m_final"],
   "m_final": ["m", "Hey. Thanks for coming to find me. Nobody has ever done that before.", "Ei. Valeu por ter ido me procurar. Ninguém nunca tinha feito isso.", "n_end"],
   "n_end": ["n", "Your semester isn't over. But today you learned its best lesson: ask for help. And offer it.", "Seu semestre ainda não acabou. Mas hoje você aprendeu a melhor lição dele: pedir ajuda. E oferecer.", null]
  }

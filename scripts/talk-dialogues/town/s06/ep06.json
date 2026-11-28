@@ -24,7 +24,7 @@
    ["I'm sorry, I'm in a bit of a rush today.", "Desculpa, hoje eu tô com um pouco de pressa.", "o_fav_no", {"set": {"helped_okafor": "no"}}],
    ["You have terrible bees? In the flat?", "A senhora tem abelhas terríveis? No apartamento?", null, "Knees, love. Not bees. My legs. Could you carry the bottles down for me?", "Knees, joelhos, meu bem. Não bees. Minhas pernas. Você levaria as garrafas lá pra baixo?"]
   ]],
-  "o_fav_yes": ["o", "Bless you. Nobody carries anything for anybody these days.", "Deus te abençoe. Hoje em dia ninguém carrega nada pra ninguém.", "o_noise"],
+  "o_fav_yes": ["o", "Bless you. Nobody carries anything for anybody these days.", "Você é um amor. Hoje em dia ninguém carrega nada pra ninguém.", "o_noise"],
   "o_fav_no": ["o", "Never mind. I'll do it slowly. I do everything slowly now.", "Deixa pra lá. Eu levo devagar. Agora eu faço tudo devagar.", "o_noise"],
   "o_noise": ["o", "Now. The noise. I don't like to make a fuss, but I haven't slept properly for two weeks.", "Bom. O barulho. Não gosto de fazer escândalo, mas faz duas semanas que não durmo direito.", [
    ["I'm really sorry. What exactly do you hear?", "Sinto muito mesmo. O que exatamente a senhora ouve?", "o_hear"],

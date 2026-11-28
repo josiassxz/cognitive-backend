@@ -42,7 +42,7 @@
   "d_fair": ["d", "Ah, no. Well. That's fair. Just give me time to leave the country first.", "Ah, não. Bom. É justo. Só me dá tempo de sair do país antes.", "n_door"],
   "n_door": ["n", "The door opens. A small woman with white hair and sharp blue eyes walks in. Declan freezes.", "A porta se abre. Entra uma senhora baixinha, de cabelo branco e olhos azuis afiados. O Declan congela.", "g1"],
   "g1": ["g", "Declan Doyle. Why is your head in my press?", "Declan Doyle. Por que a sua cabeça está dentro do meu armário?", "d_bye"],
-  "d_bye": ["d", "Looking for biscuits, Granny! This is Julia's friend, from Brazil. Great chat. Bye!", "Procurando biscoito, vovó! Esta pessoa veio do Brasil pelo casamento da Julia. Ótimo papo. Tchau!", "n_alone"],
+  "d_bye": ["d", "Looking for biscuits, Granny! This is Julia's friend, from Brazil. Great chat. Bye!", "Procurando biscoito, vovó! Olha, veio do Brasil pro casamento da Julia. Ótimo papo. Tchau!", "n_alone"],
   "n_alone": ["n", "Declan is gone before she can answer. Nora looks at you for a long moment.", "O Declan some antes que ela responda. A Nora te observa por um bom tempo.", "g2"],
   "g2": ["g", "So you're the one who fixes things. I'm Nora. Sit down, child. You're making my kitchen look untidy.", "Então é você quem resolve as coisas. Eu sou a Nora. Senta, criança. Você está deixando minha cozinha com cara de bagunçada.", [
    ["Thank you, Nora. Which chair should I take?", "Agradeço, Nora. Em qual cadeira eu sento?", "g_chair_ok", {"set": {"chair": "asked"}}],

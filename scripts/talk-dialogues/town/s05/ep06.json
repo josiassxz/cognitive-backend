@@ -25,7 +25,7 @@
   ]],
   "f_room": ["f", "Room three, second floor. Your friends are already there. One of them is not whispering.", "Sala três, segundo andar. Seus amigos já estão lá. Um deles não está sussurrando.", "n3"],
   "f_miles": ["f", "I don't discuss students. But a gray hoodie has been at computer twelve every night until midnight.", "Eu não comento sobre estudantes. Mas um moletom cinza fica no computador doze toda noite, até meia-noite.", "f_miles2", {"clue": "library_nights"}],
-  "f_miles2": ["f", "Since Sunday. Building slides, one by one. He asked for a loaner laptop. We have none left.", "Desde domingo. Montando slides, um por um. Pediu um notebook emprestado. Não sobrou nenhum.", "n3"],
+  "f_miles2": ["f", "Since Sunday. Rebuilding slides, one by one. Not tonight, though. And you never heard this from me.", "Desde domingo. Refazendo slides, um por um. Hoje, não. E eu nunca te contei isso.", "n3"],
   "n3": ["n", "Study room three, upstairs. Priya is walking in circles. Gus is building a tower of markers.", "Sala de estudo três, no andar de cima. A Priya anda em círculos. O Gus monta uma torre de canetas.", "g0_br"],
   "g0_br": {"branch": [["dead_air=lesson", "g0_lesson"], ["dead_air=sang", "g0_sang"], [null, "g0_wx"]]},
   "g0_lesson": ["g", "Hey, radio star! I heard the show. I can say three words in Portuguese now.", "E aí, estrela do rádio! Ouvi o programa. Já sei falar três palavras em português.", "chip_br"],
@@ -34,7 +34,7 @@
   "chip_br": {"branch": [["fries=yes", "g_chip_y"], [null, "g_chip_n"]]},
   "g_chip_y": ["g", "Chips? You shared your fries, so half of this bag is yours. That's the law.", "Salgadinho? Você dividiu suas fritas, então metade deste saco é sua. É a lei.", "p1"],
   "g_chip_n": ["g", "I'd offer you chips. But I remember the fries. Okay, fine. One chip.", "Eu até te ofereceria salgadinho. Mas eu lembro das fritas. Tá bom, vai. Um só.", "p1"],
-  "p1": ["p", "Can we focus? Three days. No slides, no messages, nothing. He isn't even reading the group chat.", "Dá pra focar? Três dias. Sem slides, sem mensagem, sem nada. Ele nem lê mais o grupo.", "p2"],
+  "p1": ["p", "Can we focus? Three days left. No slides, no messages, nothing. He isn't even reading the group chat.", "Dá pra focar? Faltam três dias. Sem slides, sem mensagem, sem nada. Ele nem lê mais o grupo.", "p2"],
   "p2": ["p", "You live across the hall from him. Have you seen him at all?", "Você mora na frente dele. Você viu o Miles alguma vez?", [
    ["No. I knock every night. Nobody answers.", "Não. Eu bato toda noite. Ninguém atende.", "p_knock"],
    ["Not since Sunday. His laptop died at the radio station.", "Desde domingo, não. O notebook dele morreu lá na rádio.", "p_laptop"],
@@ -65,7 +65,7 @@
   ]],
   "p_split": ["p", "Good. We meet here every night until Friday. Bring coffee. Lots of coffee.", "Ótimo. A gente se encontra aqui toda noite até sexta. Traz café. Muito café.", "p5"],
   "p_wait": ["p", "One more try. Then plan B. I'm not failing because of a ghost.", "Mais uma tentativa. Depois, plano B. Eu não vou reprovar por causa de um fantasma.", "p5"],
-  "p5": ["p", "Call him. Leave a voice message. You're the only one he might listen to. What will you say?", "Liga pra ele. Deixa uma mensagem de voz. Só você ele talvez escute. O que você vai dizer?", [
+  "p5": ["p", "And call him. Leave a voice message. You're the only one he might listen to. What will you say?", "E liga pra ele. Deixa uma mensagem de voz. Só você ele talvez escute. O que você vai dizer?", [
    ["Miles, it's me. No pressure. We just want to know you're okay.", "Miles, sou eu. Sem pressão. A gente só quer saber se você está bem.", "p_kind", {"set": {"message": "kind"}}],
    ["Miles, we need the slides by Thursday, or we start without you.", "Miles, a gente precisa dos slides até quinta, senão começa sem você.", "p_firm", {"set": {"message": "firm"}}],
    ["Miles, I know about the laptop. Let us help. Four people are faster than one.", "Miles, eu sei do notebook. Deixa a gente ajudar. Quatro pessoas são mais rápidas que uma.", "p_help", {"set": {"message": "help"}}],
@@ -83,7 +83,7 @@
   "p_email_no": ["p", "Fine. Thursday. Not one minute later. I'm saving the email as a draft.", "Tá. Quinta. Nem um minuto depois. Vou deixar o e-mail salvo no rascunho.", "n4"],
   "n4": ["n", "It's almost midnight. The library is closing. On your way out, you pass the front desk again.", "É quase meia-noite. A biblioteca está fechando. Na saída, você passa de novo pelo balcão.", "f_out_br"],
   "f_out_br": {"branch": [["clue_library_nights", "f_known"], [null, "f_last"]]},
-  "f_known": ["f", "Good night. Computer twelve is empty tonight. First time since Sunday. I hope he's asleep.", "Boa noite. O computador doze está vazio hoje. Primeira vez desde domingo. Tomara que ele esteja dormindo.", "n_end"],
+  "f_known": ["f", "Good night. Still nobody at computer twelve. I hope he's finally asleep.", "Boa noite. Ainda ninguém no computador doze. Tomara que ele finalmente esteja dormindo.", "n_end"],
   "f_last": ["f", "We close in ten minutes. You look worried. Did you lose something?", "Fechamos em dez minutos. Você está com cara de preocupação. Perdeu alguma coisa?", [
    ["Someone, actually. Miles Park. Tall, quiet, gray hoodie.", "Alguém, na verdade. Miles Park. Alto, quieto, moletom cinza.", "f_late"],
    ["No, I'm just tired. Good night.", "Não, é só cansaço. Boa noite.", "f_gn"],

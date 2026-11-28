@@ -59,8 +59,8 @@
   ]],
   "p_long": ["p", "Very. Two babies, one broken arm and a man with a toy car up his nose.", "Muito. Dois bebês, um braço quebrado e um homem com um carrinho de brinquedo no nariz.", "p_shift"],
   "p_tea": ["p", "Oh, I like you already. Yes, please. No sugar.", "Ah, já gostei de você. Quero, por favor. Sem açúcar.", "p_shift"],
-  "p_shift": ["p", "I work nights, Sunday to Thursday. I leave at eight in the evening and get back at eight.", "Eu trabalho à noite, de domingo a quinta. Saio às oito da noite e volto às oito da manhã.", "p_q", {"clue": "night_shift"}],
-  "p_q": ["p", "So I sleep in the daytime. Can you keep the noise down until three?", "Então eu durmo de dia. Dá pra não fazer barulho até as três?", [
+  "p_shift": ["p", "I work nights, Sunday to Thursday. Eight in the evening to eight in the morning.", "Eu trabalho à noite, de domingo a quinta. Das oito da noite às oito da manhã.", "p_q", {"clue": "night_shift"}],
+  "p_q": ["p", "So I sleep in the daytime. Can you keep the noise down until three in the afternoon?", "Então eu durmo de dia. Dá pra não fazer barulho até as três da tarde?", [
    ["Of course. I promise I'll be quiet.", "Claro. Prometo fazer silêncio.", "p_prom", {"set": {"quiet_promise": "yes"}}],
    ["I'll try. But my alarm is very loud.", "Vou tentar. Mas meu despertador é bem alto.", "p_try", {"set": {"quiet_promise": "no"}}],
    ["Sure. I'll keep my nose down.", "Claro. Vou manter o nariz abaixado.", null, "The noise, not the nose. I sleep in the day. Can you be quiet until three?", "Noise, barulho. Não nose. Eu durmo de dia. Dá pra fazer silêncio até as três?"]

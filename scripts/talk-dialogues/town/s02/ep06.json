@@ -22,7 +22,7 @@
   "m_explain": ["m", "Could you explain, please? Slowly. New people make me nervous.", "Você pode explicar, por favor? Devagar. Gente nova me deixa nervosa.", [
    ["Our suitcases were swapped at the airport. I have his.", "Trocaram nossas malas no aeroporto. Eu estou com a dele.", "m_swap"],
    ["It's urgent. He needs his suitcase tonight.", "É urgente. Ele precisa da mala hoje à noite.", "m_urgent"],
-   ["I'm not nervous. I'm from Brazil.", "Não é nervosismo. Eu sou do Brasil.", null, "Oh. That's nice. But, um, why are you looking for my customer?", "Ah. Que bom. Mas, hum, por que você procura o meu cliente?"]
+   ["I'm not nervous. I'm from Brazil.", "Não é nervosismo. Eu sou do Brasil.", null, "Oh. That's nice. But, um, could you explain? Why are you here?", "Ah. Que bom. Mas, hum, você pode explicar? Por que você veio aqui?"]
   ]],
   "m_swap": ["m", "Swapped? Oh my. Like in a novel. Chapter one: the wrong suitcase.", "Trocadas? Nossa. Como num romance. Capítulo um: a mala errada.", "ap_br"],
   "m_urgent": ["m", "Urgent? Oh dear. I don't like urgent. Books are never urgent.", "Urgente? Ai, ai. Eu não gosto de urgente. Livro nunca é urgente.", "ap_br"],
@@ -48,7 +48,7 @@
    ["I miss him too.", "Eu também sinto falta dele.", null, "Oh. That's sweet. But you don't know him. I mean, he left an hour ago.", "Ah. Que fofo. Mas você nem conhece ele. Quer dizer, ele saiu faz uma hora."]
   ]],
   "m_going": ["m", "He said: 'Mabel, I must be at work by six.' Then he bowed. He always bows.", "Ele disse: 'Mabel, eu preciso estar no trabalho até as seis.' E fez uma reverência. Ele sempre faz.", "m_forgot"],
-  "m_book": ["m", "A very old play. He reads them aloud in the shop. All the voices. But he works at six.", "Uma peça bem antiga. Ele lê em voz alta na loja. Todas as vozes. Mas ele trabalha às seis.", "m_forgot"],
+  "m_book": ["m", "A very old play. He reads them aloud here, with all the voices. He starts work at six.", "Uma peça bem antiga. Ele lê em voz alta aqui, fazendo todas as vozes. Ele começa a trabalhar às seis.", "m_forgot"],
   "m_forgot": ["m", "But he forgot his book! He was so upset about the suitcase. Could you take it to him?", "Mas ele esqueceu o livro! Estava tão chateado com a mala. Você poderia levar pra ele?", [
    ["Of course. I'll give it to him tonight.", "Claro. Eu entrego pra ele hoje à noite.", "m_give", {"set": {"book": "yes"}}],
    ["I'd rather not. What if I don't find him?", "Prefiro não. E se eu não achar ele?", "m_keep", {"set": {"book": "no"}}],
@@ -82,8 +82,8 @@
    ["Seven suitcases? I only have one.", "Sete malas? Eu só tenho uma.", null, "One suitcase. Seven o'clock. He needs it by seven tonight. Is that clear?", "Uma mala. Sete horas. Ele precisa dela até as sete da noite. Ficou claro?"]
   ]],
   "o_meet": ["o", "No. The line went dead. He was calling from a phone box. In this century.", "Não. A ligação caiu. Ele estava ligando de um orelhão. Em pleno século vinte e um.", "m_end"],
-  "o_know": ["o", "Do you? Then you are faster than the airport. As I said.", "Sabe? Então você anda mais depressa que o aeroporto. Como eu disse.", "m_end"],
-  "m_end": ["m", "The Lantern is ten minutes away. Go up the street and turn left at the flower shop. Good luck.", "O Lantern fica a dez minutos. Suba a rua e vire à esquerda na floricultura. Boa sorte.", "n_end"],
-  "n_end": ["n", "Almost five o'clock. Rain on your face, a suitcase in your hand. And theatre lights, just ahead.", "Quase cinco horas. Chuva no rosto, uma mala na mão. E as luzes de um teatro, logo ali.", null]
+  "o_know": ["o", "Do you? Then you are faster than the airport. I am not surprised.", "Sabe? Então você anda mais depressa que o aeroporto. Não me surpreende.", "m_end"],
+  "m_end": ["m", "That sounded urgent. Forget the rules. The Lantern is ten minutes away. Turn left at the flower shop.", "Pareceu urgente. Esqueça as regras. O Lantern fica a dez minutos. Vire à esquerda na floricultura.", "n_end"],
+  "n_end": ["n", "Just after five. Rain on your face, a suitcase in your hand. And theatre lights, just ahead.", "Passa um pouco das cinco. Chuva no rosto, uma mala na mão. E as luzes de um teatro, logo ali.", null]
  }
 }

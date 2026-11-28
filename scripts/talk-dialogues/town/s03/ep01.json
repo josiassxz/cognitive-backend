@@ -18,7 +18,7 @@
    ["Yes, I can fill it up.", "Sim, eu posso encher o tanque.", null, "Fill what up? The truck has gas! I asked about you. Are you okay today?", "Encher o quê? O truck tem gasolina! Eu perguntei de você. Está tudo bem hoje?"]
   ]],
   "b_excited": ["b", "Me too! I didn't sleep. I made cheese bread at four in the morning.", "Eu também! Nem dormi. Fiz pão de queijo às quatro da manhã.", "b_job"],
-  "b_nervous": ["b", "Me too! I didn't sleep. But nervous is good. Nervous people don't burn the rice.", "Eu também! Nem dormi. Mas nervoso é bom. Gente nervosa não queima o arroz.", "b_job"],
+  "b_nervous": ["b", "Me too! I didn't sleep. But nervous is good. Nervous people don't burn the rice.", "Eu também! Nem dormi. Mas nervosismo é bom. Gente nervosa não queima o arroz.", "b_job"],
   "b_job": ["b", "Okay. I cook, and you take the orders at the window. You talk to people. Deal?", "Então tá. Eu cozinho, e você anota os pedidos na janela. Você fala com as pessoas. Fechado?", [
    ["Deal. But what do I say first?", "Fechado. Mas o que eu falo primeiro?", "b_say"],
    ["Sure. I know the menu by heart.", "Claro. Eu sei o cardápio de cor.", "b_test"],
@@ -87,13 +87,13 @@
   "n_flyer": ["n", "He walks away. Bia runs out of the truck with a piece of paper in her hand.", "Ele vai embora. A Bia sai correndo do truck com um papel na mão.", "b_flyer"],
   "b_flyer": ["b", "Look at this! The Street Food Festival, in two weeks! First prize is five thousand dollars!", "Olha isso! O Festival de Comida de Rua, daqui a duas semanas! O primeiro prêmio é de cinco mil dólares!", "b_flyer2"],
   "b_flyer2": ["b", "And listen: before the festival, a secret judge visits every truck, like a normal customer!", "E escuta: antes do festival, um jurado secreto visita cada truck, como um cliente comum!", "b_q", {"clue": "secret_judge"}],
-  "b_q": ["b", "A secret judge! It can be anyone! Should we enter?", "Um jurado secreto! Pode ser qualquer pessoa! A gente se inscreve?", [
+  "b_q": ["b", "A secret judge! It could be anyone! Should we enter?", "Um jurado secreto! Pode ser qualquer pessoa! A gente se inscreve?", [
    ["Yes! Let's do it.", "Sim! Vamos nessa.", "b_yes"],
    ["Is it expensive to enter?", "É caro pra se inscrever?", "b_cost"],
    ["Enter? But I'm already inside.", "Entrar? Mas eu já estou aqui dentro.", null, "Not the truck! The festival! Do we put our name on the list?", "No truck, não! No festival! A gente põe o nosso nome na lista?"]
   ]],
   "b_yes": ["b", "Yes! With five thousand dollars, we can buy a new fridge. Ours is very old.", "Isso! Com cinco mil dólares, dá pra comprar uma geladeira nova. A nossa é bem velha.", "b_end"],
-  "b_cost": ["b", "Fifty dollars. That's six plates of beans and rice. We can do that!", "Cinquenta dólares. São seis pratos de arroz com feijão. A gente consegue!", "b_end"],
+  "b_cost": ["b", "Fifty dollars. That's about six plates of beans and rice. We can do that!", "Cinquenta dólares. São uns seis pratos de arroz com feijão. A gente consegue!", "b_end"],
   "b_end": ["b", "Then it's a deal. From today, every customer gets a big smile. Every one!", "Então fechado. A partir de hoje, todo cliente ganha um sorrisão. Todos!", "n_end"],
   "n_end": ["n", "A big red truck parks next to yours. It says Smoke King. A loud horn plays a song.", "Um caminhão vermelho enorme estaciona do lado do seu. Está escrito Smoke King. Uma buzina alta toca uma música.", null]
  }

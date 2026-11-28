@@ -13,7 +13,7 @@
  "nodes": {
   "n1": ["n", "A dark, wet lane. A big man sits by the stage door, in a red and white scarf.", "Uma viela escura e molhada. Um homem grandão está sentado na porta dos artistas, de cachecol vermelho e branco.", "t1"],
   "t1": ["t", "Stage door. Staff only. What do you want?", "Porta dos artistas. Só funcionários. O que você quer?", [
-   ["Good evening. Are you Stan? I need your help.", "Boa noite. Você é o Stan? Preciso da sua ajuda.", "t_intro"],
+   ["Good evening. I need your help, please.", "Boa noite. Preciso da sua ajuda, por favor.", "t_intro"],
    ["That scarf! You have my suitcase!", "Esse cachecol! Você está com a minha mala!", "t_acc", {"set": {"accused": "yes"}}],
    ["Yes, I have a lot of stuff.", "Sim, eu tenho muita tralha.", null, "Not stuff. Staff. People who work here. You don't. So, what do you want?", "Não é tralha. É funcionário. Gente que trabalha aqui. Você, não. Então, o que você quer?"]
   ]],
@@ -50,13 +50,13 @@
   "end_br2": {"branch": [["f_who=yes", "end_br3"], [null, "end_good"]]},
   "end_br3": {"branch": [["f_need=yes", "end_best"], [null, "end_good"]]},
   "end_best": ["t", "Finch, the suitcase, the show. He's been crying all day. In you go! The door with the gold star.", "Finch, a mala, a peça. Ele passou o dia chorando por isso. Pode entrar! A porta da estrela dourada.", "note_br", {"set": {"ending": "best"}}],
-  "end_good": ["t", "Hm. Maybe it's true. Maybe it's a story. Wait here. I'll phone upstairs.", "Hum. Pode ser verdade. Pode ser conversa. Espere aqui. Vou ligar lá pra cima.", "n_good", {"set": {"ending": "good"}}],
-  "n_good": ["n", "You wait in the rain. Ten minutes. Thirty. At ten past seven, the door flies open.", "Você espera na chuva. Dez minutos. Trinta. Às sete e dez, a porta se escancara.", "note_br"],
+  "end_good": ["t", "Hm. Maybe it's true. Maybe it's a story. Wait here. I'll try to phone upstairs.", "Hum. Pode ser verdade. Pode ser conversa. Espere aqui. Vou tentar ligar lá pra cima.", "n_good", {"set": {"ending": "good"}}],
+  "n_good": ["n", "You wait in the rain. The phone upstairs is always busy. At ten past seven, the door flies open.", "Você espera na chuva. O telefone lá de cima só dá ocupado. Às sete e dez, a porta se escancara.", "note_br"],
   "end_basic": ["t", "Sorry. No good reason, no entry. Front door, at seven, like everybody else.", "Sinto muito. Sem um bom motivo, não entra. Porta da frente, às sete, como todo mundo.", "n_basic1", {"set": {"ending": "basic"}}],
   "n_basic1": ["n", "So you sit in the theatre, with the guest ticket. Half past seven. The curtain doesn't open.", "Então você senta na plateia, com o ingresso de cortesia. Sete e meia. A cortina não abre.", "n_basic2"],
   "n_basic2": ["n", "A voice says: 'We are looking for a blue suitcase.' Everyone looks at you. You walk onto the stage.", "Uma voz diz: 'Estamos procurando uma mala azul.' Todo mundo olha pra você. Você sobe no palco.", "note_br"],
   "note_br": {"branch": [["note=yes", "e_note"], [null, "e_nonote"]]},
-  "e_note": ["e", "My suitcase! And you! I got your note. I posted you a letter. It arrives on Monday!", "Minha mala! E você! Recebi seu bilhete. Mandei uma carta pra você. Chega na segunda!", "e_q"],
+  "e_note": ["e", "My suitcase! And you! I got your note. I posted you a letter. It will arrive on Monday!", "Minha mala! E você! Recebi seu bilhete. Mandei uma carta pra você. Chega na segunda!", "e_q"],
   "e_nonote": ["e", "My suitcase! And you, my Brazilian mystery! I looked for you all over London!", "Minha mala! E você, meu mistério brasileiro! Eu te procurei por Londres inteira!", "e_q"],
   "e_q": ["e", "Edmund Finch, actor, at your service. Now tell me. How on earth did you find me?", "Edmund Finch, ator, às suas ordens. Agora me conte. Como é que você me achou?", [
    ["I followed your things: the scarf, the recipe, the bookshop card.", "Eu segui as suas coisas: o cachecol, a receita, o cartão da livraria.", "e_det"],
@@ -79,8 +79,8 @@
   "e_bday": ["e", "A birthday? Write her number on my hand. I shall call in the break. Now run!", "Um aniversário? Escreva o número dela na minha mão. Eu ligo no intervalo. Agora corra!", "time_br"],
   "time_br": {"branch": [["ending=best", "n_d_best"], ["ending=good", "n_d_good"], [null, "n_d_basic"]]},
   "n_d_best": ["n", "You even have time to change. Your own jacket, at last! At eight o'clock exactly, you walk into Luigi's.", "Dá até tempo de trocar de roupa. A sua jaqueta, finalmente! Às oito em ponto, você entra no Luigi's.", "b_arrive"],
-  "n_d_good": ["n", "You run through Soho in the rain, with your own suitcase. Half past eight. Everyone is eating already.", "Você corre pelo Soho na chuva, com a sua mala de verdade. Oito e meia. Todo mundo já está comendo.", "b_arrive"],
-  "n_d_basic": ["n", "The show starts late. Stan brings your suitcase. You run. Nine o'clock: the cake is already on the table.", "A peça começa com atraso. O Stan traz a sua mala. Você corre. Nove horas: o bolo já está na mesa.", "b_arrive"],
+  "n_d_good": ["n", "You run through Soho with your own suitcase, and get lost twice. Half past eight. Everyone is eating already.", "Você corre pelo Soho com a sua mala de verdade e erra o caminho duas vezes. Oito e meia. Todo mundo já está comendo.", "b_arrive"],
+  "n_d_basic": ["n", "But the show comes first. At the break, Stan brings your suitcase. Nine o'clock: the cake is already on the table.", "Mas a peça vem primeiro. No intervalo, o Stan traz a sua mala. Nove horas: o bolo já está na mesa.", "b_arrive"],
   "b_arrive": ["b", "You made it! Wait. Why do you have a suitcase at my birthday dinner?", "Você veio! Espera. Por que você trouxe uma mala pro meu jantar de aniversário?", [
    ["Long story. But first, your present. From your mum.", "Longa história. Mas antes, seu presente. Da sua mãe.", "gift_br"],
    ["I crossed all of London for it. Your present is inside.", "Eu atravessei Londres inteira por ela. Seu presente está aí dentro.", "b_crossed"],
@@ -92,7 +92,7 @@
   "b_sweets": ["b", "Mum's sweets! Oh no. I'm going to cry in an Italian restaurant.", "Os doces da minha mãe! Ai, não. Eu vou chorar num restaurante italiano.", "rew_br"],
   "b_album": ["b", "Photos from home! Look, that's our street! I'm going to cry in an Italian restaurant.", "Fotos de casa! Olha, é a nossa rua! Eu vou chorar num restaurante italiano.", "rew_br"],
   "rew_br": {"branch": [["reward=birthday", "e_call"], [null, "n_tix"]]},
-  "e_call": ["e", "Hello? Bia? This is Edmund Finch, calling from the theatre. Happy birthday, my dear! Your friend is a star.", "Alô? Bia? Aqui é Edmund Finch, ligando do teatro. Feliz aniversário, minha querida! Você tem uma estrela ao seu lado.", "n_end"],
+  "e_call": ["e", "Hello? Bia? Edmund Finch, calling from the theatre. Happy birthday, my dear! Your friend is a star.", "Alô? Bia? Aqui é Edmund Finch, ligando do teatro. Feliz aniversário, minha querida! Você tem uma estrela ao seu lado.", "n_end"],
   "n_tix": ["n", "You put two theatre tickets on the table. Front row, tomorrow night. Bia screams. In English.", "Você põe dois ingressos de teatro na mesa. Primeira fila, amanhã à noite. A Bia grita. Em inglês.", "n_end"],
   "n_end": ["n", "Your first day in London is over. You lost a suitcase. You found a city full of friends.", "Seu primeiro dia em Londres acabou. Você perdeu uma mala. Encontrou uma cidade cheia de gente amiga.", null]
  }

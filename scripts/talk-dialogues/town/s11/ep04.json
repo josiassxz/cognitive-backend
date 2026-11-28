@@ -13,7 +13,7 @@
   "n2": ["n", "Isla is sitting on a stone wall, legs swinging, eating crisps. Her ferry jacket is tied round her waist.", "A Isla está sentada num muro de pedra, balançando as pernas e comendo batata chips. A jaqueta da balsa está amarrada na cintura.", "i1"],
   "i1": ["i", "You came. I half expected you to bottle it. Crisp?", "Você veio. Eu meio que achei que você ia amarelar. Batatinha?", [
    ["Go on, then. Thanks. So, what did you want to tell me?", "Aceito. Valeu. E aí, o que você queria me contar?", "i_crisp"],
-   ["I never bottle an interview. Shall I set up the camera?", "Eu nunca fujo de entrevista. Armo a câmera?", "i_setup"],
+   ["I never bottle it. Shall I set up the camera?", "Eu nunca amarelo. Armo a câmera?", "i_setup"],
    ["A bottle? No, thanks. I'm not thirsty.", "Uma garrafa? Não, valeu. Não estou com sede.", null, "Ha! Not a bottle. To bottle it means to chicken out. Anyway, do you want a crisp or not?", "Rá! Não é garrafa. É uma gíria pra amarelar. Enfim, quer uma batatinha ou não?"]
   ]],
   "i_crisp": ["i", "Straight to business. I like that. Dad takes an hour to say hello.", "Direto ao ponto. Gostei. O meu pai leva uma hora pra dar oi.", "i_cam"],
@@ -39,7 +39,7 @@
    ["Leaves? Yes, the autumn must be beautiful here.", "Folhas? Sim, o outono aqui deve ser lindo.", null, "Leaving! Going away. Off the island. Aren't you going to ask me why?", "Ir embora! Partir. Sair da ilha. Você não vai me perguntar por quê?"]
   ]],
   "why_br": {"branch": [["camera_off=yes", "i_reason1"], [null, "i_polite"]]},
-  "i_polite": ["i", "Jobs, nightlife, decent wifi. The usual. That's the camera answer, anyway.", "Emprego, vida noturna, wifi decente. O de sempre. Essa é a resposta pra câmera, pelo menos.", [
+  "i_polite": ["i", "Jobs, nightlife, decent Wi-Fi. The usual. That's the camera answer, anyway.", "Emprego, vida noturna, wifi decente. O de sempre. Essa é a resposta pra câmera, pelo menos.", [
    ["And the real answer? I'll switch the camera off now, if you like.", "E a resposta de verdade? Eu desligo a câmera agora, se você quiser.", "i_off_late", {"set": {"camera_off": "yes"}}],
    ["Fair enough. Would anything make you stay?", "Justo. Alguma coisa te faria ficar?", "i_stay"],
    ["The usual? I'll have the usual too, please.", "O de sempre? Pra mim também o de sempre, por favor.", null, "This isn't a café! I mean the usual reasons. Do you want the real one or not?", "Isto aqui não é um café! Eu falo dos motivos de sempre. Você quer o verdadeiro ou não?"]
@@ -69,7 +69,7 @@
    ["I'll tell him the time. It's nearly five.", "Eu digo as horas pra ele. São quase cinco.", null, "Brilliant. He owns a watch. I mean about me. What will you say if he asks?", "Genial. Ele tem relógio. Eu falo de mim. O que você vai dizer se ele perguntar?"]
   ]],
   "i_p_yes": ["i", "Good answer. I might even trust you. Don't let it go to your head.", "Boa resposta. Capaz até de eu confiar em você. Não vai ficar se achando.", "i_office"],
-  "i_p_half": ["i", "Hm. Honest, I suppose. Careful, though. Dad smells a secret like a seal smells fish.", "Hum. Sincero, pelo menos. Mas cuidado. O meu pai fareja segredo como foca fareja peixe.", "i_office"],
+  "i_p_half": ["i", "Hm. Honest, I suppose. Careful, though. Dad smells a secret like a seal smells fish.", "Hum. Sinceridade, pelo menos. Mas cuidado. O meu pai fareja segredo como foca fareja peixe.", "i_office"],
   "i_office": ["i", "Anyway. The woman from the office has set up in the hall. Everyone's decided to hate her already.", "Enfim. A mulher da repartição se instalou no salão. Todo mundo já decidiu odiar ela.", [
    ["Have you? Decided to hate her, I mean.", "E você? Já decidiu odiar, quero dizer.", "i_hate"],
    ["What's she like? You must have seen her on the ferry.", "Como ela é? Você deve ter visto ela na balsa.", "i_like"],
