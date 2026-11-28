@@ -1,0 +1,107 @@
+{
+ "slug": "s06-01-moving-in", "episode": 1, "title": "Moving In", "level": "A2",
+ "place": "home", "placeLabel": "Flat 4B", "time": "Domingo · 15h", "ambience": "home",
+ "description": "Seu primeiro dia no apartamento: regras, etiquetas e um fantasma que gosta de presunto.",
+ "intro": "Você acabou de chegar a Manchester e alugou um quarto num apartamento dividido com três pessoas. É domingo, está chovendo, e você sobe quatro andares com a mala.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Mei", "Programadora, colega de apartamento", "af_kore", "left"],
+  "c": ["Callum", "Estudante de música, colega de apartamento", "bm_fable", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "It's Sunday afternoon in Manchester. It's raining, of course.", "É domingo à tarde em Manchester. Está chovendo, claro.", "n2"],
+  "n2": ["n", "You carry your suitcase up four floors. The door says Four B. You knock.", "Você sobe quatro andares com a mala. Na porta está escrito Quatro B. Você bate.", "m1"],
+  "m1": ["m", "Hello. You must be the new flatmate. I'm Mei. You're four minutes early.", "Olá. Você deve ser a pessoa nova do apartamento. Eu sou a Mei. Você chegou quatro minutos antes.", [
+   ["Hi, Mei. Sorry, is that a problem?", "Oi, Mei. Desculpa, tem problema?", "m_early"],
+   ["Nice to meet you! Yes, I'm moving in today.", "Prazer! Sim, estou me mudando hoje.", "m_nice"],
+   ["I'm not Early. I'm from Brazil.", "Eu não sou Early. Sou do Brasil.", null, "Early is not a name. It means before the time. Let's start again. Hello, I'm Mei.", "Early não é nome. Quer dizer antes da hora. Vamos de novo. Olá, eu sou a Mei."]
+  ]],
+  "m_early": ["m", "No. Early is good. I like early. Come in. Shoes off, please.", "Não. Chegar antes é bom. Eu gosto. Entra. Sem sapatos, por favor.", "m_from"],
+  "m_nice": ["m", "Good. Your room is ready. Come in. Shoes off, please.", "Ótimo. Seu quarto está pronto. Entra. Sem sapatos, por favor.", "m_from"],
+  "m_from": ["m", "That's rule one: no shoes inside. So, you're from Brazil, right?", "Essa é a regra um: nada de sapato aqui dentro. Então, você é do Brasil, né?", [
+   ["Yes. It's much colder here!", "Sou. Aqui é bem mais frio!", "m_cold"],
+   ["Yes. And where are you from?", "Sou. E você, de onde é?", "m_van"],
+   ["Yes, I'm from the shoe shop.", "Sim, eu sou da loja de sapatos.", null, "No, not the shop. Your country. You're from Brazil, aren't you?", "Não, não a loja. Seu país. Você é do Brasil, não é?"]
+  ]],
+  "m_cold": ["m", "It rains a lot, too. I'm from Vancouver, in Canada, so I'm used to it.", "E chove muito. Eu sou de Vancouver, no Canadá, então já me acostumei.", "m_tour"],
+  "m_van": ["m", "Vancouver, in Canada. I'm a programmer. I work from home, in my room.", "Vancouver, no Canadá. Sou programadora. Trabalho de casa, no meu quarto.", "m_tour"],
+  "m_tour": ["m", "Right. A quick tour. Where do we start: your room or the kitchen?", "Certo. Um tour rápido. Por onde começamos: seu quarto ou a cozinha?", [
+   ["My room, please. This suitcase is heavy.", "Meu quarto, por favor. Esta mala está pesada.", "m_room"],
+   ["The kitchen. I'm hungry!", "A cozinha. Tô com fome!", "m_kitchen1"],
+   ["A tower? Like the one in Paris?", "Uma torre? Tipo a de Paris?", null, "Not a tower. A tour. I show you the flat. Your room or the kitchen first?", "Torre, não. Tour. Eu te mostro o apartamento. Primeiro seu quarto ou a cozinha?"]
+  ]],
+  "m_room": ["m", "Here it is. Bed, desk, window. The heating comes on from six to nine.", "É este. Cama, mesa, janela. O aquecimento liga das seis às nove.", "m_roomq"],
+  "m_roomq": ["m", "Any questions about the room?", "Alguma pergunta sobre o quarto?", [
+   ["Is there wi-fi?", "Tem wi-fi?", "m_wifi"],
+   ["Who lives in the other rooms?", "Quem mora nos outros quartos?", "m_who"],
+   ["No, thanks. I already have a broom.", "Não, valeu. Eu já tenho uma vassoura.", null, "Not a broom. The room. This room. Do you have any questions about it?", "Vassoura, não. O quarto. Este quarto. Você tem alguma pergunta sobre ele?"]
+  ]],
+  "m_wifi": ["m", "Yes. The password is on the fridge. It's very long. I made it.", "Tem. A senha está na geladeira. É bem comprida. Fui eu que criei.", "m_kitchen"],
+  "m_who": ["m", "Priya is a nurse. She works nights and sleeps all day. And Callum. You'll hear Callum.", "A Priya é enfermeira. Trabalha à noite e dorme o dia todo. E o Callum. O Callum você vai ouvir.", "m_kitchen"],
+  "m_kitchen1": ["m", "Good choice. The kitchen is the heart of the flat. And our biggest problem.", "Boa escolha. A cozinha é o coração do apartamento. E o nosso maior problema.", "m_kitchen"],
+  "m_kitchen": ["m", "Everyone has a shelf in the fridge. Yours is the third one.", "Cada pessoa tem uma prateleira na geladeira. A sua é a terceira.", "n_bag"],
+  "n_bag": ["n", "You open your shopping bag. You've got bread, apples and one special thing for dinner.", "Você abre a sacola de compras. Tem pão, maçãs e uma coisa especial pro jantar.", "m_food"],
+  "m_food": ["m", "Everything in the fridge needs a label with your name. What have you got?", "Tudo na geladeira precisa de etiqueta com o seu nome. O que você trouxe?", [
+   ["Some ham. Nice, thick ham.", "Presunto. Um presunto bom, bem grosso.", "m_ham", {"set": {"food": "ham"}}],
+   ["Some roast chicken.", "Frango assado.", "m_chicken", {"set": {"food": "chicken"}}],
+   ["Two pieces of salmon.", "Dois pedaços de salmão.", "m_salmon", {"set": {"food": "salmon"}}],
+   ["A table. I've got a table.", "Uma mesa. Eu trouxe uma mesa.", null, "Not a table. A label. A sticker with your name. What food have you got?", "Mesa, não. Etiqueta. Um adesivo com o seu nome. Que comida você trouxe?"]
+  ]],
+  "m_ham": ["m", "Ham. Oh. Put it at the back of the shelf. Right at the back.", "Presunto. Ah. Põe no fundo da prateleira. Bem lá no fundo.", "n_crash"],
+  "m_chicken": ["m", "Chicken. Oh. Put it at the back of the shelf. Right at the back.", "Frango. Ah. Põe no fundo da prateleira. Bem lá no fundo.", "n_crash"],
+  "m_salmon": ["m", "Salmon. Oh. Put it at the back of the shelf. Right at the back.", "Salmão. Ah. Põe no fundo da prateleira. Bem lá no fundo.", "n_crash"],
+  "n_crash": ["n", "A loud noise comes from the hall. Something heavy falls. Someone says sorry to a door.", "Um barulhão vem do corredor. Alguma coisa pesada cai. Alguém pede desculpa a uma porta.", "c1"],
+  "c1": ["c", "Sorry, door! Oh, hello! New person! I'm Callum. And that was my trombone.", "Foi mal, porta! Ah, oi! Gente nova! Eu sou o Callum. E aquilo era o meu trombone.", [
+   ["Hi, Callum. Is your trombone okay?", "Oi, Callum. Seu trombone está bem?", "c_trom"],
+   ["Hi! Do you play in a band?", "Oi! Você toca em banda?", "c_band"],
+   ["Hello, Trombone. Nice name.", "Olá, Trombone. Belo nome.", null, "Ha! No, I'm Callum. The trombone is the big gold thing. Let's try again. Hi!", "Rá! Não, eu sou o Callum. O trombone é aquele negócio dourado enorme. Vamos de novo. Oi!"]
+  ]],
+  "c_trom": ["c", "It's fine. It falls over every day. I study music at the university.", "Tá ótimo. Ele cai todo dia. Eu estudo música na universidade.", "c_ghost"],
+  "c_band": ["c", "Three bands! And I study music at the university. I'm always late for something.", "Três bandas! E estudo música na universidade. Vivo atrasado pra alguma coisa.", "c_ghost"],
+  "c_ghost": ["c", "Did Mei tell you about the ghost?", "A Mei te contou do fantasma?", [
+   ["A ghost? No! What ghost?", "Fantasma? Não! Que fantasma?", "c_ghost2"],
+   ["Ha. Good joke, Callum.", "Rá. Boa piada, Callum.", "c_nojoke"],
+   ["Yes, I'd love some toast.", "Sim, eu adoraria uma torrada.", null, "Toast? Ha! Not toast. A ghost! Did Mei tell you about our ghost?", "Torrada? Rá! Não é toast. É ghost, fantasma! A Mei te contou do nosso fantasma?"]
+  ]],
+  "c_nojoke": ["c", "It's not a joke! Well, it's a bit of a joke. But listen.", "Não é piada! Tá, é um pouco piada. Mas escuta.", "c_ghost2"],
+  "c_ghost2": ["c", "Food disappears from our fridge. At night. We call it the ghost of Four B.", "Some comida da nossa geladeira. De noite. A gente chama de fantasma do Quatro B.", "m_ghost"],
+  "m_ghost": ["m", "There is no ghost. There is a person who doesn't respect labels.", "Não existe fantasma. Existe uma pessoa que não respeita etiquetas.", "c_meat"],
+  "c_meat": ["c", "Last week it took my ham, the chicken and Priya's milk. But never the vegetables!", "Semana passada levou meu presunto, o frango e o leite da Priya. Mas os legumes, nunca!", "m_think", {"clue": "meat_only"}],
+  "m_think": ["m", "It's simple. Somebody here eats it. What do you think?", "É simples. Alguém daqui come. O que você acha?", [
+   ["Maybe someone eats in their sleep?", "Será que alguém come dormindo?", "c_sleep"],
+   ["A ghost that only likes meat? That's strange.", "Um fantasma que só gosta de carne? Que estranho.", "c_strange"],
+   ["I think it's Sunday.", "Eu acho que é domingo.", null, "Yes, it's Sunday. But the food. Who takes it, do you think?", "Sim, é domingo. Mas a comida. Quem você acha que pega?"]
+  ]],
+  "c_sleep": ["c", "Ha! Priya says that's me. But I sleep like a rock.", "Rá! A Priya diz que sou eu. Mas eu durmo feito pedra.", "m_rota"],
+  "c_strange": ["c", "Exactly! A ghost with good taste. It never touches Mei's broccoli.", "Exato! Um fantasma de bom gosto. Nunca encosta no brócolis da Mei.", "m_rota"],
+  "m_rota": ["m", "Enough ghosts. The cleaning list. You're new, so you choose first. Bins, bathroom or kitchen?", "Chega de fantasma. A lista da limpeza. Você acabou de chegar, então escolhe antes. Lixo, banheiro ou cozinha?", [
+   ["I'll take the bins.", "Eu fico com o lixo.", "m_bins", {"set": {"chore": "bins"}}],
+   ["The bathroom. I don't mind.", "O banheiro. Não ligo.", "m_bath", {"set": {"chore": "bathroom"}}],
+   ["The kitchen, please.", "A cozinha, por favor.", "m_kit", {"set": {"chore": "kitchen"}}],
+   ["Beans, please. I love beans.", "Feijão, por favor. Eu amo feijão.", null, "Not beans. Bins. The rubbish. Which job do you want: bins, bathroom or kitchen?", "Beans, não. Bins. O lixo. Qual tarefa você quer: lixo, banheiro ou cozinha?"]
+  ]],
+  "m_bins": ["m", "Good. Bins go out on Thursday night. I'll put you in the spreadsheet.", "Ótimo. O lixo sai na quinta à noite. Vou te pôr na planilha.", "c_sheet"],
+  "m_bath": ["m", "Brave. Once a week, on Saturdays. I'll put you in the spreadsheet.", "Que coragem. Uma vez por semana, aos sábados. Vou te pôr na planilha.", "c_sheet"],
+  "m_kit": ["m", "Good. Wipe the table every evening. I'll put you in the spreadsheet.", "Ótimo. Passa um pano na mesa toda noite. Vou te pôr na planilha.", "c_sheet"],
+  "c_sheet": ["c", "She has a spreadsheet for everything. Even for my socks.", "Ela tem planilha pra tudo. Até pras minhas meias.", "c_pizza"],
+  "c_pizza": ["c", "Anyway! We're getting pizza tonight to say welcome. Are you in?", "Enfim! Hoje a gente vai pedir pizza pra te dar as boas-vindas. Topa?", [
+   ["Yes, please! I'm starving.", "Sim, por favor! Tô morrendo de fome.", "c_pz_yes"],
+   ["Maybe later. I need to unpack first.", "Talvez mais tarde. Preciso desfazer a mala antes.", "c_pz_later"],
+   ["No, I'm in the kitchen.", "Não, eu estou na cozinha.", null, "Ha! I can see that. I mean: do you want pizza with us tonight?", "Rá! Isso eu tô vendo. Quero dizer: quer pizza com a gente hoje?"]
+  ]],
+  "c_pz_yes": ["c", "Great! Only one rule from me: no pineapple. Never.", "Boa! Minha única regra: abacaxi, não. Nunca.", "n_letter"],
+  "c_pz_later": ["c", "No problem. I'll save you a slice. Probably.", "Sem problema. Guardo uma fatia pra você. Provavelmente.", "n_letter"],
+  "n_letter": ["n", "Mei picks up a letter from the floor by the door. She reads it. Her face changes.", "A Mei pega uma carta do chão, perto da porta. Ela lê. A cara dela muda.", "m_letter"],
+  "m_letter": ["m", "It's from Mr. Whitaker, the landlord. He's coming on Saturday. For an inspection.", "É do Sr. Whitaker, o senhorio. Ele vem no sábado. Fazer uma vistoria.", [
+   ["An inspection? Is that bad?", "Uma vistoria? Isso é ruim?", "c_insp"],
+   ["What does he check?", "O que ele olha?", "m_check"],
+   ["A lord? Is he a king?", "Um lorde? Ele é rei?", null, "Not a lord. The landlord. He owns this flat, and he's coming on Saturday. Any questions?", "Lorde, não. Landlord, o senhorio. Ele é o dono do apartamento e vem no sábado. Alguma pergunta?"]
+  ]],
+  "c_insp": ["c", "Only if the flat is a mess. So, yes. It's bad.", "Só se o apartamento estiver uma bagunça. Então, sim. É ruim.", "n_cup"],
+  "m_check": ["m", "Everything. The walls, the oven, the rules in the contract. Everything.", "Tudo. As paredes, o forno, as regras do contrato. Tudo.", "n_cup"],
+  "n_cup": ["n", "Mei puts the letter down. Her hands shake a little, and she drops her cup.", "A Mei larga a carta. As mãos dela tremem um pouco, e ela derruba a xícara.", "m_cup"],
+  "m_cup": ["m", "Sorry. I'm fine. I just need to check something in my room.", "Desculpa. Tô bem. Só preciso conferir uma coisa no meu quarto.", "n_end"],
+  "n_end": ["n", "Your first day in Flat Four B. Six days until the inspection. And a ghost that likes meat.", "Seu primeiro dia no Flat Quatro B. Seis dias até a vistoria. E um fantasma que gosta de carne.", null]
+ }
+}

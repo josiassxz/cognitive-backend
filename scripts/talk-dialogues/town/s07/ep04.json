@@ -1,0 +1,86 @@
+{
+ "slug": "s07-04-forty-one-violins", "episode": 4, "title": "Forty-One Violins", "level": "B1",
+ "place": "train", "placeLabel": "Cabine quatro", "time": "Sábado · 2h", "ambience": "train",
+ "description": "Uma conversa delicada com o colecionador. E um estojo debaixo da cama.",
+ "intro": "O estojo do violino estava trancado, sem um arranhão, e só existem duas chaves. O Oliver jura que viu o violino à uma em ponto. A Moira pediu a sua ajuda, e o primeiro nome da lista é o do colecionador.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Moira", "Chefe de trem", "bf_isabella", "left"],
+  "l": ["Mr. Lang", "Colecionador de instrumentos", "bm_george", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Two in the morning. You follow Moira down the corridor to berth four. She stops outside the door.", "Duas da manhã. Você segue a Moira pelo corredor até a cabine quatro. Ela para diante da porta.", "m0"],
+  "m0": ["m", "Before I knock. What do we actually know about Mr. Lang?", "Antes de eu bater. O que a gente sabe de fato sobre o Sr. Lang?", [
+   ["He offered any price for the violin tonight.", "Ele ofereceu qualquer preço pelo violino hoje à noite.", "m0a"],
+   ["Oliver says he's been after it for months.", "O Oliver diz que ele está atrás do violino há meses.", "m0b"],
+   ["I know how to knock, thanks.", "Eu sei bater na porta, valeu.", null, "I'm sure you do. I mean Mr. Lang. What have we learned about him so far?", "Não duvido. Estou falando do Sr. Lang. O que descobrimos sobre ele até agora?"]
+  ]],
+  "m0a": ["m", "And she said no. Wanting isn't taking, mind. Let's hear the man.", "E ela disse não. Mas querer não é pegar, veja bem. Vamos ouvir o homem.", "l1"],
+  "m0b": ["m", "Mr. Finch says a great many things. Let's hear Mr. Lang.", "O Sr. Finch diz muita coisa. Vamos ouvir o Sr. Lang.", "l1"],
+  "l1": ["l", "Ah. The manager, and a detective. I wondered how long it would take. Come in.", "Ah. A chefe de trem, com reforço de detetive. Eu me perguntava quanto ia demorar. Entrem.", "order_br"],
+  "order_br": {"branch": [["order=toastie", "l_toastie"], [null, "l_sit"]]},
+  "l_toastie": ["l", "You're the one with the cheese toastie. I can still smell it. Do sit down.", "Foi você quem pediu o misto de queijo. Ainda sinto o cheiro. Sente, por favor.", "m1"],
+  "l_sit": ["l", "Mind the hat box. Do sit down, if you can find somewhere.", "Cuidado com a caixa de chapéu. Sente, se achar onde.", "m1"],
+  "m1": ["m", "Mr. Lang, the Nightingale has gone missing. I need to ask where you were at one o'clock.", "Sr. Lang, o Nightingale desapareceu. Preciso perguntar onde o senhor estava à uma hora.", "l2"],
+  "l2": ["l", "Naturally. The collector did it. How very convenient for everyone.", "Naturalmente. Foi o colecionador. Que conveniente pra todo mundo.", "n_radio"],
+  "n_radio": ["n", "Moira's radio crackles. Someone in coach D needs her. She gives you a look and leaves.", "O rádio da Moira chia. Alguém no vagão D precisa dela. Ela te lança um olhar e sai.", "l3"],
+  "l3": ["l", "So. Just you and me. Go on. Accuse me. I'm rather looking forward to it.", "Então. Só você e eu. Vamos. Me acuse. Estou até ansioso.", [
+   ["Nobody's accusing you. I just want to understand the evening.", "Ninguém está acusando o senhor. Só quero entender como foi a noite.", "l_tact"],
+   ["Well, you did offer any price. Then it disappeared.", "Bom, o senhor ofereceu qualquer preço. E depois ele sumiu.", "l_blunt"],
+   ["Excuse you? Why, what did you do?", "Desculpar o senhor? Por quê, o que o senhor fez?", null, "Not excuse. Accuse. You think I took the violin, don't you? Say it.", "Não é \"excuse\". É \"accuse\", acusar. Você acha que eu peguei o violino, não acha? Diga."]
+  ]],
+  "l_tact": ["l", "Tact. How refreshing. Very well. Ask, and I shall answer like a gentleman.", "Tato. Que alívio. Muito bem. Pergunte, e eu respondo como um cavalheiro.", "l4"],
+  "l_blunt": ["l", "I did. And I'd offer it again tomorrow. Wanting something isn't the same as taking it.", "Ofereci. E ofereceria de novo amanhã. Querer uma coisa não é o mesmo que pegá-la.", "l4"],
+  "l4": ["l", "At one o'clock I was in the lounge car, losing at cards to a very small old woman.", "À uma hora eu estava no vagão-lounge, perdendo nas cartas pra uma senhora muito pequena.", [
+   ["Mrs. Pringle? Was she there the whole time?", "A Sra. Pringle? Ela ficou lá o tempo todo?", "l_time"],
+   ["Did you see Oliver Finch come in for tea?", "O senhor viu o Oliver Finch entrar pra tomar chá?", "l_oliver"],
+   ["I lost my cards too. And my passport.", "Eu também perdi meus cartões. E o passaporte.", null, "My condolences. I said I was playing cards, in the lounge car. Any questions about that?", "Meus pêsames. Eu disse que estava jogando cartas, no vagão-lounge. Alguma pergunta sobre isso?"]
+  ]],
+  "l_time": ["l", "She popped out at quarter to one, came back, and beat me again. I left at ten past.", "Ela deu uma saída às quinze para a uma, voltou e me venceu de novo. Saí à uma e dez.", "n_case"],
+  "l_oliver": ["l", "The assistant? No. I left at ten past one, and nobody had come in for tea. Nobody.", "O assistente? Não. Saí à uma e dez, e ninguém tinha entrado pra tomar chá. Ninguém.", "n_case"],
+  "n_case": ["n", "Then you see it. Under the bed, half hidden by a coat: a violin case.", "Então você vê. Debaixo da cama, meio escondido por um casaco: um estojo de violino.", "l5"],
+  "l5": ["l", "Ah. You've noticed my case. You've gone quite pale. What do you suppose is in it?", "Ah. Você notou o meu estojo. Até perdeu a cor. O que você supõe que tem dentro?", [
+   ["It might be empty. May I see?", "Pode estar vazio. Posso ver?", "l_open"],
+   ["It must be the Nightingale! I'm calling Moira!", "Só pode ser o Nightingale! Vou chamar a Moira!", "l_accuse", {"set": {"accused_lang": "yes"}}],
+   ["I'd rather you told me yourself.", "Prefiro que o senhor mesmo me conte.", "l_tell"],
+   ["A case of wine, I suppose.", "Uma caixa de vinho, suponho.", null, "Wine? In a violin case? What a waste of a case. Guess again. What's inside?", "Vinho? Num estojo de violino? Que desperdício de estojo. Tente de novo. O que tem dentro?"]
+  ]],
+  "l_accuse": ["l", "Call her. Please. And then watch me open it.", "Chame. Por favor. E depois fique vendo eu abrir.", "n_open_acc"],
+  "n_open_acc": ["n", "He opens the case slowly. Green velvet. And absolutely nothing else.", "Ele abre o estojo devagar. Veludo verde. E absolutamente mais nada.", "l_acc2"],
+  "l_acc2": ["l", "Empty, as you can see. You've just accused a man of stealing air.", "Vazio, como você pode ver. Você acaba de acusar um homem de roubar ar.", [
+   ["I'm so sorry. I jumped to conclusions.", "Sinto muito mesmo. Tirei conclusões precipitadas.", "l_forgive"],
+   ["Then why travel with an empty case?", "Então por que viajar com um estojo vazio?", "l_why"],
+   ["I never steal hair. I promise.", "Eu nunca roubo cabelo. Juro.", null, "Air, not hair. The case is empty. So. Have you anything to say to me?", "\"Air\", ar. Não \"hair\". O estojo está vazio. Então. Você tem algo a me dizer?"]
+  ]],
+  "l_forgive": ["l", "You did. But you apologise well. That's rarer than a good violin.", "Tirou. Mas você sabe pedir desculpas. Isso é mais raro que um bom violino.", "l_why"],
+  "l_open": ["l", "You may. A polite question gets an open case. There. Green velvet, and nothing else.", "Pode. Pergunta educada, estojo aberto. Pronto. Veludo verde, e mais nada.", "l_why"],
+  "l_tell": ["l", "A sensible answer. It's empty. Look for yourself. Green velvet, and nothing else.", "Resposta sensata. Está vazio. Veja com os próprios olhos. Veludo verde, e mais nada.", "l_why"],
+  "l_why": ["l", "There's an auction in Edinburgh at noon. An Italian violin, lot twelve. This case is for that one.", "Tem um leilão em Edimburgo ao meio-dia. Um violino italiano, lote doze. Este estojo é pra ele.", "l_cat", {"clue": "lang_auction"}],
+  "l_cat": ["l", "Here's the catalogue. I've circled it twice. I buy violins. I don't steal them.", "Aqui está o catálogo. Circulei duas vezes. Eu compro violinos. Não roubo.", "l_play"],
+  "l_play": ["l", "Tell me something, since we're awake. Do you play an instrument yourself?", "Me diga uma coisa, já que estamos acordados. Você toca algum instrumento?", [
+   ["A little guitar. Badly.", "Um pouco de violão. Mal.", "l_play_a"],
+   ["No, but I love listening.", "Não, mas adoro escutar.", "l_play_b"],
+   ["Yes, I'm playing right now.", "Sim, estou tocando agora mesmo.", null, "Are you? How tiring. I mean an instrument. A piano, a guitar. Do you play one?", "Está? Que cansativo. Eu digo um instrumento. Piano, violão. Você toca algum?"]
+  ]],
+  "l_play_a": ["l", "Badly is how everyone starts. I never even started. I can't play a single note.", "Mal é como todo mundo começa. Eu nem comecei. Não sei tocar uma nota sequer.", "l6"],
+  "l_play_b": ["l", "Then we're alike. I can't play a single note. I collect what I can't do.", "Então temos isso em comum. Não sei tocar uma nota sequer. Eu coleciono o que não sei fazer.", "l6"],
+  "l6": ["l", "Now. Anything else? Or may I go back to not sleeping?", "Bem. Mais alguma coisa? Ou posso voltar a não dormir?", [
+   ["You've followed her career. How has she been playing lately?", "O senhor acompanha a carreira dela. Como ela tem tocado ultimamente?", "vienna_br"],
+   ["Who do you think took it?", "Quem o senhor acha que pegou?", "l_who"],
+   ["Yes, one more toastie, please.", "Sim, mais um misto, por favor.", null, "This is not the lounge car. Have you any more questions about the violin?", "Aqui não é o vagão-lounge. Você tem mais alguma pergunta sobre o violino?"]
+  ]],
+  "l_who": ["l", "Took it? I'm not convinced anybody did. Thieves break locks. They don't tidy up afterwards.", "Pegou? Não estou convencido de que alguém pegou. Ladrão arromba fechadura. Não deixa tudo arrumadinho depois.", "l_end"],
+  "vienna_br": {"branch": [["lang_friend=yes", "l_vienna"], [null, "l_vienna_q"]]},
+  "l_vienna_q": ["l", "Why should I share what I know? In the lounge car, you practically told me to go away.", "Por que eu dividiria o que sei? No vagão-lounge, você praticamente me mandou embora.", [
+   ["I misjudged you, and I'm sorry. I'd value your opinion.", "Eu te julguei mal, desculpa. Sua opinião vale muito pra mim.", "l_vienna"],
+   ["Fair enough. I won't push.", "Justo. Não vou insistir.", "l_end"],
+   ["Share? No thanks, I've eaten.", "Dividir? Não, valeu, já comi.", null, "Not food. Information. Why should I tell you what I know about her?", "Não é comida. É informação. Por que eu te contaria o que sei sobre ela?"]
+  ]],
+  "l_vienna": ["l", "I was in Vienna last month. She walked on stage, lifted her bow, and froze. Then she walked off.", "Eu estava em Viena no mês passado. Ela entrou no palco, ergueu o arco e travou. Depois saiu.", "l_vienna2", {"clue": "vienna"}],
+  "l_vienna2": ["l", "The papers said a sudden illness. I was in the third row. That wasn't illness. That was fear.", "Os jornais falaram em mal súbito. Eu estava na terceira fila. Aquilo não era doença. Era medo.", "l_end"],
+  "l_end": ["l", "Good night. If you find it, tell Miss Whitmore my offer still stands.", "Boa noite. Se encontrarem, diga à Srta. Whitmore que a minha oferta continua de pé.", "n_noise"],
+  "n_noise": ["n", "You step into the corridor. And then you hear it. A thin, high cry, somewhere close.", "Você sai para o corredor. E então você ouve. Um choro fino e agudo, bem perto.", "n_end"],
+  "n_end": ["n", "For a moment, it sounds exactly like a violin. It's coming from berth eight.", "Por um instante, soa igualzinho a um violino. Vem da cabine oito.", null]
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "season": 4,
+ "title": "Route 66",
+ "subtitle": "Você e seu primo Rafa cruzam os Estados Unidos, de Chicago ao Pacífico, na van velha do seu avô. No porta-luvas, cartões-postais com enigmas levam às pessoas que ele conheceu na estrada.",
+ "level": "A2–B1",
+ "genre": "Road trip",
+ "clues": {
+  "rosa_cards": {
+   "title": "Cartões para a Rosa",
+   "note": "Os cartões-postais são do verão de 1974: o vovô escreveu todos para a vó Rosa, cada um com um enigma."
+  },
+  "dishes": {
+   "title": "Torta paga com trabalho",
+   "note": "O vovô chegou ao Dot's Diner sem um dólar e lavou pratos por uma semana para pagar a torta de cereja."
+  },
+  "rosie": {
+   "title": "O nome da van",
+   "note": "O vovô chamava a van amarela de Rosie, por causa da vó Rosa."
+  },
+  "baby_news": {
+   "title": "O telefonema",
+   "note": "No motel Blue Star, o vovô recebeu uma ligação de Chicago: a vó Rosa estava esperando um bebê."
+  },
+  "key": {
+   "title": "A chavinha",
+   "note": "Atrás do porta-luvas havia uma chavinha escondida, com uma etiqueta: para o fim da estrada."
+  },
+  "song": {
+   "title": "A canção dele",
+   "note": "O vovô tocava gaita e compôs na estrada uma música para a Rosa: The Long Way Home."
+  },
+  "logbook": {
+   "title": "O livro de visitas",
+   "note": "Em 1974, o vovô escreveu no livro do parque: da próxima vez, trago meus netos."
+  },
+  "said_no": {
+   "title": "Ele disse não",
+   "note": "Nove dias depois, o vovô passou de volta pelo posto do Earl: conseguiu o emprego na Califórnia e recusou."
+  },
+  "sal": {
+   "title": "Sal vende minhocas",
+   "note": "A estrada acaba no píer de Santa Monica: passe debaixo da roda-gigante, vá até o fim e procure por Sal."
+  }
+ },
+ "memories": {
+  "van_plan=keep": "O Rafa sabe que você não quer vender a van do vovô.",
+  "van_plan=sell": "O Rafa lembra que você topou vender a van na Califórnia.",
+  "helped_dot=yes": "A Dot conta pra todo mundo que você lavou os pratos dela.",
+  "helped_dot=no": "A Dot lembra que vocês saíram com pressa.",
+  "slept=badly": "Você escolheu o quarto ao lado da máquina de gelo.",
+  "radio=fixed": "A Lupe consertou o toca-fitas da van a seu pedido.",
+  "sang=yes": "Você subiu no palco e cantou com o Hank.",
+  "rock=asked": "A guarda do parque lembra que você quis levar uma pedra."
+ }
+}

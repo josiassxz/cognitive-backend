@@ -1,0 +1,84 @@
+{
+ "slug": "s06-06-downstairs", "episode": 6, "title": "Downstairs", "level": "B1",
+ "place": "home", "placeLabel": "Flat 3B", "time": "Quinta · 17h", "ambience": "home",
+ "description": "Chá, biscoitos de gengibre e uma vizinha que não dorme há duas semanas.",
+ "intro": "Na reunião, a Priya leu a cláusula nove do contrato: nada de animais sem permissão por escrito. A Mei ficou estranha. E a vizinha de baixo, a Sra. Okafor, bateu na porta para reclamar do barulho de madrugada. Você prometeu descer hoje às cinco.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "o": ["Mrs. Okafor", "Vizinha do 3B", "bf_isabella", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Thursday, five o'clock. You go down one floor and ring the bell of Three B.", "Quinta, cinco da tarde. Você desce um andar e toca a campainha do Três B.", "n2"],
+  "n2": ["n", "The door opens. The flat smells of toast and lavender. A radio is playing old songs.", "A porta abre. O apartamento cheira a torrada e lavanda. Um rádio toca músicas antigas.", "o1"],
+  "o1": ["o", "Five o'clock on the dot. Good. Come in, love. Tea? I've got ginger biscuits too.", "Cinco em ponto. Muito bem. Entra, meu bem. Chá? Também tenho biscoito de gengibre.", [
+   ["Tea would be lovely, thank you.", "Um chá seria ótimo, agradeço.", "o_tea"],
+   ["Just water, please. And I'm sorry about the noise.", "Só água, por favor. E desculpa pelo barulho.", "o_sorry"],
+   ["On the dot? Which dot?", "No ponto? Que ponto?", null, "It means exactly on time, love. Now sit down. Would you like some tea?", "Quer dizer bem na hora, meu bem. Agora senta. Aceita um chá?"]
+  ]],
+  "o_tea": ["o", "Good. I drove the number forty-two bus for thirty years. I know a proper cup of tea.", "Ótimo. Dirigi o ônibus quarenta e dois por trinta anos. Eu sei o que é um chá de verdade.", "n_sofa"],
+  "o_sorry": ["o", "Sit down first, apologise later. Thirty years of driving buses taught me patience.", "Primeiro senta, depois pede desculpa. Trinta anos dirigindo ônibus me ensinaram a ter paciência.", "n_sofa"],
+  "n_sofa": ["n", "You sit on a sofa covered in white hairs. But there's no pet anywhere in the flat.", "Você senta num sofá coberto de pelos brancos. Mas não tem bicho nenhum no apartamento.", "o_shop"],
+  "o_shop": ["o", "Before we start. My knees are terrible. Could you take those bottles down to the recycling for me?", "Antes de começar. Meus joelhos estão péssimos. Você levaria aquelas garrafas lá pra reciclagem pra mim?", [
+   ["Of course. I'll take them on my way out.", "Claro. Eu levo quando sair.", "o_fav_yes", {"set": {"helped_okafor": "yes"}}],
+   ["I'm sorry, I'm in a bit of a rush today.", "Desculpa, hoje eu tô com um pouco de pressa.", "o_fav_no", {"set": {"helped_okafor": "no"}}],
+   ["You have terrible bees? In the flat?", "A senhora tem abelhas terríveis? No apartamento?", null, "Knees, love. Not bees. My legs. Could you carry the bottles down for me?", "Knees, joelhos, meu bem. Não bees. Minhas pernas. Você levaria as garrafas lá pra baixo?"]
+  ]],
+  "o_fav_yes": ["o", "Bless you. Nobody carries anything for anybody these days.", "Deus te abençoe. Hoje em dia ninguém carrega nada pra ninguém.", "o_noise"],
+  "o_fav_no": ["o", "Never mind. I'll do it slowly. I do everything slowly now.", "Deixa pra lá. Eu levo devagar. Agora eu faço tudo devagar.", "o_noise"],
+  "o_noise": ["o", "Now. The noise. I don't like to make a fuss, but I haven't slept properly for two weeks.", "Bom. O barulho. Não gosto de fazer escândalo, mas faz duas semanas que não durmo direito.", [
+   ["I'm really sorry. What exactly do you hear?", "Sinto muito mesmo. O que exatamente a senhora ouve?", "o_hear"],
+   ["I apologise for all of us. Is it the trombone?", "Peço desculpas por todos nós. É o trombone?", "o_trombone"],
+   ["A fuss? I can make one for you, if you like.", "Um escândalo? Eu faço um pra senhora, se quiser.", null, "Ha! No, thank you. I mean I don't like complaining. But the noise, love. Can we talk about it?", "Rá! Não, obrigada. Quero dizer que não gosto de reclamar. Mas o barulho, meu bem. Podemos falar disso?"]
+  ]],
+  "o_trombone": ["o", "No, no. The trombone's in the afternoon. I quite like it. He's getting better.", "Não, não. O trombone é de tarde. Eu até gosto. Ele está melhorando.", "o_hear"],
+  "o_hear": ["o", "Little feet. Running, at three in the morning. Back and forth, back and forth.", "Pezinhos. Correndo, às três da manhã. Pra lá e pra cá, pra lá e pra cá.", "o_hear2"],
+  "o_hear2": ["o", "Right above my bed. And my bedroom is under the last room on your corridor. Whose is it?", "Bem em cima da minha cama. E meu quarto fica embaixo do último quarto do seu corredor. De quem é?", [
+   ["That's Mei's room. But she's the quietest of us all.", "É o quarto da Mei. Mas ela é a mais quieta de todos nós.", "o_quiet"],
+   ["I'd rather not say until I'm sure.", "Prefiro não dizer até ter certeza.", "o_careful"],
+   ["The last broom? It's in the kitchen.", "A última vassoura? Está na cozinha.", null, "Room, love, not broom. The room at the end of your corridor. Who sleeps there?", "Room, quarto, meu bem. Não broom. O quarto do fim do corredor. Quem dorme lá?"]
+  ], {"clue": "room_below"}],
+  "o_quiet": ["o", "The quiet ones always surprise you. But a grown woman doesn't run like that. Too light. Too fast.", "Os quietos sempre surpreendem. Mas uma mulher adulta não corre daquele jeito. Leve demais. Rápido demais.", "o_what"],
+  "o_careful": ["o", "Very wise. But I know it's the tidy girl with the laptop. And those aren't her feet.", "Muito prudente. Mas eu sei que é a moça organizada do laptop. E aqueles pés não são dela.", "o_what"],
+  "o_what": ["o", "So what is it, do you think?", "Então o que é, na sua opinião?", [
+   ["Honestly? It sounds like an animal.", "Sinceramente? Parece um animal.", "o_animal"],
+   ["Maybe she exercises at night?", "Será que ela faz exercício de madrugada?", "o_exercise"],
+   ["Yes, I do think. Every day.", "Sim, eu penso. Todo dia.", null, "I'm sure you do, love. But what's making that noise? Any idea?", "Imagino que sim, meu bem. Mas o que está fazendo aquele barulho? Alguma ideia?"]
+  ]],
+  "o_animal": ["o", "That's what I said to myself! Just like my Duchess. She ran laps at three, every night.", "Foi o que eu pensei! Igualzinho à minha Duchess. Ela dava voltas correndo às três, toda noite.", "o_duchess"],
+  "o_exercise": ["o", "At three? For ten seconds at a time? No, love. I know that sound. My Duchess made it.", "Às três? Dez segundos de cada vez? Não, meu bem. Eu conheço esse som. A minha Duchess fazia.", "o_duchess"],
+  "o_duchess": ["o", "Duchess was my cat. Sixteen years together. I lost her last spring. It's too quiet now.", "A Duchess era minha gata. Dezesseis anos juntas. Eu a perdi na primavera passada. Agora é silêncio demais.", [
+   ["I'm so sorry. You must miss her.", "Sinto muito. A senhora deve sentir falta dela.", "o_miss"],
+   ["Would you ever get another cat?", "A senhora teria outro gato algum dia?", "o_another"],
+   ["A duchess lived here? Like a queen?", "Uma duquesa morou aqui? Tipo uma rainha?", null, "Ha! No, love. Just a cat with a grand name. I lost her last spring, you see?", "Rá! Não, meu bem. Só uma gata com nome chique. Eu a perdi na primavera passada, entende?"]
+  ]],
+  "o_miss": ["o", "Every day. I still buy her biscuits by mistake. Silly old woman.", "Todo dia. Ainda compro os biscoitinhos dela sem querer. Velha boba.", "o_two"],
+  "o_another": ["o", "I've thought about it. Not a kitten, with these knees. But a calm one? Maybe.", "Já pensei nisso. Filhote não, com estes joelhos. Mas um calminho? Quem sabe.", "o_two"],
+  "o_two": ["o", "Anyway. Two weeks, this has been going on. Ever since that awful storm.", "Enfim. Faz duas semanas que isso acontece. Desde aquela tempestade horrorosa.", [
+   ["The storm? Did you see anything strange that night?", "A tempestade? A senhora viu alguma coisa estranha naquela noite?", "o_storm"],
+   ["Two weeks is too long. I'll talk to my flatmates tonight.", "Duas semanas é tempo demais. Vou falar com o pessoal hoje à noite.", "o_promise"],
+   ["The store? Which one, the corner shop?", "A loja? Qual, a da esquina?", null, "Storm, not store. The big rain, two weeks ago. That's when it started. Does that mean anything to you?", "Storm, tempestade. Não store. A chuvarada de duas semanas atrás. Foi quando começou. Isso te diz alguma coisa?"]
+  ]],
+  "o_storm": ["o", "Well, I was at my window, watching the rain. And I saw your tidy friend down by the bins.", "Bom, eu estava na janela, olhando a chuva. E vi a sua amiga organizada lá embaixo, perto das lixeiras.", "o_storm2"],
+  "o_storm2": ["o", "On her knees, in the rain, putting something small inside her coat. Then she ran upstairs.", "De joelhos, na chuva, guardando uma coisa pequena dentro do casaco. Depois subiu correndo.", [
+   ["Something small? Could you see what it was?", "Uma coisa pequena? Deu pra ver o que era?", "o_see"],
+   ["Please don't tell anyone yet. Let me talk to her first.", "Por favor, não conta pra ninguém ainda. Deixa eu falar com ela antes.", "o_secret"],
+   ["Inside her goat? She has a goat?", "Dentro da cabra dela? Ela tem uma cabra?", null, "Coat, love! Not goat. Her raincoat. She hid something in it. What do you make of that?", "Coat, casaco, meu bem! Não goat. A capa de chuva. Ela escondeu alguma coisa ali. O que você acha disso?"]
+  ], {"clue": "rainy_night"}],
+  "o_see": ["o", "No. But it moved, love. Whatever it was, it was alive.", "Não. Mas se mexia, meu bem. Fosse o que fosse, estava vivo.", "o_complain"],
+  "o_secret": ["o", "I won't say a word. I drove a bus. I've kept bigger secrets than that.", "Não digo uma palavra. Eu dirigi ônibus. Já guardei segredos maiores que esse.", "o_complain"],
+  "o_promise": ["o", "Good. Talk kindly, though. People do odd things for good reasons.", "Ótimo. Mas fala com carinho. As pessoas fazem coisas esquisitas por bons motivos.", "o_complain"],
+  "o_complain": ["o", "I'm not going to complain to Mr. Whitaker. I'm no snitch. But I do need my sleep.", "Eu não vou reclamar com o Sr. Whitaker. Não sou dedo-duro. Mas eu preciso do meu sono.", [
+   ["What if we put a thick rug down in that room?", "E se a gente puser um tapete grosso naquele quarto?", "o_rug"],
+   ["Give us until Saturday. We'll sort it out.", "Dá um prazo até sábado. A gente resolve.", "o_saturday"],
+   ["You need your sheep? How many have you got?", "A senhora precisa das suas ovelhas? Quantas tem?", null, "Sleep, love! Not sheep. I need quiet at night. So what can you do about it?", "Sleep, sono, meu bem! Não sheep. Preciso de silêncio de madrugada. E então, o que dá pra fazer?"]
+  ]],
+  "o_rug": ["o", "A rug. Now that's a practical idea. A thick one, mind.", "Um tapete. Isso sim é uma ideia prática. Mas grosso, hein.", "helped_br"],
+  "o_saturday": ["o", "Saturday. The inspection, yes. I saw the letter in the hall. All right. Saturday.", "Sábado. A vistoria, sei. Vi a carta no hall. Está bem. Sábado.", "helped_br"],
+  "helped_br": {"branch": [["helped_okafor=yes", "o_bye_yes"], [null, "o_bye_no"]]},
+  "o_bye_yes": ["o", "And thank you for the bottles. If your flat ever needs a friend, knock on my door.", "E obrigada pelas garrafas. Se o apartamento de vocês precisar de uma amiga, é só bater na minha porta.", "n_up"],
+  "o_bye_no": ["o", "Off you go, then. You're in a rush, remember? Mind the bottles on your way out.", "Pode ir, então. Você está com pressa, lembra? Cuidado com as garrafas na saída.", "n_up"],
+  "n_up": ["n", "You climb back up to Four B. Small feet at three. Two weeks. Ever since the storm.", "Você sobe de volta pro Quatro B. Pezinhos às três. Duas semanas. Desde a tempestade.", "n_end"],
+  "n_end": ["n", "Your phone buzzes. It's Mei. Mr. Whitaker will ring the flat tomorrow, and she wants you to answer.", "Seu celular vibra. É a Mei. O Sr. Whitaker vai ligar pro apartamento amanhã, e ela quer que você atenda.", null]
+ }
+}

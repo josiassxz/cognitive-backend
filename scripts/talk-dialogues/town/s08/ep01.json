@@ -1,0 +1,89 @@
+{
+ "slug": "s08-01-the-road-to-glenbeg", "episode": 1, "title": "The Road to Glenbeg", "level": "B1",
+ "place": "car", "placeLabel": "Estrada para Glenbeg House", "time": "Quinta · 16h", "ambience": "car",
+ "description": "Você pousa na Irlanda e o pai do noivo te busca no aeroporto. Ele fala bastante.",
+ "intro": "Sua melhor amiga, a Julia, vai se casar com o Conor, um irlandês, numa casa de campo no oeste da Irlanda. Você acabou de pousar. E adivinha quem vai resolver tudo?",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "f": ["Fergus", "Pai do noivo", "bm_george", "right"],
+  "j": ["Julia", "A noiva, sua melhor amiga", "af_bella", "left"],
+  "d": ["Declan", "Irmão do noivo e padrinho", "bm_fable", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Thursday afternoon. You land in Ireland with one suitcase and a very long to-do list.", "Quinta à tarde. Você pousa na Irlanda com uma mala e uma lista de tarefas enorme.", "n2"],
+  "n2": ["n", "At arrivals, a tall man in a flat cap is holding a sign. It says: Julia's Fixer.", "No desembarque, um homem alto de boina segura uma placa. Está escrito: Quem Resolve Tudo pra Julia.", "f1"],
+  "f1": ["f", "There you are! Fergus Doyle, father of the groom. Welcome to Ireland! How was the flight?", "Aí está você! Fergus Doyle, pai do noivo. Boas-vindas à Irlanda! Como foi o voo?", [
+   ["Long, but fine. Thanks for picking me up.", "Longo, mas tranquilo. Valeu por vir me buscar.", "f_long"],
+   ["Bumpy! I'm glad to be on the ground.", "Sacudiu muito! Que alívio estar em terra firme.", "f_bumpy"],
+   ["A fight? No, I didn't fight with anyone.", "Briga? Não, não briguei com ninguém.", null, "A fight? Ha! No, the flight! The plane! How was your journey?", "Briga? Rá! Não, o voo! O avião! Como foi a viagem?"]
+  ]],
+  "f_long": ["f", "Not a bother! And fine is a good word. Here, we say grand. Everything's grand.", "Imagina! E fine é uma boa palavra. Aqui a gente diz grand. Está tudo grand.", "n_car"],
+  "f_bumpy": ["f", "That's the wind. There's weather coming, they say. Ah, it'll be grand. Grand means fine.", "É o vento. Dizem que vem tempo ruim por aí. Ah, vai ficar grand. Grand quer dizer tudo bem.", "n_car"],
+  "n_car": ["n", "You get into an old green car. It smells of wet dog and mints.", "Você entra num carro verde bem velho. Tem cheiro de cachorro molhado e bala de hortelã.", "f_road"],
+  "f_road": ["f", "It's a soft day. That's Irish for raining, but gently. Now, the short road or the scenic one?", "Hoje é um soft day. É o jeito irlandês de dizer que chove, mas de mansinho. E então, a estrada curta ou a bonita?", [
+   ["The scenic one. I'd love to see the countryside.", "A bonita. Eu adoraria ver a paisagem.", "f_scenic"],
+   ["The short one, please. I've got a lot to sort out.", "A curta, por favor. Tenho muita coisa pra resolver.", "f_short"],
+   ["I'd love a soft drink, thanks.", "Eu aceito um refrigerante, valeu.", null, "A drink? In this car? Ha! No, I mean the road. Short or scenic?", "Uma bebida? Neste carro? Rá! Não, estou falando da estrada. A curta ou a bonita?"]
+  ]],
+  "f_scenic": ["f", "Good choice! Look left. Cliffs, sea, forty shades of green. And those black clouds. Hmm.", "Boa escolha! Olha à esquerda. Penhascos, mar, quarenta tons de verde. E aquelas nuvens pretas. Hum.", "f_story"],
+  "f_short": ["f", "Straight through the village, so. That pub is the Fiddler's Rest. We're all having dinner there tonight.", "Direto pela vila, então. Aquele pub é o Fiddler's Rest. Hoje à noite todo mundo janta lá.", "f_story"],
+  "f_story": ["f", "Did Julia ever tell you how she met our Conor? It's a great story. Have you ten minutes?", "A Julia já te contou como conheceu o nosso Conor? É uma história ótima. Você tem dez minutos?", [
+   ["Go on. I'd love to hear it.", "Conta. Eu adoraria ouvir.", "f_s1", {"set": {"fergus_pal": "yes"}}],
+   ["Maybe later, Fergus. I need to go through my list.", "Talvez depois, Fergus. Preciso repassar minha lista.", "f_list", {"set": {"fergus_pal": "no"}}],
+   ["No, I've never met a corner.", "Não, eu nunca conheci uma esquina.", null, "A corner? Conor! My son! The groom! Do you want to hear how they met?", "Esquina? Conor! Meu filho! O noivo! Quer ouvir como eles se conheceram?"]
+  ]],
+  "f_s1": ["f", "She was working in a café in Galway. He went in every single day for a month.", "Ela trabalhava num café em Galway. Ele entrou lá todo santo dia durante um mês.", "f_s2"],
+  "f_s2": ["f", "He doesn't even like coffee! Thirty cups, just to say four words to her.", "Ele nem gosta de café! Trinta xícaras, só pra dizer quatro palavras pra ela.", "f_s3"],
+  "f_s3": ["f", "They first danced at a party in our old barn. There's a real dance floor under all that junk.", "A primeira dança deles foi numa festa no nosso celeiro velho. Tem uma pista de dança de verdade debaixo daquela tralha toda.", "f_granny", {"clue": "barn"}],
+  "f_list": ["f", "The list! Julia said you'd have a list. Go on, so. What's worrying you most?", "A lista! A Julia disse que você teria uma lista. Vai, fala. O que mais te preocupa?", [
+   ["The big tent. Is everything really outdoors?", "A tenda grande. É tudo ao ar livre mesmo?", "f_tent"],
+   ["The two families. Have they met yet?", "As duas famílias. Elas já se conheceram?", "f_fam"],
+   ["No lift, thanks. I'll take the stairs.", "Sem elevador, valeu. Vou de escada.", null, "The stairs? We're in a car! Your list! What's the biggest worry on it?", "Escada? A gente está num carro! A sua lista! Qual é a maior preocupação nela?"]
+  ]],
+  "f_tent": ["f", "A tent on the lawn! We always used the old barn. There's still a dance floor under all the junk.", "Uma tenda no gramado! A gente sempre usou o celeiro velho. Ainda tem uma pista de dança debaixo daquela tralha toda.", "f_granny", {"clue": "barn"}],
+  "f_fam": ["f", "Tonight, at dinner. Julia's mother smiles at me a lot. I don't think she understands a word.", "Hoje, no jantar. A mãe da Julia sorri muito pra mim. Acho que ela não entende uma palavra.", "f_granny"],
+  "f_granny": ["f", "One warning. My mother, Nora. She's eighty-four, and she's been giving out about this wedding all week.", "Um aviso. Minha mãe, a Nora. Ela tem oitenta e quatro anos e passou a semana giving out sobre esse casamento.", "f_granny2"],
+  "f_granny2": ["f", "Giving out means complaining. She says the wedding isn't right. Will you have a word with her?", "Giving out é reclamar. Ela diz que o casamento não está certo. Você conversa com ela?", [
+   ["Of course. I'm good with grandmothers.", "Claro. Eu me dou bem com avós.", "f_g_a"],
+   ["Maybe she just needs time. I won't push her.", "Talvez ela só precise de tempo. Não vou forçar.", "f_g_b"],
+   ["What is she giving out? Free cake?", "O que ela está distribuindo? Bolo grátis?", null, "Ha! No. Giving out is complaining. She's not happy! Will you talk to her for us?", "Rá! Não. Giving out é reclamar. Ela não está contente! Você fala com ela por nós?"]
+  ]],
+  "f_g_a": ["f", "Brave! She'll give you tea first. Whatever you do, drink it.", "Que coragem! Primeiro ela vai te dar chá. Aconteça o que acontecer, beba.", "n_gate"],
+  "f_g_b": ["f", "Wise. But she'll find you anyway. She finds everyone. Usually with a teapot.", "Sábia decisão. Mas ela vai te achar de qualquer jeito. Ela acha todo mundo. Geralmente com um bule na mão.", "n_gate"],
+  "n_gate": ["n", "The car turns through a stone gate. Glenbeg House is big, grey and covered in ivy.", "O carro entra por um portão de pedra. Glenbeg House é grande, cinza e coberta de hera.", "n_julia"],
+  "n_julia": ["n", "Someone is running across the wet lawn in pyjamas and wellies. It's Julia.", "Alguém vem correndo pelo gramado molhado, de pijama e galochas. É a Julia.", "j1"],
+  "j1": ["j", "You're here! You're actually here! I haven't slept in three days!", "Você chegou! Você chegou mesmo! Faz três dias que eu não durmo!", [
+   ["Breathe. I'm here now. Give me the list.", "Respira. Agora eu cheguei. Me dá a lista.", "j_list"],
+   ["You look wonderful. Tired, but wonderful.", "Você está linda. Cansada, mas linda.", "j_tired"],
+   ["Yes, I can hear you. No need to shout.", "Sim, estou te ouvindo. Não precisa gritar.", null, "Not hear, here! You're here, in Ireland! Come on, give me a hug and say hello properly!", "Não é hear, é here! Você está aqui, na Irlanda! Vem, me dá um abraço e fala oi direito!"]
+  ]],
+  "j_list": ["j", "Take it. Take all of it. Two families, two languages, a hundred guests and one working bathroom.", "Toma. Toma tudo. Duas famílias, duas línguas, cem convidados e um único banheiro funcionando.", "j_toast"],
+  "j_tired": ["j", "Liar. I love you. Two families, two languages, and my mum has already argued with a kettle.", "Mentira. Te amo. Duas famílias, duas línguas, e a minha mãe já brigou com uma chaleira.", "j_toast"],
+  "j_toast": ["j", "One more favour. Will you give a toast on Saturday? Two minutes. In English.", "Mais um favor. Você faz um brinde no sábado? Dois minutos. Em inglês.", [
+   ["Of course. I'll make everyone laugh.", "Claro. Vou fazer todo mundo rir.", "j_funny", {"set": {"speech": "funny"}}],
+   ["I'd be honoured. I'll make everyone cry, in a good way.", "Seria uma honra. Vou fazer todo mundo chorar, no bom sentido.", "j_sweet", {"set": {"speech": "sweet"}}],
+   ["Me? In English? In front of a hundred people?", "Eu? Em inglês? Na frente de cem pessoas?", "j_nerv"],
+   ["Yes, please. Toast with butter.", "Sim, por favor. Torrada com manteiga.", null, "Not that kind of toast! A little speech, with a glass in your hand. Will you do it?", "Não é esse tipo de toast! Um discursinho, com a taça na mão. Você faz?"]
+  ]],
+  "j_nerv": ["j", "You argued with a taxi driver in three languages. You'll be brilliant. Funny or sweet?", "Você já discutiu com um taxista em três línguas. Vai arrasar. Engraçado ou emocionante?", [
+   ["Funny, then. If they laugh, I'll relax.", "Engraçado, então. Se rirem, eu relaxo.", "j_funny", {"set": {"speech": "funny"}}],
+   ["Sweet. I'll speak from the heart.", "Emocionante. Vou falar com o coração.", "j_sweet", {"set": {"speech": "sweet"}}],
+   ["Sweet, please. Chocolate, if you have it.", "Doce, por favor. De chocolate, se tiver.", null, "Ha! Not that kind of sweet! Your speech! Will it be funny or sweet?", "Rá! Não é esse tipo de sweet! O seu discurso! Vai ser engraçado ou emocionante?"]
+  ]],
+  "j_funny": ["j", "Funny. Perfect. Just don't tell the story about the karaoke night.", "Engraçado. Perfeito. Só não conta a história da noite do karaokê.", "pal_br"],
+  "j_sweet": ["j", "Sweet. Oh no. I'll cry my make-up off. Do it anyway.", "Emocionante. Ai, não. Vou borrar a maquiagem inteira. Faz mesmo assim.", "pal_br"],
+  "pal_br": {"branch": [["fergus_pal=yes", "f_pal"], [null, "f_nopal"]]},
+  "f_pal": ["f", "This one's great company, Julia. Listened to my whole story!", "Que companhia boa você arrumou, Julia. Ouviu minha história inteirinha!", "n_declan"],
+  "f_nopal": ["f", "This one works too hard, Julia. Wouldn't even hear my story!", "Essa pessoa trabalha demais, Julia. Nem quis ouvir minha história!", "n_declan"],
+  "n_declan": ["n", "A young man in a football shirt hurries down the steps. He's very pale.", "Um rapaz de camisa de futebol desce os degraus com pressa. Está muito pálido.", "d1"],
+  "d1": ["d", "You must be the famous fixer. I'm Declan, the best man. Can I have a quiet word? Now?", "Você deve ser a famosa pessoa que resolve tudo. Sou o Declan, o padrinho. Posso dar uma palavrinha em particular? Agora?", [
+   ["Sure. What's wrong?", "Claro. O que houve?", "d_a"],
+   ["Can it wait? I haven't even unpacked.", "Pode esperar? Eu nem desfiz a mala.", "d_b"],
+   ["A quiet word? Okay: library.", "Uma palavra silenciosa? Tá: biblioteca.", null, "Ha. Very good. No. I mean a private chat. Just us. Have you a minute?", "Rá. Muito bom. Não. Eu quis dizer uma conversa em particular. Só nós. Tem um minuto?"]
+  ]],
+  "d_a": ["d", "Not here. Kitchen. Two minutes. And don't tell Julia.", "Aqui não. Cozinha. Dois minutos. E não conta pra Julia.", "n_end"],
+  "d_b": ["d", "It really can't. Kitchen. Two minutes. Bring nobody.", "Não pode mesmo. Cozinha. Dois minutos. Não traz ninguém.", "n_end"],
+  "n_end": ["n", "He looks over his shoulder and disappears into the house. Something is very wrong.", "Ele olha por cima do ombro e some dentro da casa. Tem alguma coisa muito errada.", null]
+ }
+}

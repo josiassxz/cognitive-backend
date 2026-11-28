@@ -1,0 +1,98 @@
+{
+ "slug": "s05-05-on-air", "episode": 5, "title": "On Air", "level": "B1",
+ "place": "studio", "placeLabel": "Rádio Hartwell, estúdio B", "time": "Semana 9 · Dom 20h", "ambience": "studio",
+ "description": "Dê sua primeira entrevista ao vivo. E segure o programa quando tudo apagar.",
+ "intro": "Faltam cinco dias para a apresentação, e ninguém viu os slides do Miles. Mas hoje é domingo, e a Tasha finalmente te arrastou para o programa dela na rádio do campus.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "t": ["Tasha", "Sua colega de suíte, locutora", "af_bella", "left"],
+  "m": ["Miles", "Colega de grupo, técnico de som", "am_eric", "right"],
+  "g": ["Gus", "Colega de grupo, ao telefone", "am_puck", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Sunday night. The campus radio station is in a basement. It smells of old carpet and coffee.", "Domingo à noite. A rádio do campus fica num porão. Cheira a carpete velho e café.", "n2"],
+  "n2": ["n", "Tasha puts headphones on you. Behind the glass, Miles sits at the sound desk with his laptop.", "A Tasha põe fones em você. Atrás do vidro, o Miles está na mesa de som com o notebook dele.", "t_br"],
+  "t_br": {"branch": [["radio_yes=yes", "t_y"], [null, "t_n"]]},
+  "t_y": ["t", "On your very first day, you said yes to this. I never forget a promise.", "No seu primeiro dia, você topou vir. Eu nunca esqueço uma promessa.", "t1"],
+  "t_n": ["t", "On your very first day, you said no way. I told you: I never give up.", "No seu primeiro dia, você disse nem pensar. Eu avisei: eu nunca desisto.", "t1"],
+  "t1": ["t", "Two minutes until we're live. How are you feeling?", "Dois minutos pra gente entrar no ar. Como você está?", [
+   ["Terrified. What if I forget all my English?", "Morrendo de medo. E se eu esquecer todo o meu inglês?", "t_scared"],
+   ["Excited! What are we going to talk about?", "Na maior empolgação! Sobre o que a gente vai falar?", "t_excited"],
+   ["I'm feeling the headphones.", "Estou sentindo os fones.", null, "Ha! Good, they're on your head. But inside: are you nervous or excited?", "Rá! Que bom, estão na sua cabeça. Mas por dentro: é nervosismo ou empolgação?"]
+  ]],
+  "t_scared": ["t", "Then say it in Portuguese and I'll just nod. Nobody will notice. Relax.", "Aí você fala em português e eu só concordo com a cabeça. Ninguém vai notar. Relaxa.", "m1"],
+  "t_excited": ["t", "Your first two months here. The good, the bad and the weird. Just be yourself.", "Seus dois primeiros meses aqui. O bom, o ruim e o esquisito. É só ser você.", "m1"],
+  "m1": ["m", "Hey. Sound check. Can you say a few words into the microphone?", "Oi. Teste de som. Pode falar algumas palavras no microfone?", [
+   ["Testing, one, two, three. Can you hear me, Miles?", "Testando, um, dois, três. Tá me ouvindo, Miles?", "m_ok"],
+   ["Hi, Miles. You look exhausted. Are you okay?", "Oi, Miles. Você está com cara de exausto. Tá tudo bem?", "m_tired"],
+   ["A few words into the microphone.", "Algumas palavras no microfone.", null, "Ha. Okay, technically that works. Give me a bit more. Say anything.", "Rá. Tá, tecnicamente serve. Me dá um pouco mais. Fala qualquer coisa."]
+  ]],
+  "m_ok": ["m", "Loud and clear. You've got a good radio voice, actually.", "Alto e claro. Aliás, você tem uma boa voz de rádio.", "m_br"],
+  "m_tired": ["m", "Me? I'm fine. Just a few late nights. Your sound is perfect, by the way.", "Eu? Tô bem. Só umas noites dormindo tarde. Seu som está perfeito, aliás.", "m_br"],
+  "m_br": {"branch": [["talk_miles=yes", "m_sl_y"], [null, "m_sl_n"]]},
+  "m_sl_y": ["m", "And, uh, the slides. You asked me so nicely. They're nearly done. They're all on here.", "E, hã, os slides. Você pediu com tanto jeito. Estão quase prontos. Está tudo aqui dentro.", "n3"],
+  "m_sl_n": ["m", "And, uh, I saw the group message. The slides are nearly done. They're all on here.", "E, hã, eu vi a mensagem do grupo. Os slides estão quase prontos. Está tudo aqui dentro.", "n3"],
+  "n3": ["n", "He taps his laptop. It makes a strange clicking noise. He taps it again, harder.", "Ele dá um tapinha no notebook. O notebook faz um estalo esquisito. Ele bate de novo, mais forte.", "t2"],
+  "t2": ["t", "Ten seconds! Miles, the jingle. And three, two, one.", "Dez segundos! Miles, a vinheta. E três, dois, um.", "t3"],
+  "t3": ["t", "Good evening, Hartwell! This is The Global Hour, and I'm Tasha Brooks.", "Boa noite, Hartwell! Este é o The Global Hour, e eu sou a Tasha Brooks.", "t4"],
+  "t4": ["t", "My guest tonight is my roommate, all the way from Brazil. What surprised you most about Boston?", "Hoje eu recebo quem divide a suíte comigo e veio lá do Brasil. O que mais te surpreendeu em Boston?", [
+   ["The weather. It changes four times a day!", "O clima. Muda quatro vezes por dia!", "t_weather"],
+   ["How early people eat dinner. Six o'clock? That's lunch!", "Como o pessoal janta cedo. Seis horas? Isso é almoço!", "t_dinner"],
+   ["People say 'how are you' and then just keep walking.", "As pessoas dizem 'how are you' e continuam andando.", "t_how"],
+   ["I was surprised by a prize.", "Um prêmio me pegou de surpresa.", null, "A prize? Nobody gave you a prize, sweetie. What was strange or new for you here?", "Um prêmio? Ninguém te deu prêmio, meu bem. O que foi estranho ou novo pra você aqui?"]
+  ]],
+  "t_weather": ["t", "Welcome to New England. Wait until January. You'll cry, and the tears will freeze.", "É a Nova Inglaterra. Espera janeiro. Você vai chorar, e as lágrimas vão congelar.", "gift_br"],
+  "t_dinner": ["t", "Ha! And in Brazil it's what, nine? Ten? No wonder you're hungry at midnight.", "Rá! E no Brasil é o quê, nove? Dez? Por isso você tem fome à meia-noite.", "gift_br"],
+  "t_how": ["t", "Guilty! It just means hello. Nobody really wants to hear about your day.", "Culpada! Só quer dizer oi. Ninguém quer de verdade saber do seu dia.", "gift_br"],
+  "gift_br": {"branch": [["gift=coffee", "t5c"], ["gift=candy", "t5k"], [null, "t5f"]]},
+  "t5c": ["t", "Listeners, my roommate brought me Brazilian coffee. It's the only reason this show exists.", "Ouvintes, eu ganhei café brasileiro de presente. É o único motivo de este programa existir.", "t6"],
+  "t5k": ["t", "Listeners, my roommate brought me homemade chocolates. I ate twelve in one night. No regrets.", "Ouvintes, eu ganhei docinhos caseiros de chocolate. Comi doze numa noite. Zero arrependimento.", "t6"],
+  "t5f": ["t", "Listeners, my roommate gave me flip-flops. I'm wearing them right now. With socks. In November.", "Ouvintes, eu ganhei chinelos de presente. Estou com eles agora. De meia. Em novembro.", "t6"],
+  "t6": ["t", "Okay, a serious one. What's the hardest part of studying in another language?", "Agora uma séria. Qual é a parte mais difícil de estudar em outra língua?", [
+   ["Group work. Everyone talks fast, and I need time to think.", "Trabalho em grupo. Todo mundo fala rápido, e eu preciso de tempo pra pensar.", "t_group"],
+   ["Jokes. When I finally get it, everybody has stopped laughing.", "Piada. Quando eu finalmente entendo, todo mundo já parou de rir.", "t_jokes"],
+   ["The hardest part is the chair.", "A parte mais dura é a cadeira.", null, "Ha! Yes, our chairs are terrible. But I mean difficult. What's difficult about studying in English?", "Rá! É, nossas cadeiras são péssimas. Mas eu digo difícil. O que é difícil em estudar em inglês?"]
+  ]],
+  "t_group": ["t", "That's so honest. And careful what you say now. Your group might be listening.", "Que sinceridade. E cuidado com o que vai dizer agora. Seu grupo pode estar ouvindo.", "t7"],
+  "t_jokes": ["t", "Aw! So you laugh alone, five seconds later. I've seen you do it. It's adorable.", "Ah! Aí você ri por último, cinco segundos depois. Eu já vi. É uma graça.", "t7"],
+  "t7": ["t", "Oh! We have a caller. Line one, you're on The Global Hour.", "Opa! Temos uma ligação. Linha um, você está no The Global Hour.", "g1"],
+  "g1": ["g", "Hi! Long-time listener, first-time caller. I have a question for your guest.", "Oi! Ouvinte de longa data, primeira vez ligando. Tenho uma pergunta pra quem você está entrevistando.", "g2"],
+  "g2": ["g", "Who is the funniest, smartest, best-looking person in your project group?", "Quem é a pessoa mais engraçada, mais inteligente e mais bonita do seu grupo de trabalho?", [
+   ["That's easy, Gus. It's you. Hi, Gus.", "Essa é fácil, Gus. É você. Oi, Gus.", "g_hi"],
+   ["Priya, of course. She's the reason we have a plan.", "A Priya, claro. É por causa dela que a gente tem um plano.", "g_priya"],
+   ["Miles. He's quiet, but he's holding the whole thing together.", "O Miles. Ele é quieto, mas é quem segura tudo de pé.", "g_miles", {"set": {"praised_miles": "yes"}}],
+   ["Yes, he is.", "Sim, ele é.", null, "'Yes, he is' is not a name! Give me a name. Who's the best one in your group?", "'Sim, ele é' não é nome! Me dá um nome. Quem é o melhor do seu grupo?"]
+  ]],
+  "g_hi": ["g", "What? No! This is a totally different person. My name is, uh, Russ.", "O quê? Não! Aqui é outra pessoa, nada a ver. Meu nome é, hã, Russ.", "n4"],
+  "g_priya": ["g", "Priya? Wow. Okay. This call is over. My heart is broken.", "A Priya? Uau. Tá. Fim de ligação. Meu coração está partido.", "n4"],
+  "g_miles": ["g", "Miles? Yeah, fair. I can't even be mad. The guy's a machine.", "O Miles? É, justo. Nem dá pra ficar bravo. O cara é uma máquina.", "n4"],
+  "n4": ["n", "Tasha laughs. Then, behind the glass, Miles's screen goes black. The music stops. Silence.", "A Tasha ri. Aí, atrás do vidro, a tela do Miles fica preta. A música para. Silêncio.", "t8"],
+  "t8": ["t", "Miles? Miles! Okay, dead air. Keep talking. Say anything. Go!", "Miles? Miles! Tá, silêncio no ar. Continua falando. Fala qualquer coisa. Vai!", [
+   ["So, uh, let me teach you all some Portuguese. Repeat after me!", "Então, hã, vou ensinar um pouco de português pra vocês. Repitam comigo!", "t_lesson", {"set": {"dead_air": "lesson"}}],
+   ["Well, here's the weather. It's cold. Tomorrow: also cold.", "Bom, agora a previsão do tempo. Está frio. Amanhã: frio também.", "t_wx", {"set": {"dead_air": "weather"}}],
+   ["I'll sing! Everybody knows this one. La, la, la!", "Eu canto! Esta todo mundo conhece. Lá, lá, lá!", "t_sing", {"set": {"dead_air": "sang"}}],
+   ["Anything.", "Qualquer coisa.", null, "Not the word 'anything'! Real sentences! Talk about something, quick!", "Não a palavra 'anything'! Frases de verdade! Fala de alguma coisa, rápido!"]
+  ]],
+  "t_lesson": ["t", "Yes! A free Portuguese lesson, people! Keep going, you're doing great!", "Isso! Aula grátis de português, gente! Continua, você está indo muito bem!", "n6"],
+  "t_wx": ["t", "The Hartwell weather report, everybody! Accurate and depressing. I love it.", "A previsão do tempo de Hartwell, pessoal! Precisa e deprimente. Amei.", "n6"],
+  "t_sing": ["t", "You're singing! On live radio! And, oh my gosh, you're actually good!", "Você está cantando! Ao vivo no rádio! E, nossa, você canta bem mesmo!", "n6"],
+  "n6": ["n", "Thirty long seconds later, Tasha plays a song. Behind the glass, Miles keeps pressing the power button.", "Trinta longos segundos depois, a Tasha solta uma música. Atrás do vidro, o Miles aperta o botão de ligar sem parar.", "m2"],
+  "m2": ["m", "It's dead. My laptop won't turn on at all. It's, uh. It's fine. It's fine.", "Morreu. Meu notebook não liga de jeito nenhum. Tá, hã. Tá tudo bem. Tá tudo bem.", [
+   ["Miles, the slides. Are they only on that laptop?", "Miles, os slides. Eles só estão nesse notebook?", "m_slides"],
+   ["Can we help? I can ask around for someone who repairs laptops.", "Dá pra gente ajudar? Posso procurar alguém que conserte notebook.", "m_nohelp"],
+   ["Dead? Should we call a doctor?", "Morreu? Será que a gente chama um médico?", null, "Ha. No. It's a computer. Dead means broken. It's just broken. Okay?", "Rá. Não. É um computador. Morreu quer dizer quebrou. Só quebrou. Tá?"]
+  ], {"clue": "dead_laptop"}],
+  "m_slides": ["m", "I can fix it. I always fix things. Just don't tell Priya. Please.", "Eu conserto. Eu sempre conserto as coisas. Só não conta pra Priya. Por favor.", "n8"],
+  "m_nohelp": ["m", "No. Thanks. I've got it. I just need a screwdriver and some time.", "Não. Valeu. Deixa comigo. Só preciso de uma chave de fenda e de um tempo.", "n8"],
+  "n8": ["n", "Miles puts the laptop in his backpack and leaves. He forgets his jacket.", "O Miles guarda o notebook na mochila e vai embora. Esquece a jaqueta.", "t10"],
+  "t10": ["t", "He left his jacket. In November. That is not somebody who's fine.", "Ele largou a jaqueta. Em novembro. Isso não é alguém que está bem.", [
+   ["I'll check on him. His room is right across from ours.", "Eu vou ver como ele está. O quarto dele fica bem na frente do nosso.", "t_take"],
+   ["Should we tell Priya about the laptop?", "A gente conta do notebook pra Priya?", "t_priya"],
+   ["In November? Where is November?", "Em novembro? Onde fica novembro?", null, "November is now! It's freezing outside! What are we going to do about Miles?", "Novembro é agora! Tá congelando lá fora! O que a gente faz com o Miles?"]
+  ]],
+  "t_take": ["t", "Try. But he pretends he's not home when he's upset. I'll keep the jacket safe.", "Tenta. Mas ele finge que não está quando fica chateado. Eu guardo a jaqueta.", "n_end"],
+  "t_priya": ["t", "He asked you not to. Give him a day or two. If he's still hiding, we talk.", "Ele pediu pra não contar. Dá um ou dois dias pra ele. Se continuar se escondendo, a gente fala.", "n_end"],
+  "n_end": ["n", "That night, you knock on his door. No answer. Monday, no answer. The presentation is on Friday.", "Naquela noite, você bate na porta dele. Nada. Segunda, nada. A apresentação é na sexta.", null]
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "slug": "s04-02-dots-diner", "episode": 2, "title": "Dot's Diner", "level": "A2",
+ "place": "restaurant", "placeLabel": "Dot's Diner · Missouri", "time": "Segunda · 13h", "ambience": "restaurant",
+ "description": "Almoço debaixo de uma xícara gigante. A dona reconhece o cartão-postal.",
+ "intro": "No porta-luvas da van do vovô, vocês acharam cartões-postais de 1974, cada um com um enigma. O primeiro leva a um lugar com o nome da menor coisa que se pode desenhar: Dot's Diner.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "r": ["Rafa", "Seu primo de Chicago", "am_puck", "right"],
+  "d": ["Dot", "Dona da lanchonete", "af_bella", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "After five hours, you see it from the road: a giant coffee cup on a roof.", "Depois de cinco horas, você vê da estrada: uma xícara de café gigante em cima de um telhado.", "n2"],
+  "n2": ["n", "Inside, the diner is cool and smells of bacon. A woman with white hair comes to your table.", "Lá dentro, a lanchonete é fresquinha e cheira a bacon. Uma mulher de cabelo branco vem até a mesa.", "d1"],
+  "d1": ["d", "Welcome to Dot's, you two. I'm Dot. Coffee to start?", "Boas-vindas ao Dot's, vocês dois. Eu sou a Dot. Um café pra começar?", [
+   ["Yes, please. Coffee for me.", "Sim, por favor. Café pra mim.", "d_coffee"],
+   ["Just water for me, please.", "Pra mim só água, por favor.", "d_water"],
+   ["No, we started in Chicago.", "Não, a gente começou em Chicago.", null, "Chicago! That's a long drive. But I mean a drink, hon. Coffee to start?", "Chicago! É chão, hein. Mas eu falo de bebida, meu bem. Um café pra começar?"]
+  ]],
+  "d_coffee": ["d", "Good. It's strong, I warn you. And for you, young man?", "Ótimo. É forte, já vou avisando. E pra você, rapaz?", "r_order"],
+  "d_water": ["d", "Water. Smart, in this heat. And for you, young man?", "Água. Faz bem, com esse calor. E pra você, rapaz?", "r_order"],
+  "r_order": ["r", "Coffee, and a cheeseburger with everything. And fries. And then more fries.", "Café, e um cheeseburger com tudo. E batata frita. E depois mais batata frita.", "d_food"],
+  "d_food": ["d", "I like him. And you, hon? What can I get you to eat?", "Gostei dele. E você, meu bem? O que vai querer comer?", [
+   ["What do you recommend?", "O que você recomenda?", "d_rec"],
+   ["A grilled cheese sandwich, please.", "Um queijo quente, por favor.", "d_grilled"],
+   ["The same as my cousin, please.", "O mesmo que o meu primo, por favor.", "d_same"],
+   ["Yes, the heat is terrible today.", "Sim, o calor tá terrível hoje.", null, "It sure is! But I said eat, not heat. What would you like to eat?", "Tá mesmo! Mas eu falei de comer, não de calor. O que você quer comer?"]
+  ]],
+  "d_rec": ["d", "The meatloaf. My mother's recipe, with mashed potatoes. I'll bring you a plate.", "O bolo de carne. Receita da minha mãe, com purê de batata. Vou trazer um prato pra você.", "d_pieq"],
+  "d_grilled": ["d", "Grilled cheese. Simple and perfect. Coming right up.", "Queijo quente. Simples e perfeito. Já está saindo.", "d_pieq"],
+  "d_same": ["d", "Two cheeseburgers. I'd better make a lot more fries.", "Dois cheeseburgers. É melhor eu fazer bem mais batata.", "d_pieq"],
+  "d_pieq": ["d", "Now, save room for pie. Today I've got cherry, apple and pecan. Which one?", "E guarda um espacinho pra torta. Hoje tem de cereja, de maçã e de noz-pecã. Qual vai ser?", [
+   ["Cherry, please.", "De cereja, por favor.", "d_cherry", {"set": {"pie": "cherry"}}],
+   ["Apple, please. Is it warm?", "De maçã, por favor. Vem quentinha?", "d_apple", {"set": {"pie": "apple"}}],
+   ["I've never tried pecan. I'll have that.", "Nunca provei a de noz-pecã. Vou querer essa.", "d_pecan", {"set": {"pie": "pecan"}}],
+   ["No, thanks. I'll pay later.", "Não, valeu. Eu pago depois.", null, "Not pay. Pie! Dessert, hon. Cherry, apple or pecan?", "Pagar, não. Torta! Sobremesa, meu bem. Cereja, maçã ou noz-pecã?"]
+  ]],
+  "d_cherry": ["d", "Cherry. Huh. Funny. I once knew a man who always ordered cherry.", "Cereja. Olha só. Engraçado. Eu conheci um homem que sempre pedia a de cereja.", "n_food"],
+  "d_apple": ["d", "Warm, with ice cream on top. You've got good taste.", "Quentinha, com sorvete em cima. Você tem bom gosto.", "n_food"],
+  "d_pecan": ["d", "Then you're in for a treat. It's sweet and a little nutty. Like my family.", "Então se prepara. É doce e meio maluquinha. Igual à minha família.", "n_food"],
+  "n_food": ["n", "The food comes fast. It's hot, simple and very good. Rafa puts the postcard on the table.", "A comida chega rápido. Quente, simples e muito boa. O Rafa põe o cartão-postal na mesa.", "d_card"],
+  "d_card": ["d", "Wait a minute. Where did you get that card? That's my diner! That's my old sign!", "Espera aí. Onde vocês arranjaram esse cartão? É a minha lanchonete! É a minha placa antiga!", [
+   ["Our grandfather sent it in nineteen seventy-four.", "Nosso avô mandou em mil novecentos e setenta e quatro.", "d_who"],
+   ["We found it in an old yellow van.", "A gente achou numa van amarela velha.", "d_van"],
+   ["Sorry, I only have cash. No card.", "Desculpa, só tenho dinheiro. Cartão, não.", null, "Not that kind of card, hon. The postcard! Where did you get it?", "Não é esse tipo de cartão, meu bem. O cartão-postal! Onde vocês arranjaram?"]
+  ]],
+  "d_who": ["d", "Your grandfather? In seventy-four? What was his name?", "Seu avô? Em setenta e quatro? Como ele se chamava?", [
+   ["Francisco Almeida. He was from Brazil.", "Francisco Almeida. Ele era do Brasil.", "d_frank"],
+   ["His friends called him Chico.", "Os amigos chamavam ele de Chico.", "d_chico"],
+   ["My name is on my passport.", "Meu nome está no meu passaporte.", null, "I'm sure it is, hon. But your grandfather. What was his name?", "Imagino que esteja, meu bem. Mas o seu avô. Como ele se chamava?"]
+  ]],
+  "d_frank": ["d", "Francisco! I could never say it right. So I called him Frank. Frank from Brazil!", "Francisco! Eu nunca consegui falar direito. Então chamava ele de Frank. O Frank do Brasil!", "d_frank2"],
+  "d_chico": ["d", "Chico? No. But there was a boy from Brazil. Francisco. I called him Frank!", "Chico? Não. Mas teve um rapaz do Brasil. Francisco. Eu chamava ele de Frank!", "d_frank2"],
+  "d_van": ["d", "A yellow van? Then you're Frank's family! Francisco. I could never say it, so I called him Frank.", "Uma van amarela? Então vocês são da família do Frank! Francisco. Eu nunca consegui falar, então era Frank.", "d_frank2"],
+  "d_frank2": ["d", "He walked in fifty years ago, thin as a fence post. You both have his eyes. Ask me anything!", "Ele entrou aqui há cinquenta anos, magro feito um poste. Vocês dois têm os olhos dele. Perguntem o que quiserem!", [
+   ["How did you two meet?", "Como vocês se conheceram?", "d_met"],
+   ["Did he tell you about the van?", "Ele te falou da van?", "d_rosie"],
+   ["Why was he going to California?", "Por que ele estava indo pra Califórnia?", "d_job"],
+   ["Yes, I have two eyes.", "Sim, eu tenho dois olhos.", null, "Ha! So you do. Go on, ask me something about Frank. What do you want to know?", "Rá! Tem mesmo. Vai, me pergunta alguma coisa sobre o Frank. O que você quer saber?"]
+  ]],
+  "d_met": ["d", "He ordered cherry pie, then found his pockets empty. So he washed my dishes for a week.", "Ele pediu torta de cereja e depois viu que os bolsos estavam vazios. Aí lavou meus pratos por uma semana.", "more_br", {"clue": "dishes"}],
+  "d_rosie": ["d", "That van! He talked to her like a person. He called her Rosie, after his wife.", "Aquela van! Ele conversava com ela como se fosse gente. Chamava de Rosie, por causa da esposa.", "more_br", {"clue": "rosie"}],
+  "d_job": ["d", "For work. There were no jobs in Chicago that year. He said California was full of them.", "Trabalho. Não tinha emprego em Chicago naquele ano. Ele dizia que na Califórnia sobrava.", "more_br"],
+  "more_br": {"branch": [["clue_dishes", "d_more_a"], ["clue_rosie", "d_more_b"], [null, "d_more_c"]]},
+  "d_more_a": ["d", "Best dishwasher I ever had. One more story before the lunch rush. What'll it be?", "O melhor lavador de pratos que eu já tive. Mais uma história antes do movimento do almoço. Qual vai ser?", [
+   ["Tell me about his van.", "Me fala da van dele.", "d_rosie2"],
+   ["Why was he going to California?", "Por que ele estava indo pra Califórnia?", "d_job2"],
+   ["A story? No, we're on the ground floor.", "Um andar? Não, a gente tá no térreo.", null, "Ha! Not that kind of story. A story about Frank! What do you want to hear?", "Rá! Não é andar de prédio. Uma história do Frank! O que você quer ouvir?"]
+  ]],
+  "d_more_b": ["d", "Rosie and Rosa. He loved them both. One more story before the lunch rush?", "Rosie e Rosa. Ele amava as duas. Mais uma história antes do movimento do almoço?", [
+   ["How did you two meet?", "Como vocês se conheceram?", "d_met2"],
+   ["Why was he going to California?", "Por que ele estava indo pra Califórnia?", "d_job2"],
+   ["One more store? Is there a shop here?", "Mais uma loja? Tem loja aqui?", null, "Story, not store! A story about Frank. Which one do you want?", "História, não loja! Uma história do Frank. Qual você quer?"]
+  ]],
+  "d_more_c": ["d", "I've got time for one more story before the lunch rush. What'll it be?", "Dá tempo de mais uma história antes do movimento do almoço. Qual vai ser?", [
+   ["How did you two meet?", "Como vocês se conheceram?", "d_met2"],
+   ["Did he tell you about the van?", "Ele te falou da van?", "d_rosie2"],
+   ["I already had one, thanks. With fries.", "Já comi um, valeu. Com batata frita.", null, "Not a burger, hon. A story! About Frank. Which one do you want?", "Não é hambúrguer, meu bem. Uma história! Do Frank. Qual você quer?"]
+  ]],
+  "d_met2": ["d", "He ordered cherry pie, then found his pockets empty. He washed my dishes for a week to pay.", "Ele pediu torta de cereja e depois viu que os bolsos estavam vazios. Lavou meus pratos por uma semana pra pagar.", "n_rush", {"clue": "dishes"}],
+  "d_rosie2": ["d", "He talked to that van like a person. He called her Rosie, after his wife back home.", "Ele conversava com aquela van como se fosse gente. Chamava de Rosie, por causa da esposa que ficou em casa.", "n_rush", {"clue": "rosie"}],
+  "d_job2": ["d", "For work. There was nothing in Chicago that year. He said California had jobs for everybody.", "Trabalho. Não tinha nada em Chicago naquele ano. Ele dizia que na Califórnia tinha emprego pra todo mundo.", "n_rush"],
+  "n_rush": ["n", "The door opens again and again. Soon every table is full. Dot looks at the kitchen and sighs.", "A porta abre de novo e de novo. Logo todas as mesas estão cheias. A Dot olha pra cozinha e suspira.", "d_help"],
+  "d_help": ["d", "Oh, my. My dishwasher is out sick today, and here comes the lunch rush.", "Ai, ai. Meu lavador de pratos está doente hoje, e lá vem o movimento do almoço.", [
+   ["Can we help? We can wash dishes.", "A gente pode ajudar? A gente lava os pratos.", "d_helped", {"set": {"helped_dot": "yes"}}],
+   ["Good luck, Dot! We have to get back on the road.", "Boa sorte, Dot! A gente precisa voltar pra estrada.", "d_nohelp", {"set": {"helped_dot": "no"}}],
+   ["Rush? No, we're not Russian. We're Brazilian.", "Russos? Não, a gente não é da Rússia. É do Brasil.", null, "Ha! Not Russian. The lunch rush! Lots of hungry people, and nobody to wash the dishes. What do I do?", "Rá! Russos, não. O movimento do almoço! Um monte de gente com fome, e ninguém pra lavar os pratos. O que eu faço?"]
+  ]],
+  "d_helped": ["d", "You would? Just like Frank! Aprons are behind the door. Your cousin dries.", "Sério? Igualzinho ao Frank! Os aventais estão atrás da porta. Seu primo enxuga.", "n_wash"],
+  "n_wash": ["n", "For an hour, you wash and Rafa dries. He breaks only one plate.", "Por uma hora, você lava e o Rafa enxuga. Ele quebra só um prato.", "d_thanks"],
+  "d_thanks": ["d", "You two are Frank's family, all right. Lunch is on the house.", "Vocês dois são da família do Frank, não tem dúvida. O almoço é por conta da casa.", "d_card2"],
+  "d_nohelp": ["d", "Of course, hon. California is a long way. That's eighteen dollars. The pie is on me.", "Claro, meu bem. A Califórnia é longe. Deu dezoito dólares. A torta é por minha conta.", "d_card2"],
+  "d_card2": ["d", "Now, show me the next postcard. Frank always wrote a riddle. I want to hear it.", "Agora me mostrem o próximo cartão. O Frank sempre escrevia um enigma. Quero ouvir.", "r_riddle"],
+  "r_riddle": ["r", "Card two. Tonight I sleep under a star. It is blue, and it buzzes like a bee.", "Cartão dois. Hoje eu durmo debaixo de uma estrela. Ela é azul e zumbe feito abelha.", "r_riddle2"],
+  "r_riddle2": ["r", "It costs eight dollars a night, and it is in Oklahoma. What is it?", "Custa oito dólares por noite e fica em Oklahoma. O que é?", [
+   ["A neon sign! A motel with a blue star.", "Um letreiro de neon! Um motel com uma estrela azul.", "d_right"],
+   ["A blue thing that buzzes? A giant fly?", "Uma coisa azul que zumbe? Uma mosca gigante?", "d_fly"],
+   ["Dot, do you know the answer?", "Dot, você sabe a resposta?", "d_knows"],
+   ["I sleep under a blanket.", "Eu durmo debaixo de um cobertor.", null, "Me too. But Grandpa slept under a blue star that buzzes. What could it be?", "Eu também. Mas o vovô dormiu debaixo de uma estrela azul que zumbe. O que será?"]
+  ]],
+  "d_right": ["d", "Smart! The Blue Star Motel, in Tulsa. That old sign buzzes all night long.", "Boa! O Blue Star Motel, em Tulsa. Aquele letreiro velho zumbe a noite inteira.", "d_walt"],
+  "d_fly": ["d", "A fly! Ha! No, hon. It's a neon sign. The Blue Star Motel, in Tulsa.", "Uma mosca! Rá! Não, meu bem. É um letreiro de neon. O Blue Star Motel, em Tulsa.", "d_walt"],
+  "d_knows": ["d", "Sure I do. The Blue Star Motel, in Tulsa. The neon sign buzzes all night.", "Claro que sei. O Blue Star Motel, em Tulsa. O letreiro de neon zumbe a noite toda.", "d_walt"],
+  "d_walt": ["d", "Walt runs it now. He doesn't talk much, but he knew Frank. I'll call him.", "Quem cuida de lá agora é o Walt. Ele fala pouco, mas conheceu o Frank. Vou ligar pra ele.", "bye_br"],
+  "bye_br": {"branch": [["helped_dot=yes", "d_bye_h"], [null, "d_bye"]]},
+  "d_bye_h": ["d", "And take this pie for the road. You earned it. Say hello to that old van for me.", "E levem esta torta pra viagem. Vocês mereceram. Deem um oi praquela van velha por mim.", "n_end"],
+  "d_bye": ["d", "Drive safe, you two. And say hello to that old van for me.", "Boa viagem, vocês dois. E deem um oi praquela van velha por mim.", "n_end"],
+  "n_end": ["n", "Back on the road, the sun is still high. Next stop: a blue star in Oklahoma.", "De volta à estrada, o sol ainda está alto. Próxima parada: uma estrela azul em Oklahoma.", null]
+ }
+}

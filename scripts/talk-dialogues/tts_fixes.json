@@ -1,0 +1,8 @@
+{
+ "_": "Falas que o Kokoro pronuncia mal: o que a voz deve dizer (say) e/ou a velocidade. O texto na tela não muda.",
+ "What boy?": {"say": "What, boy?", "speed": 0.9},
+ "Ha! I meant music. Do you play anything?": {"say": "Ha! I meant, music. Do you play anything?", "speed": 0.95},
+ "Hello, Biscuit! Good boy! What is it, Mr. Hughes?": {"say": "Hello, Biscuit! Good, boy! What is it, Mr. Hughes?", "speed": 0.95},
+ "No, nothing.": {"say": "No. Nothing."},
+ "No, nothing yet.": {"say": "No. Nothing yet."}
+}

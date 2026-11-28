@@ -1,0 +1,94 @@
+{
+ "slug": "s07-06-coach-d", "episode": 6, "title": "Coach D", "level": "B1",
+ "place": "train", "placeLabel": "Vagão D", "time": "Sábado · 3h30", "ambience": "train",
+ "description": "O estudante nervoso conta o que ouviu atrás da porta e o que viu pela janela.",
+ "intro": "O choro no corredor era o Marmalade, o gato clandestino da Dot. Procurando por ele, ela viu alguém entrar no bagageiro de braços cheios e sair sem nada. Agora o Jamie, o estudante, quer te contar uma coisa.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Moira", "Chefe de trem", "bf_isabella", "left"],
+  "j": ["Jamie", "Estudante de violino", "am_puck", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Coach D is the cheap end of the train. Hard seats, bright lights, and nobody else awake.", "O vagão D é a ponta barata do trem. Poltronas duras, luz forte, e mais ninguém acordado.", "n2"],
+  "n2": ["n", "Jamie sits down with his violin case on his knees. He looks twelve years old, and a hundred years tired.", "O Jamie senta com o estojo do violino no colo. Parece ter uns doze anos de idade e cem de cansaço.", "j1"],
+  "j1": ["j", "Okay. Okay. I'm going to tell you, and you're going to think I did it.", "Tá. Tá. Eu vou te contar, e você vai achar que fui eu.", [
+   ["I'm not here to judge. Just tell me what happened.", "Não vim aqui julgar ninguém. Só me conta o que aconteceu.", "j_a"],
+   ["Well? Did you do it?", "E aí? Foi você?", "j_b"],
+   ["You did eat? Good. I'm hungry too.", "Você comeu? Que bom. Também estou com fome.", null, "Eat? No. Did it. The violin! You'll think I took it. Will you just listen?", "Comer? Não. \"Did it\", fui eu. O violino! Você vai achar que eu peguei. Dá pra só me escutar?"]
+  ]],
+  "j_a": ["j", "Thanks. Right. Deep breath. Here goes.", "Valeu. Certo. Respira fundo. Lá vai.", "j2"],
+  "j_b": ["j", "No! See? This is why I can't sleep. No. I never touched it. But listen.", "Não! Tá vendo? É por isso que eu não durmo. Não. Nunca encostei nele. Mas escuta.", "j2"],
+  "j2": ["j", "I was in your coach tonight, where I'm not supposed to be. I'd written Clara Whitmore a note.", "Eu estive no seu vagão hoje, onde eu não devia estar. Eu tinha escrito um bilhete pra Clara Whitmore.", "j3"],
+  "j3": ["j", "So at half past twelve, I was standing outside compartment five. Like an idiot.", "Aí, à meia-noite e meia, eu estava parado na frente da cabine cinco. Feito um idiota.", [
+   ["And did you leave the note?", "E você deixou o bilhete?", "j_note"],
+   ["Did you hear anything inside?", "Você ouviu alguma coisa lá dentro?", "trust_br"],
+   ["Half past twelve? That's lunchtime.", "Meio-dia e meia? É hora do almoço.", null, "Not lunch! Half past midnight. Tonight. Don't you want to know what happened at her door?", "Não é almoço! Meia-noite e meia. Hoje. Você não quer saber o que aconteceu na porta dela?"]
+  ]],
+  "j_note": ["j", "No. I lost my nerve. It's still in my pocket. Do you want to know what it says?", "Não. Perdi a coragem. Ainda está no meu bolso. Quer saber o que diz?", [
+   ["Only if you want to tell me.", "Só se você quiser me contar.", "j_says"],
+   ["Later, maybe. First, what happened at the door?", "Depois, quem sabe. Antes, o que aconteceu na porta?", "trust_br"],
+   ["Yes. Is it a high note or a low note?", "Quero. É uma nota aguda ou grave?", null, "Not a music note. A letter, on paper! Do you want to hear what I wrote?", "Não é nota musical. É um bilhete, de papel! Quer ouvir o que eu escrevi?"]
+  ]],
+  "j_says": ["j", "It says her recording got me through the worst year of my life. That's the whole note.", "Diz que a gravação dela me fez atravessar o pior ano da minha vida. O bilhete é só isso.", "trust_br"],
+  "trust_br": {"branch": [["helped_jamie=yes", "j_heard_intro"], [null, "j_hes"]]},
+  "j_hes": ["j", "I heard something through the door. But it's private. And you weren't exactly friendly on the platform.", "Eu ouvi uma coisa pela porta. Mas é particular. E você não foi lá muito legal comigo na plataforma.", [
+   ["You're right. I snapped at you, and I'm sorry.", "Você tem razão. Eu perdi a paciência com você, desculpa.", "j_heard_intro"],
+   ["Fine. Keep it to yourself. Just tell me who you saw.", "Tudo bem. Guarda pra você. Só me diz quem você viu.", "j_skip"],
+   ["Private? Like a soldier?", "\"Private\"? Tipo um soldado?", null, "No. Private. Personal. A secret! Why should I tell you what I heard?", "Não. \"Private\", particular. Pessoal. Um segredo! Por que eu te contaria o que ouvi?"]
+  ]],
+  "j_heard_intro": ["j", "There were two voices. Hers, and the assistant's. She was crying. I'm sure she was crying.", "Eram duas vozes. A dela e a do assistente. Ela estava chorando. Tenho certeza de que estava.", "j_heard"],
+  "j_heard": ["j", "And she said: I can't do it, Oliver. Not tomorrow. I can't walk out there again.", "E ela disse: não consigo, Oliver. Amanhã não. Não consigo entrar lá de novo.", "j_heard_q", {"clue": "cant_do_it"}],
+  "j_heard_q": ["j", "I've been turning it over all night. What do you think she meant?", "Passei a noite inteira remoendo isso. O que você acha que ela quis dizer?", [
+   ["She might be afraid of the concert.", "Ela pode estar com medo do concerto.", "j_fear"],
+   ["They must have been arguing about work.", "Eles deviam estar brigando por causa de trabalho.", "j_argue"],
+   ["She meant she can't walk. Poor woman.", "Ela quis dizer que não consegue andar. Coitada.", null, "No, she walks fine! I mean, walk out on stage. What do you think she was afraid of?", "Não, ela anda muito bem! Eu digo entrar no palco. Do que você acha que ela estava com medo?"]
+  ]],
+  "j_fear": ["j", "Clara Whitmore, afraid? She's played for kings. But yes. That's exactly how it sounded.", "A Clara Whitmore, com medo? Ela já tocou pra reis. Mas é. Foi bem isso que pareceu.", "j_skip"],
+  "j_argue": ["j", "It didn't sound like an argument. He was being kind. He kept saying, we'll find a way.", "Não parecia briga. Ele estava sendo carinhoso. Ficava repetindo: a gente vai dar um jeito.", "j_skip"],
+  "j_skip": ["j", "Then the door handle moved, and I ran. I hid in the space between the coaches.", "Aí a maçaneta se mexeu, e eu corri. Me escondi no espaço entre os vagões.", "j4"],
+  "j4": ["j", "A bit later, the train stopped. Crewe, I think. And the assistant got off.", "Pouco depois, o trem parou. Crewe, acho. E o assistente desceu.", "j5"],
+  "j5": ["j", "He stood on the platform with his phone the whole time. I could see him through the glass.", "Ele ficou na plataforma com o celular o tempo inteiro. Dava pra ver pelo vidro.", [
+   ["The whole stop? Are you sure about the time?", "A parada inteira? Você tem certeza do horário?", "j_sure"],
+   ["Could you hear what he was saying?", "Dava pra ouvir o que ele dizia?", "j_phone"],
+   ["He stood on his phone? He must have broken it.", "Ele ficou em cima do celular? Deve ter quebrado.", null, "Not on top of it! He was talking on it, out on the platform. Do you see why that matters?", "Não em cima dele! Ele estava falando no celular, lá na plataforma. Percebe por que isso importa?"]
+  ]],
+  "j_phone": ["j", "Not much. Something like, she needs you, please call back. Then the whistle went.", "Pouca coisa. Algo tipo: ela precisa de você, por favor me liga de volta. Aí veio o apito.", "j_sure"],
+  "j_sure": ["j", "Positive. The station clock said five to one when he got off, and ten past when he got back on.", "Certeza absoluta. O relógio da estação marcava cinco para a uma quando ele desceu, e uma e dez quando subiu de novo.", "n_moira"],
+  "n_moira": ["n", "A shadow falls across the seats. Moira has a way of appearing at exactly the right moment.", "Uma sombra cai sobre as poltronas. A Moira tem o dom de aparecer exatamente na hora certa.", "m1"],
+  "m1": ["m", "Mr. Okafor. A seat ticket, and yet somebody saw you in my sleeping car tonight.", "Sr. Okafor. Passagem de poltrona, e mesmo assim alguém viu o senhor no meu vagão-leito esta noite.", "m2"],
+  "m2": ["m", "Well, berth nine? You've had a chat. Is this young man my thief?", "E então, cabine nove? Vocês conversaram. Esse rapaz é o meu ladrão?", [
+   ["No. He was only trying to deliver a fan letter.", "Não. Ele só estava tentando entregar uma carta de fã.", "m_letter"],
+   ["He's a witness, actually. Jamie, tell her about the platform.", "Na verdade, ele é testemunha. Jamie, conta pra ela da plataforma.", "m_wit"],
+   ["No, he's not my chief.", "Não, ele não é meu chefe.", null, "Thief, not chief. Did this lad take the violin, yes or no?", "\"Thief\", ladrão. Não \"chief\". Esse rapaz pegou o violino, sim ou não?"]
+  ]],
+  "m_letter": ["m", "A fan letter. At half past midnight. Well, I've heard worse reasons. Anything else, lad?", "Uma carta de fã. À meia-noite e meia. Bom, já ouvi motivo pior. Mais alguma coisa, rapaz?", "m_wit"],
+  "m_wit": ["j", "I saw Mr. Finch on the platform at Crewe. From five to one until ten past. The whole stop.", "Eu vi o Sr. Finch na plataforma em Crewe. Das cinco para a uma até a uma e dez. A parada inteira.", "m3"],
+  "m3": ["m", "Did you, now. Because Mr. Finch told me he checked that violin at exactly one. He can't have done both.", "Viu, é? Porque o Sr. Finch me disse que conferiu o violino à uma em ponto. Não dá pra ter feito as duas coisas.", "m4", {"clue": "oliver_lie"}],
+  "m4": ["m", "So. Either the lad is mistaken, or Oliver Finch is lying. Which is it, do you think?", "Então. Ou o rapaz se enganou, ou o Oliver Finch está mentindo. Qual dos dois, na sua opinião?", [
+   ["Oliver must have lied. But he might have a good reason.", "O Oliver deve ter mentido. Mas pode ter um bom motivo.", "m_reason"],
+   ["Jamie could have got the time wrong.", "O Jamie pode ter errado a hora.", "m_log"],
+   ["Neither. I think it's half past three.", "Nenhum dos dois. Acho que são três e meia.", null, "Not the time. The truth. Which of the two is telling it, in your opinion?", "Não a hora. A verdade. Qual dos dois está dizendo a verdade, na sua opinião?"]
+  ]],
+  "m_reason": ["m", "A good reason to lie to me. I'd like to hear it. I really would.", "Um bom motivo pra mentir pra mim. Eu gostaria de ouvir. Gostaria mesmo.", "m5"],
+  "m_log": ["m", "He could. But I keep a log. Crewe, five to one until ten past. I called Finch back myself.", "Pode. Mas eu mantenho um registro. Crewe, das cinco para a uma até a uma e dez. E fui eu mesma que chamei o Finch de volta pro trem.", "m5"],
+  "m5": ["m", "You may stay where you are, Mr. Okafor. Try to sleep. You've an audition, I hear.", "Pode ficar onde está, Sr. Okafor. Tente dormir. Soube que o senhor tem um teste.", "cat_br"],
+  "cat_br": {"branch": [["cat_secret=kept", "m_cat_q"], [null, "m_cat_h"]]},
+  "m_cat_h": ["m", "And you'll stop sneezing soon. Mrs. Pringle has confessed. The cat is having milk in my office.", "E o senhor logo para de espirrar. A Sra. Pringle confessou. O gato está tomando leite na minha sala.", "j_end"],
+  "m_cat_q": ["m", "As for that sneezing. Anyone would think there was a cat on my train. Is there, berth nine?", "Quanto a esses espirros. Até parece que tem um gato no meu trem. Tem, cabine nove?", [
+   ["A cat? I've only seen a lot of orange wool.", "Um gato? Eu só vi muita lã laranja.", "m_cat_a"],
+   ["You'd better ask Mrs. Pringle. Kindly.", "Melhor perguntar pra Sra. Pringle. Com carinho.", "m_cat_b"],
+   ["Yes, there's a cap on your head.", "Sim, tem um quepe na sua cabeça.", null, "That's my uniform. A cat, I said. With whiskers. Is there one on my train?", "Isso é meu uniforme. Eu disse gato. De bigode. Tem algum no meu trem?"]
+  ]],
+  "m_cat_a": ["m", "Orange wool. That purrs. I see. I'll pretend to believe you until Edinburgh.", "Lã laranja. Que ronrona. Entendo. Vou fingir que acredito até Edimburgo.", "j_end"],
+  "m_cat_b": ["m", "I'm always kind. I'll take the wool a saucer of milk and say nothing.", "Eu sempre tenho carinho. Vou levar um pires de leite pra essa lã e não digo nada.", "j_end"],
+  "j_end": ["j", "Hey. If you see her, don't mention my note. Promise?", "Ei. Se você encontrar com ela, não fala do meu bilhete. Promete?", [
+   ["I promise. But you should give it to her yourself.", "Prometo. Mas você mesmo devia entregar pra ela.", "j_e1"],
+   ["No promises. I think she needs to read it.", "Sem promessas. Acho que ela precisa ler.", "j_e2"],
+   ["I won't mention your boat.", "Não vou falar do seu barco.", null, "Not boat. Note! My letter. You won't tell her about it, will you?", "Não é \"boat\". É \"note\", bilhete! Minha carta. Você não vai contar pra ela, vai?"]
+  ]],
+  "j_e1": ["j", "Maybe. If I'm ever brave enough. Good night.", "Talvez. Se um dia eu tiver coragem. Boa noite.", "m_end"],
+  "j_e2": ["j", "Don't you dare. Well. Maybe. No. Good night.", "Nem pense nisso. Bom. Talvez. Não. Boa noite.", "m_end"],
+  "m_end": ["m", "Time we had a cup of tea with Mr. Finch, berth nine. And this time, you can pour.", "Está na hora de um chá com o Sr. Finch, cabine nove. E desta vez, é você quem serve.", null]
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "season": 8,
+ "title": "The Wedding: o casamento em Glenbeg",
+ "subtitle": "Sua melhor amiga vai se casar com um irlandês numa casa de campo na Irlanda, e é você quem resolve tudo. Alianças, bolo, banda, tempestade e duas famílias que não se entendem: escute bem, porque cada conversa pode salvar o dia.",
+ "level": "B1",
+ "genre": "Comédia de casamento",
+ "clues": {
+  "barn": {
+   "title": "O celeiro velho",
+   "note": "O celeiro atrás da casa tem uma pista de dança de verdade, escondida debaixo de anos de tralha."
+  },
+  "suit_pocket": {
+   "title": "Bolso do paletó",
+   "note": "O Declan guardou a caixinha das alianças no bolso interno do paletó, e a loja fechou o terno numa capa cinza."
+  },
+  "accordion": {
+   "title": "A banda da Nora",
+   "note": "A avó Nora tocou acordeão numa banda de baile por vinte anos. Faz seis que o acordeão não sai do estojo."
+  },
+  "wrong_jacket": {
+   "title": "Paletó trocado",
+   "note": "A loja entregou todos os ternos em capas cinza iguais, e o Paulo acha que ficou com o paletó de outro homem."
+  },
+  "paulo_guitar": {
+   "title": "O violão do Paulo",
+   "note": "O Paulo, pai da Julia, toca violão há quarenta anos e trouxe o violão para a Irlanda."
+  },
+  "family_waltz": {
+   "title": "A valsa da família",
+   "note": "Por sessenta anos, todo casamento dos Doyle começou com a mesma valsa. Desta vez, ninguém falou nada com a Nora."
+  },
+  "granny_wish": {
+   "title": "O que a Nora quer",
+   "note": "A Nora não é contra o casamento: ela só queria que alguém pedisse para ela tocar a primeira dança."
+  },
+  "marta_toast": {
+   "title": "O brinde da Marta",
+   "note": "A Marta ensaia um brinde em inglês toda noite, mas ninguém pediu e ela tem vergonha de falar."
+  }
+ },
+ "memories": {
+  "fergus_pal=yes": "O Fergus lembra que você ouviu a história dele até o fim.",
+  "speech=funny": "Você prometeu à Julia um brinde para fazer todo mundo rir.",
+  "speech=sweet": "Você prometeu à Julia um brinde para fazer todo mundo chorar.",
+  "secret=keep": "Você prometeu ao Declan guardar o segredo dele.",
+  "secret=tell": "Você avisou o Declan que não esconde nada da Julia.",
+  "granny_tea=good": "A Nora lembra que você quis aprender a fazer chá do jeito dela.",
+  "granny_tea=bad": "A Nora lembra do seu chá de saquinho.",
+  "chair=sat": "A Nora lembra em que poltrona você sentou."
+ }
+}

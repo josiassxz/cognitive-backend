@@ -1,0 +1,101 @@
+{
+ "slug": "s11-05-the-grey-coat", "episode": 5, "title": "The Grey Coat", "level": "B2",
+ "place": "office", "placeLabel": "Salão comunitário", "time": "Quarta · 10h", "ambience": "office",
+ "description": "Entrevista formal com a funcionária do governo. O tom das suas perguntas decide o quanto ela conta.",
+ "intro": "No farol, a Isla confessou que vai embora de Skerra, e que o pai não sabe. Ela avisou: a mulher da repartição já chegou, e a ilha inteira decidiu não gostar dela. Hoje você a entrevista.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "p": ["Priya Nair", "Funcionária do departamento de transportes", "bf_lily", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Ten o'clock. The village hall smells of floor polish and old tea.", "Dez horas. O salão comunitário cheira a cera de assoalho e chá velho.", "n2"],
+  "n2": ["n", "At a folding table sits a woman in a grey coat, surrounded by very neat piles of paper.", "Numa mesa dobrável está sentada uma mulher de casaco cinza, cercada de pilhas de papel muito bem arrumadas.", "p1"],
+  "p1": ["p", "Good morning. Priya Nair, regional transport office. You'll be the documentary maker. Do sit down.", "Bom dia. Priya Nair, departamento regional de transportes. Você deve ser quem faz o documentário. Sente-se, por favor.", [
+   ["Thank you for agreeing to see me, Ms Nair.", "Agradeço por aceitar me receber, senhora Nair.", "p_formal"],
+   ["Hi! Thanks. Do you mind if I call you Priya?", "Oi! Valeu. Você se importa se eu te chamar de Priya?", "p_informal"],
+   ["Thank you, but I don't make documents. I make films.", "Agradeço, mas eu não faço documentos. Faço filmes.", null, "A documentary is a film, I believe. So we agree. Please, have a seat. Shall we begin?", "Um documentário é um filme, creio eu. Então concordamos. Por favor, sente-se. Vamos começar?"]
+  ]],
+  "p_formal": ["p", "Not at all. I'd rather be asked than guessed at. It makes a pleasant change.", "Imagine. Prefiro que me perguntem a que me adivinhem. É uma mudança agradável.", "mon_br"],
+  "p_informal": ["p", "On camera, I'd prefer Ms Nair. Off camera, Priya is fine. A small distinction, but a useful one.", "Diante da câmera, prefiro senhora Nair. Fora dela, Priya está ótimo. Uma distinção pequena, mas útil.", "mon_br"],
+  "mon_br": {"branch": [["crossing=sick", "p_sick"], [null, "p_fine"]]},
+  "p_sick": ["p", "We've met, in a sense. Monday's ferry. I had the grey coat. You had the ginger biscuit.", "Nós já nos encontramos, de certo modo. A balsa de segunda. Eu estava de casaco cinza. Você, com o biscoito de gengibre.", "p_terms"],
+  "p_fine": ["p", "We've met, in a sense. Monday's ferry. I had the grey coat. You were working hard at looking fine.", "Nós já nos encontramos, de certo modo. A balsa de segunda. Eu estava de casaco cinza. Você se esforçava muito para parecer bem.", "p_terms"],
+  "p_terms": ["p", "Before we begin. Is this interview about the review, or about me?", "Antes de começarmos. Esta entrevista é sobre a revisão da rota, ou sobre mim?", [
+   ["About the review. I'd like to understand how the decision gets made.", "Sobre a revisão. Eu gostaria de entender como a decisão é tomada.", "p_review"],
+   ["Both, if you'll allow it. Decisions are made by people.", "As duas coisas, se você permitir. Decisões são tomadas por pessoas.", "p_both"],
+   ["A review? I'd give the ferry four stars.", "Uma avaliação? Eu daria quatro estrelas pra balsa.", null, "Not that kind of review. The route review. Is your interview about the process, or about me personally?", "Não esse tipo de avaliação. A revisão da rota. Sua entrevista é sobre o processo, ou sobre mim, pessoalmente?"]
+  ]],
+  "p_review": ["p", "Good. Then I can be useful to you.", "Ótimo. Nesse caso, posso ser útil.", "side_br"],
+  "p_both": ["p", "Hm. We'll start with the review. We'll see about the rest.", "Hum. Começamos pela revisão. O resto, veremos.", "side_br"],
+  "side_br": {"branch": [["side=island", "p_side_i"], [null, "p_side_f"]]},
+  "p_side_i": ["p", "Though I understand you've told Mrs Sinclair whose side you're on. News travels here. Is it true?", "Embora eu saiba que você disse à senhora Sinclair de que lado está. Aqui a notícia corre. É verdade?", [
+   ["It is. But I can't tell the island's story fairly without yours.", "É. Mas não consigo contar a história da ilha com justiça sem a sua.", "p_trust_ok", {"set": {"priya_trust": "yes"}}],
+   ["I'm on the island's side, yes. Is that a problem?", "Estou do lado da ilha, sim. Algum problema?", "p_guarded", {"set": {"priya_trust": "no"}}],
+   ["I travel a lot too. I came all the way from Brazil.", "Eu também viajo muito. Vim lá do Brasil.", null, "So I gathered. My point is that people say you've chosen a side. Have you?", "Foi o que entendi. O que quero dizer é que comentam que você escolheu um lado. Escolheu?"]
+  ]],
+  "p_side_f": ["p", "I understand you told Mrs Sinclair you'd hear every side. News travels here. I appreciated that.", "Soube que você disse à senhora Sinclair que ouviria todos os lados. Aqui a notícia corre. Fiquei grata.", "p_start"],
+  "p_trust_ok": ["p", "That's a reasonable answer. More reasonable than I expected. Very well.", "É uma resposta sensata. Mais sensata do que eu esperava. Muito bem.", "p_start"],
+  "p_guarded": ["p", "Not a problem. But you'll forgive me if I choose my words carefully.", "Problema nenhum. Mas você há de me perdoar se eu escolher bem as palavras.", "p_start"],
+  "p_start": ["p", "So. Where would you like to start?", "Então. Por onde você gostaria de começar?", [
+   ["Could you walk me through how the review works?", "Você poderia me explicar passo a passo como funciona a revisão?", "p_how"],
+   ["People here say you've already decided. Have you?", "O pessoal daqui diz que você já decidiu. Decidiu?", "p_decided"],
+   ["With a tart, please. Apple, if you have one.", "Com uma torta, por favor. De maçã, se tiver.", null, "I'm afraid I only brought paperwork. Where would you like to begin the interview?", "Infelizmente eu só trouxe papelada. Por onde você gostaria de começar a entrevista?"]
+  ]],
+  "p_how": ["p", "We compare what a route costs with how many people it carries. Then I recommend.", "Comparamos quanto uma rota custa com quantas pessoas ela transporta. Depois eu recomendo.", "p_eleven"],
+  "p_decided": ["p", "No. I recommend; I don't decide. And I haven't recommended anything yet.", "Não. Eu recomendo; não decido. E ainda não recomendei nada.", "p_eleven"],
+  "p_eleven": ["p", "The figure everyone quotes is eleven passengers per crossing. That is what the count found.", "O número que todos citam é onze passageiros por travessia. Foi o que a contagem encontrou.", [
+   ["When exactly was that count carried out?", "Quando exatamente essa contagem foi feita?", "p_feb"],
+   ["With respect, eleven sounds low. I'm told the boat's full in summer.", "Com todo o respeito, onze parece pouco. Me disseram que o barco lota no verão.", "p_low"],
+   ["Eleven? That's a lie, and everyone here knows it.", "Onze? Isso é mentira, e todo mundo aqui sabe.", "p_lie", {"set": {"priya_trust": "no"}}],
+   ["A count? I didn't know Skerra had a count. Or a castle.", "Um conde? Eu não sabia que Skerra tinha conde. Nem castelo.", null, "Not a nobleman. A passenger count. People with clipboards. Have you a question about the figure?", "Não um nobre. Uma contagem de passageiros. Gente com prancheta. Você tem alguma pergunta sobre o número?"]
+  ]],
+  "p_feb": ["p", "A fair question. Three weeks, last February. It was the only period the budget allowed.", "Pergunta justa. Três semanas, em fevereiro passado. Era o único período que o orçamento permitia.", "p_feb2", {"clue": "winter_count"}],
+  "p_feb2": ["p", "I know perfectly well what February is like here. I've said so in writing. Twice.", "Eu sei muito bem como é fevereiro aqui. Já registrei isso por escrito. Duas vezes.", "p_mid"],
+  "p_low": ["p", "It may well be full in summer. I can only report what was counted. Anything further?", "É bem possível que lote no verão. Só posso relatar o que foi contado. Mais alguma coisa?", [
+   ["Yes. In which month was it counted?", "Sim. Em que mês foi contado?", "p_feb"],
+   ["Would the office accept other figures, if they existed?", "A repartição aceitaria outros números, se existissem?", "p_other"],
+   ["Summer? Personally, I prefer the spring.", "Verão? Eu, pessoalmente, prefiro a primavera.", null, "As do I. But we were discussing the passenger count. Is there anything further you'd like to ask?", "Eu também. Mas falávamos da contagem de passageiros. Há mais alguma coisa que você queira perguntar?"]
+  ]],
+  "p_other": ["p", "If they were reliable, dated and signed? I'd be obliged to consider them. Gladly.", "Se fossem confiáveis, datados e assinados? Eu seria obrigada a considerá-los. Com prazer.", "p_mid"],
+  "p_lie": ["p", "It isn't a lie. It's a small number, counted honestly, during three weeks of February.", "Não é mentira. É um número pequeno, contado com honestidade, em três semanas de fevereiro.", [
+   ["You're right. That was unfair of me. I apologise.", "Você tem razão. Isso foi injusto da minha parte. Peço desculpas.", "p_apol", {"set": {"priya_trust": "yes"}}],
+   ["Then why count in February, of all months?", "Então por que contar logo em fevereiro?", "p_lie_feb"],
+   ["Three weeks? But February has four weeks.", "Três semanas? Mas fevereiro tem quatro.", null, "It does. We counted during three of them. Now, would you like to rephrase what you said?", "Tem. Contamos durante três delas. Agora, você gostaria de reformular o que disse?"]
+  ], {"clue": "winter_count"}],
+  "p_apol": ["p", "Accepted. I've been called worse this week, mostly by people holding umbrellas.", "Aceito. Já me chamaram de coisa pior esta semana, quase sempre gente segurando guarda-chuva.", "p_mid"],
+  "p_lie_feb": ["p", "Because that was when the money was available. I didn't choose the month. I questioned it.", "Porque era quando havia verba. Não fui eu que escolhi o mês. Eu questionei.", "p_mid"],
+  "p_mid": ["p", "May I ask you something? You've been here two days. What have you actually heard?", "Posso lhe perguntar uma coisa? Você está aqui há dois dias. O que foi que você ouviu, de fato?", [
+   ["In short: Morag fears the island would die, and Duncan insists it would cope.", "Resumindo: a Morag teme que a ilha morra, e o Duncan insiste que ela daria conta.", "p_sum1"],
+   ["That it's more complicated than keeping the ferry or cancelling it.", "Que é mais complicado do que manter a balsa ou cancelar.", "p_sum2"],
+   ["A herd? I've seen sheep, but no cows.", "Um rebanho? Eu vi ovelhas, mas nenhuma vaca.", null, "Heard, not herd. With your ears. What have people told you so far?", "Ouviu, não rebanho. Com os ouvidos. O que as pessoas lhe disseram até agora?"]
+  ]],
+  "p_sum1": ["p", "A fair summary. Fear on one side, pride on the other. Neither fits in a spreadsheet.", "Um resumo justo. Medo de um lado, orgulho do outro. Nenhum dos dois cabe numa planilha.", "trust_br"],
+  "p_sum2": ["p", "It usually is. Unfortunately, my form has only two boxes to tick.", "Geralmente é. Infelizmente, meu formulário só tem dois quadradinhos para marcar.", "trust_br"],
+  "trust_br": {"branch": [["priya_trust=no", "p_cold"], [null, "p_warm"]]},
+  "p_warm": ["p", "You listen well. So I'll offer you something. One question, off the record. Anything.", "Você sabe ouvir. Então eu lhe ofereço uma coisa. Uma pergunta, fora da gravação. Qualquer uma.", [
+   ["Why does this island matter to you? It clearly does.", "Por que esta ilha importa pra você? Está na cara que importa.", "p_island1"],
+   ["Is there an option on the table that nobody here knows about?", "Existe alguma opção na mesa que ninguém aqui conhece?", "p_hint", {"set": {"asked_option": "yes"}}],
+   ["Off the record? Sorry, I haven't got a record player.", "Fora do disco? Foi mal, eu não tenho toca-discos.", null, "Not that kind of record. I mean privately, not for the film. What would you like to ask me?", "Não esse tipo de disco. Quero dizer em particular, fora do filme. O que você gostaria de me perguntar?"]
+  ]],
+  "p_island1": ["p", "I grew up on Annasay. Smaller than Skerra. We lost our boat when I was nine.", "Eu cresci em Annasay. Menor que Skerra. Perdemos o nosso barco quando eu tinha nove anos.", "p_island2"],
+  "p_island2": ["p", "The school closed within four years. I don't intend to sign that twice.", "A escola fechou em quatro anos. Não pretendo assinar isso duas vezes.", "p_close", {"clue": "priya_island"}],
+  "p_hint": ["p", "I can't answer that in this hall. But it's a better question than you know.", "Não posso responder isso neste salão. Mas é uma pergunta melhor do que você imagina.", "p_close"],
+  "p_cold": ["p", "I think that's all I can usefully say today. Unless you've something to add?", "Creio que é tudo o que posso dizer de útil hoje. A menos que você queira acrescentar algo?", [
+   ["Only this: I pushed too hard. I'd like to start again some time.", "Só isto: eu forcei demais. Gostaria de recomeçar em outro momento.", "p_cold_ok", {"set": {"priya_trust": "yes"}}],
+   ["No. Thank you for your time, Ms Nair.", "Não. Agradeço pelo seu tempo, senhora Nair.", "p_cold_bye"],
+   ["Add? I'm terrible at maths, I'm afraid.", "Somar? Infelizmente eu vou muito mal em matemática.", null, "Not arithmetic. I'm asking whether you have anything more to say before you go.", "Não é aritmética. Estou perguntando se você tem mais alguma coisa a dizer antes de ir."]
+  ]],
+  "p_cold_ok": ["p", "Noted. And appreciated. People rarely say that to a grey coat.", "Anotado. E agradeço. É raro alguém dizer isso a um casaco cinza.", "p_close"],
+  "p_cold_bye": ["p", "And for yours. Do mind the step on your way out.", "E eu pelo seu. Cuidado com o degrau na saída.", "p_close"],
+  "p_close": ["p", "One more thing. Mine isn't the only set of numbers on this island.", "Mais uma coisa. Os meus não são os únicos números desta ilha.", [
+   ["Whose is the other one?", "De quem são os outros?", "p_tip"],
+   ["Are you telling me your own figures are incomplete?", "Você está me dizendo que os seus próprios números estão incompletos?", "p_tip2"],
+   ["A tea set? Morag has a lovely one.", "Um jogo de chá? A Morag tem um lindo.", null, "Not a tea set. A set of figures. Someone else here keeps records. Aren't you curious who?", "Não um jogo de chá. Um conjunto de números. Outra pessoa aqui mantém registros. Você não tem curiosidade de saber quem?"]
+  ]],
+  "p_tip": ["p", "Ask Captain Reid what he writes in every night. I've seen the book. Never the inside.", "Pergunte ao capitão Reid no que ele escreve toda noite. Eu já vi o livro. Nunca por dentro.", "n_end"],
+  "p_tip2": ["p", "I'm telling you a count is only as good as its calendar. Ask Captain Reid about his book.", "Estou dizendo que uma contagem vale o que vale o calendário dela. Pergunte ao capitão Reid sobre o livro dele.", "n_end"],
+  "n_end": ["n", "You step out into the wind. A grey coat, a spreadsheet and, somewhere, a book nobody has opened.", "Você sai para o vento. Um casaco cinza, uma planilha e, em algum lugar, um livro que ninguém abriu.", "n_end2"],
+  "n_end2": ["n", "Tonight, though, it's the pub. Duncan and Morag at one table. You pack a spare battery.", "Hoje à noite, porém, é o pub. O Duncan e a Morag na mesma mesa. Você leva uma bateria extra.", null]
+ }
+}

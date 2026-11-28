@@ -1,0 +1,97 @@
+{
+ "slug": "s07-03-the-empty-case", "episode": 3, "title": "The Empty Case", "level": "B1",
+ "place": "train", "placeLabel": "Cabine cinco", "time": "Sábado · 1h20", "ambience": "train",
+ "description": "O estojo está vazio, o assistente em pânico, e a chefe de trem pede a sua ajuda.",
+ "intro": "No vagão-lounge, o colecionador Sr. Lang ofereceu qualquer preço pelo violino, e a Clara recusou. Você foi dormir. Pouco depois da uma, um grito no corredor: o Nightingale sumiu.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Moira", "Chefe de trem", "bf_isabella", "left"],
+  "o": ["Oliver", "Assistente da Clara", "bm_daniel", "left"],
+  "c": ["Clara", "Violinista famosa", "af_sarah", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "You open your door. The corridor is narrow and half dark. Compartment five is wide open.", "Você abre a porta. O corredor é estreito e está na penumbra. A cabine cinco está escancarada.", "n2"],
+  "n2": ["n", "A young man in a crumpled suit is standing over a violin case. It's open. It's empty.", "Um rapaz de terno amassado está parado diante de um estojo de violino. Aberto. Vazio.", "o1"],
+  "o1": ["o", "It's gone. It can't be gone. I always check it. Always. Who are you?", "Sumiu. Não pode ter sumido. Eu sempre confiro. Sempre. Quem é você?", [
+   ["I'm in berth nine. I heard shouting. Can I help?", "Estou na cabine nove. Ouvi gritos. Posso ajudar?", "o_help"],
+   ["Take a breath. Tell me what happened.", "Respira fundo. Me conta o que aconteceu.", "o_breath"],
+   ["I'm fine, thanks. And you?", "Vou bem, valeu. E você?", null, "What? No! Not how. Who! Who are you, and what are you doing here?", "O quê? Não! Não é \"how\". É \"who\"! Quem é você, e o que está fazendo aqui?"]
+  ]],
+  "o_help": ["o", "Help? Yes. No. I don't know. Get the train manager. Somebody get the train manager!", "Ajudar? Sim. Não. Sei lá. Chama a chefe de trem. Alguém chama a chefe de trem!", "n_moira"],
+  "o_breath": ["o", "A breath. Right. I came back, I opened the case, and there was nothing in it. Nothing!", "Respirar. Certo. Eu voltei, abri o estojo, e não tinha nada dentro. Nada!", "n_moira"],
+  "n_moira": ["n", "Moira is already there. She arrives the way she does everything: quietly, and exactly on time.", "A Moira já está ali. Ela chega do jeito que faz tudo: em silêncio e na hora exata.", "cond_br"],
+  "cond_br": {"branch": [["called_conductor", "m_cond"], [null, "m_in"]]},
+  "m_cond": ["m", "Before you ask, berth nine: still not the conductor. Mr. Finch, sit down before you fall down.", "Antes que pergunte, cabine nove: continuo não sendo maestrina. Sr. Finch, sente antes que caia.", "m2"],
+  "m_in": ["m", "Nobody touch anything. Mr. Finch, sit down before you fall down.", "Ninguém encosta em nada. Sr. Finch, sente antes que caia.", "m2"],
+  "m2": ["m", "Now. Oliver Finch, Miss Whitmore's assistant, yes? When did you last see the violin?", "Muito bem. Oliver Finch, assistente da Srta. Whitmore, certo? Quando viu o violino pela última vez?", "o2"],
+  "o2": ["o", "At one o'clock. Exactly one. I opened the case, it was there, and I locked it again.", "À uma hora. Uma em ponto. Abri o estojo, ele estava lá, e tranquei de novo.", "o3"],
+  "o3": ["o", "Then I went for a cup of tea. Fifteen minutes at most. And now this.", "Depois fui tomar um chá. Quinze minutos, no máximo. E agora isso.", "m3"],
+  "m3": ["m", "You're next door, berth nine. Thin walls. Did you hear anything in the last hour?", "Você está aqui ao lado, cabine nove. Parede fina. Ouviu alguma coisa na última hora?", [
+   ["The train stopped somewhere. Later, a door banged.", "O trem parou em algum lugar. Depois, uma porta bateu.", "m_stop"],
+   ["Nothing until the shouting, I'm afraid.", "Nada até a gritaria, infelizmente.", "m_nothing"],
+   ["Yes, I'm here. I hear very well.", "Sim, estou aqui. Eu escuto muito bem.", null, "I can see you're here. I mean earlier. Did any noise wake you up tonight?", "Estou vendo que está aqui. Eu digo mais cedo. Algum barulho te acordou esta noite?"]
+  ]],
+  "m_stop": ["m", "That was Crewe. Five to one until ten past. Nobody got on, nobody got off. I counted.", "Era Crewe. Das cinco para a uma até a uma e dez. Ninguém subiu, ninguém desceu. Eu contei.", "n_case"],
+  "m_nothing": ["m", "Pity. Well. We stopped at Crewe, five to one until ten past. Nobody got on or off.", "Pena. Bem. Paramos em Crewe, das cinco para a uma até a uma e dez. Ninguém subiu nem desceu.", "n_case"],
+  "n_case": ["n", "Moira puts on her glasses and bends over the case. She studies the lock for a long time.", "A Moira põe os óculos e se debruça sobre o estojo. Examina a fechadura por um bom tempo.", "m4"],
+  "m4": ["m", "Mr. Finch. When you came back just now, was this case locked?", "Sr. Finch. Quando o senhor voltou agora há pouco, este estojo estava trancado?", "o4"],
+  "o4": ["o", "Locked. I opened it with my key, like always. There are only two. Mine and Miss Whitmore's.", "Trancado. Abri com a minha chave, como sempre. Só existem duas. A minha e a da Srta. Whitmore.", "m5"],
+  "m5": ["m", "A locked case, not a scratch on it, and only two keys. What does that tell you, berth nine?", "Um estojo trancado, sem um arranhão, e só duas chaves. O que isso te diz, cabine nove?", [
+   ["Whoever took it must have had a key.", "Quem pegou devia ter uma chave.", "m_key"],
+   ["The thief might have picked the lock.", "O ladrão pode ter aberto a fechadura com algum truque.", "m_pick"],
+   ["It tells me the time. Quarter past one.", "Me diz as horas. Uma e quinze.", null, "That's a clock. This is a lock. No scratches, two keys. What might that mean?", "Isso é um relógio. Isto é uma fechadura. Sem arranhões, duas chaves. O que isso pode significar?"]
+  ], {"clue": "locked_case"}],
+  "m_key": ["m", "Or borrowed one. Or it was never locked at all. Don't jump. Just remember it.", "Ou pegou uma emprestada. Ou o estojo nunca esteve trancado. Não se precipite. Só guarde isso.", "n_clara"],
+  "m_pick": ["m", "And locked it again afterwards? A very tidy thief. Possible. Not likely. Remember it.", "E trancou de novo depois? Que ladrão caprichoso. Possível. Pouco provável. Guarde isso.", "n_clara"],
+  "n_clara": ["n", "Clara Whitmore sits on the edge of the bed. She hasn't said a word, or even looked at the case.", "Clara Whitmore está sentada na beira da cama. Não disse uma palavra, nem olhou para o estojo.", "c1"],
+  "c1": ["c", "Please. No police. No newspapers. If this gets out, tomorrow becomes a circus.", "Por favor. Sem polícia. Sem jornais. Se isso vazar, amanhã vira um circo.", "m7"],
+  "m7": ["m", "Miss Whitmore, a violin worth more than my train has vanished. I ought to phone ahead.", "Srta. Whitmore, um violino que vale mais que o meu trem evaporou. Eu deveria avisar a próxima estação.", "c2"],
+  "c2": ["c", "Not yet. Please. And you. You were in the lounge car. Will you promise to keep this quiet?", "Ainda não. Por favor. E você. Você estava no vagão-lounge. Promete guardar segredo?", [
+   ["I promise. Not a word to anyone outside this train.", "Prometo. Nem uma palavra a ninguém de fora deste trem.", "c_prom", {"set": {"promised_quiet": "yes"}}],
+   ["I can't promise that. But I'll be careful, and fair.", "Isso eu não posso prometer. Mas vou agir com cuidado e com justiça.", "c_noprom", {"set": {"promised_quiet": "no"}}],
+   ["Yes, I promise to buy a newspaper.", "Sim, prometo comprar um jornal.", null, "No. Please listen. No newspapers. Can you keep this to yourself?", "Não. Escuta, por favor. Nada de jornais. Você consegue guardar isso só pra você?"]
+  ]],
+  "c_prom": ["c", "Thank you. You have no idea what that means tonight.", "Obrigada. Você não imagina o que isso significa esta noite.", "m8"],
+  "c_noprom": ["c", "Careful and fair. Well. That's honest, at least.", "Com cuidado e com justiça. Bem. Pelo menos é uma resposta honesta.", "m8"],
+  "m8": ["m", "Here's my problem. I'm alone tonight. My steward is off sick. And people don't talk to a uniform.", "O meu problema é este. Estou sozinha hoje. Meu comissário está doente. E ninguém se abre com um uniforme.", "m9"],
+  "m9": ["m", "But they talk to you. I've watched. Will you help me ask a few questions before Edinburgh?", "Mas com você as pessoas falam. Eu reparei. Me ajuda a fazer umas perguntas antes de Edimburgo?", [
+   ["Yes. Where do we start?", "Ajudo. Por onde a gente começa?", "m_start"],
+   ["Me? I'm only a tourist. But all right.", "Eu? Sou só turista. Mas tudo bem.", "m_tourist"],
+   ["Sure. I'll ask Edinburgh a few questions.", "Claro. Vou fazer umas perguntas pra Edimburgo.", null, "Not Edinburgh. The passengers. Before we get there. Will you help me talk to them?", "Não pra Edimburgo. Pros passageiros. Antes de chegarmos lá. Você me ajuda a conversar com eles?"]
+  ]],
+  "m_tourist": ["m", "Tourists notice things. The rest of us stopped looking years ago.", "Turista repara nas coisas. O resto de nós parou de olhar faz anos.", "m_start"],
+  "m_start": ["m", "Start with Mr. Finch, while I search the coach. Gently, mind. He's shaking like a leaf.", "Comece pelo Sr. Finch, enquanto eu revisto o vagão. Com jeito, hein. Ele está tremendo feito vara verde.", "n_alone"],
+  "n_alone": ["n", "Moira takes Clara to the lounge car for some tea. You are alone with Oliver and the empty case.", "A Moira leva a Clara ao vagão-lounge para um chá. Você fica a sós com o Oliver e o estojo vazio.", "o6"],
+  "o6": ["o", "Ask, then. Everyone will. I'm the one with the key.", "Pergunta, então. Todo mundo vai perguntar. Sou eu quem tem a chave.", [
+   ["What time did Miss Whitmore go to bed?", "A que horas a Srta. Whitmore foi dormir?", "o_bed"],
+   ["How long have you worked for her?", "Há quanto tempo você trabalha pra ela?", "o_years"],
+   ["Has she been practising a lot for tomorrow?", "Ela tem ensaiado bastante pra amanhã?", "o_practice"],
+   ["You've got the keyboard? Can you play it?", "Você tem o teclado? Sabe tocar?", null, "Keyboard? No. The key! To the case. Go on, ask me a proper question.", "Teclado? Não. A chave! Do estojo. Vai, me faz uma pergunta de verdade."]
+  ]],
+  "o_bed": ["o", "About quarter past twelve. She was exhausted. She went straight to sleep. Straight away.", "Lá pela meia-noite e quinze. Estava exausta. Dormiu na hora. Na mesma hora.", [
+   ["How do you know? Were you with her?", "Como você sabe? Estava com ela?", "o_know"],
+   ["And what did you do after that?", "E você, o que fez depois disso?", "o_did"],
+   ["I sleep straight too. Never in a circle.", "Eu também durmo em linha reta. Nunca em círculo.", null, "What? No. I mean she fell asleep immediately. Is that so hard to believe?", "O quê? Não. Eu quis dizer que ela pegou no sono na hora. É tão difícil de acreditar?"]
+  ]],
+  "o_know": ["o", "I, well. I said goodnight at the door. Then I checked the violin at one. As I said.", "Eu, bem. Dei boa-noite na porta. Depois conferi o violino à uma. Como eu disse.", "o7"],
+  "o_did": ["o", "Me? Paperwork. Emails. Then I checked the violin at one. As I told the manager.", "Eu? Papelada. E-mails. Depois conferi o violino à uma. Como eu disse à chefe de trem.", "o7"],
+  "o_years": ["o", "Six years. Every concert, every airport, every hotel. I've never lost so much as a glove.", "Seis anos. Todo concerto, todo aeroporto, todo hotel. Nunca perdi nem uma luva.", "o7"],
+  "o_practice": ["o", "Practising? She hasn't opened that case since Tuesday. I mean, she's resting. Everyone rests before a concert.", "Ensaiado? Ela não abre aquele estojo desde terça. Quer dizer, está descansando. Todo mundo descansa antes de um concerto.", [
+   ["Of course. That makes sense.", "Claro. Faz sentido.", "o7"],
+   ["Four days without playing? Is she all right, Oliver?", "Quatro dias sem tocar? Ela está bem, Oliver?", "o_fine"],
+   ["Arrested? What did she do?", "Presa? O que ela fez?", null, "Arrested? No! Resting. Not playing for a few days. That's normal, isn't it?", "Presa? Não! \"Resting\", descansando. Uns dias sem tocar. É normal, não é?"]
+  ], {"clue": "no_practice"}],
+  "o_fine": ["o", "She's fine. She's Clara Whitmore. She's always fine. Next question.", "Ela está bem. Ela é a Clara Whitmore. Ela está sempre bem. Próxima pergunta.", "o7"],
+  "o7": ["o", "Look. Somebody on this train wanted that violin. That collector has been after it for months.", "Olha. Alguém neste trem queria aquele violino. Aquele colecionador está atrás dele há meses.", [
+   ["You think Mr. Lang took it?", "Você acha que foi o Sr. Lang?", "o_lang"],
+   ["Could somebody have got in while you were out?", "Alguém pode ter entrado enquanto você estava fora?", "o_door"],
+   ["I collect stamps, actually.", "Na verdade, eu coleciono selos.", null, "Good for you. I'm talking about Mr. Lang, the collector. Don't you find him suspicious?", "Que bom pra você. Estou falando do Sr. Lang, o colecionador. Você não acha ele suspeito?"]
+  ]],
+  "o_lang": ["o", "I'm not saying that. I'm saying he wanted it. Badly. Ask him where he was at one.", "Não estou dizendo isso. Estou dizendo que ele queria. Muito. Pergunta onde ele estava à uma.", "n_moira2"],
+  "o_door": ["o", "These doors only lock from the inside. So yes. Anyone might have walked in. Anyone.", "Essas portas só trancam por dentro. Então sim. Qualquer pessoa pode ter entrado. Qualquer uma.", "n_moira2"],
+  "n_moira2": ["n", "Moira comes back, shaking her head. Nothing in the corridor. Nothing in the empty berths.", "A Moira volta, balançando a cabeça. Nada no corredor. Nada nas cabines vazias.", "m_end"],
+  "m_end": ["m", "Nobody left this train at Crewe. So the Nightingale is still on board. And so is whoever moved it.", "Ninguém desceu deste trem em Crewe. Então o Nightingale continua a bordo. E quem tirou ele do lugar, também.", "n_end"],
+  "n_end": ["n", "Six hours to Edinburgh. And a train full of people who can't sleep.", "Seis horas até Edimburgo. E um trem cheio de gente que não consegue dormir.", null]
+ }
+}

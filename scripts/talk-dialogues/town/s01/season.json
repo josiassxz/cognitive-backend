@@ -1,0 +1,53 @@
+{
+ "season": 1,
+ "title": "O mistério de Millbrook",
+ "subtitle": "Sua primeira semana numa cidadezinha inglesa à beira-mar. Um pote de doações desaparece, e você, recém-contratado(a) pelo jornal da cidade, vai descobrir o que aconteceu ouvindo as pessoas.",
+ "clues": {
+  "red_jacket": {
+   "title": "Jaqueta vermelha",
+   "note": "Na hora em que o pote sumiu, alguém de jaqueta vermelha saiu do café com pressa."
+  },
+  "heavy_bag": {
+   "title": "Sacola que tilintava",
+   "note": "O Sr. Hughes viu um rapaz correndo para a High Street com uma sacola pesada que fazia barulho de moedas."
+  },
+  "bank_holiday": {
+   "title": "Banco fechado",
+   "note": "Segunda-feira era feriado bancário: o banco da cidade passou o dia fechado."
+  },
+  "coins": {
+   "title": "Troca de moedas",
+   "note": "Um rapaz educado, de boné, trocou muitas moedas por notas na loja do Ravi naquela manhã."
+  },
+  "jar_idea": {
+   "title": "A ideia do pote",
+   "note": "O pote de doações para o parquinho novo foi ideia do Sam, o irmão da Emma."
+  },
+  "time_window": {
+   "title": "Entre 9h10 e 9h20",
+   "note": "O pote sumiu entre 9h10 e 9h20. A câmera do café só mostra uma manga vermelha."
+  },
+  "bank_question": {
+   "title": "Pergunta estranha",
+   "note": "Na segunda de manhã, o Sam perguntou ao Leo se o banco estava aberto, mesmo sendo feriado."
+  },
+  "kevin_alibi": {
+   "title": "O álibi do Kevin",
+   "note": "O Kevin também tem uma jaqueta vermelha, mas às 9h estava no dentista. Ele tem o recibo."
+  }
+ },
+ "level": "A1–B1",
+ "genre": "Mistério aconchegante",
+ "memories": {
+  "drink=coffee": "A Emma sabe que você pede café.",
+  "drink=tea": "A Emma sabe que você pede chá.",
+  "drink=hot_chocolate": "A Emma sabe que você pede chocolate quente.",
+  "donated=yes": "Você pôs uma libra no pote do parquinho.",
+  "helped_hughes=yes": "O Sr. Hughes lembra que você ajudou a achar o Biscuit.",
+  "helped_hughes=no": "O Sr. Hughes lembra que você estava com pressa.",
+  "kevin_friend=yes": "O Kevin já te considera da turma.",
+  "kevin_friend=no": "O Kevin ainda não sabe se você tem senso de humor.",
+  "told_ruiz=yes": "A policial Ruiz sabe o que você viu no café.",
+  "promised_leo=yes": "Você prometeu ao Leo não complicar a vida do Sam."
+ }
+}

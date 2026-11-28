@@ -1,0 +1,84 @@
+{
+ "slug": "s02-03-the-sleepy-fox", "episode": 3, "title": "The Sleepy Fox", "level": "A1",
+ "place": "hotel", "placeLabel": "Sleepy Fox Hostel", "time": "Sexta · 12h", "ambience": "hotel",
+ "description": "Check-in no hostel. E alguém passou por lá antes de você.",
+ "intro": "No metrô, um ingresso caiu da mala errada: Lantern Theatre, hoje, às sete e meia. Você chegou a King's Cross e agora vai fazer o check-in no Sleepy Fox Hostel.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "j": ["Jake", "Recepcionista do hostel", "am_puck", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "The Sleepy Fox Hostel is small and yellow. There is a fox on the door.", "O Sleepy Fox Hostel é pequeno e amarelo. Tem uma raposa na porta.", "n2"],
+  "n2": ["n", "You are tired and hungry, and you are still wearing a T-shirt. In London. In the cold.", "Você está com sono, com fome e ainda de camiseta. Em Londres. No frio.", "n3"],
+  "n3": ["n", "Inside, there is loud music. A man with green hair smiles at you.", "Lá dentro, toca música alta. Um homem de cabelo verde sorri pra você.", "j1"],
+  "j1": ["j", "Hey, hey! Welcome to the Sleepy Fox! I'm Jake. Checking in?", "E aí! Boas-vindas ao Sleepy Fox! Eu sou o Jake. Vai fazer check-in?", [
+   ["Yes, please. I have a reservation.", "Sim, por favor. Eu tenho uma reserva.", "j_res"],
+   ["Yes. I booked a bed for three nights.", "Sim. Reservei uma cama por três noites.", "j_three"],
+   ["Yes, I'm checking my phone.", "Sim, estou checando meu celular.", null, "Ha! Me too, all day. But are you checking in? Do you have a bed here?", "Rá! Eu também, o dia todo. Mas você vai fazer check-in? Tem uma cama reservada aqui?"]
+  ]],
+  "j_res": ["j", "A reservation! Cool. From Brazil, right? Here you are. Three nights.", "Uma reserva! Legal. Do Brasil, né? Achei você aqui. Três noites.", "j_room"],
+  "j_three": ["j", "Three nights. Yes! The guest from Brazil. Here you are.", "Três noites. Isso! Hóspede do Brasil. Achei você aqui.", "j_room"],
+  "j_room": ["j", "You're in room five, on the second floor. It's a room for four people. Is that okay?", "Você fica no quarto cinco, no segundo andar. É um quarto para quatro pessoas. Tudo bem?", [
+   ["That's fine. Is there a lift?", "Tudo bem. Tem elevador?", "j_lift"],
+   ["Four people? Okay. Is it quiet?", "Quatro pessoas? Tá. É silencioso?", "j_quiet"],
+   ["Yes, I'm five.", "Sim, eu tenho cinco anos.", null, "Five years old? You look older! Room five. For four people. Okay?", "Cinco anos? Você parece ter mais! Quarto cinco. Para quatro pessoas. Beleza?"]
+  ]],
+  "j_lift": ["j", "A lift? Ha. No. But the stairs are good exercise. It's a free gym!", "Elevador? Rá. Não. Mas a escada é um bom exercício. Academia grátis!", "j_bfast"],
+  "j_quiet": ["j", "Very quiet. Well. One man snores. But only at night!", "Bem silencioso. Quer dizer. Um cara ronca. Mas só de noite!", "j_bfast"],
+  "j_bfast": ["j", "Breakfast is from seven to ten. It's four pounds. Do you want breakfast?", "O café da manhã é das sete às dez. Custa quatro libras. Você quer café da manhã?", [
+   ["Yes, please.", "Sim, por favor.", "j_yes"],
+   ["No, thanks. What time is check-out?", "Não, valeu. Que horas é o check-out?", "j_out"],
+   ["No, I never break things.", "Não, eu nunca quebro nada.", null, "Ha! Not break. Breakfast! Food, in the morning. Do you want it?", "Rá! Não é quebrar. É café da manhã! Comida, de manhã. Você quer?"]
+  ]],
+  "j_yes": ["j", "Good choice. The toast is great. The coffee is terrible. Sorry.", "Boa escolha. A torrada é ótima. O café é péssimo. Foi mal.", "j_key"],
+  "j_out": ["j", "Check-out is at eleven. In the morning. Not at night, please.", "O check-out é às onze. Da manhã. Da noite não, por favor.", "j_key"],
+  "j_key": ["j", "Here's your key. Don't lose it! A new key is ten pounds.", "Aqui está sua chave. Não perca! Uma chave nova custa dez libras.", "j_any"],
+  "j_any": ["j", "So, that's everything! Any questions?", "Bom, é isso! Alguma pergunta?", [
+   ["Yes. Are there any messages for me?", "Sim. Tem algum recado pra mim?", "j_msg"],
+   ["Yes. Where can I eat near here?", "Sim. Onde eu posso comer aqui perto?", "j_eat"],
+   ["Yes, two cushions, please.", "Sim, duas almofadas, por favor.", null, "Cushions? Ha! They're on the bed. But do you have any questions?", "Almofadas? Rá! Estão na cama. Mas você tem alguma pergunta?"]
+  ]],
+  "j_eat": ["j", "There's a great pie shop on the corner. Say Jake sent you!", "Tem uma loja de tortas ótima na esquina. Diz que foi o Jake que mandou!", "j_bag"],
+  "j_bag": ["j", "Hey, nice suitcase. Blue, with a yellow ribbon. Funny. I saw one like that today.", "Ei, bonita a mala. Azul, com fita amarela. Engraçado. Eu vi uma igual hoje.", [
+   ["Really? Where? Who had it?", "Sério? Onde? Com quem?", "j_msg"],
+   ["Yes, it's a very popular suitcase.", "É, é uma mala muito popular.", "j_skip"],
+   ["Thanks. I look good in a suit.", "Valeu. Eu fico bem de terno.", null, "Ha! I'm sure you do. But the suitcase! I saw the same one today. Funny, right?", "Rá! Não duvido. Mas a mala! Eu vi uma igual hoje. Engraçado, né?"]
+  ]],
+  "j_skip": ["j", "Yeah. Super popular. Anyway!", "Pois é. Superpopular. Enfim!", "j_open"],
+  "j_msg": ["j", "Oh! Wait! Yes! A man was here twenty minutes ago. An older gentleman.", "Ah! Espera! É! Um homem passou aqui faz vinte minutos. Um senhor.", "j_msg2"],
+  "j_msg2": ["j", "He had a blue suitcase like yours. And he asked for the guest from Brazil! Do you know him?", "Ele tinha uma mala azul igual à sua. E perguntou por uma pessoa do Brasil hospedada aqui! Você conhece ele?", [
+   ["No! But he has my suitcase! Where did he go?", "Não! Mas ele está com a minha mala! Pra onde ele foi?", "j_where"],
+   ["No. Did he leave a name or a number?", "Não. Ele deixou nome ou telefone?", "j_noname"],
+   ["No, my nose is fine.", "Não, meu nariz está ótimo.", null, "Your nose? Ha! No! The man with the suitcase. Do you know him?", "Seu nariz? Rá! Não! O homem da mala. Você conhece ele?"]
+  ], {"clue": "looking_for_you"}],
+  "j_where": ["j", "I don't know! He said: 'I can't wait. I work tonight.' Then he ran.", "Não sei! Ele disse: 'Não posso esperar. Eu trabalho hoje à noite.' E saiu correndo.", "j_think"],
+  "j_noname": ["j", "No name. No number. He was in a hurry. He said: 'I work tonight.'", "Sem nome. Sem telefone. Ele estava com pressa. Disse: 'Eu trabalho hoje à noite.'", "j_think"],
+  "j_think": ["j", "Grey hair, long coat, a very big voice. He said 'good day' like a king.", "Cabelo grisalho, casaco comprido, um vozeirão. Ele disse 'bom dia' como um rei.", "j_note"],
+  "j_note": ["j", "Maybe he'll come back. Do you want to leave a note for him?", "Talvez ele volte. Quer deixar um bilhete pra ele?", [
+   ["Yes, please. Give him my phone number.", "Sim, por favor. Passa meu telefone pra ele.", "j_note_yes", {"set": {"note": "yes"}}],
+   ["No, it's okay. I'll find him first.", "Não, tudo bem. Eu acho ele antes.", "j_note_no", {"set": {"note": "no"}}],
+   ["No, thanks. I can't sing a note.", "Não, valeu. Eu não canto uma nota.", null, "Not a music note! A paper note. A message. Do you want to leave one?", "Não é nota musical! É um bilhete. Um recado. Quer deixar um?"]
+  ]],
+  "j_note_yes": ["j", "Done. I'll put it on the wall. With a big star.", "Feito. Vou colar na parede. Com uma estrela bem grande.", "j_open"],
+  "j_note_no": ["j", "A detective! I like it. Okay. Good luck.", "Detetive! Gostei. Beleza. Boa sorte.", "j_open"],
+  "j_open": ["j", "Hey, one thing. Did you look inside that suitcase?", "Ei, uma coisa. Você olhou dentro dessa mala?", [
+   ["Not really. Let's look together.", "Quase nada. Vamos olhar juntos.", "n_recipe"],
+   ["Yes. I found a scarf and a theatre ticket.", "Sim. Achei um cachecol e um ingresso de teatro.", "j_more"],
+   ["Yes, I'm inside. It's nice and warm here.", "Sim, estou aqui dentro. Está quentinho.", null, "Ha! Yes, we're both inside. But the suitcase! Did you look in it?", "Rá! Sim, nós dois estamos aqui dentro. Mas a mala! Você olhou nela?"]
+  ]],
+  "j_more": ["j", "A scarf and a ticket? Cool. But look again. Try the small pocket.", "Um cachecol e um ingresso? Legal. Mas olha de novo. Tenta o bolso pequeno.", "n_recipe"],
+  "n_recipe": ["n", "You open the small pocket. There is a piece of paper, with beautiful handwriting.", "Você abre o bolso pequeno. Tem um papel, com uma letra linda.", "j_recipe"],
+  "j_recipe": ["j", "It's a recipe! Apple crumble. Mmm. And look, there's a note at the bottom.", "É uma receita! Crumble de maçã. Hum. E olha, tem um recado no fim.", "j_recipe2"],
+  "j_recipe2": ["j", "It says: 'Buy the apples at Rosie's stall, Camden Market.'", "Diz assim: 'Comprar as maçãs na barraca da Rosie, no Camden Market.'", "j_camden", {"clue": "recipe"}],
+  "j_camden": ["j", "Camden Market! That's not far. Do you want to go there now?", "Camden Market! Não é longe. Você quer ir lá agora?", [
+   ["Yes! How do I get there?", "Sim! Como eu chego lá?", "j_how"],
+   ["Yes. But can I leave my backpack here first?", "Sim. Mas posso deixar minha mochila aqui antes?", "j_leave"],
+   ["No, I don't want to go to the garden.", "Não, eu não quero ir pro jardim.", null, "Not a garden! Camden. The market. Do you want to go there now?", "Não é jardim! Camden. O mercado. Você quer ir lá agora?"]
+  ]],
+  "j_how": ["j", "Take the black line, going north. Two stops. Get off at Camden Town.", "Pegue a linha preta, sentido norte. Duas paradas. Desça em Camden Town.", "j_time"],
+  "j_leave": ["j", "Sure, I'll keep it here. Then take the black line north. Two stops. Camden Town.", "Claro, eu guardo aqui. Depois pegue a linha preta, sentido norte. Duas paradas. Camden Town.", "j_time"],
+  "j_time": ["j", "It's half past twelve now. The market closes at six. Go, go, go!", "Agora é meio-dia e meia. O mercado fecha às seis. Vai, vai, vai!", "n_end"],
+  "n_end": ["n", "You run to the station. Somewhere in Camden, a woman called Rosie sells apples. Maybe she knows the owner.", "Você corre pra estação. Em algum lugar de Camden, uma mulher chamada Rosie vende maçãs. Talvez ela conheça o dono.", null]
+ }
+}

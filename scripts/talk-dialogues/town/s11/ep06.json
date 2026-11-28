@@ -1,0 +1,101 @@
+{
+ "slug": "s11-06-the-puffin", "episode": 6, "title": "The Puffin", "level": "B2",
+ "place": "pub", "placeLabel": "Pub The Puffin", "time": "Quarta · 20h", "ambience": "pub",
+ "description": "Duncan e Morag na mesma mesa. Você modera a briga, e o Duncan faz uma pergunta difícil.",
+ "intro": "A Priya Nair defendeu o número oficial, onze passageiros por travessia, e avisou que os números dela não são os únicos da ilha: o capitão escreve num livro toda noite. Hoje, no pub, o Duncan e a Morag dividem a mesa.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "d": ["Duncan", "Pescador", "bm_daniel", "left"],
+  "m": ["Morag", "Dona da pousada", "bf_isabella", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Eight o'clock. The Puffin is the only pub on Skerra, which makes it both the best and the worst.", "Oito da noite. O Puffin é o único pub de Skerra, ou seja, é o melhor e o pior.", "n2"],
+  "n2": ["n", "A fire, a dartboard, a sleeping dog. And at the corner table, Duncan and Morag, already arguing.", "Uma lareira, um alvo de dardos, um cachorro dormindo. E na mesa do canto, o Duncan e a Morag, já discutindo.", "m1"],
+  "m1": ["m", "There you are! Sit, sit. Duncan was just being wrong about something.", "Aí está você! Senta, senta. O Duncan estava justamente errando sobre um assunto.", "room_br"],
+  "room_br": {"branch": [["room=sea", "m_sea"], [null, "m_garden"]]},
+  "m_sea": ["m", "Did the gulls wake you? They start at four. I did warn you about the sea view.", "As gaivotas te acordaram? Elas começam às quatro. Eu avisei sobre a vista pro mar.", [
+   ["They did. But the sunrise over the harbour was worth it.", "Acordaram. Mas o nascer do sol no porto compensou.", "d_in"],
+   ["At four on the dot. I filmed them, out of revenge.", "Às quatro em ponto. Filmei todas, por vingança.", "d_in"],
+   ["The girls? No, I'm travelling on my own.", "As garotas? Não, eu viajo por conta própria.", null, "Gulls, dear, not girls! The seabirds. Did they wake you this morning?", "Gaivotas, meu bem, não garotas! As aves do mar. Elas te acordaram hoje cedo?"]
+  ]],
+  "m_garden": ["m", "Did the rooster wake you? He's no manners at all. I did warn you about the garden side.", "O galo te acordou? Ele não tem educação nenhuma. Eu avisei sobre o lado do jardim.", [
+   ["He did. I've decided to forgive him.", "Acordou. Decidi perdoar.", "d_in"],
+   ["Slept straight through. Your hens are very professional.", "Dormi direto. Suas galinhas são muito profissionais.", "d_in"],
+   ["A booster? No, I've had all my vaccines.", "Um reforço? Não, eu já tomei todas as vacinas.", null, "Rooster, dear! The big noisy chicken. Did he wake you up?", "Galo, meu bem! Aquele frangão barulhento. Ele te acordou?"]
+  ]],
+  "d_in": {"branch": [["helped_duncan=yes", "d_warm"], [null, "d_dry"]]},
+  "d_warm": ["d", "Leave my crew alone, Morag. Twenty boxes before breakfast, this one carried. I'm buying. What'll you have?", "Deixa a minha tripulação em paz, Morag. Vinte caixas antes do café, carregou. Eu pago. O que vai ser?", [
+   ["A half of whatever you're having, thanks.", "Meio copo do que você estiver tomando, valeu.", "d_round"],
+   ["Just a lemonade. I'm still working.", "Só uma limonada. Ainda estou trabalhando.", "d_round2"],
+   ["Buying? I didn't know the pub was for sale.", "Comprando? Eu não sabia que o pub estava à venda.", null, "Ha! Not the pub. A drink. I'm paying. What'll you have?", "Rá! Não o pub. Uma bebida. Eu pago. O que você vai tomar?"]
+  ]],
+  "d_round": ["d", "Good. Sit down, then. You've earned the comfy chair.", "Ótimo. Senta aí, então. Você fez por merecer a cadeira boa.", "m_topic"],
+  "d_round2": ["d", "Lemonade. Still working. Morag, this one's more serious than the pair of us.", "Limonada. Ainda trabalhando. Morag, temos aqui alguém que leva a vida mais a sério que nós dois juntos.", "m_topic"],
+  "d_dry": ["d", "Oh aye. Precious Hands. The bar's over there. Mine's a pint, since you're asking.", "Ah, sim. Mãos Delicadas. O balcão é ali. Pra mim uma cerveja, já que você perguntou.", [
+   ["Fair enough. I owe you one. A pint for Duncan, please.", "Justo. Fico te devendo uma. Uma cerveja pro Duncan, por favor.", "d_pint"],
+   ["I wasn't asking. But I'll get my own, thanks.", "Eu não perguntei. Mas vou buscar a minha, valeu.", "d_own"],
+   ["A mine? Is there a mine on the island?", "Uma mina? Tem mina na ilha?", null, "Not a mine. Mine. My drink. A pint. Are you going to the bar or not?", "Mina, não. Minha. A minha bebida. Uma cerveja. Você vai ao balcão ou não?"]
+  ]],
+  "d_pint": ["d", "Well now. Precious Hands has manners after all. Sit down.", "Ora, ora. Mãos Delicadas tem educação, afinal. Senta aí.", "m_topic"],
+  "d_own": ["d", "Ha. Got a tongue, at least. Sit down before Morag adopts you.", "Rá. Língua, pelo menos, tem. Senta antes que a Morag te adote.", "m_topic"],
+  "m_topic": ["m", "We were on the ferry, naturally. I say save her. He says let her go. Tell him he's wrong.", "A gente falava da balsa, claro. Eu digo pra salvar. Ele diz pra deixar ir. Fala pra ele que ele está errado.", [
+   ["I can't. To be fair, you both have a point.", "Não posso. Pra fazer justiça aos dois, cada um tem sua razão.", "mod_fair"],
+   ["Let me check I've understood you both first.", "Antes, deixa eu conferir se entendi bem vocês dois.", "mod_sum"],
+   ["Save her? Why, is somebody drowning?", "Salvar quem? Tem alguém se afogando?", null, "Nobody's drowning, dear. Her, the Kittiwake. The ferry. Now, which of us is right?", "Ninguém está se afogando, meu bem. Ela, a Kittiwake. A balsa. E então, quem de nós tem razão?"]
+  ]],
+  "mod_fair": ["d", "A point each. Like a football match that nobody won.", "Um ponto pra cada. Igual a jogo de futebol que ninguém ganhou.", "mod_q"],
+  "mod_sum": ["m", "Go on, then. This I want to hear.", "Vai, então. Essa eu quero ouvir.", "mod_q"],
+  "mod_q": ["d", "Right, film-maker. Sum it up. What's Morag saying, and what am I saying?", "Certo, cineasta. Resume aí. O que a Morag está dizendo, e o que eu estou dizendo?", [
+   ["Morag says the island can't survive without the ferry. You say it could, but at a price.", "A Morag diz que a ilha não sobrevive sem a balsa. Você diz que sobreviveria, mas a um preço.", "sum_good"],
+   ["Morag wants her boat. You want to be left alone.", "A Morag quer o barco dela. Você quer que te deixem em paz.", "sum_rough"],
+   ["Sums? I'm no good at sums. I failed maths.", "Contas? Eu não presto pra contas. Bombei em matemática.", null, "Not maths! Sum it up. Put it in a few words. What do the two of us think?", "Matemática, não! Resumir. Dizer em poucas palavras. O que nós dois pensamos?"]
+  ]],
+  "sum_good": ["m", "At a price. Did you hear that, Duncan? Even the film-maker's noticed there's a price.", "A um preço. Ouviu isso, Duncan? Até quem veio filmar já reparou que tem um preço.", "price_br"],
+  "sum_rough": ["d", "Left alone! Ha. Close enough. Though I never said it would come free.", "Em paz! Rá. Quase isso. Se bem que eu nunca disse que sairia de graça.", "price_br"],
+  "price_br": {"branch": [["clue_freight", "d_price_known"], [null, "d_price_ask"]]},
+  "d_price_known": ["d", "And this one already knows where my lobsters travel. So I'll not repeat it. Happy, Morag?", "E essa figura aqui já sabe por onde viajam as minhas lagostas. Então não vou repetir. Satisfeita, Morag?", "letter_br"],
+  "d_price_ask": ["d", "Don't ask me what the price is. Not with Morag sat there grinning.", "Não me pergunta qual é o preço. Não com a Morag sentada aí, rindo à toa.", [
+   ["I'll ask anyway. What would it cost you, personally?", "Eu pergunto mesmo assim. O que isso custaria pra você, pessoalmente?", "d_fr1"],
+   ["I won't push. Morag, why does this boat matter so much to you?", "Não vou insistir. Morag, por que esse barco importa tanto pra você?", "m_why"],
+   ["How much is the rice? I didn't order any.", "Quanto custa o arroz? Eu não pedi arroz.", null, "Price, not rice. What I'd lose without the ferry. Are you going to ask me or not?", "Preço, não arroz. O que eu perderia sem a balsa. Você vai me perguntar ou não?"]
+  ]],
+  "d_fr1": ["d", "Fine. My catch goes on the Kittiwake. Every box. So does the post, and the medicine.", "Tá bom. A minha pesca vai na Kittiwake. Todas as caixas. E o correio, e os remédios também.", "d_fr2", {"clue": "freight"}],
+  "d_fr2": ["d", "Nobody counts cargo. Only tickets. There. Happy, Morag?", "Carga ninguém conta. Só bilhete. Pronto. Satisfeita, Morag?", "letter_br"],
+  "letter_br": {"branch": [["clue_old_letter", "m_letter_known"], [null, "m_letter_ask"]]},
+  "m_letter_known": ["m", "Thrilled. And this one's read my mother's letter, so that's twice I've won tonight.", "Radiante. E essa figura aqui já leu a carta da minha mãe, então hoje eu ganhei duas vezes.", "n_bar"],
+  "m_letter_ask": ["m", "Thrilled. And you never asked about the frame on my kitchen wall. Aren't you curious?", "Radiante. E você nunca perguntou da moldura na parede da minha cozinha. Não tem curiosidade?", [
+   ["I am now. What's in the frame?", "Agora tenho. O que tem na moldura?", "m_l1"],
+   ["Later, maybe. Duncan looks as if he wants a word.", "Depois, talvez. O Duncan está com cara de quem quer falar.", "n_bar"],
+   ["A flame on your wall? Is the house on fire?", "Uma chama na sua parede? A casa está pegando fogo?", null, "Frame, not flame! The picture frame in my kitchen. Don't you want to know what's in it?", "Moldura, não chama! O quadro da minha cozinha. Você não quer saber o que tem nele?"]
+  ]],
+  "m_why": ["m", "Why? I'll tell you why. It's hanging in a frame on my kitchen wall.", "Por quê? Eu te digo por quê. Está pendurado numa moldura na parede da minha cozinha.", "m_l1"],
+  "m_l1": ["m", "My mother's letter to the mainland, nineteen seventy-four. Forty islanders signed it.", "A carta da minha mãe para o continente, mil novecentos e setenta e quatro. Quarenta moradores assinaram.", "m_l2"],
+  "m_l2": ["m", "They asked for 'a daily crossing, however small'. Not a big ship. Just a way across, every day.", "Pediram 'uma travessia diária, por menor que seja'. Não um navio grande. Só um jeito de atravessar, todo dia.", "n_bar", {"clue": "old_letter"}],
+  "n_bar": ["n", "Morag goes to the bar for crisps. Duncan leans in and lowers his voice.", "A Morag vai ao balcão buscar batata chips. O Duncan se inclina e baixa a voz.", "prom_br"],
+  "prom_br": {"branch": [["promised=yes", "n_prom_a"], [null, "n_prom_b"]]},
+  "n_prom_a": ["n", "You remember the lighthouse wall, and your own words. Her story to tell, not yours.", "Você se lembra do muro do farol e das suas próprias palavras. A história é dela, não sua.", "d_secret"],
+  "n_prom_b": ["n", "You remember the lighthouse wall. You said you wouldn't lie, and wouldn't volunteer anything either.", "Você se lembra do muro do farol. Você disse que não ia mentir, nem sair contando nada.", "d_secret"],
+  "d_secret": ["d", "You saw my Isla yesterday, up at the lighthouse. What did she say about the boat?", "Você esteve com a minha Isla ontem, lá no farol. O que ela disse sobre o barco?", [
+   ["That's her story to tell, Duncan. Ask her.", "Essa história é dela pra contar, Duncan. Pergunta pra ela.", "d_kept", {"set": {"isla_secret": "kept"}}],
+   ["I can't speak for her. But you two should talk, and soon.", "Não posso falar por ela. Mas vocês dois deviam conversar, e logo.", "d_hint", {"set": {"isla_secret": "kept"}}],
+   ["She's leaving the island, Duncan. She told me so herself.", "Ela vai embora da ilha, Duncan. Ela mesma me disse.", "d_told", {"set": {"isla_secret": "told"}}],
+   ["Your island? It's lovely. Very green.", "A sua ilha? É linda. Bem verde.", null, "Not the island. Isla. My daughter. What did she tell you up there?", "Não a ilha. A Isla. Minha filha. O que ela te contou lá em cima?"]
+  ]],
+  "d_kept": ["d", "Hm. Loyal. Annoying, but loyal. I'd want the same, in her shoes.", "Hum. Lealdade. Irrita, mas é lealdade. No lugar dela, eu ia querer o mesmo.", "m_back"],
+  "d_hint": ["d", "Talk. I don't like the sound of that. But aye. Maybe we should.", "Conversar. Não gostei do som disso. Mas é. Talvez a gente deva.", "m_back"],
+  "d_told": ["d", "Leaving? She never said. Not one word to me.", "Embora? Ela nunca falou. Nem uma palavra pra mim.", "n_told"],
+  "n_told": ["n", "Duncan stares into his glass. You wish you could take the sentence back.", "O Duncan encara o copo. Você daria tudo pra engolir a frase de volta.", "m_back"],
+  "m_back": ["m", "Crisps! What did I miss? Duncan, you've a face like a wet Sunday.", "Batatinha! O que eu perdi? Duncan, você está com cara de domingo de chuva.", "d_cover"],
+  "d_cover": ["d", "Nothing. Wind's changing, that's all.", "Nada. O vento está virando, só isso.", "m_final"],
+  "m_final": ["m", "So, film-maker. Three days in. If you had to bet: does the ferry stay?", "Então, cineasta. Três dias aqui. Se tivesse que apostar: a balsa fica?", [
+   ["I wouldn't bet. It depends on facts nobody's put on the table yet.", "Eu não apostaria. Depende de fatos que ninguém pôs na mesa ainda.", "end_facts"],
+   ["If the island spoke with one voice, I think it might.", "Se a ilha falasse com uma só voz, acho que talvez ficasse.", "end_voice"],
+   ["A bed? Yes, please. I'm ready to drop.", "Uma cama? Sim, por favor. Estou caindo de sono.", null, "Bet, dear, not bed! Though you do look tired. Will the ferry stay, do you think?", "Apostar, meu bem, não cama! Se bem que você está com cara de sono. A balsa fica, na sua opinião?"]
+  ]],
+  "end_facts": ["m", "Facts. Hm. We've had fifty years of feelings. Facts would make a change.", "Fatos. Hum. A gente teve cinquenta anos de sentimentos. Fatos seriam uma novidade.", "n_note"],
+  "end_voice": ["d", "One voice. On Skerra. You'd sooner get the gulls to sing in tune.", "Uma só voz. Em Skerra. É mais fácil fazer as gaivotas cantarem afinadas.", "n_note"],
+  "n_note": ["n", "At closing time, the barman hands you a folded note. Square handwriting. You know whose before you open it.", "Na hora de fechar, o barman te entrega um bilhete dobrado. Letra quadrada. Você sabe de quem é antes de abrir.", "n_note2"],
+  "n_note2": ["n", "It says: 'Bridge. Five tomorrow morning. Bring the camera. There's something you should see. Reid.'", "Está escrito: 'Ponte de comando. Amanhã, cinco da manhã. Traga a câmera. Tem algo que você precisa ver. Reid.'", null]
+ }
+}

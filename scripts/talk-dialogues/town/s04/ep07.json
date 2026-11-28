@@ -1,0 +1,103 @@
+{
+ "slug": "s04-07-last-chance", "episode": 7, "title": "Last Chance", "level": "B1",
+ "place": "shop", "placeLabel": "Last Chance Gas · deserto de Mojave", "time": "Sexta · 13h", "ambience": "shop",
+ "description": "O último posto antes do nada, um dono rabugento e um amassado de 1974.",
+ "intro": "Na Floresta Petrificada, a guarda June mostrou o que o vovô escreveu no livro de visitas em 1974: da próxima vez, trago meus netos. O sexto cartão manda parar na última chance, que é uma placa e não um sentimento.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "r": ["Rafa", "Seu primo de Chicago", "am_puck", "right"],
+  "o": ["Earl", "Dono do posto", "am_onyx", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "The Mojave Desert. Sand, heat and one straight road. The fuel needle is almost on empty.", "O deserto de Mojave. Areia, calor e uma estrada reta. O ponteiro do combustível está quase no vazio.", "rock_br"],
+  "rock_br": {"branch": [["rock=asked", "r_luck_r"], [null, "r_luck"]]},
+  "r_luck_r": ["r", "Almost out of gas, in a desert. It's the rock curse! You asked about taking one!", "Quase sem gasolina, num deserto. É a maldição das pedras! Você perguntou se podia levar uma!", "n2"],
+  "r_luck": ["r", "Almost out of gas, in a desert. And we didn't even take a cursed rock!", "Quase sem gasolina, num deserto. E a gente nem pegou pedra amaldiçoada!", "n2"],
+  "n2": ["n", "Then a shape appears in the heat: an old gas station with a rocket on its roof.", "Então uma forma aparece no meio do calor: um posto de gasolina antigo com um foguete no telhado.", "r_stop"],
+  "r_stop": ["r", "Last Chance Gas. It looks like nobody's been here since Grandpa. Do we stop?", "Last Chance Gas. Parece que ninguém passa aqui desde o vovô. A gente para?", [
+   ["We don't have a choice. Look at the needle.", "A gente não tem escolha. Olha o ponteiro.", "r_choice"],
+   ["It's called Last Chance. I'd say that's a hint.", "O nome é Última Chance. Eu diria que é uma dica.", "r_hint"],
+   ["Do we shop? Yes, I need a new hat.", "Se a gente compra? Sim, preciso de um chapéu novo.", null, "Not shop. Stop! Do we stop here for gas, or keep going?", "Comprar, não. Parar! A gente para aqui pra abastecer ou segue em frente?"]
+  ]],
+  "r_choice": ["r", "Good point. I'd rather not push Grandpa's van across California.", "Bem lembrado. Prefiro não empurrar a van do vovô pela Califórnia.", "o1"],
+  "r_hint": ["r", "Ha. Grandpa's riddles are getting easier. Or we're getting smarter.", "Rá. Os enigmas do vovô estão ficando mais fáceis. Ou a gente está ficando mais inteligente.", "o1"],
+  "o1": ["o", "Pump two works. Pump one is for decoration. How much do you want?", "A bomba dois funciona. A bomba um é enfeite. Quanto vão querer?", [
+   ["Fill it up, please.", "Pode completar, por favor.", "o_fill"],
+   ["Twenty dollars' worth, please.", "Vinte dólares, por favor.", "o_twenty"],
+   ["How much? About seventy kilos.", "Quanto? Uns setenta quilos.", null, "I'm not asking what you weigh. Gas! How much gas do you want?", "Não perguntei quanto você pesa. Gasolina! Quanto de gasolina vocês querem?"]
+  ]],
+  "o_fill": ["o", "Smart. Next gas is a hundred miles off. People never believe the sign. Then they walk back.", "Faz bem. O próximo posto fica a cento e sessenta quilômetros. O povo nunca acredita na placa. Depois volta a pé.", "o_else"],
+  "o_twenty": ["o", "Twenty? In that old thing? Next gas is a hundred miles. I'm filling it up. Thank me later.", "Vinte? Nessa lata velha? O próximo posto fica a cento e sessenta quilômetros. Vou completar. Depois vocês me agradecem.", "o_else"],
+  "o_else": ["o", "Anything else? Water? Ice? Advice? The advice is free, and worth every penny.", "Mais alguma coisa? Água? Gelo? Conselho? O conselho é de graça, e vale cada centavo.", [
+   ["Water, please. Lots of it.", "Água, por favor. Bastante.", "o_water", {"set": {"water": "yes"}}],
+   ["Could you check the tires?", "Pode dar uma olhada nos pneus?", "o_tires"],
+   ["All right. What's your advice?", "Tá bom. Qual é o seu conselho?", "o_advice"],
+   ["A device? No, I already have a phone.", "Um aparelho? Não, eu já tenho celular.", null, "Advice, not a device! All right. Water, ice, or a wise word from an old man?", "Conselho, não aparelho! Vamos lá. Água, gelo ou uma palavra sábia de um velho?"]
+  ]],
+  "o_water": ["o", "Two gallons. Now you're thinking. The desert doesn't care how young you are.", "Dois galões. Agora sim, cabeça funcionando. O deserto não quer saber da sua juventude.", "o_pay"],
+  "o_tires": ["o", "Front left is low. I'll fix it. That tire would've quit on you before Barstow.", "O dianteiro esquerdo está baixo. Eu resolvo. Esse pneu ia deixar vocês na mão antes de Barstow.", "o_pay"],
+  "o_advice": ["o", "Never trust a shortcut, a cheap motel, or a man who says pump one works.", "Nunca confie num atalho, num motel barato, nem num homem que diz que a bomba um funciona.", "o_pay"],
+  "o_pay": ["o", "That comes to forty-two dollars. Cash or card?", "Deu quarenta e dois dólares. Dinheiro ou cartão?", [
+   ["Card, please.", "Cartão, por favor.", "o_card"],
+   ["Cash. Here's fifty.", "Dinheiro. Aqui tem cinquenta.", "o_cash"],
+   ["No, thanks. We already have a car.", "Não, valeu. A gente já tem carro.", null, "Card, not car! You've got a car. More or less. How are you paying?", "Cartão, não carro! Carro vocês têm. Mais ou menos. Como vão pagar?"]
+  ]],
+  "o_card": ["o", "The machine's inside. It's slow. Like everything out here, including me.", "A maquininha fica lá dentro. É lenta. Como tudo por aqui, inclusive eu.", "n_van"],
+  "o_cash": ["o", "Fifty. Here's your eight dollars back, and a free map that nobody ever wants.", "Cinquenta. Aqui estão seus oito dólares de troco, e um mapa de brinde que ninguém nunca quer.", "n_van"],
+  "n_van": ["n", "Earl walks slowly around the van. At the back, he stops and touches a small dent.", "O Earl dá uma volta lenta em torno da van. Na traseira, ele para e passa a mão num amassadinho.", "o_dent"],
+  "o_dent": ["o", "I know this dent. I made this dent. Nineteen seventy-four, with pump one.", "Eu conheço este amassado. Fui eu que fiz. Mil novecentos e setenta e quatro, com a bomba um.", [
+   ["You hit our grandfather's van?", "Você bateu na van do nosso avô?", "o_hit"],
+   ["Then you must have known Frank Almeida.", "Então você deve ter conhecido o Frank Almeida.", "o_knew"],
+   ["I went to the dentist in March.", "Eu fui ao dentista em março.", null, "Not a dentist. A dent! This one, right here in the metal. Don't you want to know how I made it?", "Dentista, não. Amassado! Este aqui, na lataria. Não quer saber como eu fiz?"]
+  ]],
+  "o_hit": ["o", "The pump hit it. I was only holding the pump. It's a technical difference.", "Quem bateu foi a bomba. Eu só estava segurando a bomba. É uma diferença técnica.", "o_credit"],
+  "o_knew": ["o", "Frank. Skinny, loud and broke. Sure, I knew him.", "Frank. Magro, barulhento e sem um tostão. Claro que conheci.", "o_credit"],
+  "o_credit": ["o", "He had four dollars left. I filled his tank and said: pay me when you come back rich.", "Ele só tinha quatro dólares. Eu enchi o tanque e disse: me paga quando você voltar rico.", [
+   ["And did he come back rich?", "E ele voltou rico?", "o_back"],
+   ["What was he like back then?", "Como ele era naquela época?", "o_like"],
+   ["Come back, Rich? Who's Rich?", "Volta, Rich? Quem é Rich?", null, "Not a name. Rich! With money. Do you want to know if Frank came back or not?", "Não é nome de gente. Rico! Com dinheiro. Quer saber se o Frank voltou ou não?"]
+  ]],
+  "o_like": ["o", "Nervous. He counted those four dollars three times. But he whistled while he did it.", "Nervoso. Contou aqueles quatro dólares três vezes. Mas assobiava enquanto contava.", "o_back"],
+  "o_back": ["o", "He came back nine days later, heading east. Still broke, as far as I could tell.", "Ele voltou nove dias depois, indo pro leste. Ainda sem um tostão, pelo que eu vi.", "o_said"],
+  "o_said": ["o", "I asked: no luck? He said: Earl, I got the job. And I said no.", "Eu perguntei: não deu sorte? Ele disse: Earl, eu consegui o emprego. E eu disse não.", "r_no", {"clue": "said_no"}],
+  "r_no": ["r", "He got it? He drove two thousand miles, got the job, and turned it down?", "Ele conseguiu? Dirigiu três mil quilômetros, conseguiu o emprego e recusou?", "why_br"],
+  "why_br": {"branch": [["clue_baby_news", "o_why_b"], [null, "o_why_n"]]},
+  "o_why_b": ["o", "He wouldn't say why. Just grinned, washed my windows to pay for the gas, and left. Any ideas?", "Não quis dizer por quê. Só sorriu, lavou minhas janelas pra pagar a gasolina e foi embora. Alguma ideia?", [
+   ["I think I know. Grandma was expecting a baby.", "Acho que eu sei. A vovó estava esperando um bebê.", "o_baby"],
+   ["Maybe the job was terrible.", "Vai ver o emprego era horrível.", "o_terr"],
+   ["The letter Y? It comes after X.", "A letra Y? Vem depois do X.", null, "Not the letter. The reason! Why would a man say no to a good job?", "Não é a letra. É o motivo! Por que um homem diria não a um bom emprego?"]
+  ]],
+  "o_why_n": ["o", "He wouldn't say why. Just grinned, washed my windows to pay for the gas, and left. Any ideas?", "Não quis dizer por quê. Só sorriu, lavou minhas janelas pra pagar a gasolina e foi embora. Alguma ideia?", [
+   ["Maybe he was homesick.", "Vai ver ele estava com saudade de casa.", "o_home"],
+   ["Maybe the job was terrible.", "Vai ver o emprego era horrível.", "o_terr"],
+   ["The letter Y? It comes after X.", "A letra Y? Vem depois do X.", null, "Not the letter. The reason! Why would a man say no to a good job?", "Não é a letra. É o motivo! Por que um homem diria não a um bom emprego?"]
+  ]],
+  "o_baby": ["o", "A baby. Huh. Fifty years I've wondered. You can't raise a kid from two thousand miles away.", "Um bebê. Ora. Cinquenta anos me perguntando. Não dá pra criar um filho a três mil quilômetros de distância.", "o_paid"],
+  "o_terr": ["o", "Maybe. But nobody grins like that about a terrible job.", "Pode ser. Mas ninguém sorri daquele jeito por causa de um emprego horrível.", "o_paid"],
+  "o_home": ["o", "Could be. He talked about some Rosa at every pump.", "Pode ser. Ele falava de uma tal de Rosa em cada bomba.", "o_paid"],
+  "o_paid": ["o", "He mailed me five dollars every December for ten years. The gas cost eleven.", "Ele me mandou cinco dólares pelo correio todo dezembro, por dez anos. A gasolina custou onze.", "o_vanq"],
+  "o_vanq": ["o", "And this old van? What happens to her when you hit the ocean?", "E esta van velha? O que acontece com ela quando vocês chegarem ao mar?", [
+   ["We might sell her. A collector made an offer.", "Talvez a gente venda. Um colecionador fez uma oferta.", "o_sell", {"set": {"van_plan": "sell"}}],
+   ["We're keeping her. She's family.", "A gente vai ficar com ela. Ela é da família.", "o_keep", {"set": {"van_plan": "keep"}}],
+   ["We haven't decided yet.", "A gente ainda não decidiu.", "o_undecided"],
+   ["Hit the ocean? I'd never hit an ocean.", "Bater no mar? Eu nunca bateria num mar.", null, "Ha. I mean when you get there. What are you going to do with the van?", "Rá. Quer dizer, quando vocês chegarem lá. O que vão fazer com a van?"]
+  ]],
+  "o_sell": ["o", "Sell her. Huh. Free advice: some things are worth more in the driveway than in the bank.", "Vender. Hum. Conselho de graça: tem coisa que vale mais na garagem do que no banco.", "r_riddle"],
+  "o_keep": ["o", "Good. Don't tell anyone, but I'd have been sorry to see her go to a stranger.", "Ótimo. Não espalha, mas eu ia ficar triste de ver essa van na mão de um estranho.", "r_riddle"],
+  "o_undecided": ["o", "Then drive slow. People think better at forty-five miles an hour.", "Então dirijam devagar. A gente pensa melhor a setenta por hora.", "r_riddle"],
+  "r_riddle": ["r", "Last riddle. The road ends where the land ends. Find the wheel that turns and goes nowhere.", "Último enigma. A estrada acaba onde a terra acaba. Ache a roda que gira e não vai a lugar nenhum.", "r_riddle2"],
+  "r_riddle2": ["r", "Walk under it, to the very end. Ask for Sal. Sal sells worms.", "Passe por baixo dela, até o finalzinho. Procure por Sal. Sal vende minhocas.", [
+   ["A wheel that goes nowhere. A Ferris wheel?", "Uma roda que não vai a lugar nenhum. Uma roda-gigante?", "o_ferris"],
+   ["Who sells worms? Is that a restaurant?", "Quem vende minhoca? É um restaurante?", "o_worms"],
+   ["Sal sells warm what? Warm bread?", "Sal vende o quê quentinho? Pão quentinho?", null, "Worms, not warm! Little animals, for fishing. Now, the wheel that turns and goes nowhere?", "Minhocas, não quentinho! Bichinhos, de pescar. E aí, a roda que gira e não vai a lugar nenhum?"]
+  ], {"clue": "sal"}],
+  "o_ferris": ["o", "The Ferris wheel on the Santa Monica pier. That's where the road ends. There's even a sign.", "A roda-gigante do píer de Santa Monica. É lá que a estrada acaba. Tem até placa.", "water_br"],
+  "o_worms": ["o", "Bait, kid. For fishing. There's a bait shop at the end of the Santa Monica pier, past the big wheel.", "Isca, criatura. De pescar. Tem uma loja de iscas no fim do píer de Santa Monica, depois da roda-gigante.", "water_br"],
+  "water_br": {"branch": [["water=yes", "o_bye_w"], [null, "o_bye_n"]]},
+  "o_bye_w": ["o", "You've got gas, water and good tires. Four hours to the ocean. Go on, get out of here.", "Vocês têm gasolina, água e pneus bons. Quatro horas até o mar. Vão, sumam daqui.", "o_last"],
+  "o_bye_n": ["o", "Wait. Take these two gallons of water. No charge. Don't argue, I'm old.", "Espera. Levem estes dois galões de água. Não é nada. Não discutam, eu sou velho.", "o_last"],
+  "o_last": ["o", "And say hello to the ocean for me. Sixty years out here, and I've never gone to see it.", "E deem um oi pro mar por mim. Sessenta anos aqui, e eu nunca fui ver.", "n_end"],
+  "n_end": ["n", "Four hours to go. Rafa drives, and for once he doesn't say a word. The last card is in your hand.", "Faltam quatro horas. O Rafa dirige e, pela primeira vez, não diz uma palavra. O último cartão está na sua mão.", null]
+ }
+}

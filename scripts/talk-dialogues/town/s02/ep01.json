@@ -1,0 +1,100 @@
+{
+ "slug": "s02-01-the-wrong-suitcase", "episode": 1, "title": "The Wrong Suitcase", "level": "A1",
+ "place": "airport", "placeLabel": "Aeroporto de Londres", "time": "Sexta · 9h", "ambience": "airport",
+ "description": "Você chega a Londres, pega a mala na esteira e descobre que ela não é sua.",
+ "intro": "É a sua primeira viagem para fora do Brasil. Você acabou de pousar em Londres, e hoje à noite tem o jantar de aniversário da Bia, sua amiga brasileira que mora na cidade.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "b": ["Bia", "Sua amiga brasileira em Londres", "af_bella", "right"],
+  "o": ["Owen", "Atendente do balcão de bagagens", "bm_daniel", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "It's Friday morning. You are in London! It's your first trip abroad.", "É sexta de manhã. Você está em Londres! É a sua primeira viagem para fora.", "n2"],
+  "n2": ["n", "At the airport, you take your blue suitcase. It has a yellow ribbon.", "No aeroporto, você pega sua mala azul. Ela tem uma fita amarela.", "n3"],
+  "n3": ["n", "Your phone rings. It's Bia, your Brazilian friend. She lives here.", "Seu celular toca. É a Bia, sua amiga brasileira. Ela mora aqui.", "b1"],
+  "b1": ["b", "Hello, hello! Welcome to London! English only today, okay? How was your flight?", "Alô, alô! Boas-vindas a Londres! Hoje é só inglês, tá? Como foi o voo?", [
+   ["It was good. I slept a lot.", "Foi bom. Dormi bastante.", "b_slept"],
+   ["It was long. I'm very tired.", "Foi longo. Estou morrendo de cansaço.", "b_tired"],
+   ["The light is on, thanks.", "A luz está acesa, valeu.", null, "The light? Ha! No, the flight! The plane trip! How was it?", "A luz? Rá! Não, o voo! A viagem de avião! Como foi?"]
+  ]],
+  "b_slept": ["b", "Lucky you! I never sleep on planes. Now listen. Tonight is my birthday dinner!", "Que sorte a sua! Eu nunca durmo em avião. Agora escuta. Hoje à noite é meu jantar de aniversário!", "b_dinner"],
+  "b_tired": ["b", "Poor you! Drink a coffee. But listen. Tonight is my birthday dinner!", "Que dó! Toma um café. Mas escuta. Hoje à noite é meu jantar de aniversário!", "b_dinner"],
+  "b_dinner": ["b", "It's at eight o'clock, at an Italian restaurant. Can you come?", "É às oito horas, num restaurante italiano. Você consegue ir?", [
+   ["Of course! Eight o'clock. I'll be there.", "Claro! Oito horas. Vou estar lá.", "b_gift"],
+   ["Yes! And I have a present for you. From your mum.", "Sim! E eu tenho um presente pra você. Da sua mãe.", "b_gift2"],
+   ["Yes, I ate eight sandwiches.", "Sim, eu comi oito sanduíches.", null, "Eight sandwiches? Ha! No! Eight o'clock. Dinner. Tonight. Can you come?", "Oito sanduíches? Rá! Não! Oito horas. Jantar. Hoje à noite. Você consegue ir?"]
+  ]],
+  "b_gift": ["b", "Perfect! One more thing. My mum always sends me something from Brazil.", "Perfeito! Mais uma coisa. Minha mãe sempre me manda alguma coisa do Brasil.", "b_what"],
+  "b_gift2": ["b", "A present from my mum? I knew it! She always sends something.", "Um presente da minha mãe? Eu sabia! Ela sempre manda alguma coisa.", "b_what"],
+  "b_what": ["b", "Tell me, tell me! What is it this time?", "Conta, conta! O que é desta vez?", [
+   ["Brazilian coffee. It's in my suitcase.", "Café brasileiro. Está na minha mala.", "b_coffee", {"set": {"gift": "coffee"}}],
+   ["A big box of sweets. It's in my suitcase.", "Uma caixa grande de doces. Está na minha mala.", "b_sweets", {"set": {"gift": "sweets"}}],
+   ["A photo album. It's in my suitcase.", "Um álbum de fotos. Está na minha mala.", "b_album", {"set": {"gift": "album"}}],
+   ["Your mum. She's in my suitcase.", "A sua mãe. Ela está na minha mala.", null, "My mum? In your suitcase? Ha! I hope not! What did she send me?", "Minha mãe? Na sua mala? Rá! Espero que não! O que ela me mandou?"]
+  ]],
+  "b_coffee": ["b", "Coffee from home! I miss it so much. Take good care of that suitcase!", "Café de casa! Que saudade. Cuida bem dessa mala!", "n_cold"],
+  "b_sweets": ["b", "Sweets from home! Don't eat them! And take good care of that suitcase!", "Doces de casa! Não vai comer! E cuida bem dessa mala!", "n_cold"],
+  "b_album": ["b", "Photos from home! Oh, I can't wait. Take good care of that suitcase!", "Fotos de casa! Ai, não vejo a hora. Cuida bem dessa mala!", "n_cold"],
+  "n_cold": ["n", "London is cold. You open the suitcase to get your jacket.", "Londres é fria. Você abre a mala para pegar sua jaqueta.", "n_open"],
+  "n_open": ["n", "But there is no jacket. There are old shoes, a big hat and a red and white scarf.", "Mas não tem jaqueta nenhuma. Tem sapatos velhos, um chapéu grande e um cachecol vermelho e branco.", "b2"],
+  "b2": ["b", "Hello? Are you there? You're very quiet. What's wrong?", "Alô? Você está aí? Ficou um silêncio. O que foi?", [
+   ["Bia, this is not my suitcase!", "Bia, esta mala não é minha!", "b_truth", {"set": {"told_bia": "yes"}}],
+   ["Nothing! Everything is fine. See you tonight!", "Nada! Está tudo bem. Até de noite!", "b_fine", {"set": {"told_bia": "no"}}],
+   ["Yes, the flight was very long.", "Sim, o voo foi muito longo.", null, "Not long! Wrong! Is there a problem? What happened?", "Não é longo! É errado! Tem algum problema? O que aconteceu?"]
+  ]],
+  "b_truth": ["b", "What? Oh no! Okay, don't panic. Go to the baggage desk. Call me later!", "O quê? Ai, não! Tá, sem pânico. Vai no balcão de bagagens. Me liga depois!", "n_desk"],
+  "b_fine": ["b", "Okay! You sound strange. But okay. See you at eight! Bye!", "Tá bom! Sua voz está estranha. Mas tá bom. Até as oito! Tchau!", "n_desk"],
+  "n_desk": ["n", "You run to the baggage desk. A man in a blue uniform looks up, very slowly.", "Você corre até o balcão de bagagens. Um homem de uniforme azul levanta os olhos, bem devagar.", "o1"],
+  "o1": ["o", "Good morning. Baggage desk. How can I help you?", "Bom dia. Balcão de bagagens. Em que posso ajudar?", [
+   ["I have the wrong suitcase.", "Eu estou com a mala errada.", "o_wrong"],
+   ["Excuse me, I need help. My suitcase is gone.", "Com licença, preciso de ajuda. Minha mala sumiu.", "o_gone"],
+   ["Good morning. A table for two, please.", "Bom dia. Uma mesa para dois, por favor.", null, "This is not a restaurant. This is the baggage desk. What is the problem?", "Aqui não é restaurante. Aqui é o balcão de bagagens. Qual é o problema?"]
+  ]],
+  "o_wrong": ["o", "The wrong suitcase. I see. It happens every day.", "A mala errada. Entendo. Acontece todo dia.", "o_colour"],
+  "o_gone": ["o", "Gone? But you have a suitcase there. Ah. It isn't yours. I see.", "Sumiu? Mas você tem uma mala aí. Ah. Não é sua. Entendo.", "o_colour"],
+  "o_colour": ["o", "First question. What colour is your suitcase?", "Primeira pergunta. De que cor é a sua mala?", [
+   ["It's blue, with a yellow ribbon.", "É azul, com uma fita amarela.", "o_same"],
+   ["The same as this one! Blue, with a yellow ribbon.", "Igual a esta! Azul, com uma fita amarela.", "o_same2"],
+   ["Yes, I'm feeling very blue.", "Sim, estou na maior tristeza.", null, "I'm sorry you are sad. But the suitcase. What colour is it?", "Sinto muito pela tristeza. Mas a mala. De que cor ela é?"]
+  ]],
+  "o_same": ["o", "Blue, with a yellow ribbon. Like this one. And like forty others today.", "Azul, com fita amarela. Como esta. E como outras quarenta hoje.", "o_flight"],
+  "o_same2": ["o", "The same. Of course. Everybody has a yellow ribbon now. It doesn't help.", "Igual. Claro. Todo mundo usa fita amarela agora. Não adianta nada.", "o_flight"],
+  "o_flight": ["o", "Next question. Where did you fly from?", "Próxima pergunta. Você veio de onde?", [
+   ["From Brazil.", "Do Brasil.", "o_brazil"],
+   ["From Brazil. It's my first trip abroad!", "Do Brasil. É a minha primeira viagem para fora!", "o_first"],
+   ["I can't fly. I'm not a bird.", "Eu não sei voar. Não sou passarinho.", null, "No. The plane. Where did your plane come from?", "Não. O avião. De onde o seu avião veio?"]
+  ]],
+  "o_brazil": ["o", "Brazil. The morning flight. Good.", "Brasil. O voo da manhã. Certo.", "o_inside"],
+  "o_first": ["o", "Your first trip. And this happens. Welcome to London.", "Sua primeira viagem. E acontece isso. Boas-vindas a Londres.", "o_inside"],
+  "o_inside": ["o", "Now. What is inside your suitcase? Anything special?", "Agora. O que tem dentro da sua mala? Alguma coisa especial?", [
+   ["Clothes, and a present for my friend.", "Roupas, e um presente pra minha amiga.", "gift_br"],
+   ["Clothes and my jacket. I'm so cold!", "Roupas e minha jaqueta. Estou com muito frio!", "o_cold"],
+   ["Yes, I'm very special.", "Sim, eu sou muito especial.", null, "I'm sure you are. But the suitcase. What is in it?", "Não duvido. Mas a mala. O que tem nela?"]
+  ]],
+  "gift_br": {"branch": [["gift=coffee", "o_g_coffee"], ["gift=sweets", "o_g_sweets"], [null, "o_g_album"]]},
+  "o_g_coffee": ["o", "A present. Brazilian coffee. I'll write that down. Lucky friend.", "Um presente. Café brasileiro. Vou anotar. Amiga de sorte.", "o_look"],
+  "o_g_sweets": ["o", "A present. A box of sweets. I'll write that down. Lucky friend.", "Um presente. Uma caixa de doces. Vou anotar. Amiga de sorte.", "o_look"],
+  "o_g_album": ["o", "A present. A photo album. I'll write that down. Lucky friend.", "Um presente. Um álbum de fotos. Vou anotar. Amiga de sorte.", "o_look"],
+  "o_cold": ["o", "Yes. It's nine degrees outside. In summer, it's ten.", "Pois é. Faz nove graus lá fora. No verão, faz dez.", "o_look"],
+  "o_look": ["o", "Now this suitcase. Is there a name inside? Look, please.", "Agora esta mala. Tem algum nome dentro? Olhe, por favor.", "n_look"],
+  "n_look": ["n", "You look. No name. No phone number. Only words on the scarf: Camden Rovers.", "Você olha. Nenhum nome. Nenhum telefone. Só umas palavras no cachecol: Camden Rovers.", "o_scarf"],
+  "o_scarf": ["o", "Camden Rovers. That's a football team. A very small one, from north London.", "Camden Rovers. É um time de futebol. Bem pequeno, do norte de Londres.", "o_stay", {"clue": "scarf"}],
+  "o_stay": ["o", "No name. So I can't call the owner. Where are you staying in London?", "Sem nome. Então não posso ligar para o dono. Onde você vai ficar em Londres?", [
+   ["At the Sleepy Fox Hostel.", "No Sleepy Fox Hostel.", "o_hostel"],
+   ["At a hostel near King's Cross.", "Num hostel perto de King's Cross.", "o_kc"],
+   ["I'm staying calm.", "Vou ficar numa boa.", null, "Good. Stay calm. But where do you sleep tonight? A hotel? A hostel?", "Ótimo. Fique numa boa. Mas onde você dorme hoje? Num hotel? Num hostel?"]
+  ]],
+  "o_hostel": ["o", "The Sleepy Fox. I know it. Near King's Cross. Good.", "O Sleepy Fox. Conheço. Perto de King's Cross. Certo.", "o_wait"],
+  "o_kc": ["o", "Near King's Cross. The Sleepy Fox? Yes? Good.", "Perto de King's Cross. O Sleepy Fox? Sim? Certo.", "o_wait"],
+  "o_wait": ["o", "We call you when we find your suitcase. Maybe today. Maybe Monday.", "A gente liga quando achar sua mala. Talvez hoje. Talvez segunda.", [
+   ["Monday? But I need it tonight!", "Segunda? Mas eu preciso dela hoje à noite!", "o_tonight"],
+   ["Can I keep this suitcase for now?", "Posso ficar com esta mala por enquanto?", "o_keep"],
+   ["No, thanks. I don't like Mondays.", "Não, valeu. Eu não gosto de segunda-feira.", null, "Nobody likes Mondays. But listen. We call you when we find it. Okay?", "Ninguém gosta de segunda. Mas escute. A gente liga quando achar. Tudo bem?"]
+  ]],
+  "o_tonight": ["o", "Tonight? Then find the owner yourself. Honestly, you can be faster than us.", "Hoje à noite? Então ache o dono por conta própria. Sinceramente, dá pra ser mais rápido que a gente.", "o_tip"],
+  "o_keep": ["o", "Yes. Sign here, please. And take good care of it.", "Sim. Assine aqui, por favor. E cuide bem dela.", "o_tip"],
+  "o_tip": ["o", "One more thing. Look in all the pockets. People leave their whole lives in pockets.", "Mais uma coisa. Olhe em todos os bolsos. As pessoas deixam a vida inteira nos bolsos.", "n_end"],
+  "n_end": ["n", "You have a strange suitcase, a football scarf and a dinner at eight. Time to find the owner.", "Você tem uma mala estranha, um cachecol de time e um jantar às oito. Hora de achar o dono.", null]
+ }
+}

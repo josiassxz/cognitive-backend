@@ -1,0 +1,55 @@
+{
+ "season": 3,
+ "title": "O Food Truck",
+ "subtitle": "Você e sua prima Bia abrem um food truck de comida brasileira em Austin, no Texas. Em duas semanas tem o festival de comida de rua, e um jurado secreto já está de olho nos trucks.",
+ "level": "A2",
+ "genre": "Comédia de recomeço",
+ "clues": {
+  "secret_judge": {
+   "title": "Jurado disfarçado",
+   "note": "Antes do festival, o jurado secreto visita cada food truck como se fosse um cliente comum."
+  },
+  "same_order": {
+   "title": "O de sempre",
+   "note": "O Sr. Boone pede a mesma coisa todo dia: arroz com feijão e café preto, sem açúcar."
+  },
+  "simple_food": {
+   "title": "Molho demais",
+   "note": "No ano passado, o jurado achou que as costelas do Chuck tinham molho demais. Ele gosta de comida simples e bem feita."
+  },
+  "old_diner": {
+   "title": "Boone's Diner",
+   "note": "O Sr. Boone foi dono do Boone's Diner por trinta anos. Segundo a Tasha, ninguém entende de comida como ele."
+  },
+  "clean_plate": {
+   "title": "Prato vazio",
+   "note": "O Sr. Boone nunca diz que a comida está boa, mas todo dia devolve o prato vazio."
+  },
+  "black_coffee": {
+   "title": "Café do jurado",
+   "note": "Todo ano o festival encomenda uma única coisa para a mesa do jurado: café preto, sem açúcar."
+  },
+  "never_praises": {
+   "title": "Nem uma palavra",
+   "note": "Dizem que o jurado nunca comenta a comida, nem para elogiar nem para criticar. Come e vai embora."
+  },
+  "tyler_blog": {
+   "title": "Doze seguidores",
+   "note": "O Tyler não é o jurado: o blog dele tem doze seguidores e ele comprou ingresso de visitante para o festival."
+  },
+  "homemade": {
+   "title": "Gosto de casa",
+   "note": "A esposa do Sr. Boone, Helena, era brasileira e fazia pão de queijo todo domingo. Para ele, o seu tem gosto de casa."
+  }
+ },
+ "memories": {
+  "sample=cheese_bread": "No primeiro dia, você deu um pão de queijo de presente ao Sr. Boone.",
+  "sample=truffle": "No primeiro dia, você deu um brigadeiro de presente ao Sr. Boone.",
+  "sample=none": "No primeiro dia, você deixou o Sr. Boone comer em paz.",
+  "helped_chuck=yes": "O Chuck lembra que você emprestou guardanapos para ele.",
+  "helped_chuck=no": "O Chuck lembra que você negou os guardanapos.",
+  "fridge=old_part": "A geladeira do truck está funcionando com uma peça usada.",
+  "linda=argued": "A Linda lembra que você discutiu com ela por causa do sanduíche.",
+  "boone_talk=yes": "O Sr. Boone viu que você trata todo cliente do mesmo jeito."
+ }
+}

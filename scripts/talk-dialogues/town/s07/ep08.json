@@ -1,0 +1,112 @@
+{
+ "slug": "s07-08-edinburgh-at-dawn", "episode": 8, "title": "Edinburgh at Dawn", "level": "B1",
+ "place": "train", "placeLabel": "Vagão-lounge", "time": "Sábado · 6h40", "ambience": "train",
+ "description": "Quarenta minutos para Edimburgo. Conte à Moira o que você descobriu.",
+ "intro": "O Oliver admitiu que mentiu sobre o horário: à uma ele estava ao telefone na plataforma. E não deixou a Moira abrir uma única mala no bagageiro, a capa de roupa da Clara. Faltam quarenta minutos para Edimburgo.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Moira", "Chefe de trem", "bf_isabella", "left"],
+  "d": ["Dot", "Passageira da cabine oito", "bf_alice", "left"],
+  "o": ["Oliver", "Assistente da Clara", "bm_daniel", "left"],
+  "c": ["Clara", "Violinista famosa", "af_sarah", "right"],
+  "l": ["Mr. Lang", "Colecionador de instrumentos", "bm_george", "right"],
+  "j": ["Jamie", "Estudante de violino", "am_puck", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Twenty to seven. The sky over the sea is pink and gold, and the lounge car smells of toast.", "Vinte para as sete. O céu sobre o mar está rosa e dourado, e o vagão-lounge cheira a torrada.", "m1"],
+  "m1": ["m", "Forty minutes to Edinburgh. Either I phone the police there, or I don't. So. What have you got?", "Quarenta minutos até Edimburgo. Ou eu ligo pra polícia de lá, ou não ligo. Então. O que você tem?", [
+   ["Don't phone. I don't think anybody stole anything.", "Não liga. Acho que ninguém roubou nada.", "m_notstolen"],
+   ["It was Mr. Lang. He's got a violin case under his bed!", "Foi o Sr. Lang. Ele tem um estojo de violino debaixo da cama!", "m_lang", {"set": {"accused_lang": "yes"}}],
+   ["Honestly, I'm not sure yet.", "Sinceramente, ainda não tenho certeza.", "m_unsure"],
+   ["I've got a ticket to Edinburgh.", "Tenho uma passagem pra Edimburgo.", null, "So has everyone. I mean about the violin. What have you found out?", "Todo mundo tem. Eu digo sobre o violino. O que você descobriu?"]
+  ]],
+  "m_notstolen": ["m", "Nobody stole anything. On my train, I'd like that very much. But I need facts.", "Ninguém roubou nada. No meu trem, isso me agradaria muito. Mas eu preciso de fatos.", "who_br"],
+  "m_lang": ["m", "That case is empty. He showed me himself at three, catalogue and all. Oh dear. Let's try facts instead.", "Aquele estojo está vazio. Ele mesmo me mostrou às três, com catálogo e tudo. Ai, ai. Vamos tentar com fatos.", "who_br"],
+  "m_unsure": ["m", "Good. No guessing, then. We'll take it one fact at a time.", "Ótimo. Nada de chute, então. Vamos por partes, um fato de cada vez.", "who_br"],
+  "who_br": {"branch": [["clue_green_shawl", "who_yes"], ["clue_cant_do_it", "who_yes"], [null, "who_no"]]},
+  "who_yes": ["m", "First things first. Who took the Nightingale out of that case?", "Primeiro o mais importante. Quem tirou o Nightingale daquele estojo?", [
+   ["Clara did. She took her own violin.", "A Clara. Ela pegou o próprio violino.", "where_q", {"set": {"f_who": "clara"}}],
+   ["Oliver. He has a key, and he lied about the time.", "O Oliver. Ele tem uma chave e mentiu sobre o horário.", "where_q", {"set": {"f_who": "oliver"}}],
+   ["I can't say for certain.", "Não sei dizer com certeza.", "where_q"],
+   ["Nobody. It was out of tune.", "Ninguém. Ele estava desafinado.", null, "Out of the case, not out of tune. Who removed it? A name, please.", "Fora do estojo, não fora do tom. Quem tirou? Um nome, por favor."]
+  ]],
+  "who_no": ["m", "First things first. Who took the Nightingale out of that case? Any idea at all?", "Primeiro o mais importante. Quem tirou o Nightingale daquele estojo? Alguma ideia?", [
+   ["Oliver. He has a key, and he lied about the time.", "O Oliver. Ele tem uma chave e mentiu sobre o horário.", "where_q", {"set": {"f_who": "oliver"}}],
+   ["I can't say for certain.", "Não sei dizer com certeza.", "where_q"],
+   ["Nobody. It was out of tune.", "Ninguém. Ele estava desafinado.", null, "Out of the case, not out of tune. Who removed it? A name, please.", "Fora do estojo, não fora do tom. Quem tirou? Um nome, por favor."]
+  ]],
+  "where_q": ["m", "Next. Nobody has left this train. So where is that violin right now?", "Próxima. Ninguém desceu deste trem. Então onde está esse violino agora?", [
+   ["In the luggage van. In Clara's garment bag, with the dress.", "No bagageiro. Na capa de roupa da Clara, junto com o vestido.", "why_br", {"set": {"f_where": "yes"}}],
+   ["Hidden in one of the empty berths, perhaps.", "Escondido em alguma cabine vazia, talvez.", "why_br"],
+   ["Right now? It's twenty to seven.", "Agora? São vinte para as sete.", null, "Not when. Where. In which part of my train is that violin hiding?", "Não é quando. É onde. Em que parte do meu trem esse violino está escondido?"]
+  ]],
+  "why_br": {"branch": [["clue_vienna", "why_yes"], ["clue_cant_do_it", "why_yes"], ["clue_no_practice", "why_yes"], [null, "why_no"]]},
+  "why_yes": ["m", "Last one. Why would anyone hide a violin the night before a sold-out concert?", "Última. Por que alguém esconderia um violino na véspera de um concerto com ingressos esgotados?", [
+   ["Because she's terrified of the stage. No violin, no concert.", "Porque ela tem pavor do palco. Sem violino, sem concerto.", "end_br1", {"set": {"f_why": "yes"}}],
+   ["For the insurance money, I suppose.", "Pelo dinheiro do seguro, imagino.", "end_br1"],
+   ["Because the concert was sold. Who bought it?", "Porque o concerto foi vendido. Quem comprou?", null, "Sold out. Every ticket gone. So why hide the violin the night before?", "\"Sold out\", esgotado. Todos os ingressos vendidos. Então por que esconder o violino na véspera?"]
+  ]],
+  "why_no": ["m", "Last one. Why would anyone hide a violin the night before a sold-out concert? Any idea?", "Última. Por que alguém esconderia um violino na véspera de um concerto esgotado? Alguma ideia?", [
+   ["For the insurance money, I suppose.", "Pelo dinheiro do seguro, imagino.", "end_br1"],
+   ["I don't know. It makes no sense to me.", "Não sei. Pra mim não faz sentido.", "end_br1"],
+   ["Because the concert was sold. Who bought it?", "Porque o concerto foi vendido. Quem comprou?", null, "Sold out. Every ticket gone. So why hide the violin the night before?", "\"Sold out\", esgotado. Todos os ingressos vendidos. Então por que esconder o violino na véspera?"]
+  ]],
+  "end_br1": {"branch": [["f_why=yes", "end_br2"], ["f_where=yes", "n_gather"], [null, "m_phone"]]},
+  "end_br2": {"branch": [["f_who=clara", "end_br3"], [null, "n_gather"]]},
+  "end_br3": {"branch": [["f_where=yes", "n_door"], [null, "n_gather"]]},
+  "n_door": ["n", "Moira nods slowly. No police. A quiet word instead. You knock on compartment five, alone.", "A Moira assente devagar. Nada de polícia. Uma conversa discreta, isso sim. Você bate na cabine cinco, sem mais ninguém.", "c1"],
+  "c1": ["c", "It's you. I suppose you've come to tell me who took my violin.", "É você. Imagino que veio me dizer quem pegou o meu violino.", [
+   ["Nobody took it. It's safe. And I think you know where.", "Ninguém pegou. Ele está a salvo. E acho que você sabe onde.", "c_soft"],
+   ["No. I came to ask how you're feeling about tonight.", "Não. Vim perguntar como você está se sentindo em relação a hoje à noite.", "c_feel"],
+   ["No, I've come to take your violin.", "Não, vim pegar o seu violino.", null, "Take it? You're a little late for that. Why are you really at my door?", "Pegar? Você chegou meio tarde pra isso. Por que você veio mesmo até a minha porta?"]
+  ]],
+  "c_feel": ["c", "About tonight. Nobody has asked me that in a month. Not even me.", "Em relação a hoje à noite. Faz um mês que ninguém me pergunta isso. Nem eu mesma.", "c_soft"],
+  "c_soft": ["c", "You know. Of course you know. I've sat here all night, looking for the courage to say it.", "Você sabe. Claro que sabe. Passei a noite aqui sentada, procurando coragem pra dizer.", "n_lounge_best"],
+  "n_lounge_best": ["n", "Five minutes later, she walks into the lounge car with a long garment bag. Everyone is there.", "Cinco minutos depois, ela entra no vagão-lounge com uma capa de roupa comprida. Está todo mundo lá.", "c_tell"],
+  "n_gather": ["n", "Moira thinks for a moment. Then she calls everyone to the lounge car. Clara comes last.", "A Moira pensa um instante. Depois chama todo mundo ao vagão-lounge. A Clara é a última a chegar.", "o_conf"],
+  "o_conf": ["o", "Stop. Before anyone says anything. It was me. I took the violin. Phone the police.", "Parem. Antes que alguém diga qualquer coisa. Fui eu. Eu peguei o violino. Liguem pra polícia.", "m_bel"],
+  "m_bel": ["m", "Hm. Berth nine. Do we believe Mr. Finch?", "Hum. Cabine nove. A gente acredita no Sr. Finch?", [
+   ["No. He was on the platform at Crewe. He can't have done it.", "Não. Ele estava na plataforma em Crewe. Não pode ter sido ele.", "c_stop"],
+   ["Oliver, stop. You don't have to carry this for her.", "Oliver, para. Você não precisa carregar isso por ela.", "c_stop"],
+   ["Yes. A finch is a very small bird.", "Sim. Um \"finch\" é um passarinho bem pequeno.", null, "His name is Finch, yes. But is he telling the truth? Did he take it?", "O sobrenome dele é Finch, sim. Mas ele está dizendo a verdade? Foi ele que pegou?"]
+  ]],
+  "c_stop": ["c", "Oliver. Enough. You've carried enough for me. Sit down.", "Oliver. Chega. Você já carregou peso demais por mim. Senta.", "c_tell"],
+  "m_phone": ["m", "Then I've no choice. I'm sorry, berth nine. You did try.", "Então não tenho escolha. Sinto muito, cabine nove. Você bem que tentou.", "n_enter"],
+  "n_enter": ["n", "She picks up the phone. Then the door opens. Clara Whitmore walks in, carrying a long garment bag.", "Ela pega o telefone. Então a porta se abre. Clara Whitmore entra, carregando uma capa de roupa comprida.", "c_tell"],
+  "c_tell": ["c", "I owe you all an apology. Nobody stole the Nightingale. I hid it myself, in my own dress bag.", "Eu devo desculpas a todos vocês. Ninguém roubou o Nightingale. Eu mesma escondi, na capa do meu vestido.", "c_tell2"],
+  "c_tell2": ["c", "In Vienna, I froze on stage. So: no violin, no concert. Oliver only lied to protect me.", "Em Viena, eu travei no palco. Então: sem violino, sem concerto. O Oliver só mentiu pra me proteger.", "d_react"],
+  "d_react": ["d", "Oh, my dear girl. My Margaret failed her driving test four times. She drives a bus now.", "Ah, minha querida. A minha Margaret reprovou quatro vezes na prova de direção. Hoje ela dirige ônibus.", "l_react"],
+  "l_react": ["l", "Miss Whitmore. I offered any price for that violin. I'd pay double just to hear you play it.", "Srta. Whitmore. Ofereci qualquer preço por aquele violino. Pagaria o dobro só pra ouvir a senhorita tocá-lo.", "acc_br"],
+  "acc_br": {"branch": [["accused_lang", "l_acc"], [null, "j_should"]]},
+  "l_acc": ["l", "And you, detective. Next time, look inside the case before you accuse the collector.", "E você, detetive. Da próxima vez, olhe dentro do estojo antes de acusar o colecionador.", "j_should"],
+  "j_should": ["j", "The note. It's in my pocket. Should I give it to her? Now? In front of everyone?", "O bilhete. Está no meu bolso. Será que eu entrego pra ela? Agora? Na frente de todo mundo?", [
+   ["Now, Jamie. It's exactly what she needs.", "Agora, Jamie. É exatamente do que ela precisa.", "j_gives"],
+   ["Don't just hand it over. Read it to her.", "Não entrega só. Lê pra ela.", "j_reads"],
+   ["Now? No, it's ten to seven.", "Agora? Não, são dez para as sete.", null, "I know what time it is! I mean my note. Do I give it to her or not?", "Eu sei que horas são! Estou falando do bilhete. Entrego pra ela ou não?"]
+  ]],
+  "j_gives": ["n", "Jamie holds out a crumpled piece of paper. Clara reads it. Then she reads it again.", "O Jamie estende um papel todo amassado. A Clara lê. Depois lê de novo.", "c_note"],
+  "j_reads": ["j", "Okay. Uh. Miss Whitmore. Your recording got me through the worst year of my life. That's all.", "Tá. Hã. Srta. Whitmore. A sua gravação me fez atravessar o pior ano da minha vida. É só isso.", "c_note"],
+  "c_note": ["c", "The worst year of your life. And I helped? Thank you. I'd forgotten why I do this.", "O pior ano da sua vida. E eu ajudei? Obrigada. Eu tinha esquecido por que faço isso.", "c_play"],
+  "c_play": ["c", "Right. Six people and a train. If I can't play here, I can't play anywhere. What shall I play?", "Muito bem. Seis pessoas e um trem. Se eu não tocar aqui, não toco em lugar nenhum. O que eu toco?", [
+   ["Something you love. Not something difficult.", "Uma coisa que você ama. Não uma coisa difícil.", "c_love"],
+   ["The piece from Vienna. Finish it this time.", "A peça de Viena. Desta vez, até o fim.", "c_vp"],
+   ["Play outside. It's a lovely morning.", "Brinca lá fora. A manhã está linda.", null, "On the roof of a train? No. A piece of music. What would you like to hear?", "No teto de um trem? Não. Uma música. O que você gostaria de ouvir?"]
+  ]],
+  "c_love": ["c", "Something I love. I'd forgotten that was allowed.", "Uma coisa que eu amo. Eu tinha esquecido que isso era permitido.", "n_play"],
+  "c_vp": ["c", "The Vienna piece. Straight back on the horse. You're braver than I am.", "A peça de Viena. Caiu do cavalo, monta de novo. Você tem mais coragem do que eu.", "n_play"],
+  "n_play": ["n", "She unwraps the green silk and lifts the violin. Her hands shake. Then the first note fills the car, and they stop.", "Ela desembrulha a seda verde e ergue o violino. As mãos tremem. Então a primeira nota enche o vagão, e elas param.", "m_cat"],
+  "m_cat": ["m", "Not a sound, anyone. Even the cat is listening. Yes, Mrs. Pringle. I know about the cat.", "Ninguém dá um pio. Até o gato está escutando. Sim, Sra. Pringle. Eu sei do gato.", "prom_br"],
+  "prom_br": {"branch": [["promised_quiet=yes", "c_word"], [null, "c_noword"]]},
+  "c_word": ["c", "You promised to keep this quiet, and you did. So tonight I'll tell the story myself. From the stage.", "Você prometeu guardar segredo, e guardou. Então hoje à noite eu mesma conto a história. Do palco.", "c_seats"],
+  "c_noword": ["c", "You promised to be fair, and you were. So tonight I'll tell the story myself. From the stage.", "Você prometeu agir com justiça, e agiu. Então hoje à noite eu mesma conto a história. Do palco.", "c_seats"],
+  "c_seats": ["c", "There are six seats in the front row tonight. One of them is yours. Will you come?", "Tem seis lugares na primeira fila hoje à noite. Um deles é seu. Você vem?", [
+   ["I wouldn't miss it for the world.", "Não perco por nada neste mundo.", "m_final"],
+   ["Only if Jamie gets one too, after his audition.", "Só se o Jamie também ganhar um, depois do teste dele.", "c_all"],
+   ["Six sheets? I only need one bed.", "Seis lençóis? Eu só preciso de uma cama.", null, "Seats, not sheets. At the concert. Will you be there tonight?", "\"Seats\", lugares. Não lençóis. No concerto. Você vai estar lá hoje à noite?"]
+  ]],
+  "c_all": ["c", "All of you. Jamie, Dot, Mr. Lang. Even Moira, if she can leave her train for an evening.", "Todos vocês. Jamie, Dot, Sr. Lang. Até a Moira, se conseguir largar o trem dela por uma noite.", "m_final"],
+  "m_final": ["m", "Edinburgh, everyone. Case closed. And for once, I do mean the violin case.", "Edimburgo, pessoal. Caso encerrado. E estojo fechado também, com o violino dentro.", "n_end"],
+  "n_end": ["n", "You step onto the cold platform. You came for a weekend. You're leaving with a story.", "Você desce na plataforma gelada. Você veio por um fim de semana. Vai embora com uma história.", null]
+ }
+}

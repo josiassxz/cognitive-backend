@@ -14,6 +14,7 @@ import { adminRouter } from './routes/admin';
 import { authRouter } from './routes/auth';
 import { contractsRouter } from './routes/contracts';
 import { expressionsRouter } from './routes/expressions';
+import { favoritesRouter } from './routes/favorites';
 import { flashcardsRouter } from './routes/flashcards';
 import { grammarRouter } from './routes/grammar';
 import { phrasalVerbsRouter } from './routes/phrasal-verbs';
@@ -115,6 +116,8 @@ export function createApp() {
   app.use('/api/sentence-exercises', sentenceExercisesRouter);
   app.use('/api/translate', translateRouter);
   app.use('/api/mobile', mobileRouter);
+  // Antes de readingLabRouter: lá existe GET /:id, que capturaria "/favorites".
+  app.use('/api/reading-lab/favorites', authMiddleware, favoritesRouter);
   app.use('/api/reading-lab', readingSegmentsRouter);
   app.use('/api/reading-lab', readingLabRouter);
   // Spec 06 — collocations descontinuado. Mantém-se as tabelas no Prisma,

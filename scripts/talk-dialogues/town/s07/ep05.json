@@ -1,0 +1,87 @@
+{
+ "slug": "s07-05-very-lively-wool", "episode": 5, "title": "Very Lively Wool", "level": "B1",
+ "place": "train", "placeLabel": "Cabine oito", "time": "Sábado · 2h45", "ambience": "train",
+ "description": "O segredo da Dot mia. E ela viu alguém no corredor.",
+ "intro": "O Sr. Lang tem um estojo vazio, mas é para um violino que ele vai comprar num leilão. E jogou cartas com a Dot até depois da uma. No corredor, você ouve um choro fino vindo da cabine oito.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "d": ["Dot", "Passageira da cabine oito", "bf_alice", "left"],
+  "j": ["Jamie", "Estudante de violino", "am_puck", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "You knock on berth eight. The crying stops at once. Then you hear whispering.", "Você bate na cabine oito. O choro para na hora. Depois você ouve cochichos.", "d1"],
+  "d1": ["d", "Who is it? I'm asleep, dear. Fast asleep. Can't you hear me sleeping?", "Quem é? Estou dormindo, meu bem. Ferrada no sono. Não está me ouvindo dormir?", [
+   ["It's me, from berth nine. Are you all right in there?", "Sou eu, da cabine nove. Está tudo bem aí dentro?", "d_open"],
+   ["Mrs. Pringle, I heard a strange noise. A sort of cry.", "Sra. Pringle, ouvi um barulho estranho. Uma espécie de choro.", "d_noise"],
+   ["A sheep? On a train?", "Uma ovelha? Num trem?", null, "Not a sheep, dear. Asleep! In bed. Now, who's knocking at this hour?", "Não é \"a sheep\", meu bem. É \"asleep\", dormindo! Na cama. Agora, quem está batendo a esta hora?"]
+  ]],
+  "d_noise": ["d", "A cry? That was me. Singing. I sing in my sleep. Terribly.", "Um choro? Era eu. Cantando. Eu canto dormindo. Muito mal.", "d_open"],
+  "d_open": ["n", "The door opens a few centimetres. One eye, one hair curler, and a lot of orange wool.", "A porta abre uns centímetros. Um olho, um bobe de cabelo e muita lã laranja.", "d2"],
+  "d2": ["d", "Oh, it's you. Come in, quickly. Quickly! And shut the door behind you.", "Ah, é você. Entra, rápido. Rápido! E fecha a porta.", "n_cat"],
+  "n_cat": ["n", "On the bed, in the middle of the knitting bag, sits an enormous ginger cat. He looks unimpressed.", "Na cama, bem no meio da sacola de tricô, está um gato laranja enorme. Ele não parece nada impressionado.", "held_br"],
+  "held_br": {"branch": [["held_bag=yes", "d_carried"], [null, "d_meet"]]},
+  "d_carried": ["d", "This is Marmalade. You've met. You carried him on board yourself, dear. So you're in this too.", "Este é o Marmalade. Vocês já se conhecem. Foi você quem trouxe ele pra dentro do trem, meu bem. Então está nessa comigo.", "d_hello"],
+  "d_meet": ["d", "This is Marmalade. He's the reason I couldn't let anyone else carry my knitting.", "Este é o Marmalade. É por causa dele que eu não podia deixar qualquer um carregar o meu tricô.", "d_hello"],
+  "d_hello": ["d", "Isn't he handsome? Go on, say hello. He doesn't bite. Much.", "Não é lindo? Vai, cumprimenta ele. Ele não morde. Muito.", [
+   ["Hello, Marmalade. Aren't you beautiful?", "Oi, Marmalade. Mas que belezura você é.", "d_purr"],
+   ["I'm more of a dog person, to be honest.", "Sinceramente, eu me dou melhor com cachorro.", "d_dog"],
+   ["Hello. Do you speak English?", "Olá. Você fala inglês?", null, "He speaks Scottish, dear, like his mother. Go on, say something nice to him.", "Ele fala escocês, meu bem, igual à mãe. Vai, diz uma coisa bonita pra ele."]
+  ]],
+  "d_purr": ["n", "The cat closes his eyes and starts to purr. Loudly.", "O gato fecha os olhos e começa a ronronar. Alto.", "d3"],
+  "d_dog": ["d", "Shh! He understands every word. Marmalade, our visitor didn't mean it.", "Psiu! Ele entende tudo. Marmalade, a visita falou sem pensar.", "d3"],
+  "d3": ["d", "He hasn't got a ticket. Cats aren't allowed in the sleeping car. You won't tell Moira, will you?", "Ele não tem passagem. Gato não é permitido no vagão-leito. Você não vai contar pra Moira, vai?", [
+   ["Your secret's safe with me.", "Seu segredo está guardado comigo.", "d_kept", {"set": {"cat_secret": "kept"}}],
+   ["I think you should tell her yourself. She seems fair.", "Acho que a senhora mesma devia contar. Ela parece justa.", "d_honest", {"set": {"cat_secret": "honest"}}],
+   ["Not aloud? He seems very quiet to me.", "Não em voz alta? Pra mim ele parece bem quietinho.", null, "Not aloud, dear. Allowed. He isn't permitted on board. So, will you keep quiet about him?", "Não é \"aloud\", meu bem. É \"allowed\", permitido. Ele não pode estar a bordo. Então, você guarda segredo?"]
+  ]],
+  "d_kept": ["d", "Bless you. Marmalade, say thank you. He says thank you.", "Deus te abençoe. Marmalade, agradece. Ele agradeceu.", "d4"],
+  "d_honest": ["d", "Tell her? Oh dear. Perhaps at breakfast. People are kinder after porridge.", "Contar pra ela? Ai, ai. Talvez no café da manhã. As pessoas ficam mais boazinhas depois do mingau.", "d4"],
+  "d4": ["d", "That noise you heard was him. He cries when the train goes over a bridge. Like a little violin.", "Aquele barulho que você ouviu era ele. Ele chora quando o trem passa numa ponte. Feito um violininho.", "d5", {"clue": "marmalade"}],
+  "d5": ["d", "He escaped earlier, you know. I spent half the night in the corridor looking for him.", "Ele fugiu mais cedo, sabia? Passei metade da noite no corredor atrás dele.", [
+   ["What time was that, exactly?", "Que horas foi isso, exatamente?", "d_time"],
+   ["Did you see anyone while you were out there?", "A senhora viu alguém enquanto estava lá fora?", "d_saw"],
+   ["A cape? I thought he was a cat.", "Uma capa? Achei que ele fosse um gato.", null, "No, dear. Escaped. He ran away! I was out in that corridor for ages. Aren't you curious?", "Não, meu bem. \"Escaped\", fugiu. Ele escapou! Fiquei um tempão naquele corredor. Não ficou com curiosidade?"]
+  ]],
+  "d_time": ["d", "Well, Mr. Lang had just lost a king, so quarter to one. My Harold never trusted clocks. Where was I?", "Bom, o Sr. Lang tinha acabado de perder um rei, então quinze para a uma. Meu Harold nunca confiou em relógio. Onde eu estava?", [
+   ["Quarter to one. You were in the corridor.", "Quinze para a uma. A senhora estava no corredor.", "d_saw"],
+   ["Tell me about Harold.", "Me fala do Harold.", "d_harold"],
+   ["You were in Edinburgh.", "A senhora estava em Edimburgo.", null, "Not yet, dear! Earlier tonight. Where had I got to in my story?", "Ainda não, meu bem! Mais cedo, esta noite. Em que parte da história eu parei?"]
+  ]],
+  "d_harold": ["d", "Forty years married. He hated trains and loved cheese. Anyway. The corridor, yes.", "Quarenta anos de casados. Odiava trem e amava queijo. Enfim. O corredor, isso.", "d_saw"],
+  "d_saw": ["d", "I was on my knees by the luggage van, calling puss, puss. And somebody walked right past me.", "Eu estava de joelhos perto do bagageiro, chamando pss, pss. E alguém passou bem do meu lado.", "d6"],
+  "d6": ["d", "Didn't even see me. People never look down, dear. Shall I describe them?", "Nem me viu. As pessoas nunca olham pra baixo, meu bem. Quer que eu descreva?", [
+   ["Please. Take your time. Every detail.", "Por favor. Sem pressa. Cada detalhe.", "d_shawl"],
+   ["Was it a man or a woman?", "Era homem ou mulher?", "d_who"],
+   ["It must have been Mr. Lang.", "Só pode ter sido o Sr. Lang.", "d_notlang"],
+   ["No, thanks. I'll describe myself.", "Não, valeu. Eu faço a minha própria descrição.", null, "I can see you perfectly well, dear! I mean the person in the corridor. Do you want to hear?", "Você eu estou vendo muito bem, meu bem! Eu digo a pessoa do corredor. Quer ouvir?"]
+  ]],
+  "d_who": ["d", "I couldn't say, dear. It was dark, and I'd left my glasses with the knitting. But I saw this much.", "Não sei dizer, meu bem. Estava escuro, e eu tinha deixado os óculos com o tricô. Mas isto eu vi.", "d_shawl"],
+  "d_notlang": ["d", "It can't have been. He was at the card table. No. This one was tall, and gone in a moment.", "Não pode ter sido. Ele estava na mesa de cartas. Não. Essa pessoa era alta, e sumiu num instante.", "d_shawl2"],
+  "d_shawl": ["d", "Tall, wrapped in a long green shawl, carrying something in both arms. Like a baby.", "Alta, enrolada num xale verde comprido, carregando alguma coisa nos dois braços. Como um bebê.", "d_shawl2", {"clue": "green_shawl"}],
+  "d_shawl2": ["d", "They went into the luggage van with their arms full. A minute later, they came out with nothing.", "Entrou no bagageiro de braços cheios. Um minuto depois, saiu sem nada.", "d7"],
+  "d7": ["d", "A funny time of night to be moving luggage about, I thought. What do you think it was?", "Hora esquisita pra ficar mexendo em bagagem, pensei eu. O que você acha que era?", [
+   ["It might have been the violin.", "Pode ter sido o violino.", "d_violin"],
+   ["Whatever it was, it must still be in that van.", "Seja o que for, ainda deve estar naquele bagageiro.", "d_van"],
+   ["I think it was bedtime.", "Acho que era hora de dormir.", null, "Well, yes, dear, it was late. But the thing in their arms. What might it have been?", "Bom, sim, meu bem, era tarde. Mas a coisa nos braços. O que será que era?"]
+  ]],
+  "d_violin": ["d", "The violin! Oh, my. And I thought I was the one with a secret.", "O violino! Ai, meu Deus. E eu achando que o segredo aqui era o meu.", "n_sneeze"],
+  "d_van": ["d", "Then somebody ought to look, dear. Not me. My knees have done enough for one night.", "Então alguém devia ir lá olhar, meu bem. Eu não. Meus joelhos já fizeram muito por uma noite.", "n_sneeze"],
+  "n_sneeze": ["n", "Somebody sneezes outside the door. Then again. Then three times, very fast.", "Alguém espirra do lado de fora. De novo. Depois três vezes, bem rápido.", "j1"],
+  "j1": ["j", "Sorry! Sorry. I wasn't listening. I mean, I was just passing. Is there a cat in there?", "Desculpa! Desculpa. Eu não estava escutando. Quer dizer, só estava passando. Tem um gato aí dentro?", "d8"],
+  "d8": ["d", "A cat? What an imagination. Why ever would you say that?", "Um gato? Que imaginação. De onde você tirou isso?", "j2"],
+  "j2": ["j", "Because I'm allergic. I've been sneezing since London. Please. I need to talk to someone.", "Porque eu tenho alergia. Estou espirrando desde Londres. Por favor. Preciso falar com alguém.", "helped_br"],
+  "helped_br": {"branch": [["helped_jamie=yes", "j_trust"], [null, "j_wary"]]},
+  "j_trust": ["j", "You. You helped me with my music on the platform. Can I talk to you?", "Você. Você me ajudou com as partituras na plataforma. Posso falar com você?", "j3"],
+  "j_wary": ["j", "Not you. You were cross with me on the platform. But, well, nobody else is awake.", "Você não. Você ficou uma fera comigo na plataforma. Mas, bom, não tem mais ninguém acordado.", "j3"],
+  "j3": ["j", "It's about tonight. About compartment five. I think I'm in trouble.", "É sobre hoje à noite. Sobre a cabine cinco. Acho que estou encrencado.", [
+   ["Come on. Let's find somewhere quiet to talk.", "Vem. Vamos achar um canto tranquilo pra conversar.", "j_ok"],
+   ["Were you near the violin, Jamie?", "Você chegou perto do violino, Jamie?", "j_near"],
+   ["In travel? Yes, we all are.", "Em viagem? Sim, todo mundo aqui está.", null, "Not travel. Trouble. I did something stupid tonight. Can we talk?", "Não é \"travel\". É \"trouble\", encrenca. Fiz uma besteira hoje. A gente pode conversar?"]
+  ]],
+  "j_ok": ["j", "Coach D. My seat. Nobody's there. Thank you.", "Vagão D. Minha poltrona. Não tem ninguém lá. Valeu.", "d_end"],
+  "j_near": ["j", "Not here. Please. Coach D. I'll tell you everything. I promise.", "Aqui não. Por favor. Vagão D. Eu conto tudo. Prometo.", "d_end"],
+  "d_end": ["d", "Go on, dear. And take a tissue for the boy. Marmalade and I never saw you.", "Vai, meu bem. E leva um lencinho pro menino. O Marmalade e eu nunca te vimos.", "n_end"],
+  "n_end": ["n", "You follow Jamie down the dark corridor. Whatever he did tonight, he has been carrying it alone.", "Você segue o Jamie pelo corredor escuro. Seja lá o que ele fez esta noite, está carregando isso sozinho.", null]
+ }
+}

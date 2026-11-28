@@ -1,0 +1,51 @@
+{
+ "season": 10,
+ "title": "The Startup",
+ "subtitle": "Sua primeira semana numa startup de Londres, a cinco dias da demonstração para investidores. Um bug aparece, um slide confidencial vaza, a equipe se divide, e é você quem vai ouvir todo mundo.",
+ "level": "B1–B2",
+ "genre": "Drama de escritório",
+ "clues": {
+  "three_jobs": {
+   "title": "Três funções",
+   "note": "Desde que o Omar saiu, em março, a Priya faz sozinha o design, o suporte e a newsletter dos clientes."
+  },
+  "rival_lunch": {
+   "title": "Almoço com a rival",
+   "note": "Na quinta passada, o Tom viu o Dylan almoçando com alguém da Brewly, a maior concorrente da Kettle."
+  },
+  "dylan_alibi": {
+   "title": "O álibi do Dylan",
+   "note": "Na noite de segunda, o Dylan estava num voo de Edimburgo que pousou à meia-noite e vinte. Ele tem o cartão de embarque."
+  },
+  "honest_investor": {
+   "title": "A investidora",
+   "note": "Amara Cole já abandonou uma apresentação porque esconderam um número. Ela perdoa má notícia, mas nunca surpresa."
+  },
+  "twin_files": {
+   "title": "Arquivos gêmeos",
+   "note": "Na pasta há dois arquivos quase iguais: \"Demo day final\" (convite para clientes) e \"Demo deck final\" (o pitch secreto)."
+  },
+  "own_email": {
+   "title": "Veio da própria Kettle",
+   "note": "A Greta recebeu o slide nove anexado à newsletter de segunda da própria Kettle: dois arquivos em vez de um."
+  },
+  "late_email": {
+   "title": "Treze para a meia-noite",
+   "note": "A newsletter de segunda chegou para a Greta treze minutos antes da meia-noite."
+  },
+  "light_on": {
+   "title": "Uma luz acesa",
+   "note": "Na segunda, o Winston achou a Priya dormindo sobre o teclado. Ela saiu do prédio à meia-noite e dez."
+  }
+ },
+ "memories": {
+  "offered_help=yes": "A Priya lembra que você ofereceu ajuda logo no primeiro dia.",
+  "report=clear": "O Tom gostou do seu relato do bug: claro e passo a passo.",
+  "report=vague": "O Tom não esqueceu que o seu relato do bug foi \"quebrou\".",
+  "sided=tom": "Na reunião, você defendeu consertar o bug primeiro. A Helen guardou isso.",
+  "sided=helen": "Na reunião, você apoiou os selos de fidelidade da Helen.",
+  "feedback=soft": "Você disse ao Dylan que a piada de abertura dele estava ótima.",
+  "plan=safe": "Você convenceu a Helen a consertar o bug direito e mostrar os selos só como desenho.",
+  "plan=risky": "Você convenceu a Helen a tentar tudo: um remendo no bug e os selos de verdade."
+ }
+}

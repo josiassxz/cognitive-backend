@@ -1,0 +1,91 @@
+{
+ "slug": "s03-02-the-rival", "episode": 2, "title": "The Rival", "level": "A2",
+ "place": "street", "placeLabel": "Maple Yard", "time": "Terça · 11h", "ambience": "street",
+ "description": "Conheça o vizinho barulhento, dê o troco certo e decida se empresta guardanapos.",
+ "intro": "No primeiro dia, um senhor quieto de chapéu cinza comeu sem dizer uma palavra. E a Bia inscreveu vocês no festival, que tem um jurado secreto. Agora um truck vermelho enorme estacionou do lado.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "b": ["Bia", "Sua prima e sócia", "af_bella", "left"],
+  "c": ["Chuck", "Dono do truck rival, Smoke King", "am_fenrir", "left"],
+  "w": ["Mr. Boone", "Cliente quieto de chapéu cinza", "am_michael", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Tuesday, eleven o'clock. Next to you, the big red truck is playing loud country music.", "Terça, onze horas. Do seu lado, o caminhão vermelho toca música country bem alto.", "n2"],
+  "n2": ["n", "A very tall man in a red apron walks to your window. He is smiling a lot.", "Um homem muito alto de avental vermelho vem até a sua janela. Ele sorri bastante.", "c1"],
+  "c1": ["c", "Howdy, neighbors! Chuck Dawson, Smoke King. Best ribs in Austin. And you are?", "Olá, vizinhança! Chuck Dawson, Smoke King. As melhores costelas de Austin. E vocês são?", [
+   ["Nice to meet you, Chuck. We're The Little Toucan.", "Prazer, Chuck. Nós somos o The Little Toucan.", "c_toucan"],
+   ["Hi. Can you turn the music down a little, please?", "Oi. Dá pra abaixar um pouco a música, por favor?", "c_music"],
+   ["No, thanks, I'm not a king.", "Não, valeu, eu não sou rei.", null, "Ha! I'm the king. Smoke King! That's my truck. What's your truck called?", "Rá! O rei sou eu. Smoke King! É o meu truck. Como chama o truck de vocês?"]
+  ]],
+  "c_toucan": ["c", "A toucan! Cute. From now on, I'm calling you Toucan.", "Um tucano! Que fofo. De hoje em diante, vou te chamar de Tucano.", "c_sell"],
+  "c_music": ["c", "Down? This is Texas! Okay, okay, a little. Just for you, Toucan.", "Abaixar? Aqui é o Texas! Tá bom, tá bom, um pouquinho. Só por você, Tucano.", "c_sell"],
+  "c_sell": ["c", "So, what do you sell in that little yellow thing?", "E aí, o que vocês vendem nessa coisinha amarela?", [
+   ["Brazilian food. Beans and rice, steak sandwiches, cheese bread.", "Comida brasileira. Arroz com feijão, sanduíche de carne, pão de queijo.", "c_try"],
+   ["The best food on this street. Want to try it?", "A melhor comida desta rua. Quer provar?", "c_bold"],
+   ["No, it's not for sale. It's our truck.", "Não, não está à venda. É o nosso truck.", null, "I don't want to buy the truck! The food. What kind of food do you make?", "Eu não quero comprar o truck! A comida. Que tipo de comida vocês fazem?"]
+  ]],
+  "c_try": ["c", "Beans and rice? No sauce? Toucan, people here want smoke and sauce. Lots of sauce.", "Arroz com feijão? Sem molho? Tucano, o povo daqui quer defumado e molho. Muito molho.", "c_taste"],
+  "c_bold": ["c", "Ha! I like you. But the best food here has my name on it. And lots of sauce.", "Rá! Gostei de você. Mas a melhor comida daqui leva o meu nome. E muito molho.", "c_taste"],
+  "c_taste": ["c", "Give me one of those little cheese breads. I want to taste the competition. How much?", "Me dá um desses pãezinhos de queijo. Quero provar a concorrência. Quanto é?", [
+   ["Three for four dollars.", "Três por quatro dólares.", "c_pay"],
+   ["For a neighbor, the first one is free.", "Pra vizinho, o primeiro é de graça.", "c_free"],
+   ["Not much. Just working.", "Nada demais. Só trabalhando.", null, "I didn't ask what's new. The price! How much is the cheese bread?", "Não perguntei das novidades. O preço! Quanto custa o pão de queijo?"]
+  ]],
+  "c_pay": ["c", "Four dollars for three little balls? Okay, here. Mm. Not bad. It needs sauce.", "Quatro dólares por três bolinhas? Tá, toma. Hum. Nada mau. Falta molho.", "n_boone"],
+  "c_free": ["c", "Free? I like this truck. Mm. Not bad, Toucan. It needs sauce.", "De graça? Gostei deste truck. Hum. Nada mau, Tucano. Falta molho.", "n_boone"],
+  "n_boone": ["n", "Chuck goes back to his truck. The old man in the gray hat is at your window again.", "O Chuck volta pro truck dele. O senhor de chapéu cinza está de novo na sua janela.", "w1"],
+  "w1": ["w", "Morning. Same as yesterday.", "Bom dia. O mesmo de ontem.", [
+   ["Beans and rice, and a black coffee with no sugar. Right?", "Arroz com feijão e um café preto sem açúcar. Certo?", "w_right"],
+   ["Sorry, can you remind me? Yesterday was a busy day.", "Desculpe, pode me lembrar? Ontem foi um dia corrido.", "w_remind"],
+   ["Yesterday was Monday.", "Ontem foi segunda.", null, "I know what day it was. My order. The same food as yesterday. Do you remember it?", "Eu sei que dia foi. O meu pedido. A mesma comida de ontem. Você lembra?"]
+  ]],
+  "w_right": ["w", "Hm. You listen.", "Hum. Você presta atenção.", "w_always"],
+  "w_remind": ["w", "It was one day ago, kid.", "Foi ontem, jovem.", "w_always"],
+  "w_always": ["w", "Beans and rice, black coffee, no sugar. That's my order every day. Write it down.", "Arroz com feijão, café preto, sem açúcar. É o meu pedido todo dia. Anote.", "b_name", {"clue": "same_order"}],
+  "b_name": ["b", "Order ready in two minutes! What name do I write on the cup?", "Pedido pronto em dois minutos! Que nome eu escrevo no copo?", [
+   ["One second. Can I have your name, please?", "Um segundo. Pode me dizer o seu nome, por favor?", "w_name"],
+   ["Just write: the usual.", "Escreve só: o de sempre.", "b_usual"],
+   ["The cup's name is Cup.", "O nome do copo é Copo.", null, "Very funny. The customer's name! What do I write on the cup?", "Muito engraçado. O nome do cliente! O que eu escrevo no copo?"]
+  ]],
+  "w_name": ["w", "Boone. Mr. Boone.", "Boone. Sr. Boone.", "w_twenty"],
+  "b_usual": ["b", "The usual! I love it. We have a regular! But I still need a name for the cup.", "O de sempre! Amei. Temos um cliente fiel! Mas ainda preciso de um nome pro copo.", "w_name"],
+  "w_twenty": ["w", "Ten dollars. I only have a twenty. Do you have change?", "Dez dólares. Só tenho uma nota de vinte. Vocês têm troco?", [
+   ["Sure. Here's ten dollars back.", "Claro. Aqui estão dez dólares de troco.", "w_change"],
+   ["Let me check. Bia, do we have any tens?", "Deixa eu ver. Bia, a gente tem nota de dez?", "b_ones"],
+   ["No, I don't want to change. I like me.", "Não, eu não quero mudar. Eu gosto de mim.", null, "Not you. The money. I give you twenty, the food is ten. Can you give me ten back?", "Você, não. O dinheiro. Eu te dou vinte, a comida é dez. Pode me devolver dez?"]
+  ]],
+  "w_change": ["w", "Ten. Correct.", "Dez. Correto.", "n_sits"],
+  "b_ones": ["b", "No tens! Only ones! Give him ten one dollar bills, and say sorry!", "Nenhuma de dez! Só de um! Dá dez notas de um dólar pra ele, e pede desculpa!", "w_ones"],
+  "w_ones": ["w", "Ten ones. Hm. My pocket is heavy now.", "Dez notas de um. Hum. Meu bolso ficou pesado.", "n_sits"],
+  "n_sits": ["n", "Mr. Boone sits at the same table as yesterday. Then you hear Chuck shouting next door.", "O Sr. Boone senta na mesma mesa de ontem. Aí você ouve o Chuck gritando ao lado.", "c_help"],
+  "c_help": ["c", "Toucan! Emergency! I have no napkins, and my ribs are very messy. Can I borrow some?", "Tucano! Emergência! Fiquei sem guardanapo, e minhas costelas fazem a maior sujeira. Me empresta alguns?", [
+   ["Of course. Take a whole pack.", "Claro. Leva um pacote inteiro.", "c_thanks", {"set": {"helped_chuck": "yes"}}],
+   ["Sorry, Chuck. We only have enough for today.", "Foi mal, Chuck. Só temos o suficiente pra hoje.", "c_no", {"set": {"helped_chuck": "no"}}],
+   ["Okay. But first, tell me about the festival.", "Tá. Mas antes, me conta do festival.", "c_deal", {"set": {"helped_chuck": "yes"}}],
+   ["You need a nap? Go to sleep, then.", "Você precisa de um cochilo? Vai dormir, então.", null, "Not a nap! Napkins! Paper, for my hands! Can you give me some?", "Cochilo, não! Guardanapos! Papel, pras mãos! Você me arruma alguns?"]
+  ]],
+  "c_thanks": ["c", "You're a good neighbor, Toucan. I owe you one. Chuck Dawson never forgets.", "Você é gente boa, Tucano. Fico te devendo uma. Chuck Dawson nunca esquece.", "c_ask"],
+  "c_no": ["c", "Wow. Okay. I'll use my shirt. Chuck Dawson never forgets, Toucan.", "Nossa. Tá bom. Vou usar a camisa. Chuck Dawson nunca esquece, Tucano.", "c_ask"],
+  "c_deal": ["c", "Napkins for information? Smart bird. Okay, I owe you one. Listen to this.", "Guardanapo em troca de informação? Passarinho esperto. Tá, fico te devendo uma. Escuta só.", "c_last"],
+  "c_ask": ["c", "Hey, are you two going to the festival? I'm winning it this year.", "Ei, vocês vão pro festival? Este ano eu ganho.", [
+   ["Yes, we are. Did you enter last year?", "Vamos, sim. Você participou no ano passado?", "c_last"],
+   ["Yes. And we're going to win.", "Vamos. E a gente vai ganhar.", "c_win"],
+   ["Winning? No, it's not windy today.", "Ventando? Não, hoje não está ventando.", null, "Not windy! Winning! The festival, the big prize. Are you two going?", "Ventando, não! Ganhando! O festival, o prêmio grande. Vocês vão?"]
+  ]],
+  "c_win": ["c", "Ha! With beans? Good luck. See you at the festival, Toucan.", "Rá! Com feijão? Boa sorte. A gente se vê no festival, Tucano.", "n_back"],
+  "c_last": ["c", "Last year? I lost to a grilled cheese sandwich. A grilled cheese!", "Ano passado? Perdi pra um misto quente. Um misto quente!", "c_last2"],
+  "c_last2": ["c", "The judge wrote one line about my ribs: too much sauce. That judge likes simple food, done right.", "O jurado escreveu uma linha sobre as minhas costelas: molho demais. Esse jurado gosta de comida simples e bem feita.", "c_last3", {"clue": "simple_food"}],
+  "c_last3": ["c", "But this year I have a new sauce. Even more sauce! See you, Toucan.", "Mas este ano eu tenho um molho novo. Mais molho ainda! Até mais, Tucano.", "n_back"],
+  "n_back": ["n", "Mr. Boone is leaving. He puts two dollars in the tip jar, and he says nothing.", "O Sr. Boone está indo embora. Ele põe dois dólares no pote de gorjeta e não diz nada.", "b_tip"],
+  "b_tip": ["b", "Two dollars in the tip jar! But he didn't say a word. Does he like us or not?", "Dois dólares de gorjeta! Mas ele não disse uma palavra. Ele gosta da gente ou não?", [
+   ["He came back. I think that's a good sign.", "Ele voltou. Acho que isso é um bom sinal.", "b_sign"],
+   ["Who knows? Maybe he just lives near here.", "Vai saber. Talvez ele só more aqui perto.", "b_near"],
+   ["Yes, I like the jar.", "Sim, eu gosto do pote.", null, "Not the jar! Mr. Boone! Do you think he likes our food?", "O pote, não! O Sr. Boone! Você acha que ele gosta da nossa comida?"]
+  ]],
+  "b_sign": ["b", "True! Nobody comes back for bad beans.", "Verdade! Ninguém volta por causa de feijão ruim.", "b_end"],
+  "b_near": ["b", "Maybe. But one day I'm going to make that man smile. You'll see.", "Pode ser. Mas um dia eu ainda faço esse homem sorrir. Você vai ver.", "b_end"],
+  "b_end": ["b", "Wait. Do you hear that? The fridge is making a funny noise.", "Espera. Está ouvindo? A geladeira está fazendo um barulho esquisito.", "n_end"],
+  "n_end": ["n", "You listen. The fridge goes click, click, click. Then it stops.", "Você escuta. A geladeira faz clique, clique, clique. Depois para.", null]
+ }
+}

@@ -41,6 +41,7 @@ model User {
   studyCards        UserStudyCard[]
   userStudyPresets  UserStudyPreset[]
   userStudyDecks    UserStudyDeck[]
+  favoriteBooks     UserFavoriteBook[]
 }
 
 model RefreshToken {
@@ -360,6 +361,7 @@ model ReadingContent {
   segmentProgress   UserSegmentProgress[]
   studyCards        UserStudyCard[]
   revisions         ReadingRevision[]
+  favoritedBy       UserFavoriteBook[]
   user              User?                 @relation(fields: [userId], references: [id], onDelete: SetNull)
 
   @@index([textHash])
@@ -812,4 +814,16 @@ model TalkAttempt {
   createdAt     DateTime @default(now())
 
   @@index([userId, storySlug])
+}
+
+// Livros favoritados pelo aluno (atalho na biblioteca).
+model UserFavoriteBook {
+  userId    String
+  contentId Int
+  createdAt DateTime       @default(now())
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  content   ReadingContent @relation(fields: [contentId], references: [id], onDelete: Cascade)
+
+  @@id([userId, contentId])
+  @@index([userId])
 }

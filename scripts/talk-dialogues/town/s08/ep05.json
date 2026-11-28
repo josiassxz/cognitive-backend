@@ -1,0 +1,91 @@
+{
+ "slug": "s08-05-the-band", "episode": 5, "title": "The Band", "level": "B1",
+ "place": "park", "placeLabel": "Jardim de Glenbeg House", "time": "Sexta · 13h", "ambience": "park",
+ "description": "A banda não vem. O noivo, que nunca se abala, está andando em círculos.",
+ "intro": "O bolo está salvo. As alianças, não. E pela janela da cozinha você ouviu o Conor ao telefone no jardim, perguntando como assim alguém não vem.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "c": ["Conor", "O noivo", "bm_daniel", "right"],
+  "j": ["Julia", "A noiva, sua melhor amiga", "af_bella", "left"],
+  "f": ["Fergus", "Pai do noivo", "bm_george", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "On the lawn, a huge white tent is ready for tomorrow. Conor is walking in circles around it.", "No gramado, uma tenda branca enorme está pronta pra amanhã. O Conor anda em círculos em volta dela.", "c1"],
+  "c1": ["c", "The band's stuck in Wales. Every ferry is cancelled because of the storm. What do we do?", "A banda ficou presa no País de Gales. Todas as balsas foram canceladas por causa da tempestade. O que a gente faz?", [
+   ["First, breathe. Is there another band you can call?", "Primeiro, respira. Tem outra banda pra quem ligar?", "c_calls"],
+   ["A storm? What storm?", "Tempestade? Que tempestade?", "c_storm"],
+   ["Banned? Why, what did they do?", "Proibidos? Por quê, o que eles fizeram?", null, "Not banned! The band! The musicians! They can't get here. What are we going to do?", "Não é banned! É band! Os músicos! Eles não conseguem chegar. O que a gente vai fazer?"]
+  ]],
+  "c_storm": ["c", "Have you seen the sky? It arrives tonight. Wind, rain, the lot. The band just met it first.", "Você viu o céu? Chega hoje à noite. Vento, chuva, o pacote todo. A banda só encontrou com ela antes.", "c_calls"],
+  "c_calls": ["c", "I've rung six bands. It's a Saturday in June. Every musician in Ireland is at a wedding.", "Já liguei pra seis bandas. É um sábado de junho. Todo músico da Irlanda está num casamento.", "c_calm"],
+  "c_calm": ["c", "I'm a calm man. I once slept through a fire alarm. But look at my hands.", "Eu sou um cara calmo. Já dormi com o alarme de incêndio tocando. Mas olha as minhas mãos.", "c_tony"],
+  "c_tony": ["c", "There's one number left. A wedding singer called Tony. I can't face it. Will you ring him?", "Sobrou um número. Um cantor de casamento chamado Tony. Eu não tenho coragem. Você liga pra ele?", [
+   ["Give me the phone. I'll call him now.", "Me dá o telefone. Eu ligo agora.", "n_call"],
+   ["Let's text him. It's quicker.", "Vamos mandar mensagem. É mais rápido.", "n_text"],
+   ["Sing with Tony? I only sing in the shower.", "Cantar com o Tony? Eu só canto no chuveiro.", null, "Not sing, ring! Phone him! Will you make the call for me?", "Não é sing, é ring! Telefonar! Você faz a ligação por mim?"]
+  ]],
+  "n_call": ["n", "You call. Tony is very friendly and completely free tomorrow. Tony only plays heavy metal.", "Você liga. O Tony é muito simpático e está livre amanhã. O Tony só toca heavy metal.", "c_metal"],
+  "n_text": ["n", "Tony answers in ten seconds: Free tomorrow! Heavy metal only. Very loud. Bring earplugs.", "O Tony responde em dez segundos: Livre amanhã! Só heavy metal. Bem alto. Tragam protetor de ouvido.", "c_metal"],
+  "c_metal": ["c", "Heavy metal. For the first dance. Do I say yes anyway?", "Heavy metal. Pra primeira dança. Eu digo sim mesmo assim?", [
+   ["No. Julia's mum would faint.", "Não. A mãe da Julia desmaiava.", "c_m_a"],
+   ["Keep his number. Just in case.", "Guarda o número. Por via das dúvidas.", "c_m_b"],
+   ["Heavy? Then don't carry it by yourself.", "Pesado? Então não carrega sem ajuda.", null, "It's not that kind of heavy! It's loud music. Do I book Tony, yes or no?", "Não é esse tipo de pesado! É música barulhenta. Eu contrato o Tony, sim ou não?"]
+  ]],
+  "c_m_a": ["c", "And my granny would throw the teapot at him. You're right. No Tony.", "E a minha avó jogava o bule nele. Você tem razão. Nada de Tony.", "c_julia"],
+  "c_m_b": ["c", "Saved under: Tony, emergency only. I hope we never get that desperate.", "Salvei como: Tony, só emergência. Tomara que a gente nunca chegue a esse ponto.", "c_julia"],
+  "c_julia": ["c", "So that's that. Do I tell Julia now, or wait until we have a plan?", "Então é isso. Eu conto pra Julia agora, ou espero a gente ter um plano?", [
+   ["Tell her now. She hates surprises.", "Conta agora. Ela odeia surpresa.", "c_now"],
+   ["Wait. Let's find a plan B first.", "Espera. Vamos achar um plano B antes.", "c_wait"],
+   ["A plane? The band should take a plane!", "Um avião? A banda devia pegar um avião!", null, "Not a plane, a plan! Should I tell Julia before we have one, or after?", "Não é plane, é plan! Eu conto pra Julia antes de a gente ter um plano, ou depois?"]
+  ]],
+  "c_now": ["c", "You're right. No secrets before a wedding. That's the rule. Julia!", "Você tem razão. Nada de segredo antes do casamento. É a regra. Julia!", "n_j"],
+  "c_wait": ["c", "Good. Yes. A plan first. Oh no. She's coming over. Act normal!", "Boa. Isso. Primeiro um plano. Ai, não. Ela está vindo. Disfarça!", "n_j"],
+  "n_j": ["n", "Julia crosses the lawn with a cup of tea. One look at Conor's face, and she knows.", "A Julia atravessa o gramado com uma xícara de chá. Basta olhar a cara do Conor, e ela já sabe.", "secret_br"],
+  "secret_br": {"branch": [["secret=tell", "j_knows"], [null, "j_notknow"]]},
+  "j_knows": ["j", "No band? Last night you told me about the rings. Now this. Is my wedding cursed?", "Sem banda? Ontem à noite você me contou das alianças. Agora isso. Meu casamento está amaldiçoado?", [
+   ["It's not cursed. It's becoming a great story.", "Não está. Está virando uma história ótima.", "j_story"],
+   ["One problem at a time. Music first, rings later.", "Um problema de cada vez. Primeiro a música, depois as alianças.", "j_one"],
+   ["Curry? Yes, I'm quite hungry, actually.", "Curry? Sim, estou com bastante fome, aliás.", null, "Not curry! Cursed! Bad luck! First the rings, now the band. Is this wedding cursed or not?", "Não é curry! É cursed! Azar! Primeiro as alianças, agora a banda. Esse casamento está amaldiçoado ou não?"]
+  ], {"set": {"julia_knows": "yes"}}],
+  "j_story": ["j", "A great story. I wanted a boring wedding, with boring photos and a band!", "Uma história ótima. Eu queria um casamento sem graça, com fotos sem graça e uma banda!", "c_rings"],
+  "j_one": ["j", "One at a time. Fine. But I'm writing them all down. In red.", "Um de cada vez. Tá. Mas eu estou anotando todos. De vermelho.", "c_rings"],
+  "c_rings": ["c", "Hold on. What's this about the rings?", "Peraí. Que história é essa das alianças?", "j_ask"],
+  "j_ask": ["j", "Ask your brother, love. Slowly. Sitting down.", "Pergunta pro seu irmão, amor. Devagar. Sentado.", "n_f"],
+  "j_notknow": ["j", "No band? Okay. I'm fine. At least the rings are safe with Declan. Right?", "Sem banda? Tá. Estou bem. Pelo menos as alianças estão seguras com o Declan. Certo?", [
+   ["Right. Declan has everything under control.", "Certo. O Declan está com tudo sob controle.", "c_declan", {"set": {"julia_knows": "no"}}],
+   ["Julia, sit down. There's something I should tell you.", "Julia, senta. Tem uma coisa que eu preciso te contar.", "j_told", {"set": {"julia_knows": "yes"}}],
+   ["Right? No, the house is on the left.", "Direita? Não, a casa fica à esquerda.", null, "Not that kind of right! I mean: the rings are safe. Aren't they?", "Não é esse right! Eu quero dizer: as alianças estão seguras. Não estão?"]
+  ]],
+  "c_declan": ["c", "Declan? Under control? Are we talking about my brother?", "O Declan? Sob controle? A gente está falando do meu irmão?", "n_f"],
+  "j_told": ["j", "He lost them? I knew it! Never give Declan anything smaller than a chair!", "Ele perdeu? Eu sabia! Nunca dê ao Declan nada menor que uma cadeira!", "j_told2"],
+  "j_told2": ["j", "Thank you for telling me. I'd rather know. Conor, close your mouth.", "Obrigada por me contar. Prefiro saber. Conor, fecha a boca.", "n_f"],
+  "n_f": ["n", "Fergus strolls over, hands in his pockets, studying the sky.", "O Fergus chega passeando, mãos nos bolsos, estudando o céu.", "f_in"],
+  "f_in": ["f", "No band, I hear. Do you know, part of me isn't sorry.", "Sem banda, pelo que ouvi. Sabe que uma parte de mim nem lamenta?", [
+   ["Why not, Fergus?", "Por que não, Fergus?", "f_waltz"],
+   ["That's not helping. Do you know any musicians?", "Isso não ajuda. Você conhece algum músico?", "f_mus"],
+   ["Part of you? Which part? Your knee?", "Uma parte de você? Qual? O joelho?", null, "My knee is fine! I mean: I'm a little bit glad. Do you want to know why?", "Meu joelho vai bem! Eu quis dizer: fiquei um pouquinho contente. Quer saber por quê?"]
+  ]],
+  "f_waltz": ["f", "For sixty years, every Doyle wedding began with the same waltz. My father wrote it for my mother.", "Por sessenta anos, todo casamento dos Doyle começou com a mesma valsa. Meu pai escreveu pra minha mãe.", "f_waltz2", {"clue": "family_waltz"}],
+  "f_waltz2": ["f", "This time, Conor booked a band, and nobody said a word to her.", "Desta vez, o Conor contratou uma banda, e ninguém falou uma palavra com ela.", "c_what"],
+  "c_what": ["c", "Is that why Granny's barely spoken to me since March? I thought it was my haircut. What do I do?", "É por isso que a vovó mal fala comigo desde março? Achei que era o meu corte de cabelo. O que eu faço?", [
+   ["Go and say sorry. Today.", "Vai lá pedir desculpa. Hoje.", "c_sorry"],
+   ["Leave it with me. I'll talk to her first.", "Deixa comigo. Eu falo com ela antes.", "c_leave"],
+   ["March? No, we should walk slowly.", "Marchar? Não, melhor a gente andar devagar.", null, "Not marching! The month of March! Granny's upset with me. What should I do about it?", "Não é marchar! O mês de março! A vovó está chateada comigo. O que eu faço?"]
+  ]],
+  "c_sorry": ["c", "Sorry for what, exactly? She'll ask. She always asks. Could you go first?", "Desculpa pelo quê, exatamente? Ela vai perguntar. Sempre pergunta. Você não pode ir antes?", "j_plan"],
+  "c_leave": ["c", "Would you? She likes people who drink her tea. I spilled mine in March.", "Você faria isso? Ela gosta de quem toma o chá dela. Eu derramei o meu em março.", "j_plan"],
+  "f_mus": ["f", "Musicians? In this family? Ask your granny, Conor. Not that she's speaking to you.", "Músico? Nesta família? Pergunta pra sua avó, Conor. Se bem que ela não está falando com você.", "c_why"],
+  "c_why": ["c", "She's barely spoken to me since March. No idea why. I think it's my haircut.", "Ela mal fala comigo desde março. Não faço ideia do motivo. Acho que é o meu corte de cabelo.", "j_plan"],
+  "j_plan": ["j", "Okay. We need music by tomorrow night. What do I write on the list?", "Tá. A gente precisa de música até amanhã à noite. O que eu escrevo na lista?", [
+   ["Write: playlist, as plan B. I'll look for live music.", "Escreve: playlist, como plano B. Eu vou atrás de música ao vivo.", "j_pl"],
+   ["Write: talk to Granny Nora. I'll do it today.", "Escreve: falar com a avó Nora. Eu faço isso hoje.", "j_gn"],
+   ["Mist? Yes, it's getting foggy.", "Névoa? Sim, está ficando nublado.", null, "Not mist! The list! Our to-do list! What's the plan for the music?", "Não é mist! É list! A nossa lista de tarefas! Qual é o plano pra música?"]
+  ]],
+  "j_pl": ["j", "Conor's playlist is forty football songs. But fine. Plan B. Now find me a miracle.", "A playlist do Conor são quarenta músicas de futebol. Mas tá. Plano B. Agora me arruma um milagre.", "n_wind"],
+  "j_gn": ["j", "Granny Nora? She looks at me like I'm a crossword. Good luck. Take biscuits.", "A avó Nora? Ela me olha como se eu fosse uma palavra cruzada. Boa sorte. Leva biscoito.", "n_wind"],
+  "n_wind": ["n", "A cold wind crosses the lawn. The tent shakes. The first heavy drops begin to fall.", "Um vento frio atravessa o gramado. A tenda balança. Caem as primeiras gotas grossas.", "f_end"],
+  "f_end": ["f", "And there goes the soft day. Everybody inside!", "E lá se foi o soft day. Todo mundo pra dentro!", "n_end"],
+  "n_end": ["n", "The sky over Glenbeg House turns the colour of slate. Somewhere inside, Granny Nora is pouring tea.", "O céu sobre Glenbeg House fica cor de chumbo. Em algum lugar lá dentro, a avó Nora serve o chá.", null]
+ }
+}

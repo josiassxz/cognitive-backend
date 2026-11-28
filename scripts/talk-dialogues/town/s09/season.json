@@ -1,0 +1,55 @@
+{
+ "season": 9,
+ "title": "The Kitchen Final: a final na cozinha",
+ "subtitle": "Você está na semana final de um programa de culinária da TV britânica. Ingredientes somem, uma receita aparece trocada e todo mundo fala em sabotagem. Cozinhe, escute e descubra o que está acontecendo nos bastidores.",
+ "level": "B1",
+ "genre": "Competição de culinária",
+ "clues": {
+  "double_shift": {
+   "title": "Dois turnos",
+   "note": "O Toby chega ao estúdio às quatro da manhã e só tranca tudo à meia-noite: o outro assistente saiu e ele faz os dois turnos."
+  },
+  "crew_fridge": {
+   "title": "Geladeira da equipe",
+   "note": "O creme que sumiu da sua bandeja estava na geladeira da equipe, ao lado dos sanduíches do Toby."
+  },
+  "victor_taste": {
+   "title": "O gosto do jurado",
+   "note": "O Victor não suporta torres e flores no prato: para ele, vence um prato simples e bem temperado."
+  },
+  "old_recipe": {
+   "title": "Receita do ano passado",
+   "note": "Seu cartão de receita era o do ano passado: mesmo visual, arquivo errado, impresso de manhã no escritório da produção."
+  },
+  "sofa": {
+   "title": "Alguém no sofá",
+   "note": "Às seis da manhã, a Nina viu alguém dormindo no sofá do camarim, debaixo de um casaco, de tênis branco."
+  },
+  "trial_week": {
+   "title": "Semana de experiência",
+   "note": "A produtora avisou alguém da equipe: mais um erro nesta semana e a pessoa perde o emprego."
+  },
+  "rupert_mum": {
+   "title": "A ligação do Rupert",
+   "note": "As ligações misteriosas do Rupert são para a mãe dele: ele pede conselhos de cozinha antes de cada prova."
+  },
+  "green_pen": {
+   "title": "Tinta verde",
+   "note": "A etiqueta do mel da Morag está escrita em tinta verde, e o Toby anota tudo com uma caneta verde."
+  },
+  "victor_past": {
+   "title": "O bolo de casamento",
+   "note": "Na primeira semana de trabalho, o Victor derrubou um bolo de casamento. O chef não o demitiu: deu uma segunda chance."
+  }
+ },
+ "memories": {
+  "helped_toby=yes": "O Toby lembra que você parou para ajudar com as colheres.",
+  "helped_toby=no": "O Toby lembra que você seguiu direto para a sua bancada.",
+  "dish": "A Stella anotou o prato que você prometeu para a final.",
+  "owe_morag=yes": "Você ficou devendo um favor à Morag pelo creme.",
+  "owe_morag=no": "A Morag lembra que você recusou o creme dela.",
+  "took_crit=well": "O Victor lembra que você escutou a crítica dele.",
+  "took_crit=argued": "O Victor lembra que você discutiu com ele.",
+  "rupert_secret=kept": "Você prometeu guardar um segredo do Rupert."
+ }
+}

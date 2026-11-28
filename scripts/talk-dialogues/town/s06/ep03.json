@@ -1,0 +1,92 @@
+{
+ "slug": "s06-03-the-guilty-ghost", "episode": 3, "title": "The Guilty Ghost", "level": "A2",
+ "place": "kitchen", "placeLabel": "Flat 4B · cozinha", "time": "Terça · 18h", "ambience": "kitchen",
+ "description": "A comida voltou. Melhor do que era. E chegou a conta de luz.",
+ "intro": "Na sua primeira noite, você ouviu passinhos às três da manhã, e sua comida sumiu da geladeira. A Priya, que trabalha à noite, aposta no Callum. Ele jura pelo trombone que não foi ele.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "c": ["Callum", "Estudante de música, colega de apartamento", "bm_fable", "right"],
+  "m": ["Mei", "Programadora, colega de apartamento", "af_kore", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "It's Tuesday evening. You come home and open the fridge. You can't believe it.", "É terça à noite. Você chega em casa e abre a geladeira. Não dá pra acreditar.", "food_br"],
+  "food_br": {"branch": [["food=ham", "n_ham"], ["food=chicken", "n_chicken"], [null, "n_salmon"]]},
+  "n_ham": ["n", "There's ham on your shelf again. But it's a different ham, in a gold packet.", "Tem presunto na sua prateleira de novo. Mas é outro presunto, num pacote dourado.", "c1"],
+  "n_chicken": ["n", "There's chicken on your shelf again. But it's a different chicken, in a gold box.", "Tem frango na sua prateleira de novo. Mas é outro frango, numa caixa dourada.", "c1"],
+  "n_salmon": ["n", "There's salmon on your shelf again. But it's a different salmon, in a gold packet.", "Tem salmão na sua prateleira de novo. Mas é outro salmão, num pacote dourado.", "c1"],
+  "c1": ["c", "You're looking at it too! It came back, right? But better!", "Você também tá olhando! Voltou, né? Só que melhor!", [
+   ["Yes! This one is more expensive than mine.", "Sim! Este é mais caro que o meu.", "c_posh"],
+   ["Did you buy this, Callum?", "Foi você que comprou, Callum?", "c_notbuy"],
+   ["Yes, I came back at six.", "Sim, eu voltei às seis.", null, "Not you! The food! It came back to your shelf, didn't it?", "Você, não! A comida! Ela voltou pra sua prateleira, não voltou?"]
+  ]],
+  "c_posh": ["c", "Right? The ghost has more money than me.", "Né? O fantasma tem mais dinheiro que eu.", "c_always"],
+  "c_notbuy": ["c", "Me? I can't afford the gold one! No.", "Eu? Não tenho dinheiro pro dourado! Não.", "c_always"],
+  "c_always": ["c", "It happens every time. A day later, the food comes back. A better kind, with a perfect label.", "Acontece toda vez. Um dia depois, a comida volta. De um tipo melhor, com etiqueta perfeita.", "c_guilty", {"clue": "guilty_ghost"}],
+  "c_guilty": ["c", "So our ghost feels guilty. What kind of ghost does that?", "Então nosso fantasma sente culpa. Que tipo de fantasma faz isso?", [
+   ["A ghost with a job, maybe.", "Um fantasma com emprego, talvez.", "c_job"],
+   ["Someone who is sorry, but can't say it.", "Alguém que se arrependeu, mas não consegue dizer.", "c_sorry"],
+   ["A ghost in a kilt? From Scotland?", "Um fantasma de kilt? Da Escócia?", null, "Ha! Guilty, not kilt. It feels bad about the food. So who does that?", "Rá! Guilty, culpado. Não é kilt. Ele se sente mal pela comida. Então, quem faz isso?"]
+  ]],
+  "c_job": ["c", "Ha! Mei has a job. Priya has a job. I have a trombone.", "Rá! A Mei tem emprego. A Priya tem emprego. Eu tenho um trombone.", "milk_br"],
+  "c_sorry": ["c", "Sorry, but shy. I like that. You're good at this.", "Arrependido, mas tímido. Gostei. Você leva jeito pra isso.", "milk_br"],
+  "milk_br": {"branch": [["milk=yes", "c_milk_yes"], [null, "c_milk_no"]]},
+  "c_milk_yes": ["c", "Oh! And here's your milk. Two litres. I pay my debts. Sometimes.", "Ah! E aqui está seu leite. Dois litros. Eu pago minhas dívidas. Às vezes.", "n_mei"],
+  "c_milk_no": ["c", "And look, I bought my own milk. See? I'm learning.", "E olha, comprei meu próprio leite. Viu? Tô aprendendo.", "n_mei"],
+  "n_mei": ["n", "Mei comes in with her laptop and a shopping bag. She puts six tins in the cupboard, fast.", "A Mei entra com o laptop e uma sacola de compras. Guarda seis latas no armário, rapidinho.", "m1"],
+  "m1": ["m", "Good, you're both here. The electricity bill came. We need to talk about money.", "Que bom, vocês dois estão aqui. Chegou a conta de luz. Precisamos falar de dinheiro.", [
+   ["Okay. How much is my part?", "Tá. Quanto é a minha parte?", "m_part"],
+   ["Already? I only moved in on Sunday!", "Já? Eu só me mudei no domingo!", "m_sunday"],
+   ["Bill? I don't know anyone called Bill.", "Bill? Não conheço ninguém chamado Bill.", null, "Not a person. The bill. The paper that says how much we pay. Can we talk about it?", "Não é uma pessoa. É a conta. O papel que diz quanto a gente paga. Podemos falar disso?"]
+  ]],
+  "m_part": ["m", "We split it four ways. But you only pay from Sunday. So, three pounds twenty.", "A gente divide por quatro. Mas você só paga a partir de domingo. Então, três libras e vinte.", "m_pay"],
+  "m_sunday": ["m", "I know. So you only pay for three days. Three pounds twenty. It's in the spreadsheet.", "Eu sei. Então você só paga por três dias. Três libras e vinte. Está na planilha.", "m_pay"],
+  "m_pay": ["m", "How would you like to pay? Cash or bank transfer?", "Como você prefere pagar? Dinheiro ou transferência?", [
+   ["Bank transfer. I'll do it tonight.", "Transferência. Faço hoje à noite.", "m_transfer"],
+   ["Cash. Here's five pounds. Have you got change?", "Dinheiro. Toma cinco libras. Você tem troco?", "m_change"],
+   ["No, thanks. I don't want to transfer to another flat.", "Não, valeu. Não quero transferência pra outro apartamento.", null, "Nobody is moving you. The money. How do you want to pay: cash or bank transfer?", "Ninguém vai te mudar de lugar. O dinheiro. Como você quer pagar: dinheiro ou transferência?"]
+  ]],
+  "m_transfer": ["m", "Perfect. I'll send you the details. Callum, you still owe forty pounds.", "Perfeito. Te mando os dados. Callum, você ainda deve quarenta libras.", "c_owe"],
+  "m_change": ["m", "One pound eighty. Here you are. Callum, you still owe forty pounds.", "Uma libra e oitenta. Aqui está. Callum, você ainda deve quarenta libras.", "c_owe"],
+  "c_owe": ["c", "I get paid on Friday! Can we talk about the ghost instead?", "Eu recebo na sexta! Dá pra gente falar do fantasma em vez disso?", "m_ghost"],
+  "m_ghost": ["m", "There is no ghost. The food came back, so there's no problem. Agreed?", "Não existe fantasma. A comida voltou, então não tem problema. Combinado?", [
+   ["But who takes it? I'd like to know.", "Mas quem pega? Eu queria saber.", "m_know"],
+   ["Mei, what are all those tins for?", "Mei, pra que tanta lata?", "m_tins"],
+   ["The food came by bus?", "A comida veio de ônibus?", null, "By bus? No. It came back. To the fridge. So everything is fine, isn't it?", "De ônibus? Não. Ela voltou. Pra geladeira. Então está tudo certo, não está?"]
+  ]],
+  "m_know": ["m", "Does it matter? Nothing is missing now. Let's move on.", "Faz diferença? Agora não falta nada. Vamos em frente.", "c_ask"],
+  "m_tins": ["m", "Tuna. It was on offer. Tuna is good for the brain. Why is everyone looking at me?", "Atum. Estava em promoção. Atum faz bem pro cérebro. Por que todo mundo tá me olhando?", "c_ask"],
+  "c_ask": ["c", "Well, I want to know! Everyone thinks it's me. Do you think it's me?", "Pois eu quero saber! Todo mundo acha que sou eu. Você acha que sou eu?", [
+   ["Can I ask you something, Callum? Did you take it by mistake?", "Posso te perguntar uma coisa, Callum? Você pegou sem querer?", "c_polite", {"set": {"tone": "polite"}}],
+   ["Honestly? Yes. You were in the kitchen at three.", "Sinceramente? Acho. Você estava na cozinha às três.", "c_blunt", {"set": {"tone": "blunt"}}],
+   ["Everyone drinks with you? Nice.", "Todo mundo bebe com você? Que legal.", null, "Thinks! Not drinks. People think I'm the ghost. Do you think it's me?", "Thinks, acha! Não é drinks. O pessoal acha que eu sou o fantasma. Você acha que sou eu?"]
+  ]],
+  "c_polite": ["c", "No. Honestly. But thanks for asking nicely. Check my ears if you like.", "Não. De verdade. Mas valeu por perguntar com jeito. Pode conferir minhas orelhas, se quiser.", "n_ears"],
+  "c_blunt": ["c", "Wow. Okay. That hurts a bit. I was eating cereal. My own cereal.", "Nossa. Tá. Isso dói um pouco. Eu estava comendo cereal. O meu cereal.", "m_calm"],
+  "m_calm": ["m", "That was a bit direct. Do you want to try that again?", "Isso foi meio direto. Quer tentar de novo?", [
+   ["Sorry, Callum. That came out wrong. I just want to understand.", "Desculpa, Callum. Saiu errado. Eu só quero entender.", "c_fixed", {"set": {"tone": "polite"}}],
+   ["I'm only saying what I saw.", "Só tô dizendo o que eu vi.", "c_stay"],
+   ["Direct? Yes, I took a direct flight.", "Direto? Sim, peguei um voo direto.", null, "Not your flight. Your words. They were a bit hard. Do you want to say it again?", "Não o seu voo. As suas palavras. Foram meio duras. Quer falar de novo?"]
+  ]],
+  "c_fixed": ["c", "It's okay. I know how it looks. Check my ears if you like.", "Tudo bem. Eu sei o que parece. Pode conferir minhas orelhas, se quiser.", "n_ears"],
+  "c_stay": ["c", "Fine. Then look at my ears. Priya says they go red when I lie.", "Tá bom. Então olha minhas orelhas. A Priya diz que elas ficam vermelhas quando eu minto.", "n_ears"],
+  "n_ears": ["n", "You look at Callum's ears. They are not red. Not even a little.", "Você olha as orelhas do Callum. Não estão vermelhas. Nem um pouquinho.", "m_rule"],
+  "m_rule": ["m", "New rule. Rule fourteen. If food disappears, we write it on a list on the fridge. Okay?", "Regra nova. Regra catorze. Se sumir comida, a gente anota numa lista na geladeira. Tá?", [
+   ["Good idea. Then we can see the days and times.", "Boa ideia. Assim a gente vê os dias e os horários.", "m_data"],
+   ["Or we could put a camera in the kitchen.", "Ou a gente podia pôr uma câmera na cozinha.", "m_camera"],
+   ["Rule forty? You have forty rules?", "Regra quarenta? Vocês têm quarenta regras?", null, "Fourteen. One, four. Not forty. So, a list on the fridge. Do you agree?", "Catorze. Um, quatro. Não quarenta. Então, uma lista na geladeira. Você concorda?"]
+  ]],
+  "m_data": ["m", "Yes. Data. Good. I like how you think.", "Isso. Dados. Ótimo. Gosto do seu jeito de pensar.", "n_parcel"],
+  "m_camera": ["m", "No! No cameras. I mean, that's not legal. Probably. A list is enough.", "Não! Nada de câmera. Quer dizer, isso não é legal. Provavelmente. Uma lista basta.", "c_wow"],
+  "c_wow": ["c", "Wow. Mei said no to a gadget. That's a first.", "Nossa. A Mei recusou um aparelho. Essa é inédita.", "n_parcel"],
+  "n_parcel": ["n", "The doorbell rings. Mei runs to the door. She comes back with a big, heavy box.", "A campainha toca. A Mei corre até a porta. Volta com uma caixa grande e pesada.", "m_box"],
+  "m_box": ["m", "It's nothing. It's, uh, computer things. For work. Can I get past, please?", "Não é nada. São, hã, coisas de computador. Do trabalho. Posso passar, por favor?", [
+   ["Do you need help? It looks heavy.", "Quer ajuda? Parece pesada.", "m_nohelp"],
+   ["Sure. See you later, Mei.", "Claro. Até mais, Mei.", "m_later"],
+   ["Computer wings? Can it fly?", "Asas de computador? Ele voa?", null, "Things. Not wings. Boring things for work. Can I go to my room now?", "Things, coisas. Não wings. Coisas chatas do trabalho. Posso ir pro meu quarto agora?"]
+  ]],
+  "m_nohelp": ["m", "No! Thank you. I'm stronger than I look. Good night.", "Não! Obrigada. Sou mais forte do que pareço. Boa noite.", "n_end"],
+  "m_later": ["m", "Yes. Later. Good night. Remember the list.", "Isso. Até. Boa noite. Lembrem da lista.", "n_end"],
+  "n_end": ["n", "Mei's door closes. A key turns. Callum looks at you. Then he sneezes, three times.", "A porta da Mei fecha. Uma chave gira. O Callum olha pra você. Aí ele espirra, três vezes.", null]
+ }
+}

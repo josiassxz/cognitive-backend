@@ -1,0 +1,47 @@
+{
+ "season": 5,
+ "title": "Exchange Year",
+ "subtitle": "Seu semestre de intercâmbio numa universidade em Boston: colega de quarto, secretaria, refeitório, rádio do campus e um trabalho em grupo que vale a nota. Na semana da apresentação, um integrante some com os slides.",
+ "level": "A2–B1",
+ "genre": "Vida no campus",
+ "clues": {
+  "never_asks": {
+   "title": "Nunca pede ajuda",
+   "note": "A Tasha contou que o Miles ajuda todo mundo, mas nunca pede ajuda. Ano passado ficou doente uma semana e ninguém soube."
+  },
+  "late_slot": {
+   "title": "O último horário",
+   "note": "Uma vez por semestre, um grupo pode passar a apresentação para o último horário do dia, se pedir à professora antes de a aula começar."
+  },
+  "only_copy": {
+   "title": "A única cópia",
+   "note": "O Miles não pôs os slides na pasta do grupo: a única cópia fica no notebook dele até estar pronta."
+  },
+  "early_shift": {
+   "title": "Turno das cinco",
+   "note": "A Rosa contou que o Miles trabalha no refeitório, no turno do café da manhã, às cinco, todo dia de semana. Ele não conta para ninguém."
+  },
+  "dead_laptop": {
+   "title": "Notebook morto",
+   "note": "No domingo, ao vivo na rádio, o notebook do Miles apagou e não ligou mais."
+  },
+  "library_nights": {
+   "title": "Computador doze",
+   "note": "Desde domingo, alguém de moletom cinza passa as noites no computador doze da biblioteca, até meia-noite, refazendo slides um por um."
+  },
+  "one_thing": {
+   "title": "\"Ele tem uma tarefa só\"",
+   "note": "O Miles ouviu alguém do grupo dizer \"He has one job. One.\" Agora não quer voltar enquanto os slides não estiverem perfeitos."
+  }
+ },
+ "memories": {
+  "gift": "A Tasha não esquece o presente que você trouxe do Brasil.",
+  "id_photo": "A foto da sua carteirinha virou assunto no campus.",
+  "fries=yes": "O Gus lembra que você dividiu as fritas com ele.",
+  "fries=no": "O Gus lembra que você não quis dividir as fritas.",
+  "warned_copy=yes": "Você sugeriu ao Miles salvar uma cópia dos slides.",
+  "praised_miles=yes": "Você elogiou o Miles ao vivo na rádio.",
+  "dead_air": "Muita gente ouviu como você salvou o silêncio na rádio.",
+  "message": "O Miles ouviu a mensagem de voz que você deixou."
+ }
+}

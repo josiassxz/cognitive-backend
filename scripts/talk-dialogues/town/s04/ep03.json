@@ -1,0 +1,98 @@
+{
+ "slug": "s04-03-the-blue-star", "episode": 3, "title": "The Blue Star", "level": "A2",
+ "place": "hotel", "placeLabel": "Blue Star Motel · Oklahoma", "time": "Segunda · 21h", "ambience": "hotel",
+ "description": "Um motel de beira de estrada, um dono de poucas palavras e uma foto antiga na parede.",
+ "intro": "No Dot's Diner, vocês descobriram que na estrada todo mundo chamava o vovô de Frank. O segundo cartão fala de uma estrela azul que zumbe: o letreiro do Blue Star Motel, em Tulsa.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "r": ["Rafa", "Seu primo de Chicago", "am_puck", "right"],
+  "w": ["Walt", "Dono do motel", "am_michael", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "It's nine at night in Tulsa, Oklahoma. Your back hurts and your eyes are closing.", "São nove da noite em Tulsa, Oklahoma. Suas costas doem e seus olhos estão fechando.", "n2"],
+  "n2": ["n", "Then you see it: a blue neon star above a small motel. It buzzes like a bee.", "Aí você vê: uma estrela azul de neon em cima de um motel pequeno. Ela zumbe feito abelha.", "pie_br"],
+  "pie_br": {"branch": [["pie=cherry", "r_cherry"], ["pie=apple", "r_apple"], [null, "r_pecan"]]},
+  "r_cherry": ["r", "A real bed! I could cry. And you still smell like cherry pie.", "Uma cama de verdade! Dá vontade de chorar. E você ainda tá com cheiro de torta de cereja.", "n_office"],
+  "r_apple": ["r", "A real bed! I could cry. And you still smell like apple pie.", "Uma cama de verdade! Dá vontade de chorar. E você ainda tá com cheiro de torta de maçã.", "n_office"],
+  "r_pecan": ["r", "A real bed! I could cry. And you still smell like pecan pie.", "Uma cama de verdade! Dá vontade de chorar. E você ainda tá com cheiro de torta de noz-pecã.", "n_office"],
+  "n_office": ["n", "In the office, a tall man is watching television with the sound off.", "Na recepção, um homem alto assiste à televisão sem som.", "w1"],
+  "w1": ["w", "Evening. Need a room?", "Boa noite. Precisam de quarto?", [
+   ["Yes, please. A room for two, for one night.", "Sim, por favor. Um quarto pra dois, por uma noite.", "w_rooms"],
+   ["Yes. Are you Walt? Dot sent us.", "Sim. Você é o Walt? A Dot mandou a gente aqui.", "w_dot"],
+   ["No, thanks. I have a broom at home.", "Não, valeu. Tenho vassoura em casa.", null, "Not a broom. A room. With beds. Do you need one?", "Vassoura, não. Quarto. Com camas. Precisam de um?"]
+  ]],
+  "w_dot": ["w", "Dot called. She said two kids in a yellow van. She said one of them eats a lot.", "A Dot ligou. Falou de dois jovens numa van amarela. Disse que um deles come muito.", "r_me"],
+  "r_me": ["r", "That's me. Hi.", "Sou eu. Oi.", "w_rooms"],
+  "w_rooms": ["w", "Two rooms left. Number four, by the ice machine. Forty dollars. Noisy.", "Sobraram dois quartos. O quatro, do lado da máquina de gelo. Quarenta dólares. Barulhento.", "w_rooms2"],
+  "w_rooms2": ["w", "Or number nine, at the back. Fifty-five. Quiet. Which one?", "Ou o nove, nos fundos. Cinquenta e cinco. Silencioso. Qual vai ser?", [
+   ["Number four. We'll save the money.", "O quatro. Assim a gente economiza.", "w_four", {"set": {"slept": "badly"}}],
+   ["Number nine, please. We really need to sleep.", "O nove, por favor. A gente precisa muito dormir.", "w_nine", {"set": {"slept": "well"}}],
+   ["Is breakfast included?", "O café da manhã está incluído?", "w_bfast"],
+   ["Nice? Yes, it's very nice here.", "Legal? Sim, aqui é bem legal.", null, "Not nice. Nine. Room four or room nine. Which one?", "Legal, não. Nove. Quarto quatro ou quarto nove. Qual?"]
+  ]],
+  "w_bfast": ["w", "Coffee and donuts in the office, six to nine. Free. The coffee's bad. The donuts are worse.", "Café e donuts na recepção, das seis às nove. De graça. O café é ruim. Os donuts são piores.", "w_which"],
+  "w_which": ["w", "So. Four or nine?", "Então. Quatro ou nove?", [
+   ["Four. The cheap one.", "O quatro. O barato.", "w_four", {"set": {"slept": "badly"}}],
+   ["Nine. The quiet one.", "O nove. O silencioso.", "w_nine", {"set": {"slept": "well"}}],
+   ["Thirteen!", "Treze!", null, "Good math. Wrong answer. Which room do you want, four or nine?", "Boa conta. Resposta errada. Que quarto vocês querem, o quatro ou o nove?"]
+  ]],
+  "w_four": ["w", "Four. The ice machine goes clunk all night. You get used to it. In about a week.", "Quatro. A máquina de gelo faz clanc a noite toda. A pessoa acostuma. Em uma semana, mais ou menos.", "w_id"],
+  "w_nine": ["w", "Nine. Good. Nothing back there but crickets.", "Nove. Bom. Lá atrás só tem grilo.", "w_id"],
+  "w_id": ["w", "I need a name for the book. And how are you paying?", "Preciso de um nome pro livro. E como vão pagar?", [
+   ["It's Almeida. Can I pay by card?", "É Almeida. Posso pagar com cartão?", "w_card"],
+   ["Almeida. And here's the cash.", "Almeida. E aqui está o dinheiro.", "w_almeida"],
+   ["I'm paying attention, I promise.", "Estou prestando atenção, juro.", null, "Good. Now pay money, too. What's the name, and is it cash or card?", "Ótimo. Agora preste dinheiro também. Qual é o nome, e vai ser dinheiro ou cartão?"]
+  ]],
+  "w_card": ["w", "Card machine broke in March. Cash only. Your cousin looks like he has cash.", "A maquininha quebrou em março. Só dinheiro. Seu primo tem cara de quem tem dinheiro.", "w_almeida"],
+  "w_almeida": ["w", "Almeida. Huh.", "Almeida. Hum.", "n_wall"],
+  "n_wall": ["n", "Walt looks at you for a long time. Then he points at an old photo on the wall.", "O Walt olha pra você por um bom tempo. Depois aponta uma foto antiga na parede.", "w_photo"],
+  "w_photo": ["w", "That skinny fella by the yellow van. Summer of seventy-four. My dad took that picture.", "Aquele magrelo ao lado da van amarela. Verão de setenta e quatro. Meu pai tirou essa foto.", [
+   ["That's our grandfather! Did you know him?", "É o nosso avô! Você conheceu ele?", "w_knew"],
+   ["Nice photo. Could we have the key, please? We need to sleep.", "Bela foto. Pode dar a chave, por favor? A gente precisa dormir.", "w_key_early"],
+   ["No, thanks. I don't want to buy a picture.", "Não, valeu. Não quero comprar quadro.", null, "It's not for sale. I'm asking about the man in the photo. Do you know him?", "Não está à venda. Estou falando do homem da foto. Vocês conhecem?"]
+  ]],
+  "w_knew": ["w", "I was ten. He stayed three nights. Fixed that star for free. Taught me to whistle.", "Eu tinha dez anos. Ele ficou três noites. Consertou aquela estrela de graça. Me ensinou a assobiar.", [
+   ["Why did he stay three nights?", "Por que ele ficou três noites?", "w_call"],
+   ["He fixed the blue star?", "Ele consertou a estrela azul?", "w_sign"],
+   ["I can't whistle, but I can wrestle.", "Não sei assobiar, mas sei lutar.", null, "Please don't wrestle in my office. I'm talking about Frank. Any questions about him?", "Por favor, nada de luta na minha recepção. Estou falando do Frank. Alguma pergunta sobre ele?"]
+  ]],
+  "w_sign": ["w", "It never buzzed before him. He said: now it sings. It's been singing for fifty years.", "Antes dele, ela nunca zumbiu. Ele disse: agora ela canta. Está cantando há cinquenta anos.", "w_more"],
+  "w_more": ["w", "Anything else? My show is back on.", "Mais alguma coisa? Meu programa voltou.", [
+   ["Did anything special happen while he was here?", "Aconteceu alguma coisa especial enquanto ele esteve aqui?", "w_call"],
+   ["No, that's all. Good night, Walt.", "Não, é só isso. Boa noite, Walt.", "w_key"],
+   ["Your shoe is back on? Was it off?", "Seu sapato voltou? Ele tinha saído?", null, "Show. Not shoe. My television show. Do you have another question or not?", "Programa. Não sapato. Meu programa de televisão. Tem mais alguma pergunta ou não?"]
+  ]],
+  "w_call": ["w", "He was waiting for a phone call from Chicago. It came on the third night. On that phone.", "Ele estava esperando uma ligação de Chicago. Veio na terceira noite. Naquele telefone ali.", "w_call2"],
+  "w_call2": ["w", "He yelled so loud that every guest woke up. His wife was going to have a baby.", "Ele gritou tão alto que acordou todos os hóspedes. A esposa dele ia ter um bebê.", "r_baby", {"clue": "baby_news"}],
+  "r_baby": ["r", "A baby in seventy-four? That's my mom! Grandpa found out right here, in this office!", "Um bebê em setenta e quatro? É a minha mãe! O vovô ficou sabendo bem aqui, nesta recepção!", "w_after"],
+  "w_after": ["w", "Next morning he left. Still heading west. Grinning like a fool.", "Na manhã seguinte ele foi embora. Ainda rumo ao oeste. Rindo à toa.", [
+   ["Why did he keep going west, with a baby coming?", "Por que ele continuou pro oeste, com um bebê a caminho?", "w_west"],
+   ["Thank you, Walt. That means a lot to us.", "Valeu, Walt. Isso significa muito pra gente.", "w_welcome"],
+   ["A vest? In this heat?", "Um colete? Nesse calor?", null, "Not a vest. West. He kept driving west, to California. Any more questions?", "Colete, não. Oeste. Ele continuou dirigindo pro oeste, pra Califórnia. Mais alguma pergunta?"]
+  ]],
+  "w_west": ["w", "A baby costs money. He said that job in California mattered more than ever now.", "Bebê custa dinheiro. Ele disse que agora o emprego na Califórnia importava mais do que nunca.", "w_key"],
+  "w_welcome": ["w", "Mm. Don't make a big thing of it.", "Hum. Não precisa fazer disso um evento.", "w_key"],
+  "w_key_early": ["w", "Sure. No questions. I like that in a guest.", "Claro. Sem perguntas. Gosto disso num hóspede.", "w_key"],
+  "w_key": ["w", "Here's your key. Checkout is at eleven. Don't touch the star.", "Aqui está a chave. A saída é às onze. Não mexam na estrela.", "room_br"],
+  "room_br": {"branch": [["slept=badly", "n_room4"], [null, "n_room9"]]},
+  "n_room4": ["n", "Room four is small and clean. Outside, the ice machine goes clunk. And clunk. And clunk.", "O quarto quatro é pequeno e limpo. Lá fora, a máquina de gelo faz clanc. E clanc. E clanc.", "r_card"],
+  "n_room9": ["n", "Room nine is small and clean. Outside, you hear only crickets.", "O quarto nove é pequeno e limpo. Lá fora, só se ouvem os grilos.", "r_card"],
+  "r_card": ["r", "Before we sleep. Card number three. Listen to this.", "Antes de dormir. Cartão número três. Escuta só.", "r_riddle"],
+  "r_riddle": ["r", "The van is sick. I found her a doctor. This doctor has dirty hands and a big wrench.", "A van está doente. Achei um médico pra ela. Esse médico tem as mãos sujas e uma chave inglesa enorme.", "r_riddle2"],
+  "r_riddle2": ["r", "The doctor lives in Texas, in a town with the name of a color. Rosa, you know this word.", "O médico mora no Texas, numa cidade com nome de cor. Rosa, você conhece essa palavra.", [
+   ["A color? Amarillo! It sounds like amarelo. That's yellow in Portuguese!", "Uma cor? Amarillo! Parece amarelo. Yellow, em português!", "r_amarillo"],
+   ["A doctor with a wrench? That's a mechanic.", "Um médico com chave inglesa? Isso é mecânico.", "r_mech"],
+   ["I'm not sick. I feel fine.", "Eu não estou doente. Estou bem.", null, "Not you! The van was sick. So where's the doctor? A town with the name of a color.", "Você, não! A van é que estava doente. Então, onde fica o médico? Uma cidade com nome de cor."]
+  ]],
+  "r_amarillo": ["r", "Amarelo? Seriously? I stared at that map for ten minutes! Portuguese is a superpower.", "Amarelo? Sério? Eu fiquei dez minutos olhando pro mapa! Português é um superpoder.", "r_plan"],
+  "r_mech": ["r", "A mechanic, sure. But which town? Let me see the map. Amarillo! It means yellow in Spanish.", "Mecânico, claro. Mas que cidade? Deixa eu ver o mapa. Amarillo! Quer dizer amarelo em espanhol.", "r_plan"],
+  "r_plan": ["r", "Amarillo is five hours away. Do we leave at seven?", "Amarillo fica a cinco horas daqui. A gente sai às sete?", [
+   ["Seven. Good night, Rafa.", "Às sete. Boa noite, Rafa.", "n_end"],
+   ["Eight. I want those free donuts first.", "Às oito. Antes eu quero aqueles donuts de graça.", "r_donuts"],
+   ["I live in Brazil, not in seven.", "Eu moro no Brasil, não no sete.", null, "Not live. Leave! What time do we leave tomorrow? Seven?", "Morar, não. Sair! Que horas a gente sai amanhã? Às sete?"]
+  ]],
+  "r_donuts": ["r", "Free donuts. Good point. Eight o'clock.", "Donuts de graça. Bem lembrado. Oito horas.", "n_end"],
+  "n_end": ["n", "You fall asleep in seconds. Tomorrow: Texas. But the old van has other plans.", "Você pega no sono em segundos. Amanhã: Texas. Mas a van velha tem outros planos.", null]
+ }
+}

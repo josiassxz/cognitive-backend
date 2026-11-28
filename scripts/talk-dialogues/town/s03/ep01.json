@@ -1,0 +1,100 @@
+{
+ "slug": "s03-01-opening-day", "episode": 1, "title": "Opening Day", "level": "A2",
+ "place": "street", "placeLabel": "Maple Yard", "time": "Segunda · 11h", "ambience": "street",
+ "description": "Primeiro dia do food truck: aprenda o cardápio e atenda o seu primeiro cliente.",
+ "intro": "Você acabou de chegar a Austin, no Texas, para abrir um food truck de comida brasileira com a sua prima Bia. Hoje é o primeiro dia.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "b": ["Bia", "Sua prima e sócia", "af_bella", "left"],
+  "w": ["Mr. Boone", "Cliente quieto de chapéu cinza", "am_michael", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Monday morning in Austin, Texas. It is hot, and the sky is very blue.", "Segunda de manhã em Austin, no Texas. Está quente, e o céu está bem azul.", "n2"],
+  "n2": ["n", "This is your new food truck. It is small and yellow, with a big toucan on the side.", "Este é o seu novo food truck. É pequeno e amarelo, com um tucano enorme na lateral.", "b1"],
+  "b1": ["b", "There you are! Day one of The Little Toucan! How do you feel?", "Aí está você! Primeiro dia do The Little Toucan! Como você está se sentindo?", [
+   ["Excited! Let's sell some food.", "Na maior empolgação! Vamos vender comida.", "b_excited"],
+   ["A little nervous, to be honest.", "Meio que com frio na barriga, pra falar a verdade.", "b_nervous"],
+   ["Yes, I can fill it up.", "Sim, eu posso encher o tanque.", null, "Fill what up? The truck has gas! I asked about you. Are you okay today?", "Encher o quê? O truck tem gasolina! Eu perguntei de você. Está tudo bem hoje?"]
+  ]],
+  "b_excited": ["b", "Me too! I didn't sleep. I made cheese bread at four in the morning.", "Eu também! Nem dormi. Fiz pão de queijo às quatro da manhã.", "b_job"],
+  "b_nervous": ["b", "Me too! I didn't sleep. But nervous is good. Nervous people don't burn the rice.", "Eu também! Nem dormi. Mas nervoso é bom. Gente nervosa não queima o arroz.", "b_job"],
+  "b_job": ["b", "Okay. I cook, and you take the orders at the window. You talk to people. Deal?", "Então tá. Eu cozinho, e você anota os pedidos na janela. Você fala com as pessoas. Fechado?", [
+   ["Deal. But what do I say first?", "Fechado. Mas o que eu falo primeiro?", "b_say"],
+   ["Sure. I know the menu by heart.", "Claro. Eu sei o cardápio de cor.", "b_test"],
+   ["Okay, I'll take the oranges.", "Tá, eu fico com as laranjas.", null, "Not oranges. Orders! You talk to the customers. Is that okay with you?", "Laranjas, não. Pedidos! Você fala com os clientes. Pode ser?"]
+  ]],
+  "b_say": ["b", "Easy. Say: Hi, welcome to The Little Toucan. What can I get you?", "Fácil. Diga: Oi, boas-vindas ao The Little Toucan. O que vai querer?", "b_menu"],
+  "b_menu": ["b", "The prices are on the board. Beans and rice is eight dollars. Coffee is two.", "Os preços estão no quadro. Arroz com feijão é oito dólares. Café é dois.", "n_cust"],
+  "b_test": ["b", "By heart? Okay, quick test. How much is the beans and rice plate?", "De cor? Tá, teste rápido. Quanto custa o prato de arroz com feijão?", [
+   ["Eight dollars.", "Oito dólares.", "b_right"],
+   ["Ten dollars, I think?", "Dez dólares, eu acho?", "b_wrong"],
+   ["Yes, it's very much.", "Sim, é muito mesmo.", null, "No, no. The price. How many dollars is the beans and rice plate?", "Não, não. O preço. Quantos dólares custa o prato de arroz com feijão?"]
+  ]],
+  "b_right": ["b", "Yes! Eight dollars. And a coffee is two. You know everything.", "Isso! Oito dólares. E o café é dois. Você já sabe tudo.", "n_cust"],
+  "b_wrong": ["b", "No! Eight dollars. Ten is the steak sandwich. Look at the board if you forget.", "Não! Oito dólares. Dez é o sanduíche de carne. Olhe o quadro se esquecer.", "n_cust"],
+  "n_cust": ["n", "Bia opens the window. A minute later, an old man in a gray hat walks up, slowly.", "A Bia abre a janela. Um minuto depois, um senhor de chapéu cinza chega, devagar.", "w1"],
+  "w1": ["w", "Morning.", "Bom dia.", [
+   ["Good morning! Welcome to The Little Toucan.", "Bom dia! Boas-vindas ao The Little Toucan.", "w_order"],
+   ["Hi! You're our first customer ever!", "Oi! O senhor é o nosso primeiro cliente de todos!", "w_first"],
+   ["No, it's Monday.", "Não, é segunda.", null, "I know it's Monday. I said good morning. Are you open?", "Eu sei que é segunda. Eu disse bom dia. Vocês estão abertos?"]
+  ]],
+  "w_first": ["w", "The first. Hm. Then don't make a mistake.", "O primeiro. Hum. Então não erre.", "w_order"],
+  "w_order": ["w", "What's on the menu? I can't read the board without my glasses.", "O que tem no cardápio? Não consigo ler o quadro sem óculos.", [
+   ["We have beans and rice, steak sandwiches and cheese bread.", "Temos arroz com feijão, sanduíche de carne e pão de queijo.", "w_choose"],
+   ["Do you like meat? Our steak sandwich is great.", "O senhor gosta de carne? Nosso sanduíche de carne é ótimo.", "w_nomeat"],
+   ["The board is yellow and green.", "O quadro é amarelo e verde.", null, "I can see colors. I can't see the words. What food do you sell?", "As cores eu enxergo. Não enxergo as palavras. Que comida vocês vendem?"]
+  ]],
+  "w_choose": ["w", "Beans and rice. That's all.", "Arroz com feijão. Só isso.", "w_drink"],
+  "w_nomeat": ["w", "Too heavy for lunch. Something simple. Do you have beans and rice?", "Pesado demais pro almoço. Algo simples. Vocês têm arroz com feijão?", "w_drink"],
+  "w_drink": ["w", "And a coffee.", "E um café.", [
+   ["Sure. Milk and sugar?", "Claro. Com leite e açúcar?", "w_black"],
+   ["Of course. Small or large?", "Claro. Pequeno ou grande?", "w_large"],
+   ["Sorry, we don't sell coughing.", "Desculpe, a gente não vende tosse.", null, "Not coughing. Coffee. To drink. Do you have coffee?", "Tosse, não. Café. De beber. Vocês têm café?"]
+  ]],
+  "w_black": ["w", "No milk. No sugar. Just coffee.", "Sem leite. Sem açúcar. Só café.", "w_pay"],
+  "w_large": ["w", "Small. Black. No sugar.", "Pequeno. Preto. Sem açúcar.", "w_pay"],
+  "w_pay": ["w", "How much is that?", "Quanto deu?", [
+   ["That's ten dollars, please.", "Deu dez dólares, por favor.", "w_ok"],
+   ["Twelve dollars, please.", "Doze dólares, por favor.", "w_math"],
+   ["It's eleven o'clock.", "São onze horas.", null, "Not the time. The price. How much do I pay?", "Não é a hora. É o preço. Quanto eu pago?"]
+  ]],
+  "w_ok": ["w", "Ten. Here.", "Dez. Aqui.", "n_eat"],
+  "w_math": ["w", "Eight and two is ten, kid. Not twelve. Here's ten.", "Oito mais dois dá dez, jovem. Não doze. Toma dez.", "n_eat"],
+  "n_eat": ["n", "He eats at the small table, slowly. He does not smile. He does not say a word.", "Ele come na mesinha, devagar. Não sorri. Não diz uma palavra.", "b_whisper"],
+  "b_whisper": ["b", "He's so quiet! Is the food bad? Quick, give him something. A little gift!", "Ele é tão quieto! Será que a comida está ruim? Rápido, leva alguma coisa pra ele. Um presentinho!", [
+   ["Good idea. I'll take him a warm cheese bread.", "Boa ideia. Vou levar um pão de queijo quentinho.", "w_what", {"set": {"sample": "cheese_bread"}}],
+   ["Let's give him a chocolate truffle. Everybody loves those.", "Vamos dar um brigadeiro. Todo mundo ama.", "w_what", {"set": {"sample": "truffle"}}],
+   ["No. Let him eat in peace.", "Não. Deixa ele comer em paz.", "n_none", {"set": {"sample": "none"}}],
+   ["A lift? But he doesn't have a car.", "Uma carona? Mas ele nem tem carro.", null, "Not a lift! A gift! Something free, from us. What do we give him?", "Carona, não! Presente! Uma coisa de graça, nossa. O que a gente dá pra ele?"]
+  ]],
+  "w_what": ["w", "What's this? I didn't order it.", "O que é isso? Eu não pedi.", [
+   ["It's a gift from us. Today is our first day.", "É um presente nosso. Hoje é o nosso primeiro dia.", "w_gift"],
+   ["Something from Brazil. Try it, please.", "Uma coisa do Brasil. Prove, por favor.", "w_try"],
+   ["It's a small table.", "É uma mesa pequena.", null, "I know it's a table. This food. Why is it here?", "Eu sei que é uma mesa. Esta comida. Por que ela está aqui?"]
+  ]],
+  "w_gift": ["w", "A gift. Hm.", "Um presente. Hum.", "n_took"],
+  "w_try": ["w", "Brazil. Hm.", "Brasil. Hum.", "n_took"],
+  "n_took": ["n", "He looks at it for a long time. Then he eats it, and he puts on his hat.", "Ele fica um tempão olhando. Depois come, e põe o chapéu.", "w_open"],
+  "n_none": ["n", "You let him eat. He finishes everything, and he puts on his hat.", "Você deixa ele comer. Ele termina tudo, e põe o chapéu.", "w_open"],
+  "w_open": ["w", "Are you open tomorrow?", "Vocês abrem amanhã?", [
+   ["Yes, every day from eleven to three.", "Sim, todo dia das onze às três.", "w_bye"],
+   ["Yes! Did you like the food?", "Sim! O senhor gostou da comida?", "w_noanswer"],
+   ["Tomorrow? No, thank you, I'm full.", "Amanhã? Não, valeu, já comi bastante.", null, "I'm not offering you food. Is the truck open tomorrow or not?", "Não estou te oferecendo comida. O truck abre amanhã ou não?"]
+  ]],
+  "w_bye": ["w", "Eleven. Good.", "Onze. Certo.", "n_flyer"],
+  "w_noanswer": ["w", "I'll be here at eleven.", "Estarei aqui às onze.", "n_flyer"],
+  "n_flyer": ["n", "He walks away. Bia runs out of the truck with a piece of paper in her hand.", "Ele vai embora. A Bia sai correndo do truck com um papel na mão.", "b_flyer"],
+  "b_flyer": ["b", "Look at this! The Street Food Festival, in two weeks! First prize is five thousand dollars!", "Olha isso! O Festival de Comida de Rua, daqui a duas semanas! O primeiro prêmio é de cinco mil dólares!", "b_flyer2"],
+  "b_flyer2": ["b", "And listen: before the festival, a secret judge visits every truck, like a normal customer!", "E escuta: antes do festival, um jurado secreto visita cada truck, como um cliente comum!", "b_q", {"clue": "secret_judge"}],
+  "b_q": ["b", "A secret judge! It can be anyone! Should we enter?", "Um jurado secreto! Pode ser qualquer pessoa! A gente se inscreve?", [
+   ["Yes! Let's do it.", "Sim! Vamos nessa.", "b_yes"],
+   ["Is it expensive to enter?", "É caro pra se inscrever?", "b_cost"],
+   ["Enter? But I'm already inside.", "Entrar? Mas eu já estou aqui dentro.", null, "Not the truck! The festival! Do we put our name on the list?", "No truck, não! No festival! A gente põe o nosso nome na lista?"]
+  ]],
+  "b_yes": ["b", "Yes! With five thousand dollars, we can buy a new fridge. Ours is very old.", "Isso! Com cinco mil dólares, dá pra comprar uma geladeira nova. A nossa é bem velha.", "b_end"],
+  "b_cost": ["b", "Fifty dollars. That's six plates of beans and rice. We can do that!", "Cinquenta dólares. São seis pratos de arroz com feijão. A gente consegue!", "b_end"],
+  "b_end": ["b", "Then it's a deal. From today, every customer gets a big smile. Every one!", "Então fechado. A partir de hoje, todo cliente ganha um sorrisão. Todos!", "n_end"],
+  "n_end": ["n", "A big red truck parks next to yours. It says Smoke King. A loud horn plays a song.", "Um caminhão vermelho enorme estaciona do lado do seu. Está escrito Smoke King. Uma buzina alta toca uma música.", null]
+ }
+}

@@ -1,0 +1,95 @@
+{
+ "slug": "s10-01-day-one", "episode": 1, "title": "Day One", "level": "B1",
+ "place": "office", "placeLabel": "Escritório da Kettle", "time": "Segunda · 9h", "ambience": "office",
+ "description": "Seu primeiro dia numa startup de Londres. E você já quebra o aplicativo.",
+ "intro": "Você acabou de chegar a Londres para trabalhar na Kettle, uma startup pequena que faz um aplicativo para cafés. Faltam cinco dias para a demonstração aos investidores.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "h": ["Helen", "Fundadora e chefe da Kettle", "bf_isabella", "left"],
+  "d": ["Dylan", "Vendas", "am_puck", "right"],
+  "p": ["Priya", "Designer", "bf_alice", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Monday morning, East London. An old brick warehouse, second floor. The sign on the door says Kettle.", "Segunda de manhã, zona leste de Londres. Um velho galpão de tijolos, segundo andar. A placa na porta diz Kettle.", "n2"],
+  "n2": ["n", "Inside: twelve desks, one loud coffee machine, and a countdown on the wall. Demo day: five days.", "Lá dentro: doze mesas, uma máquina de café barulhenta e uma contagem regressiva na parede. Dia da demonstração: cinco dias.", "h1"],
+  "h1": ["h", "You must be our new starter! I'm Helen. Sorry, I'm already late for three things.", "Você deve ser quem começa hoje! Eu sou a Helen. Desculpa, já estou atrasada para três coisas.", [
+   ["Lovely to meet you. I'm really excited to be here.", "Prazer! Tô na maior empolgação de estar aqui.", "h_excited"],
+   ["Hi, Helen. Have I come at a bad time?", "Oi, Helen. Cheguei numa hora ruim?", "h_badtime"],
+   ["Nice to meet you. I'm late for three years.", "Prazer. Eu tô com três anos de atraso.", null, "Three years? Then you'll fit right in. Let's try that again. Hello, I'm Helen!", "Três anos? Então você vai se encaixar direitinho. Vamos de novo. Olá, eu sou a Helen!"]
+  ]],
+  "h_excited": ["h", "Good. Hold on to that until Friday. That's demo day: we show the app to investors.", "Ótimo. Segura essa energia até sexta. É o dia da demonstração: vamos mostrar o aplicativo para investidores.", "h_q2"],
+  "h_badtime": ["h", "It's always a bad time. That's start-up life. Friday is demo day: we show the app to investors.", "Sempre é uma hora ruim. Vida de startup. Sexta é o dia da demonstração: vamos mostrar o aplicativo para investidores.", "h_q2"],
+  "h_q2": ["h", "Quick question before I run. What do you actually know about what we do?", "Uma pergunta rápida antes de eu sair correndo. O que você sabe de verdade sobre o que a gente faz?", [
+   ["Kettle is an app for independent cafés. Customers order ahead and skip the queue.", "A Kettle é um aplicativo para cafés independentes. O cliente pede antes e não pega fila.", "h_know"],
+   ["Not enough yet, to be honest. Could you walk me through it?", "Ainda não o bastante, pra falar a verdade. Pode me explicar por alto?", "h_explain"],
+   ["You make kettles. I love a nice cup of tea.", "Vocês fazem chaleiras. Eu adoro um bom chá.", null, "Ha! No kettles, sadly. It's just a name. So, what does our app do?", "Rá! Nada de chaleiras, infelizmente. É só o nome. Então, o que o nosso aplicativo faz?"]
+  ]],
+  "h_know": ["h", "Word for word! Somebody's done their homework. I like that.", "Palavra por palavra! Alguém fez a lição de casa. Gostei.", "h_dylan"],
+  "h_explain": ["h", "Thirty seconds, then. Small cafés, one app. Customers order ahead, pay by phone, skip the queue.", "Trinta segundos, então. Cafés pequenos, um aplicativo. O cliente pede antes, paga pelo celular e não pega fila.", "h_dylan"],
+  "h_dylan": ["h", "Dylan! Look after our new colleague, will you? I've got an investor on the phone.", "Dylan! Cuida de quem acabou de chegar, pode ser? Estou com uma investidora no telefone.", "n3"],
+  "n3": ["n", "A man in a bright yellow jumper rolls across the floor on his office chair.", "Um homem de suéter amarelo berrante atravessa a sala rolando na cadeira de escritório.", "d1"],
+  "d1": ["d", "Welcome to the madhouse! I'm Dylan. I do the sales, and most of the talking. Any questions?", "Boas-vindas ao hospício! Eu sou o Dylan. Cuido das vendas e de quase toda a falação. Alguma pergunta?", [
+   ["Good to meet you. What should I know first?", "Prazer. O que eu preciso saber primeiro?", "d_first"],
+   ["Is it always this busy in here?", "É sempre essa correria aqui?", "d_busy"],
+   ["Great! I do most of the walking.", "Ótimo! Eu cuido de quase toda a caminhada.", null, "Ha! Walking's healthy. But I said talking. I'm in sales! So, any questions for me?", "Rá! Caminhar faz bem. Mas eu disse falação. Sou de vendas! E aí, alguma pergunta pra mim?"]
+  ]],
+  "d_first": ["d", "Rule one: never touch Tom's keyboards. Rule two, more important: everybody here has their own mug.", "Regra um: nunca encoste nos teclados do Tom. Regra dois, mais importante: aqui cada um tem a sua caneca.", "d_mug"],
+  "d_busy": ["d", "Busy? This is calm. Wait until Thursday. Now, the really important thing: mugs.", "Correria? Isso aqui é calmaria. Espera só até quinta. Agora, o que importa de verdade: canecas.", "d_mug"],
+  "d_mug": ["d", "You haven't earned your own mug yet. So pick a guest one. Cat, chipped blue, or World's Okayest Boss?", "Você ainda não conquistou a sua caneca. Então escolhe uma de visita. A do gato, a azul lascada ou a de Chefe Mais ou Menos do Mundo?", [
+   ["I'll take the cat one.", "Vou ficar com a do gato.", "d_cat", {"set": {"mug": "cat"}}],
+   ["The chipped blue one will do.", "A azul lascada tá ótima.", "d_blue", {"set": {"mug": "blue"}}],
+   ["World's Okayest Boss, obviously.", "Chefe Mais ou Menos do Mundo, é claro.", "d_boss", {"set": {"mug": "boss"}}],
+   ["I'll take the cat home, please.", "Vou levar o gato pra casa, por favor.", null, "It's a mug, not a pet! Come on. Cat, blue, or the boss one?", "É uma caneca, não um bichinho! Vamos lá. Gato, azul ou a da chefe?"]
+  ]],
+  "d_cat": ["d", "Bold choice. That cat has seen things.", "Escolha ousada. Esse gato já viu coisas.", "d_team"],
+  "d_blue": ["d", "Humble. I like it. Careful, though: it bites your lip.", "Humildade. Gostei. Mas cuidado: ela morde o lábio.", "d_team"],
+  "d_boss": ["d", "Brave! That one was a present for Helen. She pretends she hates it.", "Que coragem! Essa foi um presente pra Helen. Ela finge que odeia.", "d_team"],
+  "d_team": ["d", "Right, the team. Tom builds the app. Helen runs the show. And that's Priya, by the window.", "Bom, o time. O Tom constrói o aplicativo. A Helen comanda o espetáculo. E aquela é a Priya, perto da janela.", [
+   ["What does Priya do?", "O que a Priya faz?", "d_priya"],
+   ["And what will I be doing this week?", "E o que eu vou fazer esta semana?", "d_task"],
+   ["Who runs the shower?", "Quem comanda o chuveiro?", null, "The show, not the shower! We haven't got one. So, what do you want to know?", "O espetáculo, não o chuveiro! A gente nem tem um. E aí, o que você quer saber?"]
+  ]],
+  "d_priya": ["d", "Design. And customer support. And the client newsletter. Since Omar left in March, she does three jobs.", "Design. E suporte ao cliente. E a newsletter dos clientes. Desde que o Omar saiu, em março, ela faz três funções.", "d_task", {"clue": "three_jobs"}],
+  "d_task": ["d", "As for you: testing. Order coffee on the demo app, all day. Break it before the investors do.", "Quanto a você: testes. Peça café no aplicativo de demonstração o dia todo. Quebre antes que os investidores quebrem.", "n4"],
+  "n4": ["n", "Dylan rolls away. By the window, a woman with tired eyes and a big smile waves you over.", "O Dylan sai rolando. Perto da janela, uma mulher de olhos cansados e sorriso largo te chama com a mão.", "p1"],
+  "p1": ["p", "Hi! Sorry, one second. Done. I'm Priya. Shall I set up your test account now?", "Oi! Desculpa, um segundinho. Pronto. Eu sou a Priya. Posso criar a sua conta de teste agora?", [
+   ["Yes, please. But no rush. You look really busy.", "Sim, por favor. Mas sem pressa. Você parece bem ocupada.", "p_busy"],
+   ["Sure. What's on all those screens?", "Claro. O que tem nessas telas todas?", "p_work"],
+   ["Yes, please. I'd love to taste it.", "Sim, por favor. Eu adoraria provar.", null, "Taste? Ha! Test, not taste. It's an account, not a cake. Shall I set it up?", "Provar? Rá! É teste, não degustação. É uma conta, não um bolo. Posso criar?"]
+  ]],
+  "p_busy": ["p", "Busy? Just the new designs, the support inbox, and the client update that goes out tonight.", "Ocupada? Só os designs novos, a caixa do suporte e a newsletter dos clientes, que sai hoje à noite.", "p_help"],
+  "p_work": ["p", "That one's the new designs. That's the support inbox. And that's tonight's client update.", "Essa é a dos designs novos. Aquela é a caixa do suporte. E aquela é a newsletter dos clientes de hoje à noite.", "p_help"],
+  "p_help": ["p", "But it's fine! Honestly. I've got a system. Well, sort of.", "Mas tá tudo bem! Sério. Eu tenho um sistema. Bom, mais ou menos.", [
+   ["Can I take something off your plate? I could check the client update.", "Posso tirar alguma coisa das suas costas? Eu poderia revisar a newsletter.", "p_offer", {"set": {"offered_help": "yes"}}],
+   ["It sounds like you've got it all under control.", "Parece que você tem tudo sob controle.", "p_control", {"set": {"offered_help": "no"}}],
+   ["A system? Is your sister here too?", "Um sistema? Sua irmã também está aqui?", null, "My sister? No! A system. A way of doing things. Honestly, I'm fine. Don't I look fine?", "Minha irmã? Não! Um sistema. Um jeito de fazer as coisas. Sério, eu tô bem. Não pareço bem?"]
+  ]],
+  "p_offer": ["p", "That's so kind! But no, you've only just arrived. I'll do it tonight, when it's quiet.", "Que gentileza! Mas não, você mal chegou. Eu faço hoje à noite, quando estiver tudo calmo.", "p_account"],
+  "p_control": ["p", "Under control. Yes. Absolutely. That is definitely the word.", "Sob controle. Sim. Com certeza. Essa é exatamente a palavra.", "p_account"],
+  "p_account": ["p", "Okay, you're in! Open the app and order something from the test café. What do you fancy?", "Pronto, você entrou! Abre o aplicativo e pede alguma coisa no café de teste. O que você vai querer?", [
+   ["A flat white, please.", "Um flat white, por favor.", "n5", {"set": {"order": "coffee"}}],
+   ["A pot of tea and a slice of cake.", "Um bule de chá e uma fatia de bolo.", "n5", {"set": {"order": "tea"}}],
+   ["A flat tyre, please.", "Um pneu furado, por favor.", null, "A flat tyre? Wrong shop! A flat white is a coffee. So, what would you like to order?", "Um pneu furado? Loja errada! Flat white é um café. Então, o que você quer pedir?"]
+  ]],
+  "n5": ["n", "You tap Pay. Nothing happens. You tap it again. The screen says: Thank you! Payment received. Twice.", "Você toca em Pay. Nada acontece. Você toca de novo. A tela diz: Obrigado! Pagamento recebido. Duas vezes.", "n6"],
+  "n6": ["n", "You check the test card. It has been charged two times, for one order.", "Você confere o cartão de teste. Ele foi cobrado duas vezes por um pedido só.", "p2"],
+  "p2": ["p", "Everything all right over there? You've gone a bit pale.", "Tudo certo aí? Você ficou sem cor.", [
+   ["I think I've found a problem. It charged me twice.", "Acho que encontrei um problema. Ele me cobrou duas vezes.", "p_bug"],
+   ["I'm not sure. Is it supposed to take the money twice?", "Não tenho certeza. Era pra ele cobrar duas vezes?", "p_bug2"],
+   ["It's probably nothing. I'll try again later.", "Não deve ser nada. Depois eu tento de novo.", "p_hide"],
+   ["Yes, I'd love a pale ale.", "Sim, eu adoraria uma cerveja clara.", null, "A pale ale? At ten in the morning? No! I mean you look worried. What's wrong?", "Uma cerveja? Às dez da manhã? Não! Eu quis dizer que você está com cara de preocupação. O que houve?"]
+  ]],
+  "p_bug": ["p", "Twice? Oh no. Oh no, no, no. That's the payment screen. That's the whole demo.", "Duas vezes? Ai, não. Ai, não, não, não. Essa é a tela de pagamento. É a demonstração inteira.", "p_q"],
+  "p_bug2": ["p", "Twice? No. Definitely not. Oh no. That's the payment screen. That's the whole demo.", "Duas vezes? Não. De jeito nenhum. Ai, não. Essa é a tela de pagamento. É a demonstração inteira.", "p_q"],
+  "p_hide": ["p", "Hang on, let me see your screen. Oh. Oh no. It charged you twice. That's the whole demo.", "Espera, deixa eu ver a sua tela. Ah. Ai, não. Ele te cobrou duas vezes. Isso é a demonstração inteira.", "p_q"],
+  "p_q": ["p", "We have to tell Tom. He'll go very quiet. Will you tell him, or shall I come too?", "A gente precisa contar pro Tom. Ele vai ficar bem calado. Você quer contar, ou eu vou junto?", [
+   ["I'll tell him. I found it, so I should explain it.", "Eu conto. Fui eu que achei, então eu que devo explicar.", "p_brave", {"set": {"told_tom": "self"}}],
+   ["Could you come with me? I haven't even met him yet.", "Você pode vir comigo? Eu ainda nem conheci ele.", "p_together", {"set": {"told_tom": "together"}}],
+   ["I'll tell him a joke first.", "Vou contar uma piada pra ele primeiro.", null, "A joke? Today? Please don't. So, will you tell Tom alone, or shall I come?", "Uma piada? Hoje? Por favor, não. Então, você conta pro Tom por conta própria, ou eu vou junto?"]
+  ]],
+  "p_brave": ["p", "Brave! One tip: just the facts. Tom doesn't do small talk.", "Que coragem! Uma dica: só os fatos. O Tom não é de conversa fiada.", "n_end"],
+  "p_together": ["p", "Of course I will. One tip: just the facts. Tom doesn't do small talk.", "Claro que eu vou. Uma dica: só os fatos. O Tom não é de conversa fiada.", "n_end"],
+  "n_end": ["n", "It's ten o'clock on your first day. And you've just broken the demo.", "São dez horas do seu primeiro dia. E você acabou de quebrar a demonstração.", null]
+ }
+}

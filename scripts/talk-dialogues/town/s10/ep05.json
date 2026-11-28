@@ -1,0 +1,98 @@
+{
+ "slug": "s10-05-the-deadline", "episode": 5, "title": "The Deadline", "level": "B2",
+ "place": "office", "placeLabel": "Sala da Helen", "time": "Quarta · 10h", "ambience": "office",
+ "description": "Leve uma má notícia à chefe e negocie o que entra na demonstração.",
+ "intro": "O Dylan tem álibi: estava num voo que pousou depois da meia-noite. Ainda faltam duas respostas: quem vazou o slide, e o que entra na demonstração de sexta. Hoje a Helen decide.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "t": ["Tom", "Engenheiro", "bm_daniel", "left"],
+  "h": ["Helen", "Fundadora e chefe da Kettle", "bf_isabella", "left"],
+  "p": ["Priya", "Designer", "bf_alice", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Wednesday. Two days to go. On the whiteboard, 'stamps' and 'bug' have each been crossed out twice.", "Quarta. Faltam dois dias. No quadro branco, 'selos' e 'bug' já foram riscados duas vezes cada.", "n2"],
+  "n2": ["n", "Tom waves you over. For Tom, that's practically a hug.", "O Tom te chama com a mão. Vindo do Tom, isso é praticamente um abraço.", "rep_br"],
+  "rep_br": {"branch": [["report=clear", "t1c"], [null, "t1v"]]},
+  "t1c": ["t", "Your report saved me half a day. The fix works. Mostly.", "Seu relato me poupou meio dia. O conserto funciona. Em grande parte.", "t2"],
+  "t1v": ["t", "I've got a fix. It took a while to find, after 'it broke'. It works. Mostly.", "Tenho um conserto. Demorou pra achar, depois do 'quebrou'. Funciona. Em grande parte.", "t2"],
+  "t2": ["t", "'Mostly' means it needs testing until Friday. With stamps as well, that's impossible. Will you tell Helen?", "'Em grande parte' quer dizer que precisa de testes até sexta. Com os selos junto, é impossível. Você conta pra Helen?", [
+   ["I will. But give me numbers. How many hours for each?", "Conto. Mas me dá números. Quantas horas pra cada coisa?", "t_num"],
+   ["Why me? I've only been here three days.", "Por que eu? Faz só três dias que eu cheguei.", "t_why"],
+   ["I'll tell her in Portuguese.", "Eu conto pra ela em português.", null, "She doesn't speak it. Nor do I. In English: will you tell Helen I can't do both?", "Ela não fala. Nem eu. Em inglês: você conta pra Helen que eu não consigo fazer os dois?"]
+  ]],
+  "t_why": ["t", "Because I say things correctly, and you say them politely. Helen prefers politely.", "Porque eu falo as coisas do jeito certo, e você fala com educação. A Helen prefere com educação.", "t_num"],
+  "t_num": ["t", "Bug, with testing: twelve hours. Stamps: twenty. I've got sixteen left. Do the maths.", "Bug, com testes: doze horas. Selos: vinte. Me sobram dezesseis. Faz a conta.", "t3"],
+  "t3": ["t", "One more thing. You asked who could open the deck. Come and look at this folder.", "Mais uma coisa. Você perguntou quem podia abrir a apresentação. Vem olhar esta pasta.", [
+   ["Go on, show me. What am I looking at?", "Vai, me mostra. O que eu tô vendo aqui?", "t_folder"],
+   ["Later, Tom. Let me deal with Helen first.", "Depois, Tom. Deixa eu resolver com a Helen primeiro.", "t_later"],
+   ["The deck? Are we on a boat?", "O convés? A gente está num barco?", null, "Not that kind of deck. The pitch deck. The slides. Do you want to see the folder?", "Não esse tipo de deck. O deck do pitch. Os slides. Você quer ver a pasta?"]
+  ]],
+  "t_folder": ["t", "Two files. 'Demo day final' is the client invitation. 'Demo deck final' is the secret pitch.", "Dois arquivos. 'Demo day final' é o convite para os clientes. 'Demo deck final' é o pitch secreto.", "t_fq", {"clue": "twin_files"}],
+  "t_fq": ["t", "One word apart. Day, deck. On a tired evening, I nearly mixed them up myself. So?", "Uma palavra de diferença. Day, deck. Numa noite de cansaço, eu mesmo quase troquei os dois. E então?", [
+   ["So the leak could be an accident. Someone attached the wrong file.", "Então o vazamento pode ter sido um acidente. Alguém anexou o arquivo errado.", "t_acc"],
+   ["Or someone wants it to look like an accident.", "Ou alguém quer que pareça um acidente.", "t_susp"],
+   ["So Tuesday is a deck day?", "Então terça é dia de deck?", null, "No. Day and deck. Two file names, nearly the same. What does that tell you?", "Não. Day e deck. Dois nomes de arquivo quase iguais. O que isso te diz?"]
+  ]],
+  "t_acc": ["t", "That's my guess. Most bugs are accidents, not crimes. People are the same.", "É o meu palpite. A maioria dos bugs é acidente, não crime. Com gente é igual.", "n3"],
+  "t_susp": ["t", "You've been spending time with Dylan. Keep an open mind. Now go and see Helen.", "Você anda passando tempo com o Dylan. Mantenha a cabeça aberta. Agora vai falar com a Helen.", "n3"],
+  "t_later": ["t", "Fine. It's only a folder. It'll still be here. Go and see Helen.", "Tudo bem. É só uma pasta. Ela vai continuar aqui. Vai falar com a Helen.", "n3"],
+  "n3": ["n", "Helen's office is a glass box in the corner. You can see her pacing before you knock.", "A sala da Helen é uma caixa de vidro no canto. Dá para vê-la andando de um lado para o outro antes de você bater.", "mug_br"],
+  "mug_br": {"branch": [["mug=boss", "h1m"], [null, "h1"]]},
+  "h1m": ["h", "Come in. Is that my mug? Never mind. It suits you. Sit down.", "Entra. Essa caneca é a minha? Deixa pra lá. Combina com você. Senta.", "side_br"],
+  "h1": ["h", "Come in, come in. Sit down. I've got ten minutes.", "Entra, entra. Senta. Eu tenho dez minutos.", "side_br"],
+  "side_br": {"branch": [["sided=tom", "h2t"], ["sided=helen", "h2h"], [null, "h2m"]]},
+  "h2t": ["h", "On Monday you told me to fix the bug first. I haven't forgotten.", "Na segunda você me disse pra consertar o bug primeiro. Eu não esqueci.", "h2q"],
+  "h2h": ["h", "On Monday you backed my stamps. So I'm hoping this is good news.", "Na segunda você apoiou os meus selos. Então espero que seja notícia boa.", "h2q"],
+  "h2m": ["h", "On Monday you wanted a bit of both. Very diplomatic.", "Na segunda você queria um pouco de cada. Muito diplomático da sua parte.", "h2q"],
+  "h2q": ["h", "So. What's the verdict from Tom?", "E então. Qual é o veredito do Tom?", [
+   ["I'm afraid it's not what you were hoping for. Can I walk you through it?", "Infelizmente não é o que você esperava. Posso te explicar passo a passo?", "h_walk"],
+   ["Tom can't do both. That's the short version.", "O Tom não consegue fazer os dois. Essa é a versão curta.", "h_blunt"],
+   ["The verdict is guilty.", "O veredito é culpado.", null, "This isn't a courtroom. Not yet. Bug or stamps: what did Tom tell you?", "Isto aqui não é um tribunal. Ainda não. Bug ou selos: o que o Tom te disse?"]
+  ]],
+  "h_walk": ["h", "That's how people start bad news. Go on. I'd rather hear it straight.", "É assim que as pessoas começam uma má notícia. Continua. Prefiro ouvir sem rodeios.", "h3"],
+  "h_blunt": ["h", "Well. That's certainly short.", "Bom. Curta, com certeza, ela é.", "h3"],
+  "h3": ["h", "Why can't he do both? He's the best engineer I've ever worked with.", "Por que ele não consegue fazer os dois? É o melhor engenheiro com quem eu já trabalhei.", [
+   ["He has sixteen hours left. The bug needs twelve, and the stamps need twenty.", "Ele tem dezesseis horas. O bug precisa de doze, e os selos precisam de vinte.", "h_num"],
+   ["He isn't saying no. He's protecting the demo by testing properly.", "Ele não está dizendo não. Está protegendo a demonstração ao testar direito.", "h_prot"],
+   ["Because he's a very good engine.", "Porque ele é um motor muito bom.", null, "Engineer. He's a person, not a machine. I think. Why can't he do both?", "Engenheiro. Ele é uma pessoa, não uma máquina. Eu acho. Por que ele não consegue fazer os dois?"]
+  ]],
+  "h_num": ["h", "Sixteen, twelve, twenty. Hmm. I can't argue with arithmetic.", "Dezesseis, doze, vinte. Hum. Com aritmética eu não discuto.", "h4"],
+  "h_prot": ["h", "Protecting the demo. He never puts it like that. He just says no.", "Protegendo a demonstração. Ele nunca fala desse jeito. Ele só diz não.", "h4"],
+  "h4": ["h", "But without stamps, the demo is just a payment screen. Where's the wow?", "Mas sem os selos, a demonstração é só uma tela de pagamento. Cadê o uau?", [
+   ["What if we show the stamps as a design? A mock-up, clearly labelled 'coming soon'.", "E se a gente mostrar os selos como desenho? Um protótipo, com o aviso 'em breve' bem claro.", "h_safe", {"set": {"plan": "safe"}}],
+   ["Then let's go for both: a quick patch for the bug, and real stamps.", "Então vamos nos dois: um remendo rápido no bug e os selos de verdade.", "h_risky", {"set": {"plan": "risky"}}],
+   ["Could we push the demo back to Monday?", "Dá pra adiar a demonstração pra segunda?", "h_move"],
+   ["Bow-wow? I love dogs.", "Au-au? Eu adoro cachorro.", null, "Not bow-wow. Wow! The moment that impresses people. How do we get one without stamps?", "Não é au-au. É uau! O momento que impressiona as pessoas. Como a gente consegue um sem os selos?"]
+  ]],
+  "h_move": ["h", "Amara Cole flies to Lagos on Saturday. Friday is all we've got. Give me something else.", "A Amara Cole voa para Lagos no sábado. Sexta é tudo o que a gente tem. Me dá outra ideia.", [
+   ["Then show the stamps as a mock-up, and fix the bug properly.", "Então mostra os selos como protótipo e conserta o bug direito.", "h_safe", {"set": {"plan": "safe"}}],
+   ["Then a quick patch for the bug, and real stamps.", "Então um remendo rápido no bug e os selos de verdade.", "h_risky", {"set": {"plan": "risky"}}],
+   ["Then I'll fly to Lagos too.", "Então eu também vou voar pra Lagos.", null, "Tempting, I know. But no. Bug, stamps, Friday. What do we do?", "Tentador, eu sei. Mas não. Bug, selos, sexta. O que a gente faz?"]
+  ]],
+  "h_safe": ["h", "A mock-up. Honest about what's built and what's coming. Yes. I can sell that.", "Um protótipo. Sincero sobre o que está pronto e o que vem depois. Sim. Isso eu consigo vender.", "h5"],
+  "h_risky": ["h", "A quick patch. Tom will sulk. But that's the fighting spirit I hired.", "Um remendo rápido. O Tom vai ficar emburrado. Mas foi essa garra que eu contratei.", "h5"],
+  "h5": ["h", "While the door's closed. The leak. Have you got anything for me?", "Aproveitando a porta fechada. O vazamento. Você tem alguma coisa pra mim?", [
+   ["Dylan's in the clear. He was on a plane on Monday night.", "O Dylan está limpo. Ele estava num avião na noite de segunda.", "h_dyl"],
+   ["Not yet. But I don't believe anyone here wanted to hurt you.", "Ainda não. Mas eu não acredito que alguém aqui quis te prejudicar.", "h_hurt"],
+   ["A question, actually. How many jobs is Priya doing?", "Na verdade, uma pergunta. Quantas funções a Priya está fazendo?", "h_pri"],
+   ["A leak? I'll call a plumber.", "Um vazamento? Vou chamar um encanador.", null, "Not a water leak! Slide nine. Have you found anything out?", "Não é vazamento de água! O slide nove. Você descobriu alguma coisa?"]
+  ]],
+  "h_dyl": ["h", "Good. I never truly believed it was him. He's loud, not disloyal.", "Que bom. Eu nunca acreditei de verdade que fosse ele. Ele é barulhento, não desleal.", "n4"],
+  "h_hurt": ["h", "I hope you're right. I trusted those three with everything.", "Espero que você tenha razão. Eu confiei tudo àqueles três.", "n4"],
+  "h_pri": ["h", "Priya? Design. And support. And the client newsletter, since Omar left in March. Oh. That's three.", "A Priya? Design. E suporte. E a newsletter dos clientes, desde que o Omar saiu em março. Ah. São três.", "n4", {"clue": "three_jobs"}],
+  "n4": ["n", "You step out of the glass box and give Tom the news.", "Você sai da caixa de vidro e dá a notícia ao Tom.", "plan_br"],
+  "plan_br": {"branch": [["plan=safe", "t_safe"], [null, "t_risky"]]},
+  "t_safe": ["t", "No stamps, and a proper fix. I could almost smile. Almost.", "Sem selos, e um conserto bem-feito. Eu quase consigo sorrir. Quase.", "p1"],
+  "t_risky": ["t", "A patch and real stamps. In two days. I'm going to need more tea.", "Um remendo e selos de verdade. Em dois dias. Vou precisar de mais chá.", "p1"],
+  "p1": ["p", "So I'm drawing stamp screens by tomorrow. On top of everything. It's fine. I'll do it tonight.", "Então eu desenho as telas dos selos até amanhã. Além de todo o resto. Tudo bem. Eu faço hoje à noite.", [
+   ["Priya, that's too much. Shall I ask Helen to move something?", "Priya, isso é demais. Quer que eu peça pra Helen adiar alguma coisa?", "p_no"],
+   ["You're a star. Thank you.", "Você é uma estrela. Valeu.", "p_star"],
+   ["Drawing? I'd rather draw the curtains.", "Desenhar? Eu prefiro fechar as cortinas.", null, "Ha! Not curtains. Stamp screens, for the app. It's fine. I can manage. Can't I?", "Rá! Cortina não. As telas dos selos, pro aplicativo. Tudo bem. Eu dou conta. Não dou?"]
+  ]],
+  "p_no": ["p", "No! Please don't. She's got enough problems. And one of them might be my fault.", "Não! Por favor, não. Ela já tem problemas demais. E um deles talvez seja culpa minha.", "n_end_a"],
+  "p_star": ["p", "A star. Yes. A very, very tired star.", "Uma estrela. É. Uma estrela muito, muito cansada.", "n_end_b"],
+  "n_end_a": ["n", "'Might be my fault.' She says it so quietly, you almost miss it. Tomorrow: the client call.", "'Talvez seja culpa minha.' Ela fala tão baixo que você quase não ouve. Amanhã: a ligação com a cliente.", null],
+  "n_end_b": ["n", "She turns back to her three screens. Her hands are shaking slightly. Tomorrow: the client call.", "Ela se vira de novo para as três telas. As mãos tremem de leve. Amanhã: a ligação com a cliente.", null]
+ }
+}

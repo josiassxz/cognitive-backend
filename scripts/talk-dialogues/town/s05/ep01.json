@@ -1,0 +1,92 @@
+{
+ "slug": "s05-01-move-in-day", "episode": 1, "title": "Move-In Day", "level": "A2",
+ "place": "home", "placeLabel": "Linden Hall, suíte 3B", "time": "Semana 1 · Sáb 10h", "ambience": "home",
+ "description": "Chegue ao alojamento, conheça a Tasha e o vizinho que conserta tudo.",
+ "intro": "Você acabou de chegar a Boston para um semestre de intercâmbio na Hartwell University. Com duas malas e muito sono, você procura a suíte 3B do alojamento Linden Hall.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "t": ["Tasha", "Sua colega de suíte", "af_bella", "left"],
+  "m": ["Miles", "Vizinho do outro lado do corredor", "am_eric", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "It's Saturday morning in Boston. You have two heavy suitcases and one very small key.", "É sábado de manhã em Boston. Você tem duas malas pesadas e uma chave bem pequena.", "n2"],
+  "n2": ["n", "Linden Hall, third floor. The door of suite three B is open. Music is playing.", "Linden Hall, terceiro andar. A porta da suíte três B está aberta. Tem música tocando.", "t1"],
+  "t1": ["t", "Oh my gosh, you're here! You're my new roommate! I'm Tasha.", "Nossa, você chegou! A gente vai dividir a suíte! Eu sou a Tasha.", [
+   ["Hi, Tasha! Nice to meet you. I just got here from Brazil.", "Oi, Tasha! Prazer. Acabei de chegar do Brasil.", "t_brazil"],
+   ["Hi! Sorry, is this suite three B?", "Oi! Desculpa, aqui é a suíte três B?", "t_room"],
+   ["Hi! I'm here for the mushroom.", "Oi! Vim por causa do cogumelo.", null, "Mushroom? Ha! No, roommate! We share this place. I'm Tasha. Say hi!", "Cogumelo? Rá! Não, roommate, colega de quarto! A gente divide a suíte. Eu sou a Tasha. Diz oi!"]
+  ]],
+  "t_brazil": ["t", "From Brazil! They told me. I've been waiting for you all morning.", "Do Brasil! Me avisaram. Passei a manhã inteira te esperando.", "t_flight"],
+  "t_room": ["t", "Yes! Three B, the best suite in the building. And you're the student from Brazil!", "É! Três B, a melhor suíte do prédio. E você é quem veio do Brasil!", "t_flight"],
+  "t_flight": ["t", "So, how was your flight? Was it long?", "E aí, como foi o voo? Foi longo?", [
+   ["Very long. Ten hours. I'm so tired.", "Muito longo. Dez horas. Que cansaço.", "t_tired"],
+   ["It was fine. I slept the whole way.", "Foi tranquilo. Dormi a viagem inteira.", "t_slept"],
+   ["Yes, I'm very long.", "Sim, eu tenho muito comprimento.", null, "Ha! You look like a normal size to me. I mean the flight. Was it okay?", "Rá! Pra mim seu tamanho é normal. Tô falando do voo. Foi tudo bem?"]
+  ]],
+  "t_tired": ["t", "Ten hours! You poor thing. Okay, a quick tour, and then you can sleep.", "Dez horas! Que judiação. Tá, um tour rápido, e depois você dorme.", "t_tour"],
+  "t_slept": ["t", "Lucky you! I can never sleep on planes. Okay, quick tour!", "Que sorte! Eu nunca consigo dormir em avião. Bom, tour rápido!", "t_tour"],
+  "t_tour": ["t", "This is our common room. We share the kitchen and the bathroom.", "Esta é a nossa sala. A gente divide a cozinha e o banheiro.", "t_beds"],
+  "t_beds": ["t", "Two bedrooms. One has a big window. The other is small but quiet. Which one do you want?", "Dois quartos. Um tem uma janela grande. O outro é pequeno, mas silencioso. Qual você quer?", [
+   ["The one with the window, please.", "O da janela, por favor.", "t_window"],
+   ["The quiet one. I really need to sleep.", "O silencioso. Preciso muito dormir.", "t_quiet"],
+   ["You choose. It's your home too.", "Escolhe você. A casa também é sua.", "t_choose"],
+   ["I want the bathroom, please.", "Quero o banheiro, por favor.", null, "You want to sleep in the bathroom? No way! The window room or the quiet room?", "Você quer dormir no banheiro? Nem pensar! O quarto da janela ou o silencioso?"]
+  ]],
+  "t_window": ["t", "Good choice. You can see the river. And hear the garbage truck at six in the morning.", "Boa escolha. Dá pra ver o rio. E ouvir o caminhão de lixo às seis da manhã.", "n3"],
+  "t_quiet": ["t", "Smart. The window room is pretty, but the garbage truck comes at six in the morning.", "Decisão esperta. O da janela é bonito, mas o caminhão de lixo passa às seis da manhã.", "n3"],
+  "t_choose": ["t", "Aw, you're sweet. Then I'll take the window. I sleep through anything, even the garbage truck.", "Ah, que amor. Então eu fico com o da janela. Eu durmo com qualquer barulho, até com o caminhão de lixo.", "n3"],
+  "n3": ["n", "You open your suitcase. On top of your clothes, there is a small box from home.", "Você abre a mala. Em cima das roupas, tem uma caixinha que veio de casa.", "t_gift"],
+  "t_gift": ["t", "Wait. What's in the box? Is that a present? For me?", "Espera. O que tem na caixa? É um presente? Pra mim?", [
+   ["Yes! It's coffee from Brazil. The best in the world.", "É! Café do Brasil. O melhor do mundo.", "t_g_coffee", {"set": {"gift": "coffee"}}],
+   ["Yes. Chocolate sweets. My grandmother made them.", "É. Docinhos de chocolate. Minha avó que fez.", "t_g_candy", {"set": {"gift": "candy"}}],
+   ["Yes. Flip-flops! Everybody in Brazil wears them.", "É. Chinelos! No Brasil todo mundo usa.", "t_g_flip", {"set": {"gift": "flipflops"}}],
+   ["Yes, I'm present!", "Sim, presente!", null, "Ha! Not that kind of present. A gift! Is that little box for me?", "Rá! Não é esse tipo de presente. Presente de dar! Essa caixinha é pra mim?"]
+  ]],
+  "t_g_coffee": ["t", "Real Brazilian coffee! I'm going to need it. I stay up late every Sunday.", "Café brasileiro de verdade! Vou precisar. Todo domingo eu fico acordada até tarde.", "t_radio"],
+  "t_g_candy": ["t", "Your grandmother made these? Oh wow. They won't last until tonight.", "Sua avó que fez? Nossa. Não duram até hoje à noite.", "t_radio"],
+  "t_g_flip": ["t", "Flip-flops! I love them. I'll wear them all winter. Indoors. With socks.", "Chinelos! Amei. Vou usar o inverno inteiro. Dentro de casa. De meia.", "t_radio"],
+  "t_radio": ["t", "I have a show on the campus radio, Sunday nights. You should come on and talk!", "Eu tenho um programa na rádio do campus, domingo à noite. Você devia ir lá falar!", [
+   ["Me? On the radio? In English? No way!", "Eu? No rádio? Em inglês? Nem pensar!", "t_radio_no", {"set": {"radio_yes": "no"}}],
+   ["Sure! That sounds fun.", "Claro! Parece divertido.", "t_radio_yes", {"set": {"radio_yes": "yes"}}],
+   ["Thanks, but I already have a radio.", "Valeu, mas eu já tenho um rádio.", null, "Ha! I'm not selling a radio. It's my show! Do you want to come and talk on it?", "Rá! Não tô vendendo rádio. É o meu programa! Quer ir lá falar?"]
+  ]],
+  "t_radio_no": ["t", "Yes way! Your English is great. I'll ask again. I never give up.", "Pensar, sim! Seu inglês é ótimo. Vou pedir de novo. Eu nunca desisto.", "n4"],
+  "t_radio_yes": ["t", "Yes! I'm writing that down. You can't escape now.", "Oba! Tô anotando. Agora não tem como fugir.", "n4"],
+  "n4": ["n", "Someone knocks on the open door. A tall student in a gray hoodie is holding a toolbox.", "Alguém bate na porta aberta. Um estudante alto, de moletom cinza, segura uma caixa de ferramentas.", "t_knock"],
+  "t_knock": ["t", "Miles! Perfect timing. Meet my new roommate. And the Wi-Fi is dead again.", "Miles! Chegou na hora certa. Olha quem veio morar comigo. E o Wi-Fi morreu de novo.", "m1"],
+  "m1": ["m", "Hey. I'm Miles, from across the hall. Welcome. Uh, I can fix that. Two minutes.", "Oi. Sou o Miles, do outro lado do corredor. Boas-vindas. Hã, eu arrumo isso. Dois minutos.", [
+   ["Thanks, Miles! Can I help you with anything?", "Valeu, Miles! Posso te ajudar em alguma coisa?", "m_help"],
+   ["Nice to meet you. Are you a student here too?", "Prazer. Você também estuda aqui?", "m_student"],
+   ["Hi, Miles. How many miles?", "Oi, Miles. Quantas milhas?", null, "Uh. Just one. One Miles. It's my name. So, hi. I'm here for the Wi-Fi?", "Hã. Só uma. Um Miles. É o meu nome. Então, oi. Vim ver o Wi-Fi?"]
+  ]],
+  "m_help": ["m", "No, no. I'm good. I've got it. Thanks, though.", "Não, não. Tá tranquilo. Deixa comigo. Mas valeu.", "n5"],
+  "m_student": ["m", "Yeah. Second year. Design. And I, uh, fix things for the whole floor.", "Estudo. Segundo ano. Design. E eu, hã, conserto as coisas do andar inteiro.", "n5"],
+  "n5": ["n", "Miles sits on the floor with the Wi-Fi box. Two minutes later, a green light comes on.", "O Miles senta no chão com a caixinha do Wi-Fi. Dois minutos depois, uma luz verde acende.", "t_fixed"],
+  "t_fixed": ["t", "He fixed it! Miles, you're a hero. Stay! Let me make you a coffee.", "Ele arrumou! Miles, você é um herói. Fica! Deixa eu te fazer um café.", "m_no"],
+  "m_no": ["m", "No, thanks. I have to go. I'm carrying a fridge up to the fourth floor.", "Não, valeu. Tenho que ir. Vou subir uma geladeira até o quarto andar.", [
+   ["A fridge? Alone? Let me help you.", "Uma geladeira? Sem ninguém? Deixa eu te ajudar.", "m_alone"],
+   ["Okay. Thanks for the Wi-Fi, Miles!", "Tá bom. Valeu pelo Wi-Fi, Miles!", "m_bye"],
+   ["A bridge? In this building?", "Uma ponte? Neste prédio?", null, "Not a bridge. A fridge. The cold box, for food. I'm taking it upstairs. Okay?", "Ponte, não. Geladeira. A caixa gelada, de comida. Vou levar lá pra cima. Tá?"]
+  ]],
+  "m_alone": ["m", "No, really. I'm fine. I always do it by myself. Bye. Welcome again.", "Não, sério. Tá tudo bem. Eu sempre faço sem ajuda. Tchau. Boas-vindas de novo.", "n6"],
+  "m_bye": ["m", "No problem. If something breaks, just knock. Any time.", "Imagina. Se quebrar alguma coisa, é só bater. A qualquer hora.", "n6"],
+  "n6": ["n", "Miles leaves quickly. A minute later, you hear something very heavy on the stairs.", "O Miles sai depressa. Um minuto depois, você ouve uma coisa bem pesada na escada.", "t_about"],
+  "t_about": ["t", "Isn't he great? Half of this building has his phone number.", "Ele não é o máximo? Metade deste prédio tem o telefone dele.", [
+   ["He's very kind. But why didn't he want any help?", "Ele é muito gentil. Mas por que ele não quis ajuda?", "t_never"],
+   ["He seems really shy.", "Ele parece bem tímido.", "t_shy"],
+   ["Half of the building? Where is the other half?", "Metade do prédio? Cadê a outra metade?", null, "Ha! The building is fine. I mean everybody calls Miles. What do you think of him?", "Rá! O prédio tá inteiro. É que todo mundo liga pro Miles. O que você achou dele?"]
+  ]],
+  "t_never": ["t", "That's Miles. He helps everybody. But he never asks for help. Never. Not once.", "O Miles é assim. Ajuda todo mundo. Mas nunca pede ajuda. Nunca. Nem uma vez.", "t_never2", {"clue": "never_asks"}],
+  "t_never2": ["t", "Last year he was sick for a whole week. Nobody knew. He just disappeared.", "Ano passado ele ficou doente uma semana inteira. Ninguém soube. Ele simplesmente sumiu.", "t_end"],
+  "t_shy": ["t", "Super shy. But give him a computer and wow. His designs are beautiful.", "Super tímido. Mas dá um computador pra ele e uau. Os designs dele são lindos.", "t_end"],
+  "t_end": ["t", "Okay, roommate. Classes start on Monday. Have you been to the registrar's office yet?", "Bom, roommate. As aulas começam segunda. Você já passou na secretaria?", [
+   ["Not yet. What's a registrar?", "Ainda não. O que é registrar?", "t_reg"],
+   ["No. I'll go on Monday morning.", "Não. Vou na segunda de manhã.", "t_reg2"],
+   ["Yes, I registered my suitcase at the airport.", "Sim, registrei minha mala no aeroporto.", null, "Ha! Not your bags. The registrar's office, for your classes and ID. Have you been there?", "Rá! Não é da mala. É a secretaria, pra matrícula e carteirinha. Você já foi lá?"]
+  ]],
+  "t_reg": ["t", "It's the office for your classes and your student ID. Go early. Mr. Doyle is, um, special.", "É a secretaria: cuida das suas matérias e da carteirinha. Vai cedo. O Sr. Doyle é, hum, especial.", "n_end"],
+  "t_reg2": ["t", "Go early. And be nice to Mr. Doyle. He loves rules more than people.", "Vai cedo. E trata bem o Sr. Doyle. Ele gosta mais de regra do que de gente.", "n_end"],
+  "n_end": ["n", "Your first day is over. On Monday, you meet Mr. Doyle and his forms.", "Seu primeiro dia acabou. Na segunda, você conhece o Sr. Doyle e os formulários dele.", null]
+ }
+}

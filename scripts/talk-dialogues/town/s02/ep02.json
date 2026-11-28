@@ -1,0 +1,90 @@
+{
+ "slug": "s02-02-mind-the-gap", "episode": 2, "title": "Mind the Gap", "level": "A1",
+ "place": "train", "placeLabel": "Metrô de Londres", "time": "Sexta · 10h30", "ambience": "station",
+ "description": "Seu primeiro metrô em Londres: linhas, plataformas e uma surpresa que cai da mala.",
+ "intro": "No aeroporto, você descobriu que pegou uma mala idêntica à sua. Dentro dela, só um cachecol do Camden Rovers. O jantar da Bia é às oito. Agora você precisa chegar ao hostel, perto de King's Cross.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "d": ["Dev", "Funcionário do metrô", "am_michael", "right"],
+  "g": ["Gloria", "Passageira que adora teatro", "bf_isabella", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "The Underground station is big and busy. Everybody walks very fast.", "A estação do metrô é grande e movimentada. Todo mundo anda muito rápido.", "n2"],
+  "n2": ["n", "You look at the map. So many lines! A man in an orange jacket smiles at you.", "Você olha o mapa. Quantas linhas! Um homem de colete laranja sorri pra você.", "d1"],
+  "d1": ["d", "Hello there! You look lost. Where are you going?", "Olá! Você parece sem rumo. Pra onde você vai?", [
+   ["To King's Cross, please.", "Para King's Cross, por favor.", "d_kc"],
+   ["To the Sleepy Fox Hostel. Do you know it?", "Para o Sleepy Fox Hostel. Você conhece?", "d_fox"],
+   ["I'm fine, thanks. And you?", "Tudo bem, valeu. E você?", null, "I'm fine too! But where are you going? Which station?", "Eu também vou bem! Mas pra onde você vai? Qual estação?"]
+  ]],
+  "d_kc": ["d", "King's Cross! Easy. Take the dark blue line. No changes.", "King's Cross! Fácil. Pegue a linha azul-escura. Sem baldeação.", "d_ticket"],
+  "d_fox": ["d", "The Sleepy Fox? That's near King's Cross. Take the dark blue line. No changes.", "O Sleepy Fox? Fica perto de King's Cross. Pegue a linha azul-escura. Sem baldeação.", "d_ticket"],
+  "d_ticket": ["d", "Do you have a ticket?", "Você tem bilhete?", [
+   ["No. How much is a ticket?", "Não. Quanto custa um bilhete?", "d_price"],
+   ["No. Can I pay by card?", "Não. Posso pagar com cartão?", "d_card"],
+   ["Yes, I have a chicken.", "Sim, eu tenho um frango.", null, "A chicken? No chickens on the train, please! A ticket. Do you have one?", "Um frango? Nada de frango no trem, por favor! Um bilhete. Você tem?"]
+  ]],
+  "d_price": ["d", "About five pounds. But you don't need a ticket. Just touch your bank card on the yellow circle.", "Umas cinco libras. Mas não precisa de bilhete de papel. É só encostar o cartão do banco no círculo amarelo.", "d_time"],
+  "d_card": ["d", "Yes! Touch your card on the yellow circle. When you go in, and when you go out.", "Sim! Encoste o cartão no círculo amarelo. Na entrada e na saída.", "d_time"],
+  "d_time": ["d", "It's about one hour to King's Cross. Is that okay?", "É mais ou menos uma hora até King's Cross. Tudo bem?", [
+   ["One hour? Okay. What time is it now?", "Uma hora? Tá. Que horas são agora?", "d_now"],
+   ["That's fine. Which platform, please?", "Tudo bem. Qual é a plataforma, por favor?", "d_plat"],
+   ["No, I don't want an hour. I want a train.", "Não, eu não quero uma hora. Eu quero um trem.", null, "Ha! You get both! The trip takes one hour. Is that okay for you?", "Rá! Você leva os dois! A viagem dura uma hora. Tudo bem pra você?"]
+  ]],
+  "d_now": ["d", "It's half past ten. So you arrive at half past eleven. Platform three, down the stairs.", "São dez e meia. Então você chega às onze e meia. Plataforma três, descendo a escada.", "d_gap"],
+  "d_plat": ["d", "Platform three. Down the stairs, on the left. A train comes every five minutes.", "Plataforma três. Descendo a escada, à esquerda. Passa um trem a cada cinco minutos.", "d_gap"],
+  "d_gap": ["d", "And one more thing. Mind the gap!", "E mais uma coisa. Cuidado com o vão!", [
+   ["Mind the what?", "Cuidado com o quê?", "d_gap_exp"],
+   ["Thanks! I will. Bye!", "Valeu! Pode deixar. Tchau!", "d_bye"],
+   ["Sorry, I don't have a cap.", "Desculpa, eu não tenho boné.", null, "Not a cap! The gap! The space near the train. Be careful, okay?", "Não é boné! É o vão! O espaço perto do trem. Toma cuidado, tá?"]
+  ]],
+  "d_gap_exp": ["d", "The gap! The space between the train and the platform. Be careful with your feet.", "O vão! O espaço entre o trem e a plataforma. Cuidado com os pés.", "n_train"],
+  "d_bye": ["d", "Good luck! Nice suitcase, by the way. I see ten of those every day.", "Boa sorte! Bonita a mala, aliás. Vejo umas dez dessas por dia.", "n_train"],
+  "n_train": ["n", "You go down the stairs. The train arrives. You step over the gap, very carefully.", "Você desce a escada. O trem chega. Você passa por cima do vão, com todo o cuidado.", "n_full"],
+  "n_full": ["n", "You find one free seat. At the next station, an older woman gets on with a big bag.", "Você acha um lugar livre. Na estação seguinte, entra uma senhora com uma sacola grande.", "g1"],
+  "g1": ["g", "Oh dear. No seats. And my poor feet.", "Ai, ai. Nenhum lugar. E os meus pobres pés.", [
+   ["Please, take my seat.", "Por favor, pode sentar no meu lugar.", "g_seat", {"set": {"gave_seat": "yes"}}],
+   ["Sorry. I'm very tired. Long flight.", "Desculpa. É muito cansaço. Voo longo.", "g_noseat", {"set": {"gave_seat": "no"}}],
+   ["Yes, I have two feet.", "Sim, eu tenho dois pés.", null, "So do I, and they hurt! Can I sit down, maybe?", "Eu também, e eles doem! Será que eu posso sentar?"]
+  ]],
+  "g_seat": ["g", "Oh, how kind! Thank you. I'm Gloria. You have good manners, dear.", "Ah, que gentileza! Obrigada. Eu sou a Gloria. Você tem bons modos, meu bem.", "n_fall"],
+  "g_noseat": ["g", "Hm. I see. I'll stand, then. At seventy-two. No problem at all.", "Hum. Sei. Eu fico em pé, então. Com setenta e dois anos. Problema nenhum.", "n_fall"],
+  "n_fall": ["n", "The train moves fast. The suitcase falls over, and a side pocket opens.", "O trem acelera. A mala tomba, e um bolso lateral se abre.", "g2"],
+  "g2": ["g", "Excuse me. Something fell out of your suitcase. A ticket, I think.", "Com licença. Caiu uma coisa da sua mala. Um ingresso, eu acho.", [
+   ["Oh, thanks. It's not my suitcase, actually.", "Ah, valeu. Na verdade, a mala não é minha.", "g_not"],
+   ["A ticket? What kind of ticket?", "Um ingresso? Que tipo de ingresso?", "g_kind"],
+   ["I feel fine, thank you.", "Eu estou bem, valeu.", null, "Good for you! But look. Something fell on the floor. Is it yours?", "Que bom! Mas olha. Caiu uma coisa no chão. É sua?"]
+  ]],
+  "g_not": ["g", "Not your suitcase? A mix-up at the airport? That happened to my sister once! Let me see that ticket.", "A mala não é sua? Trocaram no aeroporto? Isso já aconteceu com a minha irmã! Deixa eu ver esse ingresso.", "g_ticket"],
+  "g_kind": ["g", "Let me see. Where are my glasses? Ah, here.", "Deixa eu ver. Cadê meus óculos? Ah, aqui.", "g_ticket"],
+  "g_ticket": ["g", "It's a theatre ticket! The Lantern Theatre. Tonight, at half past seven.", "É um ingresso de teatro! Lantern Theatre. Hoje, às sete e meia da noite.", "g3", {"clue": "ticket"}],
+  "g3": ["g", "The Lantern! I'm going there tonight too. Are you going to the play?", "O Lantern! Eu também vou lá hoje. Você vai à peça?", [
+   ["What's the play?", "Qual é a peça?", "g_what"],
+   ["Maybe! The owner of the suitcase will be there.", "Talvez! O dono da mala vai estar lá.", "g_clever"],
+   ["I can't. I have a birthday dinner at eight.", "Não posso. Tenho um jantar de aniversário às oito.", "g_dinner"],
+   ["Yes, I play football.", "Sim, eu jogo futebol.", null, "Not football! A play. At the theatre. Are you going tonight?", "Não é futebol! Uma peça. No teatro. Você vai hoje à noite?"]
+  ]],
+  "g_what": ["g", "A comedy! It's called 'The Man with the Blue Suitcase'. Ha! Blue, like yours!", "Uma comédia! Chama 'O Homem da Mala Azul'. Rá! Azul, igual à sua!", "g4"],
+  "g_clever": ["g", "Clever! Find the seat, find the owner. You're a real detective.", "Que esperteza! Achou a poltrona, achou o dono. Você é detetive de verdade.", "g4"],
+  "g_dinner": ["g", "At eight? But the play starts at half past seven. Oh dear. Busy night!", "Às oito? Mas a peça começa às sete e meia. Ai, ai. Noite cheia!", "g4"],
+  "g4": ["g", "Now, where do you get off?", "Agora, onde você desce?", [
+   ["King's Cross. Is it far?", "King's Cross. É longe?", "g_far"],
+   ["I'm not sure. Near the Sleepy Fox Hostel.", "Não tenho certeza. Perto do Sleepy Fox Hostel.", "g_fox"],
+   ["I get off at eight o'clock.", "Eu desço às oito horas.", null, "Not when, dear. Where! Which station is yours?", "Não é quando, meu bem. É onde! Qual é a sua estação?"]
+  ]],
+  "g_far": ["g", "Six more stops. I'll tell you. I know this line like my kitchen.", "Faltam seis paradas. Eu te aviso. Conheço esta linha como a minha cozinha.", "g5"],
+  "g_fox": ["g", "The Sleepy Fox? That's King's Cross. Six more stops. I'll tell you.", "O Sleepy Fox? É em King's Cross. Faltam seis paradas. Eu te aviso.", "g5"],
+  "g5": ["g", "So, why are you in London? A holiday?", "E por que você está em Londres? Férias?", [
+   ["Yes, and it's my friend's birthday.", "Sim, e é aniversário da minha amiga.", "g_bday"],
+   ["Yes. It's my first time here.", "Sim. É a minha primeira vez aqui.", "g_first"],
+   ["No, I'm on the train.", "Não, eu estou no trem.", null, "Ha! Yes, we are both on the train. But why London? Are you on holiday?", "Rá! Sim, nós dois estamos no trem. Mas por que Londres? Você está de férias?"]
+  ]],
+  "g_bday": ["g", "A birthday in London! Lovely. Buy flowers. Always buy flowers.", "Um aniversário em Londres! Que delícia. Compre flores. Sempre compre flores.", "n_kx"],
+  "g_first": ["g", "Your first time! Then look up, not at your phone. London is beautiful.", "Sua primeira vez! Então olhe pra cima, não pro celular. Londres é linda.", "n_kx"],
+  "n_kx": ["n", "Six stops later, the train slows down. The sign says: King's Cross.", "Seis paradas depois, o trem vai parando. A placa diz: King's Cross.", "seat_br"],
+  "seat_br": {"branch": [["gave_seat=yes", "g_warm"], [null, "g_cold"]]},
+  "g_warm": ["g", "This is your stop! Good luck, detective. Maybe I'll see you at the Lantern tonight!", "É a sua parada! Boa sorte, detetive. Quem sabe eu te vejo no Lantern hoje à noite!", "n_end"],
+  "g_cold": ["g", "King's Cross. This is your stop. Mind the gap. And the old ladies.", "King's Cross. É a sua parada. Cuidado com o vão. E com as velhinhas.", "n_end"],
+  "n_end": ["n", "Now you have a scarf and a theatre ticket. Next stop: the hostel. And a surprise.", "Agora você tem um cachecol e um ingresso de teatro. Próxima parada: o hostel. E uma surpresa.", null]
+ }
+}

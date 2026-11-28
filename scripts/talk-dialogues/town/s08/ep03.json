@@ -1,0 +1,91 @@
+{
+ "slug": "s08-03-deadly", "episode": 3, "title": "Deadly", "level": "B1",
+ "place": "pub", "placeLabel": "Pub The Fiddler's Rest", "time": "Quinta · 20h", "ambience": "pub",
+ "description": "Jantar das duas famílias. Todo mundo fala inglês, e ninguém se entende.",
+ "intro": "O Declan perdeu as alianças: a caixinha estava no bolso do paletó dele e sumiu. A avó Nora diz que falta alguma coisa no casamento, mas não conta o quê. Agora, o primeiro jantar das duas famílias.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "f": ["Fergus", "Pai do noivo", "bm_george", "right"],
+  "m": ["Marta", "Mãe da noiva", "af_sarah", "left"],
+  "p": ["Paulo", "Pai da noiva", "am_michael", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "The Fiddler's Rest is warm and noisy. Both families are sitting at one long table.", "O Fiddler's Rest é quentinho e barulhento. As duas famílias estão sentadas numa única mesa comprida.", "n2"],
+  "n2": ["n", "But nobody at that table is talking. Julia's parents are at one end, the Doyles at the other.", "Mas naquela mesa ninguém conversa. Os pais da Julia numa ponta, os Doyle na outra.", "pal_br"],
+  "pal_br": {"branch": [["fergus_pal=yes", "f_pal"], [null, "f_nopal"]]},
+  "f_pal": ["f", "My favourite passenger! Sit here by me. I've kept you a seat and another story.", "Minha companhia de estrada preferida! Senta aqui do meu lado. Guardei um lugar e mais uma história pra você.", "f_help"],
+  "f_nopal": ["f", "Ah, the busy one! Sit down, sit down. Even fixers have to eat.", "Ah, quem não para de trabalhar! Senta, senta. Até quem resolve tudo precisa comer.", "f_help"],
+  "f_help": ["f", "Help me out. I've been chatting to Julia's parents all evening. They just smile and nod.", "Me dá uma força. Passei a noite puxando papo com os pais da Julia. Eles só sorriem e balançam a cabeça.", [
+   ["What exactly did you say to them?", "O que exatamente você disse pra eles?", "f_said"],
+   ["Maybe you talk a bit fast, Fergus.", "Talvez você fale meio rápido, Fergus.", "f_fast"],
+   ["Out? But I've only just come in!", "Pra fora? Mas eu acabei de entrar!", null, "Stay where you are! I mean, give me a hand. Why won't they talk to me?", "Fica aí! Eu quis dizer: me ajuda. Por que eles não falam comigo?"]
+  ]],
+  "f_said": ["f", "Only the friendliest question in Ireland. What's the crack? It means: any news? Any fun?", "Só a pergunta mais simpática da Irlanda. What's the crack? Quer dizer: novidades? Alguma diversão?", "n_move"],
+  "f_fast": ["f", "Fast? Me? I asked one small question. What's the crack? It means: any news? Any fun?", "Rápido? Eu? Fiz uma perguntinha só. What's the crack? Quer dizer: novidades? Alguma diversão?", "n_move"],
+  "n_move": ["n", "You carry your plate to the other end. Marta grabs your arm with both hands.", "Você leva seu prato pra outra ponta. A Marta agarra seu braço com as duas mãos.", "m1"],
+  "m1": ["m", "Finally! Someone I understand. That man asked me about a crack. What crack? In the wall?", "Finalmente! Alguém que eu entendo. Aquele homem me perguntou de uma rachadura. Que rachadura? Na parede?", [
+   ["It's Irish. It means: how are you? Any news?", "É coisa de irlandês. Quer dizer: como vai? Novidades?", "m_ah"],
+   ["Don't worry. He likes you. He just talks fast.", "Fica tranquila. Ele gosta de vocês. Só fala rápido.", "m_likes"],
+   ["Yes, this pub is very old. Cracks everywhere.", "Sim, este pub é bem velho. Rachadura pra todo lado.", null, "No, no. He asked me: what's the crack? What does this man want from me?", "Não, não. Ele me perguntou: what's the crack? O que esse homem quer de mim?"]
+  ]],
+  "m_ah": ["m", "Any news? Then why doesn't he say: any news? I studied English for six months for this!", "Novidades? Então por que ele não diz: novidades? Eu estudei inglês seis meses pra isso!", "m_truth"],
+  "m_likes": ["m", "He likes us? He talks like a radio in the rain. I catch one word in ten.", "Ele gosta da gente? Ele fala igual rádio na chuva. Eu pego uma palavra em cada dez.", "m_truth"],
+  "m_truth": ["m", "Tell me the truth. Do these people like us? The grandmother looked at my dress for a long time.", "Me fala a verdade. Essa gente gosta de nós? A avó ficou um tempão olhando pro meu vestido.", [
+   ["They do. They're nervous. Same as you.", "Gostam. Estão com vergonha. Igual a vocês.", "m_nerv"],
+   ["Fergus does. Nora is a project. I'm working on it.", "O Fergus gosta. A Nora é um projeto. Estou trabalhando nisso.", "m_proj"],
+   ["Lettuce? No, I ordered the stew.", "Alface? Não, eu pedi o ensopado.", null, "Not lettuce! Like us! Do the Doyles like my family? Be honest with me.", "Não é lettuce! É like us! Os Doyle gostam da minha família? Fala a verdade."]
+  ]],
+  "m_nerv": ["m", "Nervous? They don't look nervous. They look like they know a joke about me.", "Com vergonha? Não parecem. Parecem que sabem uma piada sobre mim.", "m_deadly1"],
+  "m_proj": ["m", "A project! Good. In Brazil, I would win her with food. So I brought food.", "Um projeto! Ótimo. No Brasil eu ganhava essa mulher pela comida. Então eu trouxe comida.", "m_deadly1"],
+  "m_deadly1": ["m", "I made two hundred chocolate sweets for these people. Fergus ate one and said: deadly.", "Eu fiz duzentos docinhos de chocolate pra essa gente. O Fergus comeu um e disse: deadly.", "m_deadly"],
+  "m_deadly": ["m", "Deadly! Like dead! My sweets kill people? Why did he say that?", "Deadly! De morte! Meus docinhos matam gente? Por que ele falou isso?", [
+   ["Here, deadly means fantastic. It's a compliment!", "Aqui, deadly quer dizer fantástico. É um elogio!", "m_wow", {"set": {"deadly": "explained"}}],
+   ["Let's ask him. Fergus! What did you mean?", "Vamos perguntar. Fergus! O que você quis dizer?", "f_lethal", {"set": {"deadly": "confused"}}],
+   ["No, he said daily. He eats them daily.", "Não, ele disse daily. Ele come todo dia.", null, "Not daily. Deadly! With a D! Like dead! Why does he say this about my sweets?", "Não é daily. É deadly! Com D! De morte! Por que ele fala isso dos meus docinhos?"]
+  ]],
+  "m_wow": ["m", "Fantastic? Deadly is good? This country is crazy. I think I like it.", "Fantástico? Deadly é bom? Este país é maluco. Acho que estou gostando.", "n_paulo"],
+  "f_lethal": ["f", "The sweets? Deadly! Lethal! Dangerous altogether! I'd eat forty of them!", "Os docinhos? Deadly! Letais! Um perigo! Eu comia quarenta!", "m_car"],
+  "m_car": ["m", "Lethal. Dangerous. I heard him. Tomorrow my sweets go back to Brazil.", "Letais. Perigo. Eu ouvi. Amanhã meus docinhos voltam pro Brasil.", "n_paulo"],
+  "n_paulo": ["n", "Paulo hasn't said a word. He's folding his napkin into smaller and smaller squares.", "O Paulo não disse uma palavra. Está dobrando o guardanapo em quadradinhos cada vez menores.", "p1"],
+  "p1": ["p", "Sorry. I understand everything. But when I open my mouth, the English runs away. Is it very bad?", "Desculpa. Eu entendo tudo. Mas quando abro a boca, o inglês foge. Está muito ruim?", [
+   ["Not at all. What do you do for fun at home, Paulo?", "De jeito nenhum. O que o senhor faz pra se divertir em casa, Paulo?", "p_fun"],
+   ["It's fine! Tell me, is your suit ready for Saturday?", "Está ótimo! Me conta, o terno já está pronto pra sábado?", "p_suit"],
+   ["Yes, I run every morning too.", "Sim, eu também corro toda manhã.", null, "No, no running. My English! I am shy to speak. Is it terrible?", "Não, não é correr. O meu inglês! Tenho vergonha de falar. Está péssimo?"]
+  ]],
+  "p_fun": ["p", "Music. I play the guitar. Old sambas, forty years of family parties. Do you like samba?", "Música. Eu toco violão. Sambas antigos, quarenta anos de festa de família. Você gosta de samba?", [
+   ["I love it. Did you bring your guitar to Ireland?", "Adoro. O senhor trouxe o violão pra Irlanda?", "p_guitar"],
+   ["I prefer to listen. I've got two left feet.", "Prefiro ouvir. Tenho dois pés esquerdos.", "p_feet"],
+   ["No, thanks. I've already got a number.", "Não, valeu. Eu já tenho um número.", null, "A number? No! Samba! The music of Brazil. Do you like it or not?", "Um número? Não! Samba! A música do Brasil. Você gosta ou não gosta?"]
+  ]],
+  "p_guitar": ["p", "Of course. My guitar is in my room at the house. It travels everywhere with me.", "Claro. Meu violão está no meu quarto, lá na casa. Ele viaja comigo pra todo lado.", "m_guitar", {"clue": "paulo_guitar"}],
+  "m_guitar": ["m", "It's true. Forty years married, and the guitar always gets the window seat.", "É verdade. Quarenta anos de casados, e o violão sempre fica com a janela.", "n_fergus"],
+  "p_feet": ["p", "No problem. I play, you listen. That is my favourite kind of friend.", "Sem problema. Eu toco, você escuta. É o meu tipo preferido de amizade.", "n_fergus"],
+  "p_suit": ["p", "The suit! The trousers are fine. The jacket is a disaster. Marta, tell them.", "O terno! A calça está boa. O paletó é um desastre. Marta, conta.", "m_arms"],
+  "m_arms": ["m", "The arms are too long! He looks like a boy wearing his father's jacket.", "As mangas são compridas demais! Parece um menino com o paletó do pai.", "p_bag"],
+  "p_bag": ["p", "The shop gave every man the same grey bag. I think I got another man's jacket.", "A loja deu a mesma capa cinza pra todos os homens. Acho que fiquei com o paletó de outro.", "p_heavy", {"clue": "wrong_jacket"}],
+  "p_heavy": ["p", "It even hangs heavy on one side. Cheap. But there's no time to change it.", "E ainda pesa de um lado. Coisa barata. Mas não dá mais tempo de trocar.", "n_fergus"],
+  "n_fergus": ["n", "Fergus arrives at your end of the table with a big smile and a full jug.", "O Fergus chega na sua ponta da mesa com um sorrisão e uma jarra cheia.", "f_offer"],
+  "f_offer": ["f", "Paulo! Will you have a drink? A small one?", "Paulo! Aceita uma bebida? Uma pequena?", "p_no"],
+  "p_no": ["p", "No, thank you.", "Não, obrigado.", "f_youwill"],
+  "f_youwill": ["f", "Ah, you will. You will, you will. Why is he looking at me like that?", "Ah, aceita sim. Aceita, aceita. Por que ele está me olhando desse jeito?", [
+   ["Paulo, here you say no twice, and then yes. It's a game.", "Paulo, aqui a gente diz não duas vezes, e depois sim. É um jogo.", "p_game"],
+   ["Fergus, he really means no. Offer him a coffee.", "Fergus, ele quis dizer não mesmo. Oferece um café.", "f_coffee"],
+   ["Will? No, his name is Paulo.", "Will? Não, o nome dele é Paulo.", null, "I know his name! I mean: will he have a drink or won't he? Why's he staring at me?", "Eu sei o nome dele! Quero saber: ele vai beber ou não vai? Por que ele está me encarando?"]
+  ]],
+  "p_game": ["p", "A game? I like games. Then: no. No. Yes, please!", "Um jogo? Eu gosto de jogo. Então: não. Não. Sim, por favor!", "f_toast"],
+  "f_coffee": ["f", "Coffee! At nine at night! Brave man. One coffee for my new brother.", "Café! Às nove da noite! Homem de coragem. Um café pro meu novo irmão.", "f_toast"],
+  "f_toast": ["f", "Now we're talking! You, the fixer. Give us a toast. Practice for Saturday!", "Agora sim! Você, que resolve tudo. Faz um brinde pra gente. Treino pra sábado!", [
+   ["To two families, and one very long table!", "A duas famílias, e a uma mesa bem comprida!", "f_t_a"],
+   ["To Julia and Conor. And to Marta's deadly sweets!", "À Julia e ao Conor. E aos docinhos deadly da Marta!", "f_t_b"],
+   ["No toast for me. I'm having the stew.", "Torrada pra mim não. Vou de ensopado.", null, "Ha! Not bread! A few words, glass in the air. Go on, what are we drinking to?", "Rá! Não é pão! Umas palavras, copo no ar. Vai, a gente brinda a quê?"]
+  ]],
+  "f_t_a": ["f", "To a long table! And may it feel shorter every day.", "A uma mesa comprida! E que ela pareça mais curta a cada dia.", "deadly_br"],
+  "f_t_b": ["f", "To the sweets! I've hidden six of them in my pocket.", "Aos docinhos! Eu escondi seis no bolso.", "deadly_br"],
+  "deadly_br": {"branch": [["deadly=explained", "m_end_ok"], [null, "m_end_bad"]]},
+  "m_end_ok": ["m", "Cheers! And Fergus, you are deadly too.", "Saúde! E Fergus, você também é deadly.", "f_roar"],
+  "f_roar": ["f", "Did you all hear that? She called me deadly! Best night of my life!", "Vocês ouviram? Ela me chamou de deadly! Melhor noite da minha vida!", "n_end"],
+  "m_end_bad": ["m", "Cheers. But please, stop saying that word near my sweets.", "Saúde. Mas, por favor, parem de falar essa palavra perto dos meus docinhos.", "n_end"],
+  "n_end": ["n", "Your phone buzzes. A message from Julia: The cake arrives at ten tomorrow. Please be there. I can't look.", "Seu celular vibra. Mensagem da Julia: O bolo chega amanhã às dez. Por favor, esteja lá. Eu não consigo olhar.", null]
+ }
+}

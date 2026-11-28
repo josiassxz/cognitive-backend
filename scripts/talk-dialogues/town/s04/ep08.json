@@ -1,0 +1,107 @@
+{
+ "slug": "s04-08-the-end-of-the-road", "episode": 8, "title": "The End of the Road", "level": "B1",
+ "place": "beach", "placeLabel": "Píer de Santa Monica", "time": "Sexta · 19h", "ambience": "beach",
+ "description": "O fim da estrada: uma loja de iscas, três perguntas do vovô e uma caixa trancada.",
+ "intro": "No deserto, o Earl contou que o vovô conseguiu o emprego na Califórnia e disse não. O último enigma leva ao fim do píer de Santa Monica, debaixo da roda-gigante, onde Sal vende minhocas.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "r": ["Rafa", "Seu primo de Chicago", "am_puck", "right"],
+  "s": ["Sal", "Dona da loja de iscas", "af_nicole", "left"],
+  "c": ["Frank", "Seu avô, numa fita de 1974", "am_eric", "center"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Santa Monica. The road ends at a wooden pier, a Ferris wheel and the whole Pacific Ocean.", "Santa Monica. A estrada acaba num píer de madeira, numa roda-gigante e no Oceano Pacífico inteiro.", "n_pier"],
+  "n_pier": ["n", "At the very end of the pier, there's a tiny shop. Inside, a woman with silver hair is counting fishing hooks.", "Bem no fim do píer, tem uma lojinha. Lá dentro, uma mulher de cabelo prateado conta anzóis.", "s1"],
+  "s1": ["s", "We close in ten minutes. Worms are two dollars. The sunset is free. What'll it be?", "A gente fecha em dez minutos. Minhoca é dois dólares. O pôr do sol é de graça. O que vai ser?", [
+   ["Are you Sal? We're Frank Almeida's grandchildren.", "Você é a Sal? Somos netos do Frank Almeida.", "s_wait"],
+   ["We're looking for Sal. Is he here?", "A gente está procurando o Sal. Ele está?", "s_man"],
+   ["No worms, thanks. I've already eaten.", "Minhoca, não, valeu. Eu já comi.", null, "Ha! They're for the fish, honey, not for you. So what can I do for you?", "Rá! São pros peixes, meu bem, não pra você. Então, em que posso ajudar?"]
+  ]],
+  "s_man": ["s", "He? Everybody says he. I'm Sal. Salvadora. Wait. That yellow van out there. You're Frank's family!", "Ele? Todo mundo fala ele. Eu sou a Sal. Salvadora. Espera. Aquela van amarela lá fora. Vocês são da família do Frank!", "s_wait"],
+  "s_wait": ["s", "Frank's grandkids. I was nineteen when he walked in here. I've kept something for him for fifty years.", "Os netos do Frank. Eu tinha dezenove anos quando ele entrou aqui. Faz cinquenta anos que eu guardo uma coisa pra ele.", [
+   ["What is it? What did he leave?", "O que é? O que ele deixou?", "s_env"],
+   ["Is it money? How much did he leave us?", "É dinheiro? Quanto ele deixou pra gente?", "s_money"],
+   ["I keep fit too. I run every morning.", "Eu também me cuido. Corro toda manhã.", null, "Good for you. I mean I kept something safe, for you two. Don't you want to know what it is?", "Que bom. Eu quis dizer que guardei uma coisa, pra vocês dois. Não querem saber o que é?"]
+  ]],
+  "s_money": ["s", "Money? Oh, honey. Frank never had two nickels to rub together. Is that why you came?", "Dinheiro? Ai, meu bem. O Frank nunca teve um tostão furado. Foi por isso que vocês vieram?", [
+   ["No. Sorry, that came out wrong. We came for him.", "Não. Desculpa, saiu errado. A gente veio por ele.", "s_forgive"],
+   ["My cousin dreams about treasure. I got carried away.", "Meu primo sonha com tesouro. Acabei entrando na onda.", "r_hey"],
+   ["Nickels? No, my name isn't Nicholas.", "Nickels? Não, eu não me chamo Nicholas.", null, "Nickels, honey. Coins. He had no money at all. So tell me, why did you really come?", "Nickels, meu bem. Moedas. Ele não tinha dinheiro nenhum. Então me digam, por que vocês vieram de verdade?"]
+  ]],
+  "s_forgive": ["s", "Good. Because what he left is worth more, and you can't spend a cent of it.", "Que bom. Porque o que ele deixou vale mais, e não dá pra gastar um centavo.", "s_env"],
+  "r_hey": ["r", "Hey! Okay, it's true. Gold, tacos, I had a whole list. Sorry, Sal.", "Ei! Tá, é verdade. Ouro, tacos, eu tinha uma lista inteira. Desculpa, Sal.", "s_env"],
+  "s_env": ["s", "It's in this box. But first: Frank mailed me three questions, to see if you listened. Ready?", "Está nesta caixa. Mas antes: o Frank me mandou três perguntas, pra ver se vocês prestaram atenção. Posso começar?", [
+   ["Ready. Go ahead.", "Pode. Manda.", "q1_br"],
+   ["Three questions? That is so him. Go ahead.", "Três perguntas? A cara dele. Manda.", "q1_br"],
+   ["I'm red already. It's the sun.", "Eu já estou da cor de um tomate. É o sol.", null, "You are a little pink. But are you ready for Frank's three questions?", "Um pouco rosa, é verdade. Mas posso começar as três perguntas do Frank?"]
+  ]],
+  "q1_br": {"branch": [["clue_rosie", "q1_yes"], [null, "q1_no"]]},
+  "q1_yes": ["s", "Question one. What is the name of my yellow van?", "Pergunta um. Qual é o nome da minha van amarela?", [
+   ["Rosie. After Grandma Rosa.", "Rosie. Por causa da vó Rosa.", "q2_br", {"set": {"f_van": "yes"}}],
+   ["Rafa calls her the Toaster.", "O Rafa chama de Torradeira.", "q2_br"],
+   ["A yellow fan? I don't have one.", "Um ventilador amarelo? Eu não tenho.", null, "Van, not fan! The yellow van outside. What did Frank call her?", "Van, não ventilador! A van amarela lá fora. Como o Frank chamava ela?"]
+  ]],
+  "q1_no": ["s", "Question one. What is the name of my yellow van?", "Pergunta um. Qual é o nome da minha van amarela?", [
+   ["Rafa calls her the Toaster.", "O Rafa chama de Torradeira.", "q2_br"],
+   ["I don't think anybody ever told us.", "Acho que ninguém nunca contou pra gente.", "q2_br"],
+   ["A yellow fan? I don't have one.", "Um ventilador amarelo? Eu não tenho.", null, "Van, not fan! The yellow van outside. What did Frank call her?", "Van, não ventilador! A van amarela lá fora. Como o Frank chamava ela?"]
+  ]],
+  "q2_br": {"branch": [["clue_song", "q2_yes"], [null, "q2_no"]]},
+  "q2_yes": ["s", "Question two. What is the name of the song I wrote for Rosa?", "Pergunta dois. Qual é o nome da música que eu compus pra Rosa?", [
+   ["The Long Way Home.", "The Long Way Home.", "q3_br", {"set": {"f_song": "yes"}}],
+   ["Something about a blue star?", "Alguma coisa com estrela azul?", "q3_br"],
+   ["He rode a long way? On a horse?", "Ele cavalgou muito? Num cavalo?", null, "Wrote, not rode! The song he wrote for Rosa. What's it called?", "Compôs, não cavalgou! A música que ele compôs pra Rosa. Como se chama?"]
+  ]],
+  "q2_no": ["s", "Question two. What is the name of the song I wrote for Rosa?", "Pergunta dois. Qual é o nome da música que eu compus pra Rosa?", [
+   ["Something about a blue star?", "Alguma coisa com estrela azul?", "q3_br"],
+   ["We heard about a song, but never its name.", "A gente ouviu falar de uma música, mas nunca do nome.", "q3_br"],
+   ["He rode a long way? On a horse?", "Ele cavalgou muito? Num cavalo?", null, "Wrote, not rode! The song he wrote for Rosa. What's it called?", "Compôs, não cavalgou! A música que ele compôs pra Rosa. Como se chama?"]
+  ]],
+  "q3_br": {"branch": [["clue_baby_news", "q3_yes"], [null, "q3_no"]]},
+  "q3_yes": ["s", "Last question. I got the job in California, and I said no. Why?", "Última pergunta. Eu consegui o emprego na Califórnia e disse não. Por quê?", [
+   ["Because Grandma was having a baby, and he wanted to be home.", "Porque a vovó ia ter um bebê, e ele queria estar em casa.", "end1", {"set": {"f_why": "yes"}}],
+   ["Because it was a bad job, I guess.", "Porque era um emprego ruim, eu acho.", "end1"],
+   ["Snow? In California?", "Neve? Na Califórnia?", null, "No, not snow! He said no to the job. Why did he say no?", "Não, neve não! Ele disse não pro emprego. Por que ele disse não?"]
+  ]],
+  "q3_no": ["s", "Last question. I got the job in California, and I said no. Why?", "Última pergunta. Eu consegui o emprego na Califórnia e disse não. Por quê?", [
+   ["Because it was a bad job, I guess.", "Porque era um emprego ruim, eu acho.", "end1"],
+   ["Because California was too far from Chicago?", "Porque a Califórnia era longe demais de Chicago?", "end1"],
+   ["Snow? In California?", "Neve? Na Califórnia?", null, "No, not snow! He said no to the job. Why did he say no?", "Não, neve não! Ele disse não pro emprego. Por que ele disse não?"]
+  ]],
+  "end1": {"branch": [["f_van=yes", "end2"], ["f_song=yes", "end_good"], ["f_why=yes", "end_good"], [null, "end_basic"]]},
+  "end2": {"branch": [["f_song=yes", "end3"], [null, "end_good"]]},
+  "end3": {"branch": [["f_why=yes", "end_best"], [null, "end_good"]]},
+  "end_best": ["s", "Three out of three! He wrote: then they talked to everybody. Give them my harmonica, too.", "Três de três! Ele escreveu: então eles conversaram com todo mundo. Dê a minha gaita pra eles também.", "open_br", {"set": {"ending": "best"}}],
+  "end_good": ["s", "Close. For the record: Rosie, The Long Way Home, and a baby. But he wrote: open it anyway.", "Quase. Pra constar: Rosie, The Long Way Home e um bebê. Mas ele escreveu: abram mesmo assim.", "open_br"],
+  "end_basic": ["s", "Oh, dear. Not one! You two drove too fast. But he wrote: they're family. Open it anyway.", "Ai, ai. Nenhuma! Vocês dois dirigiram rápido demais. Mas ele escreveu: são da família. Abram mesmo assim.", "open_br"],
+  "open_br": {"branch": [["clue_key", "n_open_k"], [null, "n_open_s"]]},
+  "n_open_k": ["n", "You try the little key from the glove box. Click. Inside the box: one cassette tape and one blank postcard.", "Você testa a chavinha do porta-luvas. Clique. Dentro da caixa: uma fita cassete e um cartão-postal em branco.", "radio_br"],
+  "n_open_s": ["n", "There's no key, so Sal attacks the lock with a screwdriver. Inside: one cassette tape and one blank postcard.", "Não tem chave, então a Sal ataca o cadeado com uma chave de fenda. Dentro: uma fita cassete e um cartão-postal em branco.", "radio_br"],
+  "radio_br": {"branch": [["radio=fixed", "n_tape_van"], [null, "n_tape_shop"]]},
+  "n_tape_van": ["n", "You all climb into the van. Rafa slides the tape into the player Lupe fixed. The sun touches the water.", "Vocês três entram na van. O Rafa põe a fita no toca-fitas que a Lupe consertou. O sol encosta na água.", "c1"],
+  "n_tape_shop": ["n", "Sal finds a dusty tape player under the counter. Rafa slides the tape in. Outside, the sun touches the water.", "A Sal acha um toca-fitas empoeirado debaixo do balcão. O Rafa põe a fita. Lá fora, o sol encosta na água.", "c1"],
+  "c1": ["c", "Hello? Is this thing on? Okay. My name is Francisco. It is August, nineteen seventy-four.", "Alô? Isto aqui está ligado? Certo. Meu nome é Francisco. É agosto de mil novecentos e setenta e quatro.", "c2"],
+  "c2": ["c", "I am at the end of the road. Today, a man offered me a job on a fishing boat.", "Estou no fim da estrada. Hoje, um homem me ofereceu um emprego num barco de pesca.", "c3"],
+  "c3": ["c", "Good money. But eight months at sea, every year. So I said no. Rosa, I am coming home.", "Paga bem. Mas são oito meses no mar, todo ano. Então eu disse não. Rosa, estou voltando pra casa.", "c4"],
+  "c4": ["c", "To my family, one day: I have no money to leave you. Only this road, and the people on it.", "Pra minha família, um dia: não tenho dinheiro pra deixar pra vocês. Só esta estrada, e as pessoas que estão nela.", "c5"],
+  "c5": ["c", "They gave me food, a bed and a song. Go and thank them for me. Then keep driving.", "Elas me deram comida, cama e uma canção. Vão lá e agradeçam por mim. Depois, sigam viagem.", "n_quiet"],
+  "n_quiet": ["n", "The tape clicks off. Nobody speaks. Rafa wipes his eyes and blames the salt air.", "A fita para com um clique. Ninguém fala. O Rafa enxuga os olhos e põe a culpa na maresia.", "s_letter"],
+  "s_letter": ["s", "His letter ends: my grandkids barely know each other. Put them in that van. That should fix it.", "A carta dele termina assim: meus netos mal se conhecem. Ponha os dois naquela van. Isso deve resolver.", "van_br"],
+  "van_br": {"branch": [["van_plan=keep", "r_van_k"], [null, "r_van_s"]]},
+  "r_van_k": ["r", "He tricked us into being a family. And you were right all along. We're keeping Rosie.", "Ele enganou a gente pra virarmos uma família. E você tinha razão desde o começo. A Rosie fica com a gente.", "s_card"],
+  "r_van_s": ["r", "He tricked us into being a family. Forget the collector. I can't sell Rosie now.", "Ele enganou a gente pra virarmos uma família. Esquece o colecionador. Não consigo mais vender a Rosie.", "s_card"],
+  "s_card": ["s", "And the blank postcard is for Rosa. He got home before he could mail it. What will you write?", "E o cartão em branco é pra Rosa. Ele chegou em casa antes de conseguir mandar. O que vocês vão escrever?", [
+   ["Grandma, now we know why he came home.", "Vó, agora a gente sabe por que ele voltou pra casa.", "r_w1"],
+   ["We made it, Grandma. Now we're taking the long way home.", "A gente chegou, vó. Agora vamos voltar pelo caminho mais longo.", "r_w2"],
+   ["I can't ride. I don't have a horse.", "Não sei cavalgar. Não tenho cavalo.", null, "Write, not ride! With a pen, honey. What do you want to say to Rosa?", "Escrever, não cavalgar! Com caneta, meu bem. O que vocês querem dizer pra Rosa?"]
+  ]],
+  "r_w1": ["r", "And add: Dot, Walt, Lupe, Hank, June and Earl all say hello. Well, Walt nodded.", "E põe aí: a Dot, o Walt, a Lupe, o Hank, a June e o Earl mandam um oi. Bom, o Walt fez que sim com a cabeça.", "log_br"],
+  "r_w2": ["r", "The long way. Through every single stop. I want another slice of that pie.", "O caminho longo. Passando por cada parada. Eu quero outra fatia daquela torta.", "log_br"],
+  "log_br": {"branch": [["clue_logbook", "r_log8"], [null, "best_br"]]},
+  "r_log8": ["r", "And at the bottom: next time, we're bringing our grandchildren. Just like he wrote in the park book.", "E lá embaixo: da próxima vez, a gente traz os nossos netos. Igual ao que ele escreveu no livro do parque.", "best_br"],
+  "best_br": {"branch": [["ending=best", "n_harm"], [null, "n_end"]]},
+  "n_harm": ["n", "Rafa lifts Grandpa's harmonica and plays three terrible notes. Somehow, they sound like The Long Way Home.", "O Rafa pega a gaita do vovô e toca três notas horríveis. De algum jeito, elas soam como The Long Way Home.", "n_end"],
+  "n_end": ["n", "The sun sinks into the Pacific. You came for an old van. You found a family, all along the road.", "O sol mergulha no Pacífico. Você veio por uma van velha. Encontrou uma família, espalhada pela estrada inteira.", null]
+ }
+}

@@ -1,0 +1,95 @@
+{
+ "slug": "s09-05-canteen-gossip", "episode": 5, "title": "Canteen Gossip", "level": "B1",
+ "place": "cafe", "placeLabel": "Cantina do estúdio", "time": "Terça · 13h", "ambience": "cafe",
+ "description": "Na hora do almoço, todo mundo tem uma teoria. E a Nina viu coisas.",
+ "intro": "Seu cartão de receita era o do ano passado: alguém imprimiu o arquivo errado. O Rupert diz que não acredita em acidentes. No almoço, não se fala de outra coisa.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "g": ["Morag", "Participante, avó escocesa", "bf_alice", "left"],
+  "p": ["Nina", "Participante, estudante", "af_nicole", "left"],
+  "c": ["Rupert", "Participante, dono de restaurante", "bm_george", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Lunchtime in the studio canteen. Plastic trays, strong tea, and one very loud coffee machine.", "Hora do almoço na cantina do estúdio. Bandejas de plástico, chá forte e uma máquina de café bem barulhenta.", "n2"],
+  "n2": ["n", "Morag waves you over to a corner table. She has saved you a seat, and half a sandwich.", "A Morag te chama pra uma mesa de canto. Ela guardou um lugar pra você, e meio sanduíche.", "g1"],
+  "g1": ["g", "Sit down, dear. Your scones were grand, by the way. How are you holding up?", "Senta, meu bem. Seus scones ficaram uma beleza, aliás. Como você está aguentando?", [
+   ["I'm okay. I'm just fed up with things going wrong.", "Tudo bem. Só não aguento mais ver coisa dando errado.", "g_wrong"],
+   ["Better than my first batch of dough.", "Melhor que a minha primeira massa.", "g_dough"],
+   ["I'm holding a tray, that's all.", "Estou segurando uma bandeja, só isso.", null, "I can see the tray, dear. I meant you. How are you feeling after this morning?", "A bandeja eu estou vendo, meu bem. Falo de você. Como você está depois de hoje cedo?"]
+  ]],
+  "g_wrong": ["g", "Aye. And it isn't only you. Wait till you hear what's happened to me.", "Pois é. E não é só com você. Espera até ouvir o que aconteceu comigo.", "g_honey"],
+  "g_dough": ["g", "Ha! That dough could have mended a roof. Now listen, I've news of my own.", "Rá! Aquela massa dava pra consertar um telhado. Agora escuta, eu também tenho novidade.", "g_honey"],
+  "g_honey": ["g", "My heather honey has vanished. A whole jar, from my box in the pantry.", "Meu mel de urze desapareceu. Um pote inteiro, da minha caixa na despensa.", "owe_br"],
+  "owe_br": {"branch": [["owe_morag=yes", "g_owe"], [null, "g_proud"]]},
+  "g_owe": ["g", "You owe me for that cream, remember? So you're going to help me find it.", "Você me deve aquele creme, lembra? Então vai me ajudar a achar.", "g_q"],
+  "g_proud": ["g", "You were too proud for my cream on Monday. I'm not too proud to ask for help.", "Seu orgulho recusou meu creme na segunda. O meu não me impede de pedir ajuda.", "g_q"],
+  "g_q": ["g", "I need it for Thursday's final. My pudding is oats, cream, whisky and honey. Will you help?", "Preciso dele pra final de quinta. Minha sobremesa leva aveia, creme, uísque e mel. Você me ajuda?", [
+   ["Of course I will. When did you last see it?", "Claro que ajudo. Quando você viu o pote pela última vez?", "g_last"],
+   ["Can't you just use ordinary honey?", "Não dá pra usar um mel comum?", "g_ordinary"],
+   ["Whisky at lunch? Just a small one, thanks.", "Uísque no almoço? Só um pouquinho, valeu.", null, "It's for the pudding, not for you! The honey, dear. Will you help me find it?", "É pra sobremesa, não pra você! O mel, meu bem. Você me ajuda a achar?"]
+  ]],
+  "g_ordinary": ["g", "Ordinary honey? My late husband kept those bees. It isn't just a jar, dear. It's home.", "Mel comum? Meu falecido marido criava aquelas abelhas. Não é só um pote, meu bem. É a minha casa.", "g_last"],
+  "g_last": ["g", "I saw it last night at six. This morning, gone. Who goes in that pantry, do you think?", "Eu vi ontem às seis da tarde. Hoje de manhã, sumiu. Quem entra naquela despensa, na sua opinião?", [
+   ["Only us and the crew. Toby's in and out all day.", "Só a gente e a equipe. O Toby entra e sai o dia todo.", "g_toby"],
+   ["Rupert was hanging around it yesterday. I'm just saying.", "O Rupert estava rondando por lá ontem. Só estou comentando.", "g_rup1"],
+   ["I think the pantry is next to the toilets.", "Acho que a despensa fica ao lado do banheiro.", null, "I know where it is, dear. I asked who. Who goes in and out of that pantry?", "Eu sei onde fica, meu bem. Perguntei quem. Quem entra e sai daquela despensa?"]
+  ]],
+  "g_toby": ["g", "That poor lad? He can barely carry a box. I can't see him stealing honey.", "Aquele pobre rapaz? Ele mal consegue carregar uma caixa. Não imagino ele roubando mel.", "n_nina"],
+  "g_rup1": ["g", "Aye, I thought of him too. But thinking isn't knowing. Hush now, here's Nina.", "É, eu também pensei nele. Mas achar não é saber. Psiu, lá vem a Nina.", "n_nina"],
+  "n_nina": ["n", "Nina sits down with a bowl of salad. She looks over her shoulder before she speaks.", "A Nina se senta com uma tigela de salada. Ela olha por cima do ombro antes de falar.", "fix_br"],
+  "fix_br": {"branch": [["recipe_fix=shared", "p_shared"], ["recipe_fix=asked", "p_asked"], [null, "p_trusted"]]},
+  "p_shared": ["p", "Hi. Thanks for not telling Stella that I read you my card.", "Oi. Obrigada por não contar pra Stella que eu li meu cartão pra você.", "theory_br"],
+  "p_asked": ["p", "Hi. That was brave this morning. Putting your hand up, on camera.", "Oi. Aquilo hoje cedo foi corajoso. Levantar a mão, na frente das câmeras.", "theory_br"],
+  "p_trusted": ["p", "Hi. Sorry about this morning. I should have spoken up sooner.", "Oi. Desculpa por hoje cedo. Eu devia ter falado antes.", "theory_br"],
+  "theory_br": {"branch": [["theory=mistake", "p_m"], [null, "p_s"]]},
+  "p_m": ["p", "Yesterday you said it was probably just a mistake. I'm not so sure any more.", "Ontem você disse que devia ser só um engano. Eu já não tenho tanta certeza.", "p_q"],
+  "p_s": ["p", "Yesterday you said to keep our eyes open. Well, I did.", "Ontem você disse pra gente ficar de olho. Pois eu fiquei.", "p_q"],
+  "p_q": ["p", "I saw something, and I heard something. I don't know which one matters.", "Eu vi uma coisa, e ouvi outra. Não sei qual das duas importa.", [
+   ["Go on. What did you see?", "Conta. O que você viu?", "p_sofa"],
+   ["Start with what you heard.", "Começa pelo que você ouviu.", "p_heard"],
+   ["A mattress? No, I sleep on a normal bed.", "Um colchão? Não, eu durmo numa cama normal.", null, "Not a mattress. Sorry. I mean, which one is important. Do you want to hear about it?", "Não é colchão. Desculpa. Quero dizer, qual das duas é importante. Você quer que eu conte?"]
+  ]],
+  "p_sofa": ["p", "I got here at six to practise. Somebody was asleep on the green room sofa. Under a coat.", "Cheguei às seis pra treinar. Tinha alguém dormindo no sofá do camarim. Debaixo de um casaco.", "p_sofa2", {"clue": "sofa"}],
+  "p_sofa2": ["p", "I only saw white trainers sticking out. There's the other thing, too. Do you want it?", "Só vi um par de tênis brancos aparecendo. E tem a outra coisa. Quer saber?", [
+   ["Yes. Tell me everything.", "Quero. Conta tudo.", "p_heard"],
+   ["One thing at a time. Who was on the sofa?", "Uma coisa de cada vez. Quem estava no sofá?", "p_dunno"],
+   ["No, thanks. I don't need new trainers.", "Não, valeu. Não preciso de tênis novos.", null, "I'm not selling trainers. Sorry. I heard something as well. Shall I tell you?", "Não estou vendendo tênis. Desculpa. É que eu também ouvi uma coisa. Posso contar?"]
+  ]],
+  "p_dunno": ["p", "I don't know. I never saw a face. Sorry. I'm not a very good spy.", "Não sei. Não cheguei a ver o rosto. Desculpa. Não sou uma espiã muito boa.", "n_rup"],
+  "p_heard": ["p", "Last night, outside the office. The producer was talking to somebody. She sounded worn out.", "Ontem à noite, na porta do escritório. A produtora estava falando com alguém. Parecia esgotada.", "p_heard2"],
+  "p_heard2": ["p", "She said: one more mistake this week, and I'll have to let you go.", "Ela disse: mais um erro esta semana, e eu vou ter que te dispensar.", "p_who", {"clue": "trial_week"}],
+  "p_who": ["p", "I couldn't see who she was talking to. The door was almost closed.", "Não deu pra ver com quem ela falava. A porta estava quase fechada.", "n_rup"],
+  "n_rup": ["n", "A tray lands on the table. Rupert sits down without asking and steals one of Morag's crisps.", "Uma bandeja cai na mesa. O Rupert se senta sem pedir e rouba uma batatinha da Morag.", "c1"],
+  "c1": ["c", "Having a secret meeting? Let me guess. You all think it's me.", "Reunião secreta? Deixa eu adivinhar. Vocês todos acham que sou eu.", [
+   ["Nobody said that, Rupert.", "Ninguém disse isso, Rupert.", "c_nobody"],
+   ["Well, is it you?", "Bom, e é você?", "c_isit"],
+   ["We're not meeting. We're eating.", "Não é reunião. A gente está comendo.", null, "Very funny. You were whispering about the missing things. You think I did it, don't you?", "Muito engraçado. Vocês estavam cochichando sobre as coisas que sumiram. Vocês acham que fui eu, não acham?"]
+  ]],
+  "c_nobody": ["c", "You didn't need to. I saw your faces. I win by cooking, not by cheating.", "Nem precisava. Eu vi a cara de vocês. Eu ganho cozinhando, não trapaceando.", "g_seen"],
+  "c_isit": ["c", "Direct. I respect that. No. I win by cooking, not by hiding honey.", "Sem rodeios. Respeito isso. Não. Eu ganho cozinhando, não escondendo mel.", "g_seen"],
+  "g_seen": ["g", "Then why were you creeping about by the pantry last night, Rupert? I saw you.", "Então por que você estava rondando a despensa ontem à noite, Rupert? Eu te vi.", "c_phone"],
+  "c_phone": ["c", "I was making a private phone call. And that is all I'm prepared to say.", "Eu estava fazendo uma ligação particular. E é só isso que eu tenho a dizer.", "rel_br"],
+  "rel_br": {"branch": [["rupert_rel=friendly", "c_soft"], [null, "c_hard"]]},
+  "c_soft": ["c", "Brazil, you were decent to me yesterday. Tell them I'm not a monster.", "Brasil, você foi legal comigo ontem. Diz pra elas que eu não sou um monstro.", [
+   ["I believe you. But somebody is moving things.", "Eu acredito em você. Mas alguém está mexendo nas coisas.", "c_thanks"],
+   ["Then tell us who you were calling.", "Então conta pra gente pra quem você ligou.", "c_never"],
+   ["A mobster? No, I don't think you are.", "Um mafioso? Não, acho que você não é.", null, "Monster, not mobster. Good grief. Do you believe me or not?", "Monstro, não mafioso. Francamente. Você acredita em mim ou não?"]
+  ]],
+  "c_hard": ["c", "And you, Brazil. Basic and hot, wasn't it? Go on. Say what you think.", "E você, Brasil. Básica e quente, não foi? Anda. Diz o que você pensa.", [
+   ["I think you're rude, but you're not a cheat.", "Acho que você é grosso, mas não é trapaceiro.", "c_thanks"],
+   ["I think a private call is a convenient story.", "Acho que ligação particular é uma história bem conveniente.", "c_never"],
+   ["I think it's hot in here, yes.", "Acho que está quente aqui, sim.", null, "Not the weather! Me. The missing things. Do you think I did it, or not?", "Não é o clima! Eu. As coisas que sumiram. Você acha que fui eu ou não?"]
+  ]],
+  "c_thanks": ["c", "Thank you. Finally, someone with a brain. I shall remember that.", "Obrigado. Até que enfim, alguém com cérebro. Vou me lembrar disso.", "g_plan"],
+  "c_never": ["c", "Never. A chef has his secrets. Believe whatever you like.", "Jamais. Um chef tem seus segredos. Acredite no que quiser.", "g_plan"],
+  "g_plan": ["g", "Enough. I want my honey, not a fight. That pantry is empty after seven tonight.", "Chega. Eu quero meu mel, não uma briga. Aquela despensa fica vazia depois das sete.", [
+   ["I'll go and look. Nobody will notice me.", "Eu vou lá procurar. Ninguém vai reparar em mim.", "g_go"],
+   ["Shouldn't we just tell the producer?", "Não era melhor contar pra produtora?", "g_dee"],
+   ["Seven? I can't eat again at seven. I'm full.", "Sete? Não consigo comer de novo às sete. Não cabe mais nada.", null, "Nobody's feeding you, dear. I'm asking: will you look in the pantry tonight?", "Ninguém vai te dar comida, meu bem. Estou perguntando: você procura na despensa hoje à noite?"]
+  ]],
+  "g_go": ["g", "Good. A wee jar with a tartan lid. And take a torch, dear.", "Ótimo. Um potinho com tampa xadrez. E leva uma lanterna, meu bem.", "n_end"],
+  "g_dee": ["g", "And have her blame the wrong person? Find the honey first. A wee jar, tartan lid.", "Pra ela culpar a pessoa errada? Primeiro acha o mel. Um potinho, tampa xadrez.", "n_end"],
+  "n_end": ["n", "Rupert leaves first, his phone already in his hand. Seven o'clock, the pantry. You have a plan.", "O Rupert sai primeiro, já com o celular na mão. Sete horas, na despensa. Você tem um plano.", null]
+ }
+}

@@ -1,0 +1,101 @@
+{
+ "slug": "s10-06-the-client-call", "episode": 6, "title": "The Client Call", "level": "B2",
+ "place": "phone", "placeLabel": "Sala The Teapot", "time": "Quinta · 11h", "ambience": "office",
+ "description": "Sua primeira ligação com cliente. Justo a que viu o slide nove.",
+ "intro": "A Helen fechou o plano para a demonstração, e a Priya anda cada vez mais esgotada. Hoje você atende a Greta, dona das padarias Crumb: a cliente que viu o slide nove.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "d": ["Dylan", "Vendas", "am_puck", "right"],
+  "g": ["Greta", "Dona das padarias Crumb", "af_sarah", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Thursday, eleven o'clock. A tiny meeting room called The Teapot. One laptop, two chairs, and Dylan.", "Quinta, onze horas. Uma salinha de reunião chamada The Teapot. Um laptop, duas cadeiras e o Dylan.", "fb_br"],
+  "fb_br": {"branch": [["feedback=soft", "d0s"], [null, "d0h"]]},
+  "d0s": ["d", "Before she rings: I tried the mug joke on Nadia again. Nothing. And you said it was great!", "Antes de ela ligar: testei a piada da caneca com a Nadia de novo. Nada. E você disse que estava ótima!", "d1"],
+  "d0h": ["d", "Before she rings: I've cut the mug joke. You had a point. Don't tell anyone I said so.", "Antes de ela ligar: cortei a piada da caneca. Você tinha razão. Não conta pra ninguém que eu disse isso.", "d1"],
+  "d1": ["d", "Okay. Greta Larsen. Three bakeries, forty staff, zero patience. How do you want to play this?", "Certo. Greta Larsen. Três padarias, quarenta funcionários, zero paciência. Como você quer conduzir isso?", [
+   ["I'll listen first. Let her get everything off her chest.", "Primeiro eu vou ouvir. Deixar ela desabafar tudo.", "d_listen"],
+   ["I'll open with an apology. She deserves one.", "Vou começar pedindo desculpas. Ela merece.", "d_sorry"],
+   ["I'll play it on the guitar.", "Vou tocar no violão.", null, "Ha! Save that for Friday drinks. Seriously, what's your plan for this call?", "Rá! Guarda isso pro brinde de sexta. Sério, qual é o seu plano pra esta ligação?"]
+  ]],
+  "d_listen": ["d", "Perfect. I'll stay on mute and pass you notes.", "Perfeito. Eu fico no mudo e te passo bilhetes.", "n2"],
+  "d_sorry": ["d", "Good. But say sorry once, not ten times. I'll stay on mute and pass you notes.", "Boa. Mas peça desculpas uma vez, não dez. Eu fico no mudo e te passo bilhetes.", "n2"],
+  "n2": ["n", "The laptop rings. A woman appears, with flour on her apron and no smile at all.", "O laptop toca. Aparece uma mulher com farinha no avental e nenhum sorriso.", "g1"],
+  "g1": ["g", "So you're the new one. I'm Greta. I'll be direct: is your company going bankrupt?", "Então você é a pessoa nova. Eu sou a Greta. Vou ser direta: a empresa de vocês vai falir?", [
+   ["I understand why you're asking. Can I tell you what I know, and what I don't?", "Eu entendo por que você pergunta. Posso te contar o que eu sei, e o que eu não sei?", "g_fair"],
+   ["No, no! Everything's fine! Absolutely fine!", "Não, não! Está tudo bem! Tudo ótimo!", "g_fine"],
+   ["First of all, I'm sorry you found out this way.", "Antes de tudo, sinto muito que você tenha descoberto desse jeito.", "g_sorry"],
+   ["No, we're going to Bank station.", "Não, a gente vai pra estação Bank.", null, "Not the bank. Bankrupt! Out of money. Is Kettle about to close down?", "Não é banco. É falir! Ficar sem dinheiro. A Kettle está prestes a fechar?"]
+  ]],
+  "g_fair": ["g", "Hmm. That's a fair start. Go on, then.", "Hum. É um começo justo. Pode continuar.", "g2"],
+  "g_fine": ["g", "People who are fine don't say it three times. Take a breath, and try again.", "Quem está bem não repete isso três vezes. Respira e tenta de novo.", "g2"],
+  "g_sorry": ["g", "Thank you. Nobody else has said that. Now, my question.", "Obrigada. Ninguém mais disse isso. Agora, a minha pergunta.", "g2"],
+  "g2": ["g", "Slide nine says you have three months of cash. Is that number true?", "O slide nove diz que vocês têm dinheiro para três meses. Esse número é verdadeiro?", [
+   ["Yes, it's true. That's why Friday matters: we're raising money to change it.", "Sim, é verdade. Por isso sexta é tão importante: vamos captar dinheiro pra mudar isso.", "g_true"],
+   ["I can't discuss confidential numbers. But Helen will call you today.", "Não posso falar de números confidenciais. Mas a Helen vai te ligar hoje.", "g_helen"],
+   ["It's more complicated than one slide.", "É mais complicado do que um slide.", "g_compl"],
+   ["Yes, nine is a true number.", "Sim, nove é um número de verdade.", null, "I can count, thank you. The cash. Three months. True or not?", "Eu sei contar, obrigada. O dinheiro. Três meses. Verdade ou não?"]
+  ]],
+  "g_true": ["g", "At least you don't lie. My last supplier lied to me. I fired him.", "Pelo menos você não mente. Meu último fornecedor mentiu pra mim. Eu dispensei.", "n3"],
+  "g_helen": ["g", "Passing me up to the boss. Fine. But she'd better ring before I close at five.", "Me empurrando pra chefe. Tudo bem. Mas é bom ela ligar antes de eu fechar, às cinco.", "n3"],
+  "g_compl": ["g", "It always is. Bread is complicated too. I still tell my customers what's in it.", "Sempre é. Pão também é complicado. Mesmo assim eu conto pros meus clientes o que vai nele.", "n3"],
+  "n3": ["n", "Dylan slides a note across the table. It says: ask how she got the slide.", "O Dylan empurra um bilhete pela mesa. Está escrito: pergunta como o slide chegou até ela.", "g3"],
+  "g3": ["g", "And another thing. Last week your app charged one of my regulars twice. For one sourdough loaf.", "E tem mais. Semana passada o aplicativo de vocês cobrou duas vezes um freguês meu. Por um pão de fermentação natural.", [
+   ["We found that bug on Monday. The fix is being tested as we speak.", "A gente achou esse bug na segunda. O conserto está sendo testado neste momento.", "g_bug"],
+   ["That's on us. We'll refund your customer today.", "A falha é nossa. Vamos reembolsar o seu cliente hoje.", "g_refund"],
+   ["Twice? Well, it is very good bread.", "Duas vezes? Bom, o pão é muito bom mesmo.", null, "It's excellent bread. That is not the point! What are you doing about the double charge?", "É um pão excelente. Não é essa a questão! O que vocês vão fazer com a cobrança em dobro?"]
+  ]],
+  "g_bug": ["g", "Found on Monday, fixed by Friday? That's faster than the man who mends my ovens.", "Achado na segunda, consertado até sexta? É mais rápido que o homem que conserta meus fornos.", "g4"],
+  "g_refund": ["g", "Good. He's eighty-two, and he's told the whole street.", "Ótimo. Ele tem oitenta e dois anos e já contou pra rua inteira.", "g4"],
+  "g4": ["g", "Now. Have you got any questions for me, or shall I do all the talking?", "Agora. Você tem alguma pergunta pra mim, ou só eu que vou falar?", [
+   ["Just one. How did slide nine reach you?", "Só uma. Como o slide nove chegou até você?", "g_how"],
+   ["Yes. What would make you feel safe staying with us?", "Tenho. O que te daria segurança pra continuar com a gente?", "g_safe"],
+   ["Yes. Can I have your sourdough recipe?", "Tenho. Você me passa a receita do pão?", null, "Absolutely not. That recipe is older than you are. Any questions about the slide?", "De jeito nenhum. Essa receita é mais velha que você. Alguma pergunta sobre o slide?"]
+  ]],
+  "g_how": ["g", "You sent it to me! It was attached to your own Monday update. Two files instead of one.", "Vocês que me mandaram! Estava anexado à newsletter de segunda de vocês mesmos. Dois arquivos em vez de um.", "g_hq", {"clue": "own_email"}],
+  "g_hq": ["g", "I assumed you meant to. Honesty as a marketing trick. Didn't you?", "Eu achei que fosse de propósito. Sinceridade como truque de marketing. Não foi?", [
+   ["No, it was a mistake. Do you remember when the email arrived?", "Não, foi um engano. Você lembra quando o e-mail chegou?", "g_time"],
+   ["No. Did you show the slide to anyone else?", "Não. Você mostrou o slide pra mais alguém?", "g_who"],
+   ["Yes, I love magic tricks.", "Sim, eu adoro truque de mágica.", null, "Not a magic trick! I'm asking: did you send that slide on purpose?", "Não é truque de mágica! Eu estou perguntando: vocês mandaram aquele slide de propósito?"]
+  ]],
+  "g_time": ["g", "Thirteen minutes to midnight. I was up feeding my sourdough starter. I thought: these people never sleep.", "Treze para a meia-noite. Eu estava acordada alimentando meu fermento. Pensei: essa gente não dorme nunca.", "g5", {"clue": "late_email"}],
+  "g_who": ["g", "Only my accountant. And my sister. And, fine, the man from the flour company.", "Só pro meu contador. E pra minha irmã. E, tá bom, pro moço da empresa de farinha.", "g5"],
+  "g_safe": ["g", "Safe? I'll tell you exactly what would make me feel safe.", "Segurança? Eu vou te dizer exatamente o que me daria segurança.", "g5"],
+  "g5": ["g", "I paid for a whole year. If you close in three months, I lose nine. I want a refund.", "Eu paguei um ano inteiro. Se vocês fecharem em três meses, eu perco nove. Quero reembolso.", [
+   ["I can't promise that myself. But Helen will call you today with real options.", "Isso eu não posso prometer. Mas a Helen vai te ligar hoje com opções de verdade.", "g_real", {"set": {"greta": "honest"}}],
+   ["Done! A full refund, and a year free. I guarantee it.", "Fechado! Reembolso total e um ano grátis. Eu garanto.", "g_over", {"set": {"greta": "overpromised"}}],
+   ["What if you paid monthly instead? Then you'd never risk more than one month.", "E se você pagasse por mês? Assim você nunca arriscaria mais do que um mês.", "g_month", {"set": {"greta": "deal"}}],
+   ["You want your honey back?", "Você quer o seu mel de volta?", null, "Money, not honey! Though I do buy a lot of honey. My payment. What can you do?", "Dinheiro, não mel! Se bem que eu compro muito mel. O meu pagamento. O que você pode fazer?"]
+  ]],
+  "g_real": ["g", "You don't promise much. Good. It means your promises are worth something.", "Você não promete muito. Ótimo. Quer dizer que as suas promessas valem alguma coisa.", "g6"],
+  "g_over": ["g", "A year free? Well, well. Put that in writing by tonight.", "Um ano grátis? Ora, ora. Quero isso por escrito até hoje à noite.", "g6"],
+  "g_month": ["g", "Monthly. Hmm. Now that is a sensible idea. Who taught you that?", "Por mês. Hum. Essa sim é uma ideia sensata. Quem te ensinou isso?", "g6"],
+  "g6": ["g", "Last thing. Your big show on Friday. I was invited, before all this. Do you still want me there?", "Última coisa. O grande evento de sexta. Eu fui convidada, antes disso tudo. Vocês ainda me querem lá?", [
+   ["Very much. A happy customer is the best proof we have.", "Queremos muito. Uma cliente feliz é a melhor prova que a gente tem.", "g_come"],
+   ["Let me check with Helen and confirm this afternoon.", "Deixa eu ver com a Helen e te confirmo hoje à tarde.", "g_check"],
+   ["Friday? I prefer fried eggs.", "Sexta? Eu prefiro ovo frito.", null, "Not fried. Friday! Your investor demo. Do you want me there or not?", "Não é frito. É sexta! A demonstração pros investidores. Vocês me querem lá ou não?"]
+  ]],
+  "g_come": ["g", "Happy is a strong word. But I'll come. And I'll bring bread. Investors behave better with their mouths full.", "Feliz é uma palavra forte. Mas eu vou. E levo pão. Investidor se comporta melhor de boca cheia.", "n4"],
+  "g_check": ["g", "Check, check, check. Tell her I'm bringing bread either way.", "Ver, ver, ver. Avisa que eu levo pão de qualquer jeito.", "n4"],
+  "n4": ["n", "The screen goes dark. Dylan takes himself off mute, although the call is over.", "A tela escurece. O Dylan sai do mudo, embora a ligação já tenha acabado.", "gr_br"],
+  "gr_br": {"branch": [["greta=overpromised", "d_over"], [null, "d_good"]]},
+  "d_over": ["d", "A year free? We can't afford a week free! You've got to tell Helen before Greta does.", "Um ano grátis? A gente não aguenta nem uma semana grátis! Você precisa contar pra Helen antes que a Greta conte.", [
+   ["You're right. That was my mistake. I'll go and tell her now.", "Você tem razão. O erro foi meu. Vou lá contar agora.", "d_own"],
+   ["Could you tell her? She's known you for longer.", "Você pode contar? Ela te conhece há mais tempo.", "d_noown"],
+   ["A week free? I'd love a holiday.", "Uma semana livre? Eu adoraria umas férias.", null, "No holidays! Free, as in no money. Who's going to tell Helen what you promised?", "Nada de férias! Grátis, sem dinheiro entrando. Quem vai contar pra Helen o que você prometeu?"]
+  ]],
+  "d_own": ["d", "Good. Own it fast. Helen forgives mistakes. She doesn't forgive hiding them.", "Boa. Assume logo. A Helen perdoa erro. O que ela não perdoa é esconder.", "end_br"],
+  "d_noown": ["d", "Nope. Your promise, your news. I'll stand next to you, though. That's what colleagues are for.", "Nada disso. A promessa é sua, a notícia é sua. Mas eu fico do seu lado. Colega é pra isso.", "end_br"],
+  "d_good": ["d", "That was good. She's still angry, but she's still a client. What did you learn?", "Foi bom. Ela continua brava, mas continua cliente. O que você aprendeu?", [
+   ["She isn't afraid of us. She's afraid of the risk. Shrink the risk, and she stays.", "Ela não tem medo da gente. Tem medo do risco. Diminui o risco, e ela fica.", "d_learn1"],
+   ["That I need a coffee and a very quiet room.", "Que eu preciso de um café e de uma sala bem silenciosa.", "d_learn2"],
+   ["I learned to bake bread.", "Aprendi a fazer pão.", null, "From one video call? Impressive. I mean about Greta. What did we learn?", "Numa videochamada? Impressionante. Eu tô falando da Greta. O que a gente aprendeu?"]
+  ]],
+  "d_learn1": ["d", "Write that down. That's better than anything in my deck.", "Anota isso. É melhor do que qualquer coisa na minha apresentação.", "end_br"],
+  "d_learn2": ["d", "Ha! Bean There, my treat. You've earned it.", "Rá! Bean There, por minha conta. Você fez por merecer.", "end_br"],
+  "end_br": {"branch": [["clue_own_email", "n_end_a"], [null, "n_end_b"]]},
+  "n_end_a": ["n", "The slide went out in Kettle's own Monday update. So who pressed send that night?", "O slide saiu na newsletter de segunda da própria Kettle. Então, quem apertou enviar naquela noite?", null],
+  "n_end_b": ["n", "One day to go. You still don't know how the slide got out. But somebody in this building does.", "Falta um dia. Você ainda não sabe como o slide saiu. Mas alguém neste prédio sabe.", null]
+ }
+}

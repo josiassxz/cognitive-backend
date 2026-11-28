@@ -52,14 +52,22 @@ export type TalkDialogueDef = {
   nudges?: Record<string, TalkDialogueLine[]>;
   ambience?: string;
   place?: string;
+  placeLabel?: string;
   time?: string;
   episode?: number;
 };
-/** Tunely Town: temporada contínua, com memória entre episódios e pistas. */
+/** Tunely Town: uma história (temporada) contínua, com memória entre episódios e pistas. */
 export type TalkTownSeason = {
+  /** pasta/identificador estável: "s01", "s02"… */
+  id: string;
   season: number;
   title: string;
   subtitle: string;
+  /** faixa de nível, ex.: "A2–B1" */
+  level: string;
+  genre: string;
   clues: Record<string, { title: string; note: string }>;
+  /** "a história lembra": condição ("flag=valor" | "flag") → frase em pt-BR para o caderno */
+  memories?: Record<string, string>;
   episodes: TalkDialogueDef[];
 };

@@ -1,0 +1,93 @@
+{
+ "slug": "s08-06-tea-with-granny-nora", "episode": 6, "title": "Tea with Granny Nora", "level": "B1",
+ "place": "home", "placeLabel": "Salinha da avó Nora", "time": "Sexta · 17h", "ambience": "home",
+ "description": "Chuva na janela, bule na mesa. O que a avó do noivo quer de verdade?",
+ "intro": "A banda ficou presa no País de Gales por causa da tempestade, e o casamento de amanhã está sem música. A avó Nora mal fala com o Conor desde março. Está na hora de tomar um chá com ela.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "g": ["Granny Nora", "Avó do noivo", "bf_isabella", "left"],
+  "d": ["Declan", "Irmão do noivo e padrinho", "bm_fable", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Rain hammers on the windows. In the small sitting room, Granny Nora sits by the fire with a teapot.", "A chuva martela as janelas. Na salinha, a avó Nora está sentada perto da lareira, com um bule.", "tea_br"],
+  "tea_br": {"branch": [["granny_tea=good", "g_warm"], [null, "g_dry"]]},
+  "g_warm": ["g", "It's yourself. Come in. You're the only one in this house who makes proper tea.", "Olha quem é. Entra. Você é a única pessoa desta casa que sabe fazer chá de verdade.", "chair_br"],
+  "g_dry": ["g", "The teabag person. Come in, so. I made the tea myself. For safety.", "A pessoa do saquinho de chá. Entra, vai. O chá eu mesma fiz. Por segurança.", "chair_br"],
+  "chair_br": {"branch": [["chair=sat", "g_ch_s"], [null, "g_ch_a"]]},
+  "g_ch_s": ["g", "Sit. Not in Paddy's chair this time. You learn slowly, but you learn.", "Senta. Na poltrona do Paddy não, desta vez. Você aprende devagar, mas aprende.", "g_want"],
+  "g_ch_a": ["g", "Sit. You asked before you sat, on Thursday. Paddy would have liked you.", "Senta. Na quinta, você perguntou antes de sentar. O Paddy ia gostar de você.", "g_want"],
+  "g_want": ["g", "Well? Nobody visits an old woman just for the tea. Why are you here?", "E então? Ninguém visita uma velha só pelo chá. Por que você veio?", [
+   ["Honestly? For your company. It's chaos out there.", "Sinceramente? Pela sua companhia. Lá fora está um caos.", "g_comp"],
+   ["There's no band. I wondered what you think.", "Ficamos sem banda. Queria saber o que a senhora acha.", "g_band"],
+   ["Biscuits? Yes, please. I'd love one.", "Biscoitos? Aceito, por favor. Adoraria um.", null, "Biscuits! I said visits. Take one anyway. Now, why are you really here?", "Biscoitos! Eu disse visita. Pega um, vai. Agora, por que você veio de verdade?"]
+  ]],
+  "g_comp": ["g", "Company. Hmm. Good answer. You may stay. The band is stuck in Wales, I hear.", "Companhia. Hum. Boa resposta. Pode ficar. A banda ficou presa no País de Gales, ouvi dizer.", "g_smoke"],
+  "g_band": ["g", "I think the weather has better taste than my grandson.", "Eu acho que o tempo tem mais bom gosto que o meu neto.", "g_smoke"],
+  "g_smoke": ["g", "A band with a smoke machine. At a wedding. In my day, the smoke came from the chimney.", "Uma banda com máquina de fumaça. Num casamento. No meu tempo, fumaça saía da chaminé.", "n_case"],
+  "n_case": ["n", "In the corner, half hidden under a blanket, you notice a black case with silver corners.", "No canto, meio escondido debaixo de uma manta, você repara num estojo preto de cantos prateados.", "g_case"],
+  "g_case": ["g", "You've sharp eyes, child. Go on. Ask.", "Você tem olho bom, criança. Anda. Pergunta.", [
+   ["What's in the case, Nora?", "O que tem no estojo, Nora?", "g_acc"],
+   ["Tell me about Paddy.", "Me fala do Paddy.", "g_paddy"],
+   ["A mask? Why would I wear a mask?", "Uma máscara? Por que eu usaria máscara?", null, "Ask! I said ask. You're looking at my corner. What do you want to know?", "Pergunta! Eu disse pergunta. Você está olhando pro meu canto. O que quer saber?"]
+  ]],
+  "g_acc": ["g", "My accordion. I played in a dance band for twenty years. It hasn't left that case in six.", "Meu acordeão. Toquei numa banda de baile por vinte anos. Faz seis que ele não sai desse estojo.", "rings_br", {"clue": "accordion"}],
+  "g_paddy": ["g", "He played the fiddle badly and danced worse. But he wrote one lovely tune. For our wedding day.", "Tocava violino mal e dançava pior. Mas escreveu uma música linda. Pro dia do nosso casamento.", "rings_br"],
+  "rings_br": {"branch": [["granny_rings=knows", "g_rings"], [null, "g_marta"]]},
+  "g_rings": ["g", "And those rings Declan lost. Don't look so surprised. Have you found them?", "E aquelas alianças que o Declan perdeu. Não faz essa cara de surpresa. Já acharam?", [
+   ["Not yet. Any ideas, Nora?", "Ainda não. Alguma ideia, Nora?", "g_idea"],
+   ["What rings? Everything's fine!", "Que alianças? Está tudo ótimo!", "g_face"],
+   ["Wings? I prefer the chicken legs.", "Asinhas? Eu prefiro a coxa do frango.", null, "Rings, child, not wings! Gold ones. For fingers. Have they turned up or not?", "Rings, criança, não wings! De ouro. Pra pôr no dedo. Apareceram ou não?"]
+  ]],
+  "g_idea": ["g", "Declan never loses things. He gives them to the wrong person. Remember that.", "O Declan nunca perde nada. Ele entrega pra pessoa errada. Guarda isso.", "g_marta"],
+  "g_face": ["g", "That face again. Never play cards, child. You'd lose the house.", "Essa cara de novo. Nunca jogue baralho, criança. Você perdia até a casa.", "g_marta"],
+  "g_marta": ["g", "Now. Julia's mother. She looks at me as if I might bite. Why?", "Agora. A mãe da Julia. Ela me olha como se eu fosse morder. Por quê?", [
+   ["She thinks you don't like her family.", "Ela acha que a senhora não gosta da família dela.", "g_like"],
+   ["She's shy about her English. That's all.", "Ela tem vergonha do inglês dela. Só isso.", "g_shy"],
+   ["No, I don't think she has a bike.", "Não, acho que ela não tem bicicleta.", null, "A bike? Bite! With teeth! The woman is afraid of me. Why is that?", "Bicicleta? Morder! Com os dentes! A mulher tem medo de mim. Por quê?"]
+  ]],
+  "g_like": ["g", "Not like them? She brought two hundred sweets. I've eaten nine. I like her fine.", "Não gostar deles? Ela trouxe duzentos docinhos. Eu já comi nove. Gosto dela, sim.", "waltz_br"],
+  "g_shy": ["g", "Her English? My son speaks English all day, and nobody understands him either.", "O inglês dela? Meu filho fala inglês o dia inteiro, e ninguém entende ele também.", "waltz_br"],
+  "waltz_br": {"branch": [["clue_family_waltz", "g_why_w"], [null, "g_why"]]},
+  "g_why_w": ["g", "You fix everything, they tell me. So fix this. Why am I cross about Saturday?", "Dizem que você resolve tudo. Então resolve esta. Por que eu estou zangada com o sábado?", [
+   ["Because of the waltz. Every Doyle wedding began with it, and nobody asked you.", "Por causa da valsa. Todo casamento dos Doyle começava com ela, e ninguém pediu pra senhora.", "g_know"],
+   ["Because you don't like the band?", "Porque a senhora não gosta da banda?", "g_notband"],
+   ["Across? Across the road?", "Do outro lado? Do outro lado da rua?", null, "Cross! Annoyed! Angry, if you like. Why am I unhappy about this wedding?", "Zangada! Aborrecida! Brava, se preferir. Por que eu estou descontente com esse casamento?"]
+  ]],
+  "g_why": ["g", "You fix everything, they tell me. So fix this. Why am I cross about Saturday?", "Dizem que você resolve tudo. Então resolve esta. Por que eu estou zangada com o sábado?", [
+   ["Because you don't like the band?", "Porque a senhora não gosta da banda?", "g_notband"],
+   ["I don't know, Nora. Will you tell me?", "Eu não sei, Nora. A senhora me conta?", "tea_br2"],
+   ["Across? Across the road?", "Do outro lado? Do outro lado da rua?", null, "Cross! Annoyed! Angry, if you like. Why am I unhappy about this wedding?", "Zangada! Aborrecida! Brava, se preferir. Por que eu estou descontente com esse casamento?"]
+  ]],
+  "g_know": ["g", "So somebody in this house can think. Fergus told you about the waltz, I suppose.", "Então alguém nesta casa sabe pensar. Foi o Fergus que te contou da valsa, imagino.", "g_wish"],
+  "tea_br2": {"branch": [["granny_tea=good", "g_tell"], [null, "g_deflect"]]},
+  "g_tell": ["g", "For someone who makes proper tea, I will.", "Pra quem sabe fazer chá de verdade, eu conto.", "g_sixty"],
+  "g_deflect": ["g", "I will not. If I have to tell you, there's no point.", "Não conto. Se eu tiver que contar, não adianta.", "g_guess"],
+  "g_notband": ["g", "The band? I'd forgotten that band already.", "A banda? Eu já tinha até esquecido essa banda.", "g_guess"],
+  "g_guess": ["g", "Try again. What does an old woman really want?", "Tenta de novo. O que uma velha quer de verdade?", [
+   ["I think you feel left out. Am I wrong?", "Acho que a senhora se sente deixada de lado. Estou errando?", "g_left"],
+   ["A quiet wedding, with no fuss?", "Um casamento tranquilo, sem alvoroço?", "g_fuss"],
+   ["Gold? I can't afford gold, Nora.", "Ouro? Eu não tenho dinheiro pra ouro, Nora.", null, "Gold! What would I do with gold? I said old. What do I really want on Saturday?", "Ouro! O que eu ia fazer com ouro? Eu disse velha. O que eu quero de verdade no sábado?"]
+  ]],
+  "g_left": ["g", "Left out. Hmm. You're sharper than you look.", "Deixada de lado. Hum. Você enxerga mais do que parece.", "g_sixty"],
+  "g_sixty": ["g", "For sixty years, I played the first dance at every Doyle wedding. Paddy's waltz.", "Por sessenta anos, eu toquei a primeira dança em todo casamento dos Doyle. A valsa do Paddy.", "g_wish"],
+  "g_fuss": ["g", "I love a fuss. I'm eighty-four. Fuss is all I have left. Never mind, child.", "Eu adoro um alvoroço. Tenho oitenta e quatro anos. Alvoroço é o que me resta. Deixa pra lá, criança.", "n_bang"],
+  "g_wish": ["g", "I'm not against this wedding, child. I only wanted to be asked to play. Nobody asked.", "Eu não sou contra esse casamento, criança. Eu só queria que pedissem pra eu tocar. Ninguém pediu.", "g_wish2", {"clue": "granny_wish"}],
+  "g_wish2": ["g", "And I won't offer. A person has her pride. So, now you know. What will you do?", "E eu não vou me oferecer. A gente tem orgulho. Pronto, agora você sabe. O que vai fazer?", [
+   ["I'll keep it to myself. For now.", "Vou guardar comigo. Por enquanto.", "g_q_a"],
+   ["I'll make sure you're asked. Properly.", "Vou garantir que peçam. Do jeito certo.", "g_q_b"],
+   ["Pride? No, I'm not a lion.", "Orgulho? Não, eu não sou um leão.", null, "Not that kind of pride! I mean my dignity. Now you know my secret. What will you do with it?", "Não é esse pride! Estou falando da minha dignidade. Agora você sabe meu segredo. O que vai fazer com ele?"]
+  ]],
+  "g_q_a": ["g", "Good. A secret is like tea. It needs time.", "Ótimo. Segredo é igual chá. Precisa de tempo.", "n_bang"],
+  "g_q_b": ["g", "We'll see. I'm not an easy woman to ask. Bring manners.", "Veremos. Eu não sou fácil de convencer. Traga educação.", "n_bang"],
+  "n_bang": ["n", "Suddenly, the door flies open. Declan stands there, soaked to the skin.", "De repente, a porta se escancara. O Declan está ali, encharcado até os ossos.", "d1"],
+  "d1": ["d", "Boss! Sorry, Granny. It's the tent. It's trying to fly to Scotland! Are you coming?", "Chefia! Desculpa, vovó. É a tenda. Ela está tentando voar pra Escócia! Você vem?", [
+   ["Right behind you. Nora, thank you for the tea.", "Estou indo. Nora, agradeço pelo chá.", "g_bye_a"],
+   ["One second. Nora, will you be all right here?", "Um segundo. Nora, a senhora fica bem aqui?", "g_bye_b"],
+   ["A tent? No, thanks. I'm staying in the house.", "Uma barraca? Não, valeu. Eu já tenho um quarto na casa.", null, "Not for sleeping! The wedding tent! It's blowing away! Will you come and help?", "Não é pra dormir! A tenda do casamento! O vento está levando! Você vem ajudar?"]
+  ]],
+  "g_bye_a": ["g", "You're welcome. Go on. And Declan? Wipe your feet.", "De nada. Vai. E Declan? Limpa os pés.", "n_end"],
+  "g_bye_b": ["g", "I survived eighty-four Irish winters, child. Go. And Declan? Wipe your feet.", "Eu sobrevivi a oitenta e quatro invernos irlandeses, criança. Vai. E Declan? Limpa os pés.", "n_end"],
+  "n_end": ["n", "You run out into the rain. Over the wind, you hear a long, loud ripping sound.", "Você sai correndo na chuva. Por cima do vento, ouve um som comprido e alto de algo rasgando.", null]
+ }
+}

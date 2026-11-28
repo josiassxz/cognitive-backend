@@ -1,0 +1,87 @@
+{
+ "slug": "s02-04-rosies-apples", "episode": 4, "title": "Rosie's Apples", "level": "A2",
+ "place": "market", "placeLabel": "Camden Market", "time": "Sexta · 13h30", "ambience": "market",
+ "description": "No Camden Market, você procura a barraca da Rosie. Ela conhece o dono da mala.",
+ "intro": "No hostel, você achou uma receita de crumble de maçã no bolso da mala errada, com um recado: comprar as maçãs na barraca da Rosie, no Camden Market. Faltam seis horas e meia para o jantar da Bia.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "t": ["Tariq", "Vendedor de macarrão", "am_fenrir", "right"],
+  "r": ["Rosie", "Dona da barraca de maçãs", "bf_alice", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Camden Market is loud and colourful. You can smell curry, coffee and fried onions.", "O Camden Market é barulhento e colorido. Dá pra sentir cheiro de curry, café e cebola frita.", "n2"],
+  "n2": ["n", "There are hundreds of stalls. Which one is Rosie's? A man selling noodles waves at you.", "São centenas de barracas. Qual será a da Rosie? Um homem que vende macarrão acena pra você.", "t1"],
+  "t1": ["t", "Hello, hello! The best noodles in London! Are you hungry?", "Olá, olá! O melhor macarrão de Londres! Está com fome?", [
+   ["Not now, thanks. I'm looking for Rosie's stall.", "Agora não, valeu. Estou procurando a barraca da Rosie.", "t_rosie"],
+   ["Yes! How much are the noodles?", "Sim! Quanto custa o macarrão?", "t_price"],
+   ["No, I'm from Brazil.", "Não, eu sou do Brasil.", null, "Ha! Not Hungary, the country! Hungry! Do you want some food?", "Rá! Não é Hungria, o país! É fome! Quer comer alguma coisa?"]
+  ]],
+  "t_price": ["t", "Six pounds for a small box, eight for a large one. Which would you like?", "Seis libras a caixa pequena, oito a grande. Qual você quer?", [
+   ["A small box, please.", "Uma caixa pequena, por favor.", "t_box"],
+   ["A large one, please. I didn't have breakfast.", "Uma grande, por favor. Eu não tomei café da manhã.", "t_box"],
+   ["Six pounds? No, I'm about sixty kilos.", "Seis libras? Não, eu peso uns sessenta quilos.", null, "Ha! Not your weight! The price. Six pounds or eight. Small or large?", "Rá! Não é o seu peso! É o preço. Seis libras ou oito. Pequena ou grande?"]
+  ]],
+  "t_box": ["t", "Here you go. Careful, it's very hot! Enjoy.", "Aqui está. Cuidado, está bem quente! Bom apetite.", "n_ask"],
+  "n_ask": ["n", "You eat fast. It's delicious. Then you ask him about Rosie's stall.", "Você come depressa. Está uma delícia. Depois pergunta pra ele da barraca da Rosie.", "t_rosie"],
+  "t_rosie": ["t", "Rosie? The apple queen! Everybody knows Rosie. It's easy.", "A Rosie? A rainha das maçãs! Todo mundo conhece a Rosie. É fácil.", "t_dir"],
+  "t_dir": ["t", "Go straight on, past the hat stall. Then turn left at the bridge. Okay?", "Siga reto, passe a barraca de chapéus. Depois vire à esquerda na ponte. Beleza?", [
+   ["Straight on, then left at the bridge. Got it.", "Reto, depois esquerda na ponte. Entendi.", "t_good"],
+   ["Sorry, could you say that again, more slowly?", "Desculpa, pode repetir, mais devagar?", "t_slow"],
+   ["Okay. I turn left at the fridge.", "Beleza. Eu viro à esquerda na geladeira.", null, "The fridge? There's no fridge! The bridge. Over the water. Turn left at the bridge, okay?", "Na geladeira? Não tem geladeira! Na ponte. Em cima da água. Vire à esquerda na ponte, tá?"]
+  ]],
+  "t_good": ["t", "Perfect! Rosie's is the green stall. You can't miss it.", "Perfeito! A da Rosie é a barraca verde. Não tem erro.", "n_walk"],
+  "t_slow": ["t", "Sure. Straight on. Past the hats. Left at the bridge. Look for the green stall.", "Claro. Reto. Passa os chapéus. Esquerda na ponte. Procure a barraca verde.", "n_walk"],
+  "n_walk": ["n", "Past the hats, left at the bridge. There it is: a green stall, full of apples.", "Você passa pelos chapéus e vira à esquerda na ponte. Lá está: uma barraca verde, cheia de maçãs.", "r1"],
+  "r1": ["r", "Hello, love! Lovely apples today. Sweet ones, sour ones. What would you like?", "Oi, meu bem! Maçãs lindas hoje. Tem doce, tem azedinha. O que vai querer?", [
+   ["Are you Rosie? I'm looking for one of your customers.", "Você é a Rosie? Estou procurando um freguês seu.", "r_cust"],
+   ["One apple for now, please. And I have a question.", "Uma maçã por enquanto, por favor. E eu tenho uma pergunta.", "r_bag"],
+   ["I like you too, Rosie.", "Eu também gosto de você, Rosie.", null, "Aw, bless you, love! But the apples. What would you like to buy?", "Ah, que amor, meu bem! Mas as maçãs. O que você quer comprar?"]
+  ]],
+  "r_cust": ["r", "I'm Rosie! A customer? I've got hundreds, love.", "Sou a Rosie! Um freguês? Eu tenho centenas, meu bem.", "r_which"],
+  "r_bag": ["r", "Fifty pence. There you go. Best apple in Camden. Now, the question.", "Cinquenta centavos. Prontinho. A melhor maçã de Camden. Agora, a pergunta.", "r_which"],
+  "r_which": ["r", "Go on, then. Who are you looking for?", "Vai, fala. Quem você está procurando?", [
+   ["I don't know the name. But look at this recipe.", "Não sei o nome. Mas olha esta receita.", "r_recipe"],
+   ["Someone with a red and white scarf. Camden Rovers.", "Alguém de cachecol vermelho e branco. Camden Rovers.", "r_scarf"],
+   ["I look good, thank you.", "Eu estou bem na foto, valeu.", null, "You do, love! But which customer? Who do you want to find?", "Está mesmo, meu bem! Mas qual freguês? Quem você quer achar?"]
+  ]],
+  "r_recipe": ["r", "Let me see. Apple crumble! Oh! That's my recipe! I wrote that for Eddie!", "Deixa eu ver. Crumble de maçã! Ah! Essa receita é minha! Eu escrevi pro Eddie!", "r_eddie"],
+  "r_scarf": ["r", "Rovers? Ha! That's Eddie! He never misses a match. He sings louder than anyone.", "Rovers? Rá! É o Eddie! Ele não perde um jogo. Canta mais alto que todo mundo.", "r_eddie"],
+  "r_eddie": ["r", "Eddie comes every Friday. Six apples, for his crumble. A lovely old gentleman. Why do you need him?", "O Eddie vem toda sexta. Seis maçãs, pro crumble dele. Um senhor adorável. Por que você precisa dele?", [
+   ["We have the same suitcase. He has mine, and I have his.", "A gente tem a mesma mala. Ele está com a minha, e eu com a dele.", "r_mixup"],
+   ["I have his suitcase. Was he here today?", "Estou com a mala dele. Ele passou aqui hoje?", "r_here"],
+   ["No, thanks. I don't need ham.", "Não, valeu. Eu não preciso de presunto.", null, "Ham? This is a fruit stall, love! Eddie. Why are you looking for him?", "Presunto? Isto aqui é barraca de fruta, meu bem! O Eddie. Por que você está atrás dele?"]
+  ]],
+  "r_mixup": ["r", "Oh no! So that's why! He was here an hour ago, very upset.", "Ai, não! Então é por isso! Ele passou aqui faz uma hora, bem chateado.", "r_upset"],
+  "r_here": ["r", "An hour ago! With a blue suitcase. He looked so worried, poor thing.", "Faz uma hora! Com uma mala azul. Estava tão preocupado, coitado.", "r_upset"],
+  "r_upset": ["r", "He said: 'Rosie, it's a disaster. I need my suitcase before tonight.'", "Ele disse: 'Rosie, é um desastre. Eu preciso da minha mala antes de hoje à noite.'", [
+   ["Why tonight? What happens tonight?", "Por que hoje à noite? O que acontece hoje à noite?", "r_every"],
+   ["Do you know where he lives?", "Você sabe onde ele mora?", "r_lives"],
+   ["Do you have his phone number?", "Você tem o telefone dele?", "r_phone"],
+   ["Is he a knight? With a horse?", "Ele é cavaleiro? Com cavalo?", null, "A knight? Ha! Not that I know, love. I said he needs it tonight. This evening!", "Cavaleiro? Rá! Que eu saiba não, meu bem. Eu disse que ele precisa dela hoje à noite. Ainda hoje!"]
+  ]],
+  "r_every": ["r", "He's at the Lantern Theatre every night, love. Except Mondays. And he never buys a ticket!", "Ele está no Lantern Theatre toda noite, meu bem. Menos segunda. E nunca compra ingresso!", "r_every2", {"clue": "every_night"}],
+  "r_every2": ["r", "Why? Ask him! It's his story. I only sell apples.", "Por quê? Pergunta pra ele! A história é dele. Eu só vendo maçã.", "r_where"],
+  "r_lives": ["r", "Somewhere in north London. I don't know the street. Sorry, love.", "Em algum lugar no norte de Londres. Não sei a rua. Desculpa, meu bem.", "r_where"],
+  "r_phone": ["r", "Eddie? He doesn't have a mobile. He says phones are bad for the voice.", "O Eddie? Ele não tem celular. Diz que telefone faz mal pra voz.", "r_where"],
+  "r_where": ["r", "But I know where he went next! He had to pick up a book.", "Mas eu sei pra onde ele foi depois! Ele tinha que buscar um livro.", "r_card"],
+  "r_card": ["r", "He keeps the shop's card in the front pocket. Go on, have a look.", "Ele guarda o cartão da loja no bolso da frente. Vai, dá uma olhada.", "n_card"],
+  "n_card": ["n", "You open the front pocket. There is a small green card, with an owl on it.", "Você abre o bolso da frente. Tem um cartãozinho verde, com uma coruja.", "r_card2"],
+  "r_card2": ["r", "That's it! Owl and Quill Books, in Cecil Court. Near Trafalgar Square.", "É esse! Owl and Quill Books, em Cecil Court. Perto da Trafalgar Square.", "r_apples", {"clue": "bookshop_card"}],
+  "r_apples": ["r", "One thing, love. Eddie forgot his apples today. Will you take them to him?", "Uma coisa, meu bem. O Eddie esqueceu as maçãs hoje. Você leva pra ele?", [
+   ["Of course. I'll take them.", "Claro. Eu levo.", "r_thanks", {"set": {"apples": "yes"}}],
+   ["Sorry, Rosie. The suitcase is heavy enough.", "Desculpa, Rosie. A mala já pesa demais.", "r_no", {"set": {"apples": "no"}}],
+   ["No, I can't take Eddie. He's too heavy.", "Não, eu não consigo levar o Eddie. Ele é muito pesado.", null, "Not Eddie! The apples! Will you carry the apples to him?", "Não é o Eddie! As maçãs! Você carrega as maçãs até ele?"]
+  ]],
+  "r_thanks": ["r", "You're a star! Six apples, no charge. And tell him Rosie says: break a leg!", "Você é uma estrela! Seis maçãs, por conta da casa. E diz que a Rosie mandou: quebre a perna!", "r_time"],
+  "r_no": ["r", "Fair enough, love. Your arms, your choice.", "Justo, meu bem. O braço é seu, a escolha é sua.", "r_time"],
+  "r_time": ["r", "Now hurry! The bookshop closes at five. What time is it?", "Agora corre! A livraria fecha às cinco. Que horas são?", [
+   ["It's two o'clock. I have three hours.", "São duas horas. Tenho três horas.", "r_go"],
+   ["Two o'clock. How do I get to Cecil Court?", "Duas horas. Como eu chego em Cecil Court?", "r_bus"],
+   ["Sorry, I don't have any thyme. Only apples.", "Desculpa, eu não tenho tomilho. Só maçã.", null, "Ha! Not the herb, love! The time! On your phone. What time is it?", "Rá! Não é o tempero, meu bem! A hora! No celular. Que horas são?"]
+  ]],
+  "r_go": ["r", "Three hours is nothing in London! Take the number twenty-four bus to Trafalgar Square. Go!", "Três horas não é nada em Londres! Pegue o ônibus vinte e quatro até a Trafalgar Square. Vai!", "n_end"],
+  "r_bus": ["r", "Take the number twenty-four bus, on the main road. Get off at Trafalgar Square. Then ask someone.", "Pegue o ônibus vinte e quatro, na avenida. Desça na Trafalgar Square. Depois pergunte pra alguém.", "n_end"],
+  "n_end": ["n", "The number twenty-four bus is easy to find. But it goes in two directions. And you don't check.", "O ônibus vinte e quatro é fácil de achar. Mas ele vai em dois sentidos. E você nem confere.", null]
+ }
+}

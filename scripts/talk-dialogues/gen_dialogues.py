@@ -13,7 +13,14 @@ Opção sem sentido: [text, pt, null, reactText, reactPt]
 Uso: uv run python gen_dialogues.py [--no-audio] [--only town|dialogues]"""
 import glob, hashlib, json, re, subprocess, sys
 
-YOU_VOICES = {"m": "am_adam", "f": "af_heart"}
+# Vozes do aluno: misturas (média dos estilos) das vozes mais naturais do Kokoro.
+YOU_VOICES = {"m": "am_eric+am_michael", "f": "af_heart+af_bella"}
+NARRATOR = "bf_emma"
+AMBIENCES = {"cafe", "street", "shop", "office", "police", "market", "pub", "festival", "airport", "station", "train",
+             "restaurant", "hotel", "park", "beach", "home", "car", "clinic", "campus", "party", "nature", "kitchen", "gym", "studio"}
+PLACE_ICONS = {"cafe", "street", "shop", "office", "police", "market", "pub", "festival", "airport", "station", "train",
+               "restaurant", "hotel", "park", "beach", "home", "car", "clinic", "campus", "party", "nature", "kitchen",
+               "gym", "studio", "phone", "bank", "museum", "boat", "stage", "court", "garage", "farm", "library"}
 OUT_MEDIA = "out/media"
 TS_DIALOGUES = "../cognitive-backend/src/talk/dialogues.data.ts"
 TS_TOWN = "../cognitive-backend/src/talk/town.data.ts"
@@ -39,7 +46,11 @@ def tts_text(text):
         if w in ACRONYMS:
             return w
         return "I'" + w[2:].lower() if w.startswith("I'") else w.lower()
+    text = re.sub(r"\bEr\b", "Uh", text)  # "Er, enjoy" virava "Errin Joy"
     return re.sub(r"\b[A-Z][A-Z']+\b", fix, text.replace("...", ","))
+
+
+FIXES = json.load(open("tts_fixes.json"))
 
 
 def build(d, prefix, known_flags=None, clues=None):
@@ -51,7 +62,14 @@ def build(d, prefix, known_flags=None, clues=None):
 
     def line(voice, text):
         k = key(prefix, voice, text)
-        jobs.append({"out": f"{OUT_MEDIA}/{k}", "text": tts_text(text), "voice": voice, **({"force": True} if "--force-caps" in sys.argv and tts_text(text) != text.replace("...", ",") else {})})
+        fix = FIXES.get(text, {})
+        say = fix.get("say") or tts_text(text)
+        job = {"out": f"{OUT_MEDIA}/{k}", "text": say, "voice": voice}
+        if "speed" in fix:
+            job["speed"] = fix["speed"]
+        if "--force-fixes" in sys.argv and (text in FIXES or re.search(r"\bEr\b", text)):
+            job["force"] = True
+        jobs.append(job)
         return k
 
     def you(text):
@@ -172,7 +190,7 @@ def build(d, prefix, known_flags=None, clues=None):
         "cast": {k: {"name": v[0], "role": v[1], **({"side": v[3]} if len(v) > 3 else {})} for k, v in cast.items()},
         "start": start, "decisions": [lo, hi], "nodes": out, "nudges": nudges,
     }
-    for extra in ("ambience", "place", "time", "episode"):
+    for extra in ("ambience", "place", "placeLabel", "time", "episode"):
         if extra in d:
             res[extra] = d[extra]
     print(f"{slug}: {len(nodes)} nós, decisões {lo}-{hi}")
@@ -197,19 +215,59 @@ if only in (None, "dialogues"):
         print(f"{len(defs)} diálogos avulsos")
 
 if only in (None, "town"):
-    season = json.load(open("town/season.json"))
-    clues = season["clues"]
-    flags, eps = set(), []
-    for f in sorted(glob.glob("town/ep*.json")):
-        d = json.load(open(f))
-        built, s = build(d, f"town/{d['slug']}", flags, clues)
-        flags |= s
-        eps.append(built)
-    eps.sort(key=lambda e: e["episode"])
-    if not errors:
-        write_ts(TS_TOWN, "import type { TalkTownSeason } from './types';", "TalkTownSeason", "TALK_TOWN",
-                 {**{k: v for k, v in season.items() if k != "episodes"}, "episodes": eps})
-        print(f"temporada: {len(eps)} episódios, {len(clues)} pistas")
+    # cada temporada em town/sNN/: season.json + epNN.json (+ BIBLE.md)
+    only_season = sys.argv[sys.argv.index("--season") + 1] if "--season" in sys.argv else None
+    seasons = []
+    for sf in sorted(glob.glob("town/s*/season.json")):
+        sid = sf.split("/")[1]
+        if only_season and sid != only_season:
+            continue
+        season = json.load(open(sf))
+        clues = season["clues"]
+        for cond in season.get("memories", {}):
+            if not COND.match(cond):
+                errors.append(f"{sid}: memories com condição inválida '{cond}'")
+        for need in ("season", "title", "subtitle", "level", "genre", "memories"):
+            if need not in season:
+                errors.append(f"{sid}: season.json sem '{need}'")
+        flags, eps, slugs = set(), [], set()
+        for f in sorted(glob.glob(f"town/{sid}/ep*.json")):
+            d = json.load(open(f))
+            where = f"{sid}/{d.get('slug')}"
+            if sid != "s01" and not str(d.get("slug", "")).startswith(sid + "-"):
+                errors.append(f"{where}: slug precisa começar com '{sid}-'")
+            if d.get("slug") in slugs:
+                errors.append(f"{where}: slug repetido")
+            slugs.add(d.get("slug"))
+            if d.get("ambience") not in AMBIENCES:
+                errors.append(f"{where}: ambience '{d.get('ambience')}' não existe (use: {sorted(AMBIENCES)})")
+            if d.get("place") not in PLACE_ICONS:
+                errors.append(f"{where}: place '{d.get('place')}' não existe (use: {sorted(PLACE_ICONS)})")
+            if sid != "s01" and not d.get("placeLabel"):
+                errors.append(f"{where}: falta placeLabel")
+            if "n" in d["cast"] and d["cast"]["n"][2] != NARRATOR:
+                errors.append(f"{where}: narrador deve usar a voz {NARRATOR}")
+            for k, c in d["cast"].items():
+                if len(c) < 4 or c[3] not in ("left", "right", "center"):
+                    errors.append(f"{where}: personagem {k} sem lado (left/right/center)")
+                if "+" in c[2] or c[2] in ("am_adam", "am_santa", "af_heart"):
+                    errors.append(f"{where}: voz {c[2]} não pode ser usada por personagem")
+            before = len(errors)
+            built, st = build(d, f"town/{d['slug']}", flags, clues)
+            flags |= st
+            eps.append(built)
+        eps.sort(key=lambda e: e["episode"])
+        if [e["episode"] for e in eps] != list(range(1, len(eps) + 1)):
+            errors.append(f"{sid}: episódios devem ser numerados 1..N sem buracos")
+        given = {n.get("clue") for e in eps for n in e["nodes"].values() if isinstance(n, dict)}
+        for c in clues:
+            if c not in given:
+                errors.append(f"{sid}: pista '{c}' nunca é revelada")
+        seasons.append({**{k: v for k, v in season.items() if k != "episodes"}, "id": sid, "episodes": eps})
+        print(f"{sid}: {len(eps)} episódios, {len(clues)} pistas, {sum(len(e['nodes']) for e in eps)} nós")
+    seasons.sort(key=lambda x: x["season"])
+    if not errors and not only_season:
+        write_ts(TS_TOWN, "import type { TalkTownSeason } from './types';", "TalkTownSeason[]", "TALK_SEASONS", seasons)
 
 if errors:
     print("\n".join(errors))
@@ -217,5 +275,8 @@ if errors:
 uniq = {j["out"]: j for j in jobs}
 print(f"{len(uniq)} áudios")
 if "--no-audio" not in sys.argv:
+    if "--force-all" in sys.argv:
+        for j in uniq.values():
+            j["force"] = True
     json.dump(list(uniq.values()), open("out/jobs.json", "w"))
     subprocess.run(["uv", "run", "python", "tts.py", "out/jobs.json"], check=True)

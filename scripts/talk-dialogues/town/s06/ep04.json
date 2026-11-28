@@ -1,0 +1,91 @@
+{
+ "slug": "s06-04-the-practice-room", "episode": 4, "title": "The Practice Room", "level": "A2",
+ "place": "campus", "placeLabel": "Universidade · sala de ensaio", "time": "Quarta · 13h", "ambience": "studio",
+ "description": "Um trombone, uma nota horrível e um álibi em Leeds.",
+ "intro": "Sua comida voltou para a geladeira: mais cara e com etiqueta perfeita. O fantasma sente culpa. A Mei recebeu uma caixa pesada e se trancou no quarto. E o Callum não para de espirrar.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "c": ["Callum", "Estudante de música, colega de apartamento", "bm_fable", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "It's Wednesday lunchtime. Callum left his sandwiches at home again. You take them to the university.", "É quarta, hora do almoço. O Callum esqueceu os sanduíches em casa de novo. Você leva até a universidade.", "n2"],
+  "n2": ["n", "In the music building, you follow the sound of a trombone. It's loud. It's not always right.", "No prédio de música, você segue o som de um trombone. É alto. Nem sempre é afinado.", "tone_br"],
+  "tone_br": {"branch": [["tone=blunt", "c_cold"], [null, "c_warm"]]},
+  "c_warm": ["c", "Hey! My sandwiches! You're a star. Have you got a minute?", "Ei! Meus sanduíches! Você é demais. Tem um minutinho?", [
+   ["Sure. Wow, this room is tiny!", "Claro. Nossa, que sala minúscula!", "c_room"],
+   ["Yes. What are you playing?", "Tenho. O que você está tocando?", "c_gig"],
+   ["A star? No, I'm just a person.", "Uma estrela? Não, eu sou só uma pessoa.", null, "Ha! It means you're great. So, have you got a minute to stay?", "Rá! Quer dizer que você é demais. E aí, tem um minutinho pra ficar?"]
+  ]],
+  "c_cold": ["c", "Oh. It's you. Thanks for the sandwiches. Did you come to check my ears again?", "Ah. É você. Valeu pelos sanduíches. Veio conferir minhas orelhas de novo?", [
+   ["No. I came to say sorry. I was unfair yesterday.", "Não. Vim pedir desculpa. Ontem eu não agi bem com você.", "c_apol"],
+   ["I brought your lunch. Can we start again?", "Eu trouxe seu almoço. A gente pode começar de novo?", "c_again"],
+   ["Your years? How old are you?", "Seus anos? Quantos anos você tem?", null, "Ears, not years! I'm twenty-one. So why are you really here?", "Ears, orelhas! Não years. Tenho vinte e um. Então, por que você veio de verdade?"]
+  ]],
+  "c_apol": ["c", "Oh. Well. Apology accepted. I'm no good at being angry anyway.", "Ah. Bom. Desculpas aceitas. Eu nem sei ficar bravo mesmo.", "c_gig"],
+  "c_again": ["c", "Hmm. Okay. I can't stay angry with a sandwich in my hand.", "Hum. Tá. Não consigo ficar bravo com um sanduíche na mão.", "c_gig"],
+  "c_room": ["c", "It's a cupboard with a piano. But nobody complains about noise here.", "É um armário com um piano. Mas aqui ninguém reclama de barulho.", "c_gig"],
+  "c_gig": ["c", "I've got a gig tomorrow night. My band is playing at a little pub. Do you play anything?", "Tenho um show amanhã à noite. Minha banda vai tocar num pub pequeno. Você toca alguma coisa?", [
+   ["A little guitar. Very badly.", "Um pouco de violão. Muito mal.", "c_guitar"],
+   ["No. But I sing in the shower.", "Não. Mas eu canto no chuveiro.", "c_shower"],
+   ["Yes, I play outside when it's sunny.", "Sim, eu brinco lá fora quando tem sol.", null, "Ha! Not that kind of play. Music! Do you play an instrument?", "Rá! Não esse play. Música! Você toca algum instrumento?"]
+  ]],
+  "c_guitar": ["c", "Badly is fine! Half my band plays badly. Now, listen to this.", "Mal tá ótimo! Metade da minha banda toca mal. Agora escuta isso.", "n_play"],
+  "c_shower": ["c", "So that's you in the morning! Not bad, actually. Now, listen to this.", "Então é você de manhã! Até que não é ruim. Agora escuta isso.", "n_play"],
+  "n_play": ["n", "He plays for a minute. It's fast and happy. One note near the end is terrible.", "Ele toca por um minuto. É rápido e alegre. Uma nota perto do fim é horrível.", "c_opinion"],
+  "c_opinion": ["c", "So? Be honest. How was it?", "E aí? Fala a verdade. Como foi?", [
+   ["Great! But one note near the end was a bit off.", "Ótimo! Mas uma nota perto do fim saiu meio estranha.", "c_honest"],
+   ["Perfect. Don't change anything.", "Perfeito. Não muda nada.", "c_kind"],
+   ["It was one o'clock.", "Era uma hora.", null, "Not the time! The music! Was it good or bad?", "Não a hora! A música! Foi boa ou ruim?"]
+  ]],
+  "c_honest": ["c", "The high one! I knew it. Thank you. Nobody at home tells me the truth.", "A aguda! Eu sabia. Valeu. Lá em casa ninguém me fala a verdade.", "c_home"],
+  "c_kind": ["c", "Really? You're too kind. I heard a bad note. But thanks.", "Sério? É muita gentileza sua. Eu ouvi uma nota ruim. Mas valeu.", "c_home"],
+  "c_home": ["c", "I want to practise at home, but Priya sleeps all day. When can I play? Any ideas?", "Eu quero ensaiar em casa, mas a Priya dorme o dia todo. Quando eu posso tocar? Alguma ideia?", [
+   ["What if you play at home from three to five?", "E se você tocar em casa das três às cinco?", "c_deal", {"set": {"practice": "home"}}],
+   ["Why not book a room here every day?", "Por que não reservar uma sala aqui todo dia?", "c_here", {"set": {"practice": "campus"}}],
+   ["Play at home? I prefer playing in the park.", "Brincar em casa? Prefiro brincar no parque.", null, "The trombone, not games! When can I practise at home? What do you think?", "O trombone, não brincadeira! Quando eu posso ensaiar em casa? O que você acha?"]
+  ]],
+  "c_deal": ["c", "After Priya wakes up, before Mei's evening calls. That could work! Let's tell them tonight.", "Depois que a Priya acorda, antes das chamadas da Mei à noite. Pode dar certo! Vamos falar com elas hoje.", "c_flat"],
+  "c_here": ["c", "It's two pounds an hour. But okay. Peace at home is worth two pounds.", "São duas libras por hora. Mas tá. Paz em casa vale duas libras.", "c_flat"],
+  "c_flat": ["c", "Anyway. Enough about me. How are you finding the flat?", "Enfim. Chega de falar de mim. O que você está achando do apartamento?", [
+   ["I like it. But are you okay? You sneeze a lot at home.", "Tô gostando. Mas você tá bem? Você espirra muito em casa.", "c_sneeze1"],
+   ["It's fun! But I still want to catch the ghost.", "É divertido! Mas eu ainda quero pegar o fantasma.", "c_alibi"],
+   ["I found it on the internet.", "Eu achei na internet.", null, "Ha! Not how you found it. Do you like living there?", "Rá! Não é como você achou. Você tá gostando de morar lá?"]
+  ]],
+  "c_sneeze1": ["c", "I know! For two weeks now. And itchy eyes. I thought it was a cold.", "Pois é! Já faz duas semanas. E os olhos coçam. Achei que era resfriado.", "c_sneeze2"],
+  "c_sneeze2": ["c", "But I only sneeze at home. Never here, never at the pub. Strange, right?", "Mas eu só espirro em casa. Aqui nunca, no pub nunca. Estranho, né?", [
+   ["Maybe you're allergic to something in the flat.", "Talvez você tenha alergia a alguma coisa do apartamento.", "c_allergic"],
+   ["Maybe it's the dust in your room.", "Talvez seja a poeira do seu quarto.", "c_dust"],
+   ["Right? No, I think it's left.", "Direita? Não, acho que é esquerda.", null, "Ha! Not that kind of right. I mean, it's weird, isn't it? Why only at home?", "Rá! Não esse right. Quero dizer: é esquisito, não é? Por que só em casa?"]
+  ], {"clue": "sneezing"}],
+  "c_allergic": ["c", "I'm only allergic to two things. Cats and Monday mornings. And we haven't got a cat.", "Só tenho alergia a duas coisas. Gato e segunda de manhã. E a gente não tem gato.", "c_fav"],
+  "c_dust": ["c", "Hey! My room isn't that bad. Okay, it's bad. But it was bad before, too.", "Ei! Meu quarto não é tão ruim. Tá, é ruim. Mas antes também era.", "c_fav"],
+  "c_alibi": ["c", "Me too! And I can prove it's not me. Last Wednesday I slept in Leeds, after a gig.", "Eu também! E posso provar que não sou eu. Quarta passada eu dormi em Leeds, depois de um show.", "c_alibi2"],
+  "c_alibi2": ["c", "And that night, the chicken disappeared here. So I'm innocent. Right?", "E naquela noite o frango sumiu aqui. Então eu sou inocente. Certo?", [
+   ["Right. But then who is it?", "Certo. Mas então quem é?", "c_then"],
+   ["Leeds? How was the gig?", "Leeds? Como foi o show?", "c_leeds"],
+   ["You slept in leaves? Outside?", "Você dormiu nas folhas? Lá fora?", null, "Leeds! The city! Not leaves. I wasn't home that night. So it wasn't me, right?", "Leeds! A cidade! Não leaves. Eu não estava em casa naquela noite. Então não fui eu, certo?"]
+  ]],
+  "c_then": ["c", "No idea. But it's someone who's home at night. And that's not Priya.", "Sei lá. Mas é alguém que fica em casa à noite. E a Priya não é.", "c_fav"],
+  "c_leeds": ["c", "Terrible. Twelve people, and one of them was a dog. But the dog loved us.", "Péssimo. Doze pessoas, e uma delas era um cachorro. Mas o cachorro adorou a gente.", "c_fav"],
+  "c_fav": ["c", "Listen, can I ask a favour? Tomorrow's gig. I can't carry the trombone and the amp alone.", "Escuta, posso pedir um favor? O show de amanhã. Não dou conta de carregar o trombone e o amplificador.", [
+   ["Sure. I'll help you carry them.", "Claro. Eu te ajudo a carregar.", "c_fav_yes", {"set": {"helped_callum": "yes"}}],
+   ["Sorry, I can't tomorrow. But good luck!", "Desculpa, amanhã não posso. Mas boa sorte!", "c_fav_no", {"set": {"helped_callum": "no"}}],
+   ["A flavour? Chocolate, please.", "Um sabor? Chocolate, por favor.", null, "Favour, not flavour! I need help tomorrow. Can you carry something for me?", "Favour, favor! Não é flavour. Preciso de ajuda amanhã. Você pode carregar uma coisa pra mim?"]
+  ]],
+  "c_fav_yes": ["c", "Yes! You get a free drink and the best seat. Right next to the amp.", "Boa! Você ganha uma bebida e o melhor lugar. Coladinho no amplificador.", "c_time"],
+  "c_fav_no": ["c", "No worries. I'll take two buses and cry a little.", "Sem problema. Eu pego dois ônibus e choro um pouquinho.", "c_time"],
+  "c_time": ["c", "Oh no. What time is it? I've got a class at two!", "Ah, não. Que horas são? Eu tenho aula às duas!", [
+   ["It's ten to two. Run!", "São dez pras duas. Corre!", "c_run"],
+   ["Relax. You've still got ten minutes.", "Calma. Você ainda tem dez minutos.", "c_relax"],
+   ["Yes, I've got time. Thank you.", "Sim, eu tenho tempo. Valeu.", null, "Ha! Good for you. But tell me the time! Is it nearly two?", "Rá! Que bom pra você. Mas me fala a hora! Já são quase duas?"]
+  ]],
+  "c_run": ["c", "Ten to two! Where's my bag? Where's my other shoe?", "Dez pras duas! Cadê minha mochila? Cadê meu outro sapato?", "n_shoe"],
+  "c_relax": ["c", "Ten minutes! That's like an hour for me. Wait. Where's my other shoe?", "Dez minutos! Pra mim isso é quase uma hora. Espera. Cadê meu outro sapato?", "n_shoe"],
+  "n_shoe": ["n", "You find his shoe behind the piano. He runs out. Then he runs back in.", "Você acha o sapato atrás do piano. Ele sai correndo. Depois volta correndo.", "c_last"],
+  "c_last": ["c", "I forgot! House meeting tonight at eight. Mei wants to read the contract. All of it.", "Esqueci! Reunião do apartamento hoje às oito. A Mei quer ler o contrato. Inteiro.", "end_br"],
+  "end_br": {"branch": [["clue_sneezing", "n_end_cat"], [null, "n_end"]]},
+  "n_end_cat": ["n", "You walk home in the rain. Callum only sneezes at home. Cats and Monday mornings. Hmm.", "Você volta pra casa na chuva. O Callum só espirra em casa. Gato e segunda de manhã. Hum.", null],
+  "n_end": ["n", "You walk home in the rain. A ghost who is home at night. And tonight, the contract.", "Você volta pra casa na chuva. Um fantasma que fica em casa à noite. E hoje, o contrato.", null]
+ }
+}

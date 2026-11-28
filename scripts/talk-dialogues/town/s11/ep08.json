@@ -1,0 +1,110 @@
+{
+ "slug": "s11-08-the-screening", "episode": 8, "title": "The Screening", "level": "B2",
+ "place": "stage", "placeLabel": "Salão comunitário", "time": "Sexta · 19h", "ambience": "restaurant",
+ "description": "A ilha inteira assiste ao seu filme. Depois, querem saber o que você descobriu.",
+ "intro": "Na ponte de comando, o capitão Reid abriu o diário de bordo: trinta e quatro pessoas por travessia, não onze. Você passou a noite montando o filme. Hoje a ilha assiste, e depois decide o que pedir à repartição.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Morag", "Dona da pousada", "bf_isabella", "right"],
+  "d": ["Duncan", "Pescador", "bm_daniel", "left"],
+  "i": ["Isla", "Tripulante da balsa, filha do Duncan", "bf_alice", "right"],
+  "c": ["Captain Reid", "Capitão da balsa", "bm_george", "left"],
+  "p": ["Priya Nair", "Funcionária do departamento de transportes", "bf_lily", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Friday, seven o'clock. The village hall is packed. Every chair, every windowsill, and two dogs.", "Sexta, sete da noite. O salão comunitário está lotado. Cada cadeira, cada parapeito, e dois cachorros.", "n2"],
+  "n2": ["n", "Your film is loaded. Your hands aren't entirely steady. At the door, Isla catches your sleeve.", "O filme está carregado. Suas mãos não estão lá muito firmes. Na porta, a Isla te puxa pela manga.", "isla_br"],
+  "isla_br": {"branch": [["isla_secret=told", "i_told"], [null, "i_kept"]]},
+  "i_told": ["i", "You told him. We shouted for an hour. Then, weirdly, we talked. You're half forgiven. Half.", "Você contou pra ele. A gente gritou por uma hora. Depois, por incrível que pareça, conversou. Você tem meio perdão. Meio.", "i_q"],
+  "i_kept": ["i", "You kept my secret when Dad asked. Cheers. I'm telling him tonight. Kick my chair if I bottle it.", "Você guardou meu segredo quando o meu pai perguntou. Valeu. Eu conto pra ele hoje. Chuta a minha cadeira se eu amarelar.", "i_q"],
+  "i_q": ["i", "Anyway. Forty minutes of us, on a big screen. Be honest. Am I awful in it?", "Enfim. Quarenta minutos da gente num telão. Fala a verdade. Eu estou horrível no filme?", [
+   ["You're the most honest voice in it.", "Você é a voz mais sincera do filme.", "n_film"],
+   ["No spoilers. Sit down and find out with everyone else.", "Sem spoiler. Senta e descobre junto com todo mundo.", "n_film"],
+   ["Awful? No, I had waffles for breakfast, thanks.", "Waffle? Não, eu já comi waffle no café, valeu.", null, "Awful, not waffle! Terrible. Bad. Do I come across badly in your film?", "Horrível, não waffle! Péssima. Ruim. Eu saio mal no seu filme?"]
+  ]],
+  "n_film": ["n", "Morag kills the lights. Forty minutes of gulls, engines, soup, lobsters and a grey coat on a wet deck.", "A Morag apaga as luzes. Quarenta minutos de gaivotas, motores, sopa, lagostas e um casaco cinza num convés molhado.", "n_film2"],
+  "n_film2": ["n", "The lights come up. Nobody claps. Nobody moves. Then Morag turns round to face you.", "As luzes se acendem. Ninguém aplaude. Ninguém se mexe. Então a Morag se vira para você.", "m_ask"],
+  "m_ask": ["m", "Well. You've spent a week listening to us. So tell us. What did you find?", "Bom. Você passou uma semana ouvindo a gente. Então conta. O que você descobriu?", [
+   ["That you've all been arguing about the wrong question.", "Que vocês todos andaram brigando pela pergunta errada.", "q1_br"],
+   ["Five people and six opinions. But a few solid facts as well.", "Cinco pessoas e seis opiniões. Mas alguns fatos sólidos também.", "q1_br"],
+   ["That the office lied to you about the numbers.", "Que a repartição mentiu pra vocês sobre os números.", "acc", {"set": {"accused": "yes"}}],
+   ["I'm fine, thanks. And how are you?", "Eu vou bem, valeu. E você, como vai?", null, "Not 'how are you', dear! What did you find out? What has your week taught you?", "Não é 'como vai', meu bem! O que você descobriu? O que a sua semana te ensinou?"]
+  ]],
+  "acc": ["p", "I didn't lie. The count was honest, and I told you myself exactly when it was done.", "Eu não menti. A contagem foi honesta, e eu mesma lhe disse exatamente quando foi feita.", [
+   ["You did. That was unfair, and I take it back. I'm sorry.", "Disse. Foi uma injustiça minha, e eu retiro o que falei. Sinto muito.", "acc_ok"],
+   ["Let me put it properly. The number is true, but it isn't the whole truth.", "Deixa eu dizer direito. O número é verdadeiro, mas não é a verdade inteira.", "acc_fix"],
+   ["When it was done? Like a cake?", "Quando ficou pronta? Tipo um bolo?", null, "Not a cake. The count. I told you the dates. Would you care to correct what you said?", "Não um bolo. A contagem. Eu lhe disse as datas. Você gostaria de corrigir o que falou?"]
+  ]],
+  "acc_ok": ["p", "Thank you. That's a brave thing to say in a full hall. Shall we try the facts?", "Obrigada. É preciso coragem para dizer isso num salão cheio. Vamos tentar os fatos?", "q1_br"],
+  "acc_fix": ["p", "That, I can accept. Word for word. Go on, then. The facts.", "Isso eu aceito. Palavra por palavra. Prossiga, então. Os fatos.", "q1_br"],
+  "q1_br": {"branch": [["clue_freight", "q1_yes"], ["clue_winter_count", "q1_yes"], [null, "q1_no"]]},
+  "q1_yes": ["d", "Numbers first. The office says eleven a crossing. What does that boat really carry?", "Primeiro os números. A repartição diz onze por travessia. O que aquele barco carrega de verdade?", [
+   ["Thirty-four, over the year. Plus your catch, the post and the medicine. Eleven was February.", "Trinta e quatro, na média do ano. Mais a sua pesca, o correio e os remédios. Onze era fevereiro.", "q2_br", {"set": {"f_num": "yes"}}],
+   ["More than eleven, I'd say. I couldn't tell you how many.", "Mais de onze, eu diria. Não saberia dizer quantos.", "q2_br"],
+   ["Curry? I didn't see any curry on board.", "Curry? Eu não vi curry nenhum a bordo.", null, "Carry, not curry! People. Cargo. What does the Kittiwake really take across?", "Carregar, não curry! Gente. Carga. O que a Kittiwake leva de verdade pro outro lado?"]
+  ]],
+  "q1_no": ["d", "Numbers first. The office says eleven a crossing. What does that boat really carry?", "Primeiro os números. A repartição diz onze por travessia. O que aquele barco carrega de verdade?", [
+   ["More than eleven, I'd say. I couldn't tell you how many.", "Mais de onze, eu diria. Não saberia dizer quantos.", "q2_br"],
+   ["Mostly tourists in summer. That's all I managed to see.", "Principalmente turistas no verão. Foi só o que eu consegui ver.", "q2_br"],
+   ["Curry? I didn't see any curry on board.", "Curry? Eu não vi curry nenhum a bordo.", null, "Carry, not curry! People. Cargo. What does the Kittiwake really take across?", "Carregar, não curry! Gente. Carga. O que a Kittiwake leva de verdade pro outro lado?"]
+  ]],
+  "q2_br": {"branch": [["clue_old_letter", "q2_yes"], ["clue_isla_reason", "q2_yes"], [null, "q2_no"]]},
+  "q2_yes": ["m", "My turn. What does this island actually need? Not want. Need.", "Minha vez. Do que esta ilha precisa de verdade? Não o que ela quer. O que ela precisa.", [
+   ["A crossing every day, however small. Not one particular ship.", "Uma travessia todo dia, por menor que seja. Não um navio específico.", "q3_br", {"set": {"f_need": "yes"}}],
+   ["The Kittiwake, exactly as she is.", "A Kittiwake, exatamente como ela é.", "q3_br"],
+   ["To knead? Like bread dough?", "Sovar? Tipo massa de pão?", null, "Need, dear, not knead! What must this island have, if it's to stay alive?", "Precisar, meu bem, não sovar! O que esta ilha tem que ter pra continuar viva?"]
+  ]],
+  "q2_no": ["m", "My turn. What does this island actually need? Not want. Need.", "Minha vez. Do que esta ilha precisa de verdade? Não o que ela quer. O que ela precisa.", [
+   ["The Kittiwake, exactly as she is.", "A Kittiwake, exatamente como ela é.", "q3_br"],
+   ["More visitors, I suppose. More bookings for everyone.", "Mais visitantes, imagino. Mais reservas pra todo mundo.", "q3_br"],
+   ["To knead? Like bread dough?", "Sovar? Tipo massa de pão?", null, "Need, dear, not knead! What must this island have, if it's to stay alive?", "Precisar, meu bem, não sovar! O que esta ilha tem que ter pra continuar viva?"]
+  ]],
+  "q3_br": {"branch": [["clue_hidden_proposal", "q3_yes"], [null, "q3_no"]]},
+  "q3_yes": ["c", "Last one, and it's mine. If not the Kittiwake, then what do we ask for?", "A última, e é minha. Se não for a Kittiwake, a gente pede o quê?", [
+   ["A smaller boat, sailing every day. Ms Nair drafted it two years ago, at half the cost.", "Um barco menor, viajando todo dia. A senhora Nair redigiu isso há dois anos, pela metade do custo.", "end_br1", {"set": {"f_plan": "yes"}}],
+   ["A year's delay, and a proper count.", "Um ano de prazo, e uma contagem decente.", "end_br1"],
+   ["Knots? Sorry, I can't tie knots.", "Nós? Foi mal, eu não sei dar nó.", null, "Not, not knot. If we can't keep this boat, what should the island request instead?", "Não, não nó. Se não der pra manter este barco, o que a ilha deve solicitar no lugar?"]
+  ]],
+  "q3_no": ["c", "Last one, and it's mine. If not the Kittiwake, then what do we ask for?", "A última, e é minha. Se não for a Kittiwake, a gente pede o quê?", [
+   ["A year's delay, and a proper count.", "Um ano de prazo, e uma contagem decente.", "end_br1"],
+   ["I don't know, Callum. That's the part I never found.", "Não sei, Callum. Essa é a parte que eu nunca encontrei.", "end_br1"],
+   ["Knots? Sorry, I can't tie knots.", "Nós? Foi mal, eu não sei dar nó.", null, "Not, not knot. If we can't keep this boat, what should the island request instead?", "Não, não nó. Se não der pra manter este barco, o que a ilha deve solicitar no lugar?"]
+  ]],
+  "end_br1": {"branch": [["f_need=yes", "end_br2"], [null, "end_basic"]]},
+  "end_br2": {"branch": [["f_num=yes", "end_br3"], [null, "end_good"]]},
+  "end_br3": {"branch": [["f_plan=yes", "end_best"], [null, "end_good"]]},
+  "end_best": ["p", "A daily boat, requested by the island itself. That, I can put back on the table by Monday.", "Um barco diário, solicitado pela própria ilha. Isso eu consigo recolocar na mesa até segunda.", "m_react", {"set": {"ending": "best"}}],
+  "end_good": ["p", "You've found most of it. The missing pieces belong to the captain and to me.", "Você encontrou quase tudo. As peças que faltam pertencem ao capitão e a mim.", "c_rev1", {"set": {"ending": "good"}}],
+  "end_basic": ["c", "That's not the whole story. So I'll finish it myself. I'm thirty-one years late.", "Essa não é a história toda. Então eu mesmo termino. Estou trinta e um anos atrasado.", "c_rev1", {"set": {"ending": "basic"}}],
+  "c_rev1": ["c", "My log says thirty-four a crossing, not eleven. Every soul counted. I should have spoken sooner.", "O meu diário diz trinta e quatro por travessia, não onze. Cada alma contada. Eu devia ter falado antes.", "p_rev"],
+  "p_rev": ["p", "And there is a third option. A small boat, every day, at half the cost. Nobody ever asked for it.", "E existe uma terceira opção. Um barco pequeno, todo dia, pela metade do custo. Ninguém nunca pediu.", "m_react"],
+  "m_react": ["m", "A daily crossing, however small. My mother asked for exactly that, fifty years ago.", "Uma travessia diária, por menor que seja. Minha mãe pediu exatamente isso, cinquenta anos atrás.", "d_br"],
+  "d_br": {"branch": [["helped_duncan=yes", "d_h1"], [null, "d_h2"]]},
+  "d_h1": ["d", "If it carries my lobsters, I'm for it. Ask my crew here. They know the weight.", "Se carregar as minhas lagostas, eu topo. Pergunta pra minha tripulação aqui. Sabe bem quanto pesam.", "i_bottle"],
+  "d_h2": ["d", "If it carries my lobsters, I'm for it. Precious Hands can film me saying so.", "Se carregar as minhas lagostas, eu topo. Mãos Delicadas pode me filmar dizendo isso.", "i_bottle"],
+  "i_bottle": ["i", "This is it, isn't it? My moment. I can't. Not in front of everyone. Can I?", "É agora, né? A minha hora. Não consigo. Não na frente de todo mundo. Consigo?", [
+   ["You can. You've already said the hard part once, to me.", "Consegue. A parte difícil você já disse uma vez, pra mim.", "i_stand"],
+   ["Forget the hall. Say it to him, and only him.", "Esquece o salão. Fala pra ele, só pra ele.", "i_stand"],
+   ["A can? I think there's lemonade at the back.", "Uma lata? Acho que tem limonada lá no fundo.", null, "Not a can of anything! I'm asking if I can do it. Tell Dad. Now. Can I?", "Não é lata de nada! Estou perguntando se eu consigo. Contar pro meu pai. Agora. Consigo?"]
+  ]],
+  "i_stand": ["i", "Dad. With a boat every day, I could study engines in Glasgow and be home each Friday.", "Pai. Com barco todo dia, eu poderia estudar motores em Glasgow e estar em casa toda sexta.", "d_isla"],
+  "d_isla": ["d", "Engines, is it? Good. Somebody has to fix mine. Every Friday, mind. I'll be counting.", "Motores, é? Ótimo. Alguém tem que consertar o meu. Toda sexta, hein. Eu vou contar.", "c_crew"],
+  "c_crew": ["c", "The old girl has two winters left. A new boat needs a new skipper. I could teach one.", "A velhinha tem mais dois invernos. Barco novo precisa de capitã nova. Eu poderia ensinar uma.", "vote_br"],
+  "vote_br": {"branch": [["ending=best", "v_best"], ["ending=good", "v_good"], [null, "v_basic"]]},
+  "v_best": ["m", "Hands up, who's asking? Every hand, even the dog. The letter sails on Monday, with Callum's log.", "Mãos pra cima, quem pede? Todas as mãos, até o cachorro. A carta embarca na segunda, com o diário do Callum.", "m_you"],
+  "v_good": ["m", "Nearly every hand. Duncan and I will write the letter this week. Together, heaven help us.", "Quase todas as mãos. O Duncan e eu escrevemos a carta esta semana. Juntos, que os céus nos ajudem.", "m_you"],
+  "v_basic": ["m", "That's a lot for one night. Same hall, next Friday. Ms Nair has given us a month.", "É muita coisa pra uma noite só. Mesmo salão, sexta que vem. A senhora Nair nos deu um mês.", "m_you"],
+  "m_you": ["m", "And you. Our film still has no name. What shall we call it?", "E você. O nosso filme ainda não tem nome. Como a gente vai chamar?", [
+   ["'The Last Ferry'. Because it very nearly was.", "'A última balsa'. Porque foi por muito pouco.", "t1"],
+   ["'A Daily Crossing, However Small'.", "'Uma travessia diária, por menor que seja'.", "t2"],
+   ["Let's call it a day. I'm exhausted.", "Vamos encerrar por hoje. Não aguento mais de cansaço.", null, "Not yet, dear! The film. It needs a title. What shall we name it?", "Ainda não, meu bem! O filme. Ele precisa de um título. Que nome a gente dá?"]
+  ]],
+  "t1": ["m", "The Last Ferry. And the first of the new ones, if we're lucky. I like it.", "A última balsa. E a primeira das novas, com sorte. Gostei.", "p_br"],
+  "t2": ["m", "Oh. My mother's words, up on a screen. Now look. You've made me cry.", "Ah. As palavras da minha mãe, num telão. Olha só. Você me fez chorar.", "p_br"],
+  "p_br": {"branch": [["accused", "p_joke"], ["clue_priya_island", "p_annasay"], [null, "n_end"]]},
+  "p_joke": ["p", "And for the record, the grey coat forgives you. It has been called far worse.", "E, que fique registrado, o casaco cinza perdoa você. Ele já foi chamado de coisa bem pior.", "n_end"],
+  "p_annasay": ["p", "On Annasay, we lost our boat when I was nine. Tonight, I think I got one back.", "Em Annasay, perdemos o nosso barco quando eu tinha nove anos. Hoje, acho que ganhei um de volta.", "n_end"],
+  "n_end": ["n", "Monday. You sail home. Isla clicks her counter: forty-one. You came to film an ending. You leave with a beginning.", "Na segunda, você embarca de volta. A Isla aperta o contador: quarenta e um. Você veio filmar um fim. Vai embora com um começo.", null]
+ }
+}

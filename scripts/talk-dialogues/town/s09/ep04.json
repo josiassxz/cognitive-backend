@@ -1,0 +1,92 @@
+{
+ "slug": "s09-04-the-wrong-recipe", "episode": 4, "title": "The Wrong Recipe", "level": "B1",
+ "place": "kitchen", "placeLabel": "Prova técnica", "time": "Terça · 9h", "ambience": "kitchen",
+ "description": "Prova técnica: todo mundo segue a mesma receita. Ou quase todo mundo.",
+ "intro": "A Nina venceu a primeira prova e contou que a baunilha dela também sumiu. Hoje é a prova técnica: um cartão de receita igual para todos.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "s": ["Stella", "Apresentadora do programa", "bf_isabella", "right"],
+  "p": ["Nina", "Participante, estudante", "af_nicole", "left"],
+  "t": ["Toby", "Assistente de produção", "bm_fable", "left"],
+  "c": ["Rupert", "Participante, dono de restaurante", "bm_george", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Tuesday morning. On every station there is a recipe card, face down, and a bag of flour.", "Terça de manhã. Em cada bancada há um cartão de receita, virado pra baixo, e um saco de farinha.", "n2"],
+  "n2": ["n", "This is the technical round. No practice, no questions. You just follow the recipe.", "Esta é a prova técnica. Sem treino, sem perguntas. É só seguir a receita.", "s1"],
+  "s1": ["s", "Good morning, cooks! Did you sleep well, station four?", "Bom dia, pessoal! Dormiu bem, bancada quatro?", [
+   ["Like a baby. I'm ready for anything.", "Feito um bebê. Pode vir o que vier.", "s_baby"],
+   ["Not really. I kept dreaming about thin soup.", "Não muito. Fiquei sonhando com sopa rala.", "s_dream"],
+   ["No, I don't sleep in a well.", "Não, eu não durmo num poço.", null, "In a well? Ha! No, darling. Did you have a good night's sleep?", "Num poço? Rá! Não, meu bem. Você teve uma boa noite de sono?"]
+  ]],
+  "s_baby": ["s", "Ready for anything! Careful what you wish for. Cards over, everyone!", "Pode vir o que vier! Cuidado com o que deseja. Virem os cartões, pessoal!", "n_card"],
+  "s_dream": ["s", "Oh dear. Victor does that to people. Right. Cards over, everyone!", "Ai, ai. O Victor causa isso nas pessoas. Bom. Virem os cartões, pessoal!", "n_card"],
+  "n_card": ["n", "You turn your card over. It says: Victor's Cheese Biscuits. Knead for ten minutes. Bake for fifty.", "Você vira o cartão. Está escrito: Biscoitos de Queijo do Victor. Sovar por dez minutos. Assar por cinquenta.", "s2"],
+  "s2": ["s", "Ninety minutes on the clock. Off you go! Station four, what's your first step?", "Noventa minutos no relógio. Valendo! Bancada quatro, qual é o seu primeiro passo?", [
+   ["Rub the cold butter into the flour with my fingertips.", "Misturar a manteiga gelada na farinha com a ponta dos dedos.", "s_rub"],
+   ["Grate the cheese. There's a mountain of it.", "Ralar o queijo. Tem uma montanha dele.", "s_grate"],
+   ["My first step was at eleven months old.", "Meu primeiro passo foi aos onze meses.", null, "Adorable! But in the recipe, darling. What do you do first?", "Que gracinha! Mas na receita, meu bem. O que você faz primeiro?"]
+  ]],
+  "s_rub": ["s", "Fingertips only. Warm hands make sad pastry. My mother told me that.", "Só a ponta dos dedos. Mão quente deixa a massa triste. Minha mãe que dizia.", "n_knead"],
+  "s_grate": ["s", "Mind your knuckles. Grated cheese, yes. Grated cook, no.", "Cuidado com os dedos. Queijo ralado, sim. Gente ralada, não.", "n_knead"],
+  "n_knead": ["n", "You bring the dough together and start to knead. At station two, Nina looks up and frowns.", "Você junta a massa e começa a sovar. Na bancada dois, a Nina levanta os olhos e franze a testa.", "p1"],
+  "p1": ["p", "Sorry. Um. Why are you kneading it? The card says to handle the dough as little as possible.", "Desculpa. Hã. Por que você está sovando? O cartão diz pra mexer na massa o mínimo possível.", [
+   ["Mine says knead for ten minutes. Look.", "O meu diz pra sovar por dez minutos. Olha.", "p_look"],
+   ["Does it? Can I see your card for a second?", "Diz? Posso ver seu cartão um segundo?", "p_show"],
+   ["I do need it. I can't bake without dough.", "Eu preciso dela, sim. Não dá pra assar sem massa.", null, "Not need. Knead. With your hands. My card says don't. Why are you doing it?", "Não é precisar. É sovar. Com as mãos. Meu cartão diz pra não fazer isso. Por que você está fazendo?"]
+  ]],
+  "p_look": ["p", "That's not right. Mine says cheese scones. Yours says cheese biscuits.", "Tem algo errado. O meu diz scones de queijo. O seu diz biscoitos de queijo.", "p_time"],
+  "p_show": ["p", "Here. Cheese scones. Wait. Yours says biscuits. That's a different recipe.", "Toma. Scones de queijo. Espera. O seu diz biscoitos. É outra receita.", "p_time"],
+  "p_time": ["p", "And look at the baking time. Mine says fifteen minutes. One, five. What does yours say?", "E olha o tempo de forno. O meu diz quinze minutos. Um, cinco. O que diz o seu?", [
+   ["Fifty. Five, zero. One of us has the wrong card.", "Cinquenta. Cinco, zero. Alguém aqui está com o cartão errado.", "p_wrong"],
+   ["Fifty. Maybe yours is the mistake.", "Cinquenta. Vai ver o erro está no seu.", "p_maybe"],
+   ["I'm not fifty. I'm much younger.", "Eu não tenho cinquenta. Sou bem mais jovem.", null, "Not your age. Sorry. The time on your card. How long does it say to bake?", "Não a sua idade. Desculpa. O tempo no seu cartão. Quanto tempo de forno ele diz?"]
+  ]],
+  "p_wrong": ["p", "Rupert's and Morag's both say scones. I checked when they turned them over.", "O do Rupert e o da Morag dizem scones. Eu reparei quando eles viraram.", "p_what"],
+  "p_maybe": ["p", "Maybe. But Rupert's and Morag's both say scones, like mine. I looked.", "Pode ser. Mas o do Rupert e o da Morag dizem scones, como o meu. Eu olhei.", "p_what"],
+  "p_what": ["p", "So it's yours. And we're not supposed to talk. What are you going to do?", "Então é o seu. E a gente nem devia estar conversando. O que você vai fazer?", [
+   ["I'll call Stella over. It's the honest thing to do.", "Vou chamar a Stella. É o mais honesto a fazer.", "n_stella", {"set": {"recipe_fix": "asked"}}],
+   ["Can you read me yours? I'll start again quietly.", "Você lê o seu pra mim? Eu recomeço na surdina.", "p_share", {"set": {"recipe_fix": "shared"}}],
+   ["I'll trust my card. Maybe it's part of the test.", "Vou confiar no meu cartão. Vai ver faz parte do teste.", "n_trust", {"set": {"recipe_fix": "trusted"}}],
+   ["Walk? I'm fine standing here.", "Andar? Estou bem aqui, de pé.", null, "Talk, not walk. We're breaking the rules. What will you do about your card?", "Conversar, não andar. A gente está quebrando as regras. O que você vai fazer com o seu cartão?"]
+  ]],
+  "n_stella": ["n", "You raise your hand. Stella comes over, heels clicking, with a camera right behind her.", "Você levanta a mão. A Stella vem, de salto batendo no chão, com uma câmera logo atrás.", "s3"],
+  "p_share": ["p", "Okay. Quick. Don't knead. Roll it thick. Hot oven, fifteen minutes. I never said anything.", "Tá. Rápido. Não sova. Abre a massa grossa. Forno quente, quinze minutos. Eu não falei nada.", "n_caught"],
+  "n_caught": ["n", "You throw the old dough in the bin and start again. Stella notices at once.", "Você joga a massa velha no lixo e recomeça. A Stella percebe na hora.", "s3"],
+  "n_trust": ["n", "You knead for ten long minutes. Then Stella stops at your station and picks up your card.", "Você sova por dez longos minutos. Aí a Stella para na sua bancada e pega o seu cartão.", "s3"],
+  "s3": ["s", "Hang on. Let me see that card. Cheese biscuits? Oh dear. Oh no.", "Peraí. Deixa eu ver esse cartão. Biscoitos de queijo? Ai, ai. Ai, não.", "s_old"],
+  "s_old": ["s", "This is last year's recipe. Same design, wrong year. Somebody printed the wrong file.", "Esta é a receita do ano passado. Mesmo visual, ano errado. Alguém imprimiu o arquivo errado.", "s_who", {"clue": "old_recipe"}],
+  "s_who": ["s", "The cards are printed in the production office every morning. This has never happened before.", "Os cartões são impressos no escritório da produção toda manhã. Isso nunca aconteceu antes.", [
+   ["Who prints them?", "Quem imprime?", "s_toby"],
+   ["There's something written on the back. In green ink.", "Tem uma coisa escrita atrás. Em tinta verde.", "s_green"],
+   ["I can't print. I only cook.", "Eu não sei imprimir. Só cozinhar.", null, "Nobody's asking you to print, darling. I'm saying it's odd. Don't you think so?", "Ninguém está pedindo pra você imprimir, meu bem. Estou dizendo que é esquisito. Você não acha?"]
+  ]],
+  "s_toby": ["s", "Whoever's on the early shift, I suppose. I never ask. I just read what they hand me.", "Quem estiver no turno da manhã, imagino. Eu nunca pergunto. Só leio o que me entregam.", "s_fix"],
+  "s_green": ["s", "Station four, in green pen. So somebody meant this card for you. How very odd.", "Bancada quatro, em caneta verde. Então alguém separou este cartão pra você. Que coisa esquisita.", "s_fix"],
+  "s_fix": ["s", "Toby! A new card for station four, please. Quick as you can!", "Toby! Um cartão novo pra bancada quatro, por favor. O mais rápido que der!", "n_toby"],
+  "n_toby": ["n", "Toby runs in with a fresh card. There is flour on his sleeve and a pillow mark on his cheek.", "O Toby chega correndo com um cartão novo. Tem farinha na manga e marca de travesseiro na bochecha dele.", "t1"],
+  "t1": ["t", "Here. Scones. The right one this time. I checked it twice. Three times.", "Toma. Scones. Agora é o certo. Conferi duas vezes. Três.", [
+   ["Toby, did you print the cards this morning?", "Toby, foi você que imprimiu os cartões hoje cedo?", "t_print"],
+   ["Thanks. Are you sure you're okay?", "Valeu. Tem certeza de que está tudo bem com você?", "t_ok"],
+   ["Three scones? I have to make twelve.", "Três scones? Eu tenho que fazer doze.", null, "No, I checked the card three times. Never mind. Is there anything else you need from me?", "Não, eu conferi o cartão três vezes. Deixa pra lá. Precisa de mais alguma coisa de mim?"]
+  ]],
+  "t_print": ["t", "Me? Well, lots of people use that printer. I should get back.", "Eu? Bom, muita gente usa aquela impressora. Preciso voltar.", "s_clock"],
+  "t_ok": ["t", "Fine! Totally fine. It's just a busy week. I should get back.", "Tudo bem! Tudo ótimo. É só uma semana corrida. Preciso voltar.", "s_clock"],
+  "s_clock": ["s", "You've lost twenty minutes, station four. Fifty left. Can you still do it?", "Você perdeu vinte minutos, bancada quatro. Faltam cinquenta. Ainda dá?", [
+   ["Yes. Scones are quick. Cold butter, hot oven, light hands.", "Dá. Scone é rápido. Manteiga gelada, forno quente, mão leve.", "s_spirit"],
+   ["It's hardly fair. Can I have the time back?", "Não é muito justo. Posso ter esse tempo de volta?", "s_fair"],
+   ["I didn't lose them. They're in my pocket.", "Eu não perdi. Estão no meu bolso.", null, "Ha! I mean time, darling. You're behind. Can you finish in fifty minutes?", "Rá! Estou falando de tempo, meu bem. Você está em atraso. Consegue terminar em cinquenta minutos?"]
+  ]],
+  "s_spirit": ["s", "Listen to that! Somebody's read the right card now. Go, go, go!", "Olha só! Alguém leu o cartão certo agora. Vai, vai, vai!", "n_bake"],
+  "s_fair": ["s", "I'll ask the producer. No promises. Until then, cook like the wind!", "Vou perguntar à produtora. Sem promessas. Até lá, cozinha voando!", "n_bake"],
+  "n_bake": ["n", "You work fast. Flour, butter, cheese, milk. Cut, brush with egg, into the oven.", "Você trabalha rápido. Farinha, manteiga, queijo, leite. Corta, pincela com ovo, forno.", "c1"],
+  "c1": ["c", "Brazil! I hear you got a special recipe. Funny how these things only happen to you.", "Brasil! Soube que você ganhou uma receita especial. Engraçado como essas coisas só acontecem com você.", [
+   ["What's that supposed to mean?", "O que você quer dizer com isso?", "c_mean"],
+   ["It was a printing mistake. Nothing more.", "Foi um erro de impressão. Só isso.", "c_shrug"],
+   ["Thank you, I am special.", "Valeu, eu sou especial mesmo.", null, "That wasn't a compliment. First your cream, now your card. Don't you find it strange?", "Não foi elogio. Primeiro o creme, agora o cartão. Você não acha estranho?"]
+  ]],
+  "c_mean": ["c", "Only that somebody here wants attention. Or wants someone out. I'm watching, that's all.", "Só que alguém aqui quer atenção. Ou quer tirar alguém do jogo. Estou de olho, só isso.", "n_end"],
+  "c_shrug": ["c", "If you say so. First cream, now a card. I don't believe in accidents.", "Se você diz. Primeiro o creme, agora o cartão. Eu não acredito em acidentes.", "n_end"],
+  "n_end": ["n", "Your scones rise, golden and tall. But Rupert's words stay with you. Does somebody want you out?", "Seus scones crescem, dourados e altos. Mas as palavras do Rupert ficam na sua cabeça. Será que alguém quer te tirar do jogo?", null]
+ }
+}

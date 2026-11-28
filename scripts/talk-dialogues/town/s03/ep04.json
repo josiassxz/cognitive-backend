@@ -1,0 +1,100 @@
+{
+ "slug": "s03-04-the-difficult-customer", "episode": 4, "title": "The Difficult Customer", "level": "A2",
+ "place": "street", "placeLabel": "Maple Yard", "time": "Quinta · 13h", "ambience": "street",
+ "description": "Um pedido veio errado e a cliente não está nada feliz. Peça desculpas e resolva.",
+ "intro": "A Tasha consertou a geladeira e o queijo se salvou. Hoje a fila do almoço está grande, e uma mulher de óculos escuros acabou de voltar à janela com o prato na mão.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "b": ["Bia", "Sua prima e sócia", "af_bella", "left"],
+  "l": ["Linda", "Cliente exigente", "af_sarah", "left"],
+  "w": ["Mr. Boone", "Cliente de todo dia", "am_michael", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Thursday, one o'clock. The lunch line is long today. Bia is cooking as fast as she can.", "Quinta, uma da tarde. A fila do almoço está grande hoje. A Bia cozinha o mais rápido que consegue.", "b0"],
+  "b0": ["b", "I can't find order number six! Was it steak or chicken? Do you remember?", "Não acho o pedido número seis! Era carne ou frango? Você lembra?", [
+   ["Steak, no onions. I wrote it down.", "Carne, sem cebola. Eu anotei.", "b0a"],
+   ["I'm not sure. I think it was chicken.", "Não tenho certeza. Acho que era frango.", "b0b"],
+   ["Number six? It comes after five.", "Número seis? Vem depois do cinco.", null, "Thank you, professor. Order six! Was it steak or chicken?", "Valeu pela aula. O pedido seis! Era carne ou frango?"]
+  ]],
+  "b0a": ["b", "No onions! Oh no. Then I gave her the wrong plate.", "Sem cebola! Ai, não. Então eu entreguei o prato errado pra ela.", "n2"],
+  "b0b": ["b", "Chicken. Good. That's what I gave her. I hope you're right!", "Frango. Ótimo. Foi o que eu entreguei. Tomara que você tenha razão!", "n2"],
+  "n2": ["n", "A woman in big sunglasses comes back to the window. She puts her plate on the counter.", "Uma mulher de óculos escuros enormes volta à janela. Ela põe o prato no balcão.", "l1"],
+  "l1": ["l", "Excuse me. I ordered the steak sandwich. This is not what I ordered.", "Com licença. Eu pedi o sanduíche de carne. Não foi isso que eu pedi.", [
+   ["I'm so sorry. Let me check your order.", "Mil desculpas. Deixa eu conferir o seu pedido.", "l_check"],
+   ["Are you sure? What's on the plate?", "Tem certeza? O que tem no prato?", "l_sure"],
+   ["Yes, the snake sandwich is very popular.", "Sim, o sanduíche de cobra sai muito.", null, "Snake? I said steak! And this isn't steak. Can you look at my order?", "Cobra? Eu disse carne! E isso aqui não é carne. Pode olhar o meu pedido?"]
+  ]],
+  "l_check": ["l", "Thank you. I ordered steak, with no onions. This is chicken. And it's cold.", "Obrigada. Eu pedi carne, sem cebola. Isso é frango. E está frio.", "l_fix"],
+  "l_sure": ["l", "Am I sure? This is chicken. I can tell a chicken from a cow. And it's cold.", "Se eu tenho certeza? Isso é frango. Eu sei a diferença entre um frango e uma vaca. E está frio.", "l_fix"],
+  "l_fix": ["l", "And I waited twenty minutes. So. What are you going to do about it?", "E eu esperei vinte minutos. Então. O que você vai fazer a respeito?", [
+   ["I'm really sorry. We'll make you a fresh steak sandwich right now.", "Sinto muito mesmo. Vamos fazer um sanduíche de carne novinho agora.", "l_remake", {"set": {"linda": "remake"}}],
+   ["I apologize. I can give you your money back.", "Peço desculpas. Posso devolver o seu dinheiro.", "l_refund", {"set": {"linda": "refund"}}],
+   ["It's a busy day. Everybody is waiting twenty minutes.", "O dia está corrido. Todo mundo está esperando vinte minutos.", "l_argue", {"set": {"linda": "argued"}}],
+   ["I'm going to do my homework.", "Eu vou fazer a lição de casa.", null, "Not your homework. My lunch! How are you going to fix this?", "Lição de casa, não. O meu almoço! Como você vai resolver isso?"]
+  ]],
+  "l_remake": ["l", "Fine. No onions. And hot this time, please. I have fifteen minutes.", "Tudo bem. Sem cebola. E quente desta vez, por favor. Tenho quinze minutos.", "b_fast"],
+  "b_fast": ["b", "Steak, no onions, three minutes! Tell her I'm so sorry!", "Carne, sem cebola, três minutos! Fala pra ela que eu sinto muito!", "l_wait"],
+  "l_wait": ["l", "While I wait: is the juice fresh, or is it from a box?", "Enquanto eu espero: o suco é natural ou é de caixinha?", [
+   ["It's fresh. We make the passion fruit juice every morning.", "É natural. A gente faz o suco de maracujá toda manhã.", "l_juice"],
+   ["Fresh. Here, have one for free, for the wait.", "Natural. Toma, este é por nossa conta, pela espera.", "l_free"],
+   ["My shoes? Yes, they're new.", "Meus sapatos? Sim, são novos.", null, "Not your shoes. The juice! Is it fresh?", "Seus sapatos, não. O suco! É natural?"]
+  ]],
+  "l_juice": ["l", "Passion fruit. Hm. I'll take one. And I'm paying for it, don't worry.", "Maracujá. Hum. Vou querer um. E eu pago, não se preocupe.", "n_sand"],
+  "l_free": ["l", "Free? Well. That's the right way to say sorry.", "De graça? Ora. Esse é o jeito certo de pedir desculpas.", "n_sand"],
+  "n_sand": ["n", "Bia passes you the new sandwich. It is hot, and it smells great.", "A Bia te passa o sanduíche novo. Está quente e com um cheiro ótimo.", "l_taste"],
+  "l_taste": ["l", "Hm. This is good. This is very good. Why wasn't the first one like this?", "Hum. Está bom. Está muito bom. Por que o primeiro não veio assim?", [
+   ["We made a mistake. It won't happen again.", "A gente errou. Não vai acontecer de novo.", "l_ok"],
+   ["We're new. This is our first week.", "A gente começou agora. É a nossa primeira semana.", "l_new"],
+   ["Yes, I like this too.", "Sim, eu também gosto disso.", null, "I'm glad you like it. But why was my first sandwich wrong?", "Que bom que você gosta. Mas por que o meu primeiro sanduíche veio errado?"]
+  ]],
+  "l_ok": ["l", "Good answer. My name is Linda. I work across the street. I'll be back.", "Boa resposta. Meu nome é Linda. Trabalho do outro lado da rua. Eu volto.", "n_boone"],
+  "l_new": ["l", "Your first week? Then you're doing fine. I'm Linda. I work across the street. I'll be back.", "Primeira semana? Então vocês estão indo bem. Sou a Linda. Trabalho do outro lado da rua. Eu volto.", "n_boone"],
+  "l_refund": ["l", "My money back. Okay. That's fair. But I'm still hungry, and I have fifteen minutes. What's fast?", "Meu dinheiro de volta. Certo. É justo. Mas continuo com fome, e tenho quinze minutos. O que sai rápido?", [
+   ["Cheese bread. It's ready now, and it's on the house.", "Pão de queijo. Já está pronto, e é por conta da casa.", "l_cb"],
+   ["The beans and rice plate. Two minutes.", "O prato de arroz com feijão. Dois minutos.", "l_beans"],
+   ["I'm fast. I run every morning.", "Eu sou veloz. Corro toda manhã.", null, "Good for you. But what food is fast? I have to eat something.", "Que bom pra você. Mas que comida sai rápido? Eu preciso comer alguma coisa."]
+  ]],
+  "l_cb": ["l", "On the house? Hm. Oh. These are warm. These are very good. I'm Linda. I'll be back.", "Por conta da casa? Hum. Ah. Estão quentinhos. Estão muito bons. Sou a Linda. Eu volto.", "n_boone"],
+  "l_beans": ["l", "Fine. Oh. It's simple, but it's good. I'm Linda, by the way. I'll be back.", "Pode ser. Ah. É simples, mas é bom. Aliás, sou a Linda. Eu volto.", "n_boone"],
+  "l_argue": ["l", "Excuse me? Is that how you talk to customers here?", "Como é? É assim que vocês falam com os clientes aqui?", [
+   ["You're right. I'm sorry. Let me fix it.", "Você tem razão. Desculpa. Deixa eu resolver.", "l_argue_fix", {"set": {"linda": "remake"}}],
+   ["It's the truth. We're only two people.", "É a verdade. Somos só duas pessoas.", "l_argue2"],
+   ["No, we talk in English.", "Não, a gente fala em inglês.", null, "I can hear that. I'm asking: is that how you treat a customer?", "Estou ouvindo. A pergunta é: é assim que se trata um cliente?"]
+  ]],
+  "l_argue_fix": ["l", "That's better. A new sandwich, please. No onions. I'm Linda. I'll remember this truck.", "Assim é melhor. Um sanduíche novo, por favor. Sem cebola. Sou a Linda. Vou lembrar deste truck.", "n_boone"],
+  "l_argue2": ["l", "Then two people need to work faster. I'm writing a review. One star.", "Então duas pessoas precisam trabalhar mais rápido. Vou escrever uma avaliação. Uma estrela.", "b_runs"],
+  "b_runs": ["b", "Wait, wait! I'm so sorry! Here's your steak sandwich. It's hot, and it's free!", "Espera, espera! Mil desculpas! Aqui está o seu sanduíche de carne. Está quente, e é de graça!", "l_argue3"],
+  "l_argue3": ["l", "Thank you. I'm Linda. You, I like. Your partner needs a lesson.", "Obrigada. Sou a Linda. De você, eu gostei. Já quem trabalha com você precisa de uma aula.", "n_boone"],
+  "n_boone": ["n", "Linda leaves. Mr. Boone is at his table. He saw everything.", "A Linda vai embora. O Sr. Boone está na mesa dele. Ele viu tudo.", "w_q"],
+  "w_q": ["w", "Kid. Come here. A customer like that. What did you learn?", "Jovem. Vem cá. Uma cliente dessas. O que você aprendeu?", [
+   ["Listen first. Then say sorry. Then fix it.", "Primeiro ouvir. Depois pedir desculpa. Depois resolver.", "w_learn1"],
+   ["That I need to check every order twice.", "Que eu preciso conferir cada pedido duas vezes.", "w_learn2"],
+   ["I learn English on my phone.", "Eu aprendo inglês no celular.", null, "Good. But today. That woman. What did you learn from her?", "Ótimo. Mas hoje. Aquela mulher. O que você aprendeu com ela?"]
+  ]],
+  "w_learn1": ["w", "Hm. In that order. Yes.", "Hum. Nessa ordem. Sim.", "w_br"],
+  "w_learn2": ["w", "Twice. Yes. Every plate, every time.", "Duas vezes. Sim. Todo prato, toda vez.", "w_br"],
+  "w_br": {"branch": [["linda=argued", "w_arg"], [null, "w_fine"]]},
+  "w_arg": ["w", "And never fight with a hungry person. You can't win.", "E nunca brigue com gente com fome. Não tem como ganhar.", "n_plate"],
+  "w_fine": ["w", "A customer who complains is helping you. The ones who say nothing never come back.", "Cliente que reclama está te ajudando. Os que não dizem nada nunca voltam.", "n_plate"],
+  "n_plate": ["n", "He stands up, puts on his hat and gives you his plate.", "Ele se levanta, põe o chapéu e te entrega o prato.", "w_bye"],
+  "w_bye": ["w", "Tomorrow. The usual.", "Amanhã. O de sempre.", "b_plate"],
+  "b_plate": ["b", "Did he say the food was good? No? He never says the food is good!", "Ele disse que a comida estava boa? Não? Ele nunca diz que a comida está boa!", "b_plate2"],
+  "b_plate2": ["b", "But look at his plate. Empty. Every day, it's empty. Not one bean!", "Mas olha o prato dele. Vazio. Todo dia, vazio. Nem um feijãozinho!", "b_q", {"clue": "clean_plate"}],
+  "b_q": ["b", "So what do you think? Is that his way to say he likes it?", "E aí, o que você acha? Esse é o jeito dele de dizer que gosta?", [
+   ["Yes. An empty plate is a compliment.", "Sim. Prato vazio é elogio.", "b_c1"],
+   ["Maybe he's just very hungry.", "Talvez ele só tenha muita fome.", "b_c2"],
+   ["Yes, he likes to play.", "Sim, ele gosta de brincar.", null, "Play? No! His plate! It's empty. Does that mean he likes the food?", "Brincar? Não! O prato! Está vazio. Isso quer dizer que ele gosta da comida?"]
+  ]],
+  "b_c1": ["b", "An empty plate is a compliment. I'm putting that on a T-shirt.", "Prato vazio é elogio. Vou estampar isso numa camiseta.", "b_dale"],
+  "b_c2": ["b", "Every day at eleven? Nobody is that hungry.", "Todo dia às onze? Ninguém tem tanta fome assim.", "b_dale"],
+  "b_dale": ["b", "Now, one problem. Dale didn't bring the cheese today. He says tomorrow at seven. Do we trust him?", "Agora, um problema. O Dale não trouxe o queijo hoje. Disse que vem amanhã às sete. A gente confia?", [
+   ["Let's call him tonight, to be sure.", "Vamos ligar pra ele hoje à noite, pra garantir.", "b_d1"],
+   ["We have no choice. No cheese, no cheese bread.", "A gente não tem escolha. Sem queijo, sem pão de queijo.", "b_d2"],
+   ["Yes, I trust the cheese.", "Sim, eu confio no queijo.", null, "Not the cheese! Dale, the supplier! Do you think he'll come at seven?", "No queijo, não! No Dale, o fornecedor! Você acha que ele vem às sete?"]
+  ]],
+  "b_d1": ["b", "Good idea. I called twice already. He says: no worries. I'm very worried.", "Boa ideia. Eu já liguei duas vezes. Ele diz: sem estresse. Eu estou com muito estresse.", "n_end"],
+  "b_d2": ["b", "No choice. You're right. He says: no worries. I'm very worried.", "Sem escolha. Você tem razão. Ele diz: sem estresse. Eu estou com muito estresse.", "n_end"],
+  "n_end": ["n", "Tomorrow at seven. You have a bad feeling about this.", "Amanhã às sete. Você está com um mau pressentimento.", null]
+ }
+}

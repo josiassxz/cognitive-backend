@@ -1,0 +1,89 @@
+{
+ "slug": "s02-06-owl-and-quill", "episode": 6, "title": "Owl and Quill", "level": "A2",
+ "place": "library", "placeLabel": "Owl and Quill Books", "time": "Sexta · 16h", "ambience": "shop",
+ "description": "Numa livraria minúscula, uma livreira tímida sabe o nome do dono. Mas ela tem regras.",
+ "intro": "Depois de se perder com o ônibus vinte e quatro, você chegou a Cecil Court. A Rosie disse que o Eddie veio buscar um livro na Owl and Quill Books. O jantar da Bia é às oito, no Luigi's, no Soho.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Mabel", "Livreira da Owl and Quill", "bf_lily", "right"],
+  "o": ["Owen", "Atendente do balcão de bagagens", "bm_daniel", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "The bookshop is tiny and very quiet. Books go from the floor to the ceiling.", "A livraria é minúscula e bem silenciosa. Os livros vão do chão até o teto.", "n2"],
+  "n2": ["n", "A little bell rings when you open the door. Behind a tower of books, someone whispers.", "Um sininho toca quando você abre a porta. Atrás de uma torre de livros, alguém fala baixinho.", "m1"],
+  "m1": ["m", "Hello. Sorry. I'm here. Behind the books. Are you looking for a book?", "Olá. Desculpe. Estou aqui. Atrás dos livros. Você procura algum livro?", [
+   ["Not a book. I'm looking for one of your customers.", "Um livro, não. Estou procurando um cliente seu.", "m_cust"],
+   ["Hello. I found this card. Is it from this shop?", "Olá. Eu achei este cartão. É desta loja?", "m_card"],
+   ["Yes. Do you sell cooks?", "Sim. Vocês vendem cozinheiros?", null, "Cooks? Oh. No. Books. Only books. Are you looking for one?", "Cozinheiros? Ah. Não. Livros. Só livros. Você procura algum?"]
+  ]],
+  "m_cust": ["m", "A customer? Oh. We don't talk about our customers. It's a rule. My rule.", "Um cliente? Ah. A gente não fala dos clientes. É regra. Regra minha.", "m_explain"],
+  "m_card": ["m", "Yes. That's our card. And that's my handwriting. But I gave it to someone else.", "Sim. É o nosso cartão. E essa letra é minha. Mas eu dei pra outra pessoa.", "m_explain"],
+  "m_explain": ["m", "Could you explain, please? Slowly. New people make me nervous.", "Você pode explicar, por favor? Devagar. Gente nova me deixa nervosa.", [
+   ["Our suitcases were swapped at the airport. I have his.", "Trocaram nossas malas no aeroporto. Eu estou com a dele.", "m_swap"],
+   ["It's urgent. He needs his suitcase tonight.", "É urgente. Ele precisa da mala hoje à noite.", "m_urgent"],
+   ["I'm not nervous. I'm from Brazil.", "Não é nervosismo. Eu sou do Brasil.", null, "Oh. That's nice. But, um, why are you looking for my customer?", "Ah. Que bom. Mas, hum, por que você procura o meu cliente?"]
+  ]],
+  "m_swap": ["m", "Swapped? Oh my. Like in a novel. Chapter one: the wrong suitcase.", "Trocadas? Nossa. Como num romance. Capítulo um: a mala errada.", "ap_br"],
+  "m_urgent": ["m", "Urgent? Oh dear. I don't like urgent. Books are never urgent.", "Urgente? Ai, ai. Eu não gosto de urgente. Livro nunca é urgente.", "ap_br"],
+  "ap_br": {"branch": [["apples=yes", "m_apples"], [null, "m_noproof"]]},
+  "m_apples": ["m", "But is it true? Wait. That paper bag. Are those Rosie's apples? From Camden Market?", "Mas será verdade? Espera. Esse saco de papel. São as maçãs da Rosie? Do Camden Market?", [
+   ["Yes. Rosie asked me to take them to him.", "São. A Rosie pediu pra eu levar pra ele.", "m_trust"],
+   ["Yes. He forgot them today. He was too worried.", "São. Ele esqueceu hoje. Estava preocupado demais.", "m_forgetful"],
+   ["No, they're pineapples.", "Não, são abacaxis.", null, "Pineapples? No. Those are apples. Rosie's apples, from Camden. Aren't they?", "Abacaxis? Não. Isso é maçã. As maçãs da Rosie, de Camden. Não são?"]
+  ]],
+  "m_trust": ["m", "Then it's true. Rosie only trusts good people. All right. I'll help you.", "Então é verdade. A Rosie só confia em gente boa. Tudo bem. Eu ajudo.", "m_name"],
+  "m_forgetful": ["m", "He forgot his apples? He never forgets his apples. Then it is serious. I'll help you.", "Ele esqueceu as maçãs? Ele nunca esquece as maçãs. Então é sério mesmo. Eu ajudo.", "m_name"],
+  "m_noproof": ["m", "But is it true? Please show me something from the suitcase. Something of his.", "Mas será verdade? Por favor, me mostre alguma coisa da mala. Alguma coisa dele.", [
+   ["Look. His scarf. Camden Rovers.", "Olha. O cachecol dele. Camden Rovers.", "m_scarf"],
+   ["Here's a recipe. Apple crumble.", "Aqui tem uma receita. Crumble de maçã.", "m_rec"],
+   ["Here's my passport photo. I look terrible.", "Aqui está a foto do meu passaporte. Saí horrível.", null, "Oh. It's not so bad. But I need something of his. From the suitcase.", "Ah. Nem está tão ruim. Mas eu preciso de uma coisa dele. Da mala."]
+  ]],
+  "m_scarf": ["m", "Oh! The lucky scarf! He never travels without it. All right. I believe you.", "Ah! O cachecol da sorte! Ele não viaja sem ele. Tudo bem. Eu acredito.", "m_name"],
+  "m_rec": ["m", "Rosie's crumble! He talks about it every week. All right. I believe you.", "O crumble da Rosie! Ele fala disso toda semana. Tudo bem. Eu acredito.", "m_name"],
+  "m_name": ["m", "His name is Mr. Finch. Edmund Finch. He comes here every Friday.", "O nome dele é Sr. Finch. Edmund Finch. Ele vem aqui toda sexta.", "m_today", {"clue": "name_finch"}],
+  "m_today": ["m", "He was here at three o'clock. You missed him by an hour.", "Ele esteve aqui às três horas. Você chegou uma hora depois.", [
+   ["Oh no! Did he say where he was going?", "Ai, não! Ele disse pra onde ia?", "m_going"],
+   ["What book did he order?", "Que livro ele encomendou?", "m_book"],
+   ["I miss him too.", "Eu também sinto falta dele.", null, "Oh. That's sweet. But you don't know him. I mean, he left an hour ago.", "Ah. Que fofo. Mas você nem conhece ele. Quer dizer, ele saiu faz uma hora."]
+  ]],
+  "m_going": ["m", "He said: 'Mabel, I must be at work by six.' Then he bowed. He always bows.", "Ele disse: 'Mabel, eu preciso estar no trabalho até as seis.' E fez uma reverência. Ele sempre faz.", "m_forgot"],
+  "m_book": ["m", "A very old play. He reads them aloud in the shop. All the voices. But he works at six.", "Uma peça bem antiga. Ele lê em voz alta na loja. Todas as vozes. Mas ele trabalha às seis.", "m_forgot"],
+  "m_forgot": ["m", "But he forgot his book! He was so upset about the suitcase. Could you take it to him?", "Mas ele esqueceu o livro! Estava tão chateado com a mala. Você poderia levar pra ele?", [
+   ["Of course. I'll give it to him tonight.", "Claro. Eu entrego pra ele hoje à noite.", "m_give", {"set": {"book": "yes"}}],
+   ["I'd rather not. What if I don't find him?", "Prefiro não. E se eu não achar ele?", "m_keep", {"set": {"book": "no"}}],
+   ["Yes, I'd like to book a table.", "Sim, eu queria reservar uma mesa.", null, "A table? Oh. No. This is a bookshop. The book. Could you take it to Mr. Finch?", "Uma mesa? Ah. Não. Isto é uma livraria. O livro. Você poderia levar para o Sr. Finch?"]
+  ]],
+  "m_give": ["m", "Thank you. It's already paid for. Please keep it dry. It's raining, of course.", "Obrigada. Já está pago. Por favor, não deixe molhar. Está chovendo, claro.", "m_where"],
+  "m_keep": ["m", "Oh. Yes. That's sensible. I'll keep it here. Safe.", "Ah. Sim. Faz sentido. Eu guardo aqui. A salvo.", "m_where"],
+  "m_where": ["m", "Do you know where he works?", "Você sabe onde ele trabalha?", [
+   ["At the Lantern Theatre, I think.", "No Lantern Theatre, eu acho.", "m_lantern"],
+   ["No. Can you tell me?", "Não. Você pode me dizer?", "m_cant"],
+   ["Yes, he works out. At the gym.", "Sim, ele malha. Na academia.", null, "The gym? Mr. Finch? Oh, no. I mean his job. Do you know where it is?", "Academia? O Sr. Finch? Ah, não. Eu digo o emprego. Você sabe onde é?"]
+  ]],
+  "m_lantern": ["m", "Oh. You know. Yes. The Lantern. But I didn't tell you. Rules.", "Ah. Você sabe. Sim. O Lantern. Mas eu não te contei nada. Regras.", "n_phone"],
+  "m_cant": ["m", "I can't. Rules. But, um, look at the ticket in the suitcase. That's all I'm saying.", "Não posso. Regras. Mas, hum, olhe o ingresso que está na mala. Não digo mais nada.", "n_phone"],
+  "n_phone": ["n", "Your phone rings. Mabel jumps. It's a number you don't know.", "Seu celular toca. A Mabel leva um susto. É um número que você não conhece.", "o1"],
+  "o1": ["o", "Good afternoon. This is Owen, from the airport baggage desk. Do you remember me?", "Boa tarde. Aqui é o Owen, do balcão de bagagens do aeroporto. Lembra de mim?", [
+   ["Owen! Did you find my suitcase?", "Owen! Você achou minha mala?", "o_found"],
+   ["Yes, of course! Is there any news?", "Sim, claro! Tem novidade?", "o_news"],
+   ["Yes. You're the pilot.", "Sim. Você é o piloto.", null, "I am not the pilot. I'm Owen. Baggage desk. I have news about your suitcase. Do you remember?", "Eu não sou o piloto. Sou o Owen. Balcão de bagagens. Tenho notícias da sua mala. Lembra?"]
+  ]],
+  "o_found": ["o", "Not exactly. But a gentleman called us. He has it.", "Não exatamente. Mas um senhor ligou pra cá. Está com ele.", "o_msg"],
+  "o_news": ["o", "Some. A gentleman called us. He has your suitcase.", "Alguma. Um senhor ligou pra cá. Ele está com a sua mala.", "o_msg"],
+  "o_msg": ["o", "I can't give you his name. Rules. But he left a message for you.", "Não posso dar o nome dele. Regras. Mas ele deixou um recado pra você.", "gift_br"],
+  "gift_br": {"branch": [["gift=coffee", "o_coffee"], ["gift=sweets", "o_sweets"], [null, "o_album"]]},
+  "o_coffee": ["o", "He says: 'The coffee is safe. I didn't open it. But it smells wonderful.'", "Ele diz: 'O café está a salvo. Eu não abri. Mas o cheiro é maravilhoso.'", "o_seven"],
+  "o_sweets": ["o", "He says: 'The sweets are safe. I didn't eat any. It was not easy.'", "Ele diz: 'Os doces estão a salvo. Não comi nenhum. Não foi fácil.'", "o_seven"],
+  "o_album": ["o", "He says: 'The photo album is safe. I only looked at the cover.'", "Ele diz: 'O álbum de fotos está a salvo. Eu só olhei a capa.'", "o_seven"],
+  "o_seven": ["o", "He also says he needs his own suitcase by seven tonight. He didn't say why.", "Ele também diz que precisa da mala dele até as sete da noite. Não disse por quê.", [
+   ["Did he say where to meet?", "Ele disse onde a gente se encontra?", "o_meet"],
+   ["Thank you, Owen. I think I know where he'll be.", "Valeu, Owen. Acho que eu sei onde ele vai estar.", "o_know"],
+   ["Seven suitcases? I only have one.", "Sete malas? Eu só tenho uma.", null, "One suitcase. Seven o'clock. He needs it by seven tonight. Is that clear?", "Uma mala. Sete horas. Ele precisa dela até as sete da noite. Ficou claro?"]
+  ]],
+  "o_meet": ["o", "No. The line went dead. He was calling from a phone box. In this century.", "Não. A ligação caiu. Ele estava ligando de um orelhão. Em pleno século vinte e um.", "m_end"],
+  "o_know": ["o", "Do you? Then you are faster than the airport. As I said.", "Sabe? Então você anda mais depressa que o aeroporto. Como eu disse.", "m_end"],
+  "m_end": ["m", "The Lantern is ten minutes away. Go up the street and turn left at the flower shop. Good luck.", "O Lantern fica a dez minutos. Suba a rua e vire à esquerda na floricultura. Boa sorte.", "n_end"],
+  "n_end": ["n", "Almost five o'clock. Rain on your face, a suitcase in your hand. And theatre lights, just ahead.", "Quase cinco horas. Chuva no rosto, uma mala na mão. E as luzes de um teatro, logo ali.", null]
+ }
+}

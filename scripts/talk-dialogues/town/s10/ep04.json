@@ -1,0 +1,93 @@
+{
+ "slug": "s10-04-honest-feedback", "episode": 4, "title": "Honest Feedback", "level": "B1",
+ "place": "cafe", "placeLabel": "Café Bean There", "time": "Terça · 16h", "ambience": "cafe",
+ "description": "O Dylan quer sua opinião sincera sobre o pitch. E você tem perguntas para ele.",
+ "intro": "Um slide confidencial vazou para uma cliente: a Kettle só tem dinheiro para três meses. A Helen pediu que você descubra, com discrição, o que aconteceu. O Dylan jura que estava num avião.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "b": ["Nadia", "Barista do Bean There", "af_bella", "left"],
+  "d": ["Dylan", "Vendas", "am_puck", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Tuesday, four o'clock. Dylan has booked you for 'an urgent meeting'. It's in the café downstairs.", "Terça, quatro da tarde. O Dylan marcou com você 'uma reunião urgente'. É no café do térreo.", "n2"],
+  "n2": ["n", "The café is called Bean There. On the counter, a little sign says: Order ahead with Kettle.", "O café se chama Bean There. No balcão, uma plaquinha diz: Peça antes com a Kettle.", "b1"],
+  "b1": ["b", "Hiya! You're from upstairs, aren't you? Don't know your face. What can I get you?", "Oi! Você é lá de cima, né? Não conheço seu rosto. O que vai querer?", [
+   ["A flat white, please. How do you find the Kettle app?", "Um flat white, por favor. O que você acha do aplicativo da Kettle?", "b_app"],
+   ["Just a tea, thanks. Is Dylan here yet?", "Só um chá, valeu. O Dylan já chegou?", "b_dylan"],
+   ["Can you get me upstairs?", "Você pode me levar lá pra cima?", null, "There's a lift for that, my love! I mean a drink. What can I get you?", "Pra isso tem elevador, meu bem! Eu tô falando de bebida. O que vai querer?"]
+  ]],
+  "b_app": ["b", "Love it. Mostly. Last week it charged a regular twice. He's still going on about it.", "Adoro. Quase sempre. Semana passada ele cobrou um freguês duas vezes. O homem ainda está reclamando.", "n3"],
+  "b_dylan": ["b", "Yellow jumper? Back table. He's been talking to the sugar bowl for twenty minutes.", "Suéter amarelo? Mesa do fundo. Faz vinte minutos que ele conversa com o açucareiro.", "n3"],
+  "n3": ["n", "At the back table, Dylan is indeed presenting to a sugar bowl. He looks up, relieved.", "Na mesa do fundo, o Dylan está mesmo fazendo uma apresentação para um açucareiro. Ele levanta os olhos, aliviado.", "d1"],
+  "d1": ["d", "There you are! I need a favour. Listen to my opening for Friday. And be honest. Brutally honest.", "Aí está você! Preciso de um favor. Escuta a minha abertura de sexta. E fala a verdade. Sem dó.", [
+   ["Happy to. Go for it.", "Com prazer. Manda ver.", "d_pitch"],
+   ["All right. But afterwards, I've got some questions for you too.", "Tudo bem. Mas depois eu também tenho umas perguntas pra você.", "d_deal"],
+   ["Sure. Which door are you opening?", "Claro. Que porta você vai abrir?", null, "Not a door! My opening. The start of my pitch. Will you listen to it?", "Não é porta! Minha abertura. O começo da minha apresentação. Você escuta?"]
+  ]],
+  "d_deal": ["d", "Ah, the famous investigation. Deal. Pitch first, questions after.", "Ah, a famosa investigação. Fechado. Primeiro o pitch, depois as perguntas.", "d_pitch"],
+  "d_pitch": ["d", "Okay. Here goes. Why did the coffee call the police? Because it got mugged!", "Certo. Lá vai. Por que o café chamou a polícia? Porque foi assaltado na caneca!", "n4"],
+  "n4": ["n", "Silence. Behind the counter, Nadia drops a spoon.", "Silêncio. Atrás do balcão, a Nadia deixa cair uma colher.", "d2"],
+  "d2": ["d", "Then I do three minutes of numbers, really fast. So? What do you think?", "Depois eu faço três minutos de números, bem rápido. E aí? O que você acha?", [
+   ["Can I be honest? The energy's great, but I'd cut the joke.", "Posso falar a verdade? A energia é ótima, mas eu cortaria a piada.", "d_honest", {"set": {"feedback": "honest"}}],
+   ["It's great! I wouldn't change a thing.", "Está ótimo! Eu não mudaria nada.", "d_soft", {"set": {"feedback": "soft"}}],
+   ["What's the one thing you want them to remember?", "Qual é a única coisa que você quer que eles lembrem?", "d_coach", {"set": {"feedback": "coach"}}],
+   ["I think the coffee is guilty.", "Eu acho que o café é culpado.", null, "Ha! No, seriously. My pitch. What do you really think of it?", "Rá! Não, sério. Meu pitch. O que você acha de verdade?"]
+  ]],
+  "d_honest": ["d", "Ouch. My grandma loves that joke. Okay. Why cut it?", "Ai. Minha avó adora essa piada. Tá. Por que cortar?", [
+   ["Because investors decide whether they trust you in the first ten seconds.", "Porque investidor decide se confia em você nos primeiros dez segundos.", "d_trust"],
+   ["Because you don't need it. Your real story is stronger.", "Porque você não precisa dela. A sua história de verdade é mais forte.", "d_story"],
+   ["Because I cut my finger.", "Porque eu cortei o dedo.", null, "Sorry to hear it. But the joke! Why should I cut the joke?", "Que pena. Mas a piada! Por que eu devia cortar a piada?"]
+  ]],
+  "d_trust": ["d", "Trust first, jokes later. Fine. You're right, and it's annoying.", "Confiança primeiro, piada depois. Tá bom. Você tem razão, e isso irrita.", "d3"],
+  "d_story": ["d", "My real story. Huh. Nobody's ever said that to me before.", "Minha história de verdade. Hum. Ninguém nunca me disse isso antes.", "d3"],
+  "d_soft": ["d", "Nothing at all? You're either very kind or a terrible liar. Okay, the joke stays!", "Nadinha? Ou você é gente boa demais ou mente muito mal. Beleza, a piada fica!", "d3"],
+  "d_coach": ["d", "One thing? That small cafés need us. Huh. That's not in my opening at all.", "Uma coisa só? Que os cafés pequenos precisam da gente. Hum. Isso nem aparece na minha abertura.", "d3"],
+  "d3": ["d", "Next question. Should I open with a story, or go straight to the numbers?", "Próxima pergunta. Eu abro com uma história ou vou direto pros números?", [
+   ["A story. Numbers mean more once people care.", "Uma história. Os números pesam mais quando as pessoas já se importam.", "d_st"],
+   ["Numbers. Investors are busy people.", "Números. Investidor é gente ocupada.", "d_nu"],
+   ["A storey? We're on the ground floor.", "Um andar? A gente está no térreo.", null, "Not a storey in a building! A story. A tale. So: story or numbers?", "Não é andar de prédio! É história. Um caso. Então: história ou números?"]
+  ]],
+  "d_st": ["d", "A story. Maybe Nadia's story. She nearly closed this place before she had the app.", "Uma história. Talvez a da Nadia. Ela quase fechou este lugar antes de ter o aplicativo.", "lunch_br"],
+  "d_nu": ["d", "Straight to the point. Okay. But slower. Even my grandma says I talk too fast.", "Direto ao ponto. Tá. Só que mais devagar. Até minha avó diz que eu falo rápido demais.", "lunch_br"],
+  "lunch_br": {"branch": [["clue_rival_lunch", "d4a"], [null, "d4b"]]},
+  "d4a": ["d", "Right, your turn. Tom told you about my lunch, didn't he? I saw his face.", "Bom, sua vez. O Tom te contou do meu almoço, né? Eu vi a cara dele.", [
+   ["He did. What were you doing with Brewly?", "Contou. O que você estava fazendo com a Brewly?", "d_lunch"],
+   ["Let's start with Monday night. Where were you?", "Vamos começar pela noite de segunda. Onde você estava?", "d_alibi"],
+   ["Yes. What did you eat?", "Sim. O que você comeu?", null, "A very sad salad. That's not the real question, though. Brewly, or Monday night?", "Uma salada muito triste. Mas a pergunta de verdade não é essa. Brewly ou a noite de segunda?"]
+  ]],
+  "d4b": ["d", "Right, your turn. Ask me anything. I've got nothing to hide. Well, almost nothing.", "Bom, sua vez. Pergunta o que quiser. Não tenho nada a esconder. Bom, quase nada.", [
+   ["Almost nothing? What might look bad for you?", "Quase nada? O que poderia pegar mal pra você?", "d_lunch_new"],
+   ["Where exactly were you on Monday night?", "Onde exatamente você estava na noite de segunda?", "d_alibi"],
+   ["Can I ask you for ten pounds?", "Posso te pedir dez libras?", null, "Ha! Ask Helen for a raise. I mean about the leak. What do you want to know?", "Rá! Pede um aumento pra Helen. Eu tô falando do vazamento. O que você quer saber?"]
+  ]],
+  "d_lunch_new": ["d", "Okay. Last Thursday I had lunch with someone from Brewly. Our biggest rival. Tom saw us.", "Tá. Na quinta passada eu almocei com alguém da Brewly. Nossa maior concorrente. O Tom viu a gente.", "d_lunch", {"clue": "rival_lunch"}],
+  "d_lunch": ["d", "They offered me a job. More money, bigger title. I said no. I like it here.", "Eles me ofereceram um emprego. Mais dinheiro, cargo maior. Eu disse não. Eu gosto daqui.", "d_lq"],
+  "d_lq": ["d", "Please don't tell Helen. She'll think I'm fishing for a pay rise.", "Por favor, não conta pra Helen. Ela vai achar que eu tô jogando verde pra ganhar aumento.", [
+   ["I won't. Unless it turns out to matter for the leak.", "Não conto. A não ser que isso acabe sendo importante pro vazamento.", "d_careful"],
+   ["I think you should tell her yourself. It shows you're loyal.", "Acho que você mesmo devia contar. Mostra que você é leal.", "d_loyal"],
+   ["Don't worry. I love rice too.", "Relaxa. Eu também adoro arroz.", null, "Rice? No! A pay rise. More money. Just tell me: will this stay between us?", "Arroz? Não! Aumento de salário. Mais dinheiro. Só me diz: isso fica entre a gente?"]
+  ]],
+  "d_careful": ["d", "A careful promise. I can live with that.", "Uma promessa cautelosa. Dá pra conviver com isso.", "d_alibi"],
+  "d_loyal": ["d", "Tell her I turned down more money? Actually, that's not a bad pitch.", "Contar que eu recusei mais dinheiro? Olha, até que não é um pitch ruim.", "d_alibi"],
+  "d_alibi": ["d", "And Monday night, I was in the sky. Look: boarding pass. Edinburgh to London, landed at twenty past midnight.", "E na noite de segunda eu estava no céu. Olha: cartão de embarque. Edimburgo para Londres, pousou à meia-noite e vinte.", "d5", {"clue": "dylan_alibi"}],
+  "d5": ["d", "My phone woke up on the runway. Emails everywhere. So. Am I off your list?", "Meu celular acordou na pista. E-mail pra todo lado. E aí. Saí da sua lista?", [
+   ["You're off the list. One more thing: what's the investor like?", "Você saiu da lista. Só mais uma coisa: como é a investidora?", "d_inv"],
+   ["For now. Thanks for being straight with me.", "Por enquanto. Valeu por jogar limpo comigo.", "d_straight"],
+   ["No, you were on the plane.", "Não, você estava no avião.", null, "Exactly! I was on the plane. That's my point. So, am I still a suspect?", "Exato! Eu estava no avião. É isso que eu tô dizendo. Então, ainda sou suspeito?"]
+  ]],
+  "d_inv": ["d", "Amara Cole? Sharp. She once walked out of a pitch because the founders hid a number.", "A Amara Cole? Afiada. Uma vez ela levantou e saiu de uma apresentação porque os fundadores esconderam um número.", "d_inv2"],
+  "d_inv2": ["d", "She forgives bad news. She never forgives surprises. Remember that on Friday.", "Ela perdoa má notícia. Surpresa, ela nunca perdoa. Lembra disso na sexta.", "n5", {"clue": "honest_investor"}],
+  "d_straight": ["d", "Always. Well, usually. I am in sales.", "Sempre. Bom, quase sempre. Eu sou de vendas.", "n5"],
+  "n5": ["n", "Dylan's phone buzzes. He reads the message, and his smile disappears.", "O celular do Dylan vibra. Ele lê a mensagem, e o sorriso some.", "d6"],
+  "d6": ["d", "It's Helen. Greta from Crumb wants a call on Thursday. She's the client who saw slide nine.", "É a Helen. A Greta, da Crumb, quer uma ligação na quinta. É a cliente que viu o slide nove.", "d7"],
+  "d7": ["d", "And Greta said: no sales talk. So Helen wants you to lead the call. Ever handled an angry client?", "E a Greta avisou: nada de papo de vendedor. Então a Helen quer que você conduza a ligação. Já lidou com cliente irritado?", [
+   ["A few. Listen first, fix second.", "Alguns. Primeiro ouvir, depois resolver.", "d_tip1"],
+   ["Never. Any tips?", "Nunca. Alguma dica?", "d_tip2"],
+   ["Yes, I handle the door every day.", "Sim, eu mexo na maçaneta todo dia.", null, "Not a door handle! I mean deal with. Have you ever dealt with an angry customer?", "Não é maçaneta! Eu quis dizer lidar. Você já lidou com um cliente irritado?"]
+  ]],
+  "d_tip1": ["d", "Exactly. And never promise anything Tom can't build. That's my job, and I'm trying to quit.", "Exato. E nunca prometa o que o Tom não consegue construir. Esse é o meu papel, e eu tô tentando largar.", "n_end"],
+  "d_tip2": ["d", "Two. Let her finish. And never promise anything Tom can't build.", "Duas. Deixa ela terminar. E nunca prometa o que o Tom não consegue construir.", "n_end"],
+  "n_end": ["n", "Thursday: the angriest client Kettle has. But first, Wednesday. The day Helen chooses between the bug and the stamps.", "Quinta: a cliente mais brava da Kettle. Mas antes, quarta. O dia em que a Helen escolhe entre o bug e os selos.", null]
+ }
+}

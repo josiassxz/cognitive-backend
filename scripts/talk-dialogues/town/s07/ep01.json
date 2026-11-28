@@ -1,0 +1,92 @@
+{
+ "slug": "s07-01-platform-one", "episode": 1, "title": "Platform One", "level": "B1",
+ "place": "station", "placeLabel": "Estação, plataforma um", "time": "Sexta · 23h10", "ambience": "station",
+ "description": "Você embarca no trem noturno para Edimburgo e conhece quem vai viajar com você.",
+ "intro": "Você é do Brasil e vai passar o fim de semana em Edimburgo. Para economizar uma noite de hotel, comprou uma cabine no trem noturno que sai de Londres às onze e meia.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Moira", "Chefe de trem", "bf_isabella", "left"],
+  "d": ["Dot", "Passageira da cabine oito", "bf_alice", "left"],
+  "j": ["Jamie", "Estudante de violino", "am_puck", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "It's Friday night in London. The station is almost empty, and your train is waiting at platform one.", "É sexta à noite em Londres. A estação está quase vazia, e o seu trem espera na plataforma um.", "n2"],
+  "n2": ["n", "The Northern Star. Dark blue, very long, a little old-fashioned. A woman in uniform is checking tickets at the door.", "O Northern Star. Azul-escuro, muito comprido, meio antiquado. Uma mulher de uniforme confere as passagens na porta.", "m1"],
+  "m1": ["m", "Evening. Welcome aboard the Northern Star. Can I see your ticket, please?", "Boa noite. Boas-vindas ao Northern Star. Posso ver sua passagem, por favor?", [
+   ["Of course. Here you are.", "Claro. Aqui está.", "m_ticket"],
+   ["Good evening! Are you the conductor?", "Boa noite! Você é a condutora?", "m_conductor", {"set": {"called_conductor": "yes"}}],
+   ["No, thanks. I've already seen it.", "Não, valeu. Eu já vi.", null, "I'm sure you have. But I haven't. May I have a look at your ticket?", "Imagino que sim. Mas eu não vi. Posso dar uma olhada na sua passagem?"]
+  ]],
+  "m_conductor": ["m", "Conductors wave sticks at orchestras. I'm the train manager. Moira Campbell. Now, let's see that ticket.", "\"Conductor\" é quem rege orquestra com batuta. Eu sou a chefe de trem. Moira Campbell. Agora, vamos ver essa passagem.", "m_ticket"],
+  "m_ticket": ["m", "Coach C, berth nine. All the way to Edinburgh. First time on a night train?", "Vagão C, cabine nove. Direto até Edimburgo. Primeira vez num trem noturno?", [
+   ["Yes! I've been looking forward to it all week.", "Sim! Passei a semana inteira esperando por isso.", "m_excited"],
+   ["First time in Scotland, too. I'm from Brazil.", "Primeira vez na Escócia também. Sou do Brasil.", "m_brazil"],
+   ["Yes, I trained all night.", "Sim, treinei a noite toda.", null, "Trained? Ha. No, the train. Have you ever slept on one before?", "Treinou? Rá. Não, o trem. Você já dormiu em um antes?"]
+  ]],
+  "m_excited": ["m", "Good. You'll sleep like a baby. Or not at all. There's no in-between.", "Que bom. Você vai dormir feito um bebê. Ou não vai pregar o olho. Não tem meio-termo.", "m_times"],
+  "m_brazil": ["m", "Brazil! Then find a jumper. Edinburgh at seven in the morning is not Rio.", "Brasil! Então arranje um casaco. Edimburgo às sete da manhã não é o Rio.", "m_times"],
+  "m_times": ["m", "We leave at half past eleven and arrive at twenty past seven. Anything you'd like to ask?", "Saímos às onze e meia e chegamos às sete e vinte. Quer perguntar alguma coisa?", [
+   ["Is there anywhere to get a hot drink?", "Tem algum lugar pra tomar uma bebida quente?", "m_lounge"],
+   ["Do we stop anywhere on the way?", "A gente para em algum lugar no caminho?", "m_stop"],
+   ["What time is breakfast?", "Que horas é o café da manhã?", "m_breakfast"],
+   ["No questions. I'm arriving at seventy.", "Nenhuma pergunta. Vou chegar aos setenta.", null, "Seventy? No. Twenty past seven, tomorrow morning. Is there anything you want to know?", "Setenta? Não. Sete e vinte, amanhã de manhã. Tem alguma coisa que você queira saber?"]
+  ]],
+  "m_lounge": ["m", "The lounge car, right next to yours. Open all night. I make the tea myself, so behave.", "O vagão-lounge, colado no seu. Aberto a noite toda. Sou eu que faço o chá, então juízo.", "n_dot"],
+  "m_stop": ["m", "Just one. Crewe, at five to one. Fifteen minutes. Nobody ever gets on.", "Só uma parada. Crewe, às cinco para a uma. Quinze minutos. Nunca sobe ninguém.", "n_dot"],
+  "m_breakfast": ["m", "From six, in the lounge car. Porridge, if you're brave. Toast, if you're not.", "A partir das seis, no vagão-lounge. Mingau de aveia, pra quem tem coragem. Torrada, pra quem não tem.", "n_dot"],
+  "n_dot": ["n", "Behind you, a small old lady is coming along the platform with three bags. The bags are winning.", "Atrás de você, uma senhorinha vem pela plataforma com três sacolas. As sacolas estão ganhando.", "d1"],
+  "d1": ["d", "Oh, hello, dear! You've got kind eyes. Could you possibly carry this one for me? It's only my knitting.", "Ah, olá, meu bem! Você tem um olhar bondoso. Será que podia carregar esta aqui pra mim? É só o meu tricô.", [
+   ["Of course. Let me give you a hand.", "Claro. Deixa que eu ajudo.", "d_held", {"set": {"held_bag": "yes"}}],
+   ["Sorry, my hands are full. Maybe the train manager can help?", "Desculpa, estou sem mão livre. Quem sabe a chefe de trem ajuda?", "d_nohelp", {"set": {"held_bag": "no"}}],
+   ["Thanks, but I've already got a bag.", "Valeu, mas eu já tenho uma sacola.", null, "No, dear, I'm not giving it away! Could you carry it onto the train for me?", "Não, meu bem, não estou dando de presente! Você podia levar pra dentro do trem pra mim?"]
+  ]],
+  "d_held": ["d", "You're an angel. Gently, though. Don't swing it. The wool gets dizzy.", "Você é um anjo. Mas com jeitinho. Não balança. A lã fica tonta.", "n_bag"],
+  "n_bag": ["n", "The bag is heavy, and strangely warm. For a second, you're sure something inside it moves.", "A sacola é pesada e estranhamente quentinha. Por um segundo, você tem certeza de que algo se mexe lá dentro.", "d_wool"],
+  "d_wool": ["d", "It's only wool, dear. Very lively wool. It's the train shaking.", "É só lã, meu bem. Uma lã muito animada. É o trem que balança.", "n_still"],
+  "n_still": ["n", "The train hasn't moved yet.", "O trem ainda nem saiu do lugar.", "d_intro"],
+  "d_nohelp": ["d", "Oh, never mind, dear. I've carried worse. I raised four boys.", "Ah, deixa pra lá, meu bem. Já carreguei coisa pior. Criei quatro meninos.", "d_intro"],
+  "d_intro": ["d", "I'm Dot, by the way. Dot Pringle. Coach C, berth eight. And where are you sleeping?", "Aliás, eu sou a Dot. Dot Pringle. Vagão C, cabine oito. E você, vai dormir onde?", [
+   ["Right next door. I'm in berth nine.", "Bem ao lado. Estou na cabine nove.", "d_neigh"],
+   ["Berth nine. Are you travelling on your own?", "Cabine nove. A senhora está viajando sem companhia?", "d_alone"],
+   ["Nice to meet you, Dot. I'm a comma.", "Prazer, Dot. Eu sou uma vírgula.", null, "A comma! Oh, very good. No, dear. Dot, short for Dorothy. Which berth are you in?", "Uma vírgula! Ah, essa foi boa. Não, meu bem. Dot, de Dorothy. Qual é a sua cabine?"]
+  ]],
+  "d_neigh": ["d", "Next door! Lovely. I snore a little, dear. Just knock on the wall.", "Ao lado! Que beleza. Eu ronco um pouquinho, meu bem. É só bater na parede.", "n_jamie"],
+  "d_alone": ["d", "On my own? Oh yes. Completely. Just me and my knitting. Why do you ask?", "Sem companhia? Ah, sim. Totalmente. Só eu e o meu tricô. Por que a pergunta?", "n_jamie"],
+  "n_jamie": ["n", "Before you can answer, a young man runs past and crashes straight into you. Paper flies everywhere.", "Antes que você responda, um rapaz passa correndo e tromba em cheio com você. Voa papel pra todo lado.", "j1"],
+  "j1": ["j", "Sorry! Sorry, sorry. I wasn't looking. Oh no. My music. It's all over the platform.", "Desculpa! Desculpa, desculpa. Eu não estava olhando. Ai, não. Minhas partituras. Estão pela plataforma toda.", [
+   ["Don't worry. I'll help you pick it up.", "Relaxa. Eu te ajudo a juntar.", "j_help", {"set": {"helped_jamie": "yes"}}],
+   ["Careful! You nearly knocked me over.", "Cuidado! Você quase me derrubou.", "j_cross", {"set": {"helped_jamie": "no"}}],
+   ["It's fine. I didn't order any music.", "Tudo bem. Eu não pedi música nenhuma.", null, "No, I mean my pages. They're everywhere! Could you, uh, maybe help me?", "Não, eu digo as minhas folhas. Estão por toda parte! Você podia, hã, me ajudar?"]
+  ]],
+  "j_help": ["j", "Thanks. Really. Page four, page nine. I've got an audition in Edinburgh tomorrow. Violin.", "Valeu. De verdade. Página quatro, página nove. Tenho um teste em Edimburgo amanhã. Violino.", "j2"],
+  "j_cross": ["j", "I know. I'm so sorry. I've got an audition tomorrow. Violin. I can't think straight.", "Eu sei. Me desculpa mesmo. Tenho um teste amanhã. Violino. Não consigo pensar direito.", "j2"],
+  "j2": ["j", "I'm Jamie. I'm only in the seats, in coach D. I couldn't afford a bed.", "Eu sou o Jamie. Estou só nas poltronas, no vagão D. Não deu pra pagar uma cama.", [
+   ["An audition? Good luck. I'm sure you'll be great.", "Um teste? Boa sorte. Aposto que você vai arrasar.", "j_luck"],
+   ["You look a bit nervous. Are you all right?", "Você parece meio nervoso. Tá tudo bem?", "j_nervous"],
+   ["Don't worry, I've got a bad seat too.", "Relaxa, eu também peguei um assento ruim.", null, "Not bad. A bed. I haven't got one. I'm sitting up all night. Anyway, uh, wish me luck?", "Não é \"bad\". É \"bed\", cama. Eu não tenho. Vou passar a noite sentado. Enfim, hã, me deseja sorte?"]
+  ]],
+  "j_luck": ["j", "Thanks. I need it. I haven't slept properly in two days.", "Valeu. Estou precisando. Faz dois dias que não durmo direito.", "n_clara"],
+  "j_nervous": ["j", "Nervous? Me? No. Yes. Very. Is it that obvious?", "Nervoso? Eu? Não. Sim. Muito. Dá pra notar tanto assim?", "n_clara"],
+  "n_clara": ["n", "Then the platform goes quiet. A tall woman in a long green shawl is walking towards the train.", "Então a plataforma fica em silêncio. Uma mulher alta, de xale verde comprido, caminha em direção ao trem.", "n_clara2"],
+  "n_clara2": ["n", "A young man hurries behind her. He's holding a violin case in both arms, like a baby.", "Um rapaz vem apressado atrás dela. Ele segura um estojo de violino nos dois braços, como um bebê.", "j3"],
+  "j3": ["j", "That's her. That's Clara Whitmore. She's playing in Edinburgh tomorrow night. She's the reason I play.", "É ela. É a Clara Whitmore. Ela toca em Edimburgo amanhã à noite. É por causa dela que eu toco.", [
+   ["Why don't you go and say hello?", "Por que você não vai lá dar um oi?", "j_hello"],
+   ["Who's the man with the case?", "Quem é o homem com o estojo?", "j_man"],
+   ["Is she really that famous?", "Ela é tão famosa assim?", "j_famous"],
+   ["She's the raisin? I prefer grapes.", "Ela é a uva-passa? Prefiro uva fresca.", null, "Not raisin. Reason! She's why I play the violin. Don't you know who she is?", "Não é \"raisin\". É \"reason\", motivo! É por ela que eu toco violino. Você não sabe quem ela é?"]
+  ]],
+  "j_hello": ["j", "Say hello? To Clara Whitmore? I'd faint. I've written her a note, though. Maybe later.", "Dar um oi? Pra Clara Whitmore? Eu desmaiava. Mas escrevi um bilhete pra ela. Talvez mais tarde.", "n_lang"],
+  "j_man": ["j", "Her assistant. Oliver something. People say he never lets go of that case.", "O assistente dela. Oliver alguma coisa. Dizem que ele nunca larga aquele estojo.", "n_lang"],
+  "j_famous": ["j", "Famous? That violin alone is three hundred years old. It's called the Nightingale.", "Famosa? Só aquele violino tem trezentos anos. Ele se chama Nightingale, o Rouxinol.", "n_lang"],
+  "n_lang": ["n", "By the ticket office, a man in an expensive coat is watching the violin case very carefully.", "Perto da bilheteria, um homem de casaco caro observa o estojo do violino com muita atenção.", "m_whistle"],
+  "m_whistle": ["m", "All aboard, please! That means you too, berth nine. We leave in two minutes.", "Todos a bordo, por favor! Isso vale pra você também, cabine nove. Saímos em dois minutos.", [
+   ["Coming! Who's that man watching the violin?", "Já vou! Quem é aquele homem de olho no violino?", "m_lang"],
+   ["Coming! It's going to be a quiet night, isn't it?", "Já vou! Vai ser uma noite tranquila, né?", "m_quiet"],
+   ["Two minutes? I'll get on at Edinburgh, then.", "Dois minutos? Então eu subo em Edimburgo.", null, "That's a very long walk. Step on now, please. Are you coming or not?", "É uma caminhada e tanto. Suba agora, por favor. Você vem ou não vem?"]
+  ]],
+  "m_lang": ["m", "Mr. Lang, berth four. He collects old instruments. He's been staring at that one since the ticket office.", "O Sr. Lang, cabine quatro. Coleciona instrumentos antigos. Está de olho naquele ali desde a bilheteria.", "n_end"],
+  "m_quiet": ["m", "In thirty years, I've never had a quiet night. But I live in hope.", "Em trinta anos, nunca tive uma noite tranquila. Mas a esperança é a última que morre.", "n_end"],
+  "n_end": ["n", "The whistle blows. The doors close. Eight hours to Edinburgh. What could possibly go wrong?", "O apito soa. As portas se fecham. Oito horas até Edimburgo. O que poderia dar errado?", null]
+ }
+}

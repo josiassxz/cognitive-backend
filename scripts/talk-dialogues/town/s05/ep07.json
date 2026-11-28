@@ -1,0 +1,100 @@
+{
+ "slug": "s05-07-five-in-the-morning", "episode": 7, "title": "Five in the Morning", "level": "B1",
+ "place": "kitchen", "placeLabel": "Cozinha do refeitório", "time": "Semana 10 · Qui 5h", "ambience": "kitchen",
+ "description": "Antes do sol nascer, descubra onde o Miles passa as madrugadas. E fale com jeito.",
+ "intro": "O Miles mandou só duas palavras: 'I'm sorry'. Depois, silêncio. A apresentação é amanhã às dez. São cinco da manhã de quinta, e alguém bate na porta do seu quarto.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "t": ["Tasha", "Sua colega de suíte", "af_bella", "left"],
+  "r": ["Rosa", "Funcionária do refeitório", "af_kore", "right"],
+  "m": ["Miles", "Colega de grupo desaparecido", "am_eric", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Thursday. Five in the morning. It's dark, and somebody is knocking on your bedroom door.", "Quinta. Cinco da manhã. Está escuro, e alguém bate na porta do seu quarto.", "t0"],
+  "t0": ["t", "Psst! Are you awake? Say something!", "Psiu! Já acordou? Fala alguma coisa!", [
+   ["Tasha? What time is it?", "Tasha? Que horas são?", "t0_time"],
+   ["I am now. What's wrong?", "Agora estou. O que foi?", "t0_wrong"],
+   ["No, I'm a cake.", "Não, eu sou um bolo.", null, "A cake? You're dreaming. Wake up! Are you awake now?", "Um bolo? Você está sonhando. Acorda! Já acordou agora?"]
+  ]],
+  "t0_time": ["t", "Five. I know. I'm a monster. Get up anyway.", "Cinco. Eu sei. Eu sou um monstro. Levanta mesmo assim.", "gift_br"],
+  "t0_wrong": ["t", "Nothing. Everything. Get up, I had an idea.", "Nada. Tudo. Levanta, eu tive uma ideia.", "gift_br"],
+  "gift_br": {"branch": [["gift=coffee", "t_gc"], ["gift=candy", "t_gk"], [null, "t_gf"]]},
+  "t_gc": ["t", "Here. The last of your Brazilian coffee. I saved it for an emergency. This is one.", "Toma. O resto do seu café brasileiro. Guardei pra uma emergência. Esta é uma.", "t2_br"],
+  "t_gk": ["t", "Here, coffee. And your grandmother's last chocolate. I hid it for an emergency.", "Toma, café. E o último docinho da sua avó. Escondi pra uma emergência.", "t2_br"],
+  "t_gf": ["t", "Here, coffee. And don't look at my feet. Yes, flip-flops and socks. Focus.", "Toma, café. E não olha pro meu pé. Sim, chinelo com meia. Foco.", "t2_br"],
+  "t2_br": {"branch": [["clue_early_shift", "t2a"], [null, "t2b"]]},
+  "t2a": ["t", "I can't stop thinking about Miles. Where does a person go at five in the morning?", "Não paro de pensar no Miles. Pra onde uma pessoa vai às cinco da manhã?", [
+   ["The dining hall! Rosa told me. He works the breakfast shift.", "O refeitório! A Rosa me contou. Ele trabalha no turno do café da manhã.", "t_know"],
+   ["To bed, like normal people?", "Pra cama, como gente normal?", "t_bed"],
+   ["I don't know any Persians.", "Não conheço nenhum persa.", null, "Person, not Persian! Miles! Where could Miles be at this hour? Think!", "Person é pessoa, não persa! O Miles! Onde o Miles pode estar a esta hora? Pensa!"]
+  ]],
+  "t2b": ["t", "I can't stop thinking about Miles. Where does a person go at five in the morning?", "Não paro de pensar no Miles. Pra onde uma pessoa vai às cinco da manhã?", [
+   ["The gym? The library?", "A academia? A biblioteca?", "t_guess"],
+   ["To bed, like normal people?", "Pra cama, como gente normal?", "t_bed"],
+   ["I don't know any Persians.", "Não conheço nenhum persa.", null, "Person, not Persian! Miles! Where could Miles be at this hour? Think!", "Person é pessoa, não persa! O Miles! Onde o Miles pode estar a esta hora? Pensa!"]
+  ]],
+  "t_know": ["t", "He what? Every morning? And the radio at night? When does that boy sleep? Let's go.", "Ele o quê? Toda manhã? E a rádio à noite? Quando esse menino dorme? Vamos.", "n2"],
+  "t_bed": ["t", "Ha. No. Listen. He once swapped a radio shift because of work at five. The dining hall kitchen!", "Rá. Não. Escuta. Uma vez ele trocou um turno na rádio por causa de trabalho às cinco. A cozinha do refeitório!", "n2"],
+  "t_guess": ["t", "Both closed. But he once swapped a radio shift because of work at five. The dining hall kitchen!", "As duas fechadas. Mas uma vez ele trocou um turno na rádio por causa de trabalho às cinco. A cozinha do refeitório!", "n2"],
+  "n2": ["n", "Ten minutes later, you're behind the dining hall. The kitchen door is open. It smells of bread.", "Dez minutos depois, vocês estão nos fundos do refeitório. A porta da cozinha está aberta. Cheira a pão.", "r1"],
+  "r1": ["r", "My dear! And a friend. At this hour? Breakfast isn't until seven.", "Meu bem! E com uma amiga. A esta hora? O café da manhã é só às sete.", [
+   ["We're looking for Miles. Is he working today?", "A gente está procurando o Miles. Ele trabalha hoje?", "r_here"],
+   ["Sorry to bother you so early, Rosa. We're worried about a friend.", "Desculpa incomodar tão cedo, Rosa. A gente está com medo por um amigo.", "r_worried"],
+   ["Great. Two breakfasts, please.", "Ótimo. Dois cafés da manhã, por favor.", null, "Not yet, my dear! The eggs are still cold. Why are you really here so early?", "Ainda não, meu bem! Os ovos ainda estão gelados. Por que vocês vieram tão cedo, de verdade?"]
+  ]],
+  "r_worried": ["r", "Worried? Then you're in the right kitchen. You mean Miles, don't you?", "Preocupação? Então vieram à cozinha certa. É o Miles, não é?", "r_here"],
+  "r_here": ["r", "He's in the back, washing pots. He came in at four today. Four!", "Ele está lá no fundo, lavando panela. Hoje chegou às quatro. Quatro!", "r2"],
+  "r2": ["r", "Something is wrong with that boy. Do you know what happened?", "Tem alguma coisa errada com esse menino. Vocês sabem o que aconteceu?", [
+   ["His laptop died on Sunday. Our whole presentation was on it.", "O notebook dele morreu no domingo. Nossa apresentação inteira estava lá.", "r_money"],
+   ["No. He won't talk to us. Did he tell you anything?", "Não. Ele não fala com a gente. Ele contou alguma coisa pra senhora?", "r_one"],
+   ["Yes. It's five in the morning. That's what happened.", "Sim. São cinco da manhã. Foi isso que aconteceu.", null, "Ha! True. But I mean Miles. Do you know why he's so sad?", "Rá! Verdade. Mas eu digo o Miles. Vocês sabem por que ele anda tão triste?"]
+  ]],
+  "r_money": ["r", "So that's it. He asked me for every extra shift. A repair costs four hundred dollars.", "Então é isso. Ele me pediu todo turno extra que tivesse. O conserto custa quatrocentos dólares.", "r3"],
+  "r_one": ["r", "A little. He heard someone in your group say it. 'He has one job. One.'", "Um pouco. Ele ouviu alguém do grupo de vocês dizer. 'Ele tem uma tarefa só. Uma.'", "r_one2", {"clue": "one_thing"}],
+  "r_one2": ["r", "Now he won't go back until the slides are perfect. He's ashamed, my dear.", "Agora ele não volta enquanto os slides não estiverem perfeitos. Ele está com vergonha, meu bem.", "r3"],
+  "r3": ["r", "I'll get him. But be gentle. He's like bread dough. Push too hard and he goes flat.", "Vou chamar. Mas com jeito. Ele é feito massa de pão. Se apertar demais, murcha.", "n3"],
+  "n3": ["n", "Rosa goes to the back. Miles comes out in a wet apron. He sees you and stops.", "A Rosa vai até o fundo. O Miles aparece de avental molhado. Ele te vê e para.", "m1"],
+  "m1": ["m", "Oh. Hi. Uh. How did you find me?", "Ah. Oi. Hã. Como você me achou?", [
+   ["That doesn't matter. We're not angry, Miles. We're worried.", "Isso não importa. Ninguém está com raiva, Miles. É preocupação.", "m_worried", {"set": {"trust": "yes"}}],
+   ["Miles, where are our slides? The presentation is tomorrow!", "Miles, cadê os nossos slides? A apresentação é amanhã!", "m_slides", {"set": {"trust": "no"}}],
+   ["Rosa makes great bread. And you make a terrible ghost.", "A Rosa faz um pão ótimo. E você é um péssimo fantasma.", "m_ghost", {"set": {"trust": "yes"}}],
+   ["I'm fine, thanks. And you?", "Tudo bem, valeu. E você?", null, "No, I mean, how did you know I was here? Who told you?", "Não, eu digo: como você soube que eu estava aqui? Quem te contou?"]
+  ]],
+  "m_worried": ["m", "Worried? About me? I thought you'd all hate me by now.", "Preocupação? Comigo? Achei que a esta altura vocês todos me odiavam.", "msg_br"],
+  "m_slides": ["m", "I know. I know it's tomorrow. I'm counting the hours. Believe me.", "Eu sei. Eu sei que é amanhã. Tô contando as horas. Pode acreditar.", "msg_br"],
+  "m_ghost": ["m", "Ha. Yeah. I'm not great at disappearing, I guess. Sorry.", "Rá. É. Acho que eu não sou muito bom em sumir. Desculpa.", "msg_br"],
+  "msg_br": {"branch": [["message=kind", "m_msg_kind"], ["message=firm", "m_msg_firm"], ["message=help", "m_msg_help"], [null, "radio_br"]]},
+  "m_msg_kind": ["m", "I got your message. 'No pressure.' I listened to it four times.", "Recebi sua mensagem. 'Sem pressão.' Ouvi quatro vezes.", "radio_br"],
+  "m_msg_firm": ["m", "I got your message. 'By Thursday, or we start without you.' That's fair. It's Thursday.", "Recebi sua mensagem. 'Até quinta, senão a gente começa sem você.' É justo. Hoje é quinta.", "radio_br"],
+  "m_msg_help": ["m", "I got your message. 'Four people are faster than one.' I almost called back. Almost.", "Recebi sua mensagem. 'Quatro pessoas são mais rápidas que uma.' Quase liguei de volta. Quase.", "radio_br"],
+  "radio_br": {"branch": [["praised_miles=yes", "m_radio"], [null, "m2"]]},
+  "m_radio": ["m", "And on the radio, you said I was holding everything together. Ten minutes later, it all fell apart.", "E no rádio você disse que eu segurava tudo de pé. Dez minutos depois, desabou tudo.", "m2"],
+  "m2": ["m", "Look, I can't explain right now. Not here. I smell like onions and I've slept three hours.", "Olha, agora eu não consigo explicar. Aqui, não. Tô cheirando a cebola e dormi três horas.", [
+   ["Then don't explain. Just tell me one thing: are you coming tomorrow?", "Então não explica. Só me diz uma coisa: você vem amanhã?", "m_coming"],
+   ["You don't have to do this alone. Let us help with the slides.", "Você não precisa carregar isso sem ninguém. Deixa a gente ajudar com os slides.", "m_help"],
+   ["Onions? No thanks, I already had breakfast.", "Cebola? Não, valeu, já tomei café da manhã.", null, "I'm not offering you onions. I'm saying I can't talk about this now. Okay?", "Não tô te oferecendo cebola. Tô dizendo que agora não dá pra falar disso. Tá?"]
+  ]],
+  "m_help": ["m", "I said I'd do them all. If I ask for help now, Priya was right about me.", "Eu disse que fazia todos. Se eu pedir ajuda agora, a Priya tinha razão sobre mim.", "m_coming"],
+  "m_coming": ["m", "I'll be there. Ten o'clock, room two oh four. I'll explain everything. I promise.", "Eu vou. Dez horas, sala dois zero quatro. Eu explico tudo. Prometo.", "m3"],
+  "m3": ["m", "Just, please. Don't tell Priya you found me here. Not yet.", "Só, por favor. Não conta pra Priya que você me achou aqui. Ainda não.", [
+   ["Okay. I promise. But you have to show up.", "Tá. Prometo. Mas você tem que aparecer.", "m_thanks"],
+   ["I can't promise that. The group needs to know you're okay.", "Isso eu não posso prometer. O grupo precisa saber que você está bem.", "m_fair"],
+   ["Okay. I'll tell her I found you there, not here.", "Tá. Vou dizer que te achei ali, não aqui.", null, "Here, there, it's the same kitchen! Please. Can you keep this quiet until tomorrow?", "Aqui, ali, é a mesma cozinha! Por favor. Dá pra guardar segredo até amanhã?"]
+  ]],
+  "m_thanks": ["m", "I will. Thank you. Really.", "Eu apareço. Obrigado. De verdade.", "t3"],
+  "m_fair": ["m", "Yeah. That's fair. Tell them I'm sorry. I'll say the rest myself.", "É. É justo. Diz que eu peço desculpa. O resto eu mesmo falo.", "t3"],
+  "t3": ["t", "Miles Park. Your jacket. You left it at the station on Sunday. It's snowing, you know.", "Miles Park. Sua jaqueta. Você largou na rádio no domingo. Está nevando, sabia?", "drive_br"],
+  "drive_br": {"branch": [["trust=yes", "m_drive"], [null, "t_end"]]},
+  "m_drive": ["m", "Thanks. Wait. Take this flash drive. Seven slides out of twenty. It's all I've rebuilt.", "Valeu. Espera. Leva este pen drive. Sete slides de vinte. Foi tudo o que eu consegui refazer.", "t_end"],
+  "t_end": ["t", "And he's back to his pots. He says he'll come tomorrow. Do you believe him?", "E lá foi ele de volta pras panelas. Disse que vem amanhã. Você acredita?", [
+   ["I do. He looked me in the eye when he promised.", "Acredito. Ele me olhou no olho quando prometeu.", "t_bel"],
+   ["I want to. But we should still get plan B ready tonight.", "Quero acreditar. Mas é bom deixar o plano B pronto hoje à noite.", "t_planb"],
+   ["Yes, I'll leave him.", "Sim, vou deixar ele.", null, "Not leave! Believe! Do you think he'll really show up tomorrow?", "Não leave, de deixar! Believe, de acreditar! Você acha que ele aparece mesmo amanhã?"]
+  ]],
+  "t_bel": ["t", "Then I believe him too. Now let's get you two more hours of sleep.", "Então eu também acredito. Agora vamos te arranjar mais duas horas de sono.", "r_end"],
+  "t_planb": ["t", "Smart. Hope for Miles, plan for no Miles. That's very Priya of you.", "Boa. Torcer pelo Miles, planejar sem o Miles. Isso é bem a cara da Priya.", "r_end"],
+  "r_end": ["r", "Go, go. Tomorrow I finish at ten. Maybe I'll come and watch. Room two oh four, yes?", "Vão, vão. Amanhã eu saio às dez. Quem sabe eu vou assistir. Sala dois zero quatro, né?", "n_end"],
+  "n_end": ["n", "Tomorrow at ten, room two oh four. One presentation and maybe, just maybe, four people.", "Amanhã às dez, sala dois zero quatro. Uma apresentação e talvez, só talvez, quatro pessoas.", null]
+ }
+}

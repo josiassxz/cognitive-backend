@@ -1,0 +1,101 @@
+{
+ "slug": "s11-07-the-logbook", "episode": 7, "title": "The Logbook", "level": "B2",
+ "place": "boat", "placeLabel": "Ponte de comando da Kittiwake", "time": "Quinta · 5h", "ambience": "beach",
+ "description": "Cinco da manhã na ponte de comando. O capitão abre um livro que nunca mostrou a ninguém.",
+ "intro": "No pub, o Duncan e a Morag brigaram pela balsa, e o Duncan quis saber o que a Isla te contou. Na saída, um bilhete do capitão Reid: ponte de comando, cinco da manhã, traga a câmera.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "c": ["Captain Reid", "Capitão da balsa", "bm_george", "left"],
+  "p": ["Priya Nair", "Funcionária do departamento de transportes", "bf_lily", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Five in the morning. The harbour is black and silver, and the Kittiwake's lights are already on.", "Cinco da manhã. O porto está preto e prateado, e as luzes da Kittiwake já estão acesas.", "n2"],
+  "n2": ["n", "On the bridge, Callum is pouring tea from a flask into two tin mugs.", "Na ponte de comando, o Callum despeja chá de uma garrafa térmica em duas canecas de lata.", "c1"],
+  "c1": ["c", "You came. Good. Tea. It's terrible, but it's hot. And we're tied up, so your stomach's safe.", "Você veio. Ótimo. Chá. É horrível, mas está quente. E o barco está amarrado, então seu estômago está a salvo.", "c_q1"],
+  "c_q1": ["c", "Before I show you anything. What's your film saying, so far?", "Antes de eu te mostrar qualquer coisa. O que o seu filme está dizendo, até agora?", [
+   ["That everyone's arguing about a boat, when the real question is the crossing.", "Que todo mundo briga por um barco, quando a verdadeira questão é a travessia.", "c_good"],
+   ["Honestly, I don't know yet. I've got voices, not a story.", "Sinceramente, ainda não sei. Tenho vozes, não uma história.", "c_honest"],
+   ["A sofa? No, I filmed everything standing up.", "Um sofá? Não, eu filmei tudo em pé.", null, "So far. Up to now. What story is your film telling at the moment?", "Até agora. Até este momento. Que história o seu filme está contando por enquanto?"]
+  ]],
+  "c_good": ["c", "Hm. You've been listening. That's more than most.", "Hum. Você andou escutando. Já é mais do que a maioria.", "col_br"],
+  "c_honest": ["c", "Good. People who know the story by day four are usually wrong.", "Ótimo. Quem já sabe a história no quarto dia costuma estar errado.", "col_br"],
+  "col_br": {"branch": [["collect=numbers", "c_num"], [null, "c_sto"]]},
+  "c_num": ["c", "On Monday you said you'd collect every number. Well. Here's the one nobody's collected.", "Na segunda você disse que ia juntar todos os números. Pois bem. Aqui está o que ninguém juntou.", "n_book"],
+  "c_sto": ["c", "On Monday you said you'd rather have stories than numbers. Well. This is both.", "Na segunda você disse que preferia histórias a números. Pois bem. Isto aqui é as duas coisas.", "n_book"],
+  "n_book": ["n", "He takes a thick black book from a drawer. The cover is soft with age and salt.", "Ele tira de uma gaveta um livro preto e grosso. A capa está macia de tempo e de sal.", "c_book"],
+  "c_book": ["c", "The log. Every crossing since I took the wheel. Weather, cargo, and every soul on board.", "O diário de bordo. Cada travessia desde que eu assumi o timão. Tempo, carga e cada alma a bordo.", [
+   ["Every soul? Including islanders who don't buy a ticket?", "Cada alma? Inclusive os moradores que não compram bilhete?", "c_log1"],
+   ["May I film it? I'll only show what you allow.", "Posso filmar? Só mostro o que você autorizar.", "c_film"],
+   ["A log? You mean a piece of wood?", "Uma tora? Tipo um pedaço de madeira?", null, "Not wood. A logbook. A ship's diary. Do you want to know what's in it?", "Madeira, não. Um diário de bordo. O diário de um navio. Quer saber o que tem dentro?"]
+  ]],
+  "c_film": ["c", "You may. That's why you're here. But listen first, and film second.", "Pode. É pra isso que você está aqui. Mas primeiro escuta, depois filma.", "c_log1"],
+  "c_log1": ["c", "Islanders travel on a resident's pass. No ticket. So the office count never saw them.", "Morador viaja com passe de residente. Sem bilhete. Então a contagem da repartição nunca enxergou essa gente.", "c_log2"],
+  "c_log2": ["c", "My book did. Over the whole year, it's thirty-four people a crossing. Not eleven.", "O meu livro enxergou. No ano inteiro, dá trinta e quatro pessoas por travessia. Não onze.", "c_why", {"clue": "logbook"}],
+  "c_why": ["c", "Go on. Ask the obvious question. I can see it on your face.", "Vai. Faz a pergunta óbvia. Está escrita na sua cara.", [
+   ["Why have you never shown this to the office?", "Por que você nunca mostrou isso à repartição?", "c_never"],
+   ["Will you read from it at the meeting tomorrow?", "Você vai ler um trecho na reunião de amanhã?", "c_read"],
+   ["On my face? Is it jam from breakfast?", "Na minha cara? É geleia do café da manhã?", null, "There's no jam. I mean you look curious. What do you want to ask me about the book?", "Não tem geleia. Quero dizer que você está com cara de curiosidade. O que quer me perguntar sobre o livro?"]
+  ]],
+  "c_never": ["c", "Because of what comes with it. It's not as simple as thirty-four against eleven.", "Por causa do que vem junto. Não é tão simples quanto trinta e quatro contra onze.", "c_torn"],
+  "c_read": ["c", "Me, make a speech? I'd sooner sail through a gale. Besides, it's not that simple.", "Eu, fazer discurso? Prefiro atravessar um vendaval. Além disso, não é tão simples.", "c_torn"],
+  "c_torn": ["c", "This book could save the route. It could also finish the Kittiwake herself.", "Este livro pode salvar a rota. E também pode acabar com a própria Kittiwake.", [
+   ["Finish her? What do you mean?", "Acabar com ela? Como assim?", "c_eng1"],
+   ["Surely the route matters more than any one boat.", "A rota com certeza importa mais do que qualquer barco.", "c_unless"],
+   ["Finnish? I thought she was Scottish.", "Finlandesa? Eu achava que ela era escocesa.", null, "Finish, not Finnish. End her. The truth could be the end of this boat. Don't you want to know why?", "Acabar, não finlandesa. Dar fim. A verdade pode ser o fim deste barco. Você não quer saber por quê?"]
+  ]],
+  "c_eng1": ["c", "She's forty years old. The engine costs more to mend every winter. Look closely, and you'll see it.", "Ela tem quarenta anos. O motor fica mais caro de consertar a cada inverno. É só olhar de perto que se vê.", "c_eng2"],
+  "c_eng2": ["c", "I give her two more winters. That's the truth I've been sitting on.", "Eu dou a ela mais dois invernos. Essa é a verdade que eu venho escondendo.", "n_steps", {"clue": "engine"}],
+  "c_unless": ["c", "Hm. A route without the Kittiwake. I've never let myself think it.", "Hum. Uma rota sem a Kittiwake. Eu nunca me permiti pensar nisso.", "n_steps"],
+  "n_steps": ["n", "Footsteps ring on the metal stairs. A grey coat appears in the doorway, holding a little click counter.", "Passos ecoam na escada de metal. Um casaco cinza surge na porta, segurando um pequeno contador de cliques.", "p1"],
+  "p1": ["p", "Good morning, Captain. I'm sailing over and back today. I thought I'd count for myself.", "Bom dia, capitão. Hoje eu vou e volto na balsa. Achei melhor contar eu mesma.", "n_deck"],
+  "n_deck": ["n", "Callum nods and turns back to his charts, very deliberately. Priya looks at you, then at the black book.", "O Callum faz que sim e volta para as cartas náuticas, bem de propósito. A Priya olha para você, depois para o livro preto.", "trust_br"],
+  "trust_br": {"branch": [["priya_trust=no", "p_cold"], [null, "p_warm"]]},
+  "p_warm": ["p", "Good to see you again. I gather the captain has been showing you his reading.", "Bom ver você de novo. Pelo visto, o capitão andou lhe mostrando a leitura dele.", [
+   ["He has. Would the office accept a captain's log as evidence?", "Andou. A repartição aceitaria o diário de um capitão como prova?", "p_accept"],
+   ["On Wednesday you said yours weren't the only numbers. You knew.", "Na quarta você disse que os seus não eram os únicos números. Você sabia.", "p_knew"],
+   ["His wedding? I didn't know he was getting married.", "O casamento dele? Eu não sabia que ele ia se casar.", null, "Reading, not wedding. The logbook. Has he shown you what's inside?", "Leitura, não casamento. O diário de bordo. Ele lhe mostrou o que há dentro?"]
+  ]],
+  "p_cold": ["p", "Ah. The documentary maker. Might this morning be calmer than our interview?", "Ah. O documentário em pessoa. Será que esta manhã pode ser mais calma que a nossa entrevista?", [
+   ["It will be. I was unfair to you on Wednesday. I'm sorry.", "Vai ser. Eu errei feio com você na quarta. Sinto muito.", "p_thaw", {"set": {"priya_trust": "yes"}}],
+   ["That depends. Have you come to count properly this time?", "Depende. Desta vez você veio contar direito?", "p_frost"],
+   ["Karma? I don't really believe in it.", "Carma? Eu não acredito muito nisso.", null, "Calmer. More peaceful. I'm asking whether we can speak politely today.", "Mais calma. Mais tranquila. Estou perguntando se hoje podemos conversar com educação."]
+  ]],
+  "p_thaw": ["p", "Thank you. That can't have been easy before breakfast. Let's begin again.", "Obrigada. Não deve ter sido fácil antes do café da manhã. Vamos recomeçar.", "p_accept"],
+  "p_frost": ["p", "I count as properly as I'm permitted to. Excuse me. I have life jackets to check.", "Eu conto tão direito quanto me permitem. Com licença. Tenho coletes salva-vidas para conferir.", "c_frost"],
+  "c_frost": ["c", "That went well. You catch more with tea than with harpoons, you know. What now?", "Foi uma beleza. Com chá se pega mais do que com arpão, sabia? E agora?", [
+   ["You're right. I'll find her before we dock and apologise.", "Você tem razão. Vou atrás dela antes de atracar e peço desculpas.", "c_fr1", {"set": {"priya_trust": "yes"}}],
+   ["She knows something, Callum. I can tell.", "Ela sabe de alguma coisa, Callum. Dá pra ver.", "c_fr2"],
+   ["Harpoons? I only brought a tripod.", "Arpões? Eu só trouxe um tripé.", null, "It's a saying. Be kind and people talk. So what will you do about Ms Nair?", "É um ditado. Com gentileza, as pessoas falam. Então, o que você vai fazer a respeito da senhora Nair?"]
+  ]],
+  "c_fr1": ["c", "Do. She takes her tea without sugar. That's all I know about her.", "Vai. Ela toma chá sem açúcar. É tudo o que eu sei dela.", "c_end_q"],
+  "c_fr2": ["c", "Then you'll not get it by poking. Folk are like limpets. Push, and they grip harder.", "Então não vai ser cutucando que você arranca. Gente é feito craca. Quanto mais se empurra, mais gruda.", "c_end_q"],
+  "p_accept": ["p", "Dated, signed and thirty-one years long? I'd be obliged to accept it. I'd be delighted to.", "Datado, assinado e com trinta e um anos de extensão? Eu seria obrigada a aceitar. Seria um prazer.", "opt_br"],
+  "p_knew": ["p", "I suspected. I'm not allowed to ask for it. But I am allowed to be shown.", "Eu desconfiava. Não tenho permissão para pedir. Mas tenho permissão para que me mostrem.", "opt_br"],
+  "opt_br": {"branch": [["asked_option=yes", "p_opt_asked"], [null, "p_opt_q"]]},
+  "p_opt_asked": ["p", "In the hall, you asked about an option nobody knows. Out here, I can answer.", "No salão, você perguntou sobre uma opção que ninguém conhece. Aqui fora, eu posso responder.", "p_prop1"],
+  "p_opt_q": ["p", "Since we're being frank. Is there anything you'd like to ask me, away from the hall?", "Já que a conversa está franca. Há algo que você queira me perguntar, longe do salão?", [
+   ["Is closing the route really the only alternative to the Kittiwake?", "Fechar a rota é mesmo a única alternativa à Kittiwake?", "p_prop1"],
+   ["No, I think I have what I need. Thank you.", "Não, acho que tenho o que preciso. Agradeço.", "c_end_q"],
+   ["Frank? I thought the captain's name was Callum.", "Frank? Eu achava que o capitão se chamava Callum.", null, "Frank as in honest. Not a person. Is there anything you'd like to ask me privately?", "Franca no sentido de sincera. Não é uma pessoa. Há algo que você queira me perguntar em particular?"]
+  ]],
+  "p_prop1": ["p", "Two years ago I drafted a third option. A smaller boat, twelve seats, sailing every day.", "Há dois anos eu redigi uma terceira opção. Um barco menor, doze lugares, viajando todos os dias.", "p_prop2"],
+  "p_prop2": ["p", "It would cost about half as much. It was shelved, because nobody on the island asked for it.", "Custaria mais ou menos a metade. Foi engavetada, porque ninguém da ilha pediu.", "p_prop3", {"clue": "hidden_proposal"}],
+  "p_prop3": ["p", "Every letter said 'save the Kittiwake'. An office can't offer what nobody requests.", "Toda carta dizia 'salvem a Kittiwake'. Uma repartição não pode oferecer o que ninguém solicita.", [
+   ["So if the island asked for a daily boat, together, you could reopen it?", "Então, se a ilha pedisse um barco diário, em conjunto, você poderia reabrir a proposta?", "p_reopen"],
+   ["Why are you telling me this, and not them?", "Por que você está contando isso pra mim, e não pra eles?", "p_whyme"],
+   ["A third potion? Is this a magic island?", "Uma terceira poção? Esta ilha é mágica?", null, "Option, not potion. A third choice. Do you see what it would take to bring it back?", "Opção, não poção. Uma terceira escolha. Você percebe o que seria preciso para trazê-la de volta?"]
+  ]],
+  "p_reopen": ["p", "I could put it back on the table within a week. But the request must come from them.", "Eu poderia recolocá-la na mesa em uma semana. Mas o pedido tem que partir deles.", "c_end_q"],
+  "p_whyme": ["p", "From me, it sounds like a trick. From their own film, it might sound like a choice.", "Vindo de mim, parece armadilha. Vindo do filme deles, talvez pareça uma escolha.", "c_end_q"],
+  "c_end_q": ["c", "Well, film-maker. Tomorrow night you show the island its own face. Scared?", "Bom, cineasta. Amanhã à noite você mostra à ilha a cara dela. Com medo?", [
+   ["Terrified. But they deserve to see all of it.", "Morrendo de medo. Mas eles merecem ver tudo.", "c_e1"],
+   ["Not scared. Just short of sleep and long on footage.", "Medo, não. Só pouco sono e muito material gravado.", "c_e2"],
+   ["Scarred? No, it's only a scratch from a lobster.", "Cicatriz? Não, é só um arranhão de lagosta.", null, "Scared. Frightened. About showing your film in the hall tomorrow. Are you?", "Com medo. Com receio. De mostrar o seu filme no salão amanhã. Está?"]
+  ]],
+  "c_e1": ["c", "All of it. Aye. I'll bring the book. I may even open my mouth.", "Tudo. É. Eu levo o livro. Capaz até de eu abrir a boca.", "n_end"],
+  "c_e2": ["c", "Ha. Then cut it well. I'll bring the book. Just in case.", "Rá. Então monte direito. Eu levo o livro. Por via das dúvidas.", "n_end"],
+  "n_end": ["n", "The horn sounds. You have one night to cut a week of voices into forty minutes.", "A buzina toca. Você tem uma noite para transformar uma semana de vozes em quarenta minutos.", "n_end2"],
+  "n_end2": ["n", "Somewhere in your footage is the sentence that could change the meeting. You hope you can find it.", "Em algum ponto do material está a frase que pode mudar a reunião. Você torce para conseguir encontrá-la.", null]
+ }
+}

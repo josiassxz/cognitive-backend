@@ -1,0 +1,87 @@
+{
+ "slug": "s06-02-three-in-the-morning", "episode": 2, "title": "Three in the Morning", "level": "A2",
+ "place": "kitchen", "placeLabel": "Flat 4B · cozinha", "time": "Segunda · 3h", "ambience": "kitchen",
+ "description": "Passos no corredor, cereal de madrugada e uma prateleira vazia.",
+ "intro": "Você se mudou para o Flat 4B e conheceu a Mei, das regras e etiquetas, e o Callum, do trombone. Eles contaram que some comida da geladeira à noite. E o senhorio vem no sábado. Agora é a sua primeira noite.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "c": ["Callum", "Estudante de música, colega de apartamento", "bm_fable", "right"],
+  "p": ["Priya", "Enfermeira, colega de apartamento", "bf_alice", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "It's your first night in the flat. You are asleep. Then a noise wakes you up.", "É a sua primeira noite no apartamento. Você está dormindo. Aí um barulho te acorda.", "n2"],
+  "n2": ["n", "It's three in the morning. Small, quick steps run down the corridor. Then something scratches a door.", "São três da manhã. Passinhos leves e rápidos correm pelo corredor. Depois, alguma coisa arranha uma porta.", "n3", {"clue": "three_am"}],
+  "n3": ["n", "You open your door. The corridor is dark and empty. But there's a light in the kitchen.", "Você abre a porta. O corredor está escuro e vazio. Mas tem uma luz na cozinha.", "c1"],
+  "c1": ["c", "Ah! Don't do that! You scared me. I'm just having cereal.", "Ai! Não faz isso! Que susto. Só tô comendo cereal.", [
+   ["Sorry! Did you hear that noise?", "Desculpa! Você ouviu aquele barulho?", "c_noise"],
+   ["Cereal? At three in the morning?", "Cereal? Às três da manhã?", "c_cereal"],
+   ["Serious? I'm serious too.", "Sério? Eu também sou uma pessoa séria.", null, "Not serious. Cereal! In a bowl, with milk. So, why are you awake?", "Sério, não. Cereal! Na tigela, com leite. E aí, por que você acordou?"]
+  ]],
+  "c_cereal": ["c", "I think better at night. And I eat better at night. Why are you up?", "Eu penso melhor de noite. E como melhor de noite. Por que você levantou?", [
+   ["I heard steps in the corridor.", "Ouvi passos no corredor.", "c_noise"],
+   ["Something scratched a door. Was it you?", "Alguma coisa arranhou uma porta. Foi você?", "c_notme"],
+   ["I'm up on the fourth floor.", "Estou em cima, no quarto andar.", null, "Ha, true. But why are you awake? Did something wake you up?", "Rá, verdade. Mas por que você acordou? Alguma coisa te acordou?"]
+  ]],
+  "c_notme": ["c", "Me? No! I've been here for ten minutes, with my bowl. Wait. You heard it too?", "Eu? Não! Tô aqui faz dez minutos, com a minha tigela. Espera. Você também ouviu?", "c_where"],
+  "c_noise": ["c", "The steps? Yes! Every night, at about three. Quick little steps.", "Os passos? Sim! Toda noite, lá pelas três. Passinhos rápidos.", "c_where"],
+  "c_where": ["c", "Where did it come from? Could you tell?", "De onde veio? Deu pra perceber?", [
+   ["From the end of the corridor, I think.", "Do fim do corredor, eu acho.", "c_end"],
+   ["I'm not sure. I was half asleep.", "Não sei direito. Eu estava meio dormindo.", "c_half"],
+   ["It came from Brazil, like me.", "Veio do Brasil, igual a mim.", null, "Ha! Not you. The noise! Where in the flat did it come from?", "Rá! Você, não. O barulho! De que parte do apartamento ele veio?"]
+  ]],
+  "c_end": ["c", "The end of the corridor? That's Mei's room, and the bathroom. Old pipes, maybe.", "O fim do corredor? Lá fica o quarto da Mei e o banheiro. Cano velho, talvez.", "c_milk"],
+  "c_half": ["c", "Same here. It always stops when I open my door. Clever ghost.", "Eu também. Sempre para quando eu abro a porta. Fantasma esperto.", "c_milk"],
+  "c_milk": ["c", "Oh no. I'm out of milk. Can I borrow some of yours? I'll buy more tomorrow.", "Ah, não. Meu leite acabou. Posso pegar um pouco do seu? Amanhã eu compro mais.", [
+   ["Sure. Help yourself.", "Claro. Pode pegar.", "c_thanks", {"set": {"milk": "yes"}}],
+   ["Sorry, I need it for breakfast.", "Desculpa, preciso dele pro café da manhã.", "c_fair", {"set": {"milk": "no"}}],
+   ["You're out of silk?", "Sua seda acabou?", null, "Milk! Not silk. For my cereal. Can I have some of yours?", "Leite! Não é seda. Pro meu cereal. Posso pegar um pouco do seu?"]
+  ]],
+  "c_thanks": ["c", "You're a hero. I'll buy you a new one. I promise.", "Você salvou minha noite. Eu te compro um novo. Prometo.", "n_fridge"],
+  "c_fair": ["c", "Fair enough. Dry cereal it is. Sad, but fair.", "Justo. Vai ser cereal seco mesmo. Triste, mas justo.", "n_fridge"],
+  "n_fridge": ["n", "Callum opens the fridge. He stops. He looks at your shelf.", "O Callum abre a geladeira. Ele para. Olha pra sua prateleira.", "food_br"],
+  "food_br": {"branch": [["food=ham", "c_ham"], ["food=chicken", "c_chicken"], [null, "c_salmon"]]},
+  "c_ham": ["c", "Uh, your ham. It was here at dinner, right? It's gone.", "Hã, seu presunto. Ele estava aqui no jantar, né? Sumiu.", "c_swear"],
+  "c_chicken": ["c", "Uh, your chicken. It was here at dinner, right? It's gone.", "Hã, seu frango. Ele estava aqui no jantar, né? Sumiu.", "c_swear"],
+  "c_salmon": ["c", "Uh, your salmon. It was here at dinner, right? It's gone.", "Hã, seu salmão. Ele estava aqui no jantar, né? Sumiu.", "c_swear"],
+  "c_swear": ["c", "It wasn't me! I swear on my trombone.", "Não fui eu! Juro pelo meu trombone.", [
+   ["I believe you. But who was it?", "Eu acredito. Mas quem foi?", "c_who"],
+   ["Hmm. You're the only one in the kitchen.", "Hum. Só tem você na cozinha.", "c_only"],
+   ["You wear a trombone?", "Você veste um trombone?", null, "Swear! Not wear. I promise it wasn't me. Do you believe me?", "Swear, jurar! Não é wear. Prometo que não fui eu. Você acredita em mim?"]
+  ]],
+  "c_who": ["c", "No idea. Priya's at work. Mei went to bed at ten. It's a ghost, I'm telling you.", "Sei lá. A Priya tá no trabalho. A Mei foi dormir às dez. É fantasma, tô te falando.", "n_morning"],
+  "c_only": ["c", "I know how it looks! But check my bowl. Only cereal. Nothing else.", "Eu sei o que parece! Mas olha a minha tigela. Só cereal. Mais nada.", "n_morning"],
+  "n_morning": ["n", "You go back to bed. At eight, the front door opens. Someone comes in, walking very slowly.", "Você volta pra cama. Às oito, a porta da frente abre. Alguém entra, andando bem devagar.", "p1"],
+  "p1": ["p", "Morning. You're the new one. I'm Priya. Sorry, I've been awake for twenty hours.", "Bom dia. Você é quem chegou agora. Eu sou a Priya. Desculpa, tô acordada há vinte horas.", [
+   ["Hi, Priya. Long night at the hospital?", "Oi, Priya. Noite longa no hospital?", "p_long"],
+   ["Nice to meet you. Would you like some tea?", "Prazer. Quer um chá?", "p_tea"],
+   ["Twenty flowers? For me?", "Vinte flores? Pra mim?", null, "Hours. Not flowers. I'm very tired. Let's start again. Hi, I'm Priya.", "Horas. Não flores. Tô muito cansada. Vamos de novo. Oi, eu sou a Priya."]
+  ]],
+  "p_long": ["p", "Very. Two babies, one broken arm and a man with a toy car up his nose.", "Muito. Dois bebês, um braço quebrado e um homem com um carrinho de brinquedo no nariz.", "p_shift"],
+  "p_tea": ["p", "Oh, I like you already. Yes, please. No sugar.", "Ah, já gostei de você. Quero, por favor. Sem açúcar.", "p_shift"],
+  "p_shift": ["p", "I work nights, Sunday to Thursday. I leave at eight in the evening and get back at eight.", "Eu trabalho à noite, de domingo a quinta. Saio às oito da noite e volto às oito da manhã.", "p_q", {"clue": "night_shift"}],
+  "p_q": ["p", "So I sleep in the daytime. Can you keep the noise down until three?", "Então eu durmo de dia. Dá pra não fazer barulho até as três?", [
+   ["Of course. I promise I'll be quiet.", "Claro. Prometo fazer silêncio.", "p_prom", {"set": {"quiet_promise": "yes"}}],
+   ["I'll try. But my alarm is very loud.", "Vou tentar. Mas meu despertador é bem alto.", "p_try", {"set": {"quiet_promise": "no"}}],
+   ["Sure. I'll keep my nose down.", "Claro. Vou manter o nariz abaixado.", null, "The noise, not the nose. I sleep in the day. Can you be quiet until three?", "Noise, barulho. Não nose. Eu durmo de dia. Dá pra fazer silêncio até as três?"]
+  ]],
+  "p_prom": ["p", "Thank you. You're already better than Callum.", "Obrigada. Você já é melhor que o Callum.", "p_night"],
+  "p_try": ["p", "Hmm. Please try hard. Callum's trombone is enough for one flat.", "Hum. Tenta com vontade, por favor. O trombone do Callum já basta pra um apartamento.", "p_night"],
+  "p_night": ["p", "You look sleepy too. Bad first night?", "Você também tá com cara de sono. Primeira noite ruim?", [
+   ["I heard steps at three. And my food is gone.", "Ouvi passos às três. E minha comida sumiu.", "p_food"],
+   ["A bit. Is there really a ghost here?", "Um pouco. Tem mesmo um fantasma aqui?", "p_ghost"],
+   ["No, the first night was Sunday.", "Não, a primeira noite foi domingo.", null, "I know what day it was. I mean: did you sleep badly?", "Eu sei que dia foi. Quero dizer: você dormiu mal?"]
+  ]],
+  "p_food": ["p", "At three? I was at work. It always happens when I'm out. I never hear a thing.", "Às três? Eu estava no trabalho. Sempre acontece quando eu tô fora. Nunca ouço nada.", "p_theory"],
+  "p_ghost": ["p", "No. There's a hungry flatmate. And I'm never here at night, so it isn't me.", "Não. Tem alguém com fome neste apartamento. E eu nunca tô aqui de noite, então não sou eu.", "p_theory"],
+  "p_theory": ["p", "My theory? Callum eats in his sleep. He ate my birthday cake once.", "Minha teoria? O Callum come dormindo. Uma vez ele comeu meu bolo de aniversário.", [
+   ["But he was awake. He was eating cereal.", "Mas ele estava acordado. Estava comendo cereal.", "p_awake"],
+   ["He says it wasn't him.", "Ele diz que não foi ele.", "p_says"],
+   ["Happy birthday, Priya!", "Feliz aniversário, Priya!", null, "It's not my birthday. That was in March. I think Callum takes the food. What do you think?", "Não é meu aniversário. Foi em março. Eu acho que o Callum pega a comida. E você, o que acha?"]
+  ]],
+  "p_awake": ["p", "At three? Typical. Then ask him nicely. He can't lie. His ears go red.", "Às três? Típico. Então pergunta com jeito. Ele não sabe mentir. As orelhas ficam vermelhas.", "p_bed"],
+  "p_says": ["p", "He always says that. Ask him again, nicely. His ears go red when he lies.", "Ele sempre diz isso. Pergunta de novo, com jeito. As orelhas dele ficam vermelhas quando ele mente.", "p_bed"],
+  "p_bed": ["p", "Right. Bed. If the landlord rings, I'm not here. I'm never here.", "Bom. Cama. Se o senhorio ligar, eu não tô. Eu nunca tô.", "n_end"],
+  "n_end": ["n", "Priya closes her door. Steps at three. An empty shelf. And Callum's ears to check.", "A Priya fecha a porta. Passos às três. Uma prateleira vazia. E as orelhas do Callum pra conferir.", null]
+ }
+}

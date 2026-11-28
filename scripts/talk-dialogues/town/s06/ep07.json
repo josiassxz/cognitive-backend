@@ -1,0 +1,91 @@
+{
+ "slug": "s06-07-the-landlord-calls", "episode": 7, "title": "The Landlord Calls", "level": "B1",
+ "place": "phone", "placeLabel": "Flat 4B · telefone", "time": "Sexta · 18h", "ambience": "home",
+ "description": "Atenda o senhorio, negocie o horário e sobreviva à faxina.",
+ "intro": "A Sra. Okafor ouve pezinhos correndo às três da manhã, bem em cima da cama dela, desde a tempestade de duas semanas atrás. Ela deu um prazo até sábado. Agora é sexta, a vistoria é amanhã, e o Sr. Whitaker vai telefonar.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "w": ["Mr. Whitaker", "Senhorio, dono do apartamento", "bm_george", "right"],
+  "c": ["Callum", "Estudante de música, colega de apartamento", "bm_fable", "right"],
+  "p": ["Priya", "Enfermeira, colega de apartamento", "bf_alice", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Friday evening. The flat smells of lemon cleaner. The old phone in the hall starts ringing.", "Sexta à noite. O apartamento cheira a limpador de limão. O telefone velho do corredor começa a tocar.", "n2"],
+  "n2": ["n", "Callum points at you. Priya points at you. Mei isn't home. You pick it up.", "O Callum aponta pra você. A Priya aponta pra você. A Mei não está. Você atende.", "w1"],
+  "w1": ["w", "Good evening. Gerald Whitaker speaking. Is that Flat Four B? Who am I speaking to?", "Boa noite. Aqui é Gerald Whitaker. É do Flat Quatro B? Com quem eu falo?", [
+   ["Good evening, Mr. Whitaker. I'm the new tenant.", "Boa noite, Sr. Whitaker. Sou a pessoa que acabou de se mudar.", "w_new"],
+   ["Hello! Yes, this is Four B. How can I help?", "Alô! Sim, é do Quatro B. Em que posso ajudar?", "w_help"],
+   ["You're speaking to the phone.", "O senhor está falando com o telefone.", null, "Yes, I'm aware of that. I mean, who are you? Which tenant am I speaking to?", "Sim, disso eu sei. Quero dizer: quem é você? Com qual inquilino eu falo?"]
+  ]],
+  "w_new": ["w", "Ah, from Brazil, yes. Welcome. I trust the heating works? It never did for the last lot.", "Ah, do Brasil, sim. Boas-vindas. O aquecimento funciona, espero? Com os últimos nunca funcionou.", "w_confirm"],
+  "w_help": ["w", "Polite. Good. You must be the new one, from Brazil. I'm ringing about tomorrow.", "Que educação. Ótimo. Você deve ser quem chegou do Brasil. Estou ligando por causa de amanhã.", "w_confirm"],
+  "w_confirm": ["w", "The inspection. I'd planned to come at nine in the morning. Does that suit everyone?", "A vistoria. Eu pretendia chegar às nove da manhã. Fica bom pra todos?", [
+   ["Could we make it ten? One of us works nights.", "Poderia ser às dez? Tem uma pessoa aqui que trabalha à noite.", "w_ten", {"set": {"asked_ten": "yes"}}],
+   ["Nine is fine. We'll be ready.", "Às nove está ótimo. A gente vai estar a postos.", "w_nine", {"set": {"asked_ten": "no"}}],
+   ["A suit? Do we need to dress up?", "Um terno? Precisa de roupa social?", null, "No, no. Wear what you like. I'm asking about the time. Is nine o'clock convenient?", "Não, não. Vistam o que quiserem. Estou perguntando do horário. Às nove fica bom?"]
+  ]],
+  "w_ten": ["w", "A night worker. The nurse, yes. Very well, ten o'clock. I'm not unreasonable.", "Alguém que trabalha à noite. A enfermeira, sim. Muito bem, dez horas. Eu não sou intransigente.", "w_list"],
+  "w_nine": ["w", "Good. Although, is somebody shouting 'ten' behind you? Fine. Ten o'clock. I'm not unreasonable.", "Ótimo. Se bem que tem alguém gritando 'dez' aí atrás? Está bem. Dez horas. Eu não sou intransigente.", "w_list"],
+  "w_list": ["w", "I'll check the usual things. Walls, oven, windows, smoke alarm. And the rules, of course.", "Vou olhar o de sempre. Paredes, forno, janelas, alarme de fumaça. E as regras, claro.", [
+   ["Of course. Is there anything we should prepare?", "Claro. Tem alguma coisa que a gente deva preparar?", "w_prepare"],
+   ["About the rules. May I ask why pets aren't allowed?", "Sobre as regras. Posso perguntar por que não pode ter animais?", "w_why"],
+   ["A smoke alarm? No, thanks. I don't smoke.", "Alarme de fumar? Não, valeu. Eu não fumo.", null, "Nobody's offering you a cigarette. I'm listing what I'll inspect. Do you have any questions?", "Ninguém está te oferecendo cigarro. Estou listando o que vou vistoriar. Você tem alguma pergunta?"]
+  ]],
+  "w_prepare": ["w", "Leave the oven open and the windows clean. And no surprises. I can't bear surprises. Anything else?", "Deixem o forno aberto e as janelas limpas. E nada de surpresas. Não suporto surpresas. Mais alguma coisa?", [
+   ["One question. Why does the contract say no pets?", "Uma pergunta. Por que o contrato proíbe animais?", "w_why"],
+   ["No, that's all clear. Thank you.", "Não, ficou tudo claro. Agradeço.", "w_bye"],
+   ["A bear? You're bringing a bear?", "Um urso? O senhor vai trazer um urso?", null, "Certainly not. 'Can't bear' means 'can't stand'. Now, do you have any other questions?", "De jeito nenhum. 'Can't bear' quer dizer 'não suporto'. Então, você tem mais alguma pergunta?"]
+  ]],
+  "w_why": ["w", "Why do you ask? You haven't got a pet up there, have you?", "Por que a pergunta? Vocês não têm um bicho aí em cima, têm?", [
+   ["No. I was only reading the contract carefully.", "Não. Eu só estava lendo o contrato com atenção.", "w_careful"],
+   ["Would it be a problem, in theory?", "Seria um problema, em teoria?", "w_theory"],
+   ["A pet? No, I haven't got a bet. I never gamble.", "Um bicho? Não, não fiz aposta. Eu nunca aposto.", null, "A pet, not a bet. An animal. Is there an animal in my flat?", "Pet, bicho. Não bet. Um animal. Tem um animal no meu apartamento?"]
+  ]],
+  "w_careful": ["w", "Reading the contract. Nobody ever does. I like you already. I'll tell you why.", "Lendo o contrato. Ninguém nunca lê. Já gostei de você. Eu te conto o motivo.", "w_reason"],
+  "w_theory": ["w", "In theory, everything is a problem. In practice, let me tell you a story.", "Em teoria, tudo é problema. Na prática, deixa eu te contar uma história.", "w_reason"],
+  "w_reason": ["w", "The last tenants kept a dog in secret. It chewed three doors. It cost me eight hundred pounds.", "Os últimos inquilinos esconderam um cachorro. Ele roeu três portas. Me custou oitocentas libras.", "w_reason2"],
+  "w_reason2": ["w", "If people ask first, and offer a deposit and a proper clean, I'll listen. I'm not a monster.", "Se pedirem antes, e oferecerem um depósito e uma limpeza de verdade, eu escuto. Não sou um monstro.", "w_pickle", {"clue": "landlord_reason"}],
+  "w_pickle": ["w", "I had a dog myself, you know. Pickle. Best friend I ever had. Anyway.", "Eu mesmo tive um cachorro, sabe. O Pickle. O melhor amigo que eu já tive. Enfim.", "w_bye"],
+  "w_bye": ["w", "Ten o'clock sharp, then. Say hello to Miss Chen. She's the only one who pays on time.", "Dez em ponto, então. Mande um abraço pra senhorita Chen. É a única que paga em dia.", "n_hang"],
+  "n_hang": ["n", "You put the phone down. Callum and Priya are staring at you.", "Você desliga o telefone. O Callum e a Priya estão te encarando.", "ten_br"],
+  "ten_br": {"branch": [["asked_ten=yes", "p_ten_yes"], [null, "p_ten_no"]]},
+  "p_ten_yes": ["p", "Ten? You got me an extra hour of sleep. I won't forget that.", "Às dez? Você me arranjou uma hora a mais de sono. Não vou esquecer.", "p_q"],
+  "p_ten_no": ["p", "You said nine was fine! Lucky for you, I've got a loud voice.", "Você disse que às nove estava ótimo! Sorte sua que eu tenho voz forte.", "p_q"],
+  "p_q": ["p", "So? What else did he say?", "E aí? O que mais ele disse?", [
+   ["He'll check the oven, the windows and the smoke alarm.", "Ele vai olhar o forno, as janelas e o alarme de fumaça.", "chore_br"],
+   ["He said: no surprises. He can't bear them.", "Ele disse: nada de surpresas. Ele não suporta.", "c_surprise"],
+   ["He's bringing something sharp at ten.", "Ele vai trazer uma coisa afiada às dez.", null, "No. 'Ten sharp' means exactly ten. What else did he say about the inspection?", "Não. 'Ten sharp' quer dizer dez em ponto. O que mais ele disse sobre a vistoria?"]
+  ]],
+  "chore_br": {"branch": [["chore=kitchen", "c_kit"], ["chore=bathroom", "c_bath"], [null, "c_bins"]]},
+  "c_kit": ["c", "The oven! That's you and me. I'll hold the torch, you scrub.", "O forno! Isso é comigo e com você. Eu seguro a lanterna, você esfrega.", "n_clean"],
+  "c_bath": ["c", "The oven! Not yours, you've got the bathroom. Lucky you. That oven is a horror film.", "O forno! Não é seu, você pegou o banheiro. Que sorte. Aquele forno é um filme de terror.", "n_clean"],
+  "c_bins": ["c", "The oven! Not yours, you've got the bins. Lucky you. That oven is a horror film.", "O forno! Não é seu, você pegou o lixo. Que sorte. Aquele forno é um filme de terror.", "n_clean"],
+  "c_surprise": ["c", "No surprises? In this flat? We've got a ghost!", "Nada de surpresas? Neste apartamento? A gente tem um fantasma!", "n_clean"],
+  "n_clean": ["n", "For two hours, everybody cleans. Callum sings. Priya finds a sandwich from last year.", "Por duas horas, todo mundo limpa. O Callum canta. A Priya acha um sanduíche do ano passado.", "helped_br"],
+  "helped_br": {"branch": [["helped_callum=yes", "c_gig_yes"], [null, "c_gig_no"]]},
+  "c_gig_yes": ["c", "By the way, thanks for carrying the amp last night. Tomorrow, whatever happens, I'm on your side.", "Aliás, valeu por carregar o amplificador ontem. Amanhã, aconteça o que acontecer, eu tô do seu lado.", "c_where"],
+  "c_gig_no": ["c", "You missed a good gig last night. I dropped the amp on my foot. Only once.", "Você perdeu um show bom ontem. Derrubei o amplificador no meu pé. Só uma vez.", "c_where"],
+  "c_where": ["c", "Where's Mei, anyway? She never goes out on a Friday.", "Aliás, cadê a Mei? Ela nunca sai na sexta.", "p_ruck"],
+  "p_ruck": ["p", "She went to buy something. With the big rucksack. You've gone quiet. What are you thinking?", "Foi comprar alguma coisa. Com a mochila grande. Você ficou em silêncio. No que está pensando?", [
+   ["I think Mei is hiding something. But I want to talk to her first.", "Acho que a Mei está escondendo alguma coisa. Mas quero falar com ela antes.", "p_fair"],
+   ["Nothing. Let's finish the cleaning.", "Nada. Vamos terminar a limpeza.", "p_nothing"],
+   ["I think we should all talk before he arrives.", "Acho que a gente devia conversar antes de ele chegar.", "p_meeting"],
+   ["I'm sinking? No, I can swim.", "Estou afundando? Não, eu sei nadar.", null, "Thinking, not sinking. You look worried. What's on your mind?", "Thinking, pensando. Não sinking. Você está com cara de preocupação. O que foi?"]
+  ]],
+  "p_fair": ["p", "Mei? Hiding something? She labels her teabags. But okay. Be gentle with her.", "A Mei? Escondendo alguma coisa? Ela põe etiqueta nos saquinhos de chá. Mas tá. Vai com jeito.", "p_night"],
+  "p_nothing": ["p", "Hmm. You're a terrible liar. Nearly as bad as Callum and his ears.", "Hum. Você mente muito mal. Quase tão mal quanto o Callum e as orelhas dele.", "p_night"],
+  "p_meeting": ["p", "Exactly what I was thinking. I'll write it on the fridge.", "Exatamente o que eu estava pensando. Vou anotar na geladeira.", "p_night"],
+  "p_night": ["p", "Flat meeting at nine tomorrow, before he comes. Tonight I'm off, so I'm sleeping like a normal person.", "Reunião amanhã às nove, antes de ele chegar. Hoje é minha folga, então vou dormir feito gente normal.", "n_three"],
+  "n_three": ["n", "You fall asleep fast. Then, at three in the morning, you hear it again. Quick, light steps.", "Você dorme rápido. Aí, às três da manhã, você ouve de novo. Passos rápidos e leves.", "p_whisper"],
+  "p_whisper": ["p", "Hey. Over here. You heard it too? It's near the bathroom. What do we do?", "Ei. Aqui. Você também ouviu? Está perto do banheiro. O que a gente faz?", [
+   ["Stay still. Let it come to us.", "Fica parada. Deixa vir até a gente.", "n_still"],
+   ["Turn on the light, quickly!", "Acende a luz, rápido!", "n_light"],
+   ["We do the dishes on Sunday.", "A gente lava a louça no domingo.", null, "Not the cleaning list! Right now! There's something in the corridor. What's the plan?", "Não a lista da limpeza! Agora! Tem alguma coisa no corredor. Qual é o plano?"]
+  ]],
+  "n_still": ["n", "You both stand like statues. Something soft and warm brushes past your ankle. Then it's gone.", "Vocês ficam feito estátuas. Uma coisa macia e quentinha roça no seu tornozelo. E some.", "p_end"],
+  "n_light": ["n", "Priya hits the switch. For one second, you see two green eyes. Then a door clicks shut.", "A Priya acende a luz. Por um segundo, você vê dois olhos verdes. Aí uma porta fecha com um clique.", "p_end"],
+  "p_end": ["p", "Tell me you noticed that. That was not a ghost. And those were not old pipes.", "Me diz que você percebeu. Aquilo não era fantasma. E não era cano velho.", "n_end"],
+  "n_end": ["n", "Mei's door is closed. There's a light under it. The inspection is in seven hours.", "A porta da Mei está fechada. Tem luz por baixo. A vistoria é daqui a sete horas.", null]
+ }
+}

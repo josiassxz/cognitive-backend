@@ -1,0 +1,93 @@
+{
+ "slug": "s09-03-the-verdict", "episode": 3, "title": "The Verdict", "level": "B1",
+ "place": "stage", "placeLabel": "Mesa do jurado", "time": "Segunda · 12h", "ambience": "studio",
+ "description": "Hora de encarar o jurado mais temido da TV. E de ouvir a crítica.",
+ "intro": "Seu creme sumiu na primeira prova e reapareceu, tarde demais, na geladeira da equipe. Agora o jurado Victor Crane vai provar a sua sopa.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "v": ["Victor", "Jurado do programa", "bm_daniel", "left"],
+  "s": ["Stella", "Apresentadora do programa", "bf_isabella", "right"],
+  "c": ["Rupert", "Participante, dono de restaurante", "bm_george", "right"],
+  "p": ["Nina", "Participante, estudante", "af_nicole", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Four bowls of soup sit on a long table. Behind it stands Victor Crane, the judge.", "Quatro tigelas de sopa numa mesa comprida. Atrás dela está Victor Crane, o jurado.", "n2"],
+  "n2": ["n", "People say he once sent back a boiled egg. He picks up a spoon and looks at you.", "Dizem que ele já devolveu um ovo cozido. Ele pega uma colher e olha pra você.", "v1"],
+  "v1": ["v", "Station four. Before I taste anything, tell me what this is.", "Bancada quatro. Antes de eu provar qualquer coisa, me diga o que é isto.", [
+   ["A corn soup from Brazil, the way we make it at home.", "Uma sopa de milho do Brasil, do jeito que a gente faz em casa.", "v_home"],
+   ["It's a simple soup. I had a problem with my cream.", "É uma sopa simples. Tive um problema com o creme.", "v_excuse"],
+   ["It's a spoon, I think.", "É uma colher, eu acho.", null, "I know what a spoon is. The dish. Describe your dish to me.", "Eu sei o que é uma colher. O prato. Descreva o seu prato pra mim."]
+  ]],
+  "v_home": ["v", "Home. Good. That was the brief. Let's see if I believe you.", "Casa. Ótimo. Era esse o tema. Vamos ver se eu acredito.", "n_taste"],
+  "v_excuse": ["v", "I asked about your soup, not your problems. Never open with an excuse.", "Eu perguntei da sopa, não dos seus problemas. Nunca comece com uma desculpa.", "n_taste"],
+  "n_taste": ["n", "He tastes it slowly. Nobody breathes. Even Stella has stopped talking.", "Ele prova devagar. Ninguém respira. Até a Stella parou de falar.", "tasted_br"],
+  "tasted_br": {"branch": [["tasted=yes", "v_yes"], [null, "v_no"]]},
+  "v_yes": ["v", "The seasoning is right. You tasted this as you cooked, didn't you? It shows.", "O tempero está certo. Você foi provando enquanto cozinhava, não foi? Dá pra notar.", "v_crit"],
+  "v_no": ["v", "It's flat. It needs salt. You didn't taste this once, did you?", "Está sem graça. Falta sal. Você não provou isto nem uma vez, provou?", "v_crit"],
+  "v_crit": ["v", "The texture, though. It's thin. A soup like this should coat the spoon.", "Agora, a textura. Está rala. Uma sopa dessas tem que cobrir a colher.", [
+   ["You're right. I'd cook it down for longer next time.", "Você tem razão. Da próxima vez, eu deixaria reduzir mais.", "v_good", {"set": {"took_crit": "well"}}],
+   ["With respect, I think it's meant to be light.", "Com todo o respeito, acho que ela é pra ser leve mesmo.", "v_argue", {"set": {"took_crit": "argued"}}],
+   ["What would you have done differently?", "O que você teria feito diferente?", "v_ask", {"set": {"took_crit": "well"}}],
+   ["Sorry, I left my coat in the dressing room.", "Desculpa, deixei meu casaco no camarim.", null, "Not that kind of coat. The soup should cover the spoon. It doesn't. What do you say to that?", "Não é esse tipo de casaco. A sopa devia cobrir a colher. Não cobre. O que você me diz disso?"]
+  ]],
+  "v_good": ["v", "Good answer. A cook who listens gets better. A cook who argues doesn't.", "Boa resposta. Quem escuta, melhora na cozinha. Quem discute, não.", "v_look"],
+  "v_argue": ["v", "Light and thin are not the same thing. But at least you have an opinion.", "Leve e rala não são a mesma coisa. Mas pelo menos você tem opinião.", "v_look"],
+  "v_ask": ["v", "Less stock, more patience. And I'd have blended half of it.", "Menos caldo, mais paciência. E eu teria batido metade dela.", "v_look"],
+  "v_look": ["v", "Any questions for me? Be quick.", "Alguma pergunta pra mim? Seja breve.", [
+   ["What do you look for in a winning dish?", "O que você procura num prato vencedor?", "v_taste"],
+   ["Was there anything you liked?", "Teve alguma coisa de que você gostou?", "v_liked"],
+   ["No questions. Thank you, chef.", "Nenhuma pergunta. Agradeço, chef.", "s_next"],
+   ["No, I'm not sick, thanks.", "Não, eu não estou doente, valeu.", null, "Quick, not sick. Do you have a question for me, or not?", "Breve, não doente. Você tem alguma pergunta pra mim ou não?"]
+  ]],
+  "v_taste": ["v", "Flavour first. I can't stand towers and flowers. A simple plate, properly seasoned, wins.", "Sabor em primeiro lugar. Não suporto torres e flores. Um prato simples, bem temperado, vence.", "s_next", {"clue": "victor_taste"}],
+  "v_liked": ["v", "The corn is sweet, and you didn't hide it. That's honest cooking. I like honest.", "O milho está doce, e você não o escondeu. Isso é cozinha honesta. Eu gosto de honestidade.", "s_next"],
+  "s_next": ["s", "Phew! You survived. On a scale of one to ten, how was that?", "Ufa! Você sobreviveu. Numa escala de um a dez, como foi?", [
+   ["A six. He's scary, but he's fair.", "Seis. Ele dá medo, mas é justo.", "s_fair"],
+   ["A two. My legs are still shaking.", "Dois. Minhas pernas ainda estão tremendo.", "s_legs"],
+   ["Yes, I need scales. I have to weigh my flour.", "Sim, preciso de uma balança. Tenho que pesar a farinha.", null, "Not kitchen scales, darling! Out of ten. How did that feel?", "Não é balança de cozinha, meu bem! De zero a dez. Como você se sentiu?"]
+  ]],
+  "s_fair": ["s", "Scary but fair. He'll put that on a mug. Now hush, he's on to Rupert.", "Dá medo, mas é justo. Ele vai mandar estampar numa caneca. Agora psiu, é a vez do Rupert.", "n_rupert"],
+  "s_legs": ["s", "Shaking legs make wonderful television. Now hush, he's on to Rupert.", "Perna tremendo rende ótima televisão. Agora psiu, é a vez do Rupert.", "n_rupert"],
+  "n_rupert": ["n", "Rupert's soup has a tower of fried leeks on top, and three kinds of foam.", "A sopa do Rupert tem uma torre de alho-poró frito em cima, e três tipos de espuma.", "c1"],
+  "c1": ["c", "Watch this, Brazil. This is what a restaurant dish looks like.", "Olha só, Brasil. É assim que é um prato de restaurante.", "v_rup"],
+  "v_rup": ["v", "It looks like a hat. And under the hat, the soup is cold. Next.", "Parece um chapéu. E embaixo do chapéu, a sopa está fria. Próximo.", "c2"],
+  "c2": ["c", "Cold? The man has no idea. Honestly, yours was basic, but at least it was hot.", "Fria? Esse homem não entende nada. Sinceramente, a sua era básica, mas pelo menos estava quente.", [
+   ["Thanks, I think. Yours looked amazing, to be fair.", "Valeu, eu acho. A sua estava linda, verdade seja dita.", "c_friend", {"set": {"rupert_rel": "friendly"}}],
+   ["Basic and hot beats fancy and cold, Rupert.", "Básica e quente ganha de chique e fria, Rupert.", "c_cold", {"set": {"rupert_rel": "cold"}}],
+   ["Tough luck. He was hard on all of us.", "Que azar. Ele pegou pesado com todo mundo.", "c_friend2", {"set": {"rupert_rel": "friendly"}}],
+   ["I'm not cold. It's boiling in here.", "Eu não estou com frio. Está um forno aqui.", null, "Not you. My soup! He called it cold. And I called yours basic. Well? What do you say?", "Não você. A minha sopa! Ele disse que estava fria. E eu disse que a sua era básica. E aí? O que me diz?"]
+  ]],
+  "c_friend": ["c", "It did, didn't it? You've got a good eye. I may have misjudged you.", "Estava, não estava? Você tem bom olho. Talvez eu tenha te julgado mal.", "n_nina"],
+  "c_cold": ["c", "Ouch. Fine. Remember that when I'm holding the trophy on Thursday.", "Ui. Tudo bem. Lembre-se disso quando eu estiver segurando o troféu na quinta.", "n_nina"],
+  "c_friend2": ["c", "Hm. I suppose he was. Decent of you to say so, actually.", "Hum. É, pegou mesmo. Bacana da sua parte dizer isso, aliás.", "n_nina"],
+  "n_nina": ["n", "The last bowl belongs to station two. The young woman behind it is staring at her shoes.", "A última tigela é da bancada dois. A moça atrás dela está olhando pros próprios sapatos.", "v_nina"],
+  "v_nina": ["v", "Mushroom and thyme. Clean, balanced, confident. Who made this?", "Cogumelo e tomilho. Limpa, equilibrada, segura. Quem fez isto?", "p1"],
+  "p1": ["p", "Me. Sorry. I mean, me. Nina.", "Eu. Desculpa. Quer dizer, eu. Nina.", "v_nina2"],
+  "v_nina2": ["v", "Never apologise for good food. Best soup of the day.", "Nunca peça desculpas por comida boa. Melhor sopa do dia.", "s_win"],
+  "s_win": ["s", "Nina takes round one! And that's lunch, everybody. Back at nine tomorrow.", "A Nina leva a primeira prova! E é hora do almoço, pessoal. Amanhã, às nove.", "n_after"],
+  "n_after": ["n", "The cameras switch off. Nina is packing her knives with shaking hands.", "As câmeras se apagam. A Nina guarda as facas com as mãos tremendo.", "p2"],
+  "p2": ["p", "Hi. Sorry. Was it really okay? I thought he hated it.", "Oi. Desculpa. Estava boa mesmo? Achei que ele tinha odiado.", [
+   ["He loved it. You should be proud of yourself.", "Ele adorou. Você devia sentir orgulho.", "p_proud"],
+   ["It was the best one. How did you get so much flavour?", "Era a melhor. Como você conseguiu tanto sabor?", "p_flavour"],
+   ["No, I don't hate mushrooms.", "Não, eu não odeio cogumelos.", null, "Oh. Good. No, I meant the judge. Did he really like my soup?", "Ah. Que bom. Não, eu falava do jurado. Ele gostou mesmo da minha sopa?"]
+  ]],
+  "p_proud": ["p", "Thanks. I'm not good at the talking part. I'm from Seattle. I study food science here.", "Obrigada. Não sou boa na parte de falar. Sou de Seattle. Estudo ciência dos alimentos aqui.", "p_van"],
+  "p_flavour": ["p", "I roast the mushrooms first. Dry heat, no oil. Sorry, I talk too much about mushrooms.", "Eu asso os cogumelos antes. Calor seco, sem óleo. Desculpa, eu falo demais de cogumelo.", "p_van"],
+  "p_van": ["p", "Can I ask you something weird? Was anything missing from your tray this morning?", "Posso te perguntar uma coisa estranha? Faltou algo na sua bandeja hoje de manhã?", [
+   ["Yes! My cream. It turned up in the crew fridge.", "Sim! Meu creme. Apareceu na geladeira da equipe.", "p_fridge"],
+   ["Why? Was something missing from yours?", "Por quê? Faltou alguma coisa na sua?", "p_mine"],
+   ["I didn't miss the train. I got here early.", "Eu não perdi o trem. Cheguei cedo.", null, "Not the train. Your tray. Your ingredients. Was anything missing?", "Não o trem. A bandeja. Seus ingredientes. Estava faltando alguma coisa?"]
+  ]],
+  "p_fridge": ["p", "The crew fridge? That's strange. My vanilla was gone too. I just changed my recipe.", "Na geladeira da equipe? Que estranho. Minha baunilha também sumiu. Eu só mudei a receita.", "p_end"],
+  "p_mine": ["p", "My vanilla. I didn't say anything. I didn't want to make a fuss.", "Minha baunilha. Não falei nada. Não queria criar caso.", "p_end"],
+  "p_end": ["p", "Two things in one morning. Do you think somebody's doing it on purpose?", "Duas coisas numa manhã só. Você acha que alguém está fazendo de propósito?", [
+   ["It's probably just a mistake.", "Deve ser só um engano.", "p_mistake", {"set": {"theory": "mistake"}}],
+   ["Maybe. Let's keep our eyes open tomorrow.", "Talvez. Vamos ficar de olho amanhã.", "p_watch", {"set": {"theory": "sabotage"}}],
+   ["Yes, I do everything on purpose.", "Sim, eu faço tudo de propósito.", null, "No, not you. The missing things. Do you think it's an accident, or not?", "Não, você não. As coisas que sumiram. Você acha que é acidente ou não?"]
+  ]],
+  "p_mistake": ["p", "Yeah. Probably. I worry too much. Everyone says so.", "É. Deve ser. Eu me preocupo demais. Todo mundo diz.", "n_end"],
+  "p_watch": ["p", "Okay. Eyes open. I'm good at watching. Nobody ever notices me.", "Tá. De olho. Eu sou boa em observar. Ninguém nunca repara em mim.", "n_end"],
+  "n_end": ["n", "Tomorrow is the technical round. One recipe, the same for everyone. What could possibly go wrong?", "Amanhã é a prova técnica. Uma receita só, igual pra todo mundo. O que poderia dar errado?", null]
+ }
+}

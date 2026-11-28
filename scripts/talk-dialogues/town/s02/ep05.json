@@ -1,0 +1,95 @@
+{
+ "slug": "s02-05-the-number-twenty-four", "episode": 5, "title": "The Number Twenty-Four", "level": "A2",
+ "place": "street", "placeLabel": "Ruas de Londres", "time": "Sexta · 15h", "ambience": "street",
+ "description": "Você pegou o ônibus no sentido errado. Hora de pedir informação e achar o caminho.",
+ "intro": "A Rosie reconheceu a receita: o dono da mala é o Eddie, freguês dela, que foi buscar um livro na Owl and Quill Books, em Cecil Court. A livraria fecha às cinco. Você pegou o ônibus vinte e quatro, mas no sentido errado.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "z": ["Zoe", "Passeadora de cães", "af_sarah", "left"],
+  "x": ["Reg", "Motorista do ônibus 24", "bm_lewis", "right"],
+  "b": ["Bia", "Sua amiga brasileira em Londres", "af_bella", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "The bus stops for the last time. This is not Trafalgar Square. It's a big green park.", "O ônibus para pela última vez. Isto não é a Trafalgar Square. É um parque enorme.", "n2"],
+  "n2": ["n", "A woman walks towards you with five dogs. She looks friendly. The dogs look even friendlier.", "Uma mulher vem na sua direção com cinco cachorros. Ela parece simpática. Os cachorros, mais ainda.", "z1"],
+  "z1": ["z", "Careful! Sorry! Five dogs, only two hands. Are you all right? You look lost.", "Cuidado! Desculpa! Cinco cachorros, só duas mãos. Tudo bem aí? Você parece sem rumo.", [
+   ["I am lost. Is this Trafalgar Square?", "Eu me perdi mesmo. Aqui é a Trafalgar Square?", "z_no"],
+   ["Excuse me, how do I get to Cecil Court?", "Com licença, como eu chego em Cecil Court?", "z_cecil"],
+   ["Yes, I lost five dogs.", "Sim, eu perdi cinco cachorros.", null, "No, no, these are my dogs! Well, my clients' dogs. Are you lost? Do you need help?", "Não, não, estes são meus! Quer dizer, dos meus clientes. Você se perdeu? Precisa de ajuda?"]
+  ]],
+  "z_no": ["z", "Trafalgar Square? Oh no. This is Hampstead. You're miles away!", "Trafalgar Square? Ai, não. Aqui é Hampstead. Você está a quilômetros de lá!", "z_bus"],
+  "z_cecil": ["z", "Cecil Court? The little street with the old bookshops? That's in the centre. You're miles away!", "Cecil Court? A ruazinha das livrarias antigas? Fica no centro. Você está a quilômetros de lá!", "z_bus"],
+  "z_bus": ["z", "Let me guess. The twenty-four, in the wrong direction. Everybody does it. Bus or Tube now?", "Deixa eu adivinhar. O vinte e quatro, no sentido errado. Todo mundo faz isso. Agora, ônibus ou metrô?", [
+   ["The bus. I want to see the city.", "Ônibus. Quero ver a cidade.", "z_busdir"],
+   ["The fastest one, please. I'm in a hurry.", "O mais rápido, por favor. Estou com pressa.", "z_tube"],
+   ["I prefer cats, actually.", "Na verdade, eu prefiro gatos.", null, "Shh! Not in front of the dogs! I mean transport. Bus or Tube?", "Psiu! Na frente dos cachorros, não! Estou falando de transporte. Ônibus ou metrô?"]
+  ]],
+  "z_busdir": ["z", "Good choice. Cross the road. Same bus, other side. Get off at Trafalgar Square.", "Boa escolha. Atravesse a rua. Mesmo ônibus, do outro lado. Desça na Trafalgar Square.", "z_then"],
+  "z_tube": ["z", "The Tube is a fifteen-minute walk. The bus stop is right there. Cross the road, same bus, other side.", "O metrô fica a quinze minutos a pé. O ponto de ônibus é logo ali. Atravesse a rua, mesmo ônibus, do outro lado.", "z_then"],
+  "z_then": ["z", "From Trafalgar Square, walk up past the big church. Cecil Court is the second street on the right. Okay?", "Da Trafalgar Square, suba passando a igreja grande. Cecil Court é a segunda rua à direita. Beleza?", [
+   ["Past the church, then second on the right. Thanks!", "Passo a igreja, depois segunda à direita. Valeu!", "z_yes"],
+   ["Could you write that down for me, please?", "Você pode anotar isso pra mim, por favor?", "z_write"],
+   ["On the night? But I need to go now.", "De noite? Mas eu preciso ir agora.", null, "Not night! Right! This side. The second street on the right. Okay?", "Não é noite! É direita! Deste lado. A segunda rua à direita. Beleza?"]
+  ]],
+  "z_yes": ["z", "Perfect. You learn fast. Faster than these five.", "Perfeito. Você aprende rápido. Mais rápido que estes cinco.", "ap_br"],
+  "z_write": ["z", "Good idea. No paper, sorry. I'll draw a little map on your hand. There!", "Boa ideia. Sem papel, foi mal. Vou desenhar um mapinha na sua mão. Pronto!", "ap_br"],
+  "ap_br": {"branch": [["apples=yes", "z_sniff_a"], [null, "z_sniff_b"]]},
+  "z_sniff_a": ["z", "Mango, stop it! Sorry. He can smell your apples. He loves apples. Can he have one?", "Mango, para com isso! Desculpa. Ele sentiu o cheiro das suas maçãs. Ele ama maçã. Ele pode ganhar uma?", [
+   ["Sure. Just one.", "Claro. Só uma.", "z_a_yes", {"set": {"apple_dog": "yes"}}],
+   ["Sorry, Mango. They're for someone else.", "Desculpa, Mango. Elas são pra outra pessoa.", "z_a_no", {"set": {"apple_dog": "no"}}],
+   ["Sorry, I don't have a mango.", "Desculpa, eu não tenho manga.", null, "No, no. Mango is the dog! He wants an apple. Can he have one?", "Não, não. Mango é o cachorro! Ele quer uma maçã. Pode dar uma?"]
+  ]],
+  "z_a_yes": ["z", "Say thank you, Mango! Look at that tail. You have a friend for life.", "Agradece, Mango! Olha esse rabo. Você ganhou um amigo pra vida toda.", "n_bus"],
+  "z_a_no": ["z", "Quite right. Mango, no. You had breakfast. Twice.", "Está certo. Mango, não. Você já tomou café da manhã. Duas vezes.", "n_bus"],
+  "z_sniff_b": ["z", "Mango, stop it! Sorry. He thinks every suitcase is full of sausages. What's in there?", "Mango, para com isso! Desculpa. Ele acha que toda mala está cheia de salsicha. O que tem aí?", [
+   ["An old hat, shoes and a scarf. It's not mine.", "Um chapéu velho, sapatos e um cachecol. Não é minha.", "z_b_hat"],
+   ["I'm not sure. It's a long story.", "Não sei direito. É uma longa história.", "z_b_story"],
+   ["No, thanks. I had noodles.", "Não, valeu. Eu comi macarrão.", null, "Ha! I'm not offering sausages! I mean the suitcase. What's inside it?", "Rá! Não estou oferecendo salsicha! Estou falando da mala. O que tem dentro?"]
+  ]],
+  "z_b_hat": ["z", "Not yours? A suitcase mystery! I love it. Sorry, Mango. No sausages.", "Não é sua? Um mistério de mala! Adorei. Foi mal, Mango. Nada de salsicha.", "n_bus"],
+  "z_b_story": ["z", "A long story and a mystery suitcase? Best thing I've heard all day. Sorry, Mango. No sausages.", "Uma longa história e uma mala misteriosa? A melhor coisa que ouvi hoje. Foi mal, Mango. Nada de salsicha.", "n_bus"],
+  "n_bus": ["n", "The number twenty-four arrives. This time, it's going the right way. You get on.", "O vinte e quatro chega. Desta vez, no sentido certo. Você sobe.", "x1"],
+  "x1": ["x", "Afternoon. Where to?", "Boa tarde. Pra onde?", [
+   ["Trafalgar Square, please. How much is it?", "Trafalgar Square, por favor. Quanto é?", "x_price"],
+   ["Does this bus go to Trafalgar Square?", "Este ônibus vai pra Trafalgar Square?", "x_goes"],
+   ["Two, please. One for me, one for the suitcase.", "Duas, por favor. Uma pra mim, uma pra mala.", null, "The suitcase travels free. I said: where to? Where are you going?", "A mala viaja de graça. Eu disse: pra onde? Aonde você vai?"]
+  ]],
+  "x_price": ["x", "One pound seventy-five. Card only. Touch it there.", "Uma libra e setenta e cinco. Só cartão. Encoste ali.", "x_case"],
+  "x_goes": ["x", "It does. Twenty minutes, if London behaves. Touch your card there.", "Vai. Vinte minutos, se Londres colaborar. Encoste o cartão ali.", "x_case"],
+  "x_case": ["x", "Blue suitcase, yellow ribbon. Hm. That's the second one today.", "Mala azul, fita amarela. Hum. É a segunda de hoje.", [
+   ["Really? Who had the other one?", "Sério? Quem estava com a outra?", "x_man"],
+   ["Yes. It's a very popular suitcase.", "É. É uma mala muito popular.", "x_pop"],
+   ["Just a second! I'm coming.", "Só um segundo! Já vou.", null, "No hurry. I said that's the second blue suitcase I've seen today.", "Sem pressa. Eu disse que é a segunda mala azul que eu vejo hoje."]
+  ]],
+  "x_man": ["x", "An older gentleman. He got on at Camden and talked to himself all the way.", "Um senhor. Subiu em Camden e veio falando sozinho o caminho todo.", "x_lines"],
+  "x_lines": ["x", "The same words, again and again. Like he was learning them by heart. He got off at Trafalgar Square.", "As mesmas palavras, sem parar. Como quem decora um texto. Depois desceu na Trafalgar Square.", "n_phone", {"clue": "lines"}],
+  "x_pop": ["x", "Popular. Hm. Sit down, please. We're moving.", "Popular. Hum. Sente-se, por favor. Vamos sair.", "n_phone"],
+  "n_phone": ["n", "You sit upstairs, at the front. London goes by like a film. Then your phone rings. It's Bia.", "Você senta lá em cima, na frente. Londres passa como um filme. Aí o celular toca. É a Bia.", "told_br"],
+  "told_br": {"branch": [["told_bia=yes", "b_know"], [null, "b_dont"]]},
+  "b_know": ["b", "Hey! Any news about the suitcase? Did you find it?", "Ei! Alguma novidade da mala? Achou?", [
+   ["Not yet. But I have clues! I'm looking for the owner.", "Ainda não. Mas eu tenho pistas! Estou atrás do dono.", "b_clues"],
+   ["No. And I'm worried. Your present is in there.", "Não. E isso me preocupa. Seu presente está lá dentro.", "b_worry"],
+   ["Yes, I saw the news on TV.", "Sim, eu vi o noticiário na TV.", null, "Not the TV news! News about your suitcase! Did you find it?", "Não é o noticiário! Novidade da sua mala! Você achou?"]
+  ]],
+  "b_clues": ["b", "Clues? Look at you! Sherlock in London. Okay. I believe in you.", "Pistas? Olha só! Sherlock em Londres. Tá. Eu boto fé em você.", "b_rest"],
+  "b_worry": ["b", "Hey. Forget the present. I want you at my dinner. That's all.", "Ei. Esquece o presente. Eu quero você no meu jantar. Só isso.", "b_rest"],
+  "b_dont": ["b", "Hey! Are you at the hostel? What are you wearing tonight?", "Ei! Você está no hostel? Que roupa você vai usar hoje à noite?", [
+   ["Bia, I have to tell you something. I lost my suitcase.", "Bia, preciso te contar uma coisa. Eu perdi minha mala.", "b_late", {"set": {"told_bia": "yes"}}],
+   ["Um, something very nice! See you at eight!", "Hã, uma roupa bem bonita! Até as oito!", "b_hmm"],
+   ["Yes, I'm wearing the hostel.", "Sim, eu estou vestindo o hostel.", null, "Wearing the hostel? Ha! No! Your clothes! What are you wearing tonight?", "Vestindo o hostel? Rá! Não! A roupa! O que você vai vestir hoje à noite?"]
+  ]],
+  "b_late": ["b", "What? This morning? And you didn't tell me? Oh, you! Okay. Don't worry about clothes.", "O quê? Hoje de manhã? E você não me contou? Ai, você! Tá. Esquece a roupa.", "b_rest"],
+  "b_hmm": ["b", "Okay. You sound strange again. Is that a bus? Never mind.", "Tá. Sua voz está estranha de novo. Isso é um ônibus? Deixa pra lá.", "b_rest"],
+  "b_rest": ["b", "Listen. The restaurant is called Luigi's, in Soho. Eight o'clock. Don't be late!", "Escuta. O restaurante chama Luigi's, no Soho. Oito horas. Não vai se atrasar!", [
+   ["Luigi's, Soho, eight o'clock. I promise.", "Luigi's, Soho, oito horas. Prometo.", "b_promise"],
+   ["Is Soho near Cecil Court?", "O Soho é perto de Cecil Court?", "b_near"],
+   ["Don't worry. I won't be eight.", "Relaxa. Eu não vou ter oito.", null, "Ha! Not eight years old! Eight o'clock! Be on time. Okay?", "Rá! Não é oito anos! Oito horas! Chega na hora. Tá?"]
+  ]],
+  "b_promise": ["b", "You promised! I'm writing it down. See you tonight!", "Prometeu! Estou anotando. Até de noite!", "n_arrive"],
+  "b_near": ["b", "Cecil Court? Ten minutes on foot. Why? No, don't tell me. Tell me at dinner!", "Cecil Court? Dez minutos a pé. Por quê? Não, não conta. Conta no jantar!", "n_arrive"],
+  "n_arrive": ["n", "The bus stops at Trafalgar Square. Lions, fountains, pigeons. You have no time for photos.", "O ônibus para na Trafalgar Square. Leões, fontes, pombos. Não dá tempo de tirar foto.", "x_bye"],
+  "x_bye": ["x", "Trafalgar Square. Good luck with that suitcase.", "Trafalgar Square. Boa sorte com essa mala.", "n_end"],
+  "n_end": ["n", "Past the church, second street on the right. One bookshop has a green door and an owl in the window.", "Depois da igreja, segunda rua à direita. Uma livraria tem porta verde e uma coruja na vitrine.", null]
+ }
+}

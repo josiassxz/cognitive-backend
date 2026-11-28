@@ -1,0 +1,94 @@
+{
+ "slug": "s10-03-slide-nine", "episode": 3, "title": "Slide Nine", "level": "B1",
+ "place": "office", "placeLabel": "Kettle · reunião de crise", "time": "Terça · 9h", "ambience": "office",
+ "description": "Um slide confidencial vazou, e a chefe pede que você descubra como.",
+ "intro": "O Tom confirmou o bug dos pagamentos em dobro, e a Helen vai decidir na quarta entre consertá-lo ou lançar os selos de fidelidade. Ontem à noite, a Priya ficou no escritório para mandar um último e-mail.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "h": ["Helen", "Fundadora e chefe da Kettle", "bf_isabella", "left"],
+  "t": ["Tom", "Engenheiro", "bm_daniel", "left"],
+  "d": ["Dylan", "Vendas", "am_puck", "right"],
+  "p": ["Priya", "Designer", "bf_alice", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Tuesday, nine o'clock. Something is wrong. Nobody is talking. Even the coffee machine is quiet.", "Terça, nove horas. Tem alguma coisa errada. Ninguém fala. Até a máquina de café está quieta.", "rep_br"],
+  "rep_br": {"branch": [["report=clear", "t0c"], [null, "t0v"]]},
+  "t0c": ["t", "Morning. Your bug report was good. I started on the fix last night.", "Bom dia. Seu relato do bug foi bom. Comecei o conserto ontem à noite.", "t0q"],
+  "t0v": ["t", "Morning. I found the cause of your bug. No thanks to 'it broke'.", "Bom dia. Achei a causa do seu bug. Sem a ajuda do 'quebrou'.", "t0q"],
+  "t0q": ["t", "But nobody cares about the bug today. Have you heard?", "Mas hoje ninguém quer saber do bug. Você ficou sabendo?", [
+   ["No. What's going on?", "Não. O que está acontecendo?", "t_heard1"],
+   ["Is it Helen? She looks furious.", "É a Helen? Ela parece furiosa.", "t_heard2"],
+   ["Yes, I can hear you fine.", "Sim, eu te ouço bem.", null, "Not hear. Heard. The news. Do you know what happened this morning?", "Não é ouvir. É ficar sabendo. A notícia. Você sabe o que aconteceu hoje de manhã?"]
+  ]],
+  "t_heard1": ["t", "Something got out that should have stayed in. Helen will explain. Loudly.", "Saiu uma coisa que devia ter ficado aqui dentro. A Helen vai explicar. Em voz alta.", "notes_br"],
+  "t_heard2": ["t", "Furious, and frightened. Something got out that should have stayed in.", "Furiosa, e assustada. Saiu uma coisa que devia ter ficado aqui dentro.", "notes_br"],
+  "notes_br": {"branch": [["notes=yes", "h1y"], [null, "h1n"]]},
+  "h1y": ["h", "Everyone, over here. Now. And no notes today. Not one word of this gets written down.", "Todo mundo aqui. Agora. E hoje sem anotações. Nem uma palavra disso vai para o papel.", "h2"],
+  "h1n": ["h", "Everyone, over here. Now. Phones down. This stays in this room.", "Todo mundo aqui. Agora. Celulares na mesa. Isso não sai desta sala.", "h2"],
+  "h2": ["h", "At seven this morning, a client emailed me. She's seen slide nine of our investor deck.", "Às sete da manhã, uma cliente me mandou um e-mail. Ela viu o slide nove da nossa apresentação para investidores.", "h2q"],
+  "h2q": ["h", "You're new. Do you know what's on slide nine?", "Você chegou agora. Sabe o que tem no slide nove?", [
+   ["No. I've never seen the deck.", "Não. Eu nunca vi a apresentação.", "h_exp"],
+   ["Is it the confidential one? Dylan mentioned his deck yesterday.", "É o confidencial? O Dylan falou da apresentação dele ontem.", "h_exp2"],
+   ["A slide? Like in a playground?", "Um slide? Tipo escorregador de parquinho?", null, "Not that kind of slide. A page in a presentation. Do you know what slide nine says?", "Não esse tipo de slide. Uma página de apresentação. Você sabe o que diz o slide nove?"]
+  ]],
+  "h_exp": ["h", "It's our runway. How long our money lasts. And the answer is three months.", "É o nosso fôlego financeiro. Quanto tempo o nosso dinheiro dura. E a resposta é três meses.", "h3"],
+  "h_exp2": ["h", "The most confidential one. Our runway: how long the money lasts. Three months.", "O mais confidencial de todos. Nosso fôlego financeiro: quanto tempo o dinheiro dura. Três meses.", "h3"],
+  "h3": ["h", "If clients think we're sinking, they leave. And only four people had that deck. Me, Tom, Dylan, Priya.", "Se os clientes acharem que estamos afundando, eles vão embora. E só quatro pessoas tinham aquele arquivo. Eu, Tom, Dylan, Priya.", "n2"],
+  "n2": ["n", "Silence. Priya stares at her shoes. Dylan stares at Tom. Tom stares at Dylan.", "Silêncio. A Priya encara os próprios sapatos. O Dylan encara o Tom. O Tom encara o Dylan.", "d1"],
+  "d1": ["d", "Don't look at me! I was on a plane last night. Ask the engineer who hates the pitch.", "Não olhem pra mim! Eu estava num avião ontem à noite. Perguntem pro engenheiro que odeia a apresentação.", "t1"],
+  "t1": ["t", "I don't hate the pitch. I hate the bits that aren't true. There's a difference.", "Eu não odeio a apresentação. Odeio as partes que não são verdade. É diferente.", "h4"],
+  "h4": ["h", "Enough! You. You arrived yesterday. You've never opened that deck. Will you find out what happened, quietly?", "Chega! Você. Você chegou ontem. Nunca abriu aquele arquivo. Você descobre o que aconteceu, com discrição?", [
+   ["Yes. I'll ask around carefully and stick to the facts.", "Sim. Vou perguntar com cuidado e ficar só nos fatos.", "h_facts", {"set": {"approach": "facts"}}],
+   ["I'll try. But I won't treat my new colleagues like suspects.", "Vou tentar. Mas não vou tratar meus novos colegas como suspeitos.", "h_kind", {"set": {"approach": "kind"}}],
+   ["Are you sure? It's only my second day.", "Tem certeza? É só o meu segundo dia.", "h_sure"],
+   ["Yes. Where did you last see the slide?", "Sim. Onde você viu o slide pela última vez?", null, "It isn't lost! It's leaked. It's out there. Will you find out who sent it?", "Ele não está perdido! Ele vazou. Está lá fora. Você descobre quem mandou?"]
+  ]],
+  "h_sure": ["h", "That's exactly why. You've got no history here, and no favourites. So, will you?", "É justamente por isso. Você não tem passado aqui, nem preferidos. E então, topa?", [
+   ["All right. I'll stick to the facts.", "Tudo bem. Vou ficar só nos fatos.", "h_facts", {"set": {"approach": "facts"}}],
+   ["All right. But I'll do it gently.", "Tudo bem. Mas vou fazer isso com delicadeza.", "h_kind", {"set": {"approach": "kind"}}],
+   ["No history? I studied history at school.", "Sem passado? Eu estudei história na escola.", null, "Lovely. I mean no history with us. You're neutral. Will you look into it?", "Que bom. Eu quis dizer sem passado com a gente. Você é imparcial. Você investiga?"]
+  ]],
+  "h_facts": ["h", "Facts. Good. Report to me on Friday morning, before the investors arrive.", "Fatos. Ótimo. Me traga o relatório na sexta de manhã, antes de os investidores chegarem.", "n3"],
+  "h_kind": ["h", "They're not suspects. They're my people. That's why it hurts. Report to me on Friday morning.", "Eles não são suspeitos. São a minha gente. Por isso dói. Me traga o relatório na sexta de manhã.", "n3"],
+  "n3": ["n", "The meeting breaks up. Tom heads for the kitchen. Dylan grabs his coat. Priya appears at your elbow.", "A reunião se desfaz. O Tom vai para a cozinha. O Dylan pega o casaco. A Priya aparece do seu lado.", "p0"],
+  "p0": ["p", "That was horrible. So, detective. Who are you going to talk to first? Tom, or Dylan?", "Isso foi horrível. E aí, detetive. Com quem você vai falar primeiro? Tom ou Dylan?", [
+   ["Tom. He looked like he had more to say.", "O Tom. Pareceu que ele tinha mais a dizer.", "n_tom"],
+   ["Dylan. He was very quick to defend himself.", "O Dylan. Ele se defendeu rápido demais.", "n_dyl"],
+   ["Tom and Jerry.", "Tom e Jerry.", null, "Ha! I needed that. But seriously: Tom or Dylan? Who's first?", "Rá! Eu estava precisando disso. Mas sério: Tom ou Dylan? Quem primeiro?"]
+  ]],
+  "n_tom": ["n", "In the kitchen, Tom is making tea. Very slowly. Very precisely.", "Na cozinha, o Tom está fazendo chá. Bem devagar. Com muita precisão.", "t2"],
+  "t2": ["t", "You want a fact? Last Thursday I saw Dylan at lunch with someone from Brewly, our biggest rival.", "Quer um fato? Na quinta passada eu vi o Dylan almoçando com alguém da Brewly, nossa maior concorrente.", "t2q", {"clue": "rival_lunch"}],
+  "t2q": ["t", "Same idea as us, twice the money. I'm not saying he did it. What do you make of it?", "A mesma ideia que a nossa, o dobro do dinheiro. Não estou dizendo que foi ele. O que você acha disso?", [
+   ["It's a fact, but it isn't proof. I'll ask him about it.", "É um fato, mas não é prova. Vou perguntar pra ele.", "t_fair"],
+   ["Honestly? That looks bad for Dylan.", "Sinceramente? Isso pega mal pro Dylan.", "t_looks"],
+   ["I'd make a sandwich of it.", "Eu faria um sanduíche disso.", null, "Not lunch. The fact! Dylan and Brewly. What do you think it means?", "Não o almoço. O fato! O Dylan e a Brewly. O que você acha que isso significa?"]
+  ]],
+  "t_fair": ["t", "Good. Ask him. That's more than anybody else has done.", "Ótimo. Pergunta pra ele. Já é mais do que qualquer outra pessoa fez.", "n4"],
+  "t_looks": ["t", "It looks bad. Looking bad and being guilty are different things. Be careful.", "Pega mal. Pegar mal e ter culpa são coisas diferentes. Cuidado.", "n4"],
+  "n_dyl": ["n", "You catch Dylan by the lift. He's putting on his coat and checking his phone at the same time.", "Você alcança o Dylan perto do elevador. Ele veste o casaco e olha o celular ao mesmo tempo.", "d2"],
+  "d2": ["d", "Walk with me. Client in ten minutes. Go on, detective, ask your question.", "Vem andando comigo. Cliente em dez minutos. Vai, detetive, faz a sua pergunta.", [
+   ["Where exactly were you last night?", "Onde exatamente você estava ontem à noite?", "d_plane"],
+   ["Why did you point at Tom in there?", "Por que você apontou pro Tom lá dentro?", "d_tom"],
+   ["I can't walk. I only run.", "Eu não sei andar. Eu só corro.", null, "Ha! Then run with me. Quickly: what do you want to ask?", "Rá! Então vem correndo comigo. Rápido: o que você quer perguntar?"]
+  ]],
+  "d_plane": ["d", "On the last flight from Edinburgh. Find me later and I'll show you the boarding pass. Got to run!", "No último voo de Edimburgo. Me procura mais tarde que eu te mostro o cartão de embarque. Preciso correr!", "n4"],
+  "d_tom": ["d", "Because he calls slide nine 'the honest slide'. He thinks clients should see it. Just saying. Got to run!", "Porque ele chama o slide nove de 'o slide sincero'. Ele acha que os clientes deviam ver. Só comentando. Preciso correr!", "n4"],
+  "n4": ["n", "Back at your desk, a message pops up. It's Priya: 'Have you got a minute? Fire escape.'", "De volta à sua mesa, chega uma mensagem. É a Priya: 'Tem um minuto? Escada de incêndio.'", "p1"],
+  "p1": ["p", "Sorry. I needed some air. Everyone's shouting, and I haven't slept properly since March.", "Desculpa. Eu precisava de ar. Todo mundo está gritando, e eu não durmo direito desde março.", [
+   ["Since March? What happened in March?", "Desde março? O que aconteceu em março?", "p_march"],
+   ["Are you okay? You look shattered.", "Você está bem? Você parece acabada.", "p_ok"],
+   ["March? I prefer April.", "Março? Eu prefiro abril.", null, "Ha. I'd prefer a nap. Anyway. Go on, ask me whatever you need to ask.", "Rá. Eu preferia um cochilo. Enfim. Vai, pergunta o que você precisa perguntar."]
+  ]],
+  "p_march": ["p", "Omar left. Our office manager. Nobody replaced him. So I do design, support and the client newsletter. Alone.", "O Omar saiu. Ele cuidava do escritório. Ninguém entrou no lugar. Então eu faço o design, o suporte e a newsletter dos clientes. Sozinha.", "p2", {"clue": "three_jobs"}],
+  "p_ok": ["p", "I'm fine. I'm always fine. I was here until midnight, that's all. I'm used to it.", "Eu tô bem. Eu sempre tô bem. Fiquei aqui até meia-noite, só isso. Já me acostumei.", "p2"],
+  "p2": ["p", "Who would do this to Helen? She's tough, but she's fair. I just want it to be over.", "Quem faria isso com a Helen? Ela é durona, mas é justa. Eu só quero que isso acabe.", [
+   ["Me too. If you remember anything odd about last night, tell me.", "Eu também. Se você lembrar de qualquer coisa estranha de ontem à noite, me conta.", "p_rem"],
+   ["Try to go home early today. You need it.", "Tenta ir pra casa cedo hoje. Você precisa.", "p_home"],
+   ["Over where?", "Acabe onde?", null, "Not over there. Over! Finished. Done. Anyway, do you need anything else from me?", "Não é lugar. É acabar! Terminar. Chega. Enfim, você precisa de mais alguma coisa de mim?"]
+  ]],
+  "p_rem": ["p", "Last night? I sent the client update, and I went home. Nothing odd. I think.", "Ontem à noite? Mandei a newsletter dos clientes e fui pra casa. Nada estranho. Eu acho.", "n_end"],
+  "p_home": ["p", "Early! The support inbox doesn't know that word. But thank you for saying it.", "Cedo! A caixa do suporte não conhece essa palavra. Mas obrigada por dizer isso.", "n_end"],
+  "n_end": ["n", "You open a new note and type three names: Tom, Dylan, Priya. Three days. And everybody's watching you.", "Você abre uma nota nova e digita três nomes: Tom, Dylan, Priya. Três dias. E todo mundo de olho em você.", null]
+ }
+}

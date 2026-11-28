@@ -1,0 +1,91 @@
+{
+ "slug": "s09-06-the-pantry-at-night", "episode": 6, "title": "The Pantry at Night", "level": "B1",
+ "place": "kitchen", "placeLabel": "Despensa do estúdio", "time": "Terça · 19h", "ambience": "kitchen",
+ "description": "Você vai procurar o mel da Morag. E não é a única pessoa na despensa.",
+ "intro": "O mel da Morag sumiu, e o Rupert jura que só fez uma ligação particular. Às sete da noite, com o estúdio vazio, você vai até a despensa.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "c": ["Rupert", "Participante, dono de restaurante", "bm_george", "right"],
+  "t": ["Toby", "Assistente de produção", "bm_fable", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Seven o'clock. The studio is dark and quiet. Only the fridges are humming.", "Sete horas. O estúdio está escuro e quieto. Só se ouve o zumbido das geladeiras.", "n2"],
+  "n2": ["n", "You push open the pantry door. Shelves up to the ceiling. And a voice, behind the flour sacks.", "Você empurra a porta da despensa. Prateleiras até o teto. E uma voz, atrás dos sacos de farinha.", "c1"],
+  "c1": ["c", "Yes, Mum. No, Mum. But how long do I rest the pastry? Mum, slow down.", "Sim, mãe. Não, mãe. Mas quanto tempo eu deixo a massa descansar? Mãe, mais devagar.", "n3", {"clue": "rupert_mum"}],
+  "n3": ["n", "It's Rupert. He turns around, sees you, and nearly drops his phone.", "É o Rupert. Ele se vira, te vê e quase deixa o celular cair.", "c2"],
+  "c2": ["c", "Brazil! How long have you been standing there?", "Brasil! Há quanto tempo você está aí?", [
+   ["Long enough. Was that your mum?", "Tempo suficiente. Era a sua mãe?", "c_mum"],
+   ["I just got here. I didn't hear a thing.", "Acabei de chegar. Não ouvi nada.", "c_lie"],
+   ["About one metre seventy, same as always.", "Mais ou menos um metro e setenta, como sempre.", null, "Not how tall you are! How long. How much of that phone call did you hear?", "Não a sua altura! Quanto tempo. Quanto daquela ligação você ouviu?"]
+  ]],
+  "c_mum": ["c", "Fine. Yes. My mother. She taught me everything, and I ring her before every round.", "Tá bom. Sim. Minha mãe. Ela me ensinou tudo, e eu ligo pra ela antes de cada prova.", "c_secret"],
+  "c_lie": ["c", "You're a terrible liar. Yes, it's my mother. I ring her before every round.", "Você mente muito mal. Sim, é a minha mãe. Eu ligo pra ela antes de cada prova.", "c_secret"],
+  "c_secret": ["c", "If the others find out, I'm finished. The great Rupert Lang, asking his mummy about pastry.", "Se os outros descobrirem, estou acabado. O grande Rupert Lang, pedindo dica de massa pra mamãe.", [
+   ["Your secret's safe with me. I promise.", "Seu segredo está bem guardado comigo. Prometo.", "c_safe", {"set": {"rupert_secret": "kept"}}],
+   ["Honestly? I think it's sweet. You should tell them.", "Sinceramente? Eu acho fofo. Você devia contar pra eles.", "c_sweet", {"set": {"rupert_secret": "tell"}}],
+   ["I'll keep quiet if you help me look for Morag's honey.", "Eu fico de bico fechado se você me ajudar a procurar o mel da Morag.", "c_deal", {"set": {"rupert_secret": "deal"}}],
+   ["Mummies? I prefer vampires.", "Múmias? Eu prefiro vampiros.", null, "Not that sort of mummy! My mother. Will you keep it to yourself or not?", "Não esse tipo de múmia! Minha mãe. Você vai guardar segredo ou não?"]
+  ]],
+  "c_safe": ["c", "Thank you. I mean that. You're all right, Brazil.", "Obrigado. De verdade. Você é gente boa, Brasil.", "c_alibi"],
+  "c_sweet": ["c", "Sweet. I've spent twenty years trying not to be sweet. I'll think about it.", "Fofo. Passei vinte anos tentando não ser fofo. Vou pensar no assunto.", "c_alibi"],
+  "c_deal": ["c", "That's blackmail. Polite blackmail. Fine. I've already checked the bottom shelves. No honey.", "Isso é chantagem. Chantagem educada. Tá bom. Já olhei as prateleiras de baixo. Nada de mel.", "c_alibi"],
+  "c_alibi": ["c", "For the record, I was out here on the phone when those cards were printed. Do you believe me?", "Só pra constar, eu estava aqui ao telefone quando imprimiram aqueles cartões. Você acredita em mim?", [
+   ["I do. Nobody would invent a story like that.", "Acredito. Ninguém inventaria uma história dessas.", "c_believe"],
+   ["I'd like to. Can you prove it?", "Eu queria acreditar. Você tem como provar?", "c_prove"],
+   ["A record? I didn't know you could sing.", "Um disco? Eu não sabia que você cantava.", null, "Not a music record! I'm telling you where I was this morning. Do you believe me?", "Não é disco de música! Estou te dizendo onde eu estava hoje de manhã. Você acredita em mim?"]
+  ]],
+  "c_believe": ["c", "Quite. Who on earth would make that up?", "Pois é. Quem é que ia inventar uma coisa dessas?", "c_q"],
+  "c_prove": ["c", "Seven calls this week, all to the same number. I'll show anyone, if I must.", "Sete ligações esta semana, todas pro mesmo número. Eu mostro pra qualquer um, se for preciso.", "c_q"],
+  "c_q": ["c", "So. If it isn't me, and it isn't you, then who's behind it all?", "Então. Se não sou eu, e não é você, quem está por trás disso tudo?", [
+   ["Maybe nobody's doing it on purpose.", "Talvez ninguém esteja fazendo de propósito.", "c_purpose"],
+   ["Somebody who's here very early and very late.", "Alguém que fica aqui muito cedo e até muito tarde.", "c_early"],
+   ["It isn't Mimi? Who's Mimi?", "Não é a Mimi? Quem é Mimi?", null, "There is no Mimi! I said it isn't me. So who do you think is doing all this?", "Não existe Mimi nenhuma! Eu disse que não sou eu. Então quem você acha que está fazendo isso tudo?"]
+  ]],
+  "c_purpose": ["c", "An accident? Four times? Then somebody here is spectacularly bad at their job.", "Acidente? Quatro vezes? Então alguém aqui é espetacularmente ruim no que faz.", "n_step"],
+  "c_early": ["c", "Early and late. Not a contestant, then. We're all in bed by ten. I certainly am.", "Cedo e tarde. Então não é participante. Às dez a gente já está na cama. Eu, pelo menos.", "n_step"],
+  "n_step": ["n", "Footsteps in the corridor. Rupert puts a finger to his lips and slips out the back door.", "Passos no corredor. O Rupert leva o dedo aos lábios e escapa pela porta dos fundos.", "n_toby"],
+  "n_toby": ["n", "The door opens. It's Toby, in white trainers, carrying three boxes he can't see over.", "A porta se abre. É o Toby, de tênis brancos, carregando três caixas que tapam a visão dele.", "t1"],
+  "t1": ["t", "Who's there? Oh. Number four. You gave me a fright. What are you doing in here?", "Quem está aí? Ah. Número quatro. Que susto você me deu. O que você está fazendo aqui?", [
+   ["I'm looking for Morag's honey. It's gone missing.", "Estou procurando o mel da Morag. Ele sumiu.", "t_honey"],
+   ["Sorry. Here, let me take one of those boxes.", "Desculpa. Deixa que eu pego uma dessas caixas.", "t_box"],
+   ["It's not a fight. I come in peace.", "Não é briga. Eu venho em paz.", null, "A fright, not a fight. You scared me. What are you doing in the pantry at this hour?", "Susto, não briga. Você me assustou. O que você faz na despensa a esta hora?"]
+  ]],
+  "t_honey": ["t", "Honey? Small jar, tartan lid? Oh no. Hang on. Let me check this box.", "Mel? Pote pequeno, tampa xadrez? Ai, não. Peraí. Deixa eu olhar esta caixa.", "n_shelf"],
+  "t_box": ["t", "Careful, that one's the cleaning stuff. Hang on. What's that doing in there?", "Cuidado, essa é a de produtos de limpeza. Peraí. O que isso está fazendo aí dentro?", "n_shelf"],
+  "n_shelf": ["n", "Between two bottles of bleach sits a small jar. Tartan lid, and a label in green ink.", "Entre duas garrafas de água sanitária há um potinho. Tampa xadrez, e uma etiqueta em tinta verde.", "t2"],
+  "t2": ["t", "I must have packed it in the wrong box last night. I was half asleep. Is the jar all right?", "Devo ter guardado na caixa errada ontem à noite. Eu estava dormindo em pé. O pote está inteiro?", [
+   ["It's fine. Morag will be so relieved.", "Está inteiro. A Morag vai ficar tão aliviada.", "t_relief"],
+   ["It's fine. But honey next to bleach, Toby?", "Está inteiro. Mas mel ao lado de água sanitária, Toby?", "t_bleach"],
+   ["Yes, I'm all right, thanks.", "Sim, eu estou bem, valeu.", null, "Good, but I meant the jar! The honey. Is it broken?", "Que bom, mas eu falava do pote! O mel. Quebrou?"]
+  ]],
+  "t_relief": ["t", "Thank goodness. She'd have come after me with that knife of hers.", "Ainda bem. Ela ia vir atrás de mim com aquela faca dela.", "n_pen"],
+  "t_bleach": ["t", "I know. I know! Imagine if it had ended up in her pudding.", "Eu sei. Eu sei! Imagina se isso vai parar na sobremesa dela.", "n_pen"],
+  "n_pen": ["n", "He takes a pen from behind his ear and ticks his list. Green ink. Just like the label.", "Ele tira uma caneta de trás da orelha e marca a lista. Tinta verde. Igualzinha à da etiqueta.", "t3", {"clue": "green_pen"}],
+  "t3": ["t", "Why are you looking at me like that?", "Por que você está me olhando desse jeito?", [
+   ["The label, my recipe card, your pen. They're all green, Toby.", "A etiqueta, meu cartão de receita, sua caneta. Tudo verde, Toby.", "t_caught"],
+   ["No reason. You just look exhausted.", "Por nada. É que você parece exausto.", "t_exh"],
+   ["I don't like bleach at all.", "Eu não gosto nem um pouco de água sanitária.", null, "No, I said like that. You're staring at me. What is it?", "Não, eu disse desse jeito. Você está me encarando. O que foi?"]
+  ]],
+  "t_caught": ["t", "I write everything in green. It's the only pen that still works. Oh. I see what you mean.", "Eu escrevo tudo em verde. É a única caneta que ainda funciona. Ah. Entendi aonde você quer chegar.", "helped_br"],
+  "t_exh": ["t", "I am. I can't remember the last time I slept in a real bed.", "Estou mesmo. Nem lembro a última vez que dormi numa cama de verdade.", "helped_br"],
+  "helped_br": {"branch": [["helped_toby=yes", "t_trust"], [null, "t_closed"]]},
+  "t_trust": ["t", "You helped me on Monday, so I'll be straight with you. This is my trial week.", "Você me ajudou na segunda, então vou ser direto com você. Esta é minha semana de experiência.", "t_trial"],
+  "t_trial": ["t", "Dee said one more mistake and I'm out. So I've been hiding them. All of them.", "A Dee disse que mais um erro e eu estou fora. Então eu venho escondendo. Todos eles.", "t_q", {"clue": "trial_week"}],
+  "t_q": ["t", "The cream, the vanilla, your card, the honey. It was all me. What are you going to do?", "O creme, a baunilha, seu cartão, o mel. Fui eu em tudo. O que você vai fazer?", [
+   ["Nothing tonight. But you should tell Dee yourself.", "Hoje, nada. Mas você mesmo devia contar pra Dee.", "t_tell"],
+   ["I won't say a word. But you have to get some sleep.", "Não vou dizer nada. Mas você precisa dormir um pouco.", "t_sleep"],
+   ["Vanilla ice cream, please. Two scoops.", "Sorvete de baunilha, por favor. Duas bolas.", null, "I'm not taking orders! I've just told you everything. Are you going to report me?", "Eu não estou anotando pedido! Acabei de te contar tudo. Você vai me denunciar?"]
+  ]],
+  "t_closed": ["t", "Look, I can't talk about it. I really need this job. You won't tell anyone, will you?", "Olha, não posso falar disso. Eu preciso muito deste emprego. Você não vai contar pra ninguém, vai?", [
+   ["Not tonight. But if something's wrong, talk to Dee.", "Hoje, não. Mas se tem algo errado, fala com a Dee.", "t_tell"],
+   ["I won't. But you look like you need some sleep.", "Não vou. Mas você está com cara de quem precisa dormir.", "t_sleep"],
+   ["I can't see you. It's too dark.", "Não estou te vendo. Está escuro demais.", null, "You can see me fine. I'm asking: will you keep this between us?", "Você está me vendo muito bem. Estou perguntando: isso fica entre a gente?"]
+  ]],
+  "t_tell": ["t", "Tell Dee? She'd sack me before I finished the sentence. But maybe you're right.", "Contar pra Dee? Ela me demite antes de eu terminar a frase. Mas talvez você tenha razão.", "n_radio"],
+  "t_sleep": ["t", "Sleep. Yes. After the final. I'll sleep for a week after the final.", "Dormir. Sim. Depois da final. Vou dormir uma semana depois da final.", "n_radio"],
+  "n_radio": ["n", "His radio crackles. A woman's voice, sharp and tired: Toby, my office. Now.", "O rádio dele chia. Uma voz de mulher, seca e cansada: Toby, na minha sala. Agora.", "t_end"],
+  "t_end": ["t", "That's Dee. Give Morag her honey. And tomorrow, check your salt. Just in case.", "É a Dee. Entrega o mel pra Morag. E amanhã, confere o seu sal. Só por garantia.", "n_end"],
+  "n_end": ["n", "He hurries off. You stand there with a jar of honey, and a lot to think about.", "Ele sai apressado. Você fica ali, com um pote de mel e muita coisa pra pensar.", null]
+ }
+}

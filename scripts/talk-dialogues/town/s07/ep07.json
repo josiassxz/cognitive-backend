@@ -1,0 +1,85 @@
+{
+ "slug": "s07-07-tea-with-mr-finch", "episode": 7, "title": "Tea with Mr. Finch", "level": "B1",
+ "place": "train", "placeLabel": "Vagão-lounge", "time": "Sábado · 4h30", "ambience": "train",
+ "description": "Hora de apontar uma contradição com tato. O Oliver está protegendo alguém.",
+ "intro": "O Jamie viu o Oliver na plataforma de Crewe das cinco para a uma até a uma e dez. Só que o Oliver jurou ter conferido o violino à uma em ponto. Alguém não está dizendo a verdade, e a Moira quer que você descubra por quê.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Moira", "Chefe de trem", "bf_isabella", "left"],
+  "o": ["Oliver", "Assistente da Clara", "bm_daniel", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Half past four. The lounge car is empty, except for Oliver Finch and a cup of tea he hasn't touched.", "Quatro e meia. O vagão-lounge está vazio, a não ser pelo Oliver Finch e por uma xícara de chá em que ele nem tocou.", "n2"],
+  "n2": ["n", "Moira stays behind the bar, polishing the same glass again and again. This conversation is yours.", "A Moira fica atrás do bar, polindo o mesmo copo sem parar. Esta conversa é sua.", "o1"],
+  "o1": ["o", "You again. Have you found it? Tell me somebody has found it.", "Você de novo. Acharam? Me diz que alguém achou.", [
+   ["Not yet. May I sit down?", "Ainda não. Posso sentar?", "o_sit"],
+   ["No. But I've found a few things that don't fit.", "Não. Mas achei umas coisas que não se encaixam.", "o_fit"],
+   ["Yes, I found my seat. It's this one.", "Sim, achei meu lugar. É este aqui.", null, "Not your seat. The violin! Has anybody found the violin?", "Não o seu lugar. O violino! Alguém achou o violino?"]
+  ]],
+  "o_sit": ["o", "Sit. Please. I've been talking to this teapot for an hour, and it's a poor listener.", "Senta. Por favor. Faz uma hora que eu converso com este bule, e ele não sabe ouvir.", "prom_br"],
+  "o_fit": ["o", "Don't fit. I see. Then I suppose you'd better sit down.", "Não se encaixam. Sei. Então acho melhor você sentar.", "prom_br"],
+  "prom_br": {"branch": [["promised_quiet=yes", "o_trust"], [null, "o_wary"]]},
+  "o_trust": ["o", "Clara told me you promised to keep this quiet. That was decent of you. So. What is it?", "A Clara me contou que você prometeu guardar segredo. Foi muito correto da sua parte. Então. O que foi?", "o2"],
+  "o_wary": ["o", "Clara said you wouldn't promise to keep quiet. So forgive me if I choose my words. What is it?", "A Clara disse que você não quis prometer segredo. Então me desculpe se eu medir as palavras. O que foi?", "o2"],
+  "o2": ["o", "You've obviously come to ask me something. Go on.", "É óbvio que você veio me perguntar alguma coisa. Vai em frente.", [
+   ["I think I've misunderstood something. Could we go over the times again?", "Acho que entendi alguma coisa errado. A gente pode repassar os horários?", "o_times"],
+   ["You lied to Moira. You weren't in the compartment at one o'clock.", "Você mentiu pra Moira. Você não estava na cabine à uma hora.", "o_blunt"],
+   ["Could I ask for the bill, please?", "Posso pedir a conta, por favor?", null, "There is no bill. You came here with a question about tonight. What is it?", "Não tem conta nenhuma. Você veio aqui com uma pergunta sobre esta noite. Qual é?"]
+  ]],
+  "o_times": ["o", "The times. Fine. I checked the violin at one, I had tea, I came back. What's the problem?", "Os horários. Tudo bem. Conferi o violino à uma, tomei um chá, voltei. Qual é o problema?", "o_times2"],
+  "o_blunt": ["o", "Lied? That's a strong word for half past four in the morning. What's your problem with one o'clock?", "Menti? É uma palavra forte pras quatro e meia da manhã. Qual é o seu problema com a uma hora?", "o_times2"],
+  "o_times2": ["n", "He folds his arms. But his foot is tapping under the table.", "Ele cruza os braços. Mas o pé não para de bater debaixo da mesa.", "o_q"],
+  "o_q": ["o", "Well? I'm waiting.", "E então? Estou esperando.", [
+   ["At one o'clock, you were on the platform at Crewe. Someone saw you.", "À uma hora, você estava na plataforma em Crewe. Alguém te viu.", "o_crewe"],
+   ["Is it possible you got the time wrong? It's been a long night.", "Será que você não confundiu a hora? A noite foi longa.", "o_soft"],
+   ["Me too. I'm waiting for breakfast.", "Eu também. Estou esperando o café da manhã.", null, "Breakfast is at six. I mean your point. What exactly is wrong with my story?", "O café é às seis. Eu digo o seu argumento. O que exatamente está errado na minha história?"]
+  ]],
+  "o_soft": ["o", "Wrong? No. Well. Possibly. Why? What have people been saying?", "Confundi? Não. Bom. Pode ser. Por quê? O que andaram dizendo?", "m_log"],
+  "m_log": ["m", "People have been saying Crewe, Mr. Finch. I called you back aboard at ten past one myself.", "Andaram dizendo Crewe, Sr. Finch. Fui eu mesma que chamei o senhor de volta pro trem à uma e dez.", "o_crewe2"],
+  "o_crewe": ["o", "The platform. Yes. I, well. I might have got the time slightly wrong.", "A plataforma. É. Eu, bem. Talvez eu tenha errado um pouquinho a hora.", "o_crewe2"],
+  "o_crewe2": ["o", "All right. I wasn't in the compartment at one. I was on the phone. Go on, ask me who to.", "Tá bom. Eu não estava na cabine à uma. Estava ao telefone. Vai, me pergunta com quem.", [
+   ["Who were you calling, Oliver?", "Pra quem você estava ligando, Oliver?", "o_call"],
+   ["That's your business. I'd rather know why you lied.", "Isso é assunto seu. Prefiro saber por que você mentiu.", "o_why"],
+   ["I never ask who. I'm not an owl.", "Eu nunca pergunto \"who\". Não sou coruja.", null, "An owl. Very good. I'm too tired for jokes. Don't you want to know who I phoned?", "Uma coruja. Muito bom. Estou cansado demais pra piada. Você não quer saber pra quem eu liguei?"]
+  ]],
+  "o_call": ["o", "Her old teacher, in New York. It's evening there. She's the only person Clara ever listens to.", "Pra antiga professora dela, em Nova York. Lá ainda é noite. É a única pessoa que a Clara escuta.", "o_call2"],
+  "o_call2": ["o", "She didn't pick up. I left three messages. Then I got back on the train.", "Ela não atendeu. Deixei três recados. Depois voltei pro trem.", "o_why"],
+  "o_why": ["o", "I said one o'clock because it sounded tidy. Because I needed it to be a thief.", "Eu disse uma hora porque soava redondo. Porque eu precisava que fosse um ladrão.", [
+   ["You're protecting someone, aren't you?", "Você está protegendo alguém, não está?", "o_protect"],
+   ["Oliver, did you take it yourself?", "Oliver, foi você mesmo que pegou?", "o_self"],
+   ["Tidy? Yes, my berth is very clean.", "Arrumado? Sim, minha cabine está limpinha.", null, "Not your berth. My story. I wanted a simple thief. Can't you guess why?", "Não a sua cabine. A minha história. Eu queria um simples ladrão. Não adivinha por quê?"]
+  ]],
+  "o_self": ["o", "Me? Yes. Fine. Yes. I took it. Write that down, and leave her alone.", "Eu? Sim. Pronto. Sim. Fui eu. Anota isso e deixa ela em paz.", "n_self"],
+  "n_self": ["n", "Even Moira stops polishing. Nobody in the car believes him. Not even Oliver.", "Até a Moira para de polir. Ninguém no vagão acredita nele. Nem o próprio Oliver.", "o_self2"],
+  "o_self2": ["o", "It's somewhere safe. That's all you need to know. Well? Aren't you going to arrest me?", "Está num lugar seguro. É só o que vocês precisam saber. E aí? Não vão me prender?", [
+   ["You can't have taken it. You were on the platform.", "Não pode ter sido você. Você estava na plataforma.", "o_protect"],
+   ["You don't even know where it is, do you?", "Você nem sabe onde ele está, sabe?", "o_dontknow"],
+   ["A rest? Yes, you look tired.", "Um descanso? É, você está com cara de cansaço.", null, "Not a rest. Arrest! I've just confessed. Don't you believe me?", "Não é \"a rest\". É \"arrest\", prender! Acabei de confessar. Você não acredita em mim?"]
+  ]],
+  "o_dontknow": ["o", "I know exactly where it is. I mean, no. I can guess. That's not the same thing.", "Eu sei exatamente onde está. Quer dizer, não. Eu imagino. Não é a mesma coisa.", "o_protect"],
+  "o_protect": ["o", "Six years. I've carried that case through forty countries. I'd carry her too, if she'd let me.", "Seis anos. Carreguei aquele estojo por quarenta países. Carregaria ela também, se ela deixasse.", "o_protect2"],
+  "o_protect2": ["o", "She's the best there is. And for a month, she's been terrified. That's all I'm going to say.", "Ela é a melhor que existe. E faz um mês que vive apavorada. É tudo o que eu vou dizer.", "m_bag"],
+  "m_bag": ["m", "Then I'll say something. I've searched the luggage van tonight. Every single bag but one.", "Então eu digo uma coisa. Revistei o bagageiro esta noite. Todas as malas, menos uma.", "m_bag2"],
+  "m_bag2": ["m", "Miss Whitmore's long garment bag. Mr. Finch stood in front of it and wouldn't let me open it.", "A capa de roupa comprida da Srta. Whitmore. O Sr. Finch ficou na frente dela e não me deixou abrir.", "o4", {"clue": "garment_bag"}],
+  "o4": ["o", "It's a silk concert dress. It creases. You can't just go through a lady's dress.", "É um vestido de concerto, de seda. Amassa. Não se sai mexendo no vestido de uma dama.", "m5"],
+  "m5": ["m", "Berth nine. I can open that bag right now. I'm entitled to. Should I?", "Cabine nove. Posso abrir aquela capa agora mesmo. Tenho esse direito. Devo abrir?", [
+   ["Not yet. Let Clara open it herself.", "Ainda não. Deixa a própria Clara abrir.", "m_wait"],
+   ["Yes. We're running out of time.", "Sim. O tempo está acabando.", "o_beg"],
+   ["Yes, open the bar. I'd love a toastie.", "Sim, abre o bar. Eu queria muito um misto.", null, "The bar is closed. The bag, I said. Do I open Miss Whitmore's garment bag, or not?", "O bar está fechado. Eu disse a capa. Abro a capa de roupa da Srta. Whitmore ou não?"]
+  ]],
+  "m_wait": ["m", "Hm. Slower, but kinder. Very well. The bag stays shut. For now.", "Hum. Mais demorado, mas mais gentil. Muito bem. A capa fica fechada. Por enquanto.", "o6"],
+  "o_beg": ["o", "Please. Don't. Not like that, behind her back. Give her until morning. I'm begging you.", "Por favor. Não. Assim não, pelas costas dela. Deem um tempo a ela até de manhã. Eu imploro.", "m_sit"],
+  "m_sit": ["m", "Sit down, Mr. Finch. I haven't opened anything. Yet.", "Sente, Sr. Finch. Eu não abri nada. Ainda.", "o6"],
+  "o6": ["o", "You already know, don't you? Both of you. Tell me. What would you do in my place?", "Vocês já sabem, não sabem? Você e ela. Me diz. O que você faria no meu lugar?", [
+   ["I'd stop lying for her, and start standing next to her.", "Eu parava de mentir por ela e ficava ao lado dela.", "o_stand"],
+   ["Exactly what you did. But it can't go on past Edinburgh.", "Exatamente o que você fez. Mas isso não pode passar de Edimburgo.", "o_same"],
+   ["In your place? I'd order more tea. Nice seat.", "No seu lugar? Eu pedia mais chá. Poltrona boa.", null, "Not my seat. My situation. If someone you cared about was in trouble, what would you do?", "Não a minha poltrona. A minha situação. Se alguém importante pra você estivesse em apuros, o que você faria?"]
+  ]],
+  "o_stand": ["o", "Standing next to her. That's harder than carrying a case. But you're right.", "Ficar ao lado dela. É mais difícil que carregar um estojo. Mas você tem razão.", "m_end"],
+  "o_same": ["o", "No. It can't. The hall opens at six tonight. Two thousand seats, all sold.", "É. Não pode. A sala abre às seis da tarde. Dois mil lugares, todos vendidos.", "m_end"],
+  "m_end": ["m", "It's five o'clock. We reach Edinburgh at twenty past seven. Then I make a phone call, or I don't.", "São cinco horas. Chegamos a Edimburgo às sete e vinte. Aí eu dou um telefonema, ou não dou.", "o_end"],
+  "o_end": ["o", "Give me an hour with her. Please. Then talk to her yourself. Gently.", "Me deem uma hora com ela. Por favor. Depois fale você com ela. Com delicadeza.", "n_end"],
+  "n_end": ["n", "Outside, the sky is turning from black to grey. You can see hills now. Scotland.", "Lá fora, o céu vai passando do preto para o cinza. Já dá pra ver colinas. A Escócia.", null]
+ }
+}

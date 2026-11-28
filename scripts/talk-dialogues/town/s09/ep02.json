@@ -1,0 +1,93 @@
+{
+ "slug": "s09-02-the-missing-cream", "episode": 2, "title": "The Missing Cream", "level": "B1",
+ "place": "kitchen", "placeLabel": "Bancada 4", "time": "Segunda · 10h", "ambience": "kitchen",
+ "description": "Primeira prova: uma sopa com gosto de casa. Só que sem creme.",
+ "intro": "Você conheceu o Toby, a Stella e a Morag, e prometeu um prato para a final. A primeira prova começou, e o creme de leite sumiu da sua bandeja.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "g": ["Morag", "Participante, avó escocesa", "bf_alice", "left"],
+  "c": ["Rupert", "Participante, dono de restaurante", "bm_george", "right"],
+  "s": ["Stella", "Apresentadora do programa", "bf_isabella", "right"],
+  "t": ["Toby", "Assistente de produção", "bm_fable", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "The clock is running. Three other cooks are already chopping. You are staring at your tray.", "O relógio está correndo. Os outros três já estão picando. Você está olhando pra sua bandeja.", "n2"],
+  "n2": ["n", "You planned a creamy corn soup, like the one from home. Without cream, it's just corn.", "Você planejou uma sopa cremosa de milho, como a de casa. Sem creme, é só milho.", "g1"],
+  "g1": ["g", "No cream? Somebody in that office can't count. So, what's your plan, dear?", "Sem creme? Alguém naquele escritório não sabe contar. E aí, qual é o seu plano, meu bem?", [
+   ["I'll ask Rupert. He's got a huge jug of it.", "Vou pedir ao Rupert. Ele tem uma jarra enorme.", "n_rup"],
+   ["Could I borrow a little of yours?", "Você me empresta um pouco do seu?", "g_lend"],
+   ["I'll manage without. Milk and butter will do.", "Eu me viro sem. Leite e manteiga resolvem.", "g_proud", {"set": {"owe_morag": "no"}}],
+   ["I don't have a plane. I came by train.", "Eu não tenho avião. Vim de trem.", null, "A plane? Your plan, dear. What are you going to do about the cream?", "Avião? O seu plano, meu bem. O que você vai fazer sobre o creme?"]
+  ]],
+  "n_rup": ["n", "You walk over to station one. Rupert is slicing an onion very fast, without looking at it.", "Você vai até a bancada um. O Rupert está fatiando uma cebola bem rápido, sem nem olhar.", "c1"],
+  "c1": ["c", "Ah, Brazil. Come to watch a professional? Take notes, I don't mind.", "Ah, Brasil. Veio assistir a um profissional? Pode anotar, eu não ligo.", [
+   ["Actually, could you spare some cream? Mine's missing.", "Na verdade, você pode me ceder um pouco de creme? O meu sumiu.", "c_no"],
+   ["Nice knife skills. Any chance of a little cream?", "Bela técnica com a faca. Rola um pouquinho de creme?", "c_flat"],
+   ["Sorry, I didn't bring a notebook.", "Desculpa, eu não trouxe caderno.", null, "It's a figure of speech. I'm busy, Brazil. What do you actually want?", "É modo de dizer. Estou ocupado, Brasil. O que você quer, afinal?"]
+  ]],
+  "c_no": ["c", "Missing? A real chef checks the tray twice. I need every drop of mine. Sorry.", "Sumiu? Chef de verdade confere a bandeja duas vezes. Preciso de cada gota do meu. Sinto muito.", "c_back"],
+  "c_flat": ["c", "Flattery usually works on me. But not today. My sauce needs all of it.", "Elogio costuma funcionar comigo. Mas hoje não. Meu molho precisa de tudo.", "c_back"],
+  "c_back": ["c", "Here's a free tip instead. Sweat the onions slowly. Never rush an onion.", "Em troca, uma dica de graça. Refogue a cebola devagar. Nunca apresse uma cebola.", "g_call"],
+  "g_call": ["g", "Leave him be, dear! Come over here. I've more cream than sense.", "Deixa ele pra lá, meu bem! Vem cá. Eu tenho mais creme do que juízo.", "g_offer"],
+  "g_lend": ["g", "Borrow? You can't give cream back, dear. But I've plenty.", "Emprestar? Creme não se devolve, meu bem. Mas eu tenho de sobra.", "g_offer"],
+  "g_offer": ["g", "Half for you, half for me. Will you take it?", "Metade pra você, metade pra mim. Aceita?", [
+   ["Yes, please. I owe you one, Morag.", "Sim, por favor. Fico te devendo uma, Morag.", "g_owe", {"set": {"owe_morag": "yes"}}],
+   ["That's kind, but it isn't fair on you. I'll improvise.", "É muita gentileza, mas não é justo com você. Vou improvisar.", "g_proud", {"set": {"owe_morag": "no"}}],
+   ["Half past what?", "E meia de que horas?", null, "Half the cream, not half past anything! Do you want some of my cream, yes or no?", "Metade do creme, não hora e meia nenhuma! Quer um pouco do meu creme, sim ou não?"]
+  ]],
+  "g_owe": ["g", "You do. And I always collect. Now get those onions on.", "Deve mesmo. E eu sempre cobro. Agora põe essa cebola no fogo.", "n_cook"],
+  "g_proud": ["g", "Proud, are you? Good. Milk, butter, and a spoon of flour to thicken it. Off you go.", "Orgulho, é? Ótimo. Leite, manteiga e uma colher de farinha pra engrossar. Vai lá.", "n_cook"],
+  "n_cook": ["n", "You melt the butter and add the onions. The kitchen fills with steam and noise.", "Você derrete a manteiga e junta a cebola. A cozinha se enche de vapor e barulho.", "s1"],
+  "s1": ["s", "Station four! Stella here, with a camera in your face. What are you doing right now?", "Bancada quatro! É a Stella, com uma câmera na sua cara. O que você está fazendo agora?", [
+   ["Sweating the onions slowly, so they go soft and sweet.", "Refogando a cebola devagar, pra ela ficar macia e docinha.", "s_sweet"],
+   ["Trying not to panic. My cream went missing.", "Tentando não entrar em pânico. Meu creme sumiu.", "s_missing"],
+   ["I'm sweating a lot, yes. It's the lights.", "Estou suando muito, sim. São as luzes.", null, "Aren't we all, darling! But the viewers want to know: what are you cooking right now?", "E quem não está, meu bem! Mas o público quer saber: o que você está cozinhando agora?"]
+  ]],
+  "s_sweet": ["s", "Soft and sweet. Just like me, before my first coffee. Lovely.", "Macia e docinha. Igualzinha a mim, antes do primeiro café. Que beleza.", "s_time"],
+  "s_missing": ["s", "Missing cream? Ooh, drama in round one. The viewers will love that.", "Creme sumido? Uh, drama já na primeira prova. O público vai adorar.", "s_time"],
+  "s_time": ["s", "You've got forty minutes left. What's next?", "Faltam quarenta minutos. Qual é o próximo passo?", [
+   ["I'll add the corn and the stock, then let it simmer.", "Vou juntar o milho e o caldo, e deixar cozinhar em fogo baixo.", "s_simmer"],
+   ["I need to chop the potatoes into small cubes, so they cook quickly.", "Preciso picar as batatas em cubinhos, pra cozinharem rápido.", "s_chop"],
+   ["Next is Tuesday.", "O próximo é terça-feira.", null, "True, but not helpful! What's the next step in your recipe?", "Verdade, mas não ajuda! Qual é o próximo passo da sua receita?"]
+  ]],
+  "s_simmer": ["s", "Simmer, don't boil. I know that one. I've been reading it out for six years.", "Fogo baixo, sem ferver. Essa eu sei. Faz seis anos que leio isso em voz alta.", "n_mid"],
+  "s_chop": ["s", "Small cubes. Mind your fingers, we've only got one first-aid kit.", "Cubinhos. Cuidado com os dedos, só temos um kit de primeiros socorros.", "n_mid"],
+  "n_mid": ["n", "The soup bubbles gently. You stir, you wait, you stir again. Twenty minutes left.", "A sopa borbulha de leve. Você mexe, espera, mexe de novo. Faltam vinte minutos.", "g2"],
+  "g2": ["g", "Have you tasted yours yet, dear? Go on. What does it need?", "Já provou a sua, meu bem? Anda. O que está faltando?", [
+   ["More salt. And maybe a squeeze of lime.", "Mais sal. E talvez umas gotas de limão.", "g_salt", {"set": {"tasted": "yes"}}],
+   ["It's a bit thin. I'll let it reduce.", "Está meio rala. Vou deixar reduzir.", "g_thin", {"set": {"tasted": "yes"}}],
+   ["I haven't tasted it. There's no time.", "Não provei. Não dá tempo.", "g_notaste", {"set": {"tasted": "no"}}],
+   ["I never pass tests.", "Eu nunca passo em testes.", null, "Tasted, not tested! Put a spoon in your soup. What does it need?", "Provar, não fazer prova! Põe uma colher na sopa. O que está faltando nela?"]
+  ]],
+  "g_salt": ["g", "Then add it a pinch at a time. You can put salt in, but you can't take it out.", "Então põe uma pitada de cada vez. Sal dá pra pôr, mas não dá pra tirar.", "n_toby"],
+  "g_thin": ["g", "Lid off, heat up, and keep stirring. Don't let it catch on the bottom.", "Tira a tampa, aumenta o fogo e não para de mexer. Não deixa pegar no fundo.", "n_toby"],
+  "g_notaste": ["g", "No time? There's always time for a spoon. That judge can tell, you know.", "Não dá tempo? Sempre dá tempo pra uma colherada. Aquele jurado percebe, viu.", "n_toby"],
+  "n_toby": ["n", "Five minutes left. Someone runs up to your station, out of breath. It's Toby.", "Faltam cinco minutos. Alguém chega correndo à sua bancada, sem fôlego. É o Toby.", "t1"],
+  "t1": ["t", "Number four! Found it. Your cream. I'm so, so sorry.", "Número quatro! Achei. Seu creme. Desculpa, desculpa mesmo.", [
+   ["Where on earth was it?", "Mas onde é que ele estava?", "t_fridge"],
+   ["It's too late now, Toby. But thanks for looking.", "Agora é tarde, Toby. Mas valeu por procurar.", "t_late"],
+   ["Don't scream, we're on television.", "Não grita, a gente está na televisão.", null, "Not scream. Cream! Your cream. I found it. Do you still want it?", "Não é grito. É creme! O seu creme. Eu achei. Você ainda quer?"]
+  ]],
+  "t_fridge": ["t", "In the crew fridge, next to my sandwiches. I've no idea how it got there.", "Na geladeira da equipe, ao lado dos meus sanduíches. Não faço ideia de como foi parar lá.", "helped_br", {"clue": "crew_fridge"}],
+  "t_late": ["t", "I know. It was in the crew fridge, right next to my sandwiches. Don't ask me how.", "Eu sei. Estava na geladeira da equipe, bem ao lado dos meus sanduíches. Não me pergunta como.", "helped_br", {"clue": "crew_fridge"}],
+  "helped_br": {"branch": [["helped_toby=yes", "t_helped"], [null, "t_ask"]]},
+  "t_helped": ["t", "And after you helped me with the spoons this morning. I'm the worst.", "E logo depois de você me ajudar com as colheres hoje cedo. Eu sou o pior.", "t_ask"],
+  "t_ask": ["t", "Please don't mention it to Dee. She's the producer, and she's had a morning already.", "Por favor, não comenta com a Dee. Ela é a produtora, e a manhã dela já foi difícil.", [
+   ["Don't worry. These things happen.", "Relaxa. Essas coisas acontecem.", "t_thanks"],
+   ["Toby, this could have cost me the round.", "Toby, isso podia ter me custado a prova.", "t_sorry"],
+   ["Who's Dee? Is it short for dinner?", "Quem é Dee? É apelido de jantar?", null, "Dinner? No. Dee's my boss. Never mind. Can we just keep this between us?", "Jantar? Não. A Dee é minha chefe. Deixa pra lá. Pode ficar só entre a gente?"]
+  ]],
+  "t_thanks": ["t", "Thanks. Really. I'll make it up to you, I promise.", "Obrigado. De verdade. Eu vou te compensar, prometo.", "n_last"],
+  "t_sorry": ["t", "I know. You're right. It won't happen again. It can't.", "Eu sei. Você tem razão. Não vai acontecer de novo. Não pode.", "n_last"],
+  "n_last": ["n", "One minute. You pour the soup into a white bowl and wipe the edge clean.", "Um minuto. Você serve a sopa numa tigela branca e limpa a borda.", "s_end"],
+  "s_end": ["s", "Ten seconds! Any last touches, station four?", "Dez segundos! Algum toque final, bancada quatro?", [
+   ["A few fresh herbs on top. That's all.", "Umas ervas frescas por cima. Só isso.", "s_stop"],
+   ["No. It's done. I'm leaving it alone.", "Não. Está pronta. Não mexo mais.", "s_stop2"],
+   ["I didn't touch anything, I swear.", "Eu não toquei em nada, juro.", null, "I believe you! I mean your bowl. Anything to add before time's up?", "Eu acredito! Falo da sua tigela. Vai pôr mais alguma coisa antes de o tempo acabar?"]
+  ]],
+  "s_stop": ["s", "Pretty! And stop. Spoons down, hands up, everyone!", "Que lindo! E parou. Colheres na mesa, mãos pra cima, todo mundo!", "n_end"],
+  "s_stop2": ["s", "Confident. I like it. And stop. Spoons down, hands up, everyone!", "Quanta confiança. Gostei. E parou. Colheres na mesa, mãos pra cima, todo mundo!", "n_end"],
+  "n_end": ["n", "The studio goes silent. A door opens at the back. The judge has arrived, and he isn't smiling.", "O estúdio fica em silêncio. Uma porta se abre lá no fundo. O jurado chegou, e não está sorrindo.", null]
+ }
+}

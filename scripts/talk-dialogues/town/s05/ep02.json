@@ -1,0 +1,84 @@
+{
+ "slug": "s05-02-the-registrar", "episode": 2, "title": "The Registrar's Office", "level": "A2",
+ "place": "office", "placeLabel": "Secretaria acadêmica", "time": "Semana 1 · Seg 9h", "ambience": "office",
+ "description": "Fila, foto da carteirinha e uma matrícula errada para consertar.",
+ "intro": "Você se instalou na suíte 3B com a Tasha e conheceu o Miles, o vizinho que conserta tudo e nunca aceita ajuda. Hoje é segunda: hora de resolver matrícula e carteirinha na secretaria.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "d": ["Mr. Doyle", "Secretário acadêmico", "bm_george", "left"],
+  "g": ["Gus", "Estudante na fila", "am_puck", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Monday, nine o'clock. The registrar's office has a long line and one small window.", "Segunda, nove horas. A secretaria tem uma fila comprida e um guichê pequeno.", "n2"],
+  "n2": ["n", "The student in front of you turns around. He is eating a bagel.", "O estudante na sua frente se vira. Ele está comendo um bagel.", "g1"],
+  "g1": ["g", "Morning! Welcome to the line. I've been here since last year, I think.", "Bom dia! Boas-vindas à fila. Acho que eu tô aqui desde o ano passado.", [
+   ["Ha! Is it always this slow?", "Rá! É sempre devagar assim?", "g_slow"],
+   ["Hi. Is this the line for student IDs?", "Oi. Esta é a fila da carteirinha de estudante?", "g_id"],
+   ["Good morning. One bagel, please.", "Bom dia. Um bagel, por favor.", null, "Ha! This one's mine. This is a line, not a bakery. A very, very slow line.", "Rá! Este é meu. Isto é fila, não padaria. Uma fila muito, muito lenta."]
+  ]],
+  "g_slow": ["g", "Always. Mr. Doyle reads every form twice. Then he reads it again.", "Sempre. O Sr. Doyle lê cada formulário duas vezes. Depois lê de novo.", "g2"],
+  "g_id": ["g", "IDs, classes, everything. One window, one man, a hundred forms.", "Carteirinha, matrícula, tudo. Um guichê, um homem, cem formulários.", "g2"],
+  "g2": ["g", "I'm Gus, by the way. So, what classes are you taking?", "Eu sou o Gus, aliás. E aí, que matérias você vai fazer?", [
+   ["I don't know yet. I still need one more class.", "Ainda não sei. Falta eu escolher mais uma matéria.", "g_class"],
+   ["Cities and People, I think. Is it good?", "Cities and People, eu acho. É boa?", "g_class2"],
+   ["I'm taking the bus.", "Vou pegar o ônibus.", null, "Ha! Not the bus. Classes! What are you going to study this semester?", "Rá! Ônibus, não. Matérias! O que você vai estudar neste semestre?"]
+  ]],
+  "g_class": ["g", "Take Cities and People, with Professor Okafor. It's hard, but she's the best.", "Pega Cities and People, com a professora Okafor. É difícil, mas ela é a melhor.", "n3"],
+  "g_class2": ["g", "Hey, I'm in that one too! Professor Okafor. She's tough, but she's the best.", "Opa, eu também tô nessa! Professora Okafor. Ela é exigente, mas é a melhor.", "n3"],
+  "n3": ["n", "The line moves. Gus goes to the window. He comes back with an ID and a sad face.", "A fila anda. O Gus vai até o guichê. Volta com uma carteirinha nova e uma cara triste.", "g3"],
+  "g3": ["g", "My photo is terrible. He doesn't wait. Good luck. See you in class!", "Minha foto ficou horrível. Ele não espera. Boa sorte. A gente se vê na aula!", "n4"],
+  "n4": ["n", "Now it's your turn. The man at the window does not smile.", "Agora é a sua vez. O homem do guichê não sorri.", "d1"],
+  "d1": ["d", "Good morning. Country, and the reason you are at my window, please.", "Bom dia. País, e o motivo de você estar no meu guichê, por favor.", [
+   ["Brazil. I'm an exchange student. I need my student ID.", "Brasil. Estou fazendo intercâmbio. Preciso da minha carteirinha.", "d_id"],
+   ["Good morning! How are you today?", "Bom dia! Como vai o senhor?", "d_how"],
+   ["Brazil is very well, thank you.", "O Brasil vai muito bem, agradeço.", null, "I am glad Brazil is well. But why are you here? An ID? Classes?", "Fico feliz que o Brasil vá bem. Mas por que você está aqui? Carteirinha? Matrícula?"]
+  ]],
+  "d_how": ["d", "I am the same as every day. Busy. You are the exchange student from Brazil, I assume.", "Estou como todos os dias. Ocupado. Você veio do Brasil, pelo intercâmbio, imagino.", "d_id"],
+  "d_id": ["d", "First, the photo for your ID. Look at the camera. Three, two, one.", "Primeiro, a foto da carteirinha. Olhe para a câmera. Três, dois, um.", [
+   ["Wait, wait! Let me smile. Cheese!", "Espera, espera! Deixa eu sorrir. Xis!", "d_smile", {"set": {"id_photo": "smile"}}],
+   ["I'm ready. Serious face.", "Pode tirar. Cara séria.", "d_serious", {"set": {"id_photo": "serious"}}],
+   ["One second, there's something in my eye.", "Um segundo, tem alguma coisa no meu olho.", "d_blink", {"set": {"id_photo": "blink"}}],
+   ["Three, two, one, happy new year!", "Três, dois, um, feliz ano novo!", null, "It is September. Please look at the camera. Are you ready for the photo?", "Estamos em setembro. Por favor, olhe para a câmera. Posso tirar a foto?"]
+  ]],
+  "d_smile": ["d", "A smile. How unusual. Most students look like criminals in these.", "Um sorriso. Que raro. A maioria dos estudantes sai com cara de criminoso.", "d_sched"],
+  "d_serious": ["d", "Very serious. You look like a young professor. Or a spy.", "Bem sério. Parece foto de docente jovem. Ou de agente secreto.", "d_sched"],
+  "d_blink": ["d", "Too late. Your eyes are closed. The system allows one photo. Only one.", "Tarde demais. Seus olhos saíram fechados. O sistema permite uma foto. Só uma.", "d_sched"],
+  "d_sched": ["d", "Now, your classes. I have you in English Writing, Statistics, and Advanced Swimming.", "Agora, suas matérias. Aqui consta Redação em Inglês, Estatística e Natação Avançada.", [
+   ["Swimming? That's a mistake. I didn't choose swimming.", "Natação? Isso é um engano. Eu não escolhi natação.", "d_mistake"],
+   ["Advanced swimming? I can't even swim!", "Natação avançada? Eu nem sei nadar!", "d_cant"],
+   ["Great. I'm very good at winning.", "Ótimo. Ganhar é comigo mesmo.", null, "Not winning. Swimming. In a pool, with water. Did you choose that class, or not?", "Ganhar, não. Nadar. Numa piscina, com água. Você escolheu essa matéria ou não?"]
+  ]],
+  "d_mistake": ["d", "The computer says swimming. The computer is usually right. But I can change it. With a form.", "O computador diz natação. O computador costuma ter razão. Mas eu posso trocar. Com um formulário.", "d_form"],
+  "d_cant": ["d", "Then it would be a short class. And a dangerous one. I can change it. With a form.", "Então seria uma aula curta. E perigosa. Eu posso trocar. Com um formulário.", "d_form"],
+  "d_form": ["d", "Two classes still have seats. Cities and People, or History of Jazz. Which one?", "Duas matérias ainda têm vaga. Cities and People ou História do Jazz. Qual?", [
+   ["Cities and People, please. I heard the professor is great.", "Cities and People, por favor. Ouvi dizer que a professora é ótima.", "d_cities"],
+   ["Which one has less homework?", "Qual das duas tem menos lição?", "d_less"],
+   ["Cities and pizza, please.", "Cidades e pizza, por favor.", null, "This is not a restaurant. Cities and People, or History of Jazz. Which class?", "Aqui não é restaurante. Cities and People ou História do Jazz. Qual matéria?"]
+  ]],
+  "d_less": ["d", "Jazz has less homework. Jazz is also full, as of this second. So: Cities and People.", "Jazz tem menos lição. Jazz também lotou, neste exato segundo. Então: Cities and People.", "d_cities"],
+  "d_cities": ["d", "Professor Okafor. One group project and a big presentation in week ten. No late work.", "Professora Okafor. Um trabalho em grupo e uma apresentação grande na semana dez. Nada de atraso.", "d_sign"],
+  "d_sign": ["d", "Sign here, please. Blue pen only. And here. And here.", "Assine aqui, por favor. Só caneta azul. E aqui. E aqui.", [
+   ["Done. Can I ask something? What happens if I miss a deadline?", "Pronto. Posso perguntar uma coisa? O que acontece se eu perder um prazo?", "d_deadline"],
+   ["Done. Is that everything?", "Pronto. É só isso?", "d_card_br"],
+   ["Sorry, I only have a black pen.", "Desculpa, só tenho caneta preta.", "d_pen"],
+   ["Sing here? Okay. La, la, la.", "Cantar aqui? Tá. Lá, lá, lá.", null, "Please do not sing. Sign. Write your name. Here, with the blue pen.", "Por favor, não cante. Assine. Escreva seu nome. Aqui, com a caneta azul."]
+  ]],
+  "d_deadline": ["d", "A sensible question at last. Deadlines here are serious. Late means zero.", "Até que enfim uma pergunta sensata. Prazo aqui é coisa séria. Atrasou, é zero.", "d_late"],
+  "d_late": ["d", "But one rule nobody uses: a group can move its presentation to the last slot of the day.", "Mas tem uma regra que ninguém usa: um grupo pode passar a apresentação para o último horário do dia.", "d_late2", {"clue": "late_slot"}],
+  "d_late2": ["d", "Once a semester. You must ask the professor before the class starts. Not after. Before.", "Uma vez por semestre. Tem que pedir à professora antes de a aula começar. Depois, não. Antes.", "d_card_br"],
+  "d_pen": ["d", "Black. Of course. Take mine. I want it back. I count them every evening.", "Preta. Claro. Use a minha. Quero de volta. Eu conto todas no fim do dia.", "d_card_br"],
+  "d_card_br": {"branch": [["id_photo=smile", "d_card_smile"], ["id_photo=serious", "d_card_serious"], [null, "d_card_blink"]]},
+  "d_card_smile": ["d", "Here is your ID. A good photo, for once. Do not lose it.", "Aqui está sua carteirinha. Uma foto boa, para variar. Não perca.", "d_last"],
+  "d_card_serious": ["d", "Here is your ID. The spy photo. Do not lose it.", "Aqui está sua carteirinha. A foto de agente secreto. Não perca.", "d_last"],
+  "d_card_blink": ["d", "Here is your ID, with the closed eyes. You will have it all year. I am sorry.", "Aqui está sua carteirinha, de olhos fechados. Vai ser sua o ano inteiro. Sinto muito.", "d_last"],
+  "d_last": ["d", "Anything else? There are forty people behind you.", "Mais alguma coisa? Tem quarenta pessoas atrás de você.", [
+   ["No, that's all. Thank you for your help, Mr. Doyle.", "Não, é só isso. Agradeço a ajuda, Sr. Doyle.", "d_thanks"],
+   ["Yes. Where is the Cities and People class?", "Sim. Onde é a aula de Cities and People?", "d_room"],
+   ["Forty people? I only see a window.", "Quarenta pessoas? Eu só vejo um guichê.", null, "They are behind you. Turn around. There. Now, do you need anything else?", "Estão atrás de você. Vire-se. Pronto. Agora, precisa de mais alguma coisa?"]
+  ]],
+  "d_thanks": ["d", "You said thank you. That is the first one today. Good luck, Brazil.", "Você agradeceu. É o primeiro agradecimento do dia. Boa sorte, Brasil.", "n_end"],
+  "d_room": ["d", "Harper Building, room two oh four. Tuesday at two. Do not be late. She locks the door.", "Prédio Harper, sala dois zero quatro. Terça às duas. Não se atrase. Ela tranca a porta.", "n_end"],
+  "n_end": ["n", "You have an ID, four classes and no swimming. Tomorrow at two: Professor Okafor.", "Você tem carteirinha, quatro matérias e nada de natação. Amanhã às duas: professora Okafor.", null]
+ }
+}

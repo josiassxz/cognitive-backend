@@ -1,0 +1,97 @@
+{
+ "slug": "s04-04-the-doctor-with-dirty-hands", "episode": 4, "title": "The Doctor with Dirty Hands", "level": "A2",
+ "place": "garage", "placeLabel": "Oficina da Lupe · Texas", "time": "Terça · 14h", "ambience": "street",
+ "description": "Fumaça no motor, uma mecânica sem paciência e um segredo atrás do porta-luvas.",
+ "intro": "No Blue Star Motel, o Walt mostrou uma foto do vovô em 1974. O terceiro cartão fala de um médico de mãos sujas numa cidade com nome de cor: Amarillo, no Texas. E a van resolveu que precisa mesmo de médico.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "r": ["Rafa", "Seu primo de Chicago", "am_puck", "right"],
+  "l": ["Lupe", "Mecânica", "af_kore", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Texas is flat, hot and very big. Ten miles before Amarillo, the van starts to smoke.", "O Texas é plano, quente e enorme. Quinze quilômetros antes de Amarillo, a van começa a soltar fumaça.", "slept_br"],
+  "slept_br": {"branch": [["slept=badly", "r_tired"], [null, "r_fresh"]]},
+  "r_tired": ["r", "Perfect. I didn't sleep because of that ice machine, and now this.", "Perfeito. Eu não dormi por causa daquela máquina de gelo, e agora isso.", "n_tow"],
+  "r_fresh": ["r", "No, no, no! We slept so well. It was going to be a perfect day!", "Não, não, não! A gente dormiu tão bem. Ia ser um dia perfeito!", "n_tow"],
+  "n_tow": ["n", "You roll slowly into the first garage in town. A woman in blue overalls looks up from an engine.", "Vocês entram devagar na primeira oficina da cidade. Uma mulher de macacão azul levanta os olhos de um motor.", "l1"],
+  "l1": ["l", "Whoa! Turn it off. Turn it off! What happened?", "Opa! Desliga. Desliga isso! O que aconteceu?", [
+   ["There's smoke coming out of the engine.", "Está saindo fumaça do motor.", "l_smoke"],
+   ["We heard a strange noise, and then it got really hot.", "A gente ouviu um barulho estranho, e depois esquentou muito.", "l_hot"],
+   ["It happened on Tuesday.", "Aconteceu na terça-feira.", null, "I don't care what day it is! What happened to the van? Smoke? A noise?", "Não me interessa o dia! O que aconteceu com a van? Fumaça? Barulho?"]
+  ]],
+  "l_smoke": ["l", "I can see the smoke, thank you. They can see it in Oklahoma. Open the hood.", "A fumaça eu estou vendo, obrigada. Dá pra ver lá de Oklahoma. Abre o capô.", "n_hood"],
+  "l_hot": ["l", "Hot? In Texas, in August? You don't say. Open the hood.", "Quente? No Texas, em agosto? Não me diga. Abre o capô.", "n_hood"],
+  "n_hood": ["n", "She looks inside for a minute and says something in Spanish. It doesn't sound like a compliment.", "Ela olha lá dentro por um minuto e diz alguma coisa em espanhol. Não parece elogio.", "driver_br"],
+  "driver_br": {"branch": [["driver=you", "r_drv_you"], [null, "r_drv_me"]]},
+  "r_drv_you": ["r", "Before you ask: I wasn't driving. I was reading the map. Very carefully.", "Antes que você pergunte: eu não estava dirigindo. Estava lendo o mapa. Com muito cuidado.", "l_light"],
+  "r_drv_me": ["r", "Before you ask: yes, I was driving. But I'm an excellent driver. Ask anyone except Grandma.", "Antes que você pergunte: sim, eu estava dirigindo. Mas eu dirijo muito bem. Pergunta pra qualquer um, menos pra vovó.", "l_light"],
+  "l_light": ["l", "Did either of you see a little red light on the dashboard?", "Algum de vocês viu uma luzinha vermelha no painel?", [
+   ["Yes. It came on this morning.", "Vi. Acendeu hoje de manhã.", "l_morning"],
+   ["What red light?", "Que luz vermelha?", "l_what"],
+   ["Yes, we stopped at every red light.", "Sim, a gente parou em todos os sinais vermelhos.", null, "Not a traffic light! A little red light inside the van, by the wheel. Did you see it?", "Não é sinal de trânsito! Uma luzinha vermelha dentro da van, perto do volante. Vocês viram?"]
+  ]],
+  "l_morning": ["l", "This morning. And you kept driving for four hours. In Texas. Wonderful.", "Hoje de manhã. E vocês continuaram dirigindo por quatro horas. No Texas. Que maravilha.", "l_diag"],
+  "l_what": ["l", "The one that says: stop now, I'm dying. That one.", "Aquela que diz: para agora, estou morrendo. Essa.", "l_diag"],
+  "l_diag": ["l", "Your fan belt snapped and the engine overheated. I can fix it. But not today.", "A correia do ventilador arrebentou e o motor superaqueceu. Eu conserto. Mas não hoje.", [
+   ["How long will it take?", "Quanto tempo vai levar?", "l_long"],
+   ["How much will it cost?", "Quanto vai custar?", "l_cost"],
+   ["I'm not wearing a belt.", "Eu não estou de cinto.", null, "Not your belt. The van's belt! It's broken. So, what do you want to know first?", "Não o seu cinto. A correia da van! Arrebentou. Então, o que você quer saber primeiro?"]
+  ]],
+  "l_long": ["l", "The part gets here tomorrow morning. You'll be driving by noon. It's two hundred dollars.", "A peça chega amanhã de manhã. Ao meio-dia vocês já estão rodando. São duzentos dólares.", "helped_br"],
+  "l_cost": ["l", "Two hundred dollars, parts and labor. And you're not going anywhere until tomorrow at noon.", "Duzentos dólares, peça e mão de obra. E vocês não vão a lugar nenhum até amanhã ao meio-dia.", "helped_br"],
+  "helped_br": {"branch": [["helped_dot=yes", "l_dot_y"], [null, "l_dot_n"]]},
+  "l_dot_y": ["l", "Hold on. Dot called. You two washed her dishes? Then you pay for parts only. One twenty.", "Espera. A Dot ligou. Foram vocês que lavaram os pratos dela? Então pagam só a peça. Cento e vinte.", "l_frank"],
+  "l_dot_n": ["l", "Hold on. Dot called about a yellow van. She said you were in a hurry. Well, not anymore.", "Espera. A Dot ligou falando de uma van amarela. Disse que vocês estavam com pressa. Bom, agora não estão mais.", "l_frank"],
+  "l_frank": ["l", "So this is Frank's van. I thought I'd never see her again.", "Então esta é a van do Frank. Achei que nunca mais ia ver essa belezinha.", [
+   ["You knew our grandfather?", "Você conheceu o nosso avô?", "l_first"],
+   ["How do you know this van?", "De onde você conhece esta van?", "l_know"],
+   ["No, my name isn't Frank.", "Não, meu nome não é Frank.", null, "I know you're not Frank. I'm saying this van belonged to Frank. Am I right?", "Eu sei que você não é o Frank. Estou dizendo que esta van era do Frank. Acertei?"]
+  ]],
+  "l_know": ["l", "I know every bolt in that engine. It was the first one I ever fixed.", "Conheço cada parafuso desse motor. Foi o primeiro que eu consertei na vida.", "l_first"],
+  "l_first": ["l", "I was eighteen. My father said girls don't fix engines. Frank said: let her try.", "Eu tinha dezoito anos. Meu pai dizia que menina não conserta motor. O Frank disse: deixa ela tentar.", "l_first2"],
+  "l_first2": ["l", "So I fixed it. Alone. He paid me with a song on his harmonica. Best pay I ever got.", "E eu consertei. Sozinha. Ele me pagou com uma música na gaita. O melhor pagamento que eu já recebi.", [
+   ["Did he have a name for the van?", "Ele tinha um nome pra van?", "l_rosie"],
+   ["Is she worth a lot of money now?", "Ela vale muito dinheiro hoje?", "van_br"],
+   ["Best pie I ever got, too. At Dot's.", "A melhor torta que eu já comi também. No Dot's.", null, "Pay, not pie! Although Dot's pie is great. Anything you want to ask me about this van?", "Pagamento, não torta! Se bem que a torta da Dot é ótima. Quer me perguntar alguma coisa sobre esta van?"]
+  ]],
+  "l_rosie": ["l", "Rosie. He told me: be gentle with Rosie, she's carrying my whole life.", "Rosie. Ele me disse: cuidado com a Rosie, ela está carregando a minha vida inteira.", "van_br", {"clue": "rosie"}],
+  "van_br": {"branch": [["van_plan=sell", "r_sell4"], ["van_plan=keep", "r_keep4"], [null, "r_later4"]]},
+  "r_sell4": ["r", "Speaking of the van. A collector offered us four thousand dollars. Good price, right?", "Falando na van. Um colecionador ofereceu quatro mil dólares pra gente. Bom preço, né?", "l_worth"],
+  "r_keep4": ["r", "A collector offered four thousand for her. But somebody here says no way.", "Um colecionador ofereceu quatro mil por ela. Mas tem gente aqui que diz que nem pensar.", "l_worth"],
+  "r_later4": ["r", "A collector offered four thousand for her. We're still thinking about it.", "Um colecionador ofereceu quatro mil por ela. A gente ainda está pensando.", "l_worth"],
+  "l_worth": ["l", "Four thousand? She's worth eight. But here's my advice: don't sell her to a stranger.", "Quatro mil? Ela vale oito. Mas vai um conselho: não vendam essa van pra um estranho.", "n_wait"],
+  "n_wait": ["n", "Lupe gets to work. Rafa falls asleep on an old sofa in the corner. You stay and watch.", "A Lupe põe a mão na massa. O Rafa dorme num sofá velho no canto. Você fica olhando.", "l_glove"],
+  "l_glove": ["l", "Hey. Your glove box won't stay shut, and your tape player is dead. Want me to take a look?", "Ei. Seu porta-luvas não fica fechado, e seu toca-fitas morreu. Quer que eu dê uma olhada?", [
+   ["The glove box, please. It keeps falling open.", "No porta-luvas, por favor. Ele vive abrindo sozinho.", "l_gb"],
+   ["The tape player. Is it expensive to fix?", "No toca-fitas. É caro pra consertar?", "l_tape_q"],
+   ["No, thanks. I've already read that book.", "Não, valeu. Esse livro eu já li.", null, "Not a book. A look! Should I look at the glove box, or the tape player?", "Livro, não. Uma olhada! Eu olho o porta-luvas ou o toca-fitas?"]
+  ]],
+  "l_gb": ["l", "Something's stuck behind it. A little key, with a tag: for the end of the road. Keep it safe.", "Tem uma coisa presa aqui atrás. Uma chavinha, com uma etiqueta: para o fim da estrada. Guarda bem.", "l_tape_q", {"clue": "key"}],
+  "l_tape_q": ["l", "Now, the tape player. There's a tape stuck inside. Twenty dollars and it plays again.", "Agora, o toca-fitas. Tem uma fita presa lá dentro. Vinte dólares e ele volta a tocar.", [
+   ["Yes, please. Fix it.", "Sim, por favor. Pode consertar.", "n_music", {"set": {"radio": "fixed"}}],
+   ["No, thanks. We need to save money.", "Não, valeu. A gente precisa economizar.", "l_nofix", {"set": {"radio": "broken"}}],
+   ["No tape, thanks. I've got glue.", "Fita, não, valeu. Eu tenho cola.", null, "Not sticky tape. A music tape! Do you want the player fixed or not? Twenty dollars.", "Não é fita adesiva. Fita de música! Quer que eu conserte o toca-fitas ou não? Vinte dólares."]
+  ]],
+  "n_music": ["n", "Lupe pushes a button. The tape starts to play. It's an old samba, and you know every word.", "A Lupe aperta um botão. A fita começa a tocar. É um samba antigo, e você sabe a letra inteira.", "r_back"],
+  "r_back": ["r", "What's that music? Am I dreaming? Wait. You know the words?", "Que música é essa? Eu tô sonhando? Espera. Você sabe a letra?", [
+   ["Everybody in Brazil knows this song.", "Todo mundo no Brasil conhece essa música.", "r_teach"],
+   ["Grandpa used to sing it when I was little.", "O vovô cantava essa quando eu era criança.", "r_sing"],
+   ["Yes, I know the world. I travel a lot.", "Sim, eu conheço o mundo. Viajo bastante.", null, "Not the world. The words! You're singing along. How do you know this song?", "O mundo, não. A letra! Você tá cantando junto. De onde você conhece essa música?"]
+  ]],
+  "r_teach": ["r", "Then teach me! We've got a thousand miles to go.", "Então me ensina! Ainda faltam mais de mil e quinhentos quilômetros.", "r_card4"],
+  "r_sing": ["r", "He used to sing it on the school bus, too. The kids called it the bus song.", "Ele cantava essa no ônibus escolar também. As crianças chamavam de música do ônibus.", "r_card4"],
+  "l_nofix": ["l", "Your choice. But it's a long road with no music.", "Você que sabe. Mas é muita estrada sem música.", "r_card4"],
+  "r_card4": ["r", "Okay, I'm awake. The van sleeps here tonight. So: card number four.", "Pronto, acordei. A van dorme aqui hoje. Então: cartão número quatro.", "r_riddle"],
+  "r_riddle": ["r", "Tonight I paid for my dinner with my mouth. But I did not say one word.", "Hoje eu paguei o jantar com a boca. Mas não disse uma palavra.", "r_riddle2"],
+  "r_riddle2": ["r", "My new friend has six strings. We play where the spur is rusty, in Tucumcari. How did he pay?", "Meu novo amigo tem seis cordas. A gente toca onde a espora está enferrujada, em Tucumcari. Como ele pagou?", [
+   ["With music! He played the harmonica.", "Com música! Ele tocou gaita.", "l_harm"],
+   ["Six strings is a guitar. Was his friend a guitar player?", "Seis cordas é um violão. O amigo dele tocava violão?", "l_guitar"],
+   ["He ate with his mouth closed?", "Ele comeu de boca fechada?", null, "Good manners, but no. He paid for dinner with his mouth, without talking. How?", "Muito educado, mas não. Ele pagou o jantar com a boca, sem falar. Como?"]
+  ]],
+  "l_harm": ["l", "Right. And the Rusty Spur is a bar in Tucumcari. Old Hank still plays guitar there.", "Isso. E o Rusty Spur, a Espora Enferrujada, é um bar em Tucumcari. O velho Hank ainda toca violão lá.", "l_bye"],
+  "l_guitar": ["l", "That's Hank. He still plays at the Rusty Spur. Frank played harmonica with him for his dinner.", "É o Hank. Ele ainda toca no Rusty Spur, a Espora Enferrujada. O Frank tocava gaita com ele em troca do jantar.", "l_bye"],
+  "l_bye": ["l", "Tell Hank that Lupe says hello. And that he still owes me ten dollars.", "Diz pro Hank que a Lupe mandou um oi. E que ele ainda me deve dez dólares.", "n_end"],
+  "n_end": ["n", "Tomorrow at noon, the van will be ready. New Mexico is waiting. So is a man with six strings.", "Amanhã ao meio-dia, a van vai estar pronta. O Novo México está esperando. E um homem de seis cordas também.", null]
+ }
+}

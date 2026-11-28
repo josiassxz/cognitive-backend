@@ -1,0 +1,97 @@
+{
+ "slug": "s04-06-the-stone-forest", "episode": 6, "title": "The Stone Forest", "level": "B1",
+ "place": "park", "placeLabel": "Floresta Petrificada · Arizona", "time": "Quinta · 15h", "ambience": "nature",
+ "description": "Árvores de pedra, uma guarda apaixonada por regras e um livro de visitas de 1974.",
+ "intro": "No Rusty Spur, o Hank contou que o vovô passou de volta duas semanas depois, rumo ao leste e feliz da vida, sem explicar por quê. O quinto cartão fala de uma floresta sem folhas, com árvores de pedra deitadas no chão.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "r": ["Rafa", "Seu primo de Chicago", "am_puck", "right"],
+  "k": ["Ranger June", "Guarda do parque", "af_sarah", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Arizona. The land is red, pink and purple, like a painting left out in the sun.", "Arizona. A terra é vermelha, rosa e roxa, como um quadro esquecido no sol.", "sang_br"],
+  "sang_br": {"branch": [["sang=yes", "r_hum_y"], [null, "r_hum_n"]]},
+  "r_hum_y": ["r", "You've been humming Grandpa's song since breakfast, superstar. Not that I'm complaining.", "Você está cantarolando a música do vovô desde o café da manhã, estrela do palco. Não que eu esteja reclamando.", "n2"],
+  "r_hum_n": ["r", "I can't get Grandpa's song out of my head. Six hours of it. Send help.", "A música do vovô não sai da minha cabeça. Seis horas disso. Socorro.", "n2"],
+  "n2": ["n", "At the park entrance, a ranger in a wide hat steps out of a little wooden booth.", "Na entrada do parque, uma guarda de chapéu de aba larga sai de uma cabine de madeira.", "k1"],
+  "k1": ["k", "Welcome to the Petrified Forest! I'm Ranger June. Is this your first visit?", "Boas-vindas à Floresta Petrificada! Eu sou a guarda June. É a primeira visita de vocês?", [
+   ["Yes, it is. What should we see first?", "É, sim. O que a gente deve ver primeiro?", "k_see"],
+   ["Our first, yes. But our grandfather came here fifty years ago.", "A nossa primeira, sim. Mas nosso avô veio aqui há cinquenta anos.", "k_grand"],
+   ["No, we're not visitors. We're cousins.", "Não, a gente não é visitante. A gente é da mesma família.", null, "Oh! You can be both, I think. I meant: have you been to the park before?", "Ah! Dá pra ser as duas coisas, eu acho. Eu quis dizer: vocês já vieram ao parque antes?"]
+  ]],
+  "k_see": ["k", "The Crystal Forest trail. It's short, and the logs sparkle. Just two rules before you go.", "A trilha da Floresta de Cristal. É curta, e os troncos brilham. Só duas regras antes de irem.", "k_rules"],
+  "k_grand": ["k", "Fifty years! My father was head ranger back then. I grew up here. Two rules before you go, though.", "Cinquenta anos! Meu pai era o chefe dos guardas naquela época. Eu cresci aqui. Mas, antes de irem, duas regras.", "k_rules"],
+  "k_rules": ["k", "One: stay on the trail. Two: don't take any petrified wood. Not even a tiny piece.", "Um: fiquem na trilha. Dois: não levem madeira petrificada. Nem um pedacinho.", [
+   ["Of course. We'll only take photos.", "Claro. A gente só vai levar fotos.", "k_good", {"set": {"rock": "no"}}],
+   ["Not even a really small one, as a souvenir?", "Nem uma bem pequenininha, de lembrança?", "k_curse", {"set": {"rock": "asked"}}],
+   ["Stay on the tail? Whose tail?", "Ficar no rabo? No rabo de quem?", null, "Trail, not tail! The path. Stay on it, and leave the wood where it is. All right?", "Trilha, não rabo! O caminho. Fiquem nele, e deixem a madeira onde está. Combinado?"]
+  ]],
+  "k_good": ["k", "Thank you. You'd be amazed how many people say that with a rock in their pocket.", "Obrigada. Você nem imagina quanta gente diz isso com uma pedra no bolso.", "n_trail"],
+  "k_curse": ["k", "Not even one. Besides, they say it brings bad luck. People mail the rocks back, with apology letters.", "Nem uma. Além disso, dizem que dá azar. As pessoas devolvem as pedras pelo correio, com carta pedindo desculpa.", "r_curse"],
+  "r_curse": ["r", "Cursed rocks? Seriously? I'm not touching anything. I'm barely going to breathe.", "Pedras amaldiçoadas? Sério? Não vou encostar em nada. Mal vou respirar.", "n_trail"],
+  "n_trail": ["n", "You walk among enormous logs of stone. They shine red and gold in the heat. The silence is huge.", "Vocês andam entre troncos enormes de pedra. Eles brilham em vermelho e dourado no calor. O silêncio é imenso.", "r_wow"],
+  "r_wow": ["r", "Okay, I admit it. This beats a taco restaurant. How old do you think these things are?", "Tá, eu admito. Isso ganha de um restaurante de tacos. Quantos anos você acha que essas coisas têm?", [
+   ["Millions of years, I guess. Older than the dinosaurs?", "Milhões de anos, eu acho. Mais velhas que os dinossauros?", "r_dino"],
+   ["No idea. Let's ask the ranger. She's coming this way.", "Não faço ideia. Vamos perguntar pra guarda. Ela está vindo pra cá.", "k_age"],
+   ["I'm not telling you how old I am.", "Eu não vou te contar a minha idade.", null, "Not you! The trees. How old are these stone trees?", "Você, não! As árvores. Quantos anos têm essas árvores de pedra?"]
+  ]],
+  "r_dino": ["r", "Older than dinosaurs. And we complain that the van is old.", "Mais velhas que os dinossauros. E a gente reclamando que a van é velha.", "n_ranger"],
+  "n_ranger": ["n", "The ranger hurries up the trail behind you, a little out of breath.", "A guarda vem apressada pela trilha atrás de vocês, meio sem fôlego.", "k_van"],
+  "k_age": ["k", "Over two hundred million years! Sorry. I overheard. I can't help myself.", "Mais de duzentos milhões de anos! Desculpa. Eu ouvi sem querer. Não consigo me segurar.", "k_van"],
+  "k_van": ["k", "Excuse me. That yellow van in the parking lot. It's yours, isn't it? Where did you get it?", "Com licença. Aquela van amarela no estacionamento. É de vocês, não é? De onde ela veio?", [
+   ["It was our grandfather's. He drove it here in seventy-four.", "Era do nosso avô. Ele veio com ela até aqui em setenta e quatro.", "k_frank"],
+   ["Why? Is there a problem with it?", "Por quê? Tem algum problema com ela?", "k_noprob"],
+   ["Yes, we parked a lot today.", "Sim, a gente estacionou muito hoje.", null, "I'm sure you did! But the yellow van. Where did it come from?", "Imagino que sim! Mas a van amarela. De onde ela veio?"]
+  ]],
+  "k_noprob": ["k", "No, no problem at all! It's just that I've seen that van before. A very long time ago.", "Não, problema nenhum! É que eu já vi essa van antes. Há muito, muito tempo.", "k_frank"],
+  "k_frank": ["k", "I knew it! I was nine. A yellow van got stuck in the sand, right behind our house.", "Eu sabia! Eu tinha nove anos. Uma van amarela atolou na areia, bem atrás da nossa casa.", "k_frank2"],
+  "k_frank2": ["k", "My dad pulled it out with the park truck. The driver stayed for dinner and told riddles all night.", "Meu pai puxou a van com a caminhonete do parque. O motorista ficou pro jantar e contou charadas a noite toda.", [
+   ["That's him! Do you remember any of his riddles?", "É ele! Você lembra de alguma charada dele?", "k_riddle"],
+   ["Did he leave anything behind? He loved leaving messages.", "Ele deixou alguma coisa? Ele adorava deixar recados.", "k_book"],
+   ["Thank you! We'd love to stay for dinner.", "Valeu! A gente adoraria ficar pro jantar.", null, "Oh! Um, I wasn't inviting you. Sorry! I meant your grandfather stayed. Shall I tell you about him?", "Ah! Hum, eu não estava convidando. Desculpa! Eu quis dizer que o seu avô ficou. Posso contar sobre ele?"]
+  ]],
+  "k_riddle": ["k", "One. I've used it on school groups for forty years. What goes from Chicago to Los Angeles without moving?", "Uma. Eu uso com as turmas de escola há quarenta anos. O que vai de Chicago a Los Angeles sem se mexer?", [
+   ["The road! It goes everywhere and never moves.", "A estrada! Ela vai pra todo lado e nunca se mexe.", "k_right"],
+   ["A postcard? No, that moves. I give up.", "Um cartão-postal? Não, esse se mexe. Desisto.", "k_giveup"],
+   ["Without mooing? A very quiet cow.", "Sem mugir? Uma vaca bem quietinha.", null, "Moving, not mooing! Although I like the cow. What goes from Chicago to Los Angeles without moving?", "Mexer, não mugir! Se bem que eu gostei da vaca. O que vai de Chicago a Los Angeles sem se mexer?"]
+  ]],
+  "k_right": ["k", "Yes! The road! It took me three days to get that when I was nine.", "Isso! A estrada! Eu levei três dias pra acertar essa, quando tinha nove anos.", "k_book_intro"],
+  "k_giveup": ["k", "The road! It goes all that way and never moves an inch. Isn't that wonderful?", "A estrada! Ela vai até lá e não sai do lugar. Não é uma maravilha?", "k_book_intro"],
+  "k_book_intro": ["k", "And he left something else. Come to the visitor center. You have to see this.", "E ele deixou outra coisa. Venham ao centro de visitantes. Vocês precisam ver isso.", "n_center"],
+  "k_book": ["k", "He did! How did you guess? Come to the visitor center. You have to see this.", "Deixou! Como você adivinhou? Venham ao centro de visitantes. Vocês precisam ver isso.", "n_center"],
+  "n_center": ["n", "In the visitor center, the ranger unlocks a glass case and takes out a thick old book.", "No centro de visitantes, a guarda destranca uma vitrine e tira um livro grosso e antigo.", "k_log"],
+  "k_log": ["k", "Our visitor book from seventy-four. My dad kept every single one. Here. August the third.", "Nosso livro de visitas de setenta e quatro. Meu pai guardou todos. Aqui. Três de agosto.", "k_log2"],
+  "k_log2": ["k", "This place makes a man feel small. Next time, I am bringing my grandchildren. Frank Almeida.", "Este lugar faz um homem se sentir pequeno. Da próxima vez, trago meus netos. Frank Almeida.", "log_br", {"clue": "logbook"}],
+  "log_br": {"branch": [["clue_baby_news", "r_log_b"], [null, "r_log_n"]]},
+  "r_log_b": ["r", "Grandchildren! He'd only just heard about the baby, at Walt's. He was already planning us.", "Netos! Ele tinha acabado de saber do bebê, lá no motel do Walt. Já estava planejando a gente.", "k_never"],
+  "r_log_n": ["r", "Grandchildren? In seventy-four? He didn't even have kids yet. He was planning us already.", "Netos? Em setenta e quatro? Ele nem tinha filhos ainda. Já estava planejando a gente.", "k_never"],
+  "k_never": ["k", "But he never did come back. I've checked the books, every year. I always wondered why.", "Mas ele nunca voltou. Eu conferi os livros, ano por ano. Sempre me perguntei por quê.", [
+   ["He drove a school bus for thirty years. There was never enough time or money.", "Ele dirigiu ônibus escolar por trinta anos. Nunca sobrou tempo nem dinheiro.", "k_bus"],
+   ["He kept his promise, in a way. We're here.", "De certa forma, ele cumpriu a promessa. A gente está aqui.", "k_here"],
+   ["I wander a lot too. I got lost in your parking lot.", "Eu também vago muito. Me perdi no seu estacionamento.", null, "Wondered, not wandered! I mean I was curious. Why do you think he never came back?", "Me perguntei, não vaguei! Quer dizer, fiquei curiosa. Por que você acha que ele nunca voltou?"]
+  ]],
+  "k_bus": ["k", "A bus driver who told riddles. Those were lucky children.", "Um motorista de ônibus que contava charadas. Crianças de sorte, aquelas.", "k_sign"],
+  "k_here": ["k", "You are. Oh. Sorry. I never cry at work. It must be the dust.", "Estão mesmo. Ai. Desculpa. Eu nunca choro no trabalho. Deve ser a poeira.", "k_sign"],
+  "k_sign": ["k", "Would you sign today's page? Right there, under the family from Ohio.", "Vocês assinam a página de hoje? Bem ali, embaixo da família de Ohio.", [
+   ["I'll write: we made it, Grandpa. Signed, your grandchildren.", "Vou escrever: a gente chegou, vovô. Assinado, seus netos.", "k_signed"],
+   ["Rafa, you write. Your handwriting is better.", "Rafa, escreve você. Sua letra é melhor.", "r_write"],
+   ["Sing? Here? All right. La, la, la.", "Cantar? Aqui? Tá bom. Lá, lá, lá.", null, "Sign, not sing! Although that was lovely. Would you write something in the book?", "Assinar, não cantar! Se bem que foi lindo. Vocês escrevem alguma coisa no livro?"]
+  ]],
+  "k_signed": ["k", "Perfect. I'm putting this book in the glass case. Right next to his.", "Perfeito. Vou guardar este livro na vitrine. Bem ao lado do dele.", "r_card"],
+  "r_write": ["r", "I'm writing: the grandkids finally came. Sorry we're late. The van is slow.", "Estou escrevendo: os netos finalmente vieram. Desculpa o atraso. A van é lenta.", "r_card"],
+  "r_card": ["r", "Card six. Maybe you can help us with this one.", "Cartão seis. Talvez você possa ajudar a gente com este.", "r_riddle"],
+  "r_riddle": ["r", "Tomorrow, the long empty part. I will stop at the last chance. That is a sign, not a feeling.", "Amanhã, a parte longa e vazia. Vou parar na última chance. Isso é uma placa, não um sentimento.", [
+   ["The last chance. Could that be the name of a place?", "A última chance. Será que é o nome de um lugar?", "k_place"],
+   ["The long empty part must be the desert.", "A parte longa e vazia deve ser o deserto.", "k_desert"],
+   ["The long empty park? This one?", "O parque longo e vazio? Este aqui?", null, "Part, not park! The long empty part of the road. And then the last chance. What does he mean?", "Parte, não parque! A parte longa e vazia da estrada. E depois a última chance. O que ele quis dizer?"]
+  ]],
+  "k_place": ["k", "Last Chance Gas! It's an old station in the Mojave Desert. The last gas for a hundred miles.", "Last Chance Gas, o posto Última Chance! É um posto antigo no deserto de Mojave. O último por cento e sessenta quilômetros.", "k_warn"],
+  "k_desert": ["k", "The Mojave, yes. And Last Chance Gas is the only station out there. Earl runs it. He's a character.", "O Mojave, isso. E o Last Chance Gas, o Última Chance, é o único posto por lá. É do Earl. Ele é uma figura.", "k_warn"],
+  "k_warn": ["k", "The desert is serious. Fill your tank, and take more water than you think you need.", "O deserto é coisa séria. Encham o tanque e levem mais água do que acham que precisam.", "rock_br"],
+  "rock_br": {"branch": [["rock=asked", "k_bye_r"], [null, "k_bye"]]},
+  "k_bye_r": ["k", "And check your pockets on the way out. I'm joking. Mostly.", "E confiram os bolsos na saída. Estou brincando. Quase.", "n_end"],
+  "k_bye": ["k", "And thank you for leaving the forest exactly as you found it.", "E obrigada por deixarem a floresta exatamente como encontraram.", "n_end"],
+  "n_end": ["n", "You drive west into a red sunset. Ahead: California, the desert, and somebody's last chance.", "Vocês seguem pro oeste, rumo a um pôr do sol vermelho. Pela frente: a Califórnia, o deserto e a última chance de alguém.", null]
+ }
+}

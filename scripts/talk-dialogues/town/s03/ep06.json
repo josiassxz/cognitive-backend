@@ -1,0 +1,86 @@
+{
+ "slug": "s03-06-the-blogger", "episode": 6, "title": "The Blogger", "level": "A2",
+ "place": "street", "placeLabel": "Maple Yard", "time": "Sexta · 12h", "ambience": "street",
+ "description": "Um rapaz de câmera e caderninho quer saber tudo. Descreva a comida e fique de ouvidos abertos.",
+ "intro": "O Dale atrasou, trouxe peixe em vez de queijo, mas você resolveu. O queijo chegou em cima da hora, e junto com ele apareceu um rapaz com uma câmera enorme.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "b": ["Bia", "Sua prima e sócia", "af_bella", "left"],
+  "c": ["Chuck", "Dono do truck rival, Smoke King", "am_fenrir", "left"],
+  "j": ["Tyler", "Blogueiro de comida", "am_puck", "right"],
+  "w": ["Mr. Boone", "Cliente de todo dia", "am_michael", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Friday, noon. The cheese bread is hot. A young man with a big camera is at your window.", "Sexta, meio-dia. O pão de queijo está quentinho. Um rapaz com uma câmera enorme está na sua janela.", "n2"],
+  "n2": ["n", "He takes a photo of the menu. Then a photo of the toucan. Then a photo of you.", "Ele tira uma foto do cardápio. Depois uma do tucano. Depois uma de você.", "j1"],
+  "j1": ["j", "Hi! Hi! I'm Tyler. I eat at every food truck in Austin. What's the best thing on your menu?", "Oi! Oi! Eu sou o Tyler. Eu como em todos os food trucks de Austin. Qual é a melhor coisa do cardápio?", [
+   ["The cheese bread. My cousin makes it fresh every morning.", "O pão de queijo. Minha prima faz fresquinho toda manhã.", "j_cb"],
+   ["The steak sandwich is our most popular dish.", "O sanduíche de carne é o prato que mais sai.", "j_steak"],
+   ["Thanks, I'm the best.", "Valeu, eu sou demais.", null, "Okay! Confident! But the food. What's your best dish?", "Opa! Que confiança! Mas a comida. Qual é o melhor prato de vocês?"]
+  ]],
+  "j_cb": ["j", "Cheese bread! I've never had that. One order, please!", "Pão de queijo! Nunca comi. Uma porção, por favor!", "j_what"],
+  "j_steak": ["j", "Steak! A classic. But I see cheese bread on the board. I want that too.", "Carne! Um clássico. Mas estou vendo pão de queijo no quadro. Quero também.", "j_what"],
+  "j_what": ["j", "What's the cheese bread like? Describe it for me. I'm writing this down.", "Como é o pão de queijo? Descreve pra mim. Estou anotando.", [
+   ["It's crispy outside and soft inside. And very cheesy.", "É crocante por fora e macio por dentro. E tem muito queijo.", "j_d1"],
+   ["It's small and round. You can't eat just one.", "É pequeno e redondo. Não dá pra comer um só.", "j_d2"],
+   ["Yes, I like it.", "Sim, eu gosto.", null, "Good! But I mean the taste. Is it soft? Is it salty? Tell me about it.", "Que bom! Mas eu falo do sabor. É macio? É salgado? Me conta como é."]
+  ]],
+  "j_d1": ["j", "Crispy, soft, cheesy. Oh, that's good. I'm writing that down.", "Crocante, macio, cheio de queijo. Ah, que delícia. Estou anotando.", "n_notes"],
+  "j_d2": ["j", "You can't eat just one. Ha! That's my title.", "Não dá pra comer um só. Rá! Esse vai ser o meu título.", "n_notes"],
+  "n_notes": ["n", "Tyler writes in a little notebook. Bia pulls you inside the truck. Her eyes are very big.", "O Tyler escreve num caderninho. A Bia te puxa pra dentro do truck. Os olhos dela estão arregalados.", "b_judge"],
+  "b_judge": ["b", "A camera! A notebook! He eats at every truck! That's him. That's the secret judge!", "Uma câmera! Um caderninho! Ele come em todos os trucks! É ele. É o jurado secreto!", [
+   ["Maybe. Let's give him our best service.", "Pode ser. Vamos caprichar no atendimento.", "b_j1"],
+   ["I'm not so sure. A secret judge with a big camera?", "Não sei, não. Um jurado secreto com uma câmera enorme?", "b_j2"],
+   ["A secret juice? What flavor?", "Um suco secreto? De que sabor?", null, "Not juice! Judge! The person who picks the winner! Do you think it's Tyler?", "Suco, não! Jurado! A pessoa que escolhe o vencedor! Você acha que é o Tyler?"]
+  ]],
+  "b_j1": ["b", "Best service! Free juice! Big smiles! Go, go, go!", "Atendimento nota dez! Suco de graça! Sorrisão! Vai, vai, vai!", "n_chuck"],
+  "b_j2": ["b", "That's the trick! Nobody thinks it's him! Free juice! Big smiles! Go!", "Esse é o truque! Ninguém desconfia dele! Suco de graça! Sorrisão! Vai!", "n_chuck"],
+  "n_chuck": ["n", "You give Tyler a free juice. Then Chuck runs over from the red truck, with a huge plate of ribs.", "Você dá um suco de graça pro Tyler. Aí o Chuck vem correndo do truck vermelho, com um prato enorme de costelas.", "c1"],
+  "c1": ["c", "Tyler, my friend! Ribs, on the house! Extra sauce! Toucan, tell him how good my ribs are.", "Tyler, meu amigo! Costelas por conta da casa! Molho extra! Tucano, conta pra ele como as minhas costelas são boas.", [
+   ["They smell great, Chuck. But he's eating at our truck now.", "O cheiro é ótimo, Chuck. Mas agora ele está comendo no nosso truck.", "c_a"],
+   ["Chuck's ribs are good. Very messy, but good.", "As costelas do Chuck são boas. Fazem uma sujeira, mas são boas.", "c_b"],
+   ["Yes, his house is very good.", "Sim, a casa dele é muito boa.", null, "Not my house! On the house means free! Come on. Tell him about my ribs!", "Minha casa, não! Por conta da casa quer dizer de graça! Vai. Fala das minhas costelas!"]
+  ]],
+  "c_a": ["c", "Ha! Okay, Toucan. I'll wait. I'm a patient man. Tyler, I'm right here!", "Rá! Tá bom, Tucano. Eu espero. Sou um homem paciente. Tyler, estou bem aqui!", "j_fest"],
+  "c_b": ["c", "Messy means tasty! Thank you, Toucan. See, Tyler? Even the bird agrees.", "Sujeira quer dizer sabor! Valeu, Tucano. Viu, Tyler? Até o passarinho concorda.", "j_fest"],
+  "j_fest": ["j", "Hey, are you all in the festival next week? I heard a crazy thing about the judge.", "Ei, vocês todos vão estar no festival semana que vem? Ouvi uma coisa doida sobre o jurado.", [
+   ["Yes, we are. What did you hear?", "Vamos, sim. O que você ouviu?", "j_heard"],
+   ["Tyler, tell the truth. Are you the secret judge?", "Tyler, fala a verdade. Você é o jurado secreto?", "j_me"],
+   ["I heard a bird this morning.", "Eu ouvi um passarinho hoje cedo.", null, "Cool. But about the judge. Do you want to know what I heard?", "Legal. Mas sobre o jurado. Quer saber o que eu ouvi?"]
+  ]],
+  "j_me": ["j", "Me? Ha! I can't answer that. A judge never tells. But listen to this.", "Eu? Rá! Não posso responder. Jurado nunca conta. Mas escuta só.", "j_heard"],
+  "j_heard": ["j", "The judge never says a word about the food. Not good, not bad. Just eats and leaves.", "O jurado nunca diz uma palavra sobre a comida. Nem bem, nem mal. Só come e vai embora.", "j_bye", {"clue": "never_praises"}],
+  "j_bye": ["j", "Weird, right? I talk about food all day! Okay, ribs time. Five stars for the cheese bread!", "Estranho, né? Eu falo de comida o dia inteiro! Bom, hora das costelas. Cinco estrelas pro pão de queijo!", "n_w"],
+  "n_w": ["n", "Tyler follows Chuck to the red truck. At the small table, Mr. Boone is finishing his beans.", "O Tyler vai atrás do Chuck até o truck vermelho. Na mesinha, o Sr. Boone termina o feijão.", "w1"],
+  "w1": ["w", "You gave that boy a free juice.", "Você deu um suco de graça praquele rapaz.", "s_br"],
+  "s_br": {"branch": [["sample=cheese_bread", "w_s_cb"], ["sample=truffle", "w_s_tr"], [null, "w_s_none"]]},
+  "w_s_cb": ["w", "On your first day, you gave me a cheese bread. I remember.", "No seu primeiro dia, você me deu um pão de queijo. Eu lembro.", "w_q"],
+  "w_s_tr": ["w", "On your first day, you gave me a chocolate thing. Too sweet. I ate it anyway.", "No seu primeiro dia, você me deu um negócio de chocolate. Doce demais. Comi mesmo assim.", "w_q"],
+  "w_s_none": ["w", "On your first day, you gave me nothing. You let me eat in peace. I liked that.", "No seu primeiro dia, você não me deu nada. Me deixou comer em paz. Gostei disso.", "w_q"],
+  "w_q": ["w", "So why is everybody dancing around the boy with the camera?", "Então por que está todo mundo dançando em volta do rapaz da câmera?", [
+   ["My cousin thinks he's the secret judge for the festival.", "Minha prima acha que ele é o jurado secreto do festival.", "w_judge"],
+   ["It's nothing. Can I ask you something, Mr. Boone?", "Não é nada. Posso te perguntar uma coisa, Sr. Boone?", "w_ask", {"set": {"boone_talk": "yes"}}],
+   ["No, I can't dance.", "Não, eu não sei dançar.", null, "Nobody is dancing, kid. I mean: why is everybody so nice to that boy?", "Ninguém está dançando, jovem. Eu quero dizer: por que todo mundo está tão bonzinho com aquele rapaz?"]
+  ]],
+  "w_judge": ["w", "A judge. Hm. And you? Are you nice to him because he's a judge?", "Um jurado. Hum. E você? Trata ele bem porque ele é jurado?", [
+   ["A little, yes. We really want to win.", "Um pouco, sim. A gente quer muito ganhar.", "w_honest"],
+   ["No. We're nice to everybody. You know that.", "Não. A gente trata todo mundo bem. O senhor sabe disso.", "w_every", {"set": {"boone_talk": "yes"}}],
+   ["Yes, the juice is nice.", "Sim, o suco é gostoso.", null, "Not the juice. The judge. Are you nice to that boy only because of the prize?", "O suco, não. O jurado. Você trata aquele rapaz bem só por causa do prêmio?"]
+  ]],
+  "w_honest": ["w", "Honest. Good. But cook for the customer, kid. Not for the prize.", "Resposta honesta. Bom. Mas cozinhe pro cliente, jovem. Não pro prêmio.", "w_bye"],
+  "w_every": ["w", "Hm. That's true. I've watched you. So. You have a question on your face.", "Hum. É verdade. Eu tenho observado. Então. Você está com cara de quem quer perguntar algo.", "w_ask"],
+  "w_ask": ["w", "Ask.", "Pergunte.", [
+   ["Why do you never say anything about the food?", "Por que o senhor nunca fala nada sobre a comida?", "w_why"],
+   ["Why do you come here every day?", "Por que o senhor vem aqui todo dia?", "w_come"],
+   ["A mask? No, I don't have one.", "Uma máscara? Não, eu não tenho.", null, "Not a mask. Ask. You have a question. What is it?", "Máscara, não. Pergunte. Você tem uma pergunta. Qual é?"]
+  ]],
+  "w_why": ["w", "I don't talk about food. I eat it. If the plate is empty, it was good.", "Eu não falo de comida. Eu como. Se o prato ficou vazio, estava bom.", "w_bye"],
+  "w_come": ["w", "A man has to eat. And your beans taste like somebody's home.", "Um homem precisa comer. E o seu feijão tem gosto da casa de alguém.", "w_bye"],
+  "w_bye": ["w", "See you Monday. The usual.", "Até segunda. O de sempre.", "b_stars"],
+  "b_stars": ["b", "Tyler gave us five stars on his blog! Five! We're going to win this thing!", "O Tyler deu cinco estrelas pra gente no blog dele! Cinco! A gente vai ganhar esse negócio!", "rev_br"],
+  "rev_br": {"branch": [["linda=argued", "b_review"], [null, "n_end"]]},
+  "b_review": ["b", "But look. One star, from a Linda. The cook is sweet, but the other one is rude. Ouch.", "Mas olha. Uma estrela, de uma tal de Linda. A cozinheira é um amor, mas a outra pessoa é grossa. Ai.", "n_end"],
+  "n_end": ["n", "One week until the festival. There is so much to do. And so many beans to cook.", "Falta uma semana para o festival. Tem tanta coisa pra fazer. E tanto feijão pra cozinhar.", null]
+ }
+}

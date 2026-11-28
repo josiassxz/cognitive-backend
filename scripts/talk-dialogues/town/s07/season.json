@@ -1,0 +1,55 @@
+{
+ "season": 7,
+ "title": "Trem noturno para Edimburgo",
+ "subtitle": "Um trem noturno de Londres a Edimburgo, um violino de trezentos anos que some do estojo e uma chefe de trem que precisa da sua ajuda. Até o amanhecer, você conversa com os passageiros. Todos escondem alguma coisa.",
+ "level": "B1",
+ "genre": "Mistério clássico",
+ "memories": {
+  "called_conductor=yes": "A Moira não esquece que você a chamou de \"conductor\".",
+  "held_bag=yes": "A Dot lembra que você carregou a sacola de tricô dela.",
+  "helped_jamie=yes": "O Jamie lembra que você ajudou a juntar as partituras.",
+  "helped_jamie=no": "O Jamie lembra que você se irritou com ele na plataforma.",
+  "lang_friend=yes": "O Sr. Lang gostou do seu interesse pela coleção dele.",
+  "promised_quiet=yes": "Você prometeu à Clara não contar nada a ninguém de fora do trem.",
+  "cat_secret=kept": "A Dot confia em você para guardar um segredo.",
+  "accused_lang=yes": "O Sr. Lang não esquece que você o acusou."
+ },
+ "clues": {
+  "locked_case": {
+   "title": "Estojo trancado",
+   "note": "O estojo do violino estava trancado e sem um arranhão. Só existem duas chaves: a do Oliver e a da Clara."
+  },
+  "no_practice": {
+   "title": "Sem ensaiar",
+   "note": "O Oliver deixou escapar que a Clara não abre o estojo do violino desde terça, quatro dias antes do concerto."
+  },
+  "lang_auction": {
+   "title": "O estojo do Sr. Lang",
+   "note": "O estojo vazio do Sr. Lang é para um violino italiano que ele vai comprar num leilão em Edimburgo, ao meio-dia."
+  },
+  "vienna": {
+   "title": "A noite em Viena",
+   "note": "No mês passado, em Viena, a Clara subiu ao palco, travou e saiu sem tocar. Os jornais falaram em doença, mas o Sr. Lang viu medo."
+  },
+  "marmalade": {
+   "title": "O choro no corredor",
+   "note": "O choro fino no corredor era o Marmalade, o gato que a Dot trouxe escondido na sacola de tricô."
+  },
+  "green_shawl": {
+   "title": "Xale verde",
+   "note": "Às quinze para a uma, a Dot viu alguém alto, de xale verde comprido, entrar no bagageiro com algo nos braços e sair de mãos vazias."
+  },
+  "cant_do_it": {
+   "title": "Atrás da porta",
+   "note": "À meia-noite e meia, o Jamie ouviu a Clara chorando na cabine: \"Não consigo, Oliver. Amanhã não.\""
+  },
+  "oliver_lie": {
+   "title": "A hora que não fecha",
+   "note": "O Oliver jurou ter visto o violino à uma em ponto, mas das cinco para a uma até a uma e dez ele estava ao telefone na plataforma de Crewe."
+  },
+  "garment_bag": {
+   "title": "A capa do vestido",
+   "note": "A Moira revistou o bagageiro inteiro, menos uma mala: a capa de roupa da Clara, que o Oliver não deixou abrir."
+  }
+ }
+}

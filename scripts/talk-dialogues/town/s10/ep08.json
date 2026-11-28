@@ -1,0 +1,107 @@
+{
+ "slug": "s10-08-demo-day", "episode": 8, "title": "Demo Day", "level": "B2",
+ "place": "stage", "placeLabel": "Kettle · dia da demonstração", "time": "Sexta · 9h", "ambience": "office",
+ "description": "O grande final: seu relatório à Helen, e depois a investidora.",
+ "intro": "Ontem à noite, o Winston contou quem ficou no escritório até depois da meia-noite na segunda. Hoje é o dia da demonstração. Mas, antes da investidora, a Helen quer saber o que você descobriu.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "h": ["Helen", "Fundadora e chefe da Kettle", "bf_isabella", "left"],
+  "t": ["Tom", "Engenheiro", "bm_daniel", "left"],
+  "g": ["Greta", "Dona das padarias Crumb", "af_sarah", "left"],
+  "d": ["Dylan", "Vendas", "am_puck", "right"],
+  "p": ["Priya", "Designer", "bf_alice", "right"],
+  "a": ["Amara Cole", "Investidora", "af_kore", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Friday, nine o'clock. The countdown on the wall says: today. Helen is waiting for you in the glass box.", "Sexta, nove horas. A contagem na parede diz: hoje. A Helen te espera na caixa de vidro.", "h1"],
+  "h1": ["h", "Door closed. One hour until Amara Cole walks in. So. What have you found?", "Porta fechada. Uma hora até a Amara Cole entrar. E então. O que você descobriu?", [
+   ["I know how slide nine got out. And nobody betrayed you.", "Eu sei como o slide nove saiu. E ninguém te traiu.", "how_br"],
+   ["I think it was Dylan. That lunch with Brewly!", "Acho que foi o Dylan. Aquele almoço com a Brewly!", "h_dyl", {"set": {"accused_dylan": "yes"}}],
+   ["Honestly? I'm still not sure.", "Sinceramente? Ainda não tenho certeza.", "h_unsure"],
+   ["I've found my keys.", "Encontrei as minhas chaves.", null, "Congratulations. I meant the leak. What have you found out?", "Parabéns. Eu estava falando do vazamento. O que você descobriu?"]
+  ]],
+  "h_dyl": ["h", "Dylan was thirty thousand feet above Scotland. He's shown me the boarding pass. Three times.", "O Dylan estava a dez mil metros de altura, em cima da Escócia. Ele já me mostrou o cartão de embarque. Três vezes.", [
+   ["Oh. Of course. I'm sorry. That was careless of me.", "Ah. Claro. Desculpa. Foi descuido meu.", "h_unsure"],
+   ["Forget Dylan. Let me give you the facts instead.", "Esquece o Dylan. Deixa eu te passar os fatos.", "how_br"],
+   ["Then it was the pilot.", "Então foi o piloto.", null, "The pilot. Sent our slide. No. Try again: what do you actually know?", "O piloto. Mandou o nosso slide. Não. Tenta de novo: o que você sabe de verdade?"]
+  ]],
+  "h_unsure": ["h", "Then no more guessing. We've all blamed the wrong person this week. Facts, one at a time.", "Então chega de chute. Todo mundo aqui culpou a pessoa errada esta semana. Fatos, um de cada vez.", "how_br"],
+  "how_br": {"branch": [["confessed", "how_y"], ["clue_own_email", "how_y"], ["clue_twin_files", "how_y"], [null, "how_n"]]},
+  "how_y": ["h", "Start with how. How does a secret slide end up in a bakery?", "Começa pelo como. Como é que um slide secreto vai parar numa padaria?", [
+   ["It went out in our own Monday update. The wrong file was attached.", "Ele saiu na nossa própria newsletter de segunda. Anexaram o arquivo errado.", "why_q", {"set": {"f_how": "yes"}}],
+   ["Someone must have sent it to Greta directly.", "Alguém deve ter mandado direto pra Greta.", "why_q"],
+   ["By bicycle, I imagine.", "De bicicleta, imagino.", null, "By bicycle. No. How did that slide get out of this office?", "De bicicleta. Não. Como aquele slide saiu deste escritório?"]
+  ]],
+  "how_n": ["h", "Start with how. How does a secret slide end up in a bakery? Any idea at all?", "Começa pelo como. Como é que um slide secreto vai parar numa padaria? Alguma ideia?", [
+   ["Someone must have sent it to Greta directly.", "Alguém deve ter mandado direto pra Greta.", "why_q"],
+   ["I never found the route. I'm sorry.", "Eu não descobri o caminho. Desculpa.", "why_q"],
+   ["By bicycle, I imagine.", "De bicicleta, imagino.", null, "By bicycle. No. How did that slide get out of this office?", "De bicicleta. Não. Como aquele slide saiu deste escritório?"]
+  ]],
+  "why_q": ["h", "Next. Was it deliberate? Did somebody in this office want to hurt us?", "Próxima. Foi de propósito? Alguém neste escritório quis nos prejudicar?", [
+   ["No. It was a blunder, made at midnight by someone exhausted.", "Não. Foi um deslize, à meia-noite, de alguém no limite do cansaço.", "who_br", {"set": {"f_why": "yes"}}],
+   ["Possibly. Somebody might be angry with the company.", "Pode ser. Alguém pode estar com raiva da empresa.", "who_br"],
+   ["Yes, it was delivered on Monday.", "Sim, foi entregue na segunda.", null, "Delivered, sadly, yes. I said deliberate. On purpose. Did somebody mean to do it?", "Entregue, infelizmente, foi. Eu disse de propósito. Com intenção. Alguém quis fazer isso?"]
+  ]],
+  "who_br": {"branch": [["confessed", "who_y"], ["clue_own_email", "who_br2"], [null, "e1"]]},
+  "who_br2": {"branch": [["clue_light_on", "who_y"], ["clue_three_jobs", "who_y"], [null, "e1"]]},
+  "who_y": ["h", "Last one. I need a name. Who?", "A última. Eu preciso de um nome. Quem?", [
+   ["Priya. But please, hear her out before you judge her.", "A Priya. Mas, por favor, ouve o que ela tem a dizer antes de julgar.", "e1", {"set": {"f_who": "yes"}}],
+   ["I'd rather not name anyone without proof.", "Prefiro não dar nome sem ter prova.", "e1"],
+   ["My name? It's on my badge.", "Meu nome? Está no meu crachá.", null, "Not your name! The person who sent the slide. Who was it?", "Não o seu nome! A pessoa que mandou o slide. Quem foi?"]
+  ]],
+  "e1": {"branch": [["f_why=yes", "e2"], [null, "end_basic"]]},
+  "e2": {"branch": [["f_who=yes", "e3"], [null, "end_good"]]},
+  "e3": {"branch": [["f_how=yes", "end_best"], [null, "end_good"]]},
+  "end_best": ["h", "A wrong file, at midnight, from someone doing three jobs. Jobs I gave her. That's on me.", "Um arquivo errado, à meia-noite, de alguém com três funções. Funções que eu dei. A culpa é minha.", "n_knock", {"set": {"ending": "best"}}],
+  "end_good": ["h", "Pieces. Enough to worry me, not enough to act on. And the clock's ticking.", "Peças soltas. O bastante pra me preocupar, não pra agir. E o relógio correndo.", "n_knock"],
+  "end_basic": ["h", "So we walk into that pitch with a leak and no answer. Wonderful.", "Então a gente entra naquela apresentação com um vazamento e nenhuma resposta. Maravilha.", "n_knock"],
+  "n_knock": ["n", "There's a knock on the glass. It's Priya, holding her laptop like a shield.", "Alguém bate no vidro. É a Priya, segurando o laptop como um escudo.", "p1"],
+  "p1": ["p", "Helen, it was me. Monday, midnight. I attached the deck instead of the invitation. I'm so sorry.", "Helen, fui eu. Segunda, meia-noite. Anexei a apresentação em vez do convite. Me desculpa.", "h_q"],
+  "h_q": ["h", "Oh, Priya. And you, our newest pair of eyes: what on earth do I say to her?", "Ah, Priya. E você, nosso olhar mais novo aqui: o que é que eu digo pra ela?", [
+   ["Say thank you. Walking in here took courage.", "Diz obrigada. Entrar aqui exigiu coragem.", "h_ty"],
+   ["Say sorry. She's been doing three jobs since March.", "Pede desculpa. Ela faz três funções desde março.", "h_sorry"],
+   ["Say cheese!", "Diz xis!", null, "This is not a photograph! Honestly. What should I say to Priya?", "Isto não é uma foto! Francamente. O que eu devo dizer pra Priya?"]
+  ]],
+  "h_ty": ["h", "Thank you, Priya, for walking in. On Monday we hire an office manager. And no more midnight emails.", "Obrigada, Priya, por ter entrado. Na segunda a gente contrata alguém pro escritório. E chega de e-mail à meia-noite.", "pit_br"],
+  "h_sorry": ["h", "Three jobs. I kept saying 'next month'. I'm sorry, Priya. On Monday, we hire you some help.", "Três funções. Eu vivia dizendo 'mês que vem'. Me desculpa, Priya. Na segunda a gente contrata ajuda pra você.", "pit_br"],
+  "pit_br": {"branch": [["clue_honest_investor", "pit_y"], [null, "pit_n"]]},
+  "pit_y": ["h", "Now. Amara may have heard about slide nine. Do I show it, or bury it?", "Agora. A Amara pode ter ouvido falar do slide nove. Eu mostro ou enterro?", [
+   ["Show it first. She forgives bad news, but never surprises.", "Mostra logo de cara. Ela perdoa má notícia, mas surpresa nunca.", "n_ten", {"set": {"pitch": "honest"}}],
+   ["Bury it. Don't hand her a reason to say no.", "Enterra. Não dá pra ela um motivo pra dizer não.", "n_ten", {"set": {"pitch": "hide"}}],
+   ["Slide down it!", "Escorrega nele!", null, "This is an office, not a playground. Slide nine: show it or hide it?", "Isto é um escritório, não um parquinho. O slide nove: mostro ou escondo?"]
+  ]],
+  "pit_n": ["h", "Now. Amara may have heard about slide nine. Show it, or bury it? Quick.", "Agora. A Amara pode ter ouvido falar do slide nove. Mostro ou enterro? Rápido.", [
+   ["Bury it. Don't hand her a reason to say no.", "Enterra. Não dá pra ela um motivo pra dizer não.", "n_ten", {"set": {"pitch": "hide"}}],
+   ["I don't know her well enough to say. Sorry.", "Eu não conheço ela o bastante pra opinar. Desculpa.", "n_ten", {"set": {"pitch": "hide"}}],
+   ["Slide down it!", "Escorrega nele!", null, "This is an office, not a playground. Slide nine: show it or hide it?", "Isto é um escritório, não um parquinho. O slide nove: mostro ou escondo?"]
+  ]],
+  "n_ten": ["n", "Ten o'clock. The lift opens. Out steps a tall woman in a grey coat, and a baker with a tray.", "Dez horas. O elevador abre. Saem uma mulher alta de casaco cinza e uma padeira com uma bandeja.", "gr_br"],
+  "gr_br": {"branch": [["greta=overpromised", "g_o"], [null, "g_h"]]},
+  "g_o": ["g", "Morning! I was promised a free year. Helen talked me down to the truth and a discount. Bread, anyone?", "Bom dia! Me prometeram um ano grátis. A Helen me convenceu a aceitar a verdade e um desconto. Alguém quer pão?", "a1"],
+  "g_h": ["g", "Morning! I'm staying with Kettle, by the way. Your new one talks sense. I brought bread.", "Bom dia! Aliás, eu continuo com a Kettle. Essa pessoa nova de vocês tem juízo. Trouxe pão.", "a1"],
+  "a1": ["a", "Before you start. I've heard a rumour about your slide nine. Is there something I should know?", "Antes de começarem. Ouvi um boato sobre o slide nove de vocês. Tem alguma coisa que eu deva saber?", "pb"],
+  "pb": {"branch": [["pitch=honest", "h_show"], [null, "h_hid"]]},
+  "h_show": ["h", "It's slide one now. Three months of cash. A client saw it by accident. Better you hear it from me.", "Agora ele é o slide um. Três meses de caixa. Uma cliente viu por acidente. Melhor você ouvir isso de mim.", "n_demo"],
+  "h_hid": ["h", "Yes. Three months of cash. I cut that slide this morning. Wrong call. Here it is.", "Tem. Três meses de caixa. Eu tirei esse slide hoje de manhã. Decisão errada. Aqui está ele.", "n_demo"],
+  "n_demo": ["n", "Amara studies the number. Then she picks up the demo phone, orders a flat white, and taps Pay. Twice.", "A Amara estuda o número. Depois pega o celular da demonstração, pede um flat white e toca em Pay. Duas vezes.", "plan_br"],
+  "plan_br": {"branch": [["plan=safe", "n_safe"], [null, "n_risky"]]},
+  "n_safe": ["n", "The screen says: Paid once. Thank you. In the corner, Tom very nearly smiles.", "A tela diz: Pago uma vez. Obrigado. No canto, o Tom quase sorri.", "a3"],
+  "n_risky": ["n", "The screen freezes. One second. Two. Tom stops breathing. Then: Paid once. Thank you.", "A tela congela. Um segundo. Dois. O Tom para de respirar. E então: Pago uma vez. Obrigado.", "a3"],
+  "a3": ["a", "You're the new one, I'm told. One week in. Why should I put my money here?", "Me disseram que você acabou de chegar. Uma semana de casa. Por que eu deveria pôr meu dinheiro aqui?", [
+   ["Because when something breaks here, people own it and fix it. I've watched them.", "Porque, quando alguma coisa quebra aqui, as pessoas assumem e consertam. Eu vi isso acontecer.", "a_yes1"],
+   ["Because cafés like Greta's can't afford to lose it. Ask her.", "Porque negócios como o da Greta não podem ficar sem isso. Pergunta pra ela.", "a_yes2"],
+   ["Because the kettle's boiling.", "Porque a chaleira está fervendo.", null, "Is it? Lovely. But I asked about my money. Why should I invest in this team?", "Está? Que ótimo. Mas eu perguntei do meu dinheiro. Por que eu deveria investir neste time?"]
+  ]],
+  "a_yes1": ["a", "Owning it. Good. I back teams that tell me the truth quickly. Second meeting, Tuesday.", "Assumir. Ótimo. Eu aposto em times que me contam a verdade depressa. Segunda reunião, terça.", "n_lift"],
+  "a_yes2": ["a", "I asked her in the lift. She's terrifying, and loyal. That's enough. Second meeting, Tuesday.", "Eu perguntei no elevador. Ela é assustadora, e leal. Isso me basta. Segunda reunião, terça.", "n_lift"],
+  "n_lift": ["n", "The lift doors close. For three seconds, nobody moves. Then Dylan screams, and fetches a small box.", "As portas do elevador se fecham. Por três segundos, ninguém se mexe. Aí o Dylan grita e vai buscar uma caixinha.", "acc_br"],
+  "acc_br": {"branch": [["accused_dylan", "d_spy"], [null, "d_mug"]]},
+  "d_spy": ["d", "No more guest mug! I wanted yours to say 'Thinks I'm a spy'. Helen said just your name.", "Chega de caneca de visita! Eu queria que a sua dissesse 'Acha que eu sou espião'. A Helen mandou pôr só o seu nome.", "fin_br"],
+  "d_mug": ["d", "No more guest mug! This one's got your name on it. You've earned it.", "Chega de caneca de visita! Esta aqui tem o seu nome. Você fez por merecer.", "fin_br"],
+  "fin_br": {"branch": [["ending=best", "h_fin_best"], [null, "h_fin"]]},
+  "h_fin_best": ["h", "You found the bug and the truth, and you were kind about both. Stay as long as you like.", "Você achou o bug e a verdade, e tratou os dois com gentileza. Fique o tempo que quiser.", "n_end"],
+  "h_fin": ["h", "A bug, a leak, and a new colleague who asks questions. Not a bad first week.", "Um bug, um vazamento e gente nova que faz perguntas. Nada mau para uma primeira semana.", "n_end"],
+  "n_end": ["n", "Your first week at Kettle is over. You came to test an app. You helped mend a team.", "Sua primeira semana na Kettle acabou. Você veio testar um aplicativo. Ajudou a consertar um time.", null]
+ }
+}

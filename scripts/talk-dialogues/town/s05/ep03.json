@@ -1,0 +1,98 @@
+{
+ "slug": "s05-03-group-four", "episode": 3, "title": "Group Four", "level": "A2",
+ "place": "campus", "placeLabel": "Prédio Harper, sala 204", "time": "Semana 1 · Ter 14h", "ambience": "campus",
+ "description": "Primeira aula, um trabalho que vale a nota e quatro tarefas para dividir.",
+ "intro": "Com a carteirinha na mão (e uma foto para o ano inteiro), você entrou na matéria Cities and People. Hoje é a primeira aula da professora Okafor, e a nota do semestre é um trabalho em grupo.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "w": ["Professor Okafor", "Professora de Cities and People", "bf_isabella", "left"],
+  "p": ["Priya", "Colega de grupo, a organizada", "af_sarah", "left"],
+  "g": ["Gus", "Colega de grupo, o piadista", "am_puck", "right"],
+  "m": ["Miles", "Colega de grupo e vizinho", "am_eric", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Tuesday, two o'clock. Room two oh four is full. You take the last free seat.", "Terça, duas horas. A sala dois zero quatro está cheia. Você pega o último lugar vago.", "n2"],
+  "n2": ["n", "A woman in a yellow jacket closes the door. The room goes quiet.", "Uma mulher de jaqueta amarela fecha a porta. A sala fica em silêncio.", "w1"],
+  "w1": ["w", "Good afternoon. I'm Professor Okafor. In this class, we go outside and listen to people.", "Boa tarde. Sou a professora Okafor. Nesta matéria, a gente sai da sala e escuta as pessoas.", "w2"],
+  "w2": ["w", "You, in the last seat. I don't know your face. Tell us about yourself.", "Você, no último lugar. Não conheço seu rosto. Conte um pouco de você.", [
+   ["I'm an exchange student from Brazil. It's my first week.", "Vim do Brasil, de intercâmbio. É minha primeira semana.", "w_brazil"],
+   ["I love cities. I come from a very big one.", "Eu amo cidades. Venho de uma bem grande.", "w_city"],
+   ["Yes, I have a face.", "Sim, eu tenho um rosto.", null, "You do. A very nice one. But who are you, and where are you from?", "Tem. E muito simpático. Mas quem é você, e de onde vem?"]
+  ]],
+  "w_brazil": ["w", "Brazil. Excellent. You'll see this campus with fresh eyes. We need that.", "Brasil. Excelente. Você vai ver este campus com olhos novos. A gente precisa disso.", "w3"],
+  "w_city": ["w", "Good. Then you know a city is not its buildings. It's its people.", "Ótimo. Então você sabe que uma cidade não são os prédios. São as pessoas.", "w3"],
+  "w3": ["w", "Now. Your grade is one group project, with one presentation in week ten.", "Bom. A nota de vocês é um trabalho em grupo, com uma apresentação na semana dez.", "w4"],
+  "w4": ["w", "This year's theme is invisible work. The people who keep this campus running, and nobody sees.", "O tema deste ano é trabalho invisível. As pessoas que fazem este campus funcionar, e ninguém vê.", "w5"],
+  "w5": ["w", "Any questions before I make the groups?", "Alguma pergunta antes de eu montar os grupos?", [
+   ["Yes. What matters most for the grade?", "Sim. O que mais conta para a nota?", "w_grade"],
+   ["Can we choose our own groups?", "A gente pode escolher o próprio grupo?", "w_choose"],
+   ["Is invisible work homework that I can't see?", "Trabalho invisível é lição de casa que eu não consigo ver?", null, "Ha! No. You'll see your homework, I promise. Any real questions about the project?", "Rá! Não. A lição você vai ver, prometo. Alguma pergunta de verdade sobre o trabalho?"]
+  ]],
+  "w_grade": ["w", "Ideas and teamwork. Beautiful slides are worth nothing if one of you stays silent.", "Ideias e trabalho em equipe. Slide bonito não vale nada se alguém do grupo ficar em silêncio.", "w_grade2"],
+  "w_grade2": ["w", "Four people, four voices. Everybody speaks. That's my only rule.", "Quatro pessoas, quatro vozes. Todo mundo fala. É a minha única regra.", "n3"],
+  "w_choose": ["w", "No. In real life, you don't choose your team. I'll count: one, two, three, four.", "Não. Na vida real, ninguém escolhe a equipe. Vou contar: um, dois, três, quatro.", "n3"],
+  "n3": ["n", "The professor counts. You are in group four. At the back, somebody waves at you.", "A professora conta. Você caiu no grupo quatro. Lá no fundo, alguém acena pra você.", "g1"],
+  "g1": ["g", "No way! My friend from the line! Group four, the best group. Come and sit down.", "Não acredito! Você, lá da fila! Grupo quatro, o melhor grupo. Vem, senta aqui.", [
+   ["Gus! How's your terrible ID photo?", "Gus! Como vai a sua foto horrível da carteirinha?", "g_photo"],
+   ["Hi, everyone. I'm from Brazil. Nice to meet you.", "Oi, pessoal. Sou do Brasil. Prazer.", "p1"],
+   ["Group four? But I only see three people.", "Grupo quatro? Mas eu só vejo três pessoas.", null, "Three plus you. That's four. Math! Come on, sit down and say hi.", "Três mais você. Dá quatro. Matemática! Vai, senta e fala oi."]
+  ]],
+  "g_photo": ["g", "Still terrible. Show me yours. Come on, I need to laugh.", "Continua horrível. Mostra a sua. Vai, eu preciso rir.", "g_br"],
+  "g_br": {"branch": [["id_photo=smile", "g_ph_smile"], ["id_photo=serious", "g_ph_serious"], [null, "g_ph_blink"]]},
+  "g_ph_smile": ["g", "You smiled? Nobody smiles for Mr. Doyle. Respect.", "Você sorriu? Ninguém sorri pro Sr. Doyle. Respeito.", "p1"],
+  "g_ph_serious": ["g", "Wow. So serious. You look like you sell insurance.", "Uau. Que seriedade. Parece que você vende seguro.", "p1"],
+  "g_ph_blink": ["g", "Your eyes are closed! That's amazing. That's the best ID on campus.", "Seus olhos estão fechados! Que maravilha. É a melhor carteirinha do campus.", "p1"],
+  "p1": ["p", "Hi. I'm Priya. I already have a plan, a calendar and an idea: the campus at night.", "Oi. Sou a Priya. Eu já tenho um plano, um calendário e uma ideia: o campus à noite.", "p2"],
+  "p2": ["p", "And this is Miles. He's quiet, but he's the best designer in our year.", "E este é o Miles. Ele é quieto, mas é o melhor designer do nosso ano.", "m1"],
+  "m1": ["m", "Hey. We met. I, uh, fixed your Wi-Fi on Saturday.", "Oi. A gente se conhece. Eu, hã, arrumei seu Wi-Fi no sábado.", [
+   ["Miles! Yes. The Wi-Fi still works. Thank you!", "Miles! É verdade. O Wi-Fi continua funcionando. Valeu!", "m_ok"],
+   ["Hi, Miles. Did the fridge get to the fourth floor?", "Oi, Miles. A geladeira chegou no quarto andar?", "m_fridge"],
+   ["Yes, we met. You're Gus, right?", "Sim, a gente se conhece. Você é o Gus, né?", null, "Uh, no. I'm Miles. That's Gus, the loud one. You remember me, right?", "Hã, não. Eu sou o Miles. O Gus é aquele, o barulhento. Você lembra de mim, né?"]
+  ]],
+  "m_ok": ["m", "Cool. Good. If it stops again, just knock.", "Legal. Que bom. Se parar de novo, é só bater.", "p3"],
+  "m_fridge": ["m", "Yeah. Eventually. My back still hurts. Don't tell anyone.", "Chegou. Uma hora chegou. Minhas costas ainda doem. Não conta pra ninguém.", "p3"],
+  "p3": ["p", "Okay, focus. Four people, four jobs. I'll do the plan and the script. What do you want?", "Tá, foco. Quatro pessoas, quatro tarefas. Eu faço o plano e o roteiro. O que você quer?", [
+   ["I can do the interviews. I like talking to people.", "Posso fazer as entrevistas. Gosto de conversar com as pessoas.", "p_int", {"set": {"role": "interviews"}}],
+   ["I can do the numbers. A student survey, maybe?", "Posso cuidar dos números. Uma pesquisa com os estudantes, talvez?", "p_num", {"set": {"role": "numbers"}}],
+   ["I can open the presentation. I'm not afraid to speak.", "Posso abrir a apresentação. Não tenho medo de falar.", "p_open", {"set": {"role": "opening"}}],
+   ["Four jobs? Great, I need the money.", "Quatro empregos? Ótimo, tô precisando de dinheiro.", null, "Not paid jobs! Tasks, for the project. Which part do you want to do?", "Emprego pago, não! Tarefas, do trabalho. Qual parte você quer fazer?"]
+  ]],
+  "p_int": ["p", "Perfect. Kitchen workers, librarians, cleaners. Ask them about their day. And their night.", "Perfeito. Pessoal da cozinha, da biblioteca, da limpeza. Pergunta como é o dia deles. E a noite.", "g2"],
+  "p_num": ["p", "Great. Ask a hundred students who they notice on campus. Then make a chart.", "Ótimo. Pergunta pra cem estudantes quem eles notam no campus. Depois faz um gráfico.", "g2"],
+  "p_open": ["p", "Brave! Okay. You write the first two minutes. Make people care.", "Que coragem! Tá. Você escreve os dois primeiros minutos. Faz o público se importar.", "g2"],
+  "g2": ["g", "I'll do the videos. And one joke. Every presentation needs a joke. Want to hear it?", "Eu faço os vídeos. E uma piada. Toda apresentação precisa de uma piada. Quer ouvir?", [
+   ["Sure. Go ahead.", "Claro. Manda.", "g_joke"],
+   ["Maybe after class, Gus.", "Quem sabe depois da aula, Gus.", "g_later"],
+   ["Yes, I'm here.", "Sim, estou aqui.", null, "Ha! I know you're here. I said hear! Do you want to listen to my joke?", "Rá! Eu sei que você tá aqui. Eu disse ouvir! Quer escutar minha piada?"]
+  ]],
+  "g_joke": ["g", "Why did the student eat his homework? Because the professor said it was a piece of cake.", "Por que o aluno comeu a lição de casa? Porque a professora disse que era moleza, um pedaço de bolo.", "p4"],
+  "g_later": ["g", "Your loss. It's a great joke. My mom laughed for an hour.", "Azar o seu. A piada é ótima. Minha mãe riu por uma hora.", "p4"],
+  "p4": ["p", "One joke, Gus. One. Miles, can you do the slides?", "Uma piada, Gus. Uma. Miles, você faz os slides?", "m2"],
+  "m2": ["m", "Yeah. I'll do the slides. All of them. Trust me, they'll be good.", "Faço. Eu faço os slides. Todos. Confia em mim, vão ficar bons.", "p5"],
+  "p5": ["p", "Great. Put them in the shared folder, so we can all see them.", "Ótimo. Coloca na pasta compartilhada, pra todo mundo poder ver.", "m3"],
+  "m3": ["m", "When they're ready. For now, the only copy stays on my laptop. I don't show unfinished work.", "Quando estiverem prontos. Por enquanto, a única cópia fica no meu notebook. Eu não mostro trabalho pela metade.", [
+   ["Maybe save a copy online too? Just in case.", "Que tal salvar uma cópia online também? Por via das dúvidas.", "m_copy", {"set": {"warned_copy": "yes"}}],
+   ["That's okay. We trust you, Miles.", "Tudo bem. A gente confia em você, Miles.", "m_trust", {"set": {"warned_copy": "no"}}],
+   ["Your lap is on top of what?", "Seu colo está em cima do quê?", null, "Uh, my laptop. My computer. The slides stay there for now. Is that okay?", "Hã, meu laptop. Meu computador. Os slides ficam lá por enquanto. Tudo bem?"]
+  ], {"clue": "only_copy"}],
+  "m_copy": ["m", "It's fine. My laptop is old, but it has never failed me. Really.", "Tá tranquilo. Meu notebook é velho, mas nunca me deixou na mão. Sério.", "w6"],
+  "m_trust": ["m", "Thanks. I won't let you down. I promise.", "Valeu. Não vou decepcionar vocês. Prometo.", "w6"],
+  "w6": ["w", "Group four! Less chatting, more planning. What's the title of your project?", "Grupo quatro! Menos papo, mais planejamento. Qual é o título do trabalho de vocês?", [
+   ["The Campus After Dark. The people who work while we sleep.", "The Campus After Dark. As pessoas que trabalham enquanto a gente dorme.", "w_like"],
+   ["We don't have a title yet. Give us five minutes.", "Ainda não temos título. Dá cinco minutos pra gente.", "w_five"],
+   ["I don't have a title. Just call me by my name.", "Eu não tenho título. Pode me chamar pelo nome.", null, "Not your title. The project's title! What is your project called?", "Não o seu título. O do trabalho! Como se chama o trabalho de vocês?"]
+  ]],
+  "w_five": ["w", "You have two. Priya, you look like someone with a title ready.", "Vocês têm dois. Priya, você tem cara de quem já tem um título pronto.", "p_name"],
+  "p_name": ["p", "The Campus After Dark. The people who work while we sleep.", "The Campus After Dark. As pessoas que trabalham enquanto a gente dorme.", "w_like"],
+  "w_like": ["w", "The night shift. I like it. Go and find them. Week ten comes fast.", "O turno da noite. Gostei. Vão atrás dessas pessoas. A semana dez chega rápido.", "p_meet"],
+  "p_meet": ["p", "First group meeting. When is everybody free?", "Primeira reunião do grupo. Quando todo mundo está livre?", [
+   ["Wednesday at lunch? In the dining hall?", "Quarta, no almoço? No refeitório?", "p_lunch"],
+   ["Any evening. I'm free after six.", "Qualquer noite. Depois das seis eu posso.", "p_even"],
+   ["I'm free. I don't cost anything.", "Eu sou grátis. Não custo nada.", null, "Ha. Not free like no money. Free like not busy! When can you meet?", "Rá. Não é free de grátis. É free de ter tempo! Quando você pode?"]
+  ]],
+  "p_lunch": ["p", "Wednesdays at noon, in the dining hall. Perfect. It's in the calendar already.", "Quartas ao meio-dia, no refeitório. Perfeito. Já está no calendário.", "n_end"],
+  "p_even": ["p", "Miles can't do evenings. He's always busy. So: Wednesdays at noon, in the dining hall.", "O Miles não pode à noite. Vive ocupado. Então: quartas ao meio-dia, no refeitório.", "n_end"],
+  "n_end": ["n", "You have a group, a job and a title. Week ten feels very far away. It isn't.", "Você tem um grupo, uma tarefa e um título. A semana dez parece bem longe. Não está.", null]
+ }
+}

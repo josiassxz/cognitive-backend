@@ -1,0 +1,55 @@
+{
+ "season": 2,
+ "title": "Lost in London: a mala trocada",
+ "subtitle": "Sua primeira viagem para fora. No aeroporto de Londres, sua mala é trocada por outra idêntica. Você tem um dia para atravessar a cidade, achar o dono e chegar a tempo ao jantar de aniversário da sua amiga.",
+ "level": "A1–A2",
+ "genre": "Comédia de viagem",
+ "memories": {
+  "gift=coffee": "Na sua mala de verdade vai o café que a mãe da Bia mandou.",
+  "gift=sweets": "Na sua mala de verdade vai a caixa de doces que a mãe da Bia mandou.",
+  "gift=album": "Na sua mala de verdade vai o álbum de fotos que a mãe da Bia mandou.",
+  "gave_seat=yes": "A Gloria lembra que você cedeu o lugar no metrô.",
+  "gave_seat=no": "A Gloria lembra que ficou em pé no metrô.",
+  "note=yes": "Você deixou um bilhete com seu telefone na recepção do hostel.",
+  "apples=yes": "Você está levando as maçãs da Rosie para o Eddie.",
+  "book=yes": "A Mabel confiou a você o livro que o freguês esqueceu."
+ },
+ "clues": {
+  "scarf": {
+   "title": "Cachecol de time",
+   "note": "Na mala errada há um cachecol vermelho e branco do Camden Rovers, um time de futebol bem pequeno do norte de Londres."
+  },
+  "ticket": {
+   "title": "Ingresso de teatro",
+   "note": "Da mala caiu um ingresso do Lantern Theatre para hoje, às sete e meia da noite."
+  },
+  "looking_for_you": {
+   "title": "Alguém te procura",
+   "note": "Um senhor com uma mala azul igual à sua passou no hostel perguntando pela pessoa hospedada que veio do Brasil."
+  },
+  "recipe": {
+   "title": "Receita à mão",
+   "note": "No bolso da mala há uma receita de crumble de maçã com um recado: comprar as maçãs na barraca da Rosie, no Camden Market."
+  },
+  "bookshop_card": {
+   "title": "Cartão da livraria",
+   "note": "O dono da mala guarda no bolso da frente o cartão da livraria Owl and Quill Books, em Cecil Court, perto da Trafalgar Square."
+  },
+  "every_night": {
+   "title": "Toda noite no teatro",
+   "note": "Segundo a Rosie, o Eddie está no Lantern Theatre toda noite, menos às segundas, e nunca compra ingresso."
+  },
+  "lines": {
+   "title": "Falando sozinho",
+   "note": "No ônibus, o senhor da outra mala azul repetia as mesmas palavras sem parar, como quem decora um texto."
+  },
+  "name_finch": {
+   "title": "O nome do dono",
+   "note": "Na livraria, a Mabel contou: o dono da mala se chama Edmund Finch e aparece lá toda sexta."
+  },
+  "prop": {
+   "title": "A mala do cartaz",
+   "note": "No cartaz da peça, o Sr. Finch aparece com a mala azul e o cachecol vermelho e branco: os dois estão em todas as cenas."
+  }
+ }
+}

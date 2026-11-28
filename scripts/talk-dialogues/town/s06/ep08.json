@@ -1,0 +1,109 @@
+{
+ "slug": "s06-08-inspection-day", "episode": 8, "title": "Inspection Day", "level": "B1",
+ "place": "home", "placeLabel": "Flat 4B", "time": "Sábado · 9h", "ambience": "home",
+ "description": "O grande final: o fantasma do 4B, a cláusula nove e o senhorio na porta.",
+ "intro": "O Sr. Whitaker chega às dez e não suporta surpresas. Às três da manhã, alguma coisa pequena e rápida passou pelo corredor e sumiu atrás de uma porta. Agora são nove horas, e o apartamento inteiro está reunido na cozinha.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Mei", "Programadora, colega de apartamento", "af_kore", "left"],
+  "p": ["Priya", "Enfermeira, colega de apartamento", "bf_alice", "left"],
+  "c": ["Callum", "Estudante de música, colega de apartamento", "bm_fable", "right"],
+  "w": ["Mr. Whitaker", "Senhorio, dono do apartamento", "bm_george", "right"],
+  "o": ["Mrs. Okafor", "Vizinha do 3B", "bf_isabella", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Saturday, nine o'clock. The flat has never been this clean. Mei holds her mug with both hands.", "Sábado, nove horas. O apartamento nunca esteve tão limpo. A Mei segura a caneca com as duas mãos.", "p1"],
+  "p1": ["p", "Right. One hour until Whitaker. Before he comes: does anybody know what our ghost is?", "Bom. Uma hora até o Whitaker. Antes de ele chegar: alguém sabe o que é o nosso fantasma?", [
+   ["I think I do. And it isn't a ghost.", "Acho que eu sei. E não é fantasma.", "p_go"],
+   ["I think it's Callum. He's always in the kitchen at night.", "Acho que é o Callum. Ele vive na cozinha de madrugada.", "c_me"],
+   ["Yes. Our guest is Mr. Whitaker.", "Sim. Nosso convidado é o Sr. Whitaker.", null, "Not the guest. The ghost! The thing that eats our food. Do you know what it is?", "Não o convidado. O fantasma! O negócio que come a nossa comida. Você sabe o que é?"]
+  ]],
+  "c_me": ["c", "Me? I slept in Leeds when the chicken vanished! And I've been sneezing for two weeks!", "Eu? Eu dormi em Leeds quando o frango sumiu! E tô espirrando faz duas semanas!", [
+   ["You're right. I'm sorry, Callum. That was unfair.", "Você tem razão. Desculpa, Callum. Isso foi injusto.", "c_forgive"],
+   ["Okay, not you. Let me go through the facts instead.", "Tá, você não. Deixa eu repassar os fatos, então.", "p_go"],
+   ["Two weeks of freezing? Put a jumper on.", "Duas semanas congelando? Veste um casaco.", null, "Sneezing! Not freezing! It isn't me, okay? Do you believe me now?", "Sneezing, espirrando! Não freezing! Não sou eu, tá? Agora você acredita em mim?"]
+  ]],
+  "c_forgive": ["c", "Forgiven. Everybody blames the trombone player. I'm used to it. Go on, then.", "Desculpas aceitas. Todo mundo põe a culpa no trombonista. Já acostumei. Vai, continua.", "p_what"],
+  "p_go": ["p", "Good. I like evidence. That's how we do it at the hospital.", "Ótimo. Eu gosto de evidência. É assim que a gente faz no hospital.", "p_what"],
+  "p_what": ["p", "First question. What is it? A person, an animal, or something else?", "Primeira pergunta. O que é? Uma pessoa, um animal ou outra coisa?", [
+   ["An animal. I think there's a cat in this flat.", "Um animal. Acho que tem um gato neste apartamento.", "p_who"],
+   ["A person. Someone who eats at night and feels guilty.", "Uma pessoa. Alguém que come de madrugada e sente culpa.", "p_who"],
+   ["Something else, please. With chips.", "Outra coisa, por favor. Com batata frita.", null, "This isn't a menu. What's been running around at three in the morning?", "Isto não é cardápio. O que anda correndo por aí às três da manhã?"]
+  ]],
+  "p_who": ["p", "Interesting. And who's behind it? Somebody at this table knows.", "Interessante. E quem está por trás disso? Alguém nesta mesa sabe.", [
+   ["Mei. I'm sorry, Mei. I think it's you.", "A Mei. Desculpa, Mei. Acho que é você.", "m_confess"],
+   ["I'd rather that person told us themselves.", "Prefiro que essa pessoa conte por conta própria.", "m_confess"],
+   ["Behind it? The fridge is behind it.", "Atrás? Atrás fica a geladeira.", null, "Not behind the fridge. Who's responsible? Which one of us?", "Não atrás da geladeira. Quem é responsável? Qual de nós?"]
+  ]],
+  "m_confess": ["m", "Stop. It's me. The food, the noise, the tuna. It was always me. I'm so sorry.", "Para. Sou eu. A comida, o barulho, o atum. Sempre fui eu. Me desculpem.", "m_story"],
+  "m_story": ["m", "Two weeks ago, in the storm, I found a kitten behind the bins. Soaking wet. I couldn't leave him.", "Há duas semanas, na tempestade, achei um filhote de gato atrás das lixeiras. Encharcado. Não consegui deixar ele lá.", "n_bug"],
+  "n_bug": ["n", "Mei opens her door. A small grey cat walks out, tail up, as if he owns the flat.", "A Mei abre a porta do quarto. Um gatinho cinza sai, de rabo erguido, como se fosse o dono do apartamento.", "m_name"],
+  "m_name": ["m", "This is Bug. He ate your dinner on Monday. I ran out of cat food, and I panicked.", "Este é o Bug. Ele comeu o seu jantar na segunda. A ração acabou, e eu entrei em pânico.", "c_sneeze"],
+  "c_sneeze": ["c", "A cat! That's why I'm sneezing! I'm allergic! I thought I was dying! Hello, tiny man.", "Um gato! Por isso eu espirro! Eu tenho alergia! Achei que tava morrendo! Oi, pequeno.", "n_bell"],
+  "n_bell": ["n", "The doorbell rings. It's only twenty to ten. Mr. Whitaker is early.", "A campainha toca. São só vinte pras dez. O Sr. Whitaker chegou antes.", "c_panic"],
+  "c_panic": ["c", "He's early! What do we do? The wardrobe? The balcony? My trombone case?", "Ele chegou antes! O que a gente faz? O guarda-roupa? A varanda? A caixa do trombone?", [
+   ["No hiding. We tell him the truth.", "Nada de esconder. A gente conta a verdade.", "w1", {"set": {"hid_bug": "no"}}],
+   ["Quick! Put Bug in Mei's room and shut the door.", "Rápido! Põe o Bug no quarto da Mei e fecha a porta.", "w1", {"set": {"hid_bug": "yes"}}],
+   ["Yes. Put Mr. Whitaker in the wardrobe.", "Isso. Põe o Sr. Whitaker no guarda-roupa.", null, "Not the landlord! The cat! Do we hide Bug or tell the truth? Decide!", "O senhorio, não! O gato! A gente esconde o Bug ou conta a verdade? Decide!"]
+  ]],
+  "w1": ["w", "Good morning. I'm early. I'm always early. My word, it smells of lemons in here.", "Bom dia. Cheguei antes. Eu sempre chego antes. Minha nossa, que cheiro de limão.", "hid_br"],
+  "hid_br": {"branch": [["hid_bug=yes", "n_meow"], [null, "m_tell"]]},
+  "n_meow": ["n", "From behind Mei's door comes a loud, clear meow. Then scratching. Then another meow.", "De trás da porta da Mei vem um miado alto e claro. Depois, arranhões. Depois, outro miado.", "w_meow"],
+  "w_meow": ["w", "Is that a cat? Is somebody hiding a cat from me?", "Isso é um gato? Alguém está escondendo um gato de mim?", [
+   ["Yes. I'm sorry. Hiding him was my idea, and it was a bad one.", "Sim. Desculpa. Esconder foi ideia minha, e foi uma ideia ruim.", "w_honest"],
+   ["No, no. That's Callum's phone. Funny ringtone.", "Não, não. É o celular do Callum. Toque engraçado.", "w_lie"],
+   ["A cap? Yes, Callum has a cap.", "Um boné? Sim, o Callum tem um boné.", null, "Not a cap. A cat. With whiskers. Is there one behind that door?", "Boné, não. Gato. Com bigodes. Tem um atrás daquela porta?"]
+  ]],
+  "w_honest": ["w", "Hm. A bad idea, but an honest answer. I respect that. Open the door, please.", "Hum. Uma ideia ruim, mas uma resposta honesta. Isso eu respeito. Abram a porta, por favor.", "n_shoe"],
+  "w_lie": ["w", "A ringtone. Young man, your ears are as red as a postbox. Open that door.", "Um toque de celular. Rapaz, suas orelhas estão vermelhas feito caixa de correio. Abram essa porta.", "n_shoe"],
+  "m_tell": ["m", "Mr. Whitaker, before you start. I have to tell you something. This is Bug. He's mine.", "Sr. Whitaker, antes de começar. Preciso lhe contar uma coisa. Este é o Bug. Ele é meu.", "n_shoe"],
+  "n_shoe": ["n", "Bug walks straight up to Mr. Whitaker and sits down on his left shoe.", "O Bug vai direto até o Sr. Whitaker e senta no sapato esquerdo dele.", "w_rule"],
+  "w_rule": ["w", "Miss Chen. My most reliable tenant. Clause nine says no pets. You know that.", "Senhorita Chen. Minha inquilina mais confiável. A cláusula nove proíbe animais. A senhorita sabe.", "perm_br"],
+  "perm_br": {"branch": [["clue_written_permission", "perm_yes"], [null, "perm_no"]]},
+  "perm_yes": ["w", "Well? Does anybody have something to say?", "E então? Alguém tem alguma coisa a dizer?", [
+   ["Clause nine says 'without written permission'. We'd like to ask for it now.", "A cláusula nove diz 'sem permissão por escrito'. A gente queria pedir essa permissão agora.", "offer_br", {"set": {"f_perm": "yes"}}],
+   ["It was an emergency. He was a kitten in a storm.", "Foi uma emergência. Era um filhote no meio da tempestade.", "offer_br"],
+   ["Claws nine? He's got more than nine claws.", "Nove garras? Ele tem mais de nove garras.", null, "Clause, not claws. The rule in the contract. What do you say to that?", "Clause, cláusula. Não claws. A regra do contrato. O que vocês têm a dizer?"]
+  ]],
+  "perm_no": ["w", "Well? Does anybody have something to say?", "E então? Alguém tem alguma coisa a dizer?", [
+   ["It was an emergency. He was a kitten in a storm.", "Foi uma emergência. Era um filhote no meio da tempestade.", "offer_br"],
+   ["We're very sorry. We should have told you.", "Pedimos desculpas. A gente devia ter avisado.", "offer_br"],
+   ["Claws nine? He's got more than nine claws.", "Nove garras? Ele tem mais de nove garras.", null, "Clause, not claws. The rule in the contract. What do you say to that?", "Clause, cláusula. Não claws. A regra do contrato. O que vocês têm a dizer?"]
+  ]],
+  "offer_br": {"branch": [["clue_landlord_reason", "offer_yes"], [null, "offer_no"]]},
+  "offer_yes": ["w", "The last pet in this flat cost me eight hundred pounds. Why should I risk that again?", "O último bicho deste apartamento me custou oitocentas libras. Por que eu correria esse risco de novo?", [
+   ["We'll pay an extra deposit, and for a professional clean when we leave.", "A gente paga um depósito extra e uma limpeza profissional quando sair.", "n_knock", {"set": {"f_offer": "yes"}}],
+   ["Because he's small and very sweet.", "Porque ele é pequeno e muito fofo.", "n_knock"],
+   ["Your wrist? Did you hurt your wrist?", "Seu pulso? O senhor machucou o pulso?", null, "Risk, not wrist. My wrist is fine. Why should I take the chance? Convince me.", "Risk, risco. Não wrist. Meu pulso vai bem. Por que eu arriscaria? Me convençam."]
+  ]],
+  "offer_no": ["w", "Pets mean damage, and damage means money. Why should I risk that?", "Bicho significa estrago, e estrago significa dinheiro. Por que eu correria esse risco?", [
+   ["Because he's small and very sweet.", "Porque ele é pequeno e muito fofo.", "n_knock"],
+   ["I don't know. But please give him a chance.", "Não sei. Mas, por favor, dê uma chance a ele.", "n_knock"],
+   ["Your wrist? Did you hurt your wrist?", "Seu pulso? O senhor machucou o pulso?", null, "Risk, not wrist. My wrist is fine. Why should I take the chance? Convince me.", "Risk, risco. Não wrist. Meu pulso vai bem. Por que eu arriscaria? Me convençam."]
+  ]],
+  "n_knock": ["n", "Someone knocks on the open door. It's Mrs. Okafor from Three B, in her slippers.", "Alguém bate na porta aberta. É a Sra. Okafor, do Três B, de chinelo.", "o_in"],
+  "o_in": ["o", "Sorry to barge in, Gerald. I heard a meow. So that's my little night runner!", "Desculpa ir entrando, Gerald. Ouvi um miado. Então é esse o meu corredorzinho da madrugada!", "end_br1"],
+  "end_br1": {"branch": [["f_perm=yes", "end_br2"], [null, "end_br3"]]},
+  "end_br2": {"branch": [["f_offer=yes", "end_best"], [null, "end_good"]]},
+  "end_br3": {"branch": [["f_offer=yes", "end_good"], [null, "end_basic"]]},
+  "end_best": ["w", "Asked properly. A deposit. A clean. Very well. I'll put it in writing: the cat stays.", "Pedido feito direito. Um depósito. Uma limpeza. Muito bem. Vou pôr por escrito: o gato fica.", "helped_br"],
+  "end_good": ["w", "Half an argument, but a polite half. One month's trial. One scratched door, and he goes.", "Meio argumento, mas a metade educada. Um mês de teste. Uma porta arranhada, e ele vai embora.", "helped_br"],
+  "end_basic": ["w", "I'm sorry. Sweet isn't enough, and a rule is a rule. He can't live in this flat.", "Sinto muito. Fofo não basta, e regra é regra. Ele não pode morar neste apartamento.", "o_basic"],
+  "o_basic": ["o", "Then he'll live in mine, Gerald. I own Three B. No clause nine for me.", "Então ele mora no meu, Gerald. O Três B é meu. Pra mim não tem cláusula nove.", "m_basic"],
+  "m_basic": ["m", "One floor down. I can visit him every day. Thank you, Mrs. Okafor. Thank you.", "Um andar abaixo. Posso visitar todo dia. Obrigada, Sra. Okafor. Obrigada.", "helped_br"],
+  "helped_br": {"branch": [["helped_okafor=yes", "o_h_yes"], [null, "o_h_no"]]},
+  "o_h_yes": ["o", "And you, love. You carried my bottles. There's always tea for you at Three B.", "E você, meu bem. Você levou minhas garrafas. No Três B sempre tem chá pra você.", "w_pickle"],
+  "o_h_no": ["o", "And you, love. You still owe me a trip to the recycling. I don't forget.", "E você, meu bem. Ainda me deve uma ida à reciclagem. Eu não esqueço.", "w_pickle"],
+  "w_pickle": ["w", "He's still on my shoe. I had a dog once. Pickle. Nobody's done that since.", "Ele continua no meu sapato. Eu tive um cachorro. O Pickle. Ninguém fazia isso desde então.", "c_tablets"],
+  "c_tablets": ["c", "I'll take allergy tablets every day. He's worth it. Achoo!", "Eu tomo antialérgico todo dia. Ele vale a pena. Atchim!", "m_final"],
+  "m_final": ["m", "One week here, and you've sorted us all out. Is there anything you want to say?", "Uma semana aqui, e você deu um jeito em todos nós. Quer dizer alguma coisa?", [
+   ["That's what flatmates are for.", "É pra isso que serve dividir apartamento.", "m_rule15"],
+   ["Just one thing. Can I be Bug's favourite?", "Só uma coisa. Posso ser a pessoa preferida do Bug?", "m_fav"],
+   ["Pay? Three pounds twenty, right?", "Pagar? Três libras e vinte, né?", null, "Say, not pay. You've already paid. Is there anything you want to tell us?", "Say, dizer. Não pay. Você já pagou. Quer contar alguma coisa pra gente?"]
+  ]],
+  "m_rule15": ["m", "Flatmates. Yes. New rule, number fifteen: in this flat, we tell each other things.", "Dividir apartamento. É. Regra nova, número quinze: neste apartamento, a gente conta as coisas.", "n_end"],
+  "m_fav": ["m", "Too late. He's slept on your bed twice this week. I didn't want to tell you.", "Tarde demais. Ele dormiu na sua cama duas vezes esta semana. Eu não quis te contar.", "n_end"],
+  "n_end": ["n", "Your first week in Flat Four B is over. You came for a cheap room. You found a home.", "Sua primeira semana no Flat Quatro B acabou. Você veio por um quarto barato. Encontrou um lar.", null]
+ }
+}

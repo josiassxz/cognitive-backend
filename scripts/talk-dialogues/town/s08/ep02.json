@@ -1,0 +1,82 @@
+{
+ "slug": "s08-02-a-quiet-word", "episode": 2, "title": "A Quiet Word", "level": "B1",
+ "place": "kitchen", "placeLabel": "Cozinha de Glenbeg House", "time": "Quinta · 18h", "ambience": "kitchen",
+ "description": "O padrinho tem um segredo. E a avó do noivo tem um bule.",
+ "intro": "Você chegou a Glenbeg House e prometeu à Julia um brinde no sábado. O Fergus avisou que a avó Nora anda reclamando do casamento. E o Declan, o padrinho, te chamou na cozinha, pálido.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "d": ["Declan", "Irmão do noivo e padrinho", "bm_fable", "right"],
+  "g": ["Granny Nora", "Avó do noivo", "bf_isabella", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Declan pulls you into the big kitchen and shuts the door. A kettle is singing on the stove.", "O Declan te puxa pra dentro da cozinha enorme e fecha a porta. Uma chaleira apita no fogão.", "d1"],
+  "d1": ["d", "Right. Don't panic. I'm not panicking. Boss, I've lost the rings. What do I do?", "Certo. Sem pânico. Eu não estou em pânico. Chefia, eu perdi as alianças. O que eu faço?", [
+   ["Okay. Slow down. When did you last see them?", "Tá. Calma. Quando foi a última vez que você viu as alianças?", "d_last"],
+   ["The wedding rings? Two days before the wedding?", "As alianças do casamento? A dois dias do casamento?", "d_two"],
+   ["Lost the strings? Of your guitar?", "Perdeu as cordas? Do seu violão?", null, "Not strings! Rings! The wedding rings! I've lost them. What am I going to do?", "Não é strings! É rings! As alianças! Eu perdi. O que eu vou fazer?"]
+  ]],
+  "d_two": ["d", "I know! Conor gave me one job. One! Hold two small circles for a week.", "Eu sei! O Conor me deu uma tarefa. Uma! Segurar dois círculos pequenos por uma semana.", "d_last"],
+  "d_last": ["d", "I had them this morning, at the suit hire shop in town. A little blue box.", "Eu estava com elas hoje de manhã, na loja de aluguel de ternos, na cidade. Uma caixinha azul.", "d_pocket"],
+  "d_pocket": ["d", "I put the box in the inside pocket of my jacket. Then they zipped the suit into a grey bag.", "Pus a caixinha no bolso interno do meu paletó. Aí fecharam o terno numa capa cinza.", "d_checked", {"clue": "suit_pocket"}],
+  "d_checked": ["d", "I got home, opened the bag, checked every pocket. No box. Where could it be?", "Cheguei em casa, abri a capa, olhei todos os bolsos. Nada de caixinha. Onde ela pode estar?", [
+   ["Did you stop anywhere on the way home?", "Você parou em algum lugar no caminho?", "d_stop"],
+   ["Could it have fallen out in your car?", "Será que não caiu dentro do seu carro?", "d_car"],
+   ["No socks? Just borrow a pair from Conor.", "Sem meias? Pega um par emprestado do Conor.", null, "Not socks! The box! The ring box is gone. Where do you think it went?", "Não é socks! É box! A caixinha das alianças sumiu. Onde você acha que ela foi parar?"]
+  ]],
+  "d_stop": ["d", "Only for petrol. And a sausage roll. The suit never left the car, I swear.", "Só pra abastecer. E pra comer um enroladinho de salsicha. O terno não saiu do carro, eu juro.", "d_search"],
+  "d_car": ["d", "I've had the seats out of that car. I found two euro and a very old chip.", "Eu tirei até os bancos daquele carro. Achei dois euros e uma batata frita muito antiga.", "d_search"],
+  "d_search": ["d", "I opened the bag right here, on this table. Maybe the box fell out. Will you help me look?", "Eu abri a capa bem aqui, em cima desta mesa. Vai ver a caixinha caiu. Você me ajuda a procurar?", [
+   ["You take the drawers. I'll take the cupboards.", "Você fica com as gavetas. Eu fico com os armários.", "n_press"],
+   ["Wait. Let's think before we turn the kitchen upside down.", "Espera. Vamos pensar antes de virar a cozinha de cabeça pra baixo.", "d_think"],
+   ["Sure. You look fine. A bit pale, maybe.", "Claro. Sua aparência está boa. Meio pálida, talvez.", null, "Not look at me! Look for the box! Will you help me search the kitchen?", "Não é pra olhar pra mim! É pra procurar a caixinha! Você me ajuda a revirar a cozinha?"]
+  ]],
+  "d_think": ["d", "No time for thinking, Boss. Granny has her tea at six. Cupboards. Go!", "Não dá tempo de pensar, Chefia. A vovó toma chá às seis. Armários. Vai!", "n_press"],
+  "n_press": ["n", "You open every cupboard. Declan calls them presses. You find tea, more tea, and a tin of old buttons.", "Você abre todos os armários. O Declan chama armário de press. Você acha chá, mais chá e uma lata de botões velhos.", "d_secret"],
+  "d_secret": ["d", "Nothing. One more thing. Don't tell Julia. Please. She'll never forgive me.", "Nada. Mais uma coisa. Não conta pra Julia. Por favor. Ela nunca vai me perdoar.", [
+   ["I promise. But we find them by Saturday.", "Prometo. Mas a gente acha até sábado.", "d_thanks", {"set": {"secret": "keep"}}],
+   ["I can't promise that. I don't hide things from Julia.", "Isso eu não posso prometer. Eu não escondo nada da Julia.", "d_fair", {"set": {"secret": "tell"}}],
+   ["Okay. I won't sell Julia.", "Tá. Eu não vou vender a Julia.", null, "Sell her? Tell her! Don't tell Julia about the rings. Can you keep a secret?", "Vender? Contar! Não conta pra Julia das alianças. Você consegue guardar segredo?"]
+  ]],
+  "d_thanks": ["d", "You're a legend, Boss. I owe you a pint. I owe you ten pints.", "Você é uma lenda, Chefia. Te devo uma cerveja. Te devo dez cervejas.", "n_door"],
+  "d_fair": ["d", "Ah, no. Well. That's fair. Just give me time to leave the country first.", "Ah, não. Bom. É justo. Só me dá tempo de sair do país antes.", "n_door"],
+  "n_door": ["n", "The door opens. A small woman with white hair and sharp blue eyes walks in. Declan freezes.", "A porta se abre. Entra uma senhora baixinha, de cabelo branco e olhos azuis afiados. O Declan congela.", "g1"],
+  "g1": ["g", "Declan Doyle. Why is your head in my press?", "Declan Doyle. Por que a sua cabeça está dentro do meu armário?", "d_bye"],
+  "d_bye": ["d", "Looking for biscuits, Granny! This is Julia's friend, from Brazil. Great chat. Bye!", "Procurando biscoito, vovó! Esta pessoa veio do Brasil pelo casamento da Julia. Ótimo papo. Tchau!", "n_alone"],
+  "n_alone": ["n", "Declan is gone before she can answer. Nora looks at you for a long moment.", "O Declan some antes que ela responda. A Nora te observa por um bom tempo.", "g2"],
+  "g2": ["g", "So you're the one who fixes things. I'm Nora. Sit down, child. You're making my kitchen look untidy.", "Então é você quem resolve as coisas. Eu sou a Nora. Senta, criança. Você está deixando minha cozinha com cara de bagunçada.", [
+   ["Thank you, Nora. Which chair should I take?", "Agradeço, Nora. Em qual cadeira eu sento?", "g_chair_ok", {"set": {"chair": "asked"}}],
+   ["Thanks! I'll take this big comfy one by the fire.", "Valeu! Vou ficar nesta poltrona grandona perto do fogo.", "g_chair_bad", {"set": {"chair": "sat"}}],
+   ["Yes, it's a very tiny kitchen.", "Sim, é uma cozinha bem pequenininha.", null, "Tiny? It's the biggest kitchen in the county. I said untidy. Will you sit down?", "Pequenininha? É a maior cozinha do condado. Eu disse bagunçada. Você vai sentar ou não?"]
+  ]],
+  "g_chair_ok": ["g", "The one by the window. Not the big one. That was my Paddy's chair. Good. You've manners.", "A da janela. A grande não. Aquela era a poltrona do meu Paddy. Muito bem. Você tem educação.", "g_tea"],
+  "g_chair_bad": ["g", "That was my husband Paddy's chair. Nobody has sat in it for six years. Well. It's done now.", "Essa era a poltrona do meu marido, o Paddy. Faz seis anos que ninguém senta aí. Bom. Agora já foi.", "g_tea"],
+  "g_tea": ["g", "You'll have tea. That wasn't a question. This is: can you make a proper pot?", "Você vai tomar chá. Isso não foi uma pergunta. Esta é: você sabe preparar um bule decente?", [
+   ["Teach me. I want to do it the Irish way.", "Me ensina. Quero fazer do jeito irlandês.", "g_teach", {"set": {"granny_tea": "good"}}],
+   ["Easy. Teabag in a cup, hot water, done.", "Fácil. Saquinho na xícara, água quente, pronto.", "g_bag", {"set": {"granny_tea": "bad"}}],
+   ["A boat? No, thanks. I get seasick.", "Um barco? Não, valeu. Eu enjoo no mar.", null, "A pot, not a boat! A teapot! Do you know how to make proper tea?", "É pot, não boat! Um bule! Você sabe fazer chá de verdade?"]
+  ]],
+  "g_teach": ["g", "Good answer. Warm the pot. Three spoons. Then leave it alone for five minutes. Like a husband.", "Boa resposta. Esquenta o bule. Três colheres. Depois deixa quieto por cinco minutos. Igual marido.", "n_photo"],
+  "g_bag": ["g", "A teabag. In a cup. I've lived too long. Sit still, I'll make it myself.", "Um saquinho. Numa xícara. Eu já vivi demais. Fica aí, eu mesma faço.", "n_photo"],
+  "n_photo": ["n", "While the tea brews, you notice an old photo on the wall. A young woman on a stage, laughing.", "Enquanto o chá descansa, você repara numa foto antiga na parede. Uma moça num palco, rindo.", "g_stare"],
+  "g_stare": ["g", "You're staring at my wall. Go on. Say what you're thinking.", "Você está encarando a minha parede. Anda. Fala o que está pensando.", [
+   ["Who's the woman in that photo?", "Quem é a moça daquela foto?", "g_photo1"],
+   ["Fergus says you're not happy about the wedding.", "O Fergus disse que a senhora não está contente com o casamento.", "g_fergus"],
+   ["I'm not starving, thanks. I ate on the plane.", "Não estou com fome, valeu. Comi no avião.", null, "Starving? I said staring. You're looking at my wall. What's on your mind?", "Com fome? Eu disse encarando. Você está olhando pra minha parede. No que está pensando?"]
+  ]],
+  "g_photo1": ["g", "That's me, in nineteen sixty-two. I played the accordion in a dance band for twenty years.", "Sou eu, em mil novecentos e sessenta e dois. Toquei acordeão numa banda de baile por vinte anos.", "g_photo2", {"clue": "accordion"}],
+  "g_photo2": ["g", "We played every wedding in the county. Paddy was on the fiddle. Then he was gone, and I stopped.", "A gente tocava em todo casamento do condado. O Paddy no violino. Depois ele se foi, e eu parei.", "g_notright"],
+  "g_fergus": ["g", "Did he, now. Fergus talks more than the radio, and makes less sense.", "Ah, ele disse. O Fergus fala mais que o rádio, e faz menos sentido.", "g_notright"],
+  "g_notright": ["g", "I'll say this once. That wedding on Saturday isn't right. Something's missing.", "Vou dizer uma vez só. Esse casamento de sábado não está certo. Tem uma coisa faltando.", [
+   ["What's missing, Nora?", "O que está faltando, Nora?", "g_ask"],
+   ["Missing? Who told you about the rings?", "Faltando? Quem te contou das alianças?", "g_rings", {"set": {"granny_rings": "knows"}}],
+   ["Fishing? Lovely. Are there salmon here?", "Pescaria? Que delícia. Tem salmão por aqui?", null, "Fishing? Missing! Something is missing from that wedding. Can you not guess what?", "Pescaria? Faltando! Tem uma coisa faltando nesse casamento. Você não adivinha o quê?"]
+  ]],
+  "g_ask": ["g", "If they have to ask, there's no point telling them. Sixty years, and nobody thinks.", "Se precisam perguntar, não adianta contar. Sessenta anos, e ninguém para pra pensar.", "g_end"],
+  "g_rings": ["g", "The rings? I never mentioned rings. Well, well. You've a terrible face for secrets, child.", "As alianças? Eu não falei de aliança nenhuma. Ora, ora. Você tem uma cara péssima pra guardar segredo, criança.", "n_gulp"],
+  "n_gulp": ["n", "You drink your tea very fast. It is far too hot.", "Você toma o chá bem depressa. Está quente demais.", "g_end"],
+  "g_end": ["g", "Drink up. You're due at the pub at eight. I hear Julia's mother is afraid of my son.", "Termina o chá. Você tem que estar no pub às oito. Ouvi dizer que a mãe da Julia tem medo do meu filho.", "g_end2"],
+  "g_end2": ["g", "Nobody asks an old woman anything. But I see everything. Off you go.", "Ninguém pergunta nada pra uma velha. Mas eu vejo tudo. Pode ir.", "n_end"],
+  "n_end": ["n", "Two missing rings, one grandmother with a secret, and dinner with both families in an hour.", "Duas alianças sumidas, uma avó com um segredo, e jantar com as duas famílias daqui a uma hora.", null]
+ }
+}

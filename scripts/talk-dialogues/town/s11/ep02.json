@@ -1,0 +1,84 @@
+{
+ "slug": "s11-02-the-tern-house", "episode": 2, "title": "The Tern House", "level": "B2",
+ "place": "hotel", "placeLabel": "Pousada Tern House", "time": "Segunda · 11h", "ambience": "hotel",
+ "description": "Sua primeira entrevista: a dona da pousada, que fala pelos cotovelos e tem uma moldura na parede.",
+ "intro": "Na travessia, a Isla contou seus passageiros e o capitão Reid deu uma regra: nada de cartão-postal. Ele mandou você começar pela Morag, dona da pousada Tern House.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Morag", "Dona da pousada", "bf_isabella", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "The Tern House stands above the harbour. Blue door, steamed-up windows, a smell of baking.", "A Tern House fica acima do porto. Porta azul, janelas embaçadas, cheiro de coisa assando.", "n2"],
+  "n2": ["n", "Before you can knock, the door flies open.", "Antes de você bater, a porta se escancara.", "m1"],
+  "m1": ["m", "You must be the film person! Come in, come in, you're dripping. I'm Morag. Tea or soup?", "Você deve ser a pessoa do filme! Entra, entra, você está pingando. Eu sou a Morag. Chá ou sopa?", [
+   ["Tea would be lovely, thanks.", "Um chá cairia muito bem, valeu.", "m_tea"],
+   ["Soup, please. I'm frozen to the bone.", "Sopa, por favor. Estou congelando até os ossos.", "m_soup"],
+   ["Soap? No, thanks. I've already had a shower.", "Sabonete? Não, valeu. Já tomei banho.", null, "Soup, dear, not soap! Though you're welcome to both. Now, tea or soup?", "Sopa, meu bem, não sabonete! Se bem que pode ficar com os dois. E então, chá ou sopa?"]
+  ]],
+  "m_tea": ["m", "Tea it is. Strong enough to stand a spoon in. That's how we make it here.", "Chá, então. Tão forte que a colher fica em pé. É assim que a gente faz aqui.", "cross_br"],
+  "m_soup": ["m", "Good choice. Lentil. My mother's recipe, and she never wrote a word of it down.", "Boa escolha. Lentilha. Receita da minha mãe, e ela nunca anotou uma palavra.", "cross_br"],
+  "cross_br": {"branch": [["crossing=sick", "m_sick"], [null, "m_fine"]]},
+  "m_sick": ["m", "Callum rang ahead. Said you went as green as a pea. Ginger biscuits, then. No arguments.", "O Callum ligou avisando. Disse que você ficou da cor de uma ervilha. Biscoito de gengibre, então. Sem discussão.", "m_room"],
+  "m_fine": ["m", "Callum rang ahead. Said you swore you were fine, and didn't blink once. Biscuit?", "O Callum ligou avisando. Disse que você jurou que estava bem, sem piscar nem uma vez. Biscoito?", "m_room"],
+  "m_room": ["m", "Now, rooms. Sea view, with the gulls at dawn. Or garden side, quiet, next to the hens.", "Agora, os quartos. Vista pro mar, com as gaivotas de madrugada. Ou lado do jardim, sossegado, perto das galinhas.", [
+   ["The sea view, please. I'll want to film the harbour.", "Vista pro mar, por favor. Vou querer filmar o porto.", "m_sea", {"set": {"room": "sea"}}],
+   ["The garden side. I need my sleep.", "Lado do jardim. Preciso dormir direito.", "m_garden", {"set": {"room": "garden"}}],
+   ["I'd rather have a room with no mushrooms, please.", "Prefiro um quarto sem cogumelos, por favor.", null, "Mushrooms? There are no mushrooms in my rooms, thank you very much! Sea view or garden side?", "Cogumelos? Nos meus quartos não tem cogumelo nenhum, ora essa! Vista pro mar ou lado do jardim?"]
+  ]],
+  "m_sea": ["m", "Sea view it is. You'll hear the Kittiwake's horn before you ever see her.", "Vista pro mar, então. Você vai ouvir a buzina da Kittiwake muito antes de enxergar a balsa.", "m_guests"],
+  "m_garden": ["m", "Garden it is. The hens are polite. The rooster, I can't promise.", "Jardim, então. As galinhas são educadas. Pelo galo eu não respondo.", "m_guests"],
+  "m_guests": ["m", "You're my only guest this week, mind. So I've time to talk. Too much time, some say.", "Aliás, só tem você de hóspede esta semana. Então eu tenho tempo pra conversar. Tempo demais, dizem.", "n_cam"],
+  "n_cam": ["n", "You set the camera up on the kitchen table. Morag fixes her hair, then her apron, then her hair again.", "Você arma a câmera na mesa da cozinha. A Morag ajeita o cabelo, depois o avental, depois o cabelo de novo.", "m_ready"],
+  "m_ready": ["m", "Is that thing on? Do I look at you or at it? I've never been interviewed before.", "Esse negócio está ligado? Eu olho pra você ou pra ele? Nunca me entrevistaram antes.", [
+   ["Look at me. Just talk as if the camera weren't here.", "Olha pra mim. Fala como se a câmera não estivesse aqui.", "m_soft"],
+   ["Let's start simply. Tell me who you are and what you do.", "Vamos começar pelo simples. Me conta quem você é e o que faz.", "m_formal"],
+   ["Yes, the thing is on the table.", "Sim, o negócio está em cima da mesa.", null, "I can see where it is, dear. I'm asking if it's recording, and where I should look.", "Onde ele está eu estou vendo, meu bem. Quero saber se está gravando, e pra onde eu olho."]
+  ]],
+  "m_soft": ["m", "As if it weren't here. Right. I'm Morag Sinclair, and I've run this house for twenty-six years.", "Como se não estivesse aqui. Certo. Eu sou Morag Sinclair e toco esta casa há vinte e seis anos.", "m_view"],
+  "m_formal": ["m", "Very professional. Morag Sinclair. I run the Tern House. Twenty-six years, and my mother before me.", "Que profissionalismo. Morag Sinclair. Eu cuido da Tern House. Vinte e seis anos, e antes de mim, minha mãe.", "m_view"],
+  "m_view": ["m", "And I'll say it plainly. Without that ferry, this house closes. And then the island does.", "E eu digo sem rodeios. Sem aquela balsa, esta casa fecha. E depois, a ilha.", [
+   ["Some people would call that an exaggeration. What would you say to them?", "Tem gente que chamaria isso de exagero. O que você diria a essas pessoas?", "m_exag"],
+   ["How many of your guests arrive on the ferry?", "Quantos dos seus hóspedes chegam de balsa?", "m_howmany"],
+   ["A fairy? I didn't know Skerra had fairies.", "Uma fada? Eu não sabia que Skerra tinha fadas.", null, "Not a fairy, a ferry! Though we've a few of those stories too. Go on, ask me about the boat.", "Fada não, balsa! Se bem que a gente tem umas histórias dessas também. Vai, me pergunta sobre o barco."]
+  ]],
+  "m_exag": ["m", "I'd tell them to read my bookings. Every single guest steps off that boat. Every one.", "Eu mandaria lerem o meu livro de reservas. Cada hóspede meu desce daquele barco. Todos.", "m_concede"],
+  "m_howmany": ["m", "All of them, dear. Nobody swims here. Two hundred guests last summer, give or take.", "Todos, meu bem. Ninguém chega aqui a nado. Duzentos hóspedes no verão passado, mais ou menos.", "m_concede"],
+  "m_concede": ["m", "Mind you, I'll admit one thing. In winter, I can go a whole month without a booking.", "Agora, uma coisa eu admito. No inverno, eu chego a passar um mês inteiro sem uma reserva.", [
+   ["So would you say the office has a point about winter?", "Então você diria que a repartição tem certa razão sobre o inverno?", "m_point"],
+   ["That must be hard. How do you get through it?", "Deve ser difícil. Como você atravessa esses meses?", "m_hard"],
+   ["A month without cooking? You must get very hungry.", "Um mês sem cozinhar? Você deve passar muita fome.", null, "Booking, not cooking! I cook every day. I mean no guests. Go on, ask me about the winter.", "Reserva, não cozinha! Eu cozinho todo dia. Quero dizer sem hóspedes. Vai, me pergunta sobre o inverno."]
+  ]],
+  "m_point": ["m", "A point, yes. Not the whole picture. You can't judge a garden in January.", "Certa razão, sim. Não o quadro todo. Não se julga um jardim em janeiro.", "n_frame"],
+  "m_hard": ["m", "Knitting, soup and stubbornness. The summer pays for the winter. Just about.", "Tricô, sopa e teimosia. O verão paga o inverno. Por um triz.", "n_frame"],
+  "n_frame": ["n", "Behind her, on the wall, a yellowed sheet of paper hangs in a wooden frame.", "Atrás dela, na parede, uma folha amarelada está pendurada numa moldura de madeira.", "m_q"],
+  "m_q": ["m", "Now. Is that enough, or have you more questions? I can go on. Ask anyone.", "Bom. Já chega, ou você tem mais perguntas? Eu posso continuar. Pergunta pra qualquer um.", [
+   ["What's that in the frame behind you?", "O que é aquilo na moldura atrás de você?", "m_letter1"],
+   ["Who disagrees with you most on this island?", "Quem mais discorda de você nesta ilha?", "m_disagree"],
+   ["And the young people? Do they see it the way you do?", "E os jovens? Enxergam a coisa como você?", "m_young"],
+   ["Yes, more cushions, please. This chair is rather hard.", "Sim, mais almofadas, por favor. Esta cadeira é meio dura.", null, "Cushions? Questions, dear! Though I'll fetch you one. Is there anything else you want to ask?", "Almofadas? Perguntas, meu bem! Se bem que eu te arranjo uma. Tem mais alguma coisa que você queira perguntar?"]
+  ]],
+  "m_letter1": ["m", "That? That's the letter. Nineteen seventy-four. My mother wrote it, and forty islanders signed.", "Aquilo? Aquilo é a carta. Mil novecentos e setenta e quatro. Minha mãe escreveu, e quarenta moradores assinaram.", "m_letter2"],
+  "m_letter2": ["m", "They asked the mainland for one thing. 'A daily crossing, however small.' Her exact words.", "Pediram uma única coisa ao continente. 'Uma travessia diária, por menor que seja.' Palavras dela.", "m_letter3", {"clue": "old_letter"}],
+  "m_letter3": ["m", "We never got daily. We got the Kittiwake, twice a week. Still, we were grateful.", "Diária a gente nunca teve. Veio a Kittiwake, duas vezes por semana. Mesmo assim, ficamos gratos.", "m_side"],
+  "m_disagree": ["m", "Duncan MacRae. Says we managed before the ferry and we'd manage after. Stubborn as a rock.", "Duncan MacRae. Diz que a gente se virava antes da balsa e se viraria depois. Teimoso feito pedra.", "m_side"],
+  "m_young": ["m", "Ask Isla, Duncan's girl. She works the ferry. Counts the days as well as the tickets.", "Pergunta pra Isla, a filha do Duncan. Ela trabalha na balsa. Conta os dias tanto quanto os bilhetes.", "m_side"],
+  "m_side": ["m", "Now you answer me one. This film of yours. Whose side is it on?", "Agora você me responde uma. Esse seu filme. De que lado ele está?", [
+   ["Nobody's. I want every side heard, including the office.", "De ninguém. Quero que todos os lados sejam ouvidos, inclusive a repartição.", "m_fair", {"set": {"side": "fair"}}],
+   ["The island's. That's why I came all this way.", "Do lado da ilha. Foi por isso que eu vim de tão longe.", "m_island", {"set": {"side": "island"}}],
+   ["The left side. It's my good side.", "Do lado esquerdo. É o meu lado bom.", null, "Very funny. I mean in the argument, dear. Whose side are you on?", "Muito engraçado. Eu falo da discussão, meu bem. De que lado você está?"]
+  ]],
+  "m_fair": ["m", "Hm. Fair is harder than it sounds. But I respect it. I think.", "Hum. Ser justo é mais difícil do que parece. Mas eu respeito. Acho.", "n_shout"],
+  "m_island": ["m", "Good. Though mind you, the island has more than one side itself.", "Ótimo. Se bem que a própria ilha tem mais de um lado.", "n_shout"],
+  "n_shout": ["n", "Down at the harbour, somebody starts shouting. A man's voice, cheerful and furious at once.", "Lá embaixo, no porto, alguém começa a gritar. Uma voz de homem, alegre e furiosa ao mesmo tempo.", "m_shout"],
+  "m_shout": ["m", "That'll be Duncan, arguing with a seagull or the weather. He lands his catch at six.", "Deve ser o Duncan, discutindo com uma gaivota ou com o tempo. Ele descarrega a pesca às seis.", "m_last"],
+  "m_last": ["m", "Go and see him tomorrow. One thing, though. How are you with early mornings?", "Vai falar com ele amanhã. Só uma coisa. Como você se dá com acordar cedo?", [
+   ["Six is fine. I'll be there before he is.", "Às seis, tudo bem. Vou chegar antes dele.", "m_early"],
+   ["Terrible. But for a good interview, I'll manage.", "Pessimamente. Mas por uma boa entrevista eu dou um jeito.", "m_late"],
+   ["Early warnings? Is there a storm coming?", "Alertas? Vem tempestade por aí?", null, "Mornings, not warnings! Though with Duncan it's much the same. Can you be up by six?", "Manhãs, não alertas! Se bem que, com o Duncan, dá quase no mesmo. Você consegue estar de pé às seis?"]
+  ]],
+  "m_early": ["m", "Before Duncan? Nobody's managed that since nineteen ninety. Take a flask.", "Antes do Duncan? Ninguém consegue isso desde mil novecentos e noventa. Leva uma garrafa térmica.", "n_end"],
+  "m_late": ["m", "Honest, at least. I'll bang on your door at five. No extra charge.", "Pelo menos é sinceridade. Eu esmurro a sua porta às cinco. Sem custo extra.", "n_end"],
+  "n_end": ["n", "That night, you watch your footage. One landlady, a lot of soup. Tomorrow at six: the man who disagrees.", "À noite, você revê o material. Uma dona de pousada, muita sopa. Amanhã às seis: o homem que discorda.", null]
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "season": 6,
+ "title": "Flat 4B",
+ "subtitle": "Você se muda para um apartamento dividido em Manchester. Comida some da geladeira, alguma coisa corre pelo corredor às três da manhã, e o senhorio vem fazer uma vistoria no sábado. Quem é o fantasma do 4B?",
+ "level": "A2–B1",
+ "genre": "Sitcom com mistério",
+ "clues": {
+  "meat_only": {
+   "title": "Fantasma carnívoro",
+   "note": "O que some da geladeira é sempre presunto, frango ou leite. Os legumes, nunca."
+  },
+  "three_am": {
+   "title": "Três da manhã",
+   "note": "Às três da manhã, passinhos leves e rápidos correm pelo corredor, e alguma coisa arranha uma porta."
+  },
+  "night_shift": {
+   "title": "Plantão noturno",
+   "note": "A Priya trabalha de domingo a quinta, das oito da noite às oito da manhã. Na hora dos barulhos, ela está no hospital."
+  },
+  "guilty_ghost": {
+   "title": "Fantasma com culpa",
+   "note": "Um dia depois de sumir, a comida volta: de uma marca melhor e com uma etiqueta perfeita."
+  },
+  "sneezing": {
+   "title": "Espirros em casa",
+   "note": "Faz duas semanas que o Callum espirra, mas só dentro do apartamento. Na faculdade e no pub, nunca."
+  },
+  "written_permission": {
+   "title": "Cláusula nove",
+   "note": "O contrato não diz só 'sem animais': diz 'sem animais sem a permissão por escrito do senhorio'."
+  },
+  "room_below": {
+   "title": "Em cima da cama dela",
+   "note": "A Sra. Okafor ouve pezinhos correndo bem em cima da cama dela, que fica embaixo do último quarto do corredor do 4B."
+  },
+  "rainy_night": {
+   "title": "A noite da tempestade",
+   "note": "Há duas semanas, na tempestade, a Sra. Okafor viu a Mei ajoelhada perto das lixeiras, guardando uma coisa pequena dentro do casaco."
+  },
+  "landlord_reason": {
+   "title": "O motivo da regra",
+   "note": "O Sr. Whitaker proibiu animais porque um cachorro escondido destruiu três portas. Se pedirem antes e oferecerem um depósito e uma limpeza profissional, ele escuta."
+  }
+ },
+ "memories": {
+  "milk=yes": "O Callum lembra que você dividiu seu leite com ele às três da manhã.",
+  "quiet_promise=yes": "Você prometeu à Priya fazer silêncio enquanto ela dorme de dia.",
+  "quiet_promise=no": "A Priya não esqueceu que o seu despertador é bem barulhento.",
+  "tone=blunt": "O Callum ficou chateado com o jeito direto como você falou da comida.",
+  "practice=home": "Você combinou com o Callum um horário para o trombone em casa.",
+  "helped_callum=yes": "O Callum conta com você para carregar o amplificador até o show.",
+  "helped_callum=no": "O Callum lembra que você não pôde ajudar no dia do show.",
+  "helped_okafor=yes": "A Sra. Okafor lembra que você levou as garrafas dela para a reciclagem."
+ }
+}

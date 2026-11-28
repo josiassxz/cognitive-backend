@@ -1,0 +1,93 @@
+{
+ "slug": "s06-05-house-meeting", "episode": 5, "title": "House Meeting", "level": "B1",
+ "place": "home", "placeLabel": "Flat 4B · sala", "time": "Quarta · 20h", "ambience": "home",
+ "description": "Pauta impressa, plano de limpeza colorido e a cláusula nove do contrato.",
+ "intro": "Você visitou o Callum na universidade. Ele jura que é inocente e pediu um favor para o show de amanhã. Hoje à noite tem reunião do apartamento: faltam três dias para a vistoria, e a Mei quer ler o contrato.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Mei", "Programadora, colega de apartamento", "af_kore", "left"],
+  "p": ["Priya", "Enfermeira, colega de apartamento", "bf_alice", "left"],
+  "c": ["Callum", "Estudante de música, colega de apartamento", "bm_fable", "right"],
+  "o": ["Mrs. Okafor", "Vizinha do 3B", "bf_isabella", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Wednesday, eight o'clock. Everyone is in the living room. Mei has printed an agenda.", "Quarta, oito da noite. Todo mundo está na sala. A Mei imprimiu uma pauta.", "n2"],
+  "n2": ["n", "Priya is in her uniform, ready for work. Callum is eating crisps, loudly.", "A Priya está de uniforme, pronta pra trabalhar. O Callum come batatinha, fazendo barulho.", "m1"],
+  "m1": ["m", "Thank you all for coming. Item one: the inspection. We've got three days. Any thoughts?", "Obrigada por virem. Item um: a vistoria. Temos três dias. Alguma ideia?", [
+   ["Let's split the cleaning between the four of us.", "Vamos dividir a limpeza entre nós quatro.", "m_split"],
+   ["What exactly does Mr. Whitaker look for?", "O que exatamente o Sr. Whitaker procura?", "p_whit"],
+   ["Three days off? Great, I need a holiday.", "Três dias de folga? Ótimo, preciso de férias.", null, "It's not a holiday. The landlord is coming in three days. How do we get ready?", "Não são férias. O senhorio vem daqui a três dias. Como a gente se prepara?"]
+  ]],
+  "p_whit": ["p", "Everything. Last year he looked inside the oven. With a torch.", "Tudo. Ano passado ele olhou dentro do forno. Com uma lanterna.", "m_split"],
+  "m_split": ["m", "Which is why I've made a cleaning plan. It's colour-coded.", "E é por isso que eu fiz um plano de limpeza. Com cores.", "chore_br"],
+  "chore_br": {"branch": [["chore=bins", "m_ch_bins"], ["chore=bathroom", "m_ch_bath"], [null, "m_ch_kit"]]},
+  "m_ch_bins": ["m", "You chose the bins, so you also get the balcony. It's full of Callum's bottles.", "Você escolheu o lixo, então também fica com a varanda. Está cheia de garrafas do Callum.", "m_fair"],
+  "m_ch_bath": ["m", "You chose the bathroom. That includes the mould behind the door. Sorry.", "Você escolheu o banheiro. Isso inclui o mofo atrás da porta. Sinto muito.", "m_fair"],
+  "m_ch_kit": ["m", "You chose the kitchen. That includes the oven. Priya mentioned the torch.", "Você escolheu a cozinha. Isso inclui o forno. A Priya falou da lanterna.", "m_fair"],
+  "m_fair": ["m", "Does that sound fair to you?", "Parece justo pra você?", [
+   ["It's fine. But could someone give me a hand on Friday?", "Tudo bem. Mas alguém pode me dar uma mão na sexta?", "help_br"],
+   ["Honestly, it's a lot for one person. Can we negotiate?", "Sinceramente, é muito pra uma pessoa só. Dá pra negociar?", "m_swap"],
+   ["The fair? I love the fair! Is it in town?", "O parque de diversões? Adoro! Está na cidade?", null, "Not that kind of fair. I mean: is the plan okay for you, or not?", "Não esse fair. Quero dizer: o plano está bom pra você ou não?"]
+  ]],
+  "help_br": {"branch": [["helped_callum=yes", "c_help_yes"], [null, "c_help_no"]]},
+  "c_help_yes": ["c", "I'll do it. You're carrying my amp tomorrow, so I owe you one.", "Eu ajudo. Você vai carregar meu amplificador amanhã, então eu te devo essa.", "p_item2"],
+  "c_help_no": ["c", "I'll do it. If I wake up before noon. No promises.", "Eu ajudo. Se eu acordar antes do meio-dia. Sem promessas.", "p_item2"],
+  "m_swap": ["m", "Negotiation. Fine. You keep your job, and Callum helps with the heavy part. Deal?", "Negociação. Tá. Você mantém sua tarefa, e o Callum ajuda na parte pesada. Fechado?", [
+   ["Deal. Thanks, Callum.", "Fechado. Valeu, Callum.", "c_why"],
+   ["Deal. And I'll cook for him on Friday.", "Fechado. E eu cozinho pra ele na sexta.", "c_cook"],
+   ["A deal? No, thanks. I don't play cards.", "Dar as cartas? Não, valeu. Eu não jogo baralho.", null, "Not cards. An agreement. Callum helps you with the heavy part. Do you accept?", "Não é baralho. É um acordo. O Callum te ajuda na parte pesada. Você aceita?"]
+  ]],
+  "c_why": ["c", "Wait, what? Nobody asked me! Why is it always me?", "Peraí, como é? Ninguém me perguntou! Por que sempre eu?", "p_item2"],
+  "c_cook": ["c", "Now we're talking! I'm in. I'll even wear gloves.", "Agora sim! Tô dentro. Uso até luva.", "p_item2"],
+  "p_item2": ["p", "Item two is mine. Noise. I sleep in the daytime, people.", "O item dois é meu. Barulho. Eu durmo de dia, gente.", "quiet_br"],
+  "quiet_br": {"branch": [["quiet_promise=yes", "p_quiet_yes"], [null, "p_quiet_no"]]},
+  "p_quiet_yes": ["p", "Not you, new one. You've been as quiet as a mouse. Thank you.", "Não é com você, que chegou agora. Você não faz um ruído. Obrigada.", "p_callum"],
+  "p_quiet_no": ["p", "New one. Your alarm, on Tuesday morning. It rang nine times. I counted.", "Você, que chegou agora. Seu despertador, na terça de manhã. Tocou nove vezes. Eu contei.", [
+   ["I'm so sorry, Priya. I'll change it to a quiet one.", "Desculpa mesmo, Priya. Vou trocar por um bem baixinho.", "p_al_sorry"],
+   ["Sorry! But these walls are really thin.", "Desculpa! Mas estas paredes são muito finas.", "p_al_walls"],
+   ["Nine times? No, I only have one alarm.", "Nove vezes? Não, eu só tenho um despertador.", null, "One alarm, nine rings. I'm talking about the noise. What will you do about it?", "Um despertador, nove toques. Eu tô falando do barulho. O que você vai fazer?"]
+  ]],
+  "p_al_sorry": ["p", "Apology accepted. That's all I wanted. Well, that and nine more hours of sleep.", "Desculpas aceitas. Era só o que eu queria. Bom, isso e mais nove horas de sono.", "p_callum"],
+  "p_al_walls": ["p", "They are. Which is exactly why I'm asking. Put the phone under your pillow.", "São mesmo. E é por isso que eu tô pedindo. Põe o celular debaixo do travesseiro.", "p_callum"],
+  "p_callum": ["p", "And Callum. The trombone. At eleven in the morning.", "E Callum. O trombone. Às onze da manhã.", "practice_br"],
+  "practice_br": {"branch": [["practice=home", "c_home"], [null, "c_campus"]]},
+  "c_home": ["c", "We've sorted that out! I only play from three to five. It was the new one's idea.", "Isso a gente já resolveu! Só toco das três às cinco. Ideia de quem chegou agora.", "p_ok"],
+  "c_campus": ["c", "We've sorted that out! I've booked a room at uni. It was the new one's idea.", "Isso a gente já resolveu! Reservei uma sala na faculdade. Ideia de quem chegou agora.", "p_ok"],
+  "p_ok": ["p", "Really? Then the new one deserves a medal. And I get my sleep back.", "Sério? Então quem chegou agora merece uma medalha. E eu recupero meu sono.", "m_item3"],
+  "m_item3": ["m", "Item three: the contract. I've read it twice. Shall I summarise, or do you want every word?", "Item três: o contrato. Li duas vezes. Eu resumo ou vocês querem palavra por palavra?", [
+   ["A summary is fine. What are the main rules?", "Um resumo tá bom. Quais são as regras principais?", "m_summary"],
+   ["Could I read the part about the rules myself?", "Posso dar uma lida na parte das regras?", "n_read"],
+   ["Summer rice? Yes, that sounds delicious.", "Arroz de verão? Sim, parece uma delícia.", null, "Summarise. Not summer rice. Do you want the short version or the whole contract?", "Summarise, resumir. Não summer rice. Você quer a versão curta ou o contrato inteiro?"]
+  ]],
+  "m_summary": ["m", "No smoking. No parties after eleven. No damage. Keep it clean. That's basically it.", "Não fumar. Nada de festa depois das onze. Nada de estragos. Manter limpo. Basicamente é isso.", "p_basically"],
+  "p_basically": ["p", "Basically? You never say basically. Give me that. Let's see.", "Basicamente? Você nunca fala basicamente. Me dá isso. Vamos ver.", "p_reads"],
+  "n_read": ["n", "Mei holds the pages tightly. Then she lets go. Priya reads over your shoulder.", "A Mei segura as folhas com força. Depois solta. A Priya lê por cima do seu ombro.", "p_reads"],
+  "p_reads": ["p", "Here, clause nine. No pets without the landlord's written permission.", "Aqui, cláusula nove. Nada de animais sem a permissão por escrito do senhorio.", "c_dog", {"clue": "written_permission"}],
+  "c_dog": ["c", "No pets? Shame. I've always wanted a big, stupid dog.", "Sem animais? Que pena. Sempre quis um cachorro grande e bobo.", "p_notice"],
+  "p_notice": ["p", "Funny. It doesn't say 'no pets'. It says 'ask first'. Did you catch that?", "Engraçado. Não diz 'sem animais'. Diz 'peça antes'. Você reparou?", [
+   ["Yes. With written permission, a pet is allowed.", "Sim. Com permissão por escrito, pode ter animal.", "m_theory"],
+   ["What happens if somebody breaks that rule?", "O que acontece se alguém quebrar essa regra?", "m_deposit"],
+   ["No pens without permission? But I need to write!", "Sem canetas sem permissão? Mas eu preciso escrever!", null, "Pets, not pens. Animals. The contract says you can ask. Did you catch that?", "Pets, animais. Não pens. O contrato diz que dá pra pedir. Você reparou?"]
+  ]],
+  "m_theory": ["m", "In theory. But landlords always say no. Always. There's no point in asking.", "Na teoria. Mas senhorio sempre diz não. Sempre. Nem adianta pedir.", "n_sneeze"],
+  "m_deposit": ["m", "You lose your deposit. Six hundred pounds. And maybe your room. I checked.", "Você perde o depósito. Seiscentas libras. E talvez o quarto. Eu conferi.", "n_sneeze"],
+  "n_sneeze": ["n", "Callum sneezes four times. Mei looks at the floor. Priya looks at her watch.", "O Callum espirra quatro vezes. A Mei olha pro chão. A Priya olha pro relógio.", "m_aob"],
+  "m_aob": ["m", "Last item. Any other business? No? Good.", "Último item. Mais algum assunto? Não? Ótimo.", [
+   ["One thing. Should we tell Mr. Whitaker about the missing food?", "Uma coisa. A gente devia contar pro Sr. Whitaker da comida que some?", "m_no"],
+   ["Yes. The noise at night. I heard steps at three.", "Sim. O barulho de madrugada. Ouvi passos às três.", "m_steps"],
+   ["Other business? Yes, I'd like to open a bakery.", "Outro negócio? Sim, eu queria abrir uma padaria.", null, "Not that kind of business. I mean: is there anything else to discuss tonight?", "Não esse tipo de negócio. Quero dizer: tem mais alguma coisa pra discutir hoje?"]
+  ]],
+  "m_no": ["m", "No! I mean, no. We don't bother a landlord with ham. Meeting closed.", "Não! Quer dizer, não. Ninguém incomoda senhorio por causa de presunto. Reunião encerrada.", "n_knock"],
+  "m_steps": ["m", "Old pipes. Old buildings make noises. Everybody knows that. Meeting closed.", "Cano velho. Prédio velho faz barulho. Todo mundo sabe disso. Reunião encerrada.", "n_knock"],
+  "n_knock": ["n", "Three slow knocks on the front door. Priya opens it on her way out to work.", "Três batidas lentas na porta da frente. A Priya abre, já saindo pro trabalho.", "o1"],
+  "o1": ["o", "Good evening. I'm Mrs. Okafor, from Three B, downstairs. I'd like a word about the night noise.", "Boa noite. Sou a Sra. Okafor, do Três B, aqui embaixo. Queria dar uma palavrinha sobre o barulho de madrugada.", [
+   ["I'm so sorry. Could I come down tomorrow to talk about it?", "Sinto muito. Posso descer amanhã pra gente conversar?", "o_tomorrow"],
+   ["Night noise? We hear it too!", "Barulho de madrugada? A gente também ouve!", "o_too"],
+   ["A word? Okay. Banana.", "Uma palavra? Tá. Banana.", null, "Very funny. I mean a conversation. About the noise at night. When can we talk?", "Muito engraçado. Eu falo de uma conversa. Sobre o barulho de madrugada. Quando a gente pode conversar?"]
+  ]],
+  "o_tomorrow": ["o", "Tomorrow at five. I'll put the kettle on. Don't be late. I was a bus driver.", "Amanhã às cinco. Eu ponho a chaleira no fogo. Sem atraso. Eu fui motorista de ônibus.", "n_end"],
+  "o_too": ["o", "Do you, now? Then come down tomorrow at five, and we'll compare notes.", "Ah, é? Então desce amanhã às cinco, e a gente compara as anotações.", "n_end"],
+  "n_end": ["n", "Mrs. Okafor goes back downstairs. You turn around. Mei has already gone to her room. Again.", "A Sra. Okafor desce de volta. Você se vira. A Mei já foi pro quarto. De novo.", null]
+ }
+}

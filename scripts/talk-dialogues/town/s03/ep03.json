@@ -1,0 +1,95 @@
+{
+ "slug": "s03-03-the-fridge", "episode": 3, "title": "The Fridge", "level": "A2",
+ "place": "kitchen", "placeLabel": "Dentro do truck", "time": "Quarta · 8h", "ambience": "kitchen",
+ "description": "A geladeira morreu. Ligue para o conserto, explique o problema e decida quanto gastar.",
+ "intro": "O Chuck, do truck vizinho, quer ganhar o festival de qualquer jeito. O Sr. Boone voltou e pediu o mesmo de ontem. E no fim do dia a geladeira fez clique, clique, clique.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "b": ["Bia", "Sua prima e sócia", "af_bella", "left"],
+  "t": ["Tasha", "Técnica de geladeiras", "af_kore", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Wednesday, eight in the morning. You open the truck door. It is warm inside. Too warm.", "Quarta, oito da manhã. Você abre a porta do truck. Está quente lá dentro. Quente demais.", "n2"],
+  "n2": ["n", "The fridge is silent. There is water on the floor.", "A geladeira está em silêncio. Tem água no chão.", "b1"],
+  "b1": ["b", "No, no, no! The fridge is dead! The cheese! The meat! What do we do?", "Não, não, não! A geladeira morreu! O queijo! A carne! O que a gente faz?", [
+   ["Calm down. First, let's save the food. Do we have ice?", "Calma. Primeiro, vamos salvar a comida. A gente tem gelo?", "b_ice"],
+   ["Let's call someone to fix it. Right now.", "Vamos chamar alguém pra consertar. Agora mesmo.", "b_call"],
+   ["Don't worry, the bridge is fine.", "Relaxa, a ponte está ótima.", null, "Not the bridge! The fridge! It's broken! What do we do first?", "A ponte, não! A geladeira! Quebrou! O que a gente faz primeiro?"]
+  ]],
+  "b_ice": ["b", "Ice! Yes! The gas station sells big bags. I'll run. And you call the repair person!", "Gelo! Isso! O posto vende sacos grandes. Eu vou correndo. E você liga pro conserto!", "b_card"],
+  "b_call": ["b", "Yes! There's a card on the wall. Tasha's Repairs. And I'll run and buy ice.", "Isso! Tem um cartão na parede. Tasha's Repairs. E eu vou correndo comprar gelo.", "b_card"],
+  "b_card": ["b", "Here's the number. My hands are shaking. Tell her it's an emergency!", "Toma o número. Minhas mãos estão tremendo. Fala pra ela que é uma emergência!", "n_phone"],
+  "n_phone": ["n", "Bia runs out. You call the number. It rings three times.", "A Bia sai correndo. Você liga para o número. Chama três vezes.", "t1"],
+  "t1": ["t", "Tasha's Repairs. Tasha speaking.", "Tasha's Repairs. É a Tasha.", [
+   ["Hi. Our fridge stopped working. Can you come today?", "Oi. Nossa geladeira parou de funcionar. Você pode vir hoje?", "t_today"],
+   ["Hello. It's an emergency. We have a food truck.", "Alô. É uma emergência. A gente tem um food truck.", "t_emerg"],
+   ["Hi, Tasha. I'm speaking too.", "Oi, Tasha. Eu também estou falando.", null, "I can hear that. Why are you calling? What's the problem?", "Dá pra perceber. Por que você está ligando? Qual é o problema?"]
+  ]],
+  "t_today": ["t", "Today? Maybe. Tell me about the fridge first.", "Hoje? Talvez. Primeiro me fala da geladeira.", "t_desc"],
+  "t_emerg": ["t", "Honey, it's always an emergency. Tell me about the fridge.", "Meu bem, é sempre emergência. Me fala da geladeira.", "t_desc"],
+  "t_desc": ["t", "What is it doing? Any noise? Any water?", "O que ela está fazendo? Algum barulho? Água?", [
+   ["Yesterday it went click, click, click. Now it's silent.", "Ontem ela fez clique, clique, clique. Agora está em silêncio.", "t_click"],
+   ["There's water on the floor, and it's warm inside.", "Tem água no chão, e está quente por dentro.", "t_water"],
+   ["No, thanks, I'm not thirsty.", "Não, valeu, estou sem sede.", null, "I'm not offering you water. Is there water on the floor? What do you see?", "Não estou te oferecendo água. Tem água no chão? O que você está vendo?"]
+  ]],
+  "t_click": ["t", "Click, click, then nothing. I know that sound.", "Clique, clique, e depois nada. Conheço esse barulho.", "t_where"],
+  "t_water": ["t", "Warm and wet. That's not good.", "Quente e molhada. Isso não é bom.", "t_where"],
+  "t_where": ["t", "I can come in thirty minutes. Where are you?", "Posso chegar em trinta minutos. Onde vocês estão?", [
+   ["Maple Yard, the food truck park. We're the yellow truck.", "Maple Yard, o pátio dos food trucks. O nosso é o amarelo.", "t_come"],
+   ["Next to the big red truck, Smoke King.", "Do lado do caminhão vermelho, o Smoke King.", "t_chuck"],
+   ["I'm fine, thanks. And you?", "Tudo bem, valeu. E você?", null, "Good for you. But where? I need the address.", "Que bom. Mas onde? Preciso do endereço."]
+  ]],
+  "t_come": ["t", "The yellow one with the bird? I saw it. Thirty minutes. Don't open the fridge door.", "O amarelo do passarinho? Eu vi. Trinta minutos. Não abra a porta da geladeira.", "n_arrive"],
+  "t_chuck": ["t", "Chuck's truck? I fixed his freezer twice. I know the place. Don't open the fridge door.", "O truck do Chuck? Já consertei o freezer dele duas vezes. Sei onde é. Não abra a porta da geladeira.", "n_arrive"],
+  "n_arrive": ["n", "Thirty minutes later, a woman with a big toolbox climbs into the truck. Bia is back with the ice.", "Trinta minutos depois, uma mulher com uma caixa de ferramentas enorme sobe no truck. A Bia já voltou com o gelo.", "t_look"],
+  "t_look": ["t", "Found it. Bad news: one part is dead. I have two ways to fix it.", "Achei. Má notícia: uma peça morreu. Tenho dois jeitos de consertar.", "t_opts"],
+  "t_opts": ["t", "A new part is three hundred dollars. A used part is ninety, but I can't promise anything.", "Uma peça nova custa trezentos dólares. Uma usada, noventa, mas não prometo nada.", [
+   ["The new part, please. We can't lose the fridge again.", "A peça nova, por favor. Não dá pra perder a geladeira de novo.", "t_new", {"set": {"fridge": "new_part"}}],
+   ["The used part. We don't have much money right now.", "A usada. A gente está com pouco dinheiro agora.", "t_old", {"set": {"fridge": "old_part"}}],
+   ["Which one do you recommend?", "Qual você recomenda?", "t_rec"],
+   ["Two ways? I only know one way home.", "Dois caminhos? Eu só sei um caminho pra casa.", null, "I'm talking about the repair. The new part or the used part? Which one?", "Estou falando do conserto. A peça nova ou a usada? Qual vai ser?"]
+  ]],
+  "t_rec": ["t", "The new one. But it's your money, not mine. So, new or used?", "A nova. Mas o dinheiro é de vocês, não meu. E aí, nova ou usada?", [
+   ["Okay. The new one, then.", "Tá bom. A nova, então.", "t_new", {"set": {"fridge": "new_part"}}],
+   ["Sorry. It has to be the used one.", "Desculpa. Vai ter que ser a usada.", "t_old", {"set": {"fridge": "old_part"}}],
+   ["I'm new here, yes.", "Sim, eu acabei de chegar por aqui.", null, "Not you. The part! Do you want the new one or the used one?", "Você, não. A peça! Quer a nova ou a usada?"]
+  ]],
+  "t_new": ["t", "Smart. This one will work for ten years.", "Boa escolha. Essa aí funciona por dez anos.", "b_new"],
+  "b_new": ["b", "Three hundred! That was our money for Dale, the food supplier. But okay. Cold cheese is happy cheese.", "Trezentos! Era o nosso dinheiro pro Dale, o fornecedor. Mas tudo bem. Queijo gelado é queijo feliz.", "n_work"],
+  "t_old": ["t", "Okay. It will work. For a week? For a month? I don't know.", "Tá. Vai funcionar. Por uma semana? Por um mês? Não sei.", "b_old"],
+  "b_old": ["b", "We only need it until the festival! Please, little fridge. Just two weeks.", "A gente só precisa dela até o festival! Por favor, geladeirinha. Só duas semanas.", "n_work"],
+  "n_work": ["n", "Tasha works for twenty minutes. Bia puts a plate of warm cheese bread next to her.", "A Tasha trabalha por vinte minutos. A Bia põe um prato de pão de queijo quentinho ao lado dela.", "t_talk"],
+  "t_talk": ["t", "Mm. These are good. So, how's business? Do you get many customers?", "Hum. Isso é bom. E aí, como vai o negócio? Vem muito cliente?", [
+   ["A few. One man comes every day. Mr. Boone.", "Alguns. Tem um senhor que vem todo dia. O Sr. Boone.", "t_boone"],
+   ["Not many yet. But we have big plans for the festival.", "Poucos, por enquanto. Mas temos grandes planos pro festival.", "t_fest"],
+   ["No, we don't wear costumes.", "Não, a gente não usa fantasia.", null, "Not costumes. Customers! People who buy food. Do many people come?", "Fantasia, não. Clientes! Gente que compra comida. Vem muita gente?"]
+  ]],
+  "t_fest": ["t", "The festival! Good luck. I hear the judge is very hard to please.", "O festival! Boa sorte. Dizem que o jurado é bem difícil de agradar.", "pay_br"],
+  "t_boone": ["t", "Boone? Walter Boone? Gray hat, never smiles?", "Boone? Walter Boone? Chapéu cinza, nunca sorri?", "t_boone2"],
+  "t_boone2": ["t", "He had Boone's Diner for thirty years. I fixed his fridges. Nobody knows food like that man.", "Ele teve o Boone's Diner por trinta anos. Eu consertava as geladeiras dele. Ninguém entende de comida como aquele homem.", "t_boone3", {"clue": "old_diner"}],
+  "t_boone3": ["t", "He closed it five years ago. So. Does Walter like your food?", "Ele fechou faz cinco anos. E aí. O Walter gosta da comida de vocês?", [
+   ["I don't know. He never says anything.", "Não sei. Ele nunca fala nada.", "t_never"],
+   ["I hope so. He eats everything.", "Espero que sim. Ele come tudo.", "t_eats"],
+   ["Yes, I like him too.", "Sim, eu também gosto dele.", null, "That's sweet. But the food. Does Walter like your food?", "Que amor. Mas a comida. O Walter gosta da comida de vocês?"]
+  ]],
+  "t_never": ["t", "That's Walter. But he comes back, right? He never goes back to a bad kitchen.", "Esse é o Walter. Mas ele volta, né? Ele nunca volta a uma cozinha ruim.", "pay_br"],
+  "t_eats": ["t", "Then relax. Walter doesn't eat bad food. Not one bite.", "Então relaxa. O Walter não come comida ruim. Nem uma garfada.", "pay_br"],
+  "pay_br": {"branch": [["fridge=new_part", "t_pay_new"], [null, "t_pay_old"]]},
+  "t_pay_new": ["t", "All done. Listen: nice and quiet. That's three hundred dollars. Cash or card?", "Prontinho. Escuta: bem quietinha. São trezentos dólares. Dinheiro ou cartão?", [
+   ["Card, please.", "Cartão, por favor.", "t_card"],
+   ["Cash. Can I have a receipt?", "Dinheiro. Pode me dar um recibo?", "t_receipt"],
+   ["A card? Is it my birthday?", "Um cartão? É meu aniversário?", null, "Not a birthday card. How do you want to pay? Cash or card?", "Não é cartão de aniversário. Como você quer pagar? Dinheiro ou cartão?"]
+  ]],
+  "t_pay_old": ["t", "All done. It's cold again, for now. That's ninety dollars. Cash or card?", "Prontinho. Voltou a gelar, por enquanto. São noventa dólares. Dinheiro ou cartão?", [
+   ["Card, please.", "Cartão, por favor.", "t_card"],
+   ["Cash. Can I have a receipt?", "Dinheiro. Pode me dar um recibo?", "t_receipt"],
+   ["A card? Is it my birthday?", "Um cartão? É meu aniversário?", null, "Not a birthday card. How do you want to pay? Cash or card?", "Não é cartão de aniversário. Como você quer pagar? Dinheiro ou cartão?"]
+  ]],
+  "t_card": ["t", "Card is fine. Here's your receipt. Keep it.", "Cartão, beleza. Aqui está o recibo. Guarde.", "t_bye"],
+  "t_receipt": ["t", "Sure. Here. Keep it with the papers for the truck.", "Claro. Toma. Guarde junto com os papéis do truck.", "t_bye"],
+  "t_bye": ["t", "One free tip. Don't put hot food in there. And call me if it clicks again.", "Uma dica de graça. Não ponha comida quente aí dentro. E me liga se ela fizer clique de novo.", "b_end"],
+  "b_end": ["b", "We lost one morning. But we still have the cheese! Tomorrow is going to be a great day.", "Perdemos uma manhã. Mas o queijo está salvo! Amanhã vai ser um dia ótimo.", "n_end"],
+  "n_end": ["n", "The fridge hums quietly. Outside, a woman in big sunglasses is reading your menu. She is not smiling.", "A geladeira ronrona baixinho. Lá fora, uma mulher de óculos escuros enormes lê o seu cardápio. Ela não está sorrindo.", null]
+ }
+}

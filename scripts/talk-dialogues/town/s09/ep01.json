@@ -1,0 +1,97 @@
+{
+ "slug": "s09-01-lights-camera-apron", "episode": 1, "title": "Lights, Camera, Apron", "level": "B1",
+ "place": "studio", "placeLabel": "Estúdio 4", "time": "Segunda · 7h", "ambience": "studio",
+ "description": "Seu primeiro dia no maior programa de culinária da TV britânica.",
+ "intro": "Você é finalista do The Kitchen Final, o programa de culinária mais famoso da TV britânica. É segunda de manhã, e a semana final vai começar.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "t": ["Toby", "Assistente de produção", "bm_fable", "left"],
+  "s": ["Stella", "Apresentadora do programa", "bf_isabella", "right"],
+  "g": ["Morag", "Participante, avó escocesa", "bf_alice", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Monday, seven in the morning. You're standing outside Studio Four, holding your knives and your nerves.", "Segunda, sete da manhã. Você está na porta do Estúdio Quatro, segurando suas facas e seus nervos.", "n2"],
+  "n2": ["n", "This is The Kitchen Final, the biggest cooking show on British television. And you're in it.", "Este é o The Kitchen Final, o maior programa de culinária da televisão britânica. E você está nele.", "t1"],
+  "t1": ["t", "Morning! You must be, uh, hang on. Contestant three? No. Four. Sorry, I'm Toby, the runner.", "Bom dia! Você deve ser, hã, peraí. Participante três? Não. Quatro. Desculpa, sou o Toby, assistente de produção.", [
+   ["That's me, station four. Nice to meet you, Toby.", "Isso, bancada quatro. Prazer, Toby.", "t_mic"],
+   ["Four, I think. Are you all right? You look shattered.", "Quatro, eu acho. Tudo bem com você? Você parece um caco.", "t_tired"],
+   ["Yes, I'm four years old.", "Sim, eu tenho quatro anos.", null, "Four years old? You're very tall for it. No, I mean your number. Which contestant are you?", "Quatro anos? Que altura pra essa idade. Não, digo o seu número. Qual participante é você?"]
+  ]],
+  "t_tired": ["t", "Shattered is the word. I've been here since four, and I locked up at midnight.", "Um caco, é isso mesmo. Estou aqui desde as quatro, e tranquei tudo à meia-noite.", "t_tired2", {"clue": "double_shift"}],
+  "t_tired2": ["t", "The other runner quit on Friday, so I'm doing both shifts. Please don't tell anyone I yawned.", "O outro assistente pediu demissão na sexta, então estou fazendo os dois turnos. Por favor, não conta pra ninguém que eu bocejei.", "t_mic"],
+  "t_mic": ["t", "Right. Here's your microphone. Clip it onto your collar, and mind the wire. Oh no.", "Certo. Aqui está seu microfone. Prende na gola, e cuidado com o fio. Ai, não.", "n_drop"],
+  "n_drop": ["n", "A box slips out of his arms. Forty wooden spoons roll across the corridor.", "Uma caixa escorrega dos braços dele. Quarenta colheres de pau rolam pelo corredor.", "t_drop"],
+  "t_drop": ["t", "Not again. I've got eleven minutes to set up four stations. Eleven!", "De novo, não. Tenho onze minutos pra montar quatro bancadas. Onze!", [
+   ["Let me give you a hand. I'll get the ones under the table.", "Deixa que eu te dou uma mão. Eu pego as que foram pra baixo da mesa.", "t_help", {"set": {"helped_toby": "yes"}}],
+   ["Sorry, I really need to find my station. Good luck!", "Desculpa, preciso mesmo achar minha bancada. Boa sorte!", "t_nohelp", {"set": {"helped_toby": "no"}}],
+   ["Eleven spoons? I only need one.", "Onze colheres? Eu só preciso de uma.", null, "Not eleven spoons. Eleven minutes! And spoons all over the floor. Could you maybe help me?", "Não são onze colheres. São onze minutos! E colher pelo chão todo. Será que você pode me ajudar?"]
+  ]],
+  "t_help": ["t", "You're a lifesaver. Honestly, nobody ever stops. I owe you one, number four.", "Você salvou minha vida. Sério, ninguém nunca para. Fico te devendo uma, número quatro.", "n_studio"],
+  "t_nohelp": ["t", "No, no, of course. Go. Second door on the left. Mind the cables.", "Não, não, claro. Vai lá. Segunda porta à esquerda. Cuidado com os cabos.", "n_studio"],
+  "n_studio": ["n", "The studio is huge and bright. Four kitchens in a row, and cameras everywhere you look.", "O estúdio é enorme e iluminado. Quatro cozinhas lado a lado, e câmeras pra onde quer que você olhe.", "s1"],
+  "s1": ["s", "There you are! I'm Stella Hart, your host. Welcome to the hottest kitchen in Britain! How do you feel?", "Aí está você! Sou Stella Hart, a apresentadora. Boas-vindas à cozinha mais quente da Grã-Bretanha! Como você está?", [
+   ["Excited. I've watched this show for years.", "Com muita empolgação. Vejo este programa há anos.", "s_fan"],
+   ["Honestly? A bit terrified.", "Sinceramente? Com um certo pavor.", "s_nerves"],
+   ["It's not that hot. I'm from Brazil.", "Nem está tão quente. Eu sou do Brasil.", null, "Ha! Fair point. I meant the pressure, darling. So, how are you feeling this morning?", "Rá! Faz sentido. Eu falava da pressão, meu bem. E então, como você está se sentindo hoje?"]
+  ]],
+  "s_fan": ["s", "A fan! Then you know the rules. Three rounds, one final, one trophy. Simple.", "Fã do programa! Então você conhece as regras. Três provas, uma final, um troféu. Simples.", "s_cam"],
+  "s_nerves": ["s", "Terrified is perfect. The cameras love a bit of fear. You'll be fine.", "Pavor é perfeito. As câmeras adoram um medinho. Vai dar tudo certo.", "s_cam"],
+  "s_cam": ["s", "Right, the camera's rolling. Tell the viewers: who taught you to cook?", "Pronto, a câmera está gravando. Conta pra quem está em casa: quem te ensinou a cozinhar?", [
+   ["My grandmother. I grew up in her kitchen.", "Minha avó. Eu cresci na cozinha dela.", "s_gran"],
+   ["Nobody. I taught myself, with a lot of burnt rice.", "Ninguém. Aprendi por conta própria, com muito arroz queimado.", "s_self"],
+   ["Yes, I can cook the viewers.", "Sim, eu sei cozinhar os telespectadores.", null, "Please don't, we need them! No, darling: who taught you how to cook?", "Por favor, não, a gente precisa deles! Não, meu bem: com quem você aprendeu a cozinhar?"]
+  ]],
+  "s_gran": ["s", "A grandmother's kitchen! Then you'll get on well with Morag, at station three.", "Cozinha de vó! Então você vai se dar bem com a Morag, da bancada três.", "s_dish"],
+  "s_self": ["s", "Self-taught, burnt rice and all! I love it. Our judge won't, but I do.", "Aprendeu por conta própria, com arroz queimado e tudo! Amei. Nosso jurado não vai amar, mas eu amei.", "s_dish"],
+  "s_dish": ["s", "Now, the big one. If you reach Thursday's final, what will you cook for us?", "Agora, a grande pergunta. Se você chegar à final de quinta, o que vai cozinhar pra gente?", [
+   ["Moqueca. It's a fish stew with coconut milk.", "Moqueca. É um ensopado de peixe com leite de coco.", "s_moqueca", {"set": {"dish": "moqueca"}}],
+   ["Feijoada. Black beans and pork, cooked slowly.", "Feijoada. Feijão preto e carne de porco, cozidos devagar.", "s_feijoada", {"set": {"dish": "feijoada"}}],
+   ["A passion fruit mousse. Sweet, but sharp.", "Um mousse de maracujá. Doce, mas azedinho.", "s_mousse", {"set": {"dish": "mousse"}}],
+   ["I'll reach it by bus, I think.", "Vou chegar de ônibus, eu acho.", null, "By bus, lovely. But what's your dish? What are you going to cook in the final?", "De ônibus, que ótimo. Mas qual é o seu prato? O que você vai cozinhar na final?"]
+  ]],
+  "s_moqueca": ["s", "Fish and coconut. I can smell the beach already. Don't tell me any more!", "Peixe e coco. Já estou sentindo o cheiro da praia. Não me conta mais nada!", "s_bye"],
+  "s_feijoada": ["s", "Slow-cooked beans. Proper comfort food. Now I'm hungry, and it's seven in the morning.", "Feijão cozido devagar. Comida que abraça. Agora fiquei com fome, e são sete da manhã.", "s_bye"],
+  "s_mousse": ["s", "A pudding in the final. Brave! Our judge is very hard on puddings.", "Uma sobremesa na final. Que coragem! Nosso jurado é duríssimo com sobremesas.", "s_bye"],
+  "s_bye": ["s", "That was lovely. Station four is yours. Go and say hello to your neighbour!", "Ficou ótimo. A bancada quatro é sua. Vai lá dar um oi pra sua vizinha!", "n_morag"],
+  "n_morag": ["n", "At station three, a small woman with silver hair is sharpening a very big knife.", "Na bancada três, uma senhora baixinha de cabelo prateado está afiando uma faca enorme.", "g1"],
+  "g1": ["g", "So you're at number four. I'm Morag. Seventy-one, from Inverness, and I don't bite.", "Então a bancada quatro é sua. Eu sou a Morag. Setenta e um anos, de Inverness, e não mordo.", [
+   ["Lovely to meet you, Morag. Is this your first time on television?", "Prazer, Morag. É sua primeira vez na televisão?", "g_tv"],
+   ["That's quite a knife you've got there.", "Que faca, hein.", "g_knife"],
+   ["No, thanks. I've already had a bite.", "Não, valeu. Eu já dei uma mordida.", null, "Have you now? Good for you. I only said I'm friendly, dear. Now, say hello properly.", "Ah, é? Que bom pra você. Eu só disse que sou mansa, meu bem. Agora me cumprimenta direito."]
+  ]],
+  "g_tv": ["g", "First and last, dear. My grandchildren signed me up. I thought it was a raffle.", "Primeira e última, meu bem. Meus netos me inscreveram. Achei que fosse uma rifa.", "g_short"],
+  "g_knife": ["g", "It was my mother's. It's older than that judge, and a good deal sharper.", "Era da minha mãe. É mais velha que aquele jurado, e bem mais afiada.", "g_short"],
+  "g_short": ["g", "Here. Shortbread, baked last night. Nobody should cook on an empty stomach.", "Toma. Shortbread, assado ontem à noite. Ninguém deve cozinhar de barriga vazia.", [
+   ["Thank you. Oh, that's incredible. What's your secret?", "Valeu. Nossa, que incrível. Qual é o seu segredo?", "g_secret"],
+   ["I'd better not. I'm too nervous to eat.", "Melhor não. O nervosismo não me deixa comer.", "g_nerv"],
+   ["No, thanks. I'm tall enough already.", "Não, valeu. Eu já tenho altura suficiente.", null, "Tall enough? It's a biscuit, dear, not a ladder. Will you have a piece of shortbread or not?", "Altura suficiente? É um biscoito, meu bem, não uma escada. Vai querer um pedaço de shortbread ou não?"]
+  ]],
+  "g_secret": ["g", "More butter than you think, and then a wee bit more. Never tell a doctor.", "Mais manteiga do que você imagina, e depois mais um pouquinho. Nunca conte a um médico.", "g_rupert"],
+  "g_nerv": ["g", "Nervous? Then put it in your pocket for later. Nerves pass. Hunger doesn't.", "Nervosismo? Então guarda no bolso pra depois. Nervosismo passa. Fome não.", "g_rupert"],
+  "g_rupert": ["g", "See the man at station one, polishing his own name on his jacket? That's Rupert.", "Está vendo o homem da bancada um, lustrando o próprio nome no jaleco? Aquele é o Rupert.", [
+   ["Is he any good?", "Ele cozinha bem?", "g_good"],
+   ["And who's at station two?", "E quem está na bancada dois?", "g_nina"],
+   ["No, I can't see the sea from here.", "Não, não dá pra ver o mar daqui.", null, "The sea? We're next to a car park in Manchester, dear. I said: do you see that man over there?", "O mar? Estamos ao lado de um estacionamento em Manchester, meu bem. Eu disse: está vendo aquele homem ali?"]
+  ]],
+  "g_good": ["g", "He runs a restaurant, and he'll tell you so within a minute. Wait and see.", "Ele tem um restaurante, e vai te contar isso em menos de um minuto. Espera só.", "n_bell"],
+  "g_nina": ["g", "Nina. A student, shy as a mouse. Lovely hands, though. Watch her pastry.", "A Nina. Estudante, tímida feito um ratinho. Mas que mãos. Fica de olho na massa dela.", "n_bell"],
+  "n_bell": ["n", "A bell rings. The lights go up, and Stella steps in front of the cameras.", "Um sino toca. As luzes sobem, e a Stella se coloca na frente das câmeras.", "s_start"],
+  "s_start": ["s", "Round one is soup. A soup that tastes like home. One hour. Station four, are you ready?", "A primeira prova é sopa. Uma sopa com gosto de casa. Uma hora. Bancada quatro, tudo pronto?", [
+   ["Ready as I'll ever be.", "Mais do que isso, impossível.", "s_go"],
+   ["Wait, can I check my ingredients first?", "Espera, posso conferir meus ingredientes antes?", "s_check"],
+   ["It's one o'clock already?", "Já é uma hora?", null, "No, darling, one hour to cook! Sixty minutes. Are you ready to start?", "Não, meu bem, uma hora pra cozinhar! Sessenta minutos. Dá pra começar?"]
+  ]],
+  "s_go": ["s", "That's the spirit. Everyone, your time starts now!", "É assim que se fala. Pessoal, o tempo começa agora!", "n_tray"],
+  "s_check": ["s", "Check while you cook, darling. The clock waits for nobody. Your time starts now!", "Confere enquanto cozinha, meu bem. O relógio não espera ninguém. O tempo começa agora!", "n_tray"],
+  "n_tray": ["n", "You lift the cloth off your tray. Onions, corn, butter, herbs. But the cream isn't there.", "Você tira o pano de cima da bandeja. Cebola, milho, manteiga, ervas. Mas o creme de leite não está lá.", "g_end"],
+  "g_end": ["g", "What's the matter, dear? You've gone as white as flour.", "O que foi, meu bem? Você ficou da cor da farinha.", [
+   ["My cream's gone. It was on the list, I'm sure of it.", "Meu creme sumiu. Estava na lista, tenho certeza.", "g_gone"],
+   ["Nothing. I'm fine.", "Nada. Está tudo bem.", "g_fine"],
+   ["Flowers? No, I didn't bring any.", "Flores? Não, eu não trouxe nenhuma.", null, "Flour, dear, not flowers. You look pale. What's wrong?", "Farinha, meu bem, não flores. Você está sem cor. O que aconteceu?"]
+  ]],
+  "g_gone": ["g", "Gone? On the very first morning? Well, that's a fine start.", "Sumiu? Logo na primeira manhã? Mas que belo começo.", "n_end"],
+  "g_fine": ["g", "Fine? I raised four children. I know that face. Something's missing, isn't it?", "Tudo bem? Eu criei quatro filhos. Conheço essa cara. Está faltando alguma coisa, não está?", "n_end"],
+  "n_end": ["n", "Fifty-nine minutes left. No cream. And somewhere behind the cameras, somebody drops another box.", "Faltam cinquenta e nove minutos. Nada de creme. E em algum lugar atrás das câmeras, alguém derruba mais uma caixa.", null]
+ }
+}

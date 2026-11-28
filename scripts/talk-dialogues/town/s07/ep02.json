@@ -1,0 +1,95 @@
+{
+ "slug": "s07-02-the-lounge-car", "episode": 2, "title": "The Lounge Car", "level": "B1",
+ "place": "train", "placeLabel": "Vagão-lounge", "time": "Sexta · 23h50", "ambience": "train",
+ "description": "Chá, tricô, cartas e uma oferta que a violinista recusa.",
+ "intro": "O trem noturno saiu de Londres. A bordo estão a famosa violinista Clara Whitmore, o assistente dela e um violino de trezentos anos, o Nightingale. Sem sono, você vai até o vagão-lounge.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "m": ["Moira", "Chefe de trem", "bf_isabella", "left"],
+  "d": ["Dot", "Passageira da cabine oito", "bf_alice", "left"],
+  "l": ["Mr. Lang", "Colecionador de instrumentos", "bm_george", "right"],
+  "c": ["Clara", "Violinista famosa", "af_sarah", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "The train rocks gently through the dark. You can't sleep yet, so you walk to the lounge car.", "O trem balança de leve na escuridão. O sono não vem, então você vai até o vagão-lounge.", "m1"],
+  "m1": ["m", "Berth nine. I thought I'd see you. The kitchen closes at midnight. What can I get you?", "Cabine nove. Imaginei que ia te ver. A cozinha fecha à meia-noite. O que vai querer?", [
+   ["A cup of tea, please.", "Uma xícara de chá, por favor.", "m_tea", {"set": {"order": "tea"}}],
+   ["A hot chocolate, please.", "Um chocolate quente, por favor.", "m_choc", {"set": {"order": "chocolate"}}],
+   ["Could I have a cheese toastie?", "Pode ser um misto quente só de queijo?", "m_toastie", {"set": {"order": "toastie"}}],
+   ["Can you get me to Edinburgh?", "Você pode me levar até Edimburgo?", null, "I'm doing my best. Seven more hours. Meanwhile, something to eat or drink?", "Estou fazendo o possível. Faltam sete horas. Enquanto isso, quer comer ou beber alguma coisa?"]
+  ]],
+  "m_tea": ["m", "Tea. Good. Sit down, I'll bring it over.", "Chá. Ótimo. Pode sentar, eu levo até a mesa.", "n_dot"],
+  "m_choc": ["m", "Hot chocolate at midnight. Now that's my kind of passenger. I'll bring it over.", "Chocolate quente à meia-noite. É assim que eu gosto. Eu levo até a mesa.", "n_dot"],
+  "m_toastie": ["m", "A cheese toastie. The whole car will smell of it, and then everyone will want one.", "Um misto de queijo. O vagão inteiro vai ficar com o cheiro, e aí todo mundo vai querer um.", "n_dot"],
+  "n_dot": ["n", "Dot waves at you from a corner table. She's knitting something long and very orange.", "A Dot acena pra você de uma mesa de canto. Ela tricota uma coisa comprida e muito laranja.", "d1"],
+  "d1": ["d", "Sit with me, dear! I'm making a scarf. Or a very thin blanket. I haven't decided.", "Senta comigo, meu bem! Estou fazendo um cachecol. Ou um cobertor bem fininho. Ainda não decidi.", [
+   ["It's lovely. Who is it for?", "Está lindo. Pra quem é?", "d_who"],
+   ["Can't you sleep either?", "A senhora também não consegue dormir?", "d_sleep"],
+   ["A scar? Did it hurt?", "Uma cicatriz? Doeu?", null, "A scar? No, dear, a scarf. For the neck! Now, are you going to sit down with me?", "Cicatriz? Não, meu bem. \"Scarf\", cachecol. Pro pescoço! E então, vai sentar aqui comigo?"]
+  ]],
+  "d_who": ["d", "My grandson. He's six foot four, so it's taking a while.", "Pro meu neto. Ele tem quase dois metros, então está demorando.", "n_clara"],
+  "d_sleep": ["d", "At my age, dear, sleep is something that happens to other people.", "Na minha idade, meu bem, sono é coisa que acontece com os outros.", "n_clara"],
+  "n_clara": ["n", "The door opens. Clara Whitmore comes in, wrapped in her green shawl, and sits alone by the window.", "A porta se abre. Clara Whitmore entra, enrolada no xale verde, e senta sozinha perto da janela.", "n_lang"],
+  "n_lang": ["n", "A moment later, the man in the expensive coat sits down opposite her. He doesn't ask first.", "Logo depois, o homem do casaco caro senta bem na frente dela. Sem pedir licença.", "l1"],
+  "l1": ["l", "Miss Whitmore. Edgar Lang. I collect fine instruments. I'll be direct: I want the Nightingale.", "Srta. Whitmore. Edgar Lang. Coleciono instrumentos raros. Vou direto ao ponto: eu quero o Nightingale.", "c1"],
+  "c1": ["c", "You wrote to me in March, Mr. Lang, and again in June. My answer hasn't changed.", "O senhor me escreveu em março, Sr. Lang, e de novo em junho. Minha resposta não mudou.", "l2"],
+  "l2": ["l", "Then name your price. Any price at all. I'm perfectly serious.", "Então diga o seu preço. Qualquer preço. Estou falando muito sério.", "c2"],
+  "c2": ["c", "It isn't for sale. Not tonight, not ever. Now, please. I'm very tired.", "Ele não está à venda. Nem hoje, nem nunca. Agora, por favor. Estou muito cansada.", "d2"],
+  "d2": ["d", "Did you hear that, dear? Any price! What do you make of him?", "Você ouviu isso, meu bem? Qualquer preço! O que você acha dele?", [
+   ["He seems like a man who always gets what he wants.", "Parece o tipo de homem que sempre consegue o que quer.", "d_gets"],
+   ["He might just love music.", "Vai ver ele só ama música.", "d_music"],
+   ["I'd make him a sandwich.", "Eu faria um sanduíche pra ele.", null, "A sandwich? No, dear. I mean, what do you think of that man?", "Um sanduíche? Não, meu bem. Eu digo: qual é a sua opinião sobre aquele homem?"]
+  ]],
+  "d_gets": ["d", "Exactly what I thought. My late husband was the same. About cheese, mostly.", "Foi bem o que eu pensei. Meu falecido marido era igualzinho. Principalmente com queijo.", "n_turn"],
+  "d_music": ["d", "He might. But people who love music listen, dear. That one was counting.", "Pode ser. Mas quem ama música escuta, meu bem. Aquele ali estava fazendo conta.", "n_turn"],
+  "n_turn": ["n", "Mr. Lang notices you looking. He picks up his glass and comes over to your table.", "O Sr. Lang percebe que você está olhando. Ele pega o copo e vem até a sua mesa.", "l3"],
+  "l3": ["l", "Good evening. You look like someone who appreciates beautiful things. Am I right?", "Boa noite. Você tem jeito de quem aprecia coisas belas. Estou certo?", [
+   ["I'd love to hear about your collection.", "Eu adoraria saber mais da sua coleção.", "l_coll", {"set": {"lang_friend": "yes"}}],
+   ["I think Miss Whitmore wanted to be left alone.", "Acho que a Srta. Whitmore queria ficar em paz.", "l_cold", {"set": {"lang_friend": "no"}}],
+   ["No, I'm left-handed.", "Não, eu uso a mão esquerda.", null, "How interesting. But I meant: do you care for beautiful things? Old violins, for instance?", "Que interessante. Mas eu quis dizer: você gosta de coisas belas? Violinos antigos, por exemplo?"]
+  ]],
+  "l_coll": ["l", "Forty-one violins, two cellos, and a harp nobody is allowed to touch. You have excellent taste.", "Quarenta e um violinos, dois violoncelos e uma harpa em que ninguém encosta. Você tem um gosto excelente.", "l4"],
+  "l_cold": ["l", "How very direct. Well. A collector learns to live with the word no. Occasionally.", "Quanta franqueza. Bem. Um colecionador aprende a conviver com a palavra não. De vez em quando.", "l4"],
+  "l4": ["l", "And you? What takes you to Edinburgh? Not the auction, I hope.", "E você? O que te leva a Edimburgo? Não é o leilão, espero.", [
+   ["Just a weekend away. I've always wanted to see the castle.", "Só um fim de semana fora. Sempre quis conhecer o castelo.", "l_castle"],
+   ["What auction?", "Que leilão?", "l_auction"],
+   ["The train takes me. This one.", "Quem me leva é o trem. Este aqui.", null, "Yes, we've all noticed the train. I mean, why are you travelling to Edinburgh?", "Sim, o trem todo mundo notou. Eu pergunto: por que você está indo a Edimburgo?"]
+  ]],
+  "l_castle": ["l", "The castle. Charming. Everyone goes for the castle.", "O castelo. Que graça. Todo mundo vai pelo castelo.", "order_br"],
+  "l_auction": ["l", "A small private sale, tomorrow at noon. Old violins. Nothing to interest a tourist.", "Uma vendinha particular, amanhã ao meio-dia. Violinos antigos. Nada que interesse a turistas.", "order_br"],
+  "order_br": {"branch": [["order=tea", "m_b_tea"], ["order=chocolate", "m_b_choc"], [null, "m_b_toastie"]]},
+  "m_b_tea": ["m", "One tea, milk on the side. Mr. Lang, your table is over there, I believe.", "Um chá, com o leite à parte. Sr. Lang, a sua mesa é aquela ali, se não me engano.", "d3"],
+  "m_b_choc": ["m", "One hot chocolate. Mr. Lang, your table is over there, I believe.", "Um chocolate quente. Sr. Lang, a sua mesa é aquela ali, se não me engano.", "d3"],
+  "m_b_toastie": ["m", "One cheese toastie. Mr. Lang, stop looking at it. Your table is over there.", "Um misto de queijo. Sr. Lang, pare de olhar pra ele. A sua mesa é aquela ali.", "d3"],
+  "d3": ["d", "Miss Whitmore! Sorry to be a nuisance, dear. Would you play us something? Just a little tune?", "Srta. Whitmore! Desculpe o incômodo, querida. Tocaria alguma coisa pra nós? Só uma musiquinha?", "c3"],
+  "c3": ["c", "No. I'm sorry. I don't play on trains.", "Não. Sinto muito. Eu não toco em trens.", "n_hands"],
+  "n_hands": ["n", "She says it too quickly. Her hands are shaking a little around her cup. Then she catches your eye.", "Ela responde rápido demais. As mãos tremem um pouco em volta da xícara. Então ela nota o seu olhar.", "c4"],
+  "c4": ["c", "You're staring. Go on, then. Ask me whatever it is everyone asks.", "Você está me encarando. Vai, pergunta. Aquilo que todo mundo pergunta.", [
+   ["Sorry. I only wondered if you were all right.", "Desculpa. Só fiquei pensando se você estava bem.", "c_kind"],
+   ["Are you looking forward to the concert tomorrow?", "Está com vontade de que chegue logo o concerto de amanhã?", "c_concert"],
+   ["Where's the Nightingale right now?", "Onde está o Nightingale agora?", "c_where"],
+   ["Stairs? No, I usually take the lift.", "Escadas? Não, eu costumo ir de elevador.", null, "Not stairs. Staring. You were looking at me. So, what do you want to ask?", "Não é \"stairs\". É \"staring\", encarar. Você estava olhando pra mim. E então, o que quer perguntar?"]
+  ]],
+  "c_kind": ["c", "That's not what everyone asks. I'm fine. Thank you. It's been a long week.", "Isso não é o que todo mundo pergunta. Estou bem. Obrigada. Foi uma semana longa.", "n_leave"],
+  "c_concert": ["c", "Looking forward. Yes. Of course. Two thousand people. Who wouldn't be?", "Com vontade. Sim. Claro. Duas mil pessoas. Quem não estaria?", "n_leave"],
+  "c_where": ["c", "Locked in its case, in my compartment. Oliver guards it better than I do.", "Trancado no estojo, na minha cabine. O Oliver cuida dele melhor do que eu.", "n_leave"],
+  "n_leave": ["n", "She pulls the green shawl around her shoulders and leaves. It's quarter past midnight.", "Ela ajeita o xale verde nos ombros e sai. É meia-noite e quinze.", "d4"],
+  "d4": ["d", "Poor thing. She looks like my Margaret before her driving test. Now, do you play cards, dear?", "Coitadinha. Está igual à minha Margaret antes da prova de direção. E então, você joga cartas, meu bem?", [
+   ["A little. What are we playing?", "Um pouco. O que vamos jogar?", "d_cards"],
+   ["I'd better try to get some sleep.", "É melhor eu tentar dormir um pouco.", "d_bed"],
+   ["Cars? No, I came by train.", "Carros? Não, eu vim de trem.", null, "Not cars, dear. Cards! Kings and queens. Do you fancy a game?", "Não é \"cars\", meu bem. \"Cards\", cartas! Reis e damas. Topa uma partida?"]
+  ]],
+  "d_cards": ["d", "Gin rummy. Mr. Lang! Come and lose some money to an old woman. Dear, did you see her hands shake?", "Buraco. Sr. Lang! Venha perder dinheiro pra uma velha. Meu bem, você viu as mãos dela tremendo?", [
+   ["Yes. She might be ill.", "Vi. Ela pode estar doente.", "d_ill"],
+   ["Maybe she's just cold.", "Vai ver é só frio.", "d_coldh"],
+   ["Yes, I shake hands with everyone.", "Sim, eu aperto a mão de todo mundo.", null, "Not shaking hands, dear. Her hands were trembling. Did you notice?", "Não é apertar a mão, meu bem. As mãos dela estavam tremendo. Você reparou?"]
+  ]],
+  "d_ill": ["d", "Ill? Hmm. Or frightened. I know frightened when I see it.", "Doente? Hum. Ou com medo. Eu conheço medo quando vejo.", "n_cards"],
+  "d_coldh": ["d", "In that shawl? It's pure wool, dear. I know my wool.", "Com aquele xale? É pura lã, meu bem. De lã eu entendo.", "n_cards"],
+  "n_cards": ["n", "You play three games. Dot wins them all. At half past twelve, you give up and leave them to it.", "Vocês jogam três partidas. A Dot ganha todas. À meia-noite e meia, você desiste e deixa os dois jogando.", "n_bed"],
+  "d_bed": ["d", "Very sensible. I'll make Mr. Lang play instead. He looks like a man with deep pockets.", "Decisão sensata. Vou fazer o Sr. Lang jogar. Ele tem cara de bolso fundo.", "n_bed"],
+  "n_bed": ["n", "Back in berth nine, you feel the train slow down, stop somewhere, and start again. You fall asleep.", "De volta à cabine nove, você sente o trem desacelerar, parar em algum lugar e seguir de novo. Você adormece.", "n_end"],
+  "n_end": ["n", "Then a door bangs. Someone is running down the corridor, shouting that the violin is gone.", "Então uma porta bate. Alguém corre pelo corredor, gritando que o violino sumiu.", null]
+ }
+}

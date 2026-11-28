@@ -1,0 +1,94 @@
+{
+ "slug": "s08-07-the-storm", "episode": 7, "title": "The Storm", "level": "B1",
+ "place": "farm", "placeLabel": "Gramado e celeiro de Glenbeg", "time": "Sexta · 21h", "ambience": "nature",
+ "description": "A tenda não resistiu. Cem convidados chegam amanhã e não há onde colocá-los.",
+ "intro": "Você tomou chá com a avó Nora enquanto a tempestade chegava. Aí o Declan apareceu encharcado: a tenda do casamento estava tentando voar para a Escócia. Faltam menos de dezoito horas para a cerimônia.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "o": ["Orla", "Gerente de Glenbeg House", "bf_alice", "left"],
+  "f": ["Fergus", "Pai do noivo", "bm_george", "right"],
+  "p": ["Paulo", "Pai da noiva", "am_michael", "right"],
+  "j": ["Julia", "A noiva, sua melhor amiga", "af_bella", "left"],
+  "m": ["Marta", "Mãe da noiva", "af_sarah", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Nine o'clock. The storm has arrived. On the lawn, the big white tent leans like a tired horse.", "Nove da noite. A tempestade chegou. No gramado, a tenda branca pende como um cavalo cansado.", "n2"],
+  "n2": ["n", "Everyone is outside in raincoats and wellies, shouting. Half in English, half in Portuguese.", "Está todo mundo lá fora, de capa de chuva e galochas, gritando. Metade em inglês, metade em português.", "barn_br"],
+  "barn_br": {"branch": [["clue_barn", "o_yes"], [null, "o_no"]]},
+  "o_yes": ["o", "The tent's finished. There's a river running across the dance floor. I need ideas, not sympathy.", "A tenda já era. Tem um rio atravessando a pista de dança. Eu preciso de ideias, não de pena.", [
+   ["The old barn! Fergus says there's a dance floor in there.", "O celeiro velho! O Fergus disse que tem uma pista de dança lá dentro.", "f_barn"],
+   ["Could we fit everyone inside the house?", "Será que cabe todo mundo dentro da casa?", "o_house"],
+   ["A symphony? I prefer jazz, actually.", "Uma sinfonia? Na verdade, eu prefiro jazz.", null, "Not a symphony. Sympathy! I don't want it. A hundred guests need a dry room. Where?", "Não é symphony. É sympathy! E eu não quero. Cem convidados precisam de um lugar seco. Onde?"]
+  ]],
+  "o_no": ["o", "The tent's finished. There's a river running across the dance floor. I need ideas, not sympathy.", "A tenda já era. Tem um rio atravessando a pista de dança. Eu preciso de ideias, não de pena.", [
+   ["Could we fit everyone inside the house?", "Será que cabe todo mundo dentro da casa?", "o_house"],
+   ["Is there any other building on the land?", "Tem alguma outra construção no terreno?", "o_other"],
+   ["A symphony? I prefer jazz, actually.", "Uma sinfonia? Na verdade, eu prefiro jazz.", null, "Not a symphony. Sympathy! I don't want it. A hundred guests need a dry room. Where?", "Não é symphony. É sympathy! E eu não quero. Cem convidados precisam de um lugar seco. Onde?"]
+  ]],
+  "f_barn": ["f", "The barn! You were listening in the car! I knew I liked you.", "O celeiro! Você prestou atenção no carro! Eu sabia que gostava de você.", "o_key"],
+  "o_house": ["o", "The dining room holds forty. Unless sixty people want to eat on the stairs.", "A sala de jantar comporta quarenta. A não ser que sessenta pessoas queiram comer na escada.", "o_barn"],
+  "o_other": ["o", "One. I was hoping nobody would ask. It means moving furniture all night.", "Uma. Eu torcia pra ninguém perguntar. Significa carregar móvel a noite inteira.", "o_barn"],
+  "o_barn": ["o", "There's the old barn. It's dry, and there's a dance floor under thirty years of junk.", "Tem o celeiro velho. É seco, e tem uma pista de dança debaixo de trinta anos de tralha.", "o_key", {"clue": "barn"}],
+  "o_key": ["o", "It's locked. Nora keeps the key in a tin in the kitchen. Can you find it?", "Está trancado. A Nora guarda a chave numa lata, na cozinha. Você consegue achar?", [
+   ["The button tin! I saw it on Thursday.", "A lata de botões! Eu vi na quinta.", "n_key_a"],
+   ["I'll ask Nora. It's her key.", "Vou perguntar pra Nora. A chave é dela.", "n_key_b"],
+   ["Tea in a tin? Yes, I found lots of tea.", "Chá na lata? Sim, achei um monte de chá.", null, "Not tea. The key! The barn key is in one of Nora's tins. Can you get it?", "Não é tea. É key! A chave do celeiro está numa das latas da Nora. Você pega?"]
+  ]],
+  "n_key_a": ["n", "You run to the kitchen. Under a hundred old buttons, there's a big iron key.", "Você corre até a cozinha. Debaixo de cem botões velhos, tem uma chave grande de ferro.", "n_barn"],
+  "n_key_b": ["n", "Nora doesn't look up from her tea. The button tin, child, she says. Where else?", "A Nora nem levanta os olhos do chá. Na lata de botões, criança, ela diz. Onde mais?", "n_barn"],
+  "n_barn": ["n", "The barn door groans open. Dust, broken chairs, an old piano. And under your feet, a wooden floor.", "A porta do celeiro abre rangendo. Poeira, cadeiras quebradas, um piano velho. E, debaixo dos seus pés, um piso de madeira.", "f_junk"],
+  "f_junk": ["f", "Thirty years of junk, and twelve hours to move it. You're the organiser. Organise us!", "Trinta anos de tralha, e doze horas pra tirar tudo. Quem organiza é você. Organiza a gente!", [
+   ["Mixed teams. One Doyle with every Brazilian.", "Equipes misturadas. Um Doyle com cada brasileiro.", "n_mixed"],
+   ["Two teams. Doyles move the junk, Brazilians bring the chairs.", "Duas equipes. Os Doyle tiram a tralha, os brasileiros trazem as cadeiras.", "n_two"],
+   ["The organ? Sorry, I can't play the organ.", "O órgão? Desculpa, eu não sei tocar órgão.", null, "Not the organ! Organise! Give us jobs! Who does what?", "Não é organ! É organise! Distribui as tarefas! Quem faz o quê?"]
+  ]],
+  "n_mixed": ["n", "It's chaos for five minutes. Then Fergus and Paulo lift the piano together, counting in two languages.", "São cinco minutos de caos. Depois o Fergus e o Paulo levantam o piano juntos, contando em duas línguas.", "p1"],
+  "n_two": ["n", "Two lines form. They work fast. Then Marta crosses the barn and hands Fergus a broom. He takes it.", "Formam-se duas filas. O trabalho anda rápido. Aí a Marta atravessa o celeiro e entrega uma vassoura pro Fergus. Ele aceita.", "p1"],
+  "p1": ["p", "Excuse me. Can I say something? This is a very good floor.", "Com licença. Posso falar uma coisa? Este piso é muito bom.", [
+   ["Good for dancing, you mean? Do you dance, Paulo?", "Bom pra dançar, o senhor quer dizer? O senhor dança, Paulo?", "p_play"],
+   ["It is. Paulo, how's that jacket of yours, by the way?", "É mesmo. Paulo, e aquele seu paletó, aliás, como está?", "p_jacket"],
+   ["Flour? Marta has the flour, for the cake.", "Farinha? A farinha está com a Marta, pro bolo.", null, "No, not for cake. The floor! Under your feet. It is a fine floor, no?", "Não, não é de bolo. O piso! Debaixo dos seus pés. É um belo piso, não é?"]
+  ]],
+  "p_play": ["p", "Me, no. I play. My guitar is in my room. On this floor, the sound would be beautiful.", "Eu, não. Eu toco. Meu violão está no meu quarto. Neste piso, o som ia ficar lindo.", "n_julia", {"clue": "paulo_guitar"}],
+  "p_jacket": ["p", "Terrible. I'm sure it's another man's. The shop put every suit in the same grey bag.", "Péssimo. Tenho certeza de que é de outro homem. A loja pôs todos os ternos em capas cinza iguais.", "p_lining", {"clue": "wrong_jacket"}],
+  "p_lining": ["p", "And one side is heavy. Maybe the other man forgot his keys. Not my business.", "E um lado é pesado. Vai ver o outro homem esqueceu as chaves. Não é da minha conta.", "n_julia"],
+  "n_julia": ["n", "Near the door, Julia is sitting on an upturned bucket, staring at the rain.", "Perto da porta, a Julia está sentada num balde virado, olhando a chuva.", "knows_br"],
+  "knows_br": {"branch": [["julia_knows=yes", "j_k"], [null, "j_nk"]]},
+  "j_k": ["j", "No tent, no band, no rings. Maybe it's a sign.", "Sem tenda, sem banda, sem alianças. Vai ver é um sinal.", "j_q"],
+  "j_nk": ["j", "No tent, no band, and Declan won't look me in the eye. Maybe it's a sign.", "Sem tenda, sem banda, e o Declan não consegue me olhar nos olhos. Vai ver é um sinal.", "j_q"],
+  "j_q": ["j", "Be honest with me. Should we just cancel?", "Me fala a verdade. A gente devia cancelar?", [
+   ["No way. This will be the best wedding story in Ireland.", "De jeito nenhum. Essa vai ser a melhor história de casamento da Irlanda.", "j_a"],
+   ["Look behind you. Two families, one barn, nobody arguing.", "Olha pra trás. Duas famílias, um celeiro, ninguém brigando.", "j_b"],
+   ["Candles? Yes, we'll need lots of candles.", "Velas? Sim, vamos precisar de muitas velas.", null, "Candles? Cancel! Stop the wedding! Tell me honestly: should we call it off?", "Velas? Cancelar! Parar o casamento! Fala a verdade: é melhor desistir?"]
+  ]],
+  "j_a": ["j", "A story. Fine. But in this story, the bride gets to sleep at some point.", "Uma história. Tá. Mas nessa história a noiva dorme em algum momento.", "cake_br"],
+  "j_b": ["j", "Oh. Look at that. Mum is giving Fergus orders. And he's obeying.", "Ah. Olha só. A mamãe está dando ordens pro Fergus. E ele está obedecendo.", "cake_br"],
+  "cake_br": {"branch": [["cake=marta", "j_cake_m"], [null, "j_cake_s"]]},
+  "j_cake_m": ["j", "And Mum saved the cake with you. She's told everyone. Twice. In two languages.", "E a mamãe salvou o bolo com você. Ela já contou pra todo mundo. Duas vezes. Em duas línguas.", "n_marta"],
+  "j_cake_s": ["j", "And you chased my cake to a golf club. Who does that? You do.", "E você foi atrás do meu bolo num clube de golfe. Quem faz isso? Você.", "n_marta"],
+  "n_marta": ["n", "In a corner, Marta is whispering to a paper napkin. She sees you and hides it.", "Num canto, a Marta cochicha com um guardanapo de papel. Ela te vê e esconde.", "m1"],
+  "m1": ["m", "Don't look! It's nothing. Only a mother talking to a napkin. Why do you smile?", "Não olha! Não é nada. Só uma mãe conversando com um guardanapo. Por que esse sorriso?", [
+   ["Is that a speech, Marta?", "Isso aí é um discurso, Marta?", "m_toast"],
+   ["Are you all right? You look worried.", "Está tudo bem? A senhora parece preocupada.", "m_fine"],
+   ["Don't cook? But we need the food!", "Não cozinhar? Mas a gente precisa da comida!", null, "Not cook. Look! Don't look at my napkin. Why are you smiling at me?", "Não é cook. É look! Não olha pro meu guardanapo. Por que você está sorrindo pra mim?"]
+  ]],
+  "m_toast": ["m", "A toast. In English. I practise every night. But nobody asked me, and my English is small.", "Um brinde. Em inglês. Eu ensaio toda noite. Mas ninguém me pediu, e o meu inglês é pequeno.", "m_toast2", {"clue": "marta_toast"}],
+  "m_toast2": ["m", "So tomorrow I stay quiet. It is better. No?", "Então amanhã eu fico quieta. É melhor. Não é?", [
+   ["No! People would love to hear it, Marta.", "Não! Todo mundo ia adorar ouvir, Marta.", "m_maybe"],
+   ["It's your choice. But I'd listen to every word.", "A senhora decide. Mas eu ia escutar cada palavra.", "m_choice"],
+   ["Yes, it's quite late. Good night!", "Sim, já está bem tarde. Boa noite!", null, "Not quiet now! Tomorrow! At the wedding! Is it better if I say nothing?", "Não é ficar quieta agora! Amanhã! No casamento! É melhor eu não falar nada?"]
+  ]],
+  "m_maybe": ["m", "Maybe. If somebody asks. Only if somebody asks. Don't tell Julia.", "Talvez. Se alguém pedir. Só se alguém pedir. Não conta pra Julia.", "o_end"],
+  "m_choice": ["m", "Every word? There are only twenty. I counted. Don't tell Julia.", "Cada palavra? São só vinte. Eu contei. Não conta pra Julia.", "o_end"],
+  "m_fine": ["m", "I am fine. Mothers are always fine. Go, help the others. Go!", "Eu estou bem. Mãe está sempre bem. Vai, ajuda os outros. Vai!", "o_end"],
+  "o_end": ["o", "Midnight. The barn's dry, the floor's clean, nobody's crying. I'm almost impressed. Anything else?", "Meia-noite. O celeiro está seco, o piso limpo, ninguém chorando. Estou quase impressionada. Mais alguma coisa?", [
+   ["Go to bed, Orla. You've earned it.", "Vai dormir, Orla. Você merece.", "o_bed"],
+   ["Yes. Tomorrow I still need rings and music.", "Sim. Amanhã eu ainda preciso de alianças e de música.", "o_rm"],
+   ["Depressed? No, I'm just tired.", "Depressão? Não, é só cansaço.", null, "Impressed. It means you did well. Don't make me say it twice. Do you need anything else tonight?", "Impressionada. Quer dizer que você mandou bem. Não me faça repetir. Precisa de mais alguma coisa hoje?"]
+  ]],
+  "o_bed": ["o", "Bed. What a beautiful word. The ceremony is at half past two. Don't be late.", "Dormir. Que palavra linda. A cerimônia é às duas e meia. Não se atrase.", "n_end"],
+  "o_rm": ["o", "Rings? I didn't hear that. I'm going to bed before I hear anything else.", "Alianças? Eu não ouvi isso. Vou dormir antes de ouvir mais alguma coisa.", "n_end"],
+  "n_end": ["n", "A barn, a cake and a hundred chairs. Tomorrow, you still need two rings and one first dance.", "Um celeiro, um bolo e cem cadeiras. Amanhã, ainda faltam duas alianças e uma primeira dança.", null]
+ }
+}

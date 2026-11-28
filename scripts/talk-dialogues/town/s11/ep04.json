@@ -1,0 +1,84 @@
+{
+ "slug": "s11-04-off-the-record", "episode": 4, "title": "Off the Record", "level": "B2",
+ "place": "nature", "placeLabel": "Trilha do farol", "time": "Terça · 16h", "ambience": "nature",
+ "description": "A Isla quer falar longe do pai. E talvez longe da câmera.",
+ "intro": "O Duncan jura que a ilha se vira sem a balsa e que a filha, Isla, vai herdar o barco de pesca. A Isla ouviu tudo do cais e marcou com você na trilha do farol, às quatro.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "i": ["Isla", "Tripulante da balsa, filha do Duncan", "bf_alice", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Four o'clock. The path to the lighthouse climbs through wet grass and a great many sheep.", "Quatro horas. A trilha do farol sobe por capim molhado e por uma multidão de ovelhas.", "n2"],
+  "n2": ["n", "Isla is sitting on a stone wall, legs swinging, eating crisps. Her ferry jacket is tied round her waist.", "A Isla está sentada num muro de pedra, balançando as pernas e comendo batata chips. A jaqueta da balsa está amarrada na cintura.", "i1"],
+  "i1": ["i", "You came. I half expected you to bottle it. Crisp?", "Você veio. Eu meio que achei que você ia amarelar. Batatinha?", [
+   ["Go on, then. Thanks. So, what did you want to tell me?", "Aceito. Valeu. E aí, o que você queria me contar?", "i_crisp"],
+   ["I never bottle an interview. Shall I set up the camera?", "Eu nunca fujo de entrevista. Armo a câmera?", "i_setup"],
+   ["A bottle? No, thanks. I'm not thirsty.", "Uma garrafa? Não, valeu. Não estou com sede.", null, "Ha! Not a bottle. To bottle it means to chicken out. Anyway, do you want a crisp or not?", "Rá! Não é garrafa. É uma gíria pra amarelar. Enfim, quer uma batatinha ou não?"]
+  ]],
+  "i_crisp": ["i", "Straight to business. I like that. Dad takes an hour to say hello.", "Direto ao ponto. Gostei. O meu pai leva uma hora pra dar oi.", "i_cam"],
+  "i_setup": ["i", "Keen, aren't you? Yeah. About the camera.", "Quanta disposição, hein? Então. Sobre a câmera.", "i_cam"],
+  "i_cam": ["i", "Look, could you switch it off? Just for a bit. I talk rubbish when I'm being watched.", "Olha, dá pra desligar? Só um pouco. Eu falo besteira quando tem alguém me olhando.", [
+   ["Sure. It's off. This stays between us.", "Claro. Desliguei. Isso fica entre nós.", "i_off", {"set": {"camera_off": "yes"}}],
+   ["I'd rather keep it rolling. You can ask me to cut anything later.", "Prefiro deixar gravando. Depois você pode me pedir pra cortar o que quiser.", "i_on", {"set": {"camera_off": "no"}}],
+   ["Rubbish? I think the bin is back in the village.", "Lixo? Acho que a lixeira ficou lá na vila.", null, "No! I mean I talk nonsense on camera. So, can you turn it off for a minute?", "Não! Quero dizer que eu falo bobagem diante da câmera. Então, dá pra desligar um minutinho?"]
+  ]],
+  "i_off": ["i", "Cheers. Seriously. Nobody here ever switches anything off. Everyone knows everything.", "Valeu. De verdade. Aqui ninguém desliga nada nunca. Todo mundo sabe de tudo.", "i_q"],
+  "i_on": ["i", "Hm. Fine. But you're getting the polite version, then. Fair warning.", "Hum. Tá. Mas aí você leva a versão educada. Fica o aviso.", "i_q"],
+  "i_q": ["i", "So. Dad says I'm taking over the boat, and Morag says I'm counting the days. Right?", "Então. O meu pai diz que eu vou assumir o barco, e a Morag diz que eu conto os dias. Certo?", [
+   ["Pretty much. Which of them is right?", "Basicamente. Qual dos dois tem razão?", "i_which"],
+   ["Forget them. What do you actually want?", "Esquece os dois. O que você quer de verdade?", "i_want"],
+   ["I can count the days too. Monday, Tuesday, Wednesday.", "Eu também sei contar os dias. Segunda, terça, quarta.", null, "Very good, gold star. I mean they've both been talking about me. Don't you want to know what's true?", "Muito bem, estrelinha dourada. Eu digo que os dois andaram falando de mim. Não quer saber o que é verdade?"]
+  ]],
+  "i_which": ["i", "Neither. Both. It's complicated. That's the bit nobody here gets.", "Nenhum. Os dois. É complicado. É isso que ninguém aqui entende.", "n_wind"],
+  "i_want": ["i", "Ha. You're the first person to ask in about three years. Give me a second.", "Rá. Você é a primeira pessoa que pergunta isso em uns três anos. Me dá um segundo.", "n_wind"],
+  "n_wind": ["n", "The wind pulls at her hair. She crushes the empty crisp packet in her fist.", "O vento bagunça o cabelo dela. Ela amassa o pacote vazio na mão.", "i_leave"],
+  "i_leave": ["i", "Okay. I'm leaving. There. I said it. And no, I don't hate this place.", "Tá. Eu vou embora. Pronto. Falei. E não, eu não odeio este lugar.", [
+   ["If you don't hate it, why go?", "Se você não odeia, por que ir?", "why_br"],
+   ["Leaving for good, or leaving for now?", "Embora de vez, ou embora por enquanto?", "i_forgood"],
+   ["Leaves? Yes, the autumn must be beautiful here.", "Folhas? Sim, o outono aqui deve ser lindo.", null, "Leaving! Going away. Off the island. Aren't you going to ask me why?", "Ir embora! Partir. Sair da ilha. Você não vai me perguntar por quê?"]
+  ]],
+  "why_br": {"branch": [["camera_off=yes", "i_reason1"], [null, "i_polite"]]},
+  "i_polite": ["i", "Jobs, nightlife, decent wifi. The usual. That's the camera answer, anyway.", "Emprego, vida noturna, wifi decente. O de sempre. Essa é a resposta pra câmera, pelo menos.", [
+   ["And the real answer? I'll switch the camera off now, if you like.", "E a resposta de verdade? Eu desligo a câmera agora, se você quiser.", "i_off_late", {"set": {"camera_off": "yes"}}],
+   ["Fair enough. Would anything make you stay?", "Justo. Alguma coisa te faria ficar?", "i_stay"],
+   ["The usual? I'll have the usual too, please.", "O de sempre? Pra mim também o de sempre, por favor.", null, "This isn't a café! I mean the usual reasons. Do you want the real one or not?", "Isto aqui não é um café! Eu falo dos motivos de sempre. Você quer o verdadeiro ou não?"]
+  ]],
+  "i_off_late": ["i", "Now you're learning. Red light's off? Good. Right.", "Agora você está aprendendo. A luzinha vermelha apagou? Ótimo. Vamos lá.", "i_reason1"],
+  "i_stay": ["i", "A cinema. A motorway. A miracle. Next question.", "Um cinema. Uma rodovia. Um milagre. Próxima pergunta.", "i_dad"],
+  "i_forgood": ["i", "See, that's the right question. Nobody ever asks it that way.", "Tá vendo, essa é a pergunta certa. Ninguém nunca pergunta desse jeito.", "i_reason1"],
+  "i_reason1": ["i", "I've got a place at college in Glasgow. Marine engineering. Boat engines, basically.", "Eu consegui uma vaga numa faculdade em Glasgow. Engenharia naval. Motor de barco, basicamente.", "i_reason2"],
+  "i_reason2": ["i", "But with two ferries a week, I couldn't come home at weekends. Leaving means leaving for good.", "Mas com duas balsas por semana, eu não conseguiria vir pra casa no fim de semana. Ir embora vira ir de vez.", "i_reason3", {"clue": "isla_reason"}],
+  "i_reason3": ["i", "If there were a boat every day, I'd be home every Friday. But there isn't. So.", "Se tivesse barco todo dia, eu estaria em casa toda sexta. Mas não tem. Então.", [
+   ["Have you said that to anyone? At the meeting, say?", "Você já disse isso a alguém? Na reunião, por exemplo?", "i_meeting"],
+   ["So it's not the island you're leaving. It's the timetable.", "Então não é da ilha que você está fugindo. É do horário da balsa.", "i_timetable"],
+   ["Every Friday? I prefer Saturdays, personally.", "Toda sexta? Eu, pessoalmente, prefiro sábado.", null, "Any day, I'm not fussy! I mean I'd come home at weekends. Do you see my problem?", "Qualquer dia, eu não sou exigente! Quero dizer que eu viria pra casa no fim de semana. Entende o meu problema?"]
+  ]],
+  "i_meeting": ["i", "At the meeting? In front of Dad? I'd rather swim to Glasgow.", "Na reunião? Na frente do meu pai? Prefiro ir nadando até Glasgow.", "i_dad"],
+  "i_timetable": ["i", "Huh. Yeah. Put like that, it sounds almost fixable. Almost.", "Hum. É. Dito assim, parece quase ter conserto. Quase.", "i_dad"],
+  "i_dad": ["i", "Here's the thing. Dad doesn't know I'm going. Not one word of it.", "O negócio é o seguinte. O meu pai não sabe que eu vou embora. Nem uma palavra.", [
+   ["He's going to find out sooner or later, though.", "Mas mais cedo ou mais tarde ele vai descobrir.", "i_sooner"],
+   ["Why haven't you told him?", "Por que você não contou a ele?", "i_whynot"],
+   ["He doesn't nose? But I saw his nose this morning.", "Ele não tem nariz? Mas eu vi o nariz dele hoje cedo.", null, "Know, not nose! He doesn't know I'm going. Have you got anything useful to say about that?", "Saber, não nariz! Ele não sabe que eu vou. Você tem algo de útil pra dizer sobre isso?"]
+  ]],
+  "i_sooner": ["i", "Later. Definitely later. Preferably by postcard.", "Mais tarde. Com certeza mais tarde. De preferência, por cartão-postal.", "i_promise"],
+  "i_whynot": ["i", "Because he's built his whole future round me and that boat. How do you break that?", "Porque ele construiu o futuro inteiro em volta de mim e daquele barco. Como é que se quebra isso?", "i_promise"],
+  "i_promise": ["i", "So if he asks what I said up here, and he will, what do you tell him?", "Então, se ele perguntar o que eu disse aqui em cima, e ele vai perguntar, o que você responde?", [
+   ["That it's your story to tell, not mine.", "Que essa história é sua pra contar, não minha.", "i_p_yes", {"set": {"promised": "yes"}}],
+   ["I won't lie to him. But I won't volunteer anything either.", "Eu não vou mentir pra ele. Mas também não vou sair contando nada.", "i_p_half", {"set": {"promised": "half"}}],
+   ["I'll tell him the time. It's nearly five.", "Eu digo as horas pra ele. São quase cinco.", null, "Brilliant. He owns a watch. I mean about me. What will you say if he asks?", "Genial. Ele tem relógio. Eu falo de mim. O que você vai dizer se ele perguntar?"]
+  ]],
+  "i_p_yes": ["i", "Good answer. I might even trust you. Don't let it go to your head.", "Boa resposta. Capaz até de eu confiar em você. Não vai ficar se achando.", "i_office"],
+  "i_p_half": ["i", "Hm. Honest, I suppose. Careful, though. Dad smells a secret like a seal smells fish.", "Hum. Sincero, pelo menos. Mas cuidado. O meu pai fareja segredo como foca fareja peixe.", "i_office"],
+  "i_office": ["i", "Anyway. The woman from the office has set up in the hall. Everyone's decided to hate her already.", "Enfim. A mulher da repartição se instalou no salão. Todo mundo já decidiu odiar ela.", [
+   ["Have you? Decided to hate her, I mean.", "E você? Já decidiu odiar, quero dizer.", "i_hate"],
+   ["What's she like? You must have seen her on the ferry.", "Como ela é? Você deve ter visto ela na balsa.", "i_like"],
+   ["She's in a hole? Is she all right?", "Ela está num buraco? Ela está bem?", null, "The hall, not a hole! The village hall. She's got a desk there. Aren't you going to interview her?", "No salão, não num buraco! O salão comunitário. Ela tem uma mesa lá. Você não vai entrevistar ela?"]
+  ]],
+  "i_hate": ["i", "Nah. She was on Monday's boat. Grey coat, notebook. She said thank you to me. Twice.", "Não. Ela estava no barco de segunda. Casaco cinza, caderno. Ela me agradeceu. Duas vezes.", "i_end"],
+  "i_like": ["i", "Grey coat, notebook, Monday's boat. Quiet. She counted the life jackets, I think. Weird, but polite.", "Casaco cinza, caderno, barco de segunda. Calada. Acho que ela contou os coletes salva-vidas. Esquisita, mas educada.", "i_end"],
+  "i_end": ["i", "Go easy on her, or don't. But get her talking. She knows things we don't.", "Pega leve com ela, ou não. Mas faz ela falar. Ela sabe coisas que a gente não sabe.", "n_end1"],
+  "n_end1": ["n", "The lighthouse lamp comes on. Far below, the Kittiwake sits in the harbour, small as a toy.", "A luz do farol se acende. Lá embaixo, a Kittiwake descansa no porto, pequena como um brinquedo.", "n_end2"],
+  "n_end2": ["n", "Tomorrow at ten: the official. You wonder which questions she's expecting, and which she isn't.", "Amanhã às dez: a funcionária do governo. Você se pergunta que perguntas ela espera, e quais não.", null]
+ }
+}

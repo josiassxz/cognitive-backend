@@ -1,0 +1,89 @@
+{
+ "slug": "s10-07-after-hours", "episode": 7, "title": "After Hours", "level": "B2",
+ "place": "office", "placeLabel": "Portaria e escritório, à noite", "time": "Quinta · 22h", "ambience": "office",
+ "description": "Noite adentro no escritório. O porteiro viu uma luz acesa na segunda.",
+ "intro": "Na ligação, a Greta se acalmou um pouco e prometeu aparecer na sexta. Falta um dia, o escritório inteiro está trabalhando até tarde, e amanhã cedo a Helen quer o seu relatório.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "w": ["Winston", "Porteiro da noite", "bm_george", "left"],
+  "p": ["Priya", "Designer", "bf_alice", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Thursday, ten at night. The office smells of cold coffee. The countdown on the wall says: one day.", "Quinta, dez da noite. O escritório cheira a café frio. A contagem na parede diz: um dia.", "n2"],
+  "n2": ["n", "You go down to the lobby to collect a pizza. Behind the desk sits a man with a crossword.", "Você desce até a portaria para buscar uma pizza. Atrás do balcão, um homem faz palavras cruzadas.", "w1"],
+  "w1": ["w", "Evening! Second floor, Kettle, am I right? You lot never go home. I'm Winston. Night desk.", "Boa noite! Segundo andar, Kettle, acertei? Vocês nunca vão pra casa. Eu sou o Winston. Portaria da noite.", [
+   ["Nice to meet you, Winston. Are we always the last ones here?", "Prazer, Winston. A gente é sempre quem sai por último?", "w_always"],
+   ["Evening! I'm just down for the pizza.", "Boa noite! Só desci pra pegar a pizza.", "w_pizza"],
+   ["Good evening, Mr. Desk.", "Boa noite, senhor Portaria.", null, "Ha! Winston's the name. The night desk is the job. You are from Kettle, aren't you?", "Rá! O nome é Winston. Portaria da noite é o serviço. Você é da Kettle, não é?"]
+  ]],
+  "w_always": ["w", "Every night this week. But Monday was the worst of the lot.", "Todas as noites desta semana. Mas segunda foi a pior de todas.", "w2"],
+  "w_pizza": ["w", "It's here on my desk, going cold. Like my tea. Stay a minute. I never get company.", "Está aqui no balcão, esfriando. Igual ao meu chá. Fica um minutinho. Eu nunca tenho companhia.", "w2"],
+  "w2": ["w", "Monday, I'm doing my midnight rounds. One light still on, second floor. Guess who's under it?", "Segunda, eu faço a ronda da meia-noite. Uma luz ainda acesa, segundo andar. Adivinha quem está embaixo dela?", [
+   ["Tom? He practically lives at that desk.", "O Tom? Ele praticamente mora naquela mesa.", "w_tom"],
+   ["Priya, I'd bet.", "A Priya, eu aposto.", "w_pri"],
+   ["Under the light? A lampshade.", "Embaixo da luz? Uma cúpula de abajur.", null, "Well, yes, technically! But who was sitting there? Go on, have a guess.", "Bom, sim, tecnicamente! Mas quem estava sentado ali? Vai, dá um palpite."]
+  ]],
+  "w_tom": ["w", "The quiet fella? No, he's gone at six, like a train. It was the young lady. Three screens.", "O caladão? Não, esse sai às seis, pontual feito trem. Era a moça. A das três telas.", "w3"],
+  "w_pri": ["w", "That's the one. Three screens, cold tea.", "Essa mesma. Três telas, chá frio.", "w3"],
+  "w3": ["w", "Fast asleep on her keyboard, bless her. I woke her up. She signed out at ten past midnight.", "Dormindo profundamente em cima do teclado, coitada. Eu acordei ela. Ela assinou a saída à meia-noite e dez.", "w4", {"clue": "light_on"}],
+  "w4": ["w", "She said, 'Winston, I only had one email left to send.' One email! At midnight!", "Ela disse: 'Winston, só faltava mandar um e-mail.' Um e-mail! À meia-noite!", [
+   ["Did she say why she was working so late?", "Ela disse por que estava trabalhando até tão tarde?", "w_why"],
+   ["Could I have a look at the sign-out book?", "Posso dar uma olhada no livro de saída?", "w_book"],
+   ["Midnight? Is that happy hour?", "Meia-noite? É o happy hour?", null, "Not in this building! I mean it was very late. Aren't you curious what kept her here?", "Neste prédio, não! Eu quis dizer que era muito tarde. Você não quer saber o que segurou ela aqui?"]
+  ]],
+  "w_why": ["w", "She's done three people's work since that Omar fellow left in March. Design, support, newsletter. Three!", "Ela faz o trabalho de três desde que aquele rapaz, o Omar, saiu em março. Design, suporte, newsletter. Três!", "w5", {"clue": "three_jobs"}],
+  "w_book": ["w", "Here you are. Monday. Ten past midnight, Priya Mehta. Shaky handwriting. Tired hands.", "Aqui está. Segunda. Meia-noite e dez, Priya Mehta. Letra tremida. Mãos cansadas.", "w5"],
+  "w5": ["w", "Somebody should look after that one. Now, help me out. Seven letters: 'an honest mistake'.", "Alguém devia cuidar daquela moça. Agora me ajuda aqui. Sete letras: 'um erro sem maldade'.", [
+   ["Blunder?", "Blunder? Um deslize?", "w_bl"],
+   ["Sorry, Winston. English crosswords are beyond me.", "Desculpa, Winston. Palavras cruzadas em inglês estão além de mim.", "w_beyond"],
+   ["Seven letters? I only got two emails.", "Sete cartas? Eu só recebi dois e-mails.", null, "Not that sort of letter! Letters in a word. Seven of them. 'An honest mistake'?", "Não esse tipo de letter! Letras de uma palavra. Sete. 'Um erro sem maldade'?"]
+  ]],
+  "w_bl": ["w", "Blunder! It fits. You're wasted up there. Go on, take your pizza.", "Blunder! Encaixou. Seu talento está sendo desperdiçado lá em cima. Vai, leva a sua pizza.", "n3"],
+  "w_beyond": ["w", "Beyond me too, most nights. Wait. Blunder! That's it. Go on, take your pizza.", "Além de mim também, quase toda noite. Espera. Blunder! É isso. Vai, leva a sua pizza.", "n3"],
+  "n3": ["n", "Upstairs, nearly everyone has gone. One lamp, three screens. Priya is drawing tiny coffee stamps, and yawning.", "Lá em cima, quase todo mundo já foi. Uma luminária, três telas. A Priya desenha selinhos de café, bocejando.", "help_br"],
+  "help_br": {"branch": [["offered_help=yes", "p1y"], [null, "p1n"]]},
+  "p1y": ["p", "Oh, it's you. The only person in this office who ever offers to help.", "Ah, é você. A única pessoa deste escritório que se oferece pra ajudar.", "p1q"],
+  "p1n": ["p", "Oh! You made me jump. I thought everyone had gone.", "Ai! Que susto. Achei que todo mundo já tinha ido.", "p1q"],
+  "p1q": ["p", "Is that pizza? Please say it's pizza.", "Isso é pizza? Por favor, diz que é pizza.", [
+   ["It's cold, but it's yours. Priya, can we talk about Monday night?", "Está fria, mas é sua. Priya, a gente pode conversar sobre a noite de segunda?", "app_br"],
+   ["It is. Take a break. You look like you need one.", "É. Faz uma pausa. Parece que você está precisando.", "p_break"],
+   ["No, it's Thursday.", "Não, é quinta-feira.", null, "I know it's Thursday! I mean the box. Is there pizza in that box?", "Eu sei que é quinta! Eu tô falando da caixa. Tem pizza nessa caixa?"]
+  ]],
+  "app_br": {"branch": [["approach=kind", "p_mk"], [null, "p_mf"]]},
+  "p_mk": ["p", "Monday. On Tuesday you said you wouldn't treat us like suspects.", "Segunda. Na terça você disse que não ia tratar a gente como suspeitos.", "p_mq"],
+  "p_mf": ["p", "Monday. I wondered when you'd get to me.", "Segunda. Eu estava me perguntando quando você ia chegar em mim.", "p_mq"],
+  "p_mq": ["p", "Go on, then. What about Monday night?", "Fala, então. O que tem a noite de segunda?", [
+   ["I think the slide went out by accident. And I think you know how.", "Eu acho que o slide saiu por acidente. E acho que você sabe como.", "p_conf"],
+   ["You sent the client update. The slide was in it. It was you.", "Você mandou a newsletter. O slide estava nela. Foi você.", "p_push"],
+   ["Monday night is pasta night.", "Segunda à noite é noite de macarrão.", null, "Lucky you. But you didn't come up here to talk about pasta. What is it?", "Sorte a sua. Mas você não subiu aqui pra falar de macarrão. O que foi?"]
+  ]],
+  "p_push": ["p", "Don't. Please. Not like that. I've got forty stamps to draw, and no time to cry. Please go.", "Não. Por favor. Assim, não. Eu tenho quarenta selos pra desenhar e nenhum tempo pra chorar. Vai embora, por favor.", "n_push"],
+  "n_push": ["n", "You leave the pizza on her desk. She doesn't look up. But she doesn't say you're wrong.", "Você deixa a pizza na mesa dela. Ela não levanta os olhos. Mas também não diz que você se enganou.", "n_end_b"],
+  "p_break": ["p", "A break. Yes. Five minutes. Listen. Can I tell you something? I have to tell someone.", "Uma pausa. É. Cinco minutos. Escuta. Posso te contar uma coisa? Eu preciso contar pra alguém.", [
+   ["Of course. Whatever it is, I'm listening.", "Claro. Seja o que for, tô ouvindo.", "p_conf"],
+   ["Is it about the stamps?", "É sobre os selos?", "p_stamps"],
+   ["Tell me the time, please.", "Me diz as horas, por favor.", null, "It's nearly eleven. That's not what I meant. Can I tell you something important?", "São quase onze. Não foi isso que eu quis dizer. Posso te contar uma coisa importante?"]
+  ]],
+  "p_stamps": ["p", "The stamps. Yes. The stamps. They're nearly done. Never mind. Go home.", "Os selos. É. Os selos. Estão quase prontos. Deixa pra lá. Vai pra casa.", "n_end_b"],
+  "p_conf": ["p", "On Tuesday I checked my sent folder. Two attachments. Demo day, and demo deck. I felt sick.", "Na terça eu olhei a minha pasta de enviados. Dois anexos. Demo day e demo deck. Me deu um enjoo.", "p_c2", {"set": {"confessed": "yes"}}],
+  "p_c2": ["p", "It was midnight. The names were nearly the same. I clicked both. You must think I'm an idiot.", "Era meia-noite. Os nomes eram quase iguais. Eu cliquei nos dois. Você deve achar que eu sou uma idiota.", [
+   ["No. I think you're one person doing three jobs at midnight.", "Não. Eu acho que você é uma pessoa só fazendo três funções à meia-noite.", "p_kind1"],
+   ["I think it was a blunder. Not a betrayal.", "Eu acho que foi um deslize. Não uma traição.", "p_kind2"],
+   ["No, I think you're a designer.", "Não, eu acho que você é designer.", null, "I am a designer. A stupid one! Be honest. Do you think I'm an idiot?", "Eu sou designer. Uma designer burra! Fala a verdade. Você acha que eu sou uma idiota?"]
+  ]],
+  "p_kind1": ["p", "That's the nicest thing anyone's said to me since March.", "Essa é a coisa mais gentil que alguém me diz desde março.", "p_c3"],
+  "p_kind2": ["p", "A blunder. Yes. I like that word. It sounds almost forgivable.", "Um deslize. É. Gostei dessa palavra. Parece quase perdoável.", "p_c3"],
+  "p_c3": ["p", "Helen's going to hate me. The day before the demo! What do I do?", "A Helen vai me odiar. Na véspera da demonstração! O que eu faço?", [
+   ["Tell her first thing tomorrow. I'll go in before you and soften the ground.", "Conta pra ela amanhã bem cedo. Eu entro antes e preparo o terreno.", "p_tog"],
+   ["Tell her yourself, in your own words. It'll mean more.", "Conta você mesma, com as suas palavras. Vai valer mais.", "p_alone"],
+   ["Wait until after the demo. The team needs calm tomorrow.", "Espera passar a demonstração. O time precisa de calma amanhã.", "p_wait"],
+   ["Hate you? Then wear a hat.", "Te odiar? Então usa um chapéu.", null, "A hat won't save me! Seriously. What do I do about Helen?", "Chapéu não vai me salvar! Sério. O que eu faço com a Helen?"]
+  ]],
+  "p_tog": ["p", "You'd do that? Okay. You go in first, and I'll knock. Thank you for not shouting.", "Você faria isso? Tá. Você entra primeiro, e eu bato na porta. Obrigada por não gritar.", "n_end_a"],
+  "p_alone": ["p", "In my own words. Okay. Tomorrow morning, I'll knock on that glass door. Thank you for not shouting.", "Com as minhas palavras. Tá. Amanhã de manhã eu bato naquela porta de vidro. Obrigada por não gritar.", "n_end_a"],
+  "p_wait": ["p", "After the demo. That's kinder for everyone. Isn't it? I'm not sure I can wait that long.", "Depois da demonstração. É melhor pra todo mundo. Não é? Não sei se eu aguento esperar tanto.", "n_end_a"],
+  "n_end_a": ["n", "Now you know the truth. Tomorrow at nine, Helen wants your report. The question is how to tell it.", "Agora você sabe a verdade. Amanhã às nove, a Helen quer o seu relatório. A questão é como contar.", null],
+  "n_end_b": ["n", "You have pieces, not the whole picture. And tomorrow at nine, Helen wants your report.", "Você tem peças, não o quadro inteiro. E amanhã às nove, a Helen quer o seu relatório.", null]
+ }
+}

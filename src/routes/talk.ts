@@ -8,7 +8,9 @@
 //   GET  /api/talk/dialogues               diálogos ramificados (cenas) + melhor nota
 //   GET  /api/talk/dialogues/:slug         árvore completa com URLs de áudio assinadas
 //   POST /api/talk/dialogues/:slug/attempts  idem às histórias (slug salvo como "dlg:<slug>")
-//   GET  /api/talk/town                    temporada: episódios, desbloqueio, memória e pistas do aluno
+//   GET  /api/talk/seasons                 histórias (temporadas) com o progresso do aluno
+//   GET  /api/talk/seasons/:id             uma história: episódios, desbloqueio, memória e pistas
+//   GET  /api/talk/town                    o mesmo, para a temporada 1 (apps antigos)
 //   GET  /api/talk/town/:slug              episódio com áudio assinado + memória na entrada
 //   POST /api/talk/town/:slug/attempts     salva a tentativa com as memórias/pistas (slug "town:<slug>")
 import { Router } from 'express';
@@ -17,8 +19,8 @@ import { prisma } from '../lib/prisma';
 import { getPlayableStorageUrl, signMediaUrl } from '../lib/storage';
 import { TALK_DIALOGUES } from '../talk/dialogues.data';
 import { TALK_STORIES } from '../talk/stories.data';
-import { TALK_TOWN } from '../talk/town.data';
-import type { TalkDialogueDef, TalkDialogueLine, TalkFlags, TalkRef, TalkStoryDef } from '../talk/types';
+import { TALK_SEASONS } from '../talk/town.data';
+import type { TalkDialogueDef, TalkDialogueLine, TalkFlags, TalkRef, TalkStoryDef, TalkTownSeason } from '../talk/types';
 import { asyncHandler } from '../utils/async-handler';
 import { HttpError } from '../utils/http-error';
 import { loadVisibleContent } from './reading-segments';
@@ -215,11 +217,13 @@ talkRouter.post(
   }),
 );
 
-// ---- Tunely Town: temporada contínua ----
+// ---- Tunely Town: histórias (temporadas) contínuas ----
 // Sem tabela nova: a "memória" do aluno é derivada da ÚLTIMA tentativa de cada episódio, na ordem
 // da temporada. Refazer um episódio troca a contribuição dele (e o que vem depois reage a isso).
+// As pistas são a união de todas as tentativas: pista achada não se perde.
 const TOWN = 'town:';
-const townBySlug = new Map(TALK_TOWN.episodes.map((e) => [e.slug, e]));
+const seasonById = new Map(TALK_SEASONS.map((s) => [s.id, s]));
+const episodeBySlug = new Map(TALK_SEASONS.flatMap((s) => s.episodes.map((e) => [e.slug, { season: s, episode: e }] as const)));
 const FLAG = /^[a-z0-9_]{1,40}$/;
 
 const townDetails = z.object({
@@ -227,10 +231,9 @@ const townDetails = z.object({
   clues: z.array(z.string()).default([]),
 });
 
-type TownProgress = {
-  /** por episódio: melhor nota, tentativas e o que a última tentativa registrou */
-  byEpisode: Map<string, { best: number; attempts: number; flags: TalkFlags; clues: string[] }>;
-};
+type EpisodeProgress = { best: number; attempts: number; flags: TalkFlags; clues: string[] };
+/** por episódio (slug): melhor nota, tentativas e o que as tentativas registraram */
+type TownProgress = Map<string, EpisodeProgress>;
 
 async function townProgress(userId: string): Promise<TownProgress> {
   const attempts = await prisma.talkAttempt.findMany({
@@ -238,12 +241,14 @@ async function townProgress(userId: string): Promise<TownProgress> {
     select: { storySlug: true, score: true, details: true },
     orderBy: { createdAt: 'desc' },
   });
-  const byEpisode: TownProgress['byEpisode'] = new Map();
+  const byEpisode: TownProgress = new Map();
   for (const a of attempts) {
     const slug = a.storySlug.slice(TOWN.length);
+    const found = episodeBySlug.get(slug);
+    if (!found) continue;
     const parsed = townDetails.safeParse(a.details ?? {});
     const d = parsed.success ? parsed.data : { flags: {}, clues: [] };
-    const clues = d.clues.filter((c) => c in TALK_TOWN.clues);
+    const clues = d.clues.filter((c) => c in found.season.clues);
     const cur = byEpisode.get(slug);
     if (cur) {
       // tentativas mais antigas: a memória (flags) é a da última, mas pista achada não se perde
@@ -254,16 +259,16 @@ async function townProgress(userId: string): Promise<TownProgress> {
     }
     byEpisode.set(slug, { best: a.score, attempts: 1, flags: d.flags, clues });
   }
-  return { byEpisode };
+  return byEpisode;
 }
 
 /** Memória acumulada pelos episódios ANTERIORES a `uptoEpisode` (ou todos, se omitido). */
-function townMemory(p: TownProgress, uptoEpisode = Infinity) {
+function townMemory(season: TalkTownSeason, p: TownProgress, uptoEpisode = Infinity) {
   const flags: TalkFlags = {};
   const clues = new Set<string>();
-  for (const e of TALK_TOWN.episodes) {
+  for (const e of season.episodes) {
     if ((e.episode ?? 0) >= uptoEpisode) break;
-    const done = p.byEpisode.get(e.slug);
+    const done = p.get(e.slug);
     if (!done) continue;
     Object.assign(flags, done.flags);
     done.clues.forEach((c) => clues.add(c));
@@ -271,29 +276,61 @@ function townMemory(p: TownProgress, uptoEpisode = Infinity) {
   return { flags, clues: [...clues] };
 }
 
-const unlocked = (p: TownProgress, index: number) => index === 0 || p.byEpisode.has(TALK_TOWN.episodes[index - 1].slug);
+const unlocked = (season: TalkTownSeason, p: TownProgress, index: number) => index === 0 || p.has(season.episodes[index - 1].slug);
+
+/** "flag" | "!flag" | "flag=valor" contra as memórias do aluno (mesma regra do player). */
+function holds(cond: string, flags: TalkFlags, clues: string[]): boolean {
+  const neg = cond.startsWith('!');
+  const [name, value] = (neg ? cond.slice(1) : cond).split('=');
+  const has = name.startsWith('clue_') ? clues.includes(name.slice(5)) : name in flags;
+  const ok = value === undefined ? has : flags[name] === value;
+  return neg ? !ok : ok;
+}
+
+function seasonOverview(season: TalkTownSeason, p: TownProgress) {
+  const memory = townMemory(season, p);
+  return {
+    // o que as pessoas da história "lembram" de você, em frases prontas
+    remembered: Object.entries(season.memories ?? {}).filter(([cond]) => holds(cond, memory.flags, memory.clues)).map(([, text]) => text),
+    id: season.id,
+    season: season.season,
+    title: season.title,
+    subtitle: season.subtitle,
+    level: season.level,
+    genre: season.genre,
+    totalClues: Object.keys(season.clues).length,
+    // só as pistas já encontradas viajam para o cliente (sem spoiler)
+    clues: memory.clues.map((id) => ({ id, ...season.clues[id] })),
+    flags: memory.flags,
+    episodes: season.episodes.map((e, i) => {
+      const done = p.get(e.slug);
+      return {
+        slug: e.slug, episode: e.episode, title: e.title, level: e.level, description: e.description,
+        place: e.place, placeLabel: e.placeLabel ?? null, time: e.time, decisions: e.decisions,
+        cast: Object.entries(e.cast).filter(([k]) => k !== 'n').map(([, c]) => c.name),
+        best: done?.best ?? null, attempts: done?.attempts ?? 0, clues: done?.clues.length ?? 0,
+        unlocked: unlocked(season, p, i),
+      };
+    }),
+  };
+}
 
 talkRouter.get(
-  '/town',
+  '/seasons',
   asyncHandler(async (req, res) => {
     const p = await townProgress(req.userId as string);
-    const memory = townMemory(p);
     res.json({
-      season: TALK_TOWN.season,
-      title: TALK_TOWN.title,
-      subtitle: TALK_TOWN.subtitle,
-      totalClues: Object.keys(TALK_TOWN.clues).length,
-      // só as pistas já encontradas viajam para o cliente (sem spoiler)
-      clues: memory.clues.map((id) => ({ id, ...TALK_TOWN.clues[id] })),
-      flags: memory.flags,
-      episodes: TALK_TOWN.episodes.map((e, i) => {
-        const done = p.byEpisode.get(e.slug);
+      seasons: TALK_SEASONS.map((s) => {
+        const done = s.episodes.filter((e) => p.has(e.slug));
+        const scores = done.map((e) => p.get(e.slug)?.best ?? 0);
         return {
-          slug: e.slug, episode: e.episode, title: e.title, level: e.level, description: e.description,
-          place: e.place, time: e.time, decisions: e.decisions,
-          cast: Object.entries(e.cast).filter(([k]) => k !== 'n').map(([, c]) => c.name),
-          best: done?.best ?? null, attempts: done?.attempts ?? 0, clues: done?.clues.length ?? 0,
-          unlocked: unlocked(p, i),
+          id: s.id, season: s.season, title: s.title, subtitle: s.subtitle, level: s.level, genre: s.genre,
+          episodes: s.episodes.length,
+          done: done.length,
+          clues: townMemory(s, p).clues.length,
+          totalClues: Object.keys(s.clues).length,
+          average: scores.length ? Math.round((scores.reduce((a, b) => a + b, 0) / scores.length) * 10) / 10 : null,
+          places: [...new Set(s.episodes.map((e) => e.place).filter(Boolean))].slice(0, 6),
         };
       }),
     });
@@ -301,21 +338,40 @@ talkRouter.get(
 );
 
 talkRouter.get(
+  '/seasons/:id',
+  asyncHandler(async (req, res) => {
+    const season = seasonById.get(String(req.params.id));
+    if (!season) throw new HttpError(404, 'História não encontrada');
+    res.json(seasonOverview(season, await townProgress(req.userId as string)));
+  }),
+);
+
+// Apps antigos (1.9.0) só conhecem a temporada 1 neste endereço.
+talkRouter.get(
+  '/town',
+  asyncHandler(async (req, res) => {
+    res.json(seasonOverview(TALK_SEASONS[0], await townProgress(req.userId as string)));
+  }),
+);
+
+talkRouter.get(
   '/town/:slug',
   asyncHandler(async (req, res) => {
-    const e = townBySlug.get(String(req.params.slug));
-    if (!e) throw new HttpError(404, 'Episódio não encontrado');
+    const found = episodeBySlug.get(String(req.params.slug));
+    if (!found) throw new HttpError(404, 'Episódio não encontrado');
+    const { season, episode: e } = found;
     const p = await townProgress(req.userId as string);
-    if (!unlocked(p, TALK_TOWN.episodes.indexOf(e))) throw new HttpError(403, 'Termine o episódio anterior primeiro');
-    const memory = townMemory(p, e.episode);
+    const index = season.episodes.indexOf(e);
+    if (!unlocked(season, p, index)) throw new HttpError(403, 'Termine o episódio anterior primeiro');
     const clueIds = new Set<string>();
     for (const n of Object.values(e.nodes)) if (!('branch' in n) && n.clue) clueIds.add(n.clue);
     res.json({
       dialogue: signDialogue(e),
-      memory,
+      memory: townMemory(season, p, e.episode),
       // só as pistas que este episódio pode revelar
-      clues: Object.fromEntries([...clueIds].map((id) => [id, TALK_TOWN.clues[id]])),
-      next: TALK_TOWN.episodes[TALK_TOWN.episodes.indexOf(e) + 1]?.slug ?? null,
+      clues: Object.fromEntries([...clueIds].map((id) => [id, season.clues[id]])),
+      next: season.episodes[index + 1]?.slug ?? null,
+      season: { id: season.id, title: season.title },
     });
   }),
 );
@@ -323,10 +379,10 @@ talkRouter.get(
 talkRouter.post(
   '/town/:slug/attempts',
   asyncHandler(async (req, res) => {
-    const e = townBySlug.get(String(req.params.slug));
-    if (!e) throw new HttpError(404, 'Episódio não encontrado');
+    const found = episodeBySlug.get(String(req.params.slug));
+    if (!found) throw new HttpError(404, 'Episódio não encontrado');
     const p = await townProgress(req.userId as string);
-    if (!unlocked(p, TALK_TOWN.episodes.indexOf(e))) throw new HttpError(403, 'Termine o episódio anterior primeiro');
-    res.status(201).json({ attempt: await saveAttempt(req.userId as string, TOWN + e.slug, req.body) });
+    if (!unlocked(found.season, p, found.season.episodes.indexOf(found.episode))) throw new HttpError(403, 'Termine o episódio anterior primeiro');
+    res.status(201).json({ attempt: await saveAttempt(req.userId as string, TOWN + found.episode.slug, req.body) });
   }),
 );

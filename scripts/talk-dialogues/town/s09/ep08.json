@@ -1,0 +1,99 @@
+{
+ "slug": "s09-08-the-final-plate", "episode": 8, "title": "The Final Plate", "level": "B1",
+ "place": "stage", "placeLabel": "A grande final", "time": "Quinta · 14h", "ambience": "studio",
+ "description": "A final. Mas antes, a produtora quer um nome.",
+ "intro": "Na semifinal, o pote de sal estava cheio de açúcar. A produtora Dee está convencida de que alguém sabota o programa e vai apontar o culpado diante das câmeras, antes da final.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "d": ["Dee", "Produtora do programa", "bf_lily", "right"],
+  "c": ["Rupert", "Participante, dono de restaurante", "bm_george", "right"],
+  "t": ["Toby", "Assistente de produção", "bm_fable", "left"],
+  "v": ["Victor", "Jurado do programa", "bm_daniel", "left"],
+  "g": ["Morag", "Participante, avó escocesa", "bf_alice", "left"],
+  "s": ["Stella", "Apresentadora do programa", "bf_isabella", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Thursday, two o'clock. The silver trophy is on the table. But nobody is cooking yet.", "Quinta, duas da tarde. O troféu de prata está na mesa. Mas ninguém está cozinhando ainda.", "n2"],
+  "n2": ["n", "A woman in a black jacket walks onto the set with a folder. Toby follows, staring at the floor.", "Uma mulher de blazer preto entra no estúdio com uma pasta. O Toby vem atrás, olhando pro chão.", "d1"],
+  "d1": ["d", "I'm Dee, the producer. Five incidents in four days. Somebody is sabotaging my final.", "Sou a Dee, a produtora. Cinco incidentes em quatro dias. Alguém está sabotando a minha final.", "c_prot"],
+  "c_prot": ["c", "Why is everyone looking at me? Brazil! You've been asking questions all week. Tell her!", "Por que está todo mundo olhando pra mim? Brasil! Você passou a semana fazendo perguntas. Conta pra ela!", [
+   ["It isn't Rupert. And it isn't sabotage, either.", "Não é o Rupert. E também não é sabotagem.", "d_notsab"],
+   ["Sorry, Rupert. It does look like you.", "Desculpa, Rupert. Tudo aponta pra você.", "c_phone", {"set": {"accused_rupert": "yes"}}],
+   ["I'm not sure of everything. But I know what I saw.", "Não tenho certeza de tudo. Mas sei o que eu vi.", "d_who"],
+   ["Weak? No, my week was great.", "Fraca? Não, minha semana foi ótima.", null, "Not weak! All week! You've been investigating. Now tell Dee what you found out!", "Não é fraca! A semana toda! Você andou investigando. Agora conta pra Dee o que você descobriu!"]
+  ]],
+  "c_phone": ["c", "Me? Look at my phone! Seven calls this week. Every single one to my mother!", "Eu? Olha o meu celular! Sete ligações esta semana. Todas, sem exceção, pra minha mãe!", "d_rup2"],
+  "d_rup2": ["d", "He rings his mother for cooking tips. So it wasn't Rupert. Want to try again?", "Ele liga pra mãe pedindo dicas de cozinha. Então não foi o Rupert. Quer tentar de novo?", [
+   ["Sorry, Rupert. I got that badly wrong.", "Desculpa, Rupert. Eu errei feio.", "c_forgive"],
+   ["Yes. Forget that. It isn't sabotage at all.", "Quero. Esquece isso. Não é sabotagem nenhuma.", "d_notsab"],
+   ["Yes, I'll try it with more salt.", "Sim, vou provar com mais sal.", null, "This isn't a tasting. You accused the wrong man. Do you want to start again?", "Isto não é degustação. Você acusou o homem errado. Quer começar de novo?"]
+  ]],
+  "c_forgive": ["c", "Badly. But I called your soup basic on Monday. Let's say we're even.", "Feio mesmo. Mas eu chamei a sua sopa de básica na segunda. Digamos que estamos quites.", "d_who"],
+  "d_notsab": ["d", "Not sabotage? Five times in four days? Then you'd better explain it to me.", "Não é sabotagem? Cinco vezes em quatro dias? Então é melhor você me explicar.", "d_who"],
+  "d_who": ["d", "Facts, please. One at a time. Who moved the cream, the card and the honey?", "Fatos, por favor. Um de cada vez. Quem mexeu no creme, no cartão e no mel?", [
+   ["Toby. The label and the card were both in his green pen.", "O Toby. A etiqueta e o cartão estavam com a caneta verde dele.", "d_why", {"set": {"f_who": "yes"}}],
+   ["Somebody on the crew. I can't say who.", "Alguém da equipe. Não sei dizer quem.", "d_why"],
+   ["My name? You already know my name.", "Meu nome? Você já sabe o meu nome.", null, "Not your name. The name of the person behind all this. Who was it?", "Não o seu nome. O nome de quem está por trás disso tudo. Quem foi?"]
+  ]],
+  "d_why": ["d", "Next. Why would anyone put cream in the wrong fridge, and honey in with the bleach?", "Próxima. Por que alguém poria creme na geladeira errada, e mel junto com a água sanitária?", [
+   ["Out of exhaustion. He works day and night, and sleeps at the studio.", "Por exaustão. Ele trabalha dia e noite, e dorme no estúdio.", "d_hide", {"set": {"f_why": "yes"}}],
+   ["To make the show more exciting, maybe?", "Pra deixar o programa mais emocionante, talvez?", "d_hide"],
+   ["I don't know, honey.", "Não sei, docinho.", null, "Don't call me honey. Answer the question. Why would somebody mix everything up?", "Não me chame de docinho. Responda à pergunta. Por que alguém trocaria tudo de lugar?"]
+  ]],
+  "d_hide": ["d", "Last one. If these were accidents, why did nobody come and tell me?", "Última. Se foram acidentes, por que ninguém veio me contar?", [
+   ["Because it's his trial week. One more mistake, and he'd lose his job.", "Porque é a semana de experiência dele. Mais um erro, e ele perdia o emprego.", "e1", {"set": {"f_hide": "yes"}}],
+   ["Maybe nobody thought it mattered.", "Talvez ninguém tenha achado importante.", "e1"],
+   ["Nobody came? I came. I'm right here.", "Ninguém veio? Eu vim. Estou bem aqui.", null, "Yes, you're here now. But why did the person responsible keep it a secret?", "Sim, você está aqui agora. Mas por que a pessoa responsável guardou segredo?"]
+  ]],
+  "e1": {"branch": [["f_who=yes", "e2"], [null, "end_basic"]]},
+  "e2": {"branch": [["f_why=yes", "e3"], [null, "end_good"]]},
+  "e3": {"branch": [["f_hide=yes", "e4"], [null, "end_good"]]},
+  "e4": {"branch": [["clue_trial_week", "e5"], [null, "end_good"]]},
+  "e5": {"branch": [["clue_double_shift", "end_best"], ["clue_sofa", "end_best"], [null, "end_good"]]},
+  "end_best": ["d", "Toby. Day and night, sleeping on a sofa, in your trial week. Is that true?", "Toby. Dia e noite, dormindo num sofá, na sua semana de experiência. É verdade?", "t_best"],
+  "t_best": ["t", "It's true. Every word. Number four explained it better than I ever could.", "É verdade. Cada palavra. Número quatro explicou melhor do que eu jamais conseguiria.", "t_conf"],
+  "end_good": ["d", "That's a good theory. But a theory isn't proof. Can anybody here fill in the gaps?", "É uma boa teoria. Mas teoria não é prova. Alguém aqui consegue preencher as lacunas?", "t_step"],
+  "end_basic": ["d", "That's not an answer, that's a shrug. Fine. I'll question everybody, one by one.", "Isso não é resposta, é dar de ombros. Tudo bem. Vou interrogar todo mundo, um por um.", "t_step"],
+  "t_step": ["t", "Dee. Stop. Please. It was me. Nobody else. Just me.", "Dee. Para. Por favor. Fui eu. Mais ninguém. Só eu.", "t_conf"],
+  "t_conf": ["t", "The other runner left, so I did both shifts. I got so tired, I mixed everything up.", "O outro assistente saiu, então eu fiz os dois turnos. Fiquei tão cansado que troquei tudo.", "t_conf2"],
+  "t_conf2": ["t", "You said one more mistake and I was out. So I hid them all. I'm so sorry.", "Você disse que mais um erro e eu estava fora. Então escondi todos. Me desculpem.", "past_br"],
+  "past_br": {"branch": [["clue_victor_past", "v_cake"], [null, "g_speak"]]},
+  "v_cake": ["v", "Dee. I once dropped a wedding cake. A good chef gave me a mop, not the sack.", "Dee. Eu já derrubei um bolo de casamento. Um bom chef me deu um esfregão, não a demissão.", "d_res"],
+  "g_speak": ["g", "Dee, the lad hasn't slept in a week. Whose mistake is that, his or the office's?", "Dee, o rapaz não dorme há uma semana. De quem é o erro, dele ou do escritório?", "d_res"],
+  "d_res": ["d", "Both shifts? Nobody told me he'd left. Toby, that isn't your mistake. It's mine.", "Os dois turnos? Ninguém me avisou que ele tinha saído. Toby, esse erro não é seu. É meu.", "d_res2"],
+  "d_res2": ["d", "You're keeping your job. I'm hiring a second runner. And tonight you sleep in a real bed.", "Você continua no emprego. Vou contratar um segundo assistente. E hoje você dorme numa cama de verdade.", "t_q"],
+  "t_q": ["t", "I don't know what to say. Number four, you could have just blamed me. Why didn't you?", "Nem sei o que dizer. Número quatro, era só jogar a culpa em mim. Por que você não fez isso?", [
+   ["Because everybody deserves a second chance.", "Porque todo mundo merece uma segunda chance.", "t_a"],
+   ["Because you looked like you needed one good day.", "Porque você parecia precisar de um dia bom.", "t_b"],
+   ["Flambéed you? No, I only flambé bananas.", "Flambar você? Não, eu só flambo banana.", null, "Blamed, not flambéed! You could have told on me. Why didn't you?", "Culpar, não flambar! Era só me entregar. Por que você não entregou?"]
+  ]],
+  "t_a": ["t", "A second chance. I won't waste it. And I'm buying a new pen. A blue one.", "Uma segunda chance. Não vou desperdiçar. E vou comprar uma caneta nova. Azul.", "rup_br"],
+  "t_b": ["t", "One good day. I think this is it. Even if I sleep through the rest of it.", "Um dia bom. Acho que é este. Mesmo que eu durma o resto dele.", "rup_br"],
+  "rup_br": {"branch": [["accused_rupert", "c_joke"], ["rupert_secret=kept", "c_kept"], [null, "s_cook"]]},
+  "c_joke": ["c", "And next time you need a villain, Brazil, pick one who doesn't phone his mother.", "E da próxima vez que precisar de um vilão, Brasil, escolha um que não ligue pra mãe.", "s_cook"],
+  "c_kept": ["c", "Brazil kept a secret for me, too. I ring my mother before every round. There. I said it.", "Brasil também guardou um segredo meu. Eu ligo pra minha mãe antes de cada prova. Pronto. Falei.", "s_cook"],
+  "s_cook": ["s", "Right! Tissues away, aprons on. We've still got a final to cook. One hour!", "Muito bem! Guardem os lenços, vistam os aventais. Ainda temos uma final pra cozinhar. Uma hora!", "dish_br"],
+  "dish_br": {"branch": [["dish=moqueca", "n_moq"], ["dish=feijoada", "n_fei"], [null, "n_mou"]]},
+  "n_moq": ["n", "An hour later, your moqueca is ready. Fish, peppers, coconut milk. It smells like home.", "Uma hora depois, sua moqueca está pronta. Peixe, pimentão, leite de coco. Tem cheiro de casa.", "s_plate"],
+  "n_fei": ["n", "An hour later, your feijoada is ready. Dark beans, slow-cooked pork. It smells like home.", "Uma hora depois, sua feijoada está pronta. Feijão preto, carne de porco cozida devagar. Tem cheiro de casa.", "s_plate"],
+  "n_mou": ["n", "An hour later, your passion fruit mousse has set. Bright, sharp, yellow. It tastes like home.", "Uma hora depois, seu mousse de maracujá está firme. Vivo, azedinho, amarelo. Tem gosto de casa.", "s_plate"],
+  "s_plate": ["s", "Last touches, cooks! How are you going to serve it, station four?", "Toques finais, pessoal! Como você vai servir, bancada quatro?", [
+   ["Simply. One clean bowl, the way we eat it at home.", "Com simplicidade. Uma tigela limpa, do jeito que a gente come em casa.", "n_v", {"set": {"plate": "simple"}}],
+   ["With a tower of crispy leaves and some flowers on top.", "Com uma torre de folhas crocantes e umas flores por cima.", "n_v", {"set": {"plate": "fancy"}}],
+   ["I'll serve it with a tennis racket.", "Vou sacar com uma raquete de tênis.", null, "Not tennis, darling! Your dish. How will you present it on the plate?", "Não é tênis, meu bem! O seu prato. Como você vai apresentar a comida?"]
+  ]],
+  "n_v": ["n", "Time is up. Victor tastes four dishes in silence. Then he walks to the trophy and clears his throat.", "Acabou o tempo. O Victor prova quatro pratos em silêncio. Depois vai até o troféu e pigarreia.", "plate_br"],
+  "plate_br": {"branch": [["plate=simple", "v_win"], [null, "v_second"]]},
+  "v_win": ["v", "One plate tasted like somebody's home, with nothing to hide. Station four, you've won.", "Um prato tinha gosto da casa de alguém, sem nada a esconder. Bancada quatro, você venceu.", "g_last"],
+  "v_second": ["v", "Morag wins. Station four, lovely flavour, hidden under a hat. Second place. So close.", "A Morag vence. Bancada quatro, um sabor lindo, escondido debaixo de um chapéu. Segundo lugar. Foi por pouco.", "g_last"],
+  "g_last": ["g", "Come here, dear. What a week. Tell me honestly, was it worth all the bother?", "Vem cá, meu bem. Que semana. Me diz com sinceridade, valeu todo esse trabalho?", [
+   ["Every minute. Even the missing cream.", "Cada minuto. Até o creme sumido.", "g_a"],
+   ["Ask me after I've slept for a week, like Toby.", "Me pergunta depois que eu dormir uma semana, igual ao Toby.", "g_b"],
+   ["No, I didn't bother the judge.", "Não, eu não incomodei o jurado.", null, "Nobody says you did, dear! I'm asking: are you glad you came?", "Ninguém disse isso, meu bem! Estou perguntando: você está feliz por ter vindo?"]
+  ]],
+  "g_a": ["g", "That cream! You still owe the world a creamy soup. Come to Inverness and make it.", "Aquele creme! Você ainda deve ao mundo uma sopa cremosa. Vem a Inverness fazer.", "n_end"],
+  "g_b": ["g", "Ha! Sleep, then. And afterwards, come to Inverness. I'll teach you my shortbread.", "Rá! Então dorme. E depois, vem a Inverness. Eu te ensino o meu shortbread.", "n_end"],
+  "n_end": ["n", "The lights go down on Studio Four. You came to win a trophy. You're leaving with friends.", "As luzes do Estúdio Quatro se apagam. Você veio atrás de um troféu. Vai embora com amigos.", null]
+ }
+}

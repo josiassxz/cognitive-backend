@@ -1,0 +1,51 @@
+{
+ "season": 11,
+ "title": "A última balsa",
+ "subtitle": "Você vai a uma ilha remota da Escócia filmar um documentário: a balsa, única ligação com o continente, pode acabar para sempre. Cada pessoa tem uma versão, e o que você pergunta muda o filme.",
+ "level": "B2",
+ "genre": "Drama documental",
+ "clues": {
+  "winter_count": {
+   "title": "Contagem de fevereiro",
+   "note": "O número oficial, onze passageiros por travessia, foi contado em apenas três semanas de fevereiro, o pior mês do ano."
+  },
+  "old_letter": {
+   "title": "A carta de 1974",
+   "note": "Na carta de 1974, os moradores não pediram um navio grande: pediram \"uma travessia diária, por menor que fosse\"."
+  },
+  "freight": {
+   "title": "O que ninguém conta",
+   "note": "A pesca do Duncan, o correio, os remédios e metade da mercearia viajam na balsa, mas a contagem só olha os bilhetes."
+  },
+  "isla_reason": {
+   "title": "O motivo da Isla",
+   "note": "A Isla tem vaga para estudar engenharia naval em Glasgow. Com duas balsas por semana, ir embora significa ir de vez; com barco todo dia, ela voltaria toda sexta."
+  },
+  "priya_island": {
+   "title": "A ilha da Priya",
+   "note": "A Priya cresceu em Annasay, uma ilha que perdeu o barco quando ela tinha nove anos. A escola fechou em quatro anos."
+  },
+  "logbook": {
+   "title": "O diário de bordo",
+   "note": "O diário do capitão registra trinta e quatro pessoas por travessia na média do ano, porque inclui os moradores que viajam com passe e não compram bilhete."
+  },
+  "engine": {
+   "title": "Dois invernos",
+   "note": "A Kittiwake tem quarenta anos e o conserto do motor fica mais caro a cada inverno. O capitão acha que ela aguenta só mais dois."
+  },
+  "hidden_proposal": {
+   "title": "A terceira opção",
+   "note": "Há dois anos a Priya redigiu uma proposta de barco menor, com doze lugares e viagem diária, pela metade do custo. Foi engavetada porque ninguém da ilha pediu."
+  }
+ },
+ "memories": {
+  "crossing=sick": "O capitão Reid lembra que você enjoou na travessia, e admitiu.",
+  "crossing=fine": "O capitão Reid lembra que você jurou estar bem na travessia.",
+  "helped_duncan=yes": "O Duncan lembra que você carregou caixas de lagosta antes do café da manhã.",
+  "helped_duncan=no": "Para o Duncan, você é \"Mãos Delicadas\": não quis carregar as caixas.",
+  "side=fair": "A Morag sabe que você prometeu ouvir todos os lados.",
+  "side=island": "A Morag sabe que você disse estar do lado da ilha. E a notícia corre.",
+  "isla_secret=kept": "Você guardou para si o que a Isla contou no farol.",
+  "isla_secret=told": "Você contou ao Duncan o que a Isla disse no farol."
+ }
+}

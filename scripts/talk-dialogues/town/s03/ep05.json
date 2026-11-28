@@ -1,0 +1,87 @@
+{
+ "slug": "s03-05-the-late-delivery", "episode": 5, "title": "The Late Delivery", "level": "A2",
+ "place": "street", "placeLabel": "Maple Yard", "time": "Sexta · 7h", "ambience": "street",
+ "description": "O fornecedor sumiu com o queijo. Cobre com educação, confira a entrega e negocie.",
+ "intro": "Ontem você lidou com a Linda, uma cliente exigente, e a Bia reparou que o Sr. Boone nunca elogia, mas sempre deixa o prato vazio. Hoje o Dale, o fornecedor, prometeu trazer o queijo às sete.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "b": ["Bia", "Sua prima e sócia", "af_bella", "left"],
+  "d": ["Dale", "Fornecedor sempre atrasado", "am_eric", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Friday, seven o'clock. You and Bia are waiting outside the truck. The street is empty.", "Sexta, sete horas. Você e a Bia esperam do lado de fora do truck. A rua está vazia.", "n2"],
+  "n2": ["n", "Half past seven. No Dale. Eight o'clock. No Dale. No cheese.", "Sete e meia. Nada do Dale. Oito horas. Nada do Dale. Nada de queijo.", "b1"],
+  "b1": ["b", "We open at eleven! No cheese, no cheese bread! Call him. Be nice, but not too nice!", "A gente abre às onze! Sem queijo, sem pão de queijo! Liga pra ele. Com educação, mas não muita!", [
+   ["Okay. Nice, but firm. I can do that.", "Tá. Educação com firmeza. Isso eu sei fazer.", "n_call"],
+   ["What do I say if he doesn't answer?", "O que eu falo se ele não atender?", "b_msg"],
+   ["No cheese? Okay. Say cheese!", "Sem queijo? Tá. Olha o passarinho!", null, "Not a photo! The delivery! Can you call Dale, please?", "Não é foto! É a entrega! Você pode ligar pro Dale, por favor?"]
+  ]],
+  "b_msg": ["b", "Leave a message. Say: Dale, this is The Little Toucan. Where is our cheese?", "Deixa recado. Diz: Dale, aqui é o The Little Toucan. Cadê o nosso queijo?", "n_call"],
+  "n_call": ["n", "You call. Music plays for a long time. Then a slow, happy voice answers.", "Você liga. Fica tocando música um tempão. Aí uma voz lenta e feliz atende.", "d1"],
+  "d1": ["d", "Dale's Fresh Foods, this is Dale. What's up?", "Dale's Fresh Foods, é o Dale. E aí?", [
+   ["Hi, Dale. It's The Little Toucan. Our delivery is an hour late.", "Oi, Dale. Aqui é do The Little Toucan. Nossa entrega está uma hora atrasada.", "d_late"],
+   ["Good morning, Dale. Where are you right now?", "Bom dia, Dale. Onde você está agora?", "d_where"],
+   ["The sky is up.", "O céu está lá em cima.", null, "Ha! Good one. I mean, how can I help you this morning?", "Rá! Boa. Quer dizer, em que posso ajudar hoje?"]
+  ]],
+  "d_late": ["d", "An hour? No way. Oh. Yeah. Look at that. Sorry about that. Traffic.", "Uma hora? Não pode ser. Ah. É. Olha só. Foi mal. Trânsito.", "d_when"],
+  "d_where": ["d", "Me? At the gas station, eating a breakfast taco. Why? Oh. The Toucan. The cheese.", "Eu? No posto, comendo um taco de café da manhã. Por quê? Ah. O Toucan. O queijo.", "d_when"],
+  "d_when": ["d", "No worries. I'll be there soon.", "Sem estresse. Já já eu chego aí.", [
+   ["Soon is not a time, Dale. What time, exactly?", "Já já não é horário, Dale. Que horas, exatamente?", "d_time"],
+   ["We open at eleven. We need the cheese by nine.", "A gente abre às onze. Precisamos do queijo até as nove.", "d_nine"],
+   ["A bear? Where?", "Um urso? Onde?", null, "No bears, friend. I said I'll be there. Soon. Is that okay?", "Urso nenhum, gente boa. Eu disse que chego aí. Logo. Pode ser?"]
+  ]],
+  "d_time": ["d", "Exactly? Wow. Okay. Twenty minutes. Thirty, maximum.", "Exatamente? Nossa. Tá. Vinte minutos. Trinta, no máximo.", "n_arrive"],
+  "d_nine": ["d", "By nine. Got it. I can do nine. Easy.", "Até as nove. Entendi. Nove eu consigo. Tranquilo.", "n_arrive"],
+  "n_arrive": ["n", "At ten to nine, a white van stops next to the truck. Dale gets out, smiling.", "Às dez para as nove, uma van branca para do lado do truck. O Dale desce, sorrindo.", "d_hi"],
+  "d_hi": ["d", "Morning! Nice bird on the truck. Is it a parrot?", "Bom dia! Bonito o pássaro do truck. É um papagaio?", [
+   ["It's a toucan. And you're very late, Dale.", "É um tucano. E você está bem atrasado, Dale.", "d_hi1"],
+   ["A toucan. It's from Brazil, like us.", "Um tucano. É do Brasil, que nem a gente.", "d_hi2"],
+   ["A carrot? No, we don't sell carrots.", "Cenoura? Não, a gente não vende cenoura.", null, "Not a carrot. A parrot! The bird on your truck. What is it?", "Cenoura, não. Papagaio! O pássaro do truck de vocês. O que ele é?"]
+  ]],
+  "d_hi1": ["d", "Late? Me? Okay, a little. But I'm here now. That's the important part.", "Atrasado? Eu? Tá, um pouco. Mas agora eu cheguei. Isso é o que importa.", "d_box"],
+  "d_hi2": ["d", "Brazil! Cool. I love that place. I've never been, but I love it.", "Brasil! Legal. Adoro aquele lugar. Nunca fui, mas adoro.", "d_box"],
+  "d_box": ["d", "Here we go. Steak, black beans, rice. And your big box of fish.", "Vamos lá. Carne, feijão preto, arroz. E a sua caixa grande de peixe.", [
+   ["Fish? We didn't order fish. We ordered cheese.", "Peixe? A gente não pediu peixe. A gente pediu queijo.", "d_fish"],
+   ["Wait. Let me check the list first.", "Espera. Deixa eu conferir a lista primeiro.", "d_list"],
+   ["Yes, I wish.", "Sim, quem me dera.", null, "You wish what? Look in the box. Fish. Is this what you ordered?", "Quem te dera o quê? Olha na caixa. Peixe. Foi isso que vocês pediram?"]
+  ]],
+  "d_list": ["d", "Sure, check it. Steak, yes. Beans, yes. Rice, yes. Cheese. Huh. That says cheese.", "Claro, confere. Carne, sim. Feijão, sim. Arroz, sim. Queijo. Ué. Aí está escrito queijo.", "d_oops"],
+  "d_fish": ["d", "No fish? Huh. Then the fish is for the sushi truck. And they have your cheese.", "Peixe, não? Ué. Então o peixe é do truck de sushi. E o seu queijo está com eles.", "d_oops"],
+  "d_oops": ["d", "My mistake. The sushi truck is on the north side. I can be back at two.", "Erro meu. O truck de sushi fica na zona norte. Consigo voltar às duas.", [
+   ["Two is too late. We open at eleven. Please go now.", "Às duas é tarde demais. A gente abre às onze. Vai agora, por favor.", "d_now"],
+   ["Can you call the sushi truck? Maybe they can meet you halfway.", "Você pode ligar pro truck de sushi? Talvez eles te encontrem no meio do caminho.", "d_half"],
+   ["Two cheeses? Great, thank you.", "Dois queijos? Ótimo, valeu.", null, "Not two cheeses. Two o'clock. I come back at two. Is that okay?", "Dois queijos, não. Duas horas. Eu volto às duas. Pode ser?"]
+  ]],
+  "d_now": ["d", "Now? Okay, okay. You're right. Back by ten thirty. I promise.", "Agora? Tá bom, tá bom. Você tem razão. Volto até as dez e meia. Prometo.", "d_bill"],
+  "d_half": ["d", "Halfway. Hey, that's smart. Then I'm back by ten. Good thinking.", "No meio do caminho. Olha, boa ideia. Aí eu volto até as dez. Bem pensado.", "d_bill"],
+  "d_bill": ["d", "One more thing. Today's bill is two hundred and eighty dollars.", "Mais uma coisa. A conta de hoje é duzentos e oitenta dólares.", "pay_br"],
+  "pay_br": {"branch": [["fridge=new_part", "b_short"], [null, "d_ok"]]},
+  "b_short": ["b", "Psst. We spent the money on the new fridge part! We only have one hundred and fifty!", "Psiu. A gente gastou o dinheiro na peça nova da geladeira! Só temos cento e cinquenta!", "d_short"],
+  "d_short": ["d", "So? Cash or card today?", "E aí? Dinheiro ou cartão hoje?", [
+   ["Dale, can we pay half today and half on Monday?", "Dale, dá pra pagar metade hoje e metade na segunda?", "d_halfpay"],
+   ["You were late, with the wrong box. How about a discount?", "Você atrasou e trouxe a caixa errada. Que tal um desconto?", "d_disc"],
+   ["A car? No, I came on foot.", "Carro? Não, eu vim a pé.", null, "Not car. Card! Or cash. How do you want to pay?", "Carro, não. Cartão! Ou dinheiro. Como vocês querem pagar?"]
+  ]],
+  "d_halfpay": ["d", "Half and half? Hm. Okay. You're good people. Monday. Don't forget.", "Meio a meio? Hum. Tá. Vocês são gente boa. Segunda. Não esquece.", "d_fest"],
+  "d_disc": ["d", "Ouch. But fair. Ten percent off. Pay what you can today, and the rest on Monday.", "Ai. Mas é justo. Dez por cento de desconto. Paga o que der hoje, e o resto na segunda.", "d_fest"],
+  "d_ok": ["d", "Cash or card today?", "Dinheiro ou cartão hoje?", [
+   ["Cash. But you were late, with the wrong box. How about a discount?", "Dinheiro. Mas você atrasou e trouxe a caixa errada. Que tal um desconto?", "d_disc2"],
+   ["Card, please. And next week, seven o'clock means seven o'clock.", "Cartão, por favor. E semana que vem, sete horas quer dizer sete horas.", "d_seven"],
+   ["A car? No, I came on foot.", "Carro? Não, eu vim a pé.", null, "Not car. Card! Or cash. How do you want to pay?", "Carro, não. Cartão! Ou dinheiro. Como vocês querem pagar?"]
+  ]],
+  "d_disc2": ["d", "Ouch. But fair. Ten percent off. Don't tell the sushi truck.", "Ai. Mas é justo. Dez por cento de desconto. Não conta pro truck de sushi.", "d_fest"],
+  "d_seven": ["d", "Seven means seven. Got it. I'll set two alarms.", "Sete quer dizer sete. Entendi. Vou pôr dois despertadores.", "d_fest"],
+  "d_fest": ["d", "Hey, are you two doing the festival? I deliver there every year.", "Ei, vocês vão participar do festival? Eu faço entrega lá todo ano.", [
+   ["Yes! Do you know anything about the secret judge?", "Vamos! Você sabe alguma coisa do jurado secreto?", "d_judge"],
+   ["Yes. Please don't be late that day.", "Vamos. Por favor, não atrase nesse dia.", "d_promise"],
+   ["No liver, thanks. Just cheese.", "Fígado não, valeu. Só queijo.", null, "Ha! No liver. I said deliver. The festival! Are you two going?", "Rá! Fígado nenhum. Eu disse entrega. O festival! Vocês vão?"]
+  ]],
+  "d_promise": ["d", "Late for the festival? Never. Okay, one time. But never again. Back soon with the cheese!", "Atrasar no festival? Nunca. Tá, uma vez. Mas nunca mais. Já volto com o queijo!", "b_end"],
+  "d_judge": ["d", "Nobody knows who it is. But I know one thing, from the order list.", "Ninguém sabe quem é. Mas eu sei de uma coisa, pela lista de pedidos.", "d_judge2"],
+  "d_judge2": ["d", "Every year, they order one thing for the judge's table. A pot of black coffee. No sugar.", "Todo ano, eles encomendam uma coisa só pra mesa do jurado. Uma garrafa de café preto. Sem açúcar.", "d_judge3", {"clue": "black_coffee"}],
+  "d_judge3": ["d", "That's all I know. Okay, cheese time. Back soon!", "É tudo que eu sei. Bom, hora do queijo. Já volto!", "b_end"],
+  "b_end": ["b", "You were great! Nice, but firm. I only stood here and made angry faces.", "Você mandou muito bem! Educação com firmeza. Eu só fiquei aqui fazendo cara feia.", "n_end"],
+  "n_end": ["n", "At ten twenty, the van is back with the cheese. Behind it, a young man with a big camera is taking photos.", "Às dez e vinte, a van volta com o queijo. Atrás dela, um rapaz com uma câmera enorme tira fotos.", null]
+ }
+}

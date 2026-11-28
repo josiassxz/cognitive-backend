@@ -1,0 +1,95 @@
+{
+ "slug": "s05-04-lunch-meeting", "episode": 4, "title": "Lunch Meeting", "level": "A2",
+ "place": "restaurant", "placeLabel": "Refeitório do campus", "time": "Semana 6 · Qua 12h", "ambience": "restaurant",
+ "description": "Peça o almoço, preste contas do trabalho e ouça quem serve a comida.",
+ "intro": "Cinco semanas depois, o grupo quatro se reúne toda quarta no refeitório para o projeto The Campus After Dark. O Miles ficou com os slides. Até agora, ninguém viu nenhum.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "r": ["Rosa", "Funcionária do refeitório", "af_kore", "right"],
+  "p": ["Priya", "Colega de grupo, a organizada", "af_sarah", "left"],
+  "g": ["Gus", "Colega de grupo, o piadista", "am_puck", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Wednesday, noon. The dining hall is loud and smells of pizza and soup.", "Quarta, meio-dia. O refeitório está barulhento e cheira a pizza e sopa.", "n2"],
+  "n2": ["n", "You take a tray and get in line. The woman serving the food has a huge smile.", "Você pega uma bandeja e entra na fila. A mulher que serve a comida tem um sorriso enorme.", "r1"],
+  "r1": ["r", "Hello, my dear! Card first, food after. Let me see that ID.", "Olá, meu bem! Primeiro a carteirinha, depois a comida. Deixa eu ver.", "r_br"],
+  "r_br": {"branch": [["id_photo=smile", "r_smile"], ["id_photo=serious", "r_serious"], [null, "r_blink"]]},
+  "r_smile": ["r", "Look at that smile! Finally, a happy photo. I see sad ones all day.", "Olha esse sorriso! Até que enfim uma foto feliz. Eu vejo foto triste o dia inteiro.", "r_order"],
+  "r_serious": ["r", "So serious! You look much friendlier in real life, my dear.", "Que seriedade! Ao vivo você tem uma cara bem mais simpática, meu bem.", "r_order"],
+  "r_blink": ["r", "Oh, honey. Your eyes are closed! I love it. Don't ever change it.", "Ai, meu bem. Seus olhos estão fechados! Adorei. Não troca nunca.", "r_order"],
+  "r_order": ["r", "Now, what can I get you? Chicken and rice, veggie pasta, or pizza?", "Bom, o que vai ser? Frango com arroz, macarrão de legumes ou pizza?", [
+   ["Chicken and rice, please.", "Frango com arroz, por favor.", "r_chicken"],
+   ["The veggie pasta, please.", "O macarrão de legumes, por favor.", "r_pasta"],
+   ["Pizza, please. Two slices.", "Pizza, por favor. Duas fatias.", "r_pizza"],
+   ["Chicken and ice, please.", "Frango com gelo, por favor.", null, "Ice? On chicken? No, no. Rice! Chicken and rice, pasta, or pizza?", "Gelo? No frango? Não, não. Arroz! Frango com arroz, macarrão ou pizza?"]
+  ]],
+  "r_chicken": ["r", "Good choice. I'm from Cape Verde. We love our rice too, just like you.", "Boa escolha. Eu sou de Cabo Verde. A gente também ama arroz, igual a vocês.", "r_fries"],
+  "r_pasta": ["r", "The pasta, good. I made that sauce myself this morning. At six.", "O macarrão, ótimo. Esse molho fui eu que fiz hoje cedo. Às seis.", "r_fries"],
+  "r_pizza": ["r", "Two slices. A real student lunch. At least it has tomato.", "Duas fatias. Almoço típico de estudante. Pelo menos tem tomate.", "r_fries"],
+  "r_fries": ["r", "And take some fries. They're fresh. You students are all too thin.", "E leva umas fritas. Acabaram de sair. Vocês estudantes são magros demais.", "r_q"],
+  "r_q": ["r", "You're the one from Brazil, right? From group four? Miles told me about you.", "Você é quem veio do Brasil, né? Do grupo quatro? O Miles me falou de você.", [
+   ["Yes! You know Miles?", "Sou! A senhora conhece o Miles?", "r_miles"],
+   ["That's me. Your food smells amazing.", "Sou eu. Sua comida está com um cheiro incrível.", "r_food"],
+   ["No, I'm from the line.", "Não, eu sou da fila.", null, "Ha! Everybody comes from the line. I mean your country. You're from Brazil, right?", "Rá! Todo mundo vem da fila. Tô falando do seu país. Você é do Brasil, né?"]
+  ]],
+  "r_miles": ["r", "Know him? He works here. Breakfast shift, five in the morning, every weekday.", "Se eu conheço? Ele trabalha aqui. Turno do café da manhã, cinco da manhã, todo dia de semana.", "r_miles2", {"clue": "early_shift"}],
+  "r_miles2": ["r", "My best worker. But he doesn't tell people. So you didn't hear it from me.", "Meu melhor funcionário. Mas ele não conta pra ninguém. Então não fui eu que falei.", "n3"],
+  "r_food": ["r", "Thank you, my dear. Come for breakfast one day. The early team is the best team.", "Obrigada, meu bem. Vem tomar café da manhã um dia. A turma da madrugada é a melhor.", "n3"],
+  "n3": ["n", "You find Priya and Gus at a table by the window. Priya has three notebooks open.", "Você acha a Priya e o Gus numa mesa perto da janela. A Priya está com três cadernos abertos.", "p1"],
+  "p1": ["p", "You're two minutes late. Sit. Progress report. How is your part going?", "Dois minutos de atraso. Senta. Relatório. Como anda a sua parte?", [
+   ["Really well. I'm almost done.", "Muito bem. Estou quase terminando.", "p_good_br"],
+   ["Honestly, I'm a bit behind. I need a few more days.", "Sinceramente, atrasei um pouco. Preciso de mais uns dias.", "p_behind"],
+   ["My part is going home at five.", "Minha parte vai pra casa às cinco.", null, "Not where! How! Is your part of the project going well or badly?", "Não é pra onde! É como! Sua parte do trabalho está indo bem ou mal?"]
+  ]],
+  "p_good_br": {"branch": [["role=interviews", "p_g_int"], ["role=numbers", "p_g_num"], [null, "p_g_open"]]},
+  "p_g_int": ["p", "I know. I heard the first interviews. The night cleaner's story made me cry. Good work.", "Eu sei. Ouvi as primeiras entrevistas. A história da moça da limpeza noturna me fez chorar. Bom trabalho.", "g1"],
+  "p_g_num": ["p", "I know. Ninety answers in the survey already. Ninety! Good work.", "Eu sei. Noventa respostas na pesquisa já. Noventa! Bom trabalho.", "g1"],
+  "p_g_open": ["p", "I know. I read your opening last night. I got goosebumps. Good work.", "Eu sei. Li sua abertura ontem à noite. Fiquei arrepiada. Bom trabalho.", "g1"],
+  "p_behind": ["p", "Okay. Thanks for being honest. You have until Monday. I'll remind you. Twice.", "Tá. Valeu pela sinceridade. Você tem até segunda. Eu vou te lembrar. Duas vezes.", "g1"],
+  "g1": ["g", "My videos are done. Mostly. Hey, are you going to eat all those fries?", "Meus vídeos estão prontos. Quase. Ei, você vai comer essas fritas todas?", [
+   ["Take some. Help yourself.", "Pega aí. Fica à vontade.", "g_fries", {"set": {"fries": "yes"}}],
+   ["Yes. All of them. Get your own, Gus.", "Vou. Todas. Pega as suas, Gus.", "g_nofries", {"set": {"fries": "no"}}],
+   ["No, I'm going to eat them on Friday.", "Não, vou comer na sexta.", null, "On Friday? They'll be cold by Friday! Can I have some now, yes or no?", "Na sexta? Até sexta já esfriaram! Posso pegar umas agora, sim ou não?"]
+  ]],
+  "g_fries": ["g", "You are my favorite person on this campus. I mean it.", "Você é a minha pessoa favorita deste campus. Tô falando sério.", "p2"],
+  "g_nofries": ["g", "Cold. Very cold. I'll remember this.", "Que frieza. Muita frieza. Eu vou lembrar disso.", "p2"],
+  "p2": ["p", "Focus, please. The problem is Miles. It's week six and nobody has seen a single slide.", "Foco, por favor. O problema é o Miles. Estamos na semana seis e ninguém viu um slide sequer.", "p3"],
+  "p3": ["p", "He missed two meetings. He says he's busy. Busy with what? What do you think?", "Ele faltou a duas reuniões. Diz que anda ocupado. Ocupado com o quê? O que você acha?", [
+   ["Maybe he has a job. Has anyone asked him?", "Talvez ele tenha um emprego. Alguém já perguntou?", "p_job"],
+   ["He promised good slides. I think we should trust him.", "Ele prometeu slides bons. Acho que a gente devia confiar.", "p_trusthim"],
+   ["You're right. He should show us something by now.", "Você tem razão. A esta altura ele já devia mostrar alguma coisa.", "p_right"],
+   ["He's not dizzy. He looks fine to me.", "Ele não está tonto. Pra mim ele parece bem.", null, "Not dizzy. Busy! He says he has no time. What do you think is going on?", "Tonto, não. Ocupado! Ele diz que não tem tempo. O que você acha que está acontecendo?"]
+  ]],
+  "p_job": ["p", "A job? He never said anything. But then, he never says anything.", "Um emprego? Ele nunca falou nada. Se bem que ele nunca fala nada.", "g2"],
+  "p_trusthim": ["p", "I want to trust him. I also want to see the slides. Both.", "Eu quero confiar nele. E também quero ver os slides. As duas coisas.", "g2"],
+  "p_right": ["p", "Thank you! That's all I'm asking. One slide. Half a slide.", "Valeu! É só isso que eu peço. Um slide. Meio slide.", "g2"],
+  "g2": ["g", "He's a perfectionist. He told me he changed the color of one title nine times.", "Ele é perfeccionista. Me contou que mudou a cor de um título nove vezes.", "p4"],
+  "p4": ["p", "He has one job. One. If he messes up the slides, we all fail.", "Ele tem uma tarefa só. Uma. Se ele estragar os slides, todo mundo reprova.", "n4"],
+  "n4": ["n", "Behind you, a chair moves. Someone in a gray hoodie walks away fast.", "Atrás de você, uma cadeira se arrasta. Alguém de moletom cinza se afasta depressa.", "p5"],
+  "p5": ["p", "Somebody should talk to him. Nicely. Not me. I'm not good at nicely.", "Alguém devia falar com ele. Com jeitinho. Eu não. Eu não sou boa de jeitinho.", [
+   ["I'll talk to him. He lives across the hall from me.", "Eu falo com ele. Ele mora do outro lado do meu corredor.", "p_youtalk", {"set": {"talk_miles": "yes"}}],
+   ["Let's send a message in the group chat, all together.", "Vamos mandar uma mensagem no grupo, todo mundo junto.", "p_chat", {"set": {"talk_miles": "no"}}],
+   ["Who is Nicely? Is Nicely here today?", "Quem é Nicely? Nicely veio hoje?", null, "Nicely is not a person! I mean in a kind way. Who's going to talk to Miles?", "Nicely não é uma pessoa! Quero dizer com gentileza. Quem vai falar com o Miles?"]
+  ]],
+  "p_youtalk": ["p", "Thank you. Just ask him to put the slides in the folder. That's all.", "Valeu. Só pede pra ele pôr os slides na pasta. Só isso.", "p6"],
+  "p_chat": ["p", "Fine. I'll write it. Gus, no memes this time.", "Tá. Eu escrevo. Gus, sem meme desta vez.", "p6"],
+  "p6": ["p", "Last thing. We need a dining hall worker on video. Who's going to ask one?", "Última coisa. A gente precisa de alguém do refeitório em vídeo. Quem vai pedir?", [
+   ["I'll ask Rosa right now. She's really nice.", "Eu peço pra Rosa agora mesmo. Ela é um amor.", "n5"],
+   ["Gus, you ask. You have the camera.", "Gus, pede você. A câmera é sua.", "g3"],
+   ["I'll ask her for more fries.", "Vou pedir mais fritas pra ela.", null, "No more fries! The interview, for the project. Who is going to ask?", "Chega de fritas! A entrevista, pro trabalho. Quem vai pedir?"]
+  ]],
+  "g3": ["g", "Me? She scares me. She makes me eat vegetables. Come with me, please.", "Eu? Ela me dá medo. Ela me faz comer legumes. Vem comigo, por favor.", "n5"],
+  "n5": ["n", "You go back to the counter. Rosa is cleaning it with a big blue cloth.", "Você volta ao balcão. A Rosa está limpando tudo com um pano azul enorme.", "r2"],
+  "r2": ["r", "Back already? Are you still hungry, my dear?", "Já de volta? Ainda está com fome, meu bem?", [
+   ["No, thanks. We're doing a project about campus workers. Can we interview you?", "Não, valeu. A gente está fazendo um trabalho sobre quem trabalha no campus. Dá pra te entrevistar?", "r_yes"],
+   ["Rosa, what time do you start work every day?", "Rosa, a que horas a senhora começa a trabalhar todo dia?", "r_time"],
+   ["No, I'm not from Hungary. I'm from Brazil.", "Não, eu não sou da Hungria. Sou do Brasil.", null, "Ha! Hungry, not Hungary! Do you want more food? Or do you need something else?", "Rá! Hungry é fome, não Hungria! Quer mais comida? Ou precisa de outra coisa?"]
+  ]],
+  "r_time": ["r", "Five in the morning, my dear. For eleven years. Why? Is this for school?", "Cinco da manhã, meu bem. Faz onze anos. Por quê? É coisa da faculdade?", "n6"],
+  "n6": ["n", "You tell her about the project. Her eyes get bigger and bigger.", "Você conta do trabalho. Os olhos dela vão ficando cada vez maiores.", "r_yes"],
+  "r_yes": ["r", "Me? On video? Nobody ever asks about us. Yes. Yes, of course!", "Eu? Em vídeo? Ninguém nunca pergunta da gente. Sim. Claro que sim!", "r3"],
+  "r3": ["r", "And tell Miles to sleep more. That boy looks so tired these days.", "E fala pro Miles dormir mais. Esse menino anda com uma cara tão cansada.", "n_end"],
+  "n_end": ["n", "Rosa said yes. But the slides are still a mystery. And week ten is getting closer.", "A Rosa topou. Mas os slides continuam um mistério. E a semana dez está chegando.", null]
+ }
+}

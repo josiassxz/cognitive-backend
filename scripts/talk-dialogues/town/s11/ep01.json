@@ -1,0 +1,89 @@
+{
+ "slug": "s11-01-the-crossing", "episode": 1, "title": "The Crossing", "level": "B2",
+ "place": "boat", "placeLabel": "Balsa Kittiwake", "time": "Segunda · 7h", "ambience": "beach",
+ "description": "A travessia até a ilha de Skerra. A bordo, todo mundo já tem um número.",
+ "intro": "Você faz documentários e veio do Brasil até o norte da Escócia. A balsa Kittiwake, única ligação da ilha de Skerra com o continente, pode ser cancelada para sempre. Você embarca com a câmera na mão.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "c": ["Captain Reid", "Capitão da balsa", "bm_george", "left"],
+  "i": ["Isla", "Tripulante da balsa", "bf_alice", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Monday, seven in the morning. Port Carrick smells of diesel, seaweed and rain.", "Segunda, sete da manhã. Port Carrick cheira a diesel, alga e chuva.", "n2"],
+  "n2": ["n", "One small ferry waits at the pier. The Kittiwake. White paint, and a great deal of rust.", "Uma balsa pequena espera no cais. A Kittiwake. Tinta branca e ferrugem à vontade.", "i1"],
+  "i1": ["i", "Morning! Ticket, please. Wow, that's a serious camera. Are you from the telly?", "Bom dia! Bilhete, por favor. Uau, que câmera séria. Você é da tevê?", [
+   ["Sort of. I'm making a documentary about this ferry.", "Mais ou menos. Estou fazendo um documentário sobre esta balsa.", "i_doc"],
+   ["Not the telly. I make independent films. I've come from Brazil.", "Da tevê, não. Faço cinema independente. Vim do Brasil.", "i_brazil"],
+   ["No, thanks. I've already had jelly for breakfast.", "Não, valeu. Já comi gelatina no café da manhã.", null, "Jelly? Ha! Telly. Television. Are you here to film us?", "Gelatina? Rá! Tevê. Televisão. Você veio filmar a gente?"]
+  ]],
+  "i_doc": ["i", "About this old tub? Then you've heard. They might scrap the route for good.", "Sobre esta banheira velha? Então você já soube. Talvez acabem com a rota de vez.", "i_count"],
+  "i_brazil": ["i", "Brazil? All that way for a rusty boat in the rain? You're either brave or lost.", "Brasil? Essa viagem toda por um barco enferrujado na chuva? Ou é coragem, ou você se perdeu.", "i_count"],
+  "i_count": ["i", "I'm Isla. Hang on. Click. You're passenger number nine today. Not bad for a Monday, eh?", "Eu sou a Isla. Peraí. Clique. Você é o número nove de hoje. Nada mau pra uma segunda, né?", [
+   ["Number nine? Why are you counting us?", "Número nove? Por que você está contando a gente?", "i_why"],
+   ["Only nine? Is it always this quiet?", "Só nove? É sempre vazio assim?", "i_quiet"],
+   ["Wine? Lovely. A glass of red, please.", "Vinho? Que beleza. Uma taça de tinto, por favor.", null, "Wine? At seven in the morning? No, nine. Nine passengers. Not bad for a Monday, is it?", "Vinho? Às sete da manhã? Não, nove. Nove passageiros. Nada mau pra uma segunda, né?"]
+  ]],
+  "i_quiet": ["i", "In winter, aye. In summer you can't get a seat. Depends when you count, doesn't it?", "No inverno, é. No verão não sobra lugar. Depende de quando se conta, né?", [
+   ["What do you mean, when you count?", "Como assim, de quando se conta?", "i_why"],
+   ["And you? Do you think the ferry should stay?", "E você? Acha que a balsa deve continuar?", "i_think"],
+   ["Yes, I can count to a hundred.", "Sim, eu sei contar até cem.", null, "Clever you! I mean counting passengers. It depends on the season, doesn't it?", "Que talento! Eu falo de contar passageiros. Depende da época do ano, né?"]
+  ]],
+  "i_why": ["i", "Habit. The office counted us once, you see. Three weeks, last February.", "Mania. É que a repartição contou a gente uma vez. Três semanas, em fevereiro passado.", "i_feb"],
+  "i_feb": ["i", "Eleven passengers a crossing, they said. In February! Even the seagulls stay home in February.", "Onze passageiros por travessia, disseram. Em fevereiro! Em fevereiro nem gaivota sai de casa.", "i_feb2", {"clue": "winter_count"}],
+  "i_feb2": ["i", "So now I count every single day. Just in case anybody ever asks.", "Então agora eu conto todo santo dia. Vai que um dia alguém pergunta.", "i_capt"],
+  "i_think": ["i", "Me? Ask me when I'm off duty. It's a long answer, and I've got ropes to sort.", "Eu? Pergunta quando eu estiver de folga. A resposta é comprida, e eu tenho corda pra arrumar.", "i_capt"],
+  "i_capt": ["i", "Anyway. Captain Reid wants you on the bridge. Up those stairs. He only looks scary.", "Enfim. O capitão Reid quer te ver na ponte de comando. Subindo a escada. Ele só tem cara de bravo.", "n3"],
+  "n3": ["n", "The engine shakes the whole boat. You climb the metal stairs as the harbour slides away.", "O motor faz o barco inteiro tremer. Você sobe a escada de metal enquanto o porto fica para trás.", "n_grey"],
+  "n_grey": ["n", "Halfway up, you pass a woman in a grey coat, writing something in a notebook.", "No meio da subida, você passa por uma mulher de casaco cinza, anotando algo num caderno.", "n4"],
+  "n4": ["n", "On the bridge, a tall man in a wool jumper holds the wheel. He doesn't turn round.", "Na ponte de comando, um homem alto de suéter de lã segura o timão. Ele não se vira.", "c1"],
+  "c1": ["c", "So you're the film-maker. Callum Reid. Thirty-one years on this route. What do you want from me?", "Então é você quem faz o filme. Callum Reid. Trinta e um anos nesta rota. O que você quer de mim?", [
+   ["Your permission to film on board, first of all.", "Antes de mais nada, sua permissão pra filmar a bordo.", "c_perm"],
+   ["Your story. Nobody knows this crossing better than you do.", "A sua história. Ninguém conhece esta travessia melhor que você.", "c_story"],
+   ["A root? No, thanks. I'm not keen on vegetables.", "Uma raiz? Não, valeu. Não sou fã de legumes.", null, "Route. Not root. The crossing. I asked what you want from me.", "Rota. Não raiz. A travessia. Eu perguntei o que você quer de mim."]
+  ]],
+  "c_perm": ["c", "Polite. That's new. Film what you like. But ask people before you film their faces.", "Educação. Isso é novidade. Filme o que quiser. Mas peça antes de filmar o rosto das pessoas.", "c_rule"],
+  "c_story": ["c", "Flattery. Hm. It works a little. Film what you like, but ask people first.", "Bajulação. Hum. Funciona um pouco. Filme o que quiser, mas peça às pessoas antes.", "c_rule"],
+  "c_rule": ["c", "One rule. Don't make us look like a postcard. We're not here to be pretty. Understood?", "Uma regra. Não transforme a gente em cartão-postal. Ninguém aqui existe pra ser bonito. Entendido?", [
+   ["Understood. I'm here to listen, not to decorate.", "Entendido. Vim pra ouvir, não pra enfeitar.", "c_listen"],
+   ["But what if the pretty pictures are what make people care?", "Mas e se forem as imagens bonitas que fazem as pessoas se importarem?", "c_pretty"],
+   ["Of course. I'll send you a postcard from Brazil.", "Claro. Eu te mando um cartão-postal do Brasil.", null, "Kind of you. But I meant the film. No postcards, just the truth. Understood?", "Gentileza sua. Mas eu falava do filme. Nada de cartão-postal, só a verdade. Entendido?"]
+  ]],
+  "c_listen": ["c", "We'll see. Film crews come, film a sunset and a sheep, and leave.", "Veremos. As equipes de filmagem chegam, filmam um pôr do sol e uma ovelha e vão embora.", "n_wave"],
+  "c_pretty": ["c", "Hm. You may have a point. I'm not saying you do. You may.", "Hum. Talvez você tenha razão. Não estou dizendo que tem. Talvez.", "n_wave"],
+  "n_wave": ["n", "A big wave hits the bow. The floor drops away, and your stomach goes with it.", "Uma onda grande bate na proa. O chão some, e o seu estômago vai junto.", "c_sick"],
+  "c_sick": ["c", "You've gone a bit quiet. And a bit green. How are you holding up?", "Você ficou em silêncio de repente. E com a cara meio verde. Está aguentando firme?", [
+   ["Honestly? I think I'm going to be sick.", "Sinceramente? Acho que vou passar mal.", "c_sick_yes", {"set": {"crossing": "sick"}}],
+   ["I'm absolutely fine. Never better.", "Estou superbem. Nunca estive melhor.", "c_fine", {"set": {"crossing": "fine"}}],
+   ["I'm holding up the camera, as you can see.", "Estou segurando a câmera, como você pode ver.", null, "I can see that. I meant your stomach. How are you feeling?", "Isso eu estou vendo. Eu falava do seu estômago. Como você está se sentindo?"]
+  ]],
+  "c_sick_yes": ["c", "Honest. Good. Eyes on the horizon. And here, a ginger biscuit. Works every time.", "Sinceridade. Gosto. Olhos no horizonte. E toma, um biscoito de gengibre. Nunca falha.", "c_q"],
+  "c_fine": ["c", "Aye. That's what they all say, right before they run for the rail.", "Sei. É o que todo mundo diz, um segundo antes de correr pra amurada.", "c_q"],
+  "c_q": ["c", "Go on, then. One question, while I've got a straight course. Make it a good one.", "Vai, então. Uma pergunta, enquanto o rumo está reto. Capricha.", [
+   ["If the ferry stops, what happens to the island?", "Se a balsa parar, o que acontece com a ilha?", "c_island"],
+   ["Thirty-one years. Would you honestly do it all again?", "Trinta e um anos. Você faria tudo de novo, sinceramente?", "c_again"],
+   ["Is it true the route might be cancelled for good?", "É verdade que a rota pode ser cancelada de vez?", "c_cancel"],
+   ["A course? Is it a three-course meal?", "Um prato? É uma refeição com três pratos?", null, "It's a ferry, not a restaurant. A course is a direction. Now, ask me your question.", "Isto é uma balsa, não um restaurante. Rumo é direção. Agora faça a sua pergunta."]
+  ]],
+  "c_island": ["c", "The shop empties in a week. The school closes in a year. After that, it's just birds.", "A mercearia esvazia em uma semana. A escola fecha em um ano. Depois disso, só sobram os pássaros.", "c_but"],
+  "c_again": ["c", "Every morning of it. Though I wouldn't mind a few less Februaries.", "Cada manhã. Se bem que eu dispensaria alguns fevereiros.", "c_but"],
+  "c_cancel": ["c", "The office decides this month. There's a meeting in the village hall on Friday. Everyone's coming.", "A repartição decide este mês. Tem reunião no salão comunitário na sexta. Vai todo mundo.", "c_but"],
+  "c_but": ["c", "Mind you, I'm not the one to ask. Half the island thinks I'm part of the problem.", "Se bem que eu não sou a pessoa certa pra responder. Metade da ilha acha que eu sou parte do problema.", [
+   ["Part of the problem? Why would they think that?", "Parte do problema? Por que achariam isso?", "c_problem"],
+   ["Then who should I talk to first?", "Então com quem eu devo falar primeiro?", "c_who"],
+   ["Half an island? I think that's called a peninsula.", "Meia ilha? Acho que isso se chama península.", null, "Very clever. Half the people, I said. Do you want to know why, or who to talk to?", "Muito espirituoso. Metade das pessoas, eu disse. Quer saber o motivo, ou com quem falar?"]
+  ]],
+  "c_problem": ["c", "Because I've kept quiet. Everyone shouts about the ferry. I just sail her. People notice.", "Porque eu fico calado. Todo mundo grita por causa da balsa. Eu só piloto. O povo repara.", "c_who"],
+  "c_who": ["c", "Start with Morag, at the Tern House. She'll feed you first and convince you second.", "Comece pela Morag, na pousada Tern House. Primeiro ela te alimenta, depois te convence.", "i2"],
+  "i2": ["i", "Skerra in ten minutes, Captain. And nine passengers, for the record. I counted twice.", "Skerra em dez minutos, capitão. E nove passageiros, que fique registrado. Contei duas vezes.", "c_last"],
+  "c_last": ["c", "Nine. On this island, everybody's got a number, and no two agree. What will you do about that?", "Nove. Nesta ilha, cada um tem um número, e nenhum bate com o outro. O que você vai fazer com isso?", [
+   ["Collect every number I can, and see which ones hold up.", "Juntar todos os números que eu puder e ver quais se sustentam.", "c_end_num", {"set": {"collect": "numbers"}}],
+   ["Numbers aren't everything. I'd rather collect the stories.", "Número não é tudo. Prefiro juntar as histórias.", "c_end_story", {"set": {"collect": "stories"}}],
+   ["My number is Brazilian. It doesn't work over here.", "Meu número é brasileiro. Aqui ele não funciona.", null, "Not phone numbers. Passenger numbers. How many people use this boat. What will you do about those?", "Não é número de telefone. É número de passageiros. Quanta gente usa este barco. O que você vai fazer com esses?"]
+  ]],
+  "c_end_num": ["c", "Good luck. You'll need a bigger notebook.", "Boa sorte. Você vai precisar de um caderno maior.", "n_end1"],
+  "c_end_story": ["c", "Stories. Aye. We've plenty of those. Mind which ones you believe.", "Histórias. É. Disso a gente tem de sobra. Cuidado com as que você acredita.", "n_end1"],
+  "n_end1": ["n", "Through the rain, an island appears. Grey rock, green hills, a line of white houses.", "No meio da chuva, surge uma ilha. Rocha cinzenta, morros verdes, uma fileira de casas brancas.", "n_end2"],
+  "n_end2": ["n", "Skerra. Four days until the meeting. And already, two people have given you two different numbers.", "Skerra. Faltam quatro dias para a reunião. E duas pessoas já te deram dois números diferentes.", null]
+ }
+}

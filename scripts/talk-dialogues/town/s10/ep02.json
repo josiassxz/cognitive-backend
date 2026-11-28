@@ -1,0 +1,95 @@
+{
+ "slug": "s10-02-the-stand-up", "episode": 2, "title": "The Stand-up", "level": "B1",
+ "place": "office", "placeLabel": "Kettle · reunião diária", "time": "Segunda · 14h", "ambience": "office",
+ "description": "Explique o bug ao engenheiro e dê sua opinião na primeira reunião.",
+ "intro": "No seu primeiro dia, testando o aplicativo, você descobriu que ele cobra duas vezes pelo mesmo pedido. Agora é hora de contar ao Tom, o engenheiro, e encarar a sua primeira reunião de equipe.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "t": ["Tom", "Engenheiro", "bm_daniel", "left"],
+  "h": ["Helen", "Fundadora e chefe da Kettle", "bf_isabella", "left"],
+  "d": ["Dylan", "Vendas", "am_puck", "right"],
+  "p": ["Priya", "Designer", "bf_alice", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "After lunch, you walk to the darkest corner of the office. One desk, three keyboards, no decoration at all.", "Depois do almoço, você vai até o canto mais escuro do escritório. Uma mesa, três teclados, nenhuma decoração.", "tt_br"],
+  "tt_br": {"branch": [["told_tom=together", "n_tog"], [null, "n_self"]]},
+  "n_tog": ["n", "Priya comes with you. 'Tom, this is our new starter. Be nice.' Then she runs back to her inbox.", "A Priya vai com você. 'Tom, esta é a pessoa nova do time. Seja simpático.' E volta correndo para a caixa de entrada.", "t1"],
+  "n_self": ["n", "You go alone. You take a deep breath. Just the facts.", "Você vai por conta própria. Respira fundo. Só os fatos.", "t1"],
+  "t1": ["t", "You're the new one. And you look like bad news. Go on.", "Você é quem chegou hoje. E está com cara de má notícia. Fala.", [
+   ["Hi, Tom. Yes. The app charged me twice for one order.", "Oi, Tom. É. O aplicativo me cobrou duas vezes por um pedido só.", "t_twice"],
+   ["Hi! First of all, lovely to meet you. How's your day going?", "Oi! Antes de tudo, prazer em te conhecer. Como está o seu dia?", "t_small"],
+   ["Yes, I've got a bug. A terrible cold.", "Sim, peguei um bichinho. Um resfriado terrível.", null, "Then please stay over there. I mean a bug in the app. What happened?", "Então fica aí longe, por favor. Eu quis dizer um bug no aplicativo. O que aconteceu?"]
+  ]],
+  "t_twice": ["t", "Twice. Hmm. That's not small.", "Duas vezes. Hum. Isso não é pouca coisa.", "t_whatq"],
+  "t_small": ["t", "It was fine. Then I heard the word 'bug'. Let's skip the weather.", "Estava bom. Aí eu ouvi a palavra 'bug'. Vamos pular a parte do tempo.", "t_whatq"],
+  "t_whatq": ["t", "What exactly did you do in the app? Step by step.", "O que exatamente você fez no aplicativo? Passo a passo.", [
+   ["I ordered, tapped Pay, nothing happened, so I tapped it again.", "Fiz o pedido, toquei em Pay, nada aconteceu, então toquei de novo.", "t_clear", {"set": {"report": "clear"}}],
+   ["I don't really know. I was tapping things, and it broke.", "Não sei direito. Eu estava tocando nas coisas e quebrou.", "t_vague", {"set": {"report": "vague"}}],
+   ["Step by step? I took the stairs.", "Passo a passo? Eu vim pela escada.", null, "The stairs are not the problem. In the app. What did you tap, and when?", "A escada não é o problema. No aplicativo. Onde você tocou, e quando?"]
+  ]],
+  "t_clear": ["t", "Two taps, two payments. That's a clear report. I don't get many of those.", "Dois toques, dois pagamentos. Esse é um relato claro. Não recebo muitos assim.", "log_br"],
+  "t_vague": ["t", "'It broke' is not a bug report. Try again. One tap on Pay, or two?", "'Quebrou' não é relato de bug. Tenta de novo. Um toque em Pay, ou dois?", [
+   ["Two. The first tap did nothing, so I tapped again.", "Dois. O primeiro toque não fez nada, então toquei de novo.", "log_br"],
+   ["Sorry. Can I just show you on my phone?", "Desculpa. Posso só te mostrar no meu celular?", "t_show"],
+   ["Two taps. Hot and cold.", "Duas torneiras. Quente e fria.", null, "Not that kind of tap. On the screen. How many times did you tap Pay?", "Não esse tipo de tap. Na tela. Quantas vezes você tocou em Pay?"]
+  ]],
+  "t_show": ["t", "Better. Show, don't tell. Hmm. Yes. Now I see it.", "Melhor. Mostrar em vez de contar. Hum. Sim. Agora eu vi.", "log_br"],
+  "log_br": {"branch": [["order=coffee", "t_log_c"], [null, "t_log_t"]]},
+  "t_log_c": ["t", "Here it is in the log. Two flat whites, nine pounds. One customer. You're right.", "Está aqui no registro. Dois flat whites, nove libras. Um cliente só. Você tem razão.", "t_bad"],
+  "t_log_t": ["t", "Here it is in the log. Two teas, two cakes, fourteen pounds. One customer. You're right.", "Está aqui no registro. Dois chás, dois bolos, catorze libras. Um cliente só. Você tem razão.", "t_bad"],
+  "t_bad": ["t", "It's the payment code. When the network is slow, a second tap pays again. That's bad.", "É o código de pagamento. Quando a rede está lenta, um segundo toque paga de novo. Isso é ruim.", [
+   ["How long would it take to fix?", "Quanto tempo levaria pra consertar?", "t_long"],
+   ["Could it happen in front of the investors?", "Isso pode acontecer na frente dos investidores?", "t_inv"],
+   ["Is the fish very bad?", "O peixe está muito ruim?", null, "Fix. Not fish. I don't cook. Now, do you have a real question about the bug?", "Conserto. Não peixe. Eu não cozinho. Agora, você tem uma pergunta de verdade sobre o bug?"]
+  ]],
+  "t_long": ["t", "Properly? Two days. But Helen wants loyalty stamps by Friday, and that's two days as well.", "Direito? Dois dias. Mas a Helen quer os selos de fidelidade até sexta, e isso também leva dois dias.", "n3"],
+  "t_inv": ["t", "Investors tap everything twice. They're impatient. And a proper fix takes two days I don't have.", "Investidor toca duas vezes em tudo. É gente impaciente. E um conserto bem-feito leva dois dias que eu não tenho.", "n3"],
+  "n3": ["n", "A little bell rings. Everybody stands in a circle by the window. This is the daily stand-up.", "Um sininho toca. Todo mundo fica de pé, em roda, perto da janela. É a reunião diária, o stand-up.", "h1"],
+  "h1": ["h", "Stand-up! Quick as we can. New starter first. One sentence: how's day one going?", "Stand-up! O mais rápido possível. Quem chegou hoje começa. Uma frase: como está o primeiro dia?", [
+   ["Great, thanks. Although I've already broken the app.", "Ótimo, valeu. Embora eu já tenha quebrado o aplicativo.", "h_broke"],
+   ["Busy! I've learned everybody's name, and everybody's mug.", "Corrido! Já aprendi o nome de todo mundo, e a caneca de todo mundo.", "h_mugs"],
+   ["I can't stand up. I'm already standing.", "Não consigo levantar. Eu já estou de pé.", null, "Ha! Very good. Stay standing. Now, one sentence: how is your first day?", "Rá! Muito bem. Continue de pé. Agora, uma frase: como está o seu primeiro dia?"]
+  ]],
+  "h_broke": ["h", "Broken it? Already? Hmm. Tom, I assume that's your news.", "Quebrou? Já? Hum. Tom, imagino que essa seja a sua novidade.", "t2"],
+  "h_mugs": ["h", "Mugs before work. Dylan's been training you. Tom, what's your news?", "Canecas antes do trabalho. O Dylan anda te treinando. Tom, qual é a sua novidade?", "t2"],
+  "t2": ["t", "We found a bug. Double payments. I need two days to fix it. So, no loyalty stamps.", "Achamos um bug. Pagamento em dobro. Preciso de dois dias pra consertar. Então, nada de selos de fidelidade.", "h2"],
+  "h2": ["h", "No stamps? Tom, the stamps are our wow moment. Investors love a wow moment.", "Sem selos? Tom, os selos são o nosso momento uau. Investidor adora um momento uau.", "t3"],
+  "t3": ["t", "Investors also love not being charged twice.", "Investidor também adora não ser cobrado duas vezes.", "h3"],
+  "h3": ["h", "Hmm. Let's ask a fresh pair of eyes. You found it. What would you do?", "Hum. Vamos ouvir um olhar de fora. Foi você quem achou. O que você faria?", [
+   ["With respect, I'd fix the bug first. A broken payment is worse than a missing feature.", "Com todo o respeito, eu consertaria o bug primeiro. Pagamento quebrado é pior do que uma função faltando.", "h_tom", {"set": {"sided": "tom"}}],
+   ["I see both sides. Could we do a smaller version of each?", "Eu entendo os dois lados. Dá pra fazer uma versão menor de cada coisa?", "h_mid", {"set": {"sided": "middle"}}],
+   ["I'd keep the stamps. With luck, nobody taps twice.", "Eu manteria os selos. Com sorte, ninguém toca duas vezes.", "h_helen", {"set": {"sided": "helen"}}],
+   ["I'd collect the stamps. I have some from Brazil.", "Eu colecionaria os selos. Tenho alguns do Brasil.", null, "Not postage stamps! Loyalty stamps, in the app. So: bug or stamps? What comes first?", "Não é selo de carta! Selos de fidelidade, no aplicativo. Então: bug ou selos? O que vem primeiro?"]
+  ]],
+  "h_tom": ["h", "Blunt, but polite. Tom's almost smiling. I'll sleep on it.", "Sem rodeios, mas com educação. O Tom está quase sorrindo. Vou dormir pensando nisso.", "h4"],
+  "h_mid": ["h", "A bit of both. Tom's face says no. But I'll sleep on it.", "Um pouco de cada. A cara do Tom diz que não. Mas vou dormir pensando nisso.", "h4"],
+  "h_helen": ["h", "Thank you! Optimism, Tom. Look it up. Still, I'll sleep on it.", "Obrigada! Otimismo, Tom. Procura no dicionário. Mesmo assim, vou dormir pensando nisso.", "h4"],
+  "h4": ["h", "We decide on Wednesday. One more thing: I need someone to take notes at these meetings. Could you?", "A gente decide na quarta. Mais uma coisa: preciso de alguém pra fazer as anotações dessas reuniões. Você pode?", [
+   ["Sure. I'll send round a short summary afterwards.", "Claro. Depois eu mando um resumo curto pra todo mundo.", "h_notes", {"set": {"notes": "yes"}}],
+   ["Could I just listen this week? I'm still finding my feet.", "Posso só ouvir esta semana? Ainda estou me situando.", "h_nonotes", {"set": {"notes": "no"}}],
+   ["Sure, I love nuts.", "Claro, eu adoro castanhas.", null, "Nuts? No, notes! Writing things down. Will you take the notes for us?", "Castanhas? Não, anotações! Escrever as coisas. Você faz as anotações pra gente?"]
+  ]],
+  "h_notes": ["h", "Perfect. Keep them short. Nobody reads the long ones.", "Perfeito. Faça curtas. Ninguém lê as longas.", "d1"],
+  "h_nonotes": ["h", "Fair enough. An honest no beats a bad yes. Priya, notes are yours again.", "Justo. Um não sincero vale mais que um sim ruim. Priya, as anotações voltam pra você.", "d1"],
+  "d1": ["d", "I'm off to the airport. Edinburgh client, last flight home tonight. Friday drinks, though: you'll come along?", "Tô indo pro aeroporto. Cliente em Edimburgo, último voo de volta hoje à noite. Mas e o brinde de sexta: você vem, né?", [
+   ["Count me in. If we survive the demo.", "Pode contar comigo. Se a gente sobreviver à demonstração.", "d_in"],
+   ["Maybe just for one. Have a safe flight!", "Talvez só pra um drinque. Boa viagem!", "d_one"],
+   ["Yes, I've come a long way.", "Sim, eu vim de muito longe.", null, "You have! All the way from Brazil. But I mean Friday drinks. Are you coming?", "Veio mesmo! Lá do Brasil. Mas eu tô falando do brinde de sexta. Você vem?"]
+  ]],
+  "d_in": ["d", "That's the spirit! Right, my taxi's here. Nobody touch my deck while I'm gone!", "É assim que se fala! Bom, meu táxi chegou. Ninguém mexe na minha apresentação enquanto eu estiver fora!", "n4"],
+  "d_one": ["d", "Just one. That's how it always starts. Right, taxi's here. Nobody touch my deck!", "Só um. É sempre assim que começa. Bom, o táxi chegou. Ninguém mexe na minha apresentação!", "n4"],
+  "n4": ["n", "Six o'clock. The office empties. One desk lamp is still on. It's Priya's.", "Seis horas. O escritório esvazia. Uma luminária continua acesa. É a da Priya.", "p1"],
+  "p1": ["p", "Still here? Go home! First days are exhausting. I've only got the client update left to send.", "Ainda aqui? Vai pra casa! Primeiro dia é exaustivo. Só falta eu mandar a newsletter dos clientes.", [
+   ["Are you sure? I can stay and help.", "Tem certeza? Eu posso ficar e ajudar.", "help_br"],
+   ["Thanks, Priya. Don't stay too late, okay?", "Valeu, Priya. Não fica até muito tarde, tá?", "p_late"],
+   ["I can't go home. I live in a flat.", "Não posso ir pra casa. Eu moro num apartamento.", null, "Ha! Home, flat, same thing. Off you go! Unless you need something?", "Rá! Casa, apartamento, dá no mesmo. Pode ir! A não ser que você precise de alguma coisa?"]
+  ]],
+  "help_br": {"branch": [["offered_help=yes", "p_stay_y"], [null, "p_stay_n"]]},
+  "p_stay_y": ["p", "That's twice today you've offered. You're a gem. But go! Ten minutes and I'm done, I promise.", "É a segunda vez hoje que você se oferece. Você é um amor. Mas vai! Dez minutos e eu termino, prometo.", "n5"],
+  "p_stay_n": ["p", "No, no, go! It's one little email. Ten minutes and I'm done, I promise.", "Não, não, vai! É só um e-mailzinho. Dez minutos e eu termino, prometo.", "n5"],
+  "p_late": ["p", "Me? Never. Ten minutes and I'm out of here. I promise.", "Eu? Nunca. Dez minutos e eu saio daqui. Prometo.", "n5"],
+  "n5": ["n", "At the door, you look back. Three screens. Two cold cups of tea. One very tired person.", "Na porta, você olha para trás. Três telas. Duas xícaras de chá frio. Uma pessoa muito cansada.", "n_end"],
+  "n_end": ["n", "You don't know it yet. But tonight, at that desk, something is going to go wrong.", "Você ainda não sabe. Mas hoje à noite, naquela mesa, alguma coisa vai dar errado.", null]
+ }
+}

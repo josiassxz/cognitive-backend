@@ -1,0 +1,97 @@
+{
+ "slug": "s05-06-computer-twelve", "episode": 6, "title": "Computer Twelve", "level": "B1",
+ "place": "library", "placeLabel": "Biblioteca Aldrich", "time": "Semana 10 · Ter 22h", "ambience": "office",
+ "description": "Reunião de emergência: sem Miles, sem slides. Monte o plano B e deixe um recado.",
+ "intro": "Domingo, o notebook do Miles morreu ao vivo na rádio. Desde então, ele não responde a ninguém. A apresentação é na sexta, e o grupo marcou uma reunião de emergência na biblioteca.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "f": ["Ms. Finch", "Bibliotecária", "af_nicole", "right"],
+  "p": ["Priya", "Colega de grupo, a organizada", "af_sarah", "left"],
+  "g": ["Gus", "Colega de grupo, o piadista", "am_puck", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Tuesday night. The library is silent, except for somebody eating chips very slowly.", "Terça à noite. A biblioteca está em silêncio, fora alguém comendo salgadinho bem devagar.", "n2"],
+  "n2": ["n", "At the front desk, a librarian looks at you over her glasses. She only speaks in whispers.", "No balcão, uma bibliotecária te olha por cima dos óculos. Ela só fala sussurrando.", "f1"],
+  "f1": ["f", "Good evening. Student ID, please. And voices down. This is a library.", "Boa noite. Carteirinha, por favor. E voz baixa. Isto é uma biblioteca.", "f_br"],
+  "f_br": {"branch": [["id_photo=smile", "f_smile"], ["id_photo=serious", "f_serious"], [null, "f_blink"]]},
+  "f_smile": ["f", "A smiling ID. How refreshing.", "Uma carteirinha sorridente. Que alívio.", "f2"],
+  "f_serious": ["f", "Hm. In this photo, you look like you have an overdue book.", "Hum. Nesta foto, você tem cara de quem está com livro atrasado.", "f2"],
+  "f_blink": ["f", "Your eyes are closed in this photo. Just so you know: no sleeping in here.", "Seus olhos estão fechados nesta foto. Só avisando: aqui não pode dormir.", "f2"],
+  "f2": ["f", "Now. How can I help you?", "Bem. Em que posso ajudar?", [
+   ["I'm here for a study room. Group four, under Priya.", "Vim pra uma sala de estudo. Grupo quatro, no nome da Priya.", "f_room"],
+   ["I'm looking for a friend. Tall, quiet, gray hoodie. Miles Park.", "Estou procurando um amigo. Alto, quieto, moletom cinza. Miles Park.", "f_miles"],
+   ["I'd like to borrow a whisper, please.", "Queria pegar um sussurro emprestado, por favor.", null, "Whispers are free. Now, what do you actually need? A book? A room? A person?", "Sussurro é de graça. Agora, do que você precisa de verdade? Um livro? Uma sala? Uma pessoa?"]
+  ]],
+  "f_room": ["f", "Room three, second floor. Your friends are already there. One of them is not whispering.", "Sala três, segundo andar. Seus amigos já estão lá. Um deles não está sussurrando.", "n3"],
+  "f_miles": ["f", "I don't discuss students. But a gray hoodie has been at computer twelve every night until midnight.", "Eu não comento sobre estudantes. Mas um moletom cinza fica no computador doze toda noite, até meia-noite.", "f_miles2", {"clue": "library_nights"}],
+  "f_miles2": ["f", "Since Sunday. Building slides, one by one. He asked for a loaner laptop. We have none left.", "Desde domingo. Montando slides, um por um. Pediu um notebook emprestado. Não sobrou nenhum.", "n3"],
+  "n3": ["n", "Study room three, upstairs. Priya is walking in circles. Gus is building a tower of markers.", "Sala de estudo três, no andar de cima. A Priya anda em círculos. O Gus monta uma torre de canetas.", "g0_br"],
+  "g0_br": {"branch": [["dead_air=lesson", "g0_lesson"], ["dead_air=sang", "g0_sang"], [null, "g0_wx"]]},
+  "g0_lesson": ["g", "Hey, radio star! I heard the show. I can say three words in Portuguese now.", "E aí, estrela do rádio! Ouvi o programa. Já sei falar três palavras em português.", "chip_br"],
+  "g0_sang": ["g", "Hey, radio star! I recorded you singing. It's my ringtone now.", "E aí, estrela do rádio! Gravei você cantando. Agora é o toque do meu celular.", "chip_br"],
+  "g0_wx": ["g", "Hey, radio star! 'It's cold. Tomorrow: also cold.' That was poetry.", "E aí, estrela do rádio! 'Está frio. Amanhã: frio também.' Aquilo foi poesia.", "chip_br"],
+  "chip_br": {"branch": [["fries=yes", "g_chip_y"], [null, "g_chip_n"]]},
+  "g_chip_y": ["g", "Chips? You shared your fries, so half of this bag is yours. That's the law.", "Salgadinho? Você dividiu suas fritas, então metade deste saco é sua. É a lei.", "p1"],
+  "g_chip_n": ["g", "I'd offer you chips. But I remember the fries. Okay, fine. One chip.", "Eu até te ofereceria salgadinho. Mas eu lembro das fritas. Tá bom, vai. Um só.", "p1"],
+  "p1": ["p", "Can we focus? Three days. No slides, no messages, nothing. He isn't even reading the group chat.", "Dá pra focar? Três dias. Sem slides, sem mensagem, sem nada. Ele nem lê mais o grupo.", "p2"],
+  "p2": ["p", "You live across the hall from him. Have you seen him at all?", "Você mora na frente dele. Você viu o Miles alguma vez?", [
+   ["No. I knock every night. Nobody answers.", "Não. Eu bato toda noite. Ninguém atende.", "p_knock"],
+   ["Not since Sunday. His laptop died at the radio station.", "Desde domingo, não. O notebook dele morreu lá na rádio.", "p_laptop"],
+   ["Yes, I've seen the hall. It's very long.", "Sim, eu vi o corredor. É bem comprido.", null, "Not the hall! Miles! Have you seen Miles since Sunday?", "O corredor, não! O Miles! Você viu o Miles depois de domingo?"]
+  ]],
+  "p_knock": ["p", "So he's hiding. Or he's gone. Either way, we're in trouble.", "Então ele está se escondendo. Ou foi embora. De um jeito ou de outro, a gente está em apuros.", "g1"],
+  "p_laptop": ["p", "It what? The laptop with our slides? Okay. That's not lazy. That's a disaster.", "Morreu? O notebook com os nossos slides? Tá. Isso não é preguiça. Isso é um desastre.", "g1"],
+  "g1": ["g", "I have a theory. His cousin's band is in New York this week. Want to see the photo?", "Eu tenho uma teoria. A banda do primo dele está em Nova York esta semana. Quer ver a foto?", [
+   ["Show me.", "Mostra.", "g_photo"],
+   ["Gus, he never even buys coffee. He can't afford New York.", "Gus, ele não compra nem café. Não tem dinheiro pra Nova York.", "g_money"],
+   ["A new yolk? Like in an egg?", "Uma gema nova? Tipo de ovo?", null, "York! The city! Big buildings, yellow taxis! Do you want to see the photo or not?", "York! A cidade! Prédio alto, táxi amarelo! Quer ver a foto ou não?"]
+  ]],
+  "g_photo": ["g", "See? Back row. That's him. Oh. No. That's a speaker. A very tall speaker.", "Tá vendo? Lá no fundo. É ele. Ah. Não. É uma caixa de som. Uma caixa de som bem alta.", "p3"],
+  "g_money": ["g", "True. He drinks hot water with lemon. He says he likes it. Nobody likes it.", "Verdade. Ele toma água quente com limão. Diz que gosta. Ninguém gosta.", "p3"],
+  "p3": ["p", "Fine, not New York. But he's gone, with our slides. I knew it. He's flaky.", "Tá, Nova York não. Mas ele sumiu, com os nossos slides. Eu sabia. Ele é furão.", [
+   ["I don't think so. Miles isn't like that. Something is wrong.", "Acho que não. O Miles não é assim. Tem alguma coisa errada.", "p_def"],
+   ["Maybe. But getting angry won't bring the slides back.", "Pode ser. Mas ficar com raiva não traz os slides de volta.", "p_calm"],
+   ["Honestly? Yes. He let us down.", "Sinceramente? É. Ele deixou a gente na mão.", "p_agree"],
+   ["Flaky? Like a croissant?", "Flaky? Tipo um croissant?", null, "Not like a croissant! Flaky means you can't count on him. Do you think he ran away?", "Não tipo croissant! Flaky é quem fura com os outros. Você acha que ele fugiu?"]
+  ]],
+  "p_def": ["p", "Then why doesn't he answer? If something's wrong, you say so. That's what people do.", "Então por que ele não responde? Se tem algo errado, a pessoa fala. É o que todo mundo faz.", "p4"],
+  "p_calm": ["p", "You're right. I'm panicking. I panic in lists. I've already made three.", "Você tem razão. Eu estou em pânico. Meu pânico vem em forma de lista. Já fiz três.", "p4"],
+  "p_agree": ["p", "Thank you. Finally, someone said it. Gus, stop looking at me like that.", "Valeu. Até que enfim alguém falou. Gus, para de me olhar assim.", "p4"],
+  "p4": ["p", "Plan B. We rebuild the slides ourselves. Twenty slides in three days. How do we split it?", "Plano B. A gente refaz os slides. Vinte slides em três dias. Como a gente divide?", [
+   ["I'll take the first ten. Gus does photos, you do charts.", "Eu pego os dez primeiros. O Gus faz as fotos, você faz os gráficos.", "p_split"],
+   ["Wait. Before we redo everything, let's try to reach Miles once more.", "Espera. Antes de refazer tudo, vamos tentar falar com o Miles mais uma vez.", "p_wait"],
+   ["Plan bee? I'm afraid of bees.", "Plano abelha? Eu tenho medo de abelha.", null, "B! The letter! Our second plan! How do we divide the work?", "B! A letra! Nosso segundo plano! Como a gente divide o trabalho?"]
+  ]],
+  "p_split": ["p", "Good. We meet here every night until Friday. Bring coffee. Lots of coffee.", "Ótimo. A gente se encontra aqui toda noite até sexta. Traz café. Muito café.", "p5"],
+  "p_wait": ["p", "One more try. Then plan B. I'm not failing because of a ghost.", "Mais uma tentativa. Depois, plano B. Eu não vou reprovar por causa de um fantasma.", "p5"],
+  "p5": ["p", "Call him. Leave a voice message. You're the only one he might listen to. What will you say?", "Liga pra ele. Deixa uma mensagem de voz. Só você ele talvez escute. O que você vai dizer?", [
+   ["Miles, it's me. No pressure. We just want to know you're okay.", "Miles, sou eu. Sem pressão. A gente só quer saber se você está bem.", "p_kind", {"set": {"message": "kind"}}],
+   ["Miles, we need the slides by Thursday, or we start without you.", "Miles, a gente precisa dos slides até quinta, senão começa sem você.", "p_firm", {"set": {"message": "firm"}}],
+   ["Miles, I know about the laptop. Let us help. Four people are faster than one.", "Miles, eu sei do notebook. Deixa a gente ajudar. Quatro pessoas são mais rápidas que uma.", "p_help", {"set": {"message": "help"}}],
+   ["Miles, this is a voice massage.", "Miles, isto é uma massagem de voz.", null, "Message! Not massage! Hang up and try again. What do you want to tell him?", "Mensagem! Não massagem! Desliga e tenta de novo. O que você quer dizer pra ele?"]
+  ]],
+  "p_kind": ["p", "That was nice. Too nice. But nice.", "Ficou gentil. Gentil demais. Mas gentil.", "p6"],
+  "p_firm": ["p", "Clear and direct. I couldn't have said it better. Maybe a little louder.", "Claro e direto. Eu não diria melhor. Talvez um pouco mais alto.", "p6"],
+  "p_help": ["p", "Okay. That was good. Gus, are you crying?", "Tá. Essa foi boa. Gus, você está chorando?", "p6"],
+  "p6": ["p", "One more thing. Should we email Professor Okafor and warn her?", "Mais uma coisa. A gente manda um e-mail pra professora Okafor avisando?", [
+   ["Yes. It's better if she hears it from us first.", "Sim. É melhor ela saber primeiro pela gente.", "p_email_yes"],
+   ["Not yet. Let's give Miles until Thursday.", "Ainda não. Vamos dar até quinta pro Miles.", "p_email_no"],
+   ["Yes, let's warm her. It's cold outside.", "Sim, vamos aquecer a professora. Tá frio lá fora.", null, "Warn, not warm! Tell her about the problem! Do we email her or not?", "Warn é avisar, não aquecer! Contar do problema! A gente manda o e-mail ou não?"]
+  ]],
+  "p_email_yes": ["p", "Typing. 'Dear Professor Okafor, one of our members is missing, and so are our slides.' Sent.", "Digitando. 'Prezada professora Okafor, um integrante do grupo sumiu, e os nossos slides também.' Enviado.", "n4"],
+  "p_email_no": ["p", "Fine. Thursday. Not one minute later. I'm saving the email as a draft.", "Tá. Quinta. Nem um minuto depois. Vou deixar o e-mail salvo no rascunho.", "n4"],
+  "n4": ["n", "It's almost midnight. The library is closing. On your way out, you pass the front desk again.", "É quase meia-noite. A biblioteca está fechando. Na saída, você passa de novo pelo balcão.", "f_out_br"],
+  "f_out_br": {"branch": [["clue_library_nights", "f_known"], [null, "f_last"]]},
+  "f_known": ["f", "Good night. Computer twelve is empty tonight. First time since Sunday. I hope he's asleep.", "Boa noite. O computador doze está vazio hoje. Primeira vez desde domingo. Tomara que ele esteja dormindo.", "n_end"],
+  "f_last": ["f", "We close in ten minutes. You look worried. Did you lose something?", "Fechamos em dez minutos. Você está com cara de preocupação. Perdeu alguma coisa?", [
+   ["Someone, actually. Miles Park. Tall, quiet, gray hoodie.", "Alguém, na verdade. Miles Park. Alto, quieto, moletom cinza.", "f_late"],
+   ["No, I'm just tired. Good night.", "Não, é só cansaço. Boa noite.", "f_gn"],
+   ["Yes. I lost ten minutes.", "Sim. Perdi dez minutos.", null, "Then you have none left. I mean: are you looking for something? Or someone?", "Então não sobrou nenhum. Quero dizer: você está procurando alguma coisa? Ou alguém?"]
+  ]],
+  "f_late": ["f", "Ah. Computer twelve. Every night until midnight since Sunday, rebuilding slides one by one.", "Ah. Computador doze. Toda noite até meia-noite, desde domingo, refazendo slides um por um.", "f_late2", {"clue": "library_nights"}],
+  "f_late2": ["f", "Not tonight, though. It's the first night he's missed. I hope he's finally asleep.", "Hoje, não. É a primeira noite que ele falta. Tomara que finalmente esteja dormindo.", "n_end"],
+  "f_gn": ["f", "Good night. Get some sleep. Books are patient. People are not.", "Boa noite. Vá dormir. Os livros têm paciência. As pessoas, não.", "n_end"],
+  "n_end": ["n", "Outside, it's starting to snow. Your phone buzzes. A message from Miles. Two words: I'm sorry.", "Lá fora, começa a nevar. Seu celular vibra. Mensagem do Miles. Duas palavras: I'm sorry.", null]
+ }
+}

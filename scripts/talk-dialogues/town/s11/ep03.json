@@ -1,0 +1,89 @@
+{
+ "slug": "s11-03-the-harbour", "episode": 3, "title": "The Harbour", "level": "B2",
+ "place": "beach", "placeLabel": "Porto de Skerra", "time": "Terça · 6h", "ambience": "beach",
+ "description": "Seis da manhã no porto. O pescador diz que a ilha não precisa da balsa. As caixas dele dizem outra coisa.",
+ "intro": "A Morag garantiu que, sem a balsa, a pousada fecha e a ilha vai junto. Quem mais discorda dela é o Duncan MacRae, pescador. Ele descarrega a pesca às seis.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "d": ["Duncan", "Pescador", "bm_daniel", "left"],
+  "i": ["Isla", "Filha do Duncan, tripulante da balsa", "bf_alice", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Six o'clock. The harbour is all gulls and ropes, and the smell of salt and diesel.", "Seis horas. O porto é só gaivota e corda, e cheiro de sal e diesel.", "n2"],
+  "n2": ["n", "A small blue boat bumps against the pier. A broad man in yellow oilskins is stacking boxes.", "Um barquinho azul bate de leve no cais. Um homem largo, de capa amarela, empilha caixas.", "d1"],
+  "d1": ["d", "You're late. I've been up since three. You'll be the one with the camera, then.", "Você se atrasou. Eu estou de pé desde as três. Então é você a pessoa da câmera.", [
+   ["Good morning. Duncan MacRae? I was hoping for an interview.", "Bom dia. Duncan MacRae? Eu queria uma entrevista.", "d_interview"],
+   ["Sorry about that. Can I give you a hand with those boxes?", "Foi mal. Posso te dar uma mão com essas caixas?", "d_hand", {"set": {"helped_duncan": "yes"}}],
+   ["Up a tree? What were you doing in a tree?", "Em cima de uma árvore? O que você fazia numa árvore?", null, "Three! Three o'clock, not a tree. There's hardly a tree on Skerra. So, you're the camera person?", "Três! Três horas, não árvore. Skerra quase nem tem árvore. Então, você é a pessoa da câmera?"]
+  ]],
+  "d_interview": ["d", "An interview. At six, with forty boxes to shift. Grab that end, and then we'll talk.", "Entrevista. Às seis, com quarenta caixas pra carregar. Pega daquele lado, e depois a gente conversa.", [
+   ["Fine. Where do you want them?", "Tá bom. Onde você quer que eu ponha?", "d_help", {"set": {"helped_duncan": "yes"}}],
+   ["I'd better not. I need my hands for the camera.", "Melhor não. Preciso das mãos pra câmera.", "d_nohelp", {"set": {"helped_duncan": "no"}}],
+   ["A shift? No, thanks. I already have a job.", "Um turno? Não, valeu. Eu já tenho emprego.", null, "Not a work shift. Shift the boxes. Move them. Are you helping or watching?", "Não é turno de trabalho. É mexer as caixas. Tirar do lugar. Você vai ajudar ou assistir?"]
+  ]],
+  "d_hand": ["d", "Well now. A film person who lifts. Mind your back. They're heavier than they look.", "Ora, ora. Gente de cinema que pega no pesado. Cuidado com as costas. Pesam mais do que parece.", "n_boxes"],
+  "d_help": ["d", "Up on the pier, by the ferry ramp. Mind your fingers. Lobsters hold a grudge.", "Lá em cima no cais, do lado da rampa da balsa. Cuidado com os dedos. Lagosta guarda rancor.", "n_boxes"],
+  "d_nohelp": ["d", "Aye. Precious hands. Film away, then. I'll talk while I work.", "Sei. Mãos delicadas. Filma aí, então. Eu falo enquanto trabalho.", "d_cam"],
+  "n_boxes": ["n", "You carry box after box. Your arms burn. Inside, dark blue lobsters click their claws at you.", "Você carrega caixa atrás de caixa. Os braços ardem. Lá dentro, lagostas azul-escuras estalam as pinças para você.", "d_thanks"],
+  "d_thanks": ["d", "Not bad. I've had worse crew. Right. Point that thing at me before I change my mind.", "Nada mau. Já tive tripulação pior. Bom. Aponta esse troço pra mim antes que eu mude de ideia.", "d_cam"],
+  "d_cam": ["d", "So. Morag's told you the island dies without the ferry. Am I right?", "Então. A Morag te disse que a ilha morre sem a balsa. Estou certo?", [
+   ["More or less. I gather you don't agree.", "Mais ou menos. Pelo que entendi, você não concorda.", "d_disagree"],
+   ["I'd rather hear your view than repeat hers.", "Prefiro ouvir a sua opinião a repetir a dela.", "d_view"],
+   ["No, you're on the left, actually.", "Não, na verdade você está à esquerda.", null, "Ha! Smart mouth. I mean about Morag. Did she say the island's finished without the boat?", "Rá! Que língua afiada. Eu falo da Morag. Ela disse que a ilha acaba sem o barco?"]
+  ]],
+  "d_disagree": ["d", "My grandfather fished here before there was any ferry. We managed then. We'd manage again.", "Meu avô pescava aqui antes de existir balsa. A gente se virava. E se viraria de novo.", "d_proud"],
+  "d_view": ["d", "Diplomatic. Fine. My grandfather fished here before any ferry. We managed. We'd manage again.", "Diplomacia. Tá bom. Meu avô pescava aqui antes de qualquer balsa. A gente se virava. E se viraria de novo.", "d_proud"],
+  "d_proud": ["d", "Folk talk as if that boat from the mainland were our mother. It's a boat. Well?", "O povo fala como se um barco do continente fosse a nossa mãe. É um barco. E aí?", [
+   ["It's a strong view. Does anyone here share it?", "É uma opinião forte. Alguém aqui pensa igual?", "d_agree"],
+   ["Granted, the island managed before. But wasn't life far harder then?", "Tudo bem, a ilha se virava antes. Mas a vida não era bem mais dura?", "d_harder"],
+   ["A goat from the mainland? I haven't seen any goats.", "Uma cabra do continente? Não vi cabra nenhuma.", null, "Boat! Not goat. The ferry. I'm saying we don't need it like a mother. What do you make of that?", "Barco! Não cabra. A balsa. Estou dizendo que ela não é nossa mãe. O que você acha disso?"]
+  ]],
+  "d_agree": ["d", "Out loud? No. In the pub, after two pints? A few. Folk are tired of begging.", "Em voz alta? Não. No pub, depois de duas cervejas? Alguns. O povo cansou de implorar.", "help_br"],
+  "d_harder": ["d", "Harder, aye. I'll give you that. But nobody sat waiting for an office to save them.", "Mais dura, sim. Isso eu admito. Mas ninguém ficava sentado esperando uma repartição salvar.", "help_br"],
+  "help_br": {"branch": [["helped_duncan=yes", "d_ask_h"], [null, "d_ask_n"]]},
+  "d_ask_h": ["d", "What? You've got that look on your face. Go on, ask it.", "Que foi? Você está com aquela cara. Vai, pergunta.", [
+   ["Those boxes we stacked by the ferry ramp. Where are they going?", "Aquelas caixas que a gente empilhou na rampa da balsa. Pra onde elas vão?", "d_freight1"],
+   ["What would you do, the day after the last ferry?", "O que você faria no dia seguinte à última balsa?", "d_dayafter"],
+   ["What book? I haven't got a book.", "Que livro? Eu não tenho livro nenhum.", null, "Look, not book. Your face. You want to ask me something. What is it?", "Cara, não livro. A sua cara. Você quer me perguntar alguma coisa. O que é?"]
+  ]],
+  "d_ask_n": ["d", "What? You've stopped filming my good side. Ask your next question.", "Que foi? Você parou de filmar o meu lado bom. Faz a próxima pergunta.", [
+   ["Where does your catch go, once it's landed?", "Pra onde vai a sua pesca, depois de descarregada?", "d_dodge"],
+   ["What would you do, the day after the last ferry?", "O que você faria no dia seguinte à última balsa?", "d_dayafter"],
+   ["Good cider? Yes, please. Just a small glass.", "Sidra boa? Aceito, sim. Só um copinho.", null, "Side, not cider. It's six in the morning. Ask me your next question.", "Lado, não sidra. São seis da manhã. Faz a próxima pergunta."]
+  ]],
+  "d_dodge": ["d", "To market. Where else? Fish don't sell themselves. Anything more?", "Pro mercado. Pra onde mais? Peixe não se vende sozinho. Mais alguma coisa?", [
+   ["And how does it get to market? On your own boat?", "E como ela chega ao mercado? No seu próprio barco?", "d_freight1"],
+   ["Fair enough. Tell me about the future of this boat instead.", "Justo. Então me fala do futuro deste barco.", "d_isla"],
+   ["To Mark? Who's Mark?", "Pro Marco? Quem é Marco?", null, "Market! Not Mark. The fish market, on the mainland. Have you anything else to ask?", "Mercado! Não Marco. O mercado de peixe, no continente. Tem mais alguma pergunta?"]
+  ]],
+  "d_freight1": ["d", "Hm. You noticed. Aye. They go on the Kittiwake. Every box, twice a week.", "Hum. Você reparou. Pois é. Vão na Kittiwake. Todas as caixas, duas vezes por semana.", "d_freight2"],
+  "d_freight2": ["d", "So does the post, the medicine and half the shop. Nobody counts cargo. Only tickets.", "E o correio, os remédios e metade da mercearia também. Carga ninguém conta. Só bilhete.", "d_freight3", {"clue": "freight"}],
+  "d_freight3": ["d", "Don't look so pleased. I said we'd manage. I never said it would be cheap.", "Não faz essa cara de vitória. Eu disse que a gente se virava. Nunca disse que saía barato.", "d_isla"],
+  "d_dayafter": ["d", "Fish. Same as the day before. The sea doesn't read letters from the office.", "Pescar. Igual ao dia anterior. O mar não lê carta de repartição.", "d_isla"],
+  "d_isla": ["d", "Anyway. My girl Isla takes over this boat when I'm done. That's the future sorted.", "Enfim. Minha filha Isla assume este barco quando eu parar. O futuro está resolvido.", [
+   ["Has she told you that's what she wants?", "Ela te disse que é isso que ela quer?", "d_isla_ask"],
+   ["That's a lot to put on one person's shoulders.", "É muito peso pra pôr nos ombros de uma pessoa só.", "d_isla_lot"],
+   ["The future salted? Like the fish?", "O futuro salgado? Igual ao peixe?", null, "Sorted! Not salted. Settled. Isla gets the boat. What's wrong with that?", "Resolvido! Não salgado. Decidido. A Isla fica com o barco. Qual é o problema?"]
+  ]],
+  "d_isla_ask": ["d", "Told me? She's a MacRae. She doesn't need to tell me.", "Me dizer? Ela é uma MacRae. Não precisa me dizer nada.", "n_isla"],
+  "d_isla_lot": ["d", "She's got good shoulders. She gets them from me.", "Ela tem ombro forte. Puxou a mim.", "n_isla"],
+  "n_isla": ["n", "On the pier above you, a young woman in a ferry jacket has been listening. She doesn't look convinced.", "No cais, acima de vocês, uma jovem com a jaqueta da balsa estava escutando. Não parece nada convencida.", "i1"],
+  "i1": ["i", "Morning, Dad. Is he telling you I'm taking over the boat? He tells everyone.", "Bom dia, pai. Ele está te dizendo que eu vou assumir o barco? Ele diz isso pra todo mundo.", [
+   ["He did mention it. Is it true?", "Ele comentou, sim. É verdade?", "i_true"],
+   ["I'd rather hear your plans from you.", "Prefiro ouvir os seus planos de você.", "i_you"],
+   ["No, he's taking over the lobsters.", "Não, ele está assumindo as lagostas.", null, "Ha! The lobsters took over years ago. I mean me and the boat. Did he say it's mine?", "Rá! As lagostas assumiram faz anos. Eu falo de mim e do barco. Ele disse que vai ser meu?"]
+  ]],
+  "i_true": ["i", "It's true that he says it. That's as far as I'll go down here.", "É verdade que ele diz. Daqui de baixo, eu só vou até aí.", "d_last"],
+  "i_you": ["i", "Then you'll have to ask me somewhere with fewer ears. And fewer lobsters.", "Então vai ter que me perguntar num lugar com menos ouvidos. E menos lagostas.", "d_last"],
+  "d_last": ["d", "Off to your ferry, you. And you, film-maker. Same time tomorrow?", "Vai pra sua balsa, você. E você, cineasta. Amanhã, mesmo horário?", [
+   ["I'll pass. But thanks for being straight with me.", "Vou passar. Mas valeu pela franqueza.", "d_bye1"],
+   ["Only if the lobsters promise to behave.", "Só se as lagostas prometerem se comportar.", "d_bye2"],
+   ["Yes, the same thyme. With a little rosemary.", "Sim, o mesmo tomilho. Com um pouquinho de alecrim.", null, "Thyme? I'm a fisherman, not a cook. Are you coming back tomorrow or not?", "Tomilho? Eu sou pescador, não cozinheiro. Você volta amanhã ou não?"]
+  ]],
+  "d_bye1": ["d", "Straight's the only way I know. Mind how you go.", "Franqueza é o único jeito que eu conheço. Vai com cuidado.", "i_hook"],
+  "d_bye2": ["d", "Ha! No promises. They've got your scent now.", "Rá! Não prometo nada. Agora elas conhecem o seu cheiro.", "i_hook"],
+  "i_hook": ["i", "Hey. Lighthouse path, four o'clock. I've got things to say, and not in front of him.", "Ei. Trilha do farol, quatro horas. Eu tenho coisas pra dizer, e não na frente dele.", "n_end"],
+  "n_end": ["n", "She walks off towards the ferry. Duncan pretends not to watch her go.", "Ela sai andando em direção à balsa. O Duncan finge que não fica olhando.", null]
+ }
+}

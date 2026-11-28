@@ -1,0 +1,99 @@
+{
+ "slug": "s04-01-the-glove-box", "episode": 1, "title": "The Glove Box", "level": "A2",
+ "place": "car", "placeLabel": "Chicago · garagem do vovô", "time": "Segunda · 7h", "ambience": "car",
+ "description": "Uma van velha, um primo falante e um maço de cartões-postais no porta-luvas.",
+ "intro": "Você chegou do Brasil ontem. Seu avô deixou a van velha dele para você e para o seu primo Rafa, que cresceu em Chicago, com um bilhete: levem a van até o fim da estrada.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "r": ["Rafa", "Seu primo de Chicago", "am_puck", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "It's early morning in Chicago. The street is quiet and the air is cool.", "É de manhã cedinho em Chicago. A rua está quieta e o ar, fresco.", "n2"],
+  "n2": ["n", "Your cousin Rafa opens an old garage door. Inside, there is a yellow van.", "Seu primo Rafa abre a porta de uma garagem velha. Lá dentro, tem uma van amarela.", "r1"],
+  "r1": ["r", "There she is! Grandpa's van. Fifty years old and still ugly. What do you think?", "Olha ela aí! A van do vovô. Cinquenta anos e continua feia. O que você acha?", [
+   ["I love it! It looks like something from a movie.", "Adorei! Parece coisa de filme.", "r_love"],
+   ["Is it safe? It looks really old.", "É segura? Parece bem velha.", "r_safe"],
+   ["I think it's Tuesday.", "Acho que é terça-feira.", null, "It's Monday, actually. But the van! What do you think of the van?", "Na verdade é segunda. Mas e a van? O que você acha da van?"]
+  ]],
+  "r_love": ["r", "Ha! Wait until you smell it. I call it the Toaster. It gets really hot inside.", "Rá! Espera até sentir o cheiro. Eu chamo de Torradeira. Fica um forno lá dentro.", "r_port"],
+  "r_safe": ["r", "Safe? Sure. Probably. I call it the Toaster, because it gets really hot inside.", "Segura? Claro. Provavelmente. Eu chamo de Torradeira, porque fica um forno lá dentro.", "r_port"],
+  "r_port": ["r", "Hey, one thing. My Portuguese is terrible. Can we speak English on this trip?", "Ó, uma coisa. Meu português é péssimo. A gente pode falar inglês nessa viagem?", [
+   ["Sure. I need the practice.", "Claro. Eu preciso praticar.", "r_eng"],
+   ["Okay, but you have to teach me some slang.", "Tá, mas você tem que me ensinar umas gírias.", "r_slang"],
+   ["A ship? I thought we were going by van.", "Um navio? Achei que a gente ia de van.", null, "Not a ship. A trip! A road trip, in the van. So, English, okay?", "Navio, não. Viagem! Uma viagem de estrada, na van. Então, inglês, pode ser?"]
+  ]],
+  "r_eng": ["r", "Great. Two thousand miles of practice. By California, you'll talk just like me. Sorry about that.", "Ótimo. Mais de três mil quilômetros de prática. Na Califórnia você já vai falar igual a mim. Foi mal por isso.", "n_in"],
+  "r_slang": ["r", "Deal. First word: shotgun. It means the seat next to the driver. The best seat.", "Fechado. Primeira palavra: shotgun. É o banco ao lado de quem dirige. O melhor lugar.", "n_in"],
+  "n_in": ["n", "You put your bags in the back. The van smells of old coffee and dust.", "Você põe as malas atrás. A van tem cheiro de café velho e poeira.", "r_drive"],
+  "r_drive": ["r", "Okay. Chicago to Los Angeles. Who drives first, you or me?", "Bom. De Chicago a Los Angeles. Quem dirige primeiro, você ou eu?", [
+   ["You drive. I'll read the map.", "Você dirige. Eu leio o mapa.", "r_map", {"set": {"driver": "rafa"}}],
+   ["Me! I want to drive.", "Eu! Quero dirigir.", "r_youdrive", {"set": {"driver": "you"}}],
+   ["No drinks for me, thanks. It's too early.", "Bebida pra mim, não, valeu. Tá muito cedo.", null, "Not drinks. Drives! Who drives the van first, you or me?", "Beber, não. Dirigir! Quem dirige a van primeiro, você ou eu?"]
+  ]],
+  "r_map": ["r", "Perfect. I drive, you read. Here's the key. Please start. Please, please start.", "Perfeito. Eu dirijo, você lê. Aqui está a chave. Pega, por favor. Por favor, por favor, pega.", "n_start"],
+  "r_youdrive": ["r", "Brave! Okay, be nice to her. Here's the key. Turn it slowly.", "Que coragem! Tá, trata ela com carinho. Aqui está a chave. Gira devagar.", "n_start"],
+  "n_start": ["n", "The engine coughs twice. Then it starts, and the whole van shakes.", "O motor tosse duas vezes. Aí ele pega, e a van inteira treme.", "r_grandpa"],
+  "r_grandpa": ["r", "Yes! You know, Grandpa drove this road in nineteen seventy-four. All the way to California.", "Isso! Sabe, o vovô fez essa estrada em mil novecentos e setenta e quatro. Até a Califórnia.", "r_why"],
+  "r_why": ["r", "He went there to find a job. Three weeks later, he was back. He never told us why.", "Ele foi pra lá atrás de emprego. Três semanas depois, estava de volta. Nunca contou o motivo.", [
+   ["Did you ask Grandma Rosa?", "Você perguntou pra vó Rosa?", "r_grandma"],
+   ["Maybe he didn't like California.", "Vai ver ele não gostou da Califórnia.", "r_maybe"],
+   ["No, I didn't find a job there either.", "Não, eu também não achei emprego lá.", null, "Not you! Grandpa. He came back and never said why. Strange, right?", "Você, não! O vovô. Ele voltou e nunca disse por quê. Estranho, né?"]
+  ]],
+  "r_grandma": ["r", "A hundred times. She just smiles and says: drive the road, then you'll know.", "Umas cem vezes. Ela só sorri e diz: façam a estrada, aí vocês vão saber.", "r_note"],
+  "r_maybe": ["r", "Maybe. But he kept this van for fifty years. You don't keep a van you hate.", "Pode ser. Mas ele guardou essa van por cinquenta anos. Ninguém guarda uma van que odeia.", "r_note"],
+  "r_note": ["r", "And his note said: the van is for my two grandkids, together. And check the glove box.", "E o bilhete dele dizia: a van é dos meus dois netos, juntos. E olhem o porta-luvas.", [
+   ["The glove box? Let me open it.", "O porta-luvas? Deixa eu abrir.", "n_glove"],
+   ["What's a glove box?", "O que é glove box?", "r_whatglove"],
+   ["But I didn't bring any gloves.", "Mas eu não trouxe luva nenhuma.", null, "Ha! You don't need gloves. It's that little door in front of you. Can you open it?", "Rá! Não precisa de luva. É essa portinha na sua frente. Consegue abrir?"]
+  ]],
+  "r_whatglove": ["r", "That little door in front of your knees. People keep maps in it. Nobody keeps gloves.", "Essa portinha na frente dos seus joelhos. O povo guarda mapa ali. Luva, ninguém guarda.", "n_glove"],
+  "n_glove": ["n", "You open the glove box. Inside, there is a pile of old postcards, held by a rubber band.", "Você abre o porta-luvas. Dentro, tem uma pilha de cartões-postais antigos, presos com um elástico.", "r_cards"],
+  "r_cards": ["r", "Postcards! Look at the date. Summer of seventy-four. Grandpa wrote them all to Grandma Rosa.", "Cartões-postais! Olha a data. Verão de setenta e quatro. O vovô escreveu todos pra vó Rosa.", "n_card", {"clue": "rosa_cards"}],
+  "n_card": ["n", "The first card shows a giant coffee cup on a roof. You turn it over.", "O primeiro cartão mostra uma xícara de café gigante em cima de um telhado. Você vira o cartão.", "r_read"],
+  "r_read": ["r", "What does it say? Read it out loud. Come on!", "O que diz aí? Lê em voz alta. Vai!", [
+   ["It says: Rosa, guess where I am.", "Diz assim: Rosa, adivinha onde eu estou.", "r_game"],
+   ["You read it. His handwriting is terrible.", "Lê você. A letra dele é horrível.", "r_hand"],
+   ["Yes, the cup is red.", "Sim, a xícara é vermelha.", null, "Not red, the color. Read! Read the card to me. What does it say?", "Vermelho, a cor, não. Ler! Lê o cartão pra mim. O que diz aí?"]
+  ]],
+  "r_game": ["r", "A guessing game! That's so Grandpa. Give it here, I can't wait.", "Um jogo de adivinhação! A cara do vovô. Me dá aqui, não aguento esperar.", "r_riddle"],
+  "r_hand": ["r", "Fine, give it here. Wow, it really is terrible. It starts: Rosa, guess where I am.", "Tá bom, me dá aqui. Nossa, é horrível mesmo. Começa assim: Rosa, adivinha onde eu estou.", "r_riddle"],
+  "r_riddle": ["r", "Listen. Today I ate lunch under a giant coffee cup, in Missouri.", "Escuta. Hoje eu almocei debaixo de uma xícara de café gigante, no Missouri.", "r_riddle2"],
+  "r_riddle2": ["r", "The name of the place is the smallest thing you can draw with a pen. What is it?", "O nome do lugar é a menor coisa que dá pra desenhar com uma caneta. O que é?", [
+   ["A dot! The smallest thing is a dot.", "Um ponto! A menor coisa é um ponto.", "r_dot"],
+   ["A line? A very short line?", "Uma linha? Uma linha bem curtinha?", "r_line"],
+   ["No idea. Is there a name on the photo?", "Não faço ideia. Tem algum nome na foto?", "r_photo"],
+   ["The smallest thing is my suitcase.", "A menor coisa é a minha mala.", null, "Your suitcase is huge! No. The smallest thing you can draw with a pen. What is it?", "Sua mala é enorme! Não. A menor coisa que dá pra desenhar com uma caneta. O que é?"]
+  ]],
+  "r_dot": ["r", "A dot. Wait, Dot is a name too! Dot's Diner. You're good at this.", "Um ponto, dot. Espera, Dot também é nome de gente! Dot's Diner. Você manda bem nisso.", "r_riddles"],
+  "r_line": ["r", "Smaller. Hmm. A dot! And Dot is a name too. Dot's Diner. We're geniuses.", "Menor. Hum. Um ponto, dot! E Dot também é nome de gente. Dot's Diner. A gente é genial.", "r_riddles"],
+  "r_photo": ["r", "Good idea. There's a tiny sign under the cup. Dot's Diner. A dot! Very funny, Grandpa.", "Boa ideia. Tem uma plaquinha debaixo da xícara. Dot's Diner. Um ponto, dot! Muito engraçado, vovô.", "r_riddles"],
+  "r_riddles": ["r", "Every card has a riddle. Grandma had to guess where he was. Now it's our turn.", "Todo cartão tem um enigma. A vovó tinha que adivinhar onde ele estava. Agora é a nossa vez.", "r_treasure"],
+  "r_treasure": ["r", "So the cards are a map. And at the end, maybe there's a treasure! Gold. Or a taco restaurant.", "Então os cartões são um mapa. E no final, vai que tem um tesouro! Ouro. Ou um restaurante de tacos.", [
+   ["Or maybe just an answer. Why he came back.", "Ou talvez só uma resposta. Por que ele voltou.", "r_answer"],
+   ["I vote for the taco restaurant.", "Eu voto no restaurante de tacos.", "r_taco"],
+   ["A measure? I didn't bring a ruler.", "Uma medida? Eu não trouxe régua.", null, "Not measure. Treasure! Gold, jewels, pirates. What do you think is at the end?", "Medida, não. Tesouro! Ouro, joias, piratas. O que você acha que tem no final?"]
+  ]],
+  "r_answer": ["r", "That's deep for seven in the morning. But yeah. I want to know too.", "Que profundo pra sete da manhã. Mas é. Eu também quero saber.", "r_sell"],
+  "r_taco": ["r", "See? This is why we're family.", "Viu? É por isso que a gente é da mesma família.", "r_sell"],
+  "r_sell": ["r", "One more thing. A collector in California offered me four thousand dollars for this van.", "Mais uma coisa. Um colecionador da Califórnia me ofereceu quatro mil dólares por essa van.", "r_sell2"],
+  "r_sell2": ["r", "We could sell it there and fly home. Two thousand each. What do you say?", "A gente podia vender lá e voltar de avião. Dois mil pra cada. O que me diz?", [
+   ["Sell Grandpa's van? No way.", "Vender a van do vovô? Nem pensar.", "r_keep", {"set": {"van_plan": "keep"}}],
+   ["Two thousand dollars sounds good to me.", "Dois mil dólares me parece ótimo.", "r_sellok", {"set": {"van_plan": "sell"}}],
+   ["Let's decide when we see the ocean.", "Vamos decidir quando a gente vir o mar.", "r_later", {"set": {"van_plan": "later"}}],
+   ["I can't sail. I get seasick.", "Não sei velejar. Eu enjoo no mar.", null, "Not sail. Sell! Sell the van, for money. What do you say?", "Velejar, não. Vender! Vender a van, por dinheiro. O que me diz?"]
+  ]],
+  "r_keep": ["r", "Okay, okay! Don't look at me like that. You look just like Grandma.", "Tá bom, tá bom! Não me olha assim. Você fica a cara da vovó.", "n_go"],
+  "r_sellok": ["r", "Right? It's just an old van. Grandpa would understand. I think.", "Né? É só uma van velha. O vovô ia entender. Eu acho.", "n_go"],
+  "r_later": ["r", "Fair enough. Two thousand miles is a long time to think.", "Justo. Três mil quilômetros dão bastante tempo pra pensar.", "n_go"],
+  "n_go": ["n", "The van rolls out of the garage and into the morning sun.", "A van sai devagar da garagem para o sol da manhã.", "r_last"],
+  "r_last": ["r", "Next stop: Dot's Diner, Missouri. Five hours. Do you want music, or do you want to talk?", "Próxima parada: Dot's Diner, Missouri. Cinco horas. Quer música ou quer conversar?", [
+   ["Music! What's on the radio?", "Música! O que tá tocando no rádio?", "r_radio"],
+   ["Let's talk. Tell me about Grandpa.", "Vamos conversar. Me fala do vovô.", "r_talk"],
+   ["Walk? No, thanks. It's too far.", "Andar? Não, valeu. É longe demais.", null, "Not walk. Talk! Five hours on the road. Music or talk?", "Andar, não. Conversar! Cinco horas de estrada. Música ou conversa?"]
+  ]],
+  "r_radio": ["r", "One station. Country music. And the tape player is dead. There's an old tape stuck inside.", "Uma estação só. Música country. E o toca-fitas morreu. Tem uma fita velha presa lá dentro.", "n_end"],
+  "r_talk": ["r", "He drove a school bus for thirty years. He sang to the kids. Badly. Like me.", "Ele dirigiu ônibus escolar por trinta anos. Cantava pras crianças. Mal. Igual a mim.", "n_end"],
+  "n_end": ["n", "Chicago gets smaller in the mirror. Ahead, a long road and a giant coffee cup.", "Chicago vai ficando pequena no retrovisor. Pela frente, uma estrada longa e uma xícara de café gigante.", null]
+ }
+}

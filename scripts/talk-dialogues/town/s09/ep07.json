@@ -1,0 +1,94 @@
+{
+ "slug": "s09-07-too-many-cooks", "episode": 7, "title": "Too Many Cooks", "level": "B1",
+ "place": "kitchen", "placeLabel": "Semifinal em duplas", "time": "Quarta · 10h", "ambience": "kitchen",
+ "description": "Semifinal em duplas. Adivinha quem caiu com você.",
+ "intro": "Você achou o mel da Morag numa caixa de produtos de limpeza, com etiqueta em tinta verde, e descobriu para quem o Rupert tanto liga. O Toby foi chamado à sala da produtora. Hoje é a semifinal.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "s": ["Stella", "Apresentadora do programa", "bf_isabella", "right"],
+  "g": ["Morag", "Participante, avó escocesa", "bf_alice", "left"],
+  "c": ["Rupert", "Participante, dono de restaurante", "bm_george", "right"],
+  "v": ["Victor", "Jurado do programa", "bm_daniel", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Wednesday. The semi-final. Today nobody cooks alone, and Stella is holding a hat full of names.", "Quarta-feira. A semifinal. Hoje ninguém cozinha sem dupla, e a Stella segura um chapéu cheio de nomes.", "s1"],
+  "s1": ["s", "Teams of two today! Who are you hoping for, station four?", "Hoje é em duplas! Quem você quer que saia, bancada quatro?", [
+   ["Morag. We'd have a laugh.", "A Morag. A gente ia se divertir.", "s_morag"],
+   ["Anyone who stays calm under pressure.", "Qualquer pessoa que mantenha a calma sob pressão.", "s_calm"],
+   ["I'm hoping for good weather.", "Estou torcendo por tempo bom.", null, "In a studio? Ha! No, darling. Which cook do you want as your partner?", "Dentro de um estúdio? Rá! Não, meu bem. Quem você quer de dupla?"]
+  ]],
+  "s_morag": ["s", "Wouldn't we all! Let's see what the hat says. In you go.", "E quem não ia! Vamos ver o que o chapéu diz. Pode tirar.", "n_name"],
+  "s_calm": ["s", "Calm! In this kitchen! You do make me laugh. In you go.", "Calma! Nesta cozinha! Você me faz rir. Pode tirar.", "n_name"],
+  "n_name": ["n", "You pull out a piece of paper and unfold it. It says: Rupert.", "Você tira um papelzinho e desdobra. Está escrito: Rupert.", "g1"],
+  "g1": ["g", "Rupert! Good luck, dear. And thank you for my honey. I won't forget it.", "Rupert! Boa sorte, meu bem. E obrigada pelo meu mel. Não vou esquecer.", "rel_br"],
+  "rel_br": {"branch": [["rupert_secret=kept", "c_k"], ["rupert_secret=deal", "c_d"], [null, "c_t"]]},
+  "c_k": ["c", "Partner. You kept your word last night, so today I'll try to listen. Try.", "Dupla. Você cumpriu a palavra ontem à noite, então hoje eu vou tentar escutar. Tentar.", "c_plan"],
+  "c_d": ["c", "Partner. No blackmail today, please. I've only just recovered.", "Dupla. Sem chantagem hoje, por favor. Mal me recuperei.", "c_plan"],
+  "c_t": ["c", "Partner. And no, I haven't told them about my mother. Don't start.", "Dupla. E não, eu não contei pra eles sobre a minha mãe. Nem começa.", "c_plan"],
+  "c_plan": ["c", "It's roast chicken, a sauce and two sides. I'll do the chicken. You do the rest.", "É frango assado, um molho e dois acompanhamentos. Eu faço o frango. Você faz o resto.", [
+   ["Hold on. Let's split it fairly. I'll take the sauce and one side.", "Calma aí. Vamos dividir direito. Eu fico com o molho e um acompanhamento.", "c_split"],
+   ["Fine, you're the professional. Just tell me what you need.", "Tá bom, o profissional é você. É só dizer do que precisa.", "c_boss"],
+   ["I can't rest. I'm not even tired.", "Não posso descansar. Nem senti cansaço ainda.", null, "Not that kind of rest! The other jobs. The sauce and the sides. Will you do them?", "Não esse tipo de resto! As outras tarefas. O molho e os acompanhamentos. Você faz?"]
+  ]],
+  "c_split": ["c", "Fairly. Hm. All right. Sauce and potatoes are yours. I'll do the chicken and the greens.", "Direito. Hum. Tudo bem. Molho e batatas são seus. Eu faço o frango e as verduras.", "n_go"],
+  "c_boss": ["c", "Excellent attitude. Potatoes first, then the sauce. I'll take the chicken and the greens.", "Ótima atitude. Primeiro as batatas, depois o molho. Eu fico com o frango e as verduras.", "n_go"],
+  "n_go": ["n", "The clock starts. Rupert works fast and talks faster. Twenty minutes in, he is shouting.", "O relógio dispara. O Rupert trabalha rápido e fala mais rápido ainda. Com vinte minutos, ele já está gritando.", "c3"],
+  "c3": ["c", "Where's my thyme? Who moved my thyme? I can't work like this!", "Cadê meu tomilho? Quem mexeu no meu tomilho? Assim não dá pra trabalhar!", [
+   ["It's right behind you. Breathe, Rupert.", "Está bem atrás de você. Respira, Rupert.", "c_breathe"],
+   ["Stop shouting and I'll find it for you.", "Para de gritar que eu acho pra você.", "c_stop"],
+   ["It's twenty past ten.", "São dez e vinte.", null, "Not the time! Thyme! The herb! Little green leaves! Where is it?", "Não a hora! Tomilho! A erva! Folhinhas verdes! Cadê?"]
+  ]],
+  "c_breathe": ["c", "Oh. So it is. I knew that. Thank you. Carry on.", "Ah. Está mesmo. Eu sabia. Obrigado. Pode continuar.", "c_sauce"],
+  "c_stop": ["c", "I am not shouting. I am projecting. Ah. There it is. Carry on.", "Eu não estou gritando. Estou projetando a voz. Ah. Achei. Pode continuar.", "c_sauce"],
+  "c_sauce": ["c", "Now, your sauce. It's far too thin. Take it off the heat and let me fix it.", "Agora, o seu molho. Está ralo demais. Tira do fogo e deixa que eu conserto.", [
+   ["No. It's my sauce. Give me two minutes to reduce it.", "Não. O molho é meu. Me dá dois minutos pra reduzir.", "c_two"],
+   ["Okay, take over. I'll finish your greens.", "Tá, assume aí. Eu termino as suas verduras.", "c_swap"],
+   ["Taste it first. Then tell me it's thin.", "Prova primeiro. Depois me diz se está ralo.", "c_taste"],
+   ["It's not a thing. It's a sauce.", "Não é uma coisa. É um molho.", null, "Thin, not thing! Watery! Runny! It needs fixing. Will you let me take over or not?", "Ralo, não coisa! Aguado! Escorrendo! Precisa de conserto. Você me deixa assumir ou não?"]
+  ]],
+  "c_two": ["c", "Two minutes. I'm counting. And stir it, don't just stare at it.", "Dois minutos. Estou contando. E mexe, não fica só olhando.", "n_salt"],
+  "c_swap": ["c", "Good. That's teamwork. Mind the greens, they only need a minute.", "Ótimo. Isso é trabalho em equipe. Cuidado com as verduras, é só um minuto.", "n_salt"],
+  "c_taste": ["c", "Fine. Hm. The flavour's good, actually. Just reduce it a little. I take it back.", "Tá bom. Hum. O sabor está bom, na verdade. Só reduz um pouco. Retiro o que disse.", "n_salt"],
+  "n_salt": ["n", "The sauce thickens. You reach for the salt. Then you remember Toby's words: check your salt.", "O molho engrossa. Você estende a mão pro sal. Aí lembra do que o Toby disse: confere o seu sal.", "c4"],
+  "c4": ["c", "What are you waiting for? Season it! We've got ten minutes.", "Está esperando o quê? Tempera! Faltam dez minutos.", [
+   ["Wait. I want to taste what's in this jar first.", "Espera. Quero provar o que tem neste pote antes.", "n_sugar"],
+   ["You're right. No time to lose.", "Você tem razão. Não dá pra perder tempo.", "n_sweet"],
+   ["Which season? I like summer.", "Que estação? Eu gosto do verão.", null, "Not that kind of season! Salt! Put some in the sauce. What's the problem?", "Não esse tipo de estação! Sal! Põe um pouco no molho. Qual é o problema?"]
+  ]],
+  "n_sugar": ["n", "You put a few grains on your tongue. Sweet. The jar marked salt is full of sugar.", "Você põe uns grãozinhos na língua. Doce. O pote marcado como sal está cheio de açúcar.", "c_sug"],
+  "c_sug": ["c", "Sugar? In the salt jar? You've just saved our sauce. And my reputation.", "Açúcar? No pote de sal? Você acabou de salvar o nosso molho. E a minha reputação.", "s_time"],
+  "n_sweet": ["n", "You throw in a big pinch and taste. Sweet. The jar marked salt is full of sugar.", "Você joga uma boa pitada e prova. Doce. O pote marcado como sal está cheio de açúcar.", "c_sweet"],
+  "c_sweet": ["c", "A sweet chicken sauce? Quick. Lemon juice and a splash of vinegar. We can balance it.", "Molho doce pra frango? Rápido. Suco de limão e um fio de vinagre. Dá pra equilibrar.", "s_time"],
+  "s_time": ["s", "Two minutes, teams! Station four and station one, are we still friends?", "Dois minutos, duplas! Bancada quatro e bancada um, ainda existe amizade aí?", [
+   ["Best team in the building. Almost.", "A melhor dupla do prédio. Quase.", "s_plate"],
+   ["Ask me again after the judging.", "Me pergunta de novo depois do julgamento.", "s_plate2"],
+   ["Fries? No, we made roast potatoes.", "Fritas? Não, a gente fez batata assada.", null, "Friends, not fries! You and Rupert. Are you two getting along?", "Amizade, não fritas! Você e o Rupert. Vocês estão se entendendo?"]
+  ]],
+  "s_plate": ["s", "Almost! I'll take it. Plates up, everybody. Time's up!", "Quase! Já serve. Pratos na mesa, pessoal. Acabou o tempo!", "n_judge"],
+  "s_plate2": ["s", "Ooh, diplomatic. Plates up, everybody. Time's up!", "Uh, que diplomacia. Pratos na mesa, pessoal. Acabou o tempo!", "n_judge"],
+  "n_judge": ["n", "Victor cuts the chicken, tries the sauce, and puts down his fork. He looks at you both.", "O Victor corta o frango, prova o molho e pousa o garfo. Ele olha pra sua dupla e pra você.", "crit_br"],
+  "crit_br": {"branch": [["took_crit=argued", "v_arg"], [null, "v_well"]]},
+  "v_arg": ["v", "Station four. You argued with me on Monday. Today I've no argument. The sauce is good.", "Bancada quatro. Você discutiu comigo na segunda. Hoje não tenho o que discutir. O molho está bom.", "v_q"],
+  "v_well": ["v", "Station four. You listened on Monday, and it shows. The sauce is good.", "Bancada quatro. Você escutou na segunda, e dá pra notar. O molho está bom.", "v_q"],
+  "v_q": ["v", "The chicken, however, is dry. So. Whose fault is that?", "Já o frango está seco. Então. De quem é a culpa?", [
+   ["We're a team. We'll take that one together.", "Somos uma dupla. Essa a gente assume em conjunto.", "v_team"],
+   ["The chicken was Rupert's job, chef.", "O frango era tarefa do Rupert, chef.", "v_blame"],
+   ["I can't dry it. I haven't got a towel.", "Não tenho como secar. Estou sem pano.", null, "I said the chicken is dry. Overcooked. Who is responsible for it?", "Eu disse que o frango está seco. Passou do ponto. Quem é responsável por isso?"]
+  ]],
+  "v_team": ["v", "Good. I've watched kitchens fall apart because nobody would say that.", "Ótimo. Já vi cozinhas desmoronarem porque ninguém dizia isso.", "v_end"],
+  "v_blame": ["v", "Accurate. But not kind. He could have blamed your sauce, and he didn't.", "Correto. Mas não é gentil. Ele podia ter culpado o seu molho, e não culpou.", "c_own"],
+  "c_own": ["c", "No, it's fair. The chicken was mine. I left it in too long.", "Não, é justo. O frango era meu. Deixei tempo demais no forno.", "v_end"],
+  "v_end": ["v", "Morag and Nina take today, by a whisker. Tomorrow you all cook alone. Any questions?", "Morag e Nina levam hoje, por um triz. Amanhã cada um cozinha por si. Alguma pergunta?", [
+   ["Chef, did you ever make a big mistake in a kitchen?", "Chef, você já cometeu um erro grande numa cozinha?", "v_past"],
+   ["Any advice for the final?", "Algum conselho pra final?", "v_adv"],
+   ["Whiskers? Is there a cat in the kitchen?", "Bigodes? Tem um gato na cozinha?", null, "No cat. It means they won by very little. Do you have a question, or not?", "Gato nenhum. Quer dizer que elas ganharam por muito pouco. Você tem uma pergunta ou não?"]
+  ]],
+  "v_past": ["v", "My first week as a kitchen boy, I dropped a wedding cake. Three tiers of it.", "Na minha primeira semana como ajudante de cozinha, derrubei um bolo de casamento. Três andares.", "v_past2"],
+  "v_past2": ["v", "The chef didn't sack me. He handed me a mop and a second chance. I never forgot it.", "O chef não me demitiu. Ele me deu um esfregão e uma segunda chance. Nunca esqueci.", "s_end", {"clue": "victor_past"}],
+  "v_adv": ["v", "Cook what you promised on Monday. Keep the plate simple. Flavour wins, not decoration.", "Cozinhe o que você prometeu na segunda. Mantenha o prato simples. Quem vence é o sabor, não o enfeite.", "s_end", {"clue": "victor_taste"}],
+  "s_end": ["s", "One more thing. Dee, our producer, wants everyone on set at two tomorrow. Before the final.", "Mais uma coisa. A Dee, nossa produtora, quer todo mundo no estúdio amanhã às duas. Antes da final.", "s_end2"],
+  "s_end2": ["s", "She says somebody has been sabotaging her show. And tomorrow, on camera, she'll name them.", "Ela diz que alguém anda sabotando o programa. E amanhã, diante das câmeras, ela vai dizer quem é.", "n_end"],
+  "n_end": ["n", "Rupert goes pale. Morag frowns. And at the back of the studio, a box hits the floor.", "O Rupert fica pálido. A Morag fecha a cara. E no fundo do estúdio, uma caixa cai no chão.", null]
+ }
+}

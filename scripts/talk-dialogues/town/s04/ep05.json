@@ -1,0 +1,100 @@
+{
+ "slug": "s04-05-six-strings", "episode": 5, "title": "Six Strings", "level": "B1",
+ "place": "stage", "placeLabel": "The Rusty Spur · Novo México", "time": "Quarta · 20h", "ambience": "pub",
+ "description": "Um bar de beira de estrada, um violão velho e a única música que o vovô compôs.",
+ "intro": "Em Amarillo, a Lupe consertou a van: o motor do vovô foi o primeiro que ela arrumou na vida. O quarto cartão fala de um amigo de seis cordas, no bar Rusty Spur, onde o vovô pagou o jantar com a boca, sem dizer uma palavra.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "r": ["Rafa", "Seu primo de Chicago", "am_puck", "right"],
+  "h": ["Hank", "Músico de estrada", "am_fenrir", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "New Mexico. The sky turns orange, then purple. The van hums along without a single complaint.", "Novo México. O céu fica laranja, depois roxo. A van segue ronronando, sem nenhuma reclamação.", "radio_br"],
+  "radio_br": {"branch": [["radio=fixed", "r_music5"], [null, "r_quiet5"]]},
+  "r_music5": ["r", "That's the ninth time we've played Grandpa's samba tape. And I'm still not tired of it.", "É a nona vez que a gente toca a fita de samba do vovô. E eu ainda não enjoei.", "r_plan5"],
+  "r_quiet5": ["r", "Two hundred miles with no music. I've started singing to myself. Have you noticed?", "Trezentos quilômetros sem música. Comecei a cantar sozinho. Deu pra notar?", "r_plan5"],
+  "r_plan5": ["r", "So what's the plan? We just walk in and say: hi, did you know our grandpa?", "E qual é o plano? A gente entra e fala: oi, você conheceu nosso avô?", [
+   ["Pretty much. It worked with Dot.", "Basicamente. Com a Dot funcionou.", "r_ok5"],
+   ["Let's sit down and listen to him play first.", "Vamos sentar e ouvir ele tocar primeiro.", "r_listen"],
+   ["A plant? I didn't bring a plant.", "Uma planta? Eu não trouxe planta.", null, "Not a plant. A plan! How are we going to talk to this Hank?", "Planta, não. Plano! Como a gente vai falar com esse tal de Hank?"]
+  ]],
+  "r_ok5": ["r", "True. Our whole strategy is being related to Grandpa. So far, so good.", "Verdade. Nossa estratégia inteira é ser parente do vovô. Até agora, deu certo.", "n_bar"],
+  "r_listen": ["r", "Good call. Never interrupt a man with a guitar.", "Boa. Nunca interrompa um homem com um violão.", "n_bar"],
+  "n_bar": ["n", "The Rusty Spur is a low wooden bar by the highway. On a tiny stage, an old man is tuning a guitar.", "O Rusty Spur é um bar baixo de madeira à beira da estrada. Num palquinho, um senhor afina um violão.", "h1"],
+  "h1": ["h", "Evening, travelers. You look like you've been on the road a while. Where are you headed?", "Boa noite, viajantes. Vocês estão com cara de quem já rodou bastante. Pra onde estão indo?", [
+   ["California. We're driving the whole of Route Sixty-Six.", "Califórnia. A gente está fazendo a Rota Sessenta e Seis inteira.", "h_road"],
+   ["Actually, we came to find you. Are you Hank?", "Na verdade, a gente veio te procurar. Você é o Hank?", "h_me"],
+   ["My head? It's fine, thanks.", "Minha cabeça? Está ótima, valeu.", null, "Glad to hear it. I meant, where are you going? Where's the road taking you?", "Que bom. Eu quis dizer: pra onde vocês vão? Pra onde a estrada está levando vocês?"]
+  ]],
+  "h_road": ["h", "The Mother Road. I've watched people chase that sunset for fifty years. What brings you in here?", "A Estrada Mãe. Faz cinquenta anos que eu vejo gente correndo atrás desse pôr do sol. O que traz vocês aqui?", "r_card5"],
+  "h_me": ["h", "Depends who's asking. If it's about Lupe's ten dollars, I'm working on it.", "Depende de quem pergunta. Se for sobre os dez dólares da Lupe, estou providenciando.", "r_card5"],
+  "r_card5": ["r", "Our grandfather played harmonica with you, back in seventy-four. Francisco. Everybody called him Frank.", "Nosso avô tocou gaita com você, lá em setenta e quatro. Francisco. Todo mundo chamava de Frank.", "h_frank"],
+  "h_frank": ["h", "Frank. Well, I'll be. Pull up a chair, both of you.", "Frank. Ora, veja só. Puxem uma cadeira, vocês dois.", "h_frank2"],
+  "h_frank2": ["h", "A skinny kid with a harmonica walked in that door and asked to play for his supper.", "Um garoto magrelo com uma gaita entrou por aquela porta e pediu pra tocar em troca do jantar.", [
+   ["Was he any good?", "Ele tocava bem?", "h_good"],
+   ["What did the two of you play?", "O que vocês dois tocaram?", "h_song"],
+   ["Supper? Yes, a table for two, please.", "Jantar? Sim, mesa pra dois, por favor.", null, "Kitchen's closed, friend. I'm talking about Frank and his harmonica. What do you want to know?", "A cozinha já fechou. Estou falando do Frank e da gaita dele. O que você quer saber?"]
+  ]],
+  "h_good": ["h", "Terrible. For about a minute. Then he played one slow song, and the whole bar went quiet.", "Péssimo. Por mais ou menos um minuto. Aí ele tocou uma música lenta, e o bar inteiro ficou em silêncio.", [
+   ["What was the song?", "Que música era?", "h_song"],
+   ["And did he get his supper?", "E ele ganhou o jantar?", "h_dinner"],
+   ["Terrible? No, I feel great.", "Péssimo? Não, eu estou superbem.", null, "Not you. Frank. Terrible, and then wonderful. Aren't you curious about that slow song?", "Você, não. O Frank. Péssimo, e depois maravilhoso. Não bateu curiosidade sobre a música lenta?"]
+  ]],
+  "h_song": ["h", "His own. He wrote it on the road, for his wife. He called it The Long Way Home.", "Uma dele. Ele compôs na estrada, pra esposa. Chamava The Long Way Home, o caminho longo pra casa.", "h_song2", {"clue": "song"}],
+  "h_song2": ["h", "It's about driving away from the one you love, so you can build a life for her.", "Fala de ir embora pra longe de quem a gente ama, pra poder construir uma vida pra ela.", "h_ask"],
+  "h_dinner": ["h", "Supper, a bed and gas money. All for one slow song he wrote himself.", "Jantar, cama e dinheiro pra gasolina. Tudo por uma música lenta que ele mesmo compôs.", "h_ask"],
+  "h_ask": ["h", "I still close with it every night. I'll play it now, if one of you sings with me.", "Até hoje eu fecho a noite com ela. Toco agora, se um de vocês cantar comigo.", [
+   ["I'll do it. But I don't know the words.", "Eu vou. Mas não sei a letra.", "h_words", {"set": {"sang": "yes"}}],
+   ["Rafa will sing. I'll clap.", "O Rafa canta. Eu bato palma.", "r_sings", {"set": {"sang": "no"}}],
+   ["Could we just listen? I want to hear it properly.", "A gente pode só ouvir? Quero escutar direito.", "h_listen", {"set": {"sang": "no"}}],
+   ["I can't sink. I'm a good swimmer.", "Eu não afundo. Nado muito bem.", null, "Sing, not sink. Up here, with me. Who's it going to be?", "Cantar, não afundar. Aqui em cima, comigo. Quem vai ser?"]
+  ]],
+  "h_words": ["h", "You only need one line. Repeat after me: the long way home is the only way I know.", "Você só precisa de um verso. Repete comigo: the long way home is the only way I know. O caminho longo pra casa é o único que eu conheço.", [
+   ["The long way home is the only way I know.", "O caminho longo pra casa é o único que eu conheço.", "n_sing"],
+   ["Could you say that more slowly, please?", "Pode falar mais devagar, por favor?", "h_slow"],
+   ["The wrong way home is the only way I go.", "O caminho errado pra casa é o único que eu pego.", null, "Ha! That's a different song, and a much worse trip. Again: the long way home is the only way I know.", "Rá! Essa é outra música, e uma viagem bem pior. De novo: o caminho longo pra casa é o único que eu conheço."]
+  ]],
+  "h_slow": ["h", "Sure. The long way home. Is the only way. I know. There. You've got it.", "Claro. The long way home. Is the only way. I know. Pronto. Você pegou.", "n_sing"],
+  "n_sing": ["n", "You sing. Your voice shakes at first. Then the whole bar joins in, and Rafa films everything.", "Você canta. No começo, a voz treme. Depois o bar inteiro canta junto, e o Rafa filma tudo.", "h_after"],
+  "r_sings": ["r", "Me? At last, somebody recognizes talent. Stand back, everyone.", "Eu? Até que enfim alguém reconhece um talento. Abram espaço, pessoal.", "n_rafa"],
+  "n_rafa": ["n", "Rafa sings like a very happy dog. The bar loves him anyway.", "O Rafa canta feito um cachorro muito feliz. O bar adora mesmo assim.", "h_after"],
+  "h_listen": ["h", "Fair enough. Some songs are better sitting down.", "Justo. Tem música que é melhor ouvir sem sair da cadeira.", "n_listen"],
+  "n_listen": ["n", "Hank plays. The song is slow and simple, like a road at night. Nobody in the bar says a word.", "O Hank toca. A música é lenta e simples, como uma estrada à noite. Ninguém no bar diz uma palavra.", "h_after"],
+  "h_after": ["h", "Your granddad came back through here, you know. About two weeks later. Heading east.", "Seu avô passou por aqui de novo, sabiam? Umas duas semanas depois. Indo pro leste.", [
+   ["East? He was going home already?", "Pro leste? Ele já estava voltando pra casa?", "h_east"],
+   ["Did he look sad?", "Ele parecia triste?", "h_sad"],
+   ["Yeast? Like for making bread?", "Fermento? Tipo de fazer pão?", null, "East, not yeast. The opposite of west. He was going home. Don't you want to know how he looked?", "Leste, não fermento. O contrário de oeste. Ele estava voltando pra casa. Não quer saber como ele estava?"]
+  ]],
+  "h_east": ["h", "Already. I asked him what happened to California. He just laughed and played all night.", "Já. Eu perguntei o que tinha acontecido com a Califórnia. Ele só riu e tocou a noite inteira.", "h_didnt"],
+  "h_sad": ["h", "That's the strange part. He looked like the happiest man in New Mexico.", "Essa é a parte estranha. Ele parecia o homem mais feliz do Novo México.", "h_didnt"],
+  "h_didnt": ["h", "He wouldn't tell me why. He said: ask me in fifty years. Well, here we are.", "Ele não quis me contar o motivo. Disse: me pergunta daqui a cinquenta anos. Pois é, cá estamos.", "think_br"],
+  "think_br": {"branch": [["clue_baby_news", "r_think_b"], [null, "r_think"]]},
+  "r_think_b": ["r", "And he's not here to ask. So why was he so happy? You were listening at the motel.", "E ele não está aqui pra gente perguntar. Então por que ele estava tão feliz? Você prestou atenção lá no motel.", [
+   ["Because of the baby. He was going home to Grandma.", "Por causa do bebê. Ele estava voltando pra vovó.", "r_baby5"],
+   ["Maybe he got the job after all.", "Vai ver ele conseguiu o emprego, no fim das contas.", "r_job5"],
+   ["Hoppy? Like a rabbit?", "Saltitante? Tipo um coelho?", null, "Happy, not hoppy! Why was Grandpa so happy to drive home with no job?", "Feliz, não saltitante! Por que o vovô estava tão feliz de voltar pra casa sem emprego?"]
+  ]],
+  "r_think": ["r", "And he's not here to ask. So why was he so happy? What do you think?", "E ele não está aqui pra gente perguntar. Então por que ele estava tão feliz? O que você acha?", [
+   ["Maybe he just missed Grandma.", "Vai ver ele só estava com saudade da vovó.", "r_miss5"],
+   ["Maybe he got the job after all.", "Vai ver ele conseguiu o emprego, no fim das contas.", "r_job5"],
+   ["Hoppy? Like a rabbit?", "Saltitante? Tipo um coelho?", null, "Happy, not hoppy! Why was Grandpa so happy to drive home with no job?", "Feliz, não saltitante! Por que o vovô estava tão feliz de voltar pra casa sem emprego?"]
+  ]],
+  "r_baby5": ["r", "The baby. Right. But then why drive all the way to the ocean first? I don't get it.", "O bebê. É. Mas então por que ir até o mar primeiro? Não entendo.", "h_gift"],
+  "r_job5": ["r", "Then why did he drive a school bus in Chicago for thirty years? It doesn't add up.", "Então por que ele dirigiu ônibus escolar em Chicago por trinta anos? A conta não fecha.", "h_gift"],
+  "r_miss5": ["r", "Maybe. But you don't drive two thousand miles just to feel homesick. There's something else.", "Pode ser. Mas ninguém dirige três mil quilômetros só pra sentir saudade. Tem mais coisa aí.", "h_gift"],
+  "h_gift": ["h", "All he told me was this: the answer is at the end of the road. I left it there.", "Ele só me disse isto: a resposta está no fim da estrada. Eu deixei lá.", "r_card"],
+  "r_card": ["r", "Then we keep going. Card number five.", "Então a gente segue em frente. Cartão número cinco.", "r_riddle"],
+  "r_riddle": ["r", "Today I walked in a forest with no leaves. The trees are lying down, made of stone.", "Hoje eu andei por uma floresta sem folhas. As árvores estão deitadas, feitas de pedra.", [
+   ["A forest made of stone? Is that a real place?", "Uma floresta de pedra? Isso existe de verdade?", "h_real"],
+   ["Stone trees. I saw that in a documentary. Is it Arizona?", "Árvores de pedra. Eu vi isso num documentário. É no Arizona?", "h_arizona"],
+   ["The trees are lying? Trees can't tell lies.", "As árvores estão mentindo? Árvore não conta mentira.", null, "Ha! Not that kind of lying. Lying down, on the ground. Trees made of stone. Where is that?", "Rá! Não é mentir. É estar deitado, no chão. Árvores de pedra. Onde fica isso?"]
+  ]],
+  "h_real": ["h", "Real as my guitar. The Petrified Forest, in Arizona. Trees older than the dinosaurs, turned to rock.", "Tão real quanto o meu violão. A Floresta Petrificada, no Arizona. Árvores mais velhas que os dinossauros, que viraram pedra.", "sang_br"],
+  "h_arizona": ["h", "That's the one. The Petrified Forest. Six hours west. Take water and a hat.", "Essa mesma. A Floresta Petrificada. Seis horas pro oeste. Levem água e chapéu.", "sang_br"],
+  "sang_br": {"branch": [["sang=yes", "h_bye_s"], [null, "h_bye_n"]]},
+  "h_bye_s": ["h", "You've got your granddad's nerve. Keep singing that song on the road. Songs die if you don't.", "Você tem a coragem do seu avô. Continue cantando essa música na estrada. Música morre se ninguém canta.", "n_end"],
+  "h_bye_n": ["h", "Hum it on the road, at least. Songs die when nobody carries them.", "Pelo menos cantarolem na estrada. Música morre quando ninguém leva ela adiante.", "n_end"],
+  "n_end": ["n", "You sleep in the van, behind the bar. Tomorrow: Arizona, and a forest that turned to stone.", "Vocês dormem na van, atrás do bar. Amanhã: Arizona, e uma floresta que virou pedra.", null]
+ }
+}

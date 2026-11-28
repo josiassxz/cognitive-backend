@@ -1,0 +1,105 @@
+{
+ "slug": "s03-07-the-night-before", "episode": 7, "title": "The Night Before", "level": "A2",
+ "place": "street", "placeLabel": "Maple Yard, à noite", "time": "Sexta · 20h", "ambience": "street",
+ "description": "Véspera do festival: falta gelo, o Chuck tem uma fofoca e alguém aparece no escuro.",
+ "intro": "Uma semana se passou. O Tyler, o blogueiro da câmera, deu cinco estrelas, e a Bia jura que ele é o jurado secreto. Amanhã é o festival, e ainda falta cozinhar para duzentas pessoas.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "b": ["Bia", "Sua prima e sócia", "af_bella", "left"],
+  "c": ["Chuck", "Dono do truck rival, Smoke King", "am_fenrir", "left"],
+  "w": ["Mr. Boone", "Cliente de todo dia", "am_michael", "right"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Friday night. Tomorrow is the festival. You and Bia are cooking beans for two hundred people.", "Sexta à noite. Amanhã é o festival. Você e a Bia cozinham feijão para duzentas pessoas.", "b0"],
+  "b0": ["b", "Taste the beans. Be honest. Do they need more salt?", "Prova o feijão. Fala a verdade. Precisa de mais sal?", [
+   ["They're perfect. Don't touch them.", "Está perfeito. Não mexe.", "b0a"],
+   ["A little more salt, I think.", "Um pouquinho mais de sal, eu acho.", "b0b"],
+   ["Yes, we sold a lot today.", "Sim, a gente vendeu bastante hoje.", null, "Not sold! Salt! Taste it. Do the beans need more salt?", "Vendeu, não! Sal! Prova. O feijão precisa de mais sal?"]
+  ]],
+  "b0a": ["b", "Perfect? Really? Okay. I won't touch them. I'm not touching them.", "Perfeito? Sério? Tá. Não vou mexer. Não estou mexendo.", "fr_br"],
+  "b0b": ["b", "I knew it! Grandma always said: taste three times, salt one time.", "Eu sabia! A vó sempre dizia: prove três vezes, ponha sal uma vez.", "fr_br"],
+  "fr_br": {"branch": [["fridge=old_part", "n_old"], [null, "n_new"]]},
+  "n_old": ["n", "Then you hear it. The fridge with the used part is making a new noise. Clack. Clack. Clack.", "Aí você escuta. A geladeira com a peça usada está fazendo um barulho novo. Claque. Claque. Claque.", "b_old"],
+  "b_old": ["b", "No. Not tonight. Please, not tonight! The fridge is dying again!", "Não. Hoje não. Por favor, hoje não! A geladeira está morrendo de novo!", [
+   ["Let's move the meat into the ice boxes. Fast.", "Vamos passar a carne pras caixas de gelo. Rápido.", "b_ice"],
+   ["I'll call Tasha. Maybe she works at night.", "Vou ligar pra Tasha. Talvez ela trabalhe à noite.", "b_tasha"],
+   ["The fridge is diving? Where?", "A geladeira está mergulhando? Onde?", null, "Not diving! Dying! It's breaking again! What do we do with the food?", "Mergulhando, não! Morrendo! Está quebrando de novo! O que a gente faz com a comida?"]
+  ]],
+  "b_tasha": ["b", "At eight at night? No time! Ice first. Chuck has a big ice machine. Go ask him, please!", "Às oito da noite? Não dá tempo! Primeiro o gelo. O Chuck tem uma máquina de gelo enorme. Vai lá pedir, por favor!", "n_walk"],
+  "n_new": ["n", "The fridge with the new part is quiet and cold. But it is very small, and it is very full.", "A geladeira com a peça nova está quietinha e gelada. Mas ela é bem pequena, e está bem cheia.", "b_new"],
+  "b_new": ["b", "The fridge is perfect, but it's too small for two hundred people! Where do I put all this meat?", "A geladeira está perfeita, mas é pequena demais pra duzentas pessoas! Onde eu ponho essa carne toda?", [
+   ["In the ice boxes. We keep it on ice until morning.", "Nas caixas de gelo. A gente deixa no gelo até de manhã.", "b_ice"],
+   ["Maybe Chuck has space in his big freezer.", "Talvez o Chuck tenha espaço naquele freezer enorme.", "b_chuck"],
+   ["Meet? Nice to meet you too.", "Conhecer? Prazer em te conhecer também.", null, "Not meet! Meat! The steak! Where can we keep it cold tonight?", "Conhecer, não! Carne! Os bifes! Onde a gente guarda isso gelado hoje?"]
+  ]],
+  "b_chuck": ["b", "Chuck! Yes! And he has that big ice machine too. Go ask him, please!", "O Chuck! Isso! E ele tem aquela máquina de gelo enorme também. Vai lá pedir, por favor!", "n_walk"],
+  "b_ice": ["b", "Ice! Yes! But we don't have enough. Chuck has a big ice machine. Go ask him, please!", "Gelo! Isso! Mas não temos o suficiente. O Chuck tem uma máquina de gelo enorme. Vai lá pedir, por favor!", "n_walk"],
+  "n_walk": ["n", "You walk to the red truck. Chuck is inside, stirring a giant pot of sauce.", "Você vai até o truck vermelho. O Chuck está lá dentro, mexendo um panelão de molho.", "ch_br"],
+  "ch_br": {"branch": [["helped_chuck=yes", "c_warm"], [null, "c_cold"]]},
+  "c_warm": ["c", "Toucan! My napkin hero! What do you need? Say it, and it's yours.", "Tucano! Minha salvação dos guardanapos! Do que você precisa? É só falar, que é seu.", [
+   ["Ice. Lots of ice. Our meat is getting warm.", "Gelo. Muito gelo. Nossa carne está esquentando.", "c_yes"],
+   ["Some space in your freezer, if you have any.", "Um espaço no seu freezer, se tiver.", "c_freezer"],
+   ["I need some rice.", "Eu preciso de arroz.", null, "Rice? You have a mountain of rice! Come on. What do you need from me?", "Arroz? Vocês têm uma montanha de arroz! Vai. O que você precisa de mim?"]
+  ]],
+  "c_yes": ["c", "Take four bags. Take six! You gave me napkins, I give you ice. That's Texas.", "Leva quatro sacos. Leva seis! Você me deu guardanapo, eu te dou gelo. Isso é o Texas.", "c_tyler"],
+  "c_freezer": ["c", "My freezer is full of ribs. But ice, I have. Take six bags. That's Texas.", "Meu freezer está lotado de costela. Mas gelo, eu tenho. Leva seis sacos. Isso é o Texas.", "c_tyler"],
+  "c_cold": ["c", "Well, well. The Toucan. No napkins for Chuck, remember? What do you want?", "Ora, ora. O Tucano. Nada de guardanapo pro Chuck, lembra? O que você quer?", [
+   ["I'm sorry about the napkins, Chuck. That was wrong.", "Desculpa pelos guardanapos, Chuck. Aquilo foi errado.", "c_sorry"],
+   ["We need ice. I can pay for it.", "A gente precisa de gelo. Eu posso pagar.", "c_payice"],
+   ["The napkins? They're in the truck.", "Os guardanapos? Estão no truck.", null, "Too late for napkins! Why are you here tonight? What do you need?", "Tarde demais pros guardanapos! Por que você está aqui hoje? Do que você precisa?"]
+  ]],
+  "c_sorry": ["c", "Hm. An apology. Chuck Dawson accepts. You need ice, right? Take four bags. No charge.", "Hum. Um pedido de desculpas. Chuck Dawson aceita. Vocês precisam de gelo, né? Leva quatro sacos. Não é nada.", "c_tyler"],
+  "c_payice": ["c", "Pay? Twenty dollars a bag. Ha! I'm joking. Five. How many bags?", "Pagar? Vinte dólares o saco. Rá! Brincadeira. Cinco. Quantos sacos?", [
+   ["Four bags, please. Here's twenty.", "Quatro sacos, por favor. Toma vinte.", "c_p1"],
+   ["Six. And Chuck, good luck tomorrow.", "Seis. E Chuck, boa sorte amanhã.", "c_p2"],
+   ["Bags? No, I have a backpack.", "Sacolas? Não, eu tenho mochila.", null, "Bags of ice! Five dollars each. How many do you want?", "Sacos de gelo! Cinco dólares cada. Quantos você quer?"]
+  ]],
+  "c_p1": ["c", "Twenty. Thank you. Good night, Toucan. May the best truck win. That's me.", "Vinte. Obrigado. Boa noite, Tucano. Que vença o melhor truck. No caso, eu.", "n_back"],
+  "c_p2": ["c", "Hm. Good luck to you too. Thirty dollars. Good night, Toucan.", "Hum. Boa sorte pra vocês também. Trinta dólares. Boa noite, Tucano.", "n_back"],
+  "c_tyler": ["c", "Wait. Before you go. I have to tell you something about that Tyler kid.", "Espera. Antes de ir. Preciso te contar uma coisa sobre aquele menino, o Tyler.", "c_tyler2"],
+  "c_tyler2": ["c", "I gave him free ribs all week. Then I found his blog. He has twelve followers. Twelve!", "Dei costela de graça pra ele a semana toda. Aí achei o blog dele. Ele tem doze seguidores. Doze!", "c_tyler3"],
+  "c_tyler3": ["c", "And he bought a visitor ticket for tomorrow. Judges don't buy tickets. He's not the judge.", "E ele comprou ingresso de visitante pra amanhã. Jurado não compra ingresso. Ele não é o jurado.", "c_q", {"clue": "tyler_blog"}],
+  "c_q": ["c", "So the real judge is somebody else. Somebody quiet. Any idea who?", "Então o jurado de verdade é outra pessoa. Alguém quieto. Alguma ideia de quem?", [
+   ["No idea. What did the judge say about your food last year?", "Nenhuma. O que o jurado falou da sua comida no ano passado?", "c_last"],
+   ["Maybe. There's a quiet man who comes to us every day.", "Talvez. Tem um senhor quieto que vem no nosso truck todo dia.", "c_quiet"],
+   ["Yes, I have my ID here.", "Sim, meu documento está aqui.", null, "Not your ID! An idea! Who do you think the judge is?", "Documento, não! Uma ideia! Quem você acha que é o jurado?"]
+  ]],
+  "c_last": ["c", "One line: too much sauce. The judge likes simple food, done right. So tomorrow, a little less sauce.", "Uma linha: molho demais. O jurado gosta de comida simples e bem feita. Então amanhã, um pouco menos de molho.", "c_bye", {"clue": "simple_food"}],
+  "c_quiet": ["c", "The old man in the gray hat? He came to my truck once. Two ribs. Never came back!", "O senhor de chapéu cinza? Ele foi no meu truck uma vez. Duas costelas. Nunca mais voltou!", "c_bye"],
+  "c_bye": ["c", "Good luck tomorrow, Toucan. I mean it. But I'm still going to win.", "Boa sorte amanhã, Tucano. De coração. Mas quem vai ganhar ainda sou eu.", "n_back"],
+  "n_back": ["n", "You carry the ice back. An old man in a gray hat is standing by your truck, in the dark.", "Você volta carregando o gelo. Um senhor de chapéu cinza está parado ao lado do seu truck, no escuro.", "w1"],
+  "w1": ["w", "Evening. You're working late.", "Boa noite. Trabalhando até tarde.", [
+   ["Good evening, Mr. Boone. Tomorrow is the festival. Are you coming?", "Boa noite, Sr. Boone. Amanhã é o festival. O senhor vai?", "w_coming"],
+   ["Good evening! Would you like some coffee? It's fresh.", "Boa noite! Aceita um café? Acabou de sair.", "w_coffee"],
+   ["A plate? Sure, one moment.", "Um prato? Claro, um momento.", null, "No plate. I already ate. I said it's late. Why are you still working?", "Prato, não. Já comi. Eu disse que está tarde. Por que vocês ainda estão trabalhando?"]
+  ]],
+  "w_coming": ["w", "I'll be there.", "Eu vou estar lá.", "bo_br"],
+  "w_coffee": ["w", "At night? Hm. A small one. Black.", "À noite? Hum. Um pequeno. Preto.", "bo_br"],
+  "bo_br": {"branch": [["boone_talk=yes", "w_smell"], ["sample=cheese_bread", "w_smell"], [null, "w_short"]]},
+  "w_short": ["w", "It smells like cheese bread out here. Hm. Good night, kid. Get some sleep.", "Está cheirando a pão de queijo aqui fora. Hum. Boa noite, jovem. Vê se dorme.", "b_end"],
+  "w_smell": ["w", "That smell. Cheese bread. Who taught you two to make it?", "Esse cheiro. Pão de queijo. Quem ensinou vocês a fazer?", [
+   ["Our grandmother. She made it every Sunday in Brazil.", "Nossa avó. Ela fazia todo domingo no Brasil.", "w_sunday"],
+   ["It's a family recipe. Do you know Brazilian food?", "É receita de família. O senhor conhece comida brasileira?", "w_know"],
+   ["Yes, I smell very good.", "Sim, eu tenho um cheiro ótimo.", null, "Not you. The bread. Who taught you two to make it?", "Você, não. O pão. Quem ensinou vocês a fazer?"]
+  ]],
+  "w_sunday": ["w", "Every Sunday. Hm. So did my wife.", "Todo domingo. Hum. A minha esposa também.", "w_wife"],
+  "w_know": ["w", "A little. My wife cooked it.", "Um pouco. Minha esposa cozinhava.", "w_wife"],
+  "w_wife": ["w", "Helena. She was from Brazil. She made cheese bread every Sunday, for forty years.", "Helena. Ela era do Brasil. Fez pão de queijo todo domingo, por quarenta anos.", "w_wife2", {"clue": "homemade"}],
+  "w_wife2": ["w", "Yours tastes like hers. Simple. Like home. Don't change it for anybody. You understand?", "O de vocês tem o gosto do dela. Simples. Gosto de casa. Não mude por ninguém. Entendeu?", [
+   ["I understand. Thank you for telling me, Mr. Boone.", "Entendi. Agradeço por me contar, Sr. Boone.", "w_night"],
+   ["Is that why you come every day?", "É por isso que o senhor vem todo dia?", "w_everyday"],
+   ["Yes, I'm standing.", "Sim, estou de pé.", null, "Not standing. Understand. Simple food, like home. You see what I mean?", "De pé, não. Entender. Comida simples, com gosto de casa. Percebe o que eu digo?"]
+  ]],
+  "w_everyday": ["w", "Hm. Maybe. And the coffee is not bad.", "Hum. Talvez. E o café não é ruim.", "w_night"],
+  "w_night": ["w", "Good night, kid. Tomorrow, cook like it's Sunday.", "Boa noite, jovem. Amanhã, cozinhe como se fosse domingo.", "b_end"],
+  "b_end": ["b", "Was that Mr. Boone? At this hour? What did he want?", "Aquele era o Sr. Boone? A esta hora? O que ele queria?", [
+   ["Nothing. He just said good night.", "Nada. Só veio dar boa noite.", "b_e1"],
+   ["I think he likes us, Bia. A lot.", "Acho que ele gosta da gente, Bia. Muito.", "b_e2"],
+   ["It's eight o'clock.", "São oito horas.", null, "I know what time it is! Mr. Boone! What did he want from us?", "Eu sei que horas são! O Sr. Boone! O que ele queria com a gente?"]
+  ]],
+  "b_e1": ["b", "That man is a mystery. Okay. We finish the beans, and then we sleep.", "Esse homem é um mistério. Tá. A gente termina o feijão, e depois dorme.", "n_end"],
+  "b_e2": ["b", "You think so? He never says it! Okay. We finish the beans, and then we sleep.", "Você acha? Ele nunca fala! Tá. A gente termina o feijão, e depois dorme.", "n_end"],
+  "n_end": ["n", "Midnight. The beans are ready. Tomorrow, somebody is going to win the Golden Fork.", "Meia-noite. O feijão está pronto. Amanhã, alguém vai ganhar o Garfo de Ouro.", null]
+ }
+}

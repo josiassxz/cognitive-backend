@@ -1,0 +1,95 @@
+{
+ "slug": "s08-04-happy-retirement-brendan", "episode": 4, "title": "Happy Retirement, Brendan", "level": "B1",
+ "place": "kitchen", "placeLabel": "Cozinha de Glenbeg House", "time": "Sexta · 10h", "ambience": "kitchen",
+ "description": "O bolo de casamento chega. Verde. Com um golfista em cima.",
+ "intro": "No jantar, as famílias começaram a se entender, mais ou menos, e a Marta descobriu a palavra deadly. As alianças continuam sumidas. Hoje é sexta, véspera do casamento, e o bolo chega às dez.",
+ "cast": {
+  "n": ["Narrator", "Narrador", "bf_emma", "center"],
+  "o": ["Orla", "Gerente de Glenbeg House", "bf_alice", "left"],
+  "k": ["Mick", "Entregador da confeitaria", "bm_lewis", "right"],
+  "m": ["Marta", "Mãe da noiva", "af_sarah", "left"]
+ },
+ "start": "n1",
+ "nodes": {
+  "n1": ["n", "Friday morning. The kitchen at Glenbeg House is full of flowers, boxes and people in a hurry.", "Sexta de manhã. A cozinha de Glenbeg House está cheia de flores, caixas e gente com pressa.", "n2"],
+  "n2": ["n", "In the middle stands a woman with a clipboard and a headset. She isn't smiling.", "No meio de tudo, uma mulher de prancheta e fone de ouvido. Ela não está sorrindo.", "o1"],
+  "o1": ["o", "You're Julia's fixer. I'm Orla. I run this house. I'm told you solve problems. I have eleven.", "Você é quem resolve tudo pra Julia. Eu sou a Orla. Eu administro esta casa. Dizem que você resolve problemas. Eu tenho onze.", [
+   ["Give me the most urgent one.", "Me passa o mais urgente.", "o_urgent"],
+   ["Eleven? Let's start with a coffee.", "Onze? Vamos começar com um café.", "o_coffee"],
+   ["I'm eleven too! What a coincidence.", "Eu também tenho onze! Que coincidência.", null, "You are not eleven. I have eleven problems. Do you want to hear them or not?", "Você não tem onze anos. Eu tenho onze problemas. Quer ouvir ou não quer?"]
+  ]],
+  "o_urgent": ["o", "I like you already. Don't tell anyone. Problem one: the seating plan.", "Já gostei de você. Não espalha. Problema um: o mapa de mesas.", "o_seat"],
+  "o_coffee": ["o", "The coffee machine is problem twelve. It's broken. There's tea. Problem one: the seating plan.", "A máquina de café é o problema doze. Quebrou. Tem chá. Problema um: o mapa de mesas.", "o_seat"],
+  "o_seat": ["o", "Julia's parents. Do I put them at the top table beside Fergus, or with their own cousins?", "Os pais da Julia. Ponho os dois na mesa principal, ao lado do Fergus, ou com os primos deles?", [
+   ["At the top table. The families need to mix.", "Na mesa principal. As famílias precisam se misturar.", "o_mix"],
+   ["With their cousins. They'll be more relaxed.", "Com os primos. Vão ficar mais à vontade.", "o_apart"],
+   ["On the table? No, they should sit on chairs.", "Em cima da mesa? Não, é melhor em cadeiras.", null, "On chairs. Obviously. At which table? With the Doyles, or with the Brazilians?", "Em cadeiras. Óbvio. Em qual mesa? Com os Doyle ou com os brasileiros?"]
+  ]],
+  "o_mix": ["o", "Brave. Marta goes next to Fergus. I'll put a jug of water nearby, in case of fire.", "Que coragem. A Marta fica ao lado do Fergus. Vou deixar uma jarra de água por perto, em caso de incêndio.", "n_van"],
+  "o_apart": ["o", "Safe. Boring, but safe. Two tables away from Fergus. They'll still hear every word.", "Seguro. Sem graça, mas seguro. A duas mesas do Fergus. Vão ouvir cada palavra do mesmo jeito.", "n_van"],
+  "n_van": ["n", "A white van stops outside. A cheerful man carries in an enormous box.", "Uma van branca para lá fora. Um homem sorridente entra carregando uma caixa enorme.", "k1"],
+  "k1": ["k", "Morning, all! One wedding cake, three tiers, as ordered. Will you sign for it?", "Bom dia, pessoal! Um bolo de casamento, três andares, conforme o pedido. Você assina o recebimento?", [
+   ["Can we look inside first?", "A gente pode olhar dentro antes?", "k_look"],
+   ["Sure. Just put it on the table.", "Claro. Pode pôr em cima da mesa.", "o_check"],
+   ["Three tears? Why is the cake crying?", "Três lágrimas? Por que o bolo está chorando?", null, "Tiers, not tears! Three floors of cake. Nobody's crying. Yet. Will you sign?", "É tiers, não tears! Três andares de bolo. Ninguém está chorando. Ainda. Você assina?"]
+  ]],
+  "k_look": ["k", "Look away! Sure, it's only gorgeous. Go on, lift the lid.", "Fiquem à vontade! Está uma lindeza. Vai, levanta a tampa.", "n_open"],
+  "o_check": ["o", "Nobody signs anything in my kitchen without looking. Open the box, Mick.", "Na minha cozinha ninguém assina nada sem olhar. Abre a caixa, Mick.", "n_open"],
+  "n_open": ["n", "Orla lifts the lid. The cake is bright green. On top, a tiny sugar man is playing golf.", "A Orla levanta a tampa. O bolo é verde berrante. No topo, um homenzinho de açúcar joga golfe.", "n_read"],
+  "n_read": ["n", "In gold letters, it says: Happy Retirement, Brendan.", "Em letras douradas, está escrito: Feliz Aposentadoria, Brendan.", "k2"],
+  "k2": ["k", "Ah. Well now. Is either of them called Brendan, by any chance?", "Ah. Pois é. Por acaso algum dos noivos se chama Brendan?", [
+   ["No! Mick, where is our cake?", "Não! Mick, cadê o nosso bolo?", "k_where"],
+   ["Okay. Nobody panic. How did this happen?", "Tá. Ninguém entra em pânico. Como isso aconteceu?", "k_how"],
+   ["Yes, I'd love to retire. I need a rest.", "Sim, eu adoraria me aposentar. Preciso de descanso.", null, "Wouldn't we all! But this cake. Bride or groom: is anybody a Brendan?", "Quem não queria! Mas e este bolo? Noiva ou noivo: alguém é Brendan?"]
+  ]],
+  "k_where": ["k", "At the golf club, I'd say. Two boxes, same size. Yours went out first this morning.", "No clube de golfe, eu diria. Duas caixas, mesmo tamanho. A de vocês saiu primeiro hoje cedo.", "k_time"],
+  "k_how": ["k", "Two boxes, same size, same van. Yours went to the golf club instead. It happens.", "Duas caixas, mesmo tamanho, mesma van. A de vocês foi pro clube de golfe. Acontece.", "k_time"],
+  "k_time": ["k", "Brendan's party starts at one. If he cuts your cake, that's that.", "A festa do Brendan começa à uma. Se ele cortar o bolo de vocês, já era.", "n_marta"],
+  "n_marta": ["n", "The door opens. Marta walks in, carrying a tray under a tea towel.", "A porta se abre. A Marta entra com uma bandeja coberta por um pano de prato.", "deadly_br"],
+  "deadly_br": {"branch": [["deadly=explained", "m_in_ok"], [null, "m_in_bad"]]},
+  "m_in_ok": ["m", "Good morning! What a deadly morning! You see? I use the word. Wait. Who is Brendan?", "Bom dia! Que manhã deadly! Viu? Eu já uso a palavra. Espera. Quem é Brendan?", "m_thirty"],
+  "m_in_bad": ["m", "Good morning. Tell Fergus my sweets are safe. Nobody died. Wait. Who is Brendan?", "Bom dia. Avisa o Fergus que meus docinhos são seguros. Ninguém morreu. Espera. Quem é Brendan?", "o_explain"],
+  "o_explain": ["o", "Deadly means brilliant here, Marta. Fergus ate nine of them. Brendan, however, is a problem.", "Aqui, deadly quer dizer maravilhoso, Marta. O Fergus comeu nove. Já o Brendan é um problema.", "m_thirty"],
+  "m_thirty": ["m", "This is the problem? I made cakes for thirty years. Give me sugar and two hours.", "O problema é este? Eu fiz bolo durante trinta anos. Me dá açúcar e duas horas.", "o_plan"],
+  "o_plan": ["o", "So. Two options and one fixer. What's the plan?", "Então. Duas opções e uma pessoa pra decidir. Qual é o plano?", [
+   ["Mick, drive me to the golf club. We'll swap them.", "Mick, me leva ao clube de golfe. A gente destroca.", "n_drive", {"set": {"cake": "swap"}}],
+   ["Marta, can you really save this one?", "Marta, a senhora consegue mesmo salvar este aqui?", "m_save", {"set": {"cake": "marta"}}],
+   ["Great, I love golf. Let's play!", "Ótimo, eu amo golfe. Vamos jogar!", null, "Nobody is playing golf. We have the wrong cake. What do you want to do about it?", "Ninguém vai jogar golfe. O bolo veio errado. O que você quer fazer?"]
+  ]],
+  "n_drive": ["n", "Ten minutes later, you're in the van. Mick drives like a man late for his own wedding.", "Dez minutos depois, você está na van. O Mick dirige como quem está atrasado pro próprio casamento.", "k_club"],
+  "k_club": ["k", "There's Brendan, in the green blazer. He's taking photos of your cake. How do we do this?", "Olha o Brendan ali, de blazer verde. Está tirando foto do bolo de vocês. Como a gente faz?", [
+   ["Politely. Excuse me, I'm afraid there's been a mix-up.", "Com educação. Com licença, acho que houve uma troca.", "n_swap_a"],
+   ["Quickly. You talk to him, I'll carry the cake out.", "Rápido. Você distrai, eu saio com o bolo.", "k_no"],
+   ["A green laser? Is that safe?", "Um laser verde? Isso é seguro?", null, "Blazer! The jacket! That's Brendan. Now, how do we get your cake back?", "Blazer! O paletó! Aquele é o Brendan. E agora, como a gente recupera o bolo?"]
+  ]],
+  "n_swap_a": ["n", "Brendan laughs for a full minute. He says he did wonder why he was getting married.", "O Brendan ri por um minuto inteiro. Diz que bem que estranhou estar se casando.", "k_back"],
+  "k_no": ["k", "With my back? And all his friends holding golf clubs? No. We ask nicely.", "Com a minha coluna? E os amigos dele todos com taco na mão? Não. A gente pede com jeitinho.", "n_swap_b"],
+  "n_swap_b": ["n", "So you ask nicely. Brendan swaps the cakes, and keeps one sugar flower as a souvenir.", "Então vocês pedem com jeitinho. O Brendan destroca os bolos e fica com uma flor de açúcar de lembrança.", "k_back"],
+  "k_back": ["k", "And we're back. One wedding cake, white, three tiers, no golfers. Now will you sign?", "Voltamos. Um bolo de casamento, branco, três andares, zero golfistas. Agora você assina?", "o_done"],
+  "m_save": ["m", "Of course! You are my assistant. First, the little golf man comes off. What do we do with him?", "Claro! Você me ajuda. Primeiro, o homenzinho do golfe sai. O que a gente faz com ele?", [
+   ["Keep him. He can be a present for Fergus.", "Guarda. Pode ser um presente pro Fergus.", "m_keep"],
+   ["Give him back to Mick. He belongs to Brendan.", "Devolve pro Mick. Ele é do Brendan.", "m_back"],
+   ["Off? I can't take off. I've no plane ticket.", "Decolar? Não posso decolar. Estou sem passagem.", null, "Not the plane! The little man comes off the cake. Then what? Keep him or give him back?", "Não é avião! O homenzinho sai do bolo. E depois? Guarda ou devolve?"]
+  ]],
+  "m_keep": ["m", "For Fergus! Yes. A man of sugar for the man of many words.", "Pro Fergus! Isso. Um homem de açúcar pro homem de muitas palavras.", "n_two"],
+  "m_back": ["m", "Correct. Poor Brendan needs his golf man. Mick, open your hand.", "Certo. Coitado do Brendan, precisa do golfista dele. Mick, abre a mão.", "n_two"],
+  "n_two": ["n", "Two hours later, the green is gone. The cake is white, with sugar flowers and tiny leaves.", "Duas horas depois, o verde sumiu. O bolo está branco, com flores de açúcar e folhinhas.", "o_best"],
+  "o_best": ["o", "Eleven years I've worked here. That's the best cake I've seen. Don't tell the bakery.", "Onze anos trabalhando aqui. É o bolo mais bonito que eu já vi. Não conta pra confeitaria.", "k_brendan"],
+  "k_brendan": ["k", "And Brendan gets a real wedding cake. He'll be delighted. He's been single for thirty years.", "E o Brendan ganha um bolo de casamento de verdade. Vai adorar. Está solteiro há trinta anos.", "o_done"],
+  "o_done": ["o", "One problem solved. Ten to go. You're useful. I don't say that often. Tea?", "Um problema resolvido. Faltam dez. Você é útil. Eu não falo isso sempre. Chá?", [
+   ["Yes, please. What's problem two?", "Aceito, por favor. Qual é o problema dois?", "o_two"],
+   ["Later. Orla, what do you know about Granny Nora?", "Depois. Orla, o que você sabe da avó Nora?", "o_nora"],
+   ["Youthful? Thanks. I use sunscreen.", "Jovem? Valeu. Eu uso protetor solar.", null, "Useful. Not youthful. It's a compliment. Take it. Now: tea, yes or no?", "Útil. Não jovem. É um elogio. Aceita. Agora: chá, sim ou não?"]
+  ]],
+  "o_two": ["o", "The band wants a smoke machine. Indoors. Nora says never. She can't stand that band.", "A banda quer uma máquina de fumaça. Dentro de casa. A Nora diz que nunca. Ela não suporta essa banda.", "m_music"],
+  "o_nora": ["o", "She's sharp, she's fair, and she can't stand the band Conor booked. Don't ask me why.", "É afiada, é justa, e não suporta a banda que o Conor contratou. Não me pergunte por quê.", "m_music"],
+  "m_music": ["m", "A band! Good. In Brazil, a wedding without music is only a long lunch. Is this band good?", "Uma banda! Que bom. No Brasil, casamento sem música é só um almoço comprido. Essa banda é boa?", [
+   ["Julia says they're great. Very modern.", "A Julia diz que são ótimos. Bem modernos.", "m_modern"],
+   ["I haven't heard them. Do you know about music, Marta?", "Nunca ouvi. A senhora entende de música, Marta?", "m_husband"],
+   ["Bland? No, the food here is very tasty.", "Sem sal? Não, a comida daqui é bem gostosa.", null, "Not bland! Band! The musicians for Saturday. Are they good?", "Não é bland! É band! Os músicos de sábado. Eles são bons?"]
+  ]],
+  "m_modern": ["m", "Modern. Hmm. Modern is when nobody over forty can dance. We will see.", "Modernos. Hum. Moderno é quando ninguém com mais de quarenta consegue dançar. Vamos ver.", "n_end"],
+  "m_husband": ["m", "Me? No. My husband, yes. Ask him about music one day. Then bring a chair.", "Eu? Não. Meu marido, sim. Um dia pergunta de música pra ele. E leva uma cadeira.", "n_end"],
+  "n_end": ["n", "Through the window, you hear Conor on the phone in the garden: What do you mean, you're not coming?", "Pela janela, você ouve o Conor ao telefone no jardim: Como assim, vocês não vêm?", null]
+ }
+}
